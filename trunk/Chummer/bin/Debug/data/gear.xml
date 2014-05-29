@@ -1,0 +1,4108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chummer>
+	<version>-500</version>
+	<categories>
+		<category>Ammunition</category>
+		<category>Armor Enhancements</category>
+		<category>Audio Devices</category>
+		<category>Audio Enhancements</category>
+		<category>Biotech</category>
+		<category>Breaking and Entering Gear</category>
+		<category>BTLs</category>
+		<category>Chemicals</category>
+		<category>Commlinks</category>
+		<category>Commlink Accessories</category>
+		<category>Common Programs</category>
+		<category>Communications and Countermeasures</category>
+		<category>Cyberdecks</category>
+		<category>DocWagon Contract</category>
+		<category>Drugs</category>
+		<category>Electronics Accessories</category>
+		<category>Explosives</category>
+		<category>Foci</category>
+		<category>Formulae</category>
+		<category>Grapple Gun</category>
+		<category>Hacking Programs</category>
+		<category>ID/Credsticks</category>
+		<category>Magical Supplies</category>
+		<category>PI-Tac</category>
+		<category>RFID Tags</category>
+		<category>Security Devices</category>
+		<category>Sensors</category>
+		<category>Sensor Functions</category>
+		<category>Sensor Housings</category>
+		<category>Software</category>
+		<category>Skillsofts</category>
+		<category>Survival Gear</category>
+		<category>Tools</category>
+		<category>Tools of the Trade</category>
+		<category>Toxins</category>
+		<category>Vision Devices</category>
+		<category>Vision Enhancements</category>
+	</categories>
+	<gears>
+		<gear>
+			<name>Ammo: APDS</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>12F</avail>
+			<costfor>10</costfor>
+			<cost>120</cost>
+			<weaponbonus>
+				<ap>-4</ap>
+			</weaponbonus>
+			<source>SR5</source>
+			<page>434</page>
+		</gear>
+		<gear>
+			<name>Ammo: Assault Cannon</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>12F</avail>
+			<costfor>10</costfor>
+			<cost>400</cost>
+			<source>SR5</source>
+			<page>434</page>
+		</gear>
+		<gear>
+			<name>Ammo: Explosive Rounds</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>9F</avail>
+			<costfor>10</costfor>
+			<cost>80</cost>
+			<weaponbonus>
+				<damage>1</damage>
+				<ap>+1</ap>
+			</weaponbonus>
+			<source>SR5</source>
+			<page>434</page>
+		</gear>
+		<gear>
+			<name>Ammo: Flechette Rounds</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<costfor>10</costfor>
+			<cost>65</cost>
+			<weaponbonus>
+				<ap>5</ap>
+				<damage>2</damage>
+				<damagetype>P(f)</damagetype>
+			</weaponbonus>
+			<source>SR5</source>
+			<page>434</page>
+		</gear>
+		<gear>
+			<name>Ammo: Gel Rounds</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>2R</avail>
+			<costfor>10</costfor>
+			<cost>25</cost>
+			<weaponbonus>
+				<ap>2</ap>
+				<damagetype>S</damagetype>
+			</weaponbonus>
+			<source>SR5</source>
+			<page>434</page>
+		</gear>
+		<gear>
+			<name>Ammo: Hollow Points</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>4F</avail>
+			<costfor>10</costfor>
+			<weaponbonus>
+				<damage>1</damage>
+				<ap>2</ap>
+			</weaponbonus>
+			<cost>70</cost>
+			<source>SR5</source>
+			<page>434</page>
+		</gear>
+		<gear>
+			<name>Ammo: Injection Darts</name>
+			<category>Ammunition</category>
+			<addoncategory>Drugs</addoncategory>
+			<addoncategory>Toxins</addoncategory>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<costfor>10</costfor>
+			<cost>75</cost>
+			<source>SR5</source>
+			<page>434</page>
+		</gear>
+		<gear>
+			<name>Ammo: Regular Ammo</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>2R</avail>
+			<costfor>10</costfor>
+			<cost>20</cost>
+			<source>SR5</source>
+			<page>434</page>
+		</gear>
+		<gear>
+			<name>Ammo: Stick-n-Shock</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<costfor>10</costfor>
+			<cost>80</cost>
+			<weaponbonus>
+				<ap>-5</ap>
+				<damage>-2</damage>
+				<damagetype>S(e)</damagetype>
+			</weaponbonus>
+			<source>SR5</source>
+			<page>434</page>
+		</gear>
+		<gear>
+			<name>Ammo: Tracer</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<costfor>10</costfor>
+			<cost>60</cost>
+			<source>SR5</source>
+			<page>434</page>
+		</gear>
+		<gear>
+			<name>Ammo: Taser Dart</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>3</avail>
+			<costfor>10</costfor>
+			<cost>50</cost>
+			<source>SR5</source>
+			<page>434</page>
+		</gear>
+		<gear>
+			<name>Ammo: EX-Explosive Rounds</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>14F</avail>
+			<costfor>1</costfor>
+			<cost>120</cost>
+			<weaponbonus>
+				<ap>-1</ap>
+				<damage>2</damage>
+			</weaponbonus>
+			<source>RG</source>
+			<page>54</page>
+		</gear>
+		<gear>
+			<name>Ammo: Frangible Rounds</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>2R</avail>
+			<costfor>1</costfor>
+			<cost>10</cost>
+			<weaponbonus>
+				<damage>-1</damage>
+				<ap>4</ap>
+			</weaponbonus>
+			<source>RG</source>
+			<page>54</page>
+		</gear>
+		<gear>
+			<name>Ammo: Flare Rounds</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<costfor>1</costfor>
+			<cost>20</cost>
+			<weaponbonus>
+				<ap>2</ap>
+				<damage>-2</damage>
+			</weaponbonus>
+			<source>RG</source>
+			<page>55</page>
+		</gear>
+		<gear>
+			<name>Ammo: Tracker Rounds, Security Tag</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>8R</avail>
+			<costfor>1</costfor>
+			<cost>150</cost>
+			<source>RG</source>
+			<page>55</page>
+		</gear>
+		<gear>
+			<name>Ammo: Tracker Rounds, Stealth Tag</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>8R</avail>
+			<costfor>1</costfor>
+			<cost>75</cost>
+			<source>RG</source>
+			<page>55</page>
+		</gear>
+		<gear>
+			<name>Ammo: Capsule Rounds</name>
+			<category>Ammunition</category>
+			<addoncategory>Chemtech</addoncategory>
+			<addoncategory>Toxins</addoncategory>
+			<rating>0</rating>
+			<avail>2</avail>
+			<costfor>1</costfor>
+			<cost>5</cost>
+			<weaponbonus>
+				<ap>4</ap>
+				<damage>-4</damage>
+				<userange>Light Pistol</userange>
+			</weaponbonus>
+			<source>RG</source>
+			<page>55</page>
+		</gear>
+		<gear>
+			<name>Arrow: Standard</name>
+			<category>Ammunition</category>
+			<rating>10</rating>
+			<avail>Rating</avail>
+			<costfor>1</costfor>
+			<cost>Rating * 2</cost>
+			<source>SR5</source>
+			<page>423</page>
+		</gear>
+		<gear>
+			<name>Arrow: Injection</name>
+			<category>Ammunition</category>
+			<rating>10</rating>
+			<avail>(Rating + 2)R</avail>
+			<costfor>1</costfor>
+			<cost>Rating * 20</cost>
+			<source>SR5</source>
+			<page>424</page>
+		</gear>
+		<gear>
+			<name>Bolt: Standard</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>2</avail>
+			<costfor>1</costfor>
+			<cost>5</cost>
+			<source>SR5</source>
+			<page>424</page>
+		</gear>
+		<gear>
+			<name>Bolt: Injection</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>8R</avail>
+			<costfor>1</costfor>
+			<cost>50</cost>
+			<source>SR5</source>
+			<page>424</page>
+		</gear>
+		<gear>
+			<name>Throwing Knife</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<addweapon>Throwing Knife</addweapon>
+			<costfor>1</costfor>
+			<cost>25</cost>
+			<source>SR5</source>
+			<page>424</page>
+		</gear>
+		<gear>
+			<name>Shuriken</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<addweapon>Shuriken</addweapon>
+			<costfor>1</costfor>
+			<cost>25</cost>
+			<source>SR5</source>
+			<page>424</page>
+		</gear>
+		<gear>
+			<name>Arrow: Barbed Head</name>
+			<category>Ammunition</category>
+			<rating>10</rating>
+			<avail>(Rating)R</avail>
+			<costfor>1</costfor>
+			<cost>(Rating * 2) + 10</cost>
+			<bonus>
+				<damage>1</damage>
+			</bonus>
+			<source>RG</source>
+			<page>23</page>
+		</gear>
+		<gear>
+			<name>Arrow: Explosive Head</name>
+			<category>Ammunition</category>
+			<rating>10</rating>
+			<avail>(Rating)F</avail>
+			<costfor>1</costfor>
+			<cost>(Rating * 2) + 15</cost>
+			<bonus>
+				<damage>2</damage>
+				<ap>-1</ap>
+				<accuracy>-1</accuracy>
+			</bonus>
+			<source>RG</source>
+			<page>23</page>
+		</gear>
+		<gear>
+			<name>Arrow: Hammerhead</name>
+			<category>Ammunition</category>
+			<rating>10</rating>
+			<avail>Rating</avail>
+			<costfor>1</costfor>
+			<cost>(Rating * 2) + 5</cost>
+			<bonus>
+				<damage>1</damage>
+				<ap>+2</ap>
+				<damagetype>S</damagetype>
+			</bonus>
+			<source>RG</source>
+			<page>24</page>
+		</gear>
+		<gear>
+			<name>Arrow: Incendiary Head</name>
+			<category>Ammunition</category>
+			<rating>10</rating>
+			<avail>12F</avail>
+			<costfor>1</costfor>
+			<cost>(Rating * 2) + 100</cost>
+			<bonus>
+				<accuracy>-1</accuracy>
+			</bonus>
+			<source>RG</source>
+			<page>24</page>
+		</gear>
+		<gear>
+			<name>Arrow: Screamer Head</name>
+			<category>Ammunition</category>
+			<rating>10</rating>
+			<avail>Rating</avail>
+			<costfor>1</costfor>
+			<cost>(Rating * 2) + 5</cost>
+			<bonus>
+				<damage>-2</damage>
+				<ap>+6</ap>
+				<damagetype>S</damagetype>
+			</bonus>
+			<source>RG</source>
+			<page>24</page>
+		</gear>
+		<gear>
+			<name>Arrow: Stick-n-Shock</name>
+			<category>Ammunition</category>
+			<rating>10</rating>
+			<avail>(Rating)R</avail>
+			<costfor>1</costfor>
+			<cost>(Rating * 2) + 25</cost>
+			<bonus>
+				<damagereplace>8S(e)</damagereplace>
+				<ap>-5</ap>
+			</bonus>
+			<source>RG</source>
+			<page>24</page>
+		</gear>
+		<gear>
+			<name>Arrow: Stick-n-Shock w/Static Shaft</name>
+			<category>Ammunition</category>
+			<rating>10</rating>
+			<avail>6R</avail>
+			<costfor>1</costfor>
+			<cost>(Rating * 25) + 25</cost>
+			<bonus>
+				<damagereplace>12S(e)</damagereplace>
+				<ap>-5</ap>
+			</bonus>
+			<source>RG</source>
+			<page>24</page>
+		</gear>
+		<gear>
+			<name>Bolt: Barbed Head</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>5R</avail>
+			<costfor>1</costfor>
+			<cost>15</cost>
+			<bonus>
+				<damage>1</damage>
+			</bonus>
+			<source>RG</source>
+			<page>23</page>
+		</gear>
+		<gear>
+			<name>Bolt: Explosive Head</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>9F</avail>
+			<costfor>1</costfor>
+			<cost>20</cost>
+			<bonus>
+				<damage>2</damage>
+				<ap>-1</ap>
+				<accuracy>-1</accuracy>
+			</bonus>
+			<source>RG</source>
+			<page>23</page>
+		</gear>
+		<gear>
+			<name>Bolt: Hammerhead</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>5</avail>
+			<costfor>1</costfor>
+			<cost>10</cost>
+			<bonus>
+				<damage>1</damage>
+				<ap>+2</ap>
+				<damagetype>S</damagetype>
+			</bonus>
+			<source>RG</source>
+			<page>24</page>
+		</gear>
+		<gear>
+			<name>Bolt: Incendiary Head</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>12F</avail>
+			<costfor>1</costfor>
+			<cost>105</cost>
+			<bonus>
+				<accuracy>-1</accuracy>
+			</bonus>
+			<source>RG</source>
+			<page>24</page>
+		</gear>
+		<gear>
+			<name>Bolt: Screamer Head</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>2</avail>
+			<costfor>1</costfor>
+			<cost>10</cost>
+			<bonus>
+				<damage>-2</damage>
+				<ap>+6</ap>
+				<damagetype>S</damagetype>
+			</bonus>
+			<source>RG</source>
+			<page>24</page>
+		</gear>
+		<gear>
+			<name>Bolt: Stick-n-Shock</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<costfor>1</costfor>
+			<cost>30</cost>
+			<bonus>
+				<damagereplace>8S(e)</damagereplace>
+				<ap>-5</ap>
+			</bonus>
+			<source>RG</source>
+			<page>24</page>
+		</gear>
+		<gear>
+			<name>Bolt: Stick-n-Shock w/Static Shaft</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<costfor>1</costfor>
+			<cost>50</cost>
+			<bonus>
+				<damagereplace>12S(e)</damagereplace>
+				<ap>-5</ap>
+			</bonus>
+			<source>RG</source>
+			<page>24</page>
+		</gear>
+		<gear>
+			<name>Boomerang</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>4</avail>
+			<addweapon>Boomerang</addweapon>
+			<costfor>1</costfor>
+			<cost>50</cost>
+			<source>RG</source>
+			<page>24</page>
+		</gear>
+		<gear>
+			<name>Harpoon</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>6</avail>
+			<addweapon>Harpoon</addweapon>
+			<costfor>1</costfor>
+			<cost>125</cost>
+			<source>RG</source>
+			<page>24</page>
+		</gear>
+		<gear>
+			<name>Javelin</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>6</avail>
+			<addweapon>Javelin</addweapon>
+			<costfor>1</costfor>
+			<cost>125</cost>
+			<source>RG</source>
+			<page>24</page>
+		</gear>
+		<gear>
+			<name>Net</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>6</avail>
+			<addweapon>Net</addweapon>
+			<costfor>1</costfor>
+			<cost>350</cost>
+			<source>RG</source>
+			<page>24</page>
+		</gear>
+		<gear>
+			<name>Net Gun Reload (Shocknet)</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>10R</avail>
+			<bonus>
+				<damagereplace>8S(e)</damagereplace>
+				<ap>-5</ap>
+			</bonus>
+			<costfor>4</costfor>
+			<cost>600</cost>
+			<source>RG</source>
+			<page>28</page>
+		</gear>
+		<gear>
+			<name>XL Net Gun Reload (Shocknet)</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>10R</avail>
+			<bonus>
+				<damagereplace>8S(e)</damagereplace>
+				<ap>-5</ap>
+			</bonus>
+			<costfor>2</costfor>
+			<cost>650</cost>
+			<source>RG</source>
+			<page>28</page>
+		</gear>
+		<gear>
+			<name>Net Gun Reload (Standard)</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>9</avail>
+			<costfor>4</costfor>
+			<cost>350</cost>
+			<source>RG</source>
+			<page>28</page>
+		</gear>
+		<gear>
+			<name>XL Net Gun Reload (Standard)</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>9</avail>
+			<costfor>2</costfor>
+			<cost>400</cost>
+			<source>RG</source>
+			<page>28</page>
+		</gear>
+		<gear>
+			<name>Urban Tribe Tomahawk</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>4</avail>
+			<addweapon>Urban Tribe Tomahawk</addweapon>
+			<costfor>1</costfor>
+			<cost>200</cost>
+			<source>RG</source>
+			<page>25</page>
+		</gear>
+		<gear>
+			<name>Bola: Standard</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>6</avail>
+			<addweapon>Bola</addweapon>
+			<costfor>1</costfor>
+			<cost>75</cost>
+			<source>RG</source>
+			<page>26</page>
+		</gear>
+		<gear>
+			<name>Bola: Monofilament</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>18F</avail>
+			<addweapon>Monofilament Bola</addweapon>
+			<costfor>1</costfor>
+			<cost>4000</cost>
+			<source>RG</source>
+			<page>26</page>
+		</gear>
+		<gear>
+			<name>Grenade: Flash-Bang</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<addgear>Grenade: Flash-Bang</addgear>
+			<costfor>1</costfor>
+			<cost>100</cost>
+			<source>SR5</source>
+			<page>435</page>
+		</gear>
+		<gear>
+			<name>Grenade: Flash-Pak</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>4</avail>
+			<addgear>Grenade: Flash-Pak</addgear>
+			<cost>125</cost>
+			<source>SR5</source>
+			<page>435</page>
+		</gear>
+		<gear>
+			<name>Grenade: Fragmentation</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>11F</avail>
+			<addgear>Grenade: Fragmentation</addgear>
+			<cost>100</cost>
+			<source>SR5</source>
+			<page>435</page>
+		</gear>
+		<gear>
+			<name>Grenade: High Explosive</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>11F</avail>
+			<addgear>Grenade: High Explosive</addgear>
+			<cost>100</cost>
+			<source>SR5</source>
+			<page>435</page>
+		</gear>
+		<gear>
+			<name>Grenade: Gas</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<addgear>Grenade: Gas</addgear>
+			<addoncategory>Chemtech</addoncategory>
+			<addoncategory>Toxins</addoncategory>
+			<cost>40</cost>
+			<source>SR5</source>
+			<page>435</page>
+		</gear>
+		<gear>
+			<name>Grenade: Smoke</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<addgear>Grenade: Smoke</addgear>
+			<cost>40</cost>
+			<source>SR5</source>
+			<page>435</page>
+		</gear>
+		<gear>
+			<name>Grenade: Thermal Smoke</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<addgear>Grenade: Thermal Smoke</addgear>
+			<avail>6R</avail>
+			<cost>60</cost>
+			<source>SR5</source>
+			<page>435</page>
+		</gear>
+		<gear>
+			<name>Minigrenade: Flash-Pak</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>4</avail>
+			<addgear>Minigrenade: Flash-Pak</addgear>
+			<cost>125</cost>
+			<source>SR5</source>
+			<page>435</page>
+		</gear>
+		<gear>
+			<name>Minigrenade: Fragmentation</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>11F</avail>
+			<addgear>Minigrenade: Fragmentation</addgear>
+			<cost>100</cost>
+			<source>SR5</source>
+			<page>435</page>
+		</gear>
+		<gear>
+			<name>Minigrenade: High Explosive</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>11F</avail>
+			<addgear>Minigrenade: High Explosive</addgear>
+			<cost>100</cost>
+			<source>SR5</source>
+			<page>435</page>
+		</gear>
+		<gear>
+			<name>Minigrenade: Gas</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<addgear>Minigrenade: Gas</addgear>
+			<addoncategory>Chemtech</addoncategory>
+			<addoncategory>Toxins</addoncategory>
+			<cost>40</cost>
+			<source>SR5</source>
+			<page>435</page>
+		</gear>
+		<gear>
+			<name>Minigrenade: Smoke</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<addgear>Minigrenade: Smoke</addgear>
+			<cost>40</cost>
+			<source>SR5</source>
+			<page>435</page>
+		</gear>
+		<gear>
+			<name>Minigrenade: Thermal Smoke</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<addgear>Minigrenade: Thermal Smoke</addgear>
+			<cost>60</cost>
+			<source>SR5</source>
+			<page>435</page>
+		</gear>
+		<gear>
+			<name>Rocket: Anti-Vehicle</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>18F</avail>
+			<addgear>Rocket: Anti-Vehicle</addgear>
+			<cost>2800</cost>
+			<source>SR5</source>
+			<page>436</page>
+		</gear>
+		<gear>
+			<name>Rocket: Fragmentation</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>12F</avail>
+			<addgear>Rocket: Fragmentation</addgear>
+			<cost>2000</cost>
+			<source>SR5</source>
+			<page>436</page>
+		</gear>
+		<gear>
+			<name>Rocket: High Explosive</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>18F</avail>
+			<addgear>Rocket: High Explosive</addgear>
+			<cost>2100</cost>
+			<source>SR5</source>
+			<page>436</page>
+		</gear>
+		<gear>
+			<name>Missile: Anti-Vehicle</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>18F</avail>
+			<addgear>Missile: Anti-Vehicle</addgear>
+			<cost>2800</cost>
+			<source>SR5</source>
+			<page>436</page>
+		</gear>
+		<gear>
+			<name>Missile: Fragmentation</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>12F</avail>
+			<addgear>Missile: Fragmentation</addgear>
+			<cost>2000</cost>
+			<source>SR5</source>
+			<page>436</page>
+		</gear>
+		<gear>
+			<name>Missile: High Explosive</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>18F</avail>
+			<addgear>Missile: High Explosive</addgear>
+			<cost>2100</cost>
+			<source>SR5</source>
+			<page>436</page>
+		</gear>
+		<gear>
+			<name>Commercial Explosive</name>
+			<category>Explosives</category>
+			<rating>5</rating>
+			<minrating>5</minrating>
+			<avail>8R</avail>
+			<cost>100</cost>
+			<source>SR5</source>
+			<page>436</page>
+		</gear>
+		<gear>
+			<name>Foam Explosive</name>
+			<category>Explosives</category>
+			<rating>25</rating>
+			<minrating>6</minrating>
+			<avail>12F</avail>
+			<cost>Rating * 100</cost>
+			<source>SR5</source>
+			<page>436</page>
+		</gear>
+		<gear>
+			<name>Plastic Explosive</name>
+			<category>Explosives</category>
+			<rating>25</rating>
+			<minrating>6</minrating>
+			<avail>16F</avail>
+			<cost>Rating * 100</cost>
+			<source>SR5</source>
+			<page>436</page>
+		</gear>
+		<gear>
+			<name>Ammonium Nitrate</name>
+			<category>Explosives</category>
+			<rating>4</rating>
+			<minrating>4</minrating>
+			<avail>5</avail>
+			<cost>80</cost>
+			<source>RG</source>
+			<page>193</page>
+		</gear>
+		<gear>
+			<name>ANFO</name>
+			<category>Explosives</category>
+			<rating>6</rating>
+			<minrating>6</minrating>
+			<avail>7</avail>
+			<cost>100</cost>
+			<source>RG</source>
+			<page>193</page>
+		</gear>
+		<gear>
+			<name>Detonating Cord, Low Yield (meter)</name>
+			<category>Explosives</category>
+			<rating>3</rating>
+			<minrating>3</minrating>
+			<avail>10R</avail>
+			<cost>100</cost>
+			<source>RG</source>
+			<page>193</page>
+		</gear>
+		<gear>
+			<name>Detonating Cord, High Yield (meter)</name>
+			<category>Explosives</category>
+			<rating>6</rating>
+			<minrating>6</minrating>
+			<avail>14R</avail>
+			<cost>150</cost>
+			<source>RG</source>
+			<page>193</page>
+		</gear>
+		<gear>
+			<name>Binary Explosives</name>
+			<category>Explosives</category>
+			<rating>20</rating>
+			<minrating>1</minrating>
+			<avail>18F</avail>
+			<cost>Rating * 125</cost>
+			<source>RG</source>
+			<page>193</page>
+		</gear>
+		<gear>
+			<name>Linear Charge</name>
+			<category>Explosives</category>
+			<rating>25</rating>
+			<minrating>1</minrating>
+			<avail>16R</avail>
+			<cost>Rating * 250</cost>
+			<source>RG</source>
+			<page>193</page>
+		</gear>
+		<gear>
+			<name>Liquid Explosives</name>
+			<category>Explosives</category>
+			<rating>25</rating>
+			<minrating>1</minrating>
+			<avail>16F</avail>
+			<cost>Rating * 150</cost>
+			<source>RG</source>
+			<page>193</page>
+		</gear>
+		<gear>
+			<name>Detonator, Blasting Cap</name>
+			<category>Explosives</category>
+			<rating>0</rating>
+			<avail>8R</avail>
+			<cost>75</cost>
+			<source>SR5</source>
+			<page>436</page>
+		</gear>
+		<gear>
+			<name>Detonator, Electrical</name>
+			<category>Explosives</category>
+			<rating>6</rating>
+			<avail>(Rating * 4)R</avail>
+			<cost>Rating * 30</cost>
+			<source>RG</source>
+			<page>195</page>
+		</gear>
+		<gear>
+			<name>Detonator, Optical</name>
+			<category>Explosives</category>
+			<rating>6</rating>
+			<avail>(Rating * 7 F)</avail>
+			<cost>Rating * 200</cost>
+			<source>RG</source>
+			<page>195</page>
+		</gear>
+		<gear>
+			<name>Detonator, Pull</name>
+			<category>Explosives</category>
+			<rating>0</rating>
+			<avail>9F</avail>
+			<cost>80</cost>
+			<source>RG</source>
+			<page>195</page>
+		</gear>
+		<gear>
+			<name>Detonator, Push</name>
+			<category>Explosives</category>
+			<rating>0</rating>
+			<avail>9F</avail>
+			<cost>80</cost>
+			<source>RG</source>
+			<page>195</page>
+		</gear>
+		<gear>
+			<name>Detonator, Radio</name>
+			<category>Explosives</category>
+			<rating>3</rating>
+			<avail>10R</avail>
+			<cost>75</cost>
+			<source>RG</source>
+			<page>195</page>
+		</gear>
+		<gear>
+			<name>Detonator, Timer</name>
+			<category>Explosives</category>
+			<rating>3</rating>
+			<avail>(Rating * 6)F</avail>
+			<cost>Rating * 50</cost>
+			<source>RG</source>
+			<page>195</page>
+		</gear>
+		<gear>
+			<name>Atomizer</name>
+			<category>Explosives</category>
+			<rating>10</rating>
+			<avail>(Rating * 2)R</avail>
+			<cost>Rating * 300</cost>
+			<source>RG</source>
+			<page>196</page>
+		</gear>
+		<gear>
+			<name>Exploder, Electrical</name>
+			<category>Explosives</category>
+			<rating>6</rating>
+			<avail>8R</avail>
+			<cost>Rating * 150</cost>
+			<source>RG</source>
+			<page>196</page>
+		</gear>
+		<gear>
+			<name>Exploder, Optical</name>
+			<category>Explosives</category>
+			<rating>6</rating>
+			<avail>14R</avail>
+			<cost>Rating * 250</cost>
+			<source>RG</source>
+			<page>196</page>
+		</gear>
+		<gear>
+			<name>Hard-Shell Briefcase</name>
+			<category>Explosives</category>
+			<rating>12</rating>
+			<avail>10R</avail>
+			<cost>Rating * 100</cost>
+			<source>RG</source>
+			<page>196</page>
+		</gear>
+		<gear>
+			<name>Safety Fuse (meter)</name>
+			<category>Explosives</category>
+			<rating>0</rating>
+			<avail>8R</avail>
+			<cost>5</cost>
+			<source>RG</source>
+			<page>197</page>
+		</gear>
+		<gear>
+			<name>Redundant Power Supply</name>
+			<category>Explosives</category>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<cost>50-500</cost>
+			<source>RG</source>
+			<page>197</page>
+		</gear>
+		<gear>
+			<name>Nanoprint Scanners</name>
+			<category>Explosives</category>
+			<rating>6</rating>
+			<avail>16F</avail>
+			<cost>Rating * 500</cost>
+			<source>RG</source>
+			<page>197</page>
+		</gear>
+		<gear>
+			<name>Meta Link</name>
+			<category>Commlinks</category>
+			<armorcapacity>[2]</armorcapacity>
+			<rating>0</rating>
+			<devicerating>1</devicerating>
+			<avail>2</avail>
+			<cost>100</cost>
+			<source>SR5</source>
+			<page>438</page>
+		</gear>
+		<gear>
+			<name>Sony Emperor</name>
+			<category>Commlinks</category>
+			<armorcapacity>[2]</armorcapacity>
+			<rating>0</rating>
+			<devicerating>2</devicerating>
+			<avail>4</avail>
+			<cost>700</cost>
+			<source>SR5</source>
+			<page>438</page>
+		</gear>
+		<gear>
+			<name>Renraku Sensei</name>
+			<category>Commlinks</category>
+			<armorcapacity>[2]</armorcapacity>
+			<rating>0</rating>
+			<devicerating>3</devicerating>
+			<avail>6</avail>
+			<cost>1000</cost>
+			<source>SR5</source>
+			<page>438</page>
+		</gear>
+		<gear>
+			<name>Erika Elite</name>
+			<category>Commlinks</category>
+			<armorcapacity>[2]</armorcapacity>
+			<rating>0</rating>
+			<devicerating>4</devicerating>
+			<avail>8</avail>
+			<cost>2500</cost>
+			<source>SR5</source>
+			<page>438</page>
+		</gear>
+		<gear>
+			<name>Hermes Ikon</name>
+			<category>Commlinks</category>
+			<armorcapacity>[2]</armorcapacity>
+			<rating>0</rating>
+			<devicerating>5</devicerating>
+			<avail>10</avail>
+			<cost>3000</cost>
+			<source>SR5</source>
+			<page>438</page>
+		</gear>
+		<gear>
+			<name>Transys Avalon</name>
+			<category>Commlinks</category>
+			<armorcapacity>[2]</armorcapacity>
+			<rating>0</rating>
+			<devicerating>6</devicerating>
+			<avail>12</avail>
+			<cost>5000</cost>
+			<source>SR5</source>
+			<page>438</page>
+		</gear>
+		<gear>
+			<name>Fairlight Caliban</name>
+			<category>Commlinks</category>
+			<armorcapacity>[2]</armorcapacity>
+			<rating>0</rating>
+			<devicerating>7</devicerating>
+			<avail>14</avail>
+			<cost>8000</cost>
+			<source>SR5</source>
+			<page>438</page>
+		</gear>
+		<gear>
+			<name>Sim Module</name>
+			<category>Commlink Accessories</category>
+			<armorcapacity>[2]</armorcapacity>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>100</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Sim Module, Hot</name>
+			<category>Commlink Accessories</category>
+			<armorcapacity>[2]</armorcapacity>
+			<rating>0</rating>
+			<avail>4F</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Erika MCD-1</name>
+			<category>Cyberdecks</category>
+			<rating>0</rating>
+			<devicerating>1</devicerating>
+			<attributearray>4,3,2,1</attributearray>
+			<programs>1</programs>
+			<avail>3R</avail>
+			<cost>49500</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Microdeck Summit</name>
+			<category>Cyberdecks</category>
+			<rating>0</rating>
+			<devicerating>1</devicerating>
+			<attributearray>4,3,3,1</attributearray>
+			<programs>1</programs>
+			<avail>3R</avail>
+			<cost>58000</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Microtrónica Azteca 200</name>
+			<category>Cyberdecks</category>
+			<rating>0</rating>
+			<devicerating>2</devicerating>
+			<attributearray>5,4,3,2</attributearray>
+			<programs>2</programs>
+			<avail>6R</avail>
+			<cost>110250</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Hermes Chariot</name>
+			<category>Cyberdecks</category>
+			<rating>0</rating>
+			<devicerating>2</devicerating>
+			<attributearray>5,4,4,2</attributearray>
+			<programs>2</programs>
+			<avail>6R</avail>
+			<cost>123000</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Novatech Navigator</name>
+			<category>Cyberdecks</category>
+			<rating>0</rating>
+			<devicerating>3</devicerating>
+			<attributearray>6,5,4,3</attributearray>
+			<programs>3</programs>
+			<avail>9R</avail>
+			<cost>205750</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Renraku Tsurugi</name>
+			<category>Cyberdecks</category>
+			<rating>0</rating>
+			<devicerating>3</devicerating>
+			<attributearray>6,5,5,3</attributearray>
+			<programs>3</programs>
+			<avail>9R</avail>
+			<cost>214125</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Sony CIY-720</name>
+			<category>Cyberdecks</category>
+			<rating>0</rating>
+			<devicerating>4</devicerating>
+			<attributearray>7,6,5,4</attributearray>
+			<programs>4</programs>
+			<avail>12R</avail>
+			<cost>345000</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Shiawase Cyber-5</name>
+			<category>Cyberdecks</category>
+			<rating>0</rating>
+			<devicerating>5</devicerating>
+			<attributearray>8,7,6,5</attributearray>
+			<programs>5</programs>
+			<avail>15R</avail>
+			<cost>549375</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Fairlight Excalibur</name>
+			<category>Cyberdecks</category>
+			<rating>0</rating>
+			<devicerating>6</devicerating>
+			<attributearray>9,8,7,6</attributearray>
+			<programs>6</programs>
+			<avail>18R</avail>
+			<cost>823250</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Browse</name>
+			<category>Common Programs</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>80</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Configurator</name>
+			<category>Common Programs</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>80</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Edit</name>
+			<category>Common Programs</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>80</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Encryption</name>
+			<category>Common Programs</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>80</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Signal Scrub</name>
+			<category>Common Programs</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>80</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Toolbox</name>
+			<category>Common Programs</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>80</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Virtual Machine</name>
+			<category>Common Programs</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>80</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Armor</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Baby Monitor</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Biofeedback</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Biofeedback Filter</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Blackout</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Decrypt</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Defuse</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Demolition</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Exploit</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Fork</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Guard</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Hammer</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Lockdown</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Mugger</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Shell</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Sneak</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Stealth</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Track</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Wrapper</name>
+			<category>Hacking Programs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</gear>
+		<gear>
+			<name>Agent</name>
+			<category>Software</category>
+			<rating>6</rating>
+			<avail>Rating * 3</avail>
+			<cost>FixedValues([1000],[2000],[3000],[8000],[10000],[12000])</cost>
+			<source>SR5</source>
+			<page>246</page>
+		</gear>
+		<gear>
+			<name>Activesoft</name>
+			<skill>Varies</skill>
+			<category>Skillsofts</category>
+			<rating>6</rating>
+			<tags>
+				<tag>Skillsoft</tag>
+				<tag>Activesoft</tag>
+			</tags>
+			<bonus>
+				<selectskill />
+			</bonus>
+			<avail>8</avail>
+			<cost>Rating * 5000</cost>
+			<source>SR5</source>
+			<page>442</page>
+		</gear>
+		<gear>
+			<name>Knowsoft</name>
+			<skill>Varies</skill>
+			<category>Skillsofts</category>
+			<rating>6</rating>
+			<tags>
+				<tag>Skillsoft</tag>
+				<tag>Knowsoft</tag>
+			</tags>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>4</avail>
+			<cost>Rating * 2000</cost>
+			<source>SR5</source>
+			<page>442</page>
+		</gear>
+		<gear>
+			<name>Linguasoft</name>
+			<skill>Varies</skill>
+			<category>Skillsofts</category>
+			<rating>6</rating>
+			<tags>
+				<tag>Skillsoft</tag>
+				<tag>Linguasoft</tag>
+			</tags>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>2</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>442</page>
+		</gear>
+		<gear>
+			<name>Autosoft</name>
+			<category>Software</category>
+			<rating>6</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>Rating * 2</avail>
+			<cost>Rating * 500</cost>
+			<source>SR5</source>
+			<page>441</page>
+		</gear>
+		<gear>
+			<name>Datasoft</name>
+			<category>Software</category>
+			<rating>0</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>4</avail>
+			<cost>120</cost>
+			<source>SR5</source>
+			<page>441</page>
+		</gear>
+		<gear>
+			<name>Mapsoft</name>
+			<category>Software</category>
+			<rating>0</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>4</avail>
+			<cost>100</cost>
+			<source>SR5</source>
+			<page>441</page>
+		</gear>
+		<gear>
+			<name>Shopsoft</name>
+			<category>Software</category>
+			<rating>0</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>4</avail>
+			<cost>150</cost>
+			<source>SR5</source>
+			<page>441</page>
+		</gear>
+		<gear>
+			<name>Tutorsoft</name>
+			<category>Software</category>
+			<rating>6</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>Rating</avail>
+			<cost>Rating * 400</cost>
+			<source>SR5</source>
+			<page>442</page>
+		</gear>
+		<gear>
+			<name>PI-Tac Level I (Renraku Taka)</name>
+			<category>PI-Tac</category>
+			<rating>0</rating>
+			<avail>18F</avail>
+			<cost>517500</cost>
+			<source>RG</source>
+			<page>105</page>
+		</gear>
+		<gear>
+			<name>PI-Tac Level II (Novatech Tactician)</name>
+			<category>PI-Tac</category>
+			<rating>0</rating>
+			<avail>18F</avail>
+			<cost>824000</cost>
+			<source>RG</source>
+			<page>105</page>
+		</gear>
+		<gear>
+			<name>PI-Tac Level III (ComPac-Esprit General)</name>
+			<category>PI-Tac</category>
+			<rating>0</rating>
+			<avail>24F</avail>
+			<cost>1234000</cost>
+			<source>RG</source>
+			<page>105</page>
+		</gear>		
+		<gear>
+			<name>AR Gloves</name>
+			<category>Electronics Accessories</category>
+			<armorcapacity>[1]</armorcapacity>
+			<devicerating>3</devicerating>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>150</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Biometric Reader</name>
+			<category>Electronics Accessories</category>
+			<devicerating>3</devicerating>
+			<rating>0</rating>
+			<avail>4</avail>
+			<cost>200</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Electronic Paper</name>
+			<category>Electronics Accessories</category>
+			<devicerating>1</devicerating>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>5</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Printer</name>
+			<category>Electronics Accessories</category>
+			<devicerating>3</devicerating>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>25</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Satellite Link</name>
+			<category>Electronics Accessories</category>
+			<devicerating>4</devicerating>
+			<rating>0</rating>
+			<avail>6</avail>
+			<cost>500</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Simrig</name>
+			<category>Electronics Accessories</category>
+			<armorcapacity>[5]</armorcapacity>
+			<devicerating>3</devicerating>
+			<rating>0</rating>
+			<avail>12</avail>
+			<cost>1000</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Subvocal Mic</name>
+			<category>Electronics Accessories</category>
+			<devicerating>3</devicerating>
+			<rating>0</rating>
+			<avail>4</avail>
+			<cost>50</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Trid Projector</name>
+			<category>Electronics Accessories</category>
+			<armorcapacity>[2]</armorcapacity>
+			<devicerating>3</devicerating>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>200</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Trodes</name>
+			<category>Electronics Accessories</category>
+			<armorcapacity>[1]</armorcapacity>
+			<devicerating>3</devicerating>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>70</cost>
+			<source>SR5</source>
+			<page>439</page>
+		</gear>
+		<gear>
+			<name>Standard Tags</name>
+			<category>RFID Tags</category>
+			<devicerating>1</devicerating>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>1</cost>
+			<source>SR5</source>
+			<page>440</page>
+		</gear>		
+		<gear>
+			<name>Datachip</name>
+			<category>RFID Tags</category>
+			<devicerating>1</devicerating>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>5</cost>
+			<source>SR5</source>
+			<page>440</page>
+		</gear>		
+		<gear>
+			<name>Security Tags</name>
+			<category>RFID Tags</category>
+			<devicerating>3</devicerating>
+			<rating>0</rating>
+			<avail>3</avail>
+			<cost>5</cost>
+			<source>SR5</source>
+			<page>440</page>
+		</gear>		
+		<gear>
+			<name>Sensor Tags</name>
+			<category>RFID Tags</category>
+			<devicerating>2</devicerating>
+			<rating>0</rating>
+			<avail>5</avail>
+			<cost>40</cost>
+			<source>SR5</source>
+			<page>440</page>
+		</gear>		
+		<gear>
+			<name>Stealth Tags</name>
+			<category>RFID Tags</category>
+			<devicerating>3</devicerating>
+			<rating>0</rating>
+			<avail>7R</avail>
+			<cost>10</cost>
+			<source>SR5</source>
+			<page>440</page>
+		</gear>	
+		<gear>
+			<name>Bug Scanner</name>
+			<rating>6</rating>
+			<category>Communications and Countermeasures</category>
+			<armorcapacity>[2]</armorcapacity>
+			<avail>(Rating)R</avail>
+			<cost>Rating * 100</cost>
+			<source>SR5</source>
+			<page>440</page>
+		</gear>		
+		<gear>
+			<name>Data Tap</name>
+			<category>Communications and Countermeasures</category>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<cost>300</cost>
+			<source>SR5</source>
+			<page>440</page>
+		</gear>	
+		<gear>
+			<name>Headjammer</name>
+			<rating>6</rating>
+			<category>Communications and Countermeasures</category>
+			<avail>(Rating)R</avail>
+			<cost>Rating * 150</cost>
+			<source>SR5</source>
+			<page>441</page>
+		</gear>		
+		<gear>
+			<name>Jammer, Area</name>
+			<category>Communications and Countermeasures</category>
+			<rating>6</rating>
+			<armorcapacity>[2]</armorcapacity>
+			<avail>(Rating * 3)F</avail>
+			<cost>Rating * 200</cost>
+			<source>SR5</source>
+			<page>441</page>
+		</gear>		
+		<gear>
+			<name>Jammer, Directional</name>
+			<rating>6</rating>
+			<category>Communications and Countermeasures</category>
+			<armorcapacity>[2]</armorcapacity>
+			<avail>(Rating * 2)F</avail>
+			<cost>Rating * 200</cost>
+			<source>SR5</source>
+			<page>441</page>
+		</gear>		
+		<gear>
+			<name>Micro-Transceiver</name>
+			<category>Communications and Countermeasures</category>
+			<armorcapacity>[1]</armorcapacity>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<cost>100</cost>
+			<source>SR5</source>
+			<page>441</page>
+		</gear>			
+		<gear>
+			<name>Tag Eraser</name>
+			<category>Communications and Countermeasures</category>
+			<armorcapacity>[1]</armorcapacity>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<cost>450</cost>
+			<source>SR5</source>
+			<page>441</page>
+		</gear>
+		<gear>
+			<name>White Noise Generator</name>
+			<rating>6</rating>
+			<category>Communications and Countermeasures</category>
+			<armorcapacity>[2]</armorcapacity>
+			<avail>(Rating)</avail>
+			<cost>Rating * 50</cost>
+			<source>SR5</source>
+			<page>441</page>
+		</gear>			
+		<gear>
+			<name>Certified Credstick, Standard</name>
+			<category>ID/Credsticks</category>
+			<rating>5000</rating>
+			<minrating>0</minrating>
+			<avail>0</avail>
+			<cost>5 + Rating</cost>
+			<source>SR5</source>
+			<page>442</page>
+		</gear>
+		<gear>
+			<name>Certified Credstick, Silver</name>
+			<category>ID/Credsticks</category>
+			<rating>20000</rating>
+			<minrating>0</minrating>
+			<avail>0</avail>
+			<cost>20 + Rating</cost>
+			<source>SR5</source>
+			<page>442</page>
+		</gear>		
+		<gear>
+			<name>Certified Credstick, Gold</name>
+			<category>ID/Credsticks</category>
+			<rating>100000</rating>
+			<minrating>0</minrating>
+			<avail>5</avail>
+			<cost>100 + Rating</cost>
+			<source>SR5</source>
+			<page>442</page>
+		</gear>		
+		<gear>
+			<name>Certified Credstick, Platinum</name>
+			<category>ID/Credsticks</category>
+			<rating>500000</rating>
+			<minrating>0</minrating>
+			<avail>10</avail>
+			<cost>500 + Rating</cost>
+			<source>SR5</source>
+			<page>442</page>
+		</gear>		
+		<gear>
+			<name>Certified Credstick, Ebony</name>
+			<category>ID/Credsticks</category>
+			<rating>1000000</rating>
+			<minrating>0</minrating>
+			<avail>20</avail>
+			<cost>1000 + Rating</cost>
+			<source>SR5</source>
+			<page>442</page>
+		</gear>		
+		<gear>
+			<name>Fake License</name>
+			<category>ID/Credsticks</category>
+			<rating>6</rating>
+			<avail>(Rating * 3)F</avail>
+			<cost>Rating * 200</cost>
+			<bonus>
+				<selectrestricted />
+			</bonus>
+			<source>SR5</source>
+			<page>443</page>
+		</gear>
+		<gear>
+			<name>Fake SIN</name>
+			<category>ID/Credsticks</category>
+			<rating>6</rating>
+			<avail>(Rating * 3)F</avail>
+			<cost>Rating * 2500</cost>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>442</page>
+		</gear>		
+		<gear>
+			<name>Tool Kit</name>
+			<category>Tools</category>
+			<armorcapacity>[6]</armorcapacity>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>500</cost>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>443</page>
+		</gear>
+		<gear>
+			<name>Tool Shop</name>
+			<category>Tools</category>
+			<rating>0</rating>
+			<avail>8</avail>
+			<cost>5000</cost>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>443</page>
+		</gear>
+		<gear>
+			<name>Tool Facility</name>
+			<category>Tools</category>
+			<rating>0</rating>
+			<avail>12</avail>
+			<cost>50000</cost>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>443</page>
+		</gear>
+		<gear>
+			<name>Binoculars</name>
+			<category>Vision Devices</category>
+			<rating>3</rating>
+			<capacity>Rating</capacity>
+			<avail>0</avail>
+			<cost>Rating * 50</cost>
+			<source>SR5</source>
+			<page>443</page>
+			<gears>
+				<usegear>
+					<name>Vision Magnification</name>
+					<category>Vision Devices</category>
+					<capacity>0</capacity>
+				</usegear>
+			</gears>
+		</gear>
+		<gear>
+			<name>Binoculars, Optical</name>
+			<category>Vision Devices</category>
+			<rating>0</rating>
+			<capacity>0</capacity>
+			<avail>0</avail>
+			<cost>50</cost>
+			<source>SR5</source>
+			<page>443</page>
+			<gears>
+				<usegear>
+					<name>Vision Magnification</name>
+					<category>Vision Devices</category>
+					<capacity>0</capacity>
+				</usegear>
+			</gears>
+		</gear>
+		<gear>
+			<name>Camera</name>
+			<category>Vision Devices</category>
+			<rating>6</rating>
+			<armorcapacity>[1]</armorcapacity>
+			<capacity>Rating</capacity>
+			<avail>0</avail>
+			<cost>Rating * 100</cost>
+			<source>SR5</source>
+			<page>443</page>
+		</gear>
+		<gear>
+			<name>Camera, Micro</name>
+			<category>Vision Devices</category>
+			<rating>1</rating>
+			<capacity>[1]</capacity>
+			<avail>0</avail>
+			<cost>100</cost>
+			<source>SR5</source>
+			<page>443</page>
+		</gear>
+		<gear>
+			<name>Contacts</name>
+			<category>Vision Devices</category>
+			<rating>3</rating>
+			<capacity>Rating</capacity>
+			<avail>6</avail>
+			<cost>Rating * 200</cost>
+			<source>SR5</source>
+			<page>443</page>
+		</gear>
+		<gear>
+			<name>Endoscope</name>
+			<category>Vision Devices</category>
+			<rating>0</rating>
+			<capacity>0</capacity>
+			<avail>8</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>444</page>
+		</gear>
+		<gear>
+			<name>Glasses</name>
+			<category>Vision Devices</category>
+			<rating>4</rating>
+			<capacity>Rating</capacity>
+			<avail>0</avail>
+			<cost>Rating * 100</cost>
+			<source>SR5</source>
+			<page>443</page>
+		</gear>
+		<gear>
+			<name>Goggles</name>
+			<category>Vision Devices</category>
+			<rating>6</rating>
+			<capacity>Rating</capacity>
+			<avail>0</avail>
+			<cost>Rating * 50</cost>
+			<source>SR5</source>
+			<page>443</page>
+		</gear>
+		<gear>
+			<name>Mage Sight Goggles</name>
+			<category>Vision Devices</category>
+			<rating>0</rating>
+			<capacity>0</capacity>
+			<avail>12R</avail>
+			<cost>3000</cost>
+			<source>SR5</source>
+			<page>444</page>
+		</gear>
+		<gear>
+			<name>Monocle</name>
+			<category>Vision Devices</category>
+			<rating>4</rating>
+			<capacity>Rating</capacity>
+			<avail>0</avail>
+			<cost>Rating * 120</cost>
+			<source>SR5</source>
+			<page>444</page>
+		</gear>
+		<gear>
+			<name>Periscope</name>
+			<category>Vision Devices</category>
+			<rating>0</rating>
+			<capacity>[1]</capacity>
+			<avail>3</avail>
+			<cost>50</cost>
+			<source>SR4</source>
+			<page>444</page>
+		</gear>
+		<gear>
+			<name>Flare Compensation</name>
+			<category>Vision Enhancements</category>
+			<rating>0</rating>
+			<capacity>[1]</capacity>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>+1</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>444</page>
+		</gear>
+		<gear>
+			<name>Image Link</name>
+			<category>Vision Enhancements</category>
+			<rating>0</rating>
+			<capacity>[1]</capacity>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>+0</avail>
+			<cost>25</cost>
+			<source>SR5</source>
+			<page>444</page>
+		</gear>
+		<gear>
+			<name>Low Light</name>
+			<category>Vision Enhancements</category>
+			<rating>0</rating>
+			<capacity>[1]</capacity>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>+4</avail>
+			<cost>500</cost>
+			<source>SR5</source>
+			<page>444</page>
+		</gear>
+		<gear>
+			<name>Smartlink</name>
+			<category>Vision Enhancements</category>
+			<rating>0</rating>
+			<capacity>[1]</capacity>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>+4R</avail>
+			<cost>2000</cost>
+			<bonus>
+				<smartlink />
+			</bonus>
+			<source>SR5</source>
+			<page>444</page>
+		</gear>
+		<gear>
+			<name>Thermographic Vision</name>
+			<category>Vision Enhancements</category>
+			<rating>0</rating>
+			<capacity>[1]</capacity>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>+6</avail>
+			<cost>500</cost>
+			<source>SR5</source>
+			<page>444</page>
+		</gear>
+		<gear>
+			<name>Vision Enhancement</name>
+			<category>Vision Enhancements</category>
+			<rating>3</rating>
+			<capacity>[Rating]</capacity>
+			<armorcapacity>[Rating]</armorcapacity>
+			<avail>+(Rating *2)</avail>
+			<cost>Rating * 500</cost>
+			<source>SR5</source>
+			<page>444</page>
+		</gear>
+		<gear>
+			<name>Vision Magnification</name>
+			<category>Vision Enhancements</category>
+			<rating>0</rating>
+			<capacity>[1]</capacity>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>+2</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>444</page>
+		</gear>
+		<gear>
+			<name>Earbuds</name>
+			<category>Audio Devices</category>
+			<rating>3</rating>
+			<capacity>Rating</capacity>
+			<avail>0</avail>
+			<cost>Rating * 50</cost>
+			<source>SR5</source>
+			<page>445</page>
+		</gear>
+		<gear>
+			<name>Headphones</name>
+			<category>Audio Devices</category>
+			<rating>6</rating>
+			<capacity>Rating</capacity>
+			<avail>0</avail>
+			<cost>Rating * 50</cost>
+			<source>SR5</source>
+			<page>445</page>
+		</gear>
+		<gear>
+			<name>Microphone, Directional</name>
+			<category>Audio Devices</category>
+			<armorcapacity>[1]</armorcapacity>
+			<rating>6</rating>
+			<capacity>Rating</capacity>
+			<avail>4</avail>
+			<cost>Rating * 50</cost>
+			<source>SR5</source>
+			<page>445</page>
+		</gear>
+		<gear>
+			<name>Microphone, Laser</name>
+			<category>Audio Devices</category>
+			<armorcapacity>[2]</armorcapacity>
+			<rating>6</rating>
+			<capacity>Rating</capacity>
+			<avail>4</avail>
+			<cost>Rating * 100</cost>
+			<source>SR5</source>
+			<page>445</page>
+		</gear>
+		<gear>
+			<name>Microphone, Omni-Directional</name>
+			<category>Audio Devices</category>
+			<armorcapacity>[2]</armorcapacity>
+			<rating>6</rating>
+			<capacity>Rating</capacity>
+			<avail>4</avail>
+			<cost>Rating * 50</cost>
+			<source>SR5</source>
+			<page>445</page>
+		</gear>
+		<gear>
+			<name>Audio Enhancement</name>
+			<category>Audio Enhancements</category>
+			<rating>3</rating>
+			<capacity>Rating</capacity>
+			<armorcapacity>[Rating]</armorcapacity>
+			<avail>+(Rating *2)</avail>
+			<cost>Rating * 500</cost>
+			<source>SR5</source>
+			<page>445</page>
+		</gear>
+		<gear>
+			<name>Select Sound Filter</name>
+			<category>Audio Enhancements</category>
+			<rating>3</rating>
+			<capacity>Rating</capacity>
+			<armorcapacity>[Rating]</armorcapacity>
+			<avail>+(Rating * 3)</avail>
+			<cost>Rating * 250</cost>
+			<source>SR5</source>
+			<page>445</page>
+		</gear>
+		<gear>
+			<name>Spatial Recognizer</name>
+			<category>Audio Enhancements</category>
+			<rating>0</rating>
+			<capacity>[2]</capacity>
+			<armorcapacity>[2]</armorcapacity>
+			<avail>+4</avail>
+			<cost>1000</cost>
+			<source>SR5</source>
+			<page>445</page>
+		</gear>
+		<gear>
+			<name>Handheld Housing</name>
+			<category>Sensor Housings</category>
+			<rating>3</rating>
+			<capacity>[Rating]</capacity>
+			<gears>
+				<usegear>
+					<category>Sensors</category>
+					<capacity>Rating</capacity>
+				</usegear>
+			</gears>
+			<avail>0</avail>
+			<cost>Rating * 100</cost>
+			<source>SR5</source>
+			<page>445</page>
+		</gear>
+		<gear>
+			<name>Wall-Mounted Housing</name>
+			<category>Sensor Housings</category>
+			<rating>6</rating>
+			<capacity>Rating</capacity>
+			<gears>
+				<usegear>
+					<category>Sensors</category>
+					<capacity>Rating</capacity>
+				</usegear>
+			</gears>
+			<avail>0</avail>
+			<cost>Rating * 250</cost>
+			<source>SR5</source>
+			<page>445</page>
+		</gear>
+		<gear>
+			<name>Grenade-Cam</name>
+			<category>Tools of the Trade</category>
+			<rating>5</rating>
+			<capacity>Rating</capacity>
+			<gears>
+				<usegear>
+					<category>Sensor Functions</category>
+					<category>Audio Enhancements</category>
+					<category>Vision Enhancements</category>
+					<capacity>Rating</capacity>
+				</usegear>
+			</gears>
+			<avail>16R</avail>
+			<cost>Rating * 1500</cost>
+			<source>RG</source>
+			<page>102</page>
+		</gear>
+		<gear>
+			<name>Periscope Cam</name>
+			<category>Tools of the Trade</category>
+			<rating>3</rating>
+			<capacity>Rating</capacity>
+			<gears>
+				<usegear>
+					<category>Sensor Functions</category>
+					<category>Audio Enhancements</category>
+					<category>Vision Enhancements</category>
+					<capacity>Rating</capacity>
+				</usegear>
+			</gears>
+			<avail>10R</avail>
+			<cost>Rating * 600</cost>
+			<source>RG</source>
+			<page>103</page>
+		</gear>
+		<gear>
+			<name>Sensor Array</name>
+			<category>Sensors</category>
+			<rating>8</rating>
+			<minrating>2</minrating>
+			<capacity>[6]</capacity>
+			<gears>
+				<usegear>
+					<category>Sensor Functions</category>
+					<category>Audio Enhancements</category>
+					<category>Vision Enhancements</category>
+					<capacity>Rating</capacity>
+				</usegear>
+			</gears>
+			<avail>7</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>445</page>
+		</gear>
+		<gear>
+			<name>Single Sensor</name>
+			<category>Sensors</category>
+			<rating>8</rating>
+			<minrating>2</minrating>
+			<capacity>[1]</capacity>
+			<gears>
+				<usegear>
+					<category>Sensor Functions</category>
+					<category>Audio Enhancements</category>
+					<category>Vision Enhancements</category>
+					<capacity>Rating</capacity>
+				</usegear>
+			</gears>
+			<avail>5</avail>
+			<cost>Rating * 100</cost>
+			<source>SR5</source>
+			<page>445</page>
+		</gear>
+		<gear>
+			<name>Atmosphere Sensor</name>
+			<category>Sensor Functions</category>
+			<rating>0</rating>
+			<capacity>[1]</capacity>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>0</avail>
+			<cost>0</cost>
+			<source>SR5</source>
+			<page>446</page>
+		</gear>
+		<gear>
+			<name>Cyberware Scanner</name>
+			<category>Sensor Functions</category>
+			<rating>0</rating>
+			<capacity>[1]</capacity>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>0</avail>
+			<cost>0</cost>
+			<source>SR5</source>
+			<page>446</page>
+		</gear>
+		<gear>
+			<name>Geiger Counter</name>
+			<category>Sensor Functions</category>
+			<rating>0</rating>
+			<capacity>[1]</capacity>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>0</avail>
+			<cost>0</cost>
+			<source>SR5</source>
+			<page>446</page>
+		</gear>
+		<gear>
+			<name>Laser Range Finder</name>
+			<category>Sensor Functions</category>
+			<rating>0</rating>
+			<capacity>[1]</capacity>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>0</avail>
+			<cost>0</cost>
+			<source>SR5</source>
+			<page>446</page>
+		</gear>
+		<gear>
+			<name>MAD Scanner</name>
+			<category>Sensor Functions</category>
+			<rating>0</rating>
+			<capacity>[1]</capacity>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>0</avail>
+			<cost>0</cost>
+			<source>SR5</source>
+			<page>446</page>
+		</gear>
+		<gear>
+			<name>Motion Sensor</name>
+			<category>Sensor Functions</category>
+			<rating>0</rating>
+			<capacity>[1]</capacity>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>0</avail>
+			<cost>0</cost>
+			<source>SR5</source>
+			<page>446</page>
+		</gear>
+		<gear>
+			<name>Olfactory Sensor</name>
+			<category>Sensor Functions</category>
+			<rating>0</rating>
+			<capacity>[1]</capacity>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>0</avail>
+			<cost>0</cost>
+			<source>SR5</source>
+			<page>446</page>
+		</gear>
+		<gear>
+			<name>Radio Signal Scanner</name>
+			<category>Sensor Functions</category>
+			<rating>0</rating>
+			<capacity>[1]</capacity>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>0</avail>
+			<cost>0</cost>
+			<source>SR5</source>
+			<page>446</page>
+		</gear>
+		<gear>
+			<name>Ultrasound</name>
+			<category>Sensor Functions</category>
+			<rating>0</rating>
+			<capacity>[1]</capacity>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>0</avail>
+			<cost>0</cost>
+			<source>SR5</source>
+			<page>446</page>
+		</gear>
+		<gear>
+			<name>Key Lock</name>
+			<category>Security Devices</category>
+			<rating>6</rating>
+			<avail>Rating</avail>
+			<cost>Rating * 10</cost>
+			<source>SR5</source>
+			<page>446</page>
+		</gear>
+		<gear>
+			<name>Combination Lock</name>
+			<category>Security Devices</category>
+			<rating>6</rating>
+			<avail>Rating</avail>
+			<cost>Rating * 10</cost>
+			<source>SR5</source>
+			<page>446</page>
+		</gear>
+		<gear>
+			<name>Maglock</name>
+			<category>Security Devices</category>
+			<rating>6</rating>
+			<avail>Rating</avail>
+			<cost>Rating * 100</cost>
+			<source>SR5</source>
+			<page>447</page>
+		</gear>
+		<gear>
+			<name>Keypad</name>
+			<category>Security Devices</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>50</cost>
+			<source>SR5</source>
+			<page>447</page>
+		</gear>
+		<gear>
+			<name>Card Reader</name>
+			<category>Security Devices</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>+50</cost>
+			<source>SR5</source>
+			<page>447</page>
+		</gear>
+		<gear>
+			<name>Anti-Tamper Circuits</name>
+			<category>Security Devices</category>
+			<rating>4</rating>
+			<avail>+(Rating)</avail>
+			<cost>+(Raging * 250)</cost>
+			<source>SR5</source>
+			<page>447</page>
+		</gear>
+		<gear>
+			<name>Biometric Reader</name>
+			<category>Security Devices</category>
+			<rating>0</rating>
+			<avail>+4</avail>
+			<cost>+200</cost>
+			<source>SR5</source>
+			<page>447</page>
+		</gear>
+		<gear>
+			<name>Restraint, Metal</name>
+			<category>Security Devices</category>
+			<avail>0</avail>
+			<cost>20</cost>
+			<source>SR5</source>
+			<page>447</page>
+		</gear>
+		<gear>
+			<name>Restraint, Plasteel</name>
+			<category>Security Devices</category>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<cost>50</cost>
+			<source>SR5</source>
+			<page>447</page>
+		</gear>
+		<gear>
+			<name>Restraint, Plastic</name>
+			<category>Security Devices</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<costfor>10</costfor>
+			<cost>5</cost>
+			<source>SR5</source>
+			<page>447</page>
+		</gear>
+		<gear>
+			<name>Restraint, Containment Manacles</name>
+			<category>Security Devices</category>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>447</page>
+		</gear>
+		<gear>
+			<name>Autopicker</name>
+			<category>Breaking and Entering Gear</category>
+			<rating>6</rating>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>8R</avail>
+			<cost>Rating * 250</cost>
+			<source>SR5</source>
+			<page>447</page>
+		</gear>
+		<gear>
+			<name>Cellular Glove Molder</name>
+			<category>Breaking and Entering Gear</category>
+			<rating>4</rating>
+			<avail>12F</avail>
+			<cost>Rating * 500</cost>
+			<source>SR5</source>
+			<page>447</page>
+		</gear>
+		<gear>
+			<name>Chisel</name>
+			<category>Breaking and Entering Gear</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>20</cost>
+			<source>SR5</source>
+			<page>447</page>
+		</gear>
+		<gear>
+			<name>Crowbar</name>
+			<category>Breaking and Entering Gear</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>20</cost>
+			<source>SR5</source>
+			<page>447</page>
+		</gear>
+		<gear>
+			<name>Keycard Copier</name>
+			<category>Breaking and Entering Gear</category>
+			<armorcapacity>[3]</armorcapacity>
+			<rating>6</rating>
+			<avail>8F</avail>
+			<cost>Rating * 600</cost>
+			<source>SR5</source>
+			<page>447</page>
+		</gear>
+		<gear>
+			<name>Lockpick Set</name>
+			<category>Breaking and Entering Gear</category>
+			<rating>0</rating>
+			<armorcapacity>[2]</armorcapacity>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>448</page>
+		</gear>
+		<gear>
+			<name>Maglock Passkey</name>
+			<category>Breaking and Entering Gear</category>
+			<rating>4</rating>
+			<avail>(Rating * 3)F</avail>
+			<cost>Rating * 2000</cost>
+			<source>SR5</source>
+			<page>448</page>
+		</gear>
+		<gear>
+			<name>Miniwelder</name>
+			<category>Breaking and Entering Gear</category>
+			<armorcapacity>[1]</armorcapacity>
+			<rating>0</rating>
+			<avail>2</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>448</page>
+		</gear>
+		<gear>
+			<name>Miniwelder Fuel Canister</name>
+			<category>Breaking and Entering Gear</category>
+			<rating>0</rating>
+			<avail>2</avail>
+			<cost>80</cost>
+			<source>SR5</source>
+			<page>448</page>
+		</gear>
+		<gear>
+			<name>Monofilament Chainsaw</name>
+			<category>Breaking and Entering Gear</category>
+			<rating>0</rating>
+			<avail>8</avail>
+			<cost>80</cost>
+			<addweapon>Monofilament Chainsaw</addweapon>
+			<source>SR5</source>
+			<page>448</page>
+		</gear>
+		<gear>
+			<name>Sequencer</name>
+			<category>Breaking and Entering Gear</category>
+			<armorcapacity>[2]</armorcapacity>
+			<rating>6</rating>
+			<avail>(Rating * 3)F</avail>
+			<cost>Rating * 250</cost>
+			<source>SR5</source>
+			<page>448</page>
+		</gear>
+		<gear>
+			<name>Glue Solvent</name>
+			<category>Chemicals</category>
+			<rating>0</rating>
+			<avail>2</avail>
+			<cost>90</cost>
+			<source>SR5</source>
+			<page>448</page>
+		</gear>
+		<gear>
+			<name>Glue Sprayer</name>
+			<category>Chemicals</category>
+			<rating>0</rating>
+			<avail>2</avail>
+			<cost>150</cost>
+			<source>SR5</source>
+			<page>448</page>
+		</gear>
+		<gear>
+			<name>Thermite Burning Bar</name>
+			<category>Chemicals</category>
+			<rating>0</rating>
+			<avail>16R</avail>
+			<cost>500</cost>
+			<source>SR5</source>
+			<page>448</page>
+		</gear>
+		<gear>
+			<name>Chemsuit</name>
+			<category>Survival Gear</category>
+			<rating>6</rating>
+			<avail>Rating * 2</avail>
+			<cost>Rating * 150</cost>
+			<source>SR5</source>
+			<page>448</page>
+		</gear>
+		<gear>
+			<name>Climbing Gear</name>
+			<category>Survival Gear</category>
+			<rating>0</rating>
+			<armorcapacity>[5]</armorcapacity>
+			<avail>0</avail>
+			<cost>200</cost>
+			<source>SR5</source>
+			<page>448</page>
+		</gear>
+		<gear>
+			<name>Diving Gear</name>
+			<category>Survival Gear</category>
+			<rating>0</rating>
+			<avail>6</avail>
+			<cost>2000</cost>
+			<source>SR5</source>
+			<page>448</page>
+		</gear>
+		<gear>
+			<name>Flashlight</name>
+			<category>Survival Gear</category>
+			<rating>0</rating>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>0</avail>
+			<cost>25</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>
+		<gear>
+			<name>Gas Mask</name>
+			<category>Survival Gear</category>
+			<armorcapacity>[2]</armorcapacity>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>200</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>
+		<gear>
+			<name>Gecko Tape Gloves</name>
+			<category>Survival Gear</category>
+			<rating>0</rating>
+			<avail>12</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>
+		<gear>
+			<name>Hazmat Suit</name>
+			<category>Survival Gear</category>
+			<rating>0</rating>
+			<avail>8</avail>
+			<cost>3000</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>
+		<gear>
+			<name>Light Stick</name>
+			<category>Survival Gear</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>25</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>
+		<gear>
+			<name>Magnesium Torch</name>
+			<category>Survival Gear</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>5</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>
+		<gear>
+			<name>Micro Flare Launcher</name>
+			<category>Survival Gear</category>
+			<rating>0</rating>
+			<addweapon>Micro Flare Launcher</addweapon>
+			<avail>0</avail>
+			<cost>175</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>
+		<gear>
+			<name>Micro Flares</name>
+			<category>Survival Gear</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>25</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>
+		<gear>
+			<name>Rapelling Gloves</name>
+			<category>Survival Gear</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>50</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>
+		<gear>
+			<name>Respirator</name>
+			<category>Survival Gear</category>
+			<rating>6</rating>
+			<avail>0</avail>
+			<cost>Rating * 50</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>
+		<gear>
+			<name>Survival Kit</name>
+			<category>Survival Gear</category>
+			<armorcapacity>[6]</armorcapacity>
+			<rating>0</rating>
+			<avail>4</avail>
+			<cost>200</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>
+		<gear>
+			<name>Grapple Gun</name>
+			<category>Grapple Gun</category>
+			<addweapon>Grapple Gun</addweapon>
+			<rating>0</rating>
+			<avail>8R</avail>
+			<cost>500</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>		
+		<gear>
+			<name>Catalyst Stick</name>
+			<category>Grapple Gun</category>
+			<rating>0</rating>
+			<avail>8F</avail>
+			<cost>120</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>		
+		<gear>
+			<name>Microwire (100m)</name>
+			<category>Grapple Gun</category>
+			<rating>0</rating>
+			<avail>4</avail>
+			<cost>50</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>		
+		<gear>
+			<name>Myomeric Rope (10m)</name>
+			<category>Grapple Gun</category>
+			<rating>0</rating>
+			<avail>10</avail>
+			<cost>200</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>		
+		<gear>
+			<name>Standard Rope (100m)</name>
+			<category>Grapple Gun</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>50</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>		
+		<gear>
+			<name>Stealth Rope (100m)</name>
+			<category>Grapple Gun</category>
+			<rating>0</rating>
+			<avail>8F</avail>
+			<cost>85</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>		
+		<gear>
+			<name>Biomonitor</name>
+			<category>Biotech</category>
+			<armorcapacity>[1]</armorcapacity>
+			<rating>0</rating>
+			<avail>3</avail>
+			<cost>300</cost>
+			<source>SR5</source>
+			<page>450</page>
+		</gear>			
+		<gear>
+			<name>Disposable Syringe</name>
+			<category>Biotech</category>
+			<rating>0</rating>
+			<avail>3</avail>
+			<cost>10</cost>
+			<source>SR5</source>
+			<page>450</page>
+		</gear>			
+		<gear>
+			<name>Medkit</name>
+			<category>Biotech</category>
+			<armorcapacity>[5]</armorcapacity>
+			<rating>6</rating>
+			<avail>Rating</avail>
+			<cost>Rating * 250</cost>
+			<source>SR5</source>
+			<page>450</page>
+		</gear>			
+		<gear>
+			<name>Medkit Supplies</name>
+			<category>Biotech</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>100</cost>
+			<source>SR5</source>
+			<page>450</page>
+		</gear>			
+		<gear>
+			<name>DocWagon Contract, Basic</name>
+			<category>DocWagon Contract</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>5000</cost>
+			<source>SR5</source>
+			<page>450</page>
+		</gear>			
+		<gear>
+			<name>DocWagon Contract, Gold</name>
+			<category>DocWagon Contract</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>25000</cost>
+			<source>SR5</source>
+			<page>450</page>
+		</gear>			
+		<gear>
+			<name>DocWagon Contract, Platinum</name>
+			<category>DocWagon Contract</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>50000</cost>
+			<source>SR5</source>
+			<page>450</page>
+		</gear>			
+		<gear>
+			<name>DocWagon Contract, Super-Platinum</name>
+			<category>DocWagon Contract</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>100000</cost>
+			<source>SR5</source>
+			<page>450</page>
+		</gear>			
+		<gear>
+			<name>Slap Patch, Antidote Patch</name>
+			<category>Biotech</category>
+			<rating>6</rating>
+			<avail>Rating</avail>
+			<cost>Rating * 50</cost>
+			<source>SR5</source>
+			<page>451</page>
+		</gear>			
+		<gear>
+			<name>Slap Patch, Chem Patch</name>
+			<category>Biotech</category>
+			<rating>0</rating>
+			<avail>6</avail>
+			<cost>200</cost>
+			<source>SR5</source>
+			<page>451</page>
+		</gear>			
+		<gear>
+			<name>Slap Patch, Stim Patch</name>
+			<category>Biotech</category>
+			<rating>6</rating>
+			<avail>Rating * 2</avail>
+			<cost>Rating * 25</cost>
+			<source>SR5</source>
+			<page>451</page>
+		</gear>			
+		<gear>
+			<name>Slap Patch, Tranq Patch</name>
+			<category>Biotech</category>
+			<rating>10</rating>
+			<avail>Rating * 2</avail>
+			<cost>Rating * 20</cost>
+			<source>SR5</source>
+			<page>451</page>
+		</gear>			
+		<gear>
+			<name>Slap Patch, Trauma Patch</name>
+			<category>Biotech</category>
+			<rating>0</rating>
+			<avail>6</avail>
+			<cost>500</cost>
+			<source>SR5</source>
+			<page>451</page>
+		</gear>			
+		<gear>
+			<name>Alchemical Focus</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<bonus>
+				<specificskill>
+					<name>Alchemy</name>
+					<bonus>Rating</bonus>
+				</specificskill>
+			</bonus>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 5000</cost>
+			<source>SR5</source>
+			<page>318</page>
+		</gear>			
+		<gear>
+			<name>Disenchanting Focus</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<bonus>
+				<specificskill>
+					<name>Disenchanting</name>
+					<bonus>Rating</bonus>
+				</specificskill>
+			</bonus>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 5000</cost>
+			<source>SR5</source>
+			<page>319</page>
+		</gear>			
+		<gear>
+			<name>Centering Focus</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 9000</cost>
+			<source>SR5</source>
+			<page>319</page>
+		</gear>			
+		<gear>
+			<name>Flexible Signature Focus</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 9000</cost>
+			<source>SR5</source>
+			<page>319</page>
+		</gear>			
+		<gear>
+			<name>Masking Focus</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 9000</cost>
+			<source>SR5</source>
+			<page>319</page>
+		</gear>			
+		<gear>
+			<name>Spell Shaping Focus</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 9000</cost>
+			<source>SR5</source>
+			<page>319</page>
+		</gear>			
+		<gear>
+			<name>Power Focus</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 4)R</avail>
+			<cost>Rating * 18000</cost>
+			<bonus>
+				<skillattribute>
+					<name precedence="0">MAG</name>
+					<bonus>Rating</bonus>
+					<exclude>Counterspelling</exclude>
+				</skillattribute>
+			</bonus>
+			<source>SR5</source>
+			<page>319</page>
+		</gear>
+		<gear>
+			<name>Qi Focus</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 3000</cost>
+			<source>SR5</source>
+			<page>319</page>
+		</gear>			
+		<gear>
+			<name>Counterspelling Focus, Combat</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Ritual Spellcasting Focus, Combat</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Spellcasting Focus, Combat</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Sustaining Focus, Combat</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Counterspelling Focus, Detection</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Ritual Spellcasting Focus, Detection</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Spellcasting Focus, Detection</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Sustaining Focus, Detection</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Counterspelling Focus, Health</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Ritual Spellcasting Focus, Health</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Spellcasting Focus, Health</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Sustaining Focus, Health</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Counterspelling Focus, Illusion</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Ritual Spellcasting Focus, Illusion</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Spellcasting Focus, Illusion</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Sustaining Focus, Illusion</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>
+		<gear>
+			<name>Counterspelling Focus, Manipulation</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Ritual Spellcasting Focus, Manipulation</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Spellcasting Focus, Manipulation</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Sustaining Focus, Manipulation</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>		
+		<gear>
+			<name>Summoning Focus</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>	
+		<gear>
+			<name>Banishing Focus</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>	
+		<gear>
+			<name>Binding Focus</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 4000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>	
+		<gear>
+			<name>Weapon Focus</name>
+			<category>Foci</category>
+			<rating>18</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>(Rating * 4)R</avail>
+			<cost>Rating * 7000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Alchemical Focus Formula</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<bonus>
+				<specificskill>
+					<name>Alchemy</name>
+					<bonus>Rating</bonus>
+				</specificskill>
+			</bonus>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1250</cost>
+			<source>SR5</source>
+			<page>318</page>
+		</gear>			
+		<gear>
+			<name>Disenchanting Focus Formula</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<bonus>
+				<specificskill>
+					<name>Disenchanting</name>
+					<bonus>Rating</bonus>
+				</specificskill>
+			</bonus>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1250</cost>
+			<source>SR5</source>
+			<page>319</page>
+		</gear>			
+		<gear>
+			<name>Centering Focus Formula</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 2250</cost>
+			<source>SR5</source>
+			<page>319</page>
+		</gear>			
+		<gear>
+			<name>Flexible Signature Focus Formula</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 2250</cost>
+			<source>SR5</source>
+			<page>319</page>
+		</gear>			
+		<gear>
+			<name>Masking Focus Formula</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 2250</cost>
+			<source>SR5</source>
+			<page>319</page>
+		</gear>			
+		<gear>
+			<name>Spell Shaping Focus Formula</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 2250</cost>
+			<source>SR5</source>
+			<page>319</page>
+		</gear>			
+		<gear>
+			<name>Power Focus Formula</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 4)R</avail>
+			<cost>Rating * 4500</cost>
+			<bonus>
+				<skillattribute>
+					<name precedence="0">MAG</name>
+					<bonus>Rating</bonus>
+					<exclude>Counterspelling</exclude>
+				</skillattribute>
+			</bonus>
+			<source>SR5</source>
+			<page>319</page>
+		</gear>
+		<gear>
+			<name>Qi Focus Formula</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 750</cost>
+			<source>SR5</source>
+			<page>319</page>
+		</gear>			
+		<gear>
+			<name>Counterspelling Focus Formula, Combat</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Ritual Spellcasting Focus Formula, Combat</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Spellcasting Focus Formula, Combat</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Sustaining Focus Formula, Combat</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Counterspelling Focus Formula, Detection</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Ritual Spellcasting Focus Formula, Detection</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Spellcasting Focus Formula, Detection</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Sustaining Focus Formula, Detection</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Counterspelling Focus Formula, Health</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Ritual Spellcasting Focus Formula, Health</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Spellcasting Focus Formula, Health</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Sustaining Focus Formula, Health</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Counterspelling Focus Formula, Illusion</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Ritual Spellcasting Focus Formula, Illusion</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Spellcasting Focus Formula, Illusion</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Sustaining Focus Formula, Illusion</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>
+		<gear>
+			<name>Counterspelling Focus Formula, Manipulation</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Ritual Spellcasting Focus Formula, Manipulation</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Spellcasting Focus Formula, Manipulation</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>			
+		<gear>
+			<name>Sustaining Focus Formula, Manipulation</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>		
+		<gear>
+			<name>Summoning Focus Formula</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>	
+		<gear>
+			<name>Banishing Focus Formula</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>	
+		<gear>
+			<name>Binding Focus Formula</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>(Rating * 3)R</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>	
+		<gear>
+			<name>Weapon Focus Formula</name>
+			<category>Formulae</category>
+			<rating>18</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>(Rating * 4)R</avail>
+			<cost>Rating * 1750</cost>
+			<source>SR5</source>
+			<page>320</page>
+		</gear>	
+		<gear>
+			<name>Spell Formula, Combat</name>
+			<category>Formulae</category>
+			<rating>0</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>8R</avail>
+			<cost>2000</cost>
+			<source>SR5</source>
+			<page>326</page>
+		</gear>	
+		<gear>
+			<name>Spell Formula, Detection</name>
+			<category>Formulae</category>
+			<rating>0</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>4R</avail>
+			<cost>500</cost>
+			<source>SR5</source>
+			<page>326</page>
+		</gear>	
+		<gear>
+			<name>Spell Formula, Health</name>
+			<category>Formulae</category>
+			<rating>0</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>4R</avail>
+			<cost>500</cost>
+			<source>SR5</source>
+			<page>326</page>
+		</gear>	
+		<gear>
+			<name>Spell Formula, Illusion</name>
+			<category>Formulae</category>
+			<rating>0</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>8R</avail>
+			<cost>1000</cost>
+			<source>SR5</source>
+			<page>326</page>
+		</gear>	
+		<gear>
+			<name>Spell Formula, Manipulation</name>
+			<category>Formulae</category>
+			<rating>0</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>8R</avail>
+			<cost>1500</cost>
+			<source>SR5</source>
+			<page>326</page>
+		</gear>	
+		<gear>
+			<name>Magical Lodge Materials</name>
+			<category>Magical Supplies</category>
+			<rating>20</rating>
+			<avail>Rating * 2</avail>
+			<cost>Rating * 500</cost>
+			<source>SR5</source>
+			<page>326</page>
+		</gear>	
+		<gear>
+			<name>Reagents, per dram</name>
+			<category>Magical Supplies</category>
+			<rating>0</rating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>0</avail>
+			<cost>20</cost>
+			<source>SR5</source>
+			<page>316</page>
+		</gear>	
+		<gear>
+			<name>Paint Grenade</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<addweapon>Grenade: Paint</addweapon>
+			<avail>8R</avail>
+			<cost>100</cost>
+			<source>RG</source>
+			<page>102</page>
+		</gear>	
+		<gear>
+			<name>Telescoping Mirror on a Stick</name>
+			<category>Tools of the Trade</category>
+			<avail>10</avail>
+			<cost>35</cost>
+			<source>RG</source>
+			<page>102</page>
+		</gear>	
+		<gear>
+			<name>Battering Ram, Standard</name>
+			<category>Tools of the Trade</category>
+			<rating>0</rating>
+			<addweapon>Battering Ram, Standard</addweapon>
+			<avail>10R</avail>
+			<cost>2000</cost>
+			<source>RG</source>
+			<page>103</page>
+		</gear>	
+		<gear>
+			<name>Battering Ram, Fluid-Motion</name>
+			<category>Tools of the Trade</category>
+			<rating>0</rating>
+			<addweapon>Battering Ram, Fluid-Motion</addweapon>
+			<avail>10R</avail>
+			<cost>3500</cost>
+			<source>RG</source>
+			<page>103</page>
+		</gear>	
+		<gear>
+			<name>Battering Ram, Pneumatic</name>
+			<category>Tools of the Trade</category>
+			<rating>0</rating>
+			<addweapon>Battering Ram, Pneumatic</addweapon>
+			<avail>18R</avail>
+			<cost>10000</cost>
+			<source>RG</source>
+			<page>104</page>
+		</gear>	
+		<gear>
+			<name>Battering Ram, Shock</name>
+			<category>Tools of the Trade</category>
+			<rating>0</rating>
+			<addweapon>Battering Ram, Shock</addweapon>
+			<avail>10R</avail>
+			<cost>15000</cost>
+			<source>RG</source>
+			<page>104</page>
+		</gear>	
+		<gear>
+			<name>Blast Shield</name>
+			<category>Tools of the Trade</category>
+			<rating>0</rating>
+			<addweapon>Blast Shield</addweapon>
+			<avail>8R</avail>
+			<cost>20000</cost>
+			<source>RG</source>
+			<page>104</page>
+		</gear>			
+		<gear>
+			<name>Ares PED Mark III</name>
+			<category>Tools of the Trade</category>
+			<rating>0</rating>
+			<avail>10R</avail>
+			<cost>2500</cost>
+			<source>RG</source>
+			<page>104</page>
+		</gear>		
+		<gear>
+			<name>Ultra-Glide Industrial Lubricant (liter)</name>
+			<category>Tools of the Trade</category>
+			<rating>0</rating>
+			<avail>12</avail>
+			<cost>30</cost>
+			<source>RG</source>
+			<page>104</page>
+		</gear>		
+		<gear>
+			<name>Hold-Fast Adhesive Spray</name>
+			<category>Tools of the Trade</category>
+			<rating>0</rating>
+			<addweapon>Hold-Fast Sprayer</addweapon>
+			<avail>12</avail>
+			<cost>50</cost>
+			<source>RG</source>
+			<page>104</page>
+		</gear>
+		<gear>
+			<name>CS/Tear Gas</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>20</cost>
+			<source>SR5</source>
+			<page>409</page>
+		</gear>
+		<gear>
+			<name>Gamma-Scopolamine</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>14F</avail>
+			<cost>200</cost>
+			<source>SR5</source>
+			<page>410</page>
+		</gear>
+		<gear>
+			<name>Narcojet</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<cost>50</cost>
+			<source>SR5</source>
+			<page>410</page>
+		</gear>
+		<gear>
+			<name>Neuro-Stun VIII</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>12R</avail>
+			<cost>60</cost>
+			<source>SR5</source>
+			<page>410</page>
+		</gear>
+		<gear>
+			<name>Neuro-Stun IX</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>13R</avail>
+			<cost>60</cost>
+			<source>SR5</source>
+			<page>410</page>
+		</gear>
+		<gear>
+			<name>Neuro-Stun X</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>14R</avail>
+			<cost>100</cost>
+			<source>SR5</source>
+			<page>410</page>
+		</gear>
+		<gear>
+			<name>Pepper Punch</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>5</cost>
+			<source>SR5</source>
+			<page>410</page>
+		</gear>
+		<gear>
+			<name>Seven-7</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>20F</avail>
+			<cost>1000</cost>
+			<source>SR5</source>
+			<page>410</page>
+		</gear>
+		<gear>
+			<name>Bliss</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>3F</avail>
+			<cost>15</cost>
+			<source>SR5</source>
+			<page>411</page>
+		</gear>
+		<gear>
+			<name>Cram</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>2R</avail>
+			<cost>10</cost>
+			<source>SR5</source>
+			<page>411</page>
+		</gear>
+		<gear>
+			<name>Deepweed</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>8F</avail>
+			<cost>400</cost>
+			<source>SR5</source>
+			<page>411</page>
+		</gear>
+		<gear>
+			<name>Jazz</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>2R</avail>
+			<cost>75</cost>
+			<source>SR5</source>
+			<page>411</page>
+		</gear>
+		<gear>
+			<name>Kamikaze</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>100</cost>
+			<source>SR5</source>
+			<page>412</page>
+		</gear>
+		<gear>
+			<name>Long Haul</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>50</cost>
+			<source>SR5</source>
+			<page>412</page>
+		</gear>
+		<gear>
+			<name>Nitro</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>2R</avail>
+			<cost>50</cost>
+			<source>SR5</source>
+			<page>412</page>
+		</gear>
+		<gear>
+			<name>Novacoke</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>2R</avail>
+			<cost>10</cost>
+			<source>SR5</source>
+			<page>412</page>
+		</gear>
+		<gear>
+			<name>Psyche</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>200</cost>
+			<source>SR5</source>
+			<page>412</page>
+		</gear>
+		<gear>
+			<name>Zen</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>5</cost>
+			<source>SR5</source>
+			<page>412</page>
+		</gear>
+		<gear>
+			<name>Dreamchip</name>
+			<category>BTLs</category>
+			<rating>0</rating>
+			<avail>4F</avail>
+			<cost>20</cost>
+			<source>SR5</source>
+			<page>413</page>
+		</gear>
+		<gear>
+			<name>Moodchip</name>
+			<category>BTLs</category>
+			<rating>0</rating>
+			<avail>4F</avail>
+			<cost>50</cost>
+			<source>SR5</source>
+			<page>413</page>
+		</gear>
+		<gear>
+			<name>Personaflix</name>
+			<category>BTLs</category>
+			<rating>0</rating>
+			<avail>4F</avail>
+			<cost>200</cost>
+			<source>SR5</source>
+			<page>413</page>
+		</gear>
+		<gear>
+			<name>Tripchip</name>
+			<category>BTLs</category>
+			<rating>0</rating>
+			<avail>4F</avail>
+			<cost>100</cost>
+			<source>SR5</source>
+			<page>413</page>
+		</gear>
+		<gear>
+			<name>Concealable Holster</name>
+			<category>Armor Enhancements</category>
+			<rating>0</rating>
+			<armorcapacity>[4]</armorcapacity>
+			<avail>2</avail>
+			<cost>150</cost>
+			<source>SR5</source>
+			<page>431</page>
+		</gear>
+		<gear>
+			<name>Holster</name>
+			<category>Armor Enhancements</category>
+			<rating>0</rating>
+			<armorcapacity>[3]</armorcapacity>
+			<avail>2</avail>
+			<cost>150</cost>
+			<source>SR5</source>
+			<page>431</page>
+		</gear>
+		<gear>
+			<name>Quick-Draw Holster</name>
+			<category>Armor Enhancements</category>
+			<rating>0</rating>
+			<armorcapacity>[4]</armorcapacity>
+			<avail>4</avail>
+			<cost>175</cost>
+			<source>SR5</source>
+			<page>432</page>
+		</gear>
+		<gear>
+			<name>Micro Flare Launcher</name>
+			<category>Armor Enhancements</category>
+			<addweapon>Micro Flare Launcher</addweapon>
+			<rating>0</rating>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>0</avail>
+			<cost>175</cost>
+			<source>SR5</source>
+			<page>449</page>
+		</gear>
+		<gear>
+			<name>Spare Clips</name>
+			<category>Ammunition</category>
+			<bonus>
+				<selectweapon />
+			</bonus>
+			<rating>0</rating>
+			<avail>4</avail>
+			<cost>5</cost>
+			<source>SR5</source>
+			<page>433</page>
+		</gear>
+		<gear>
+			<name>Vindicator 200-Round Belt</name>
+			<category>Ammunition</category>
+			<bonus>
+				<selectweapon />
+			</bonus>
+			<rating>0</rating>
+			<avail>4</avail>
+			<cost>100</cost>
+			<source>RG</source>
+			<page>42</page>
+		</gear>
+		<gear>
+			<name>Speed Loader</name>
+			<category>Ammunition</category>
+			<bonus>
+				<selectweapon />
+			</bonus>
+			<rating>0</rating>
+			<avail>2</avail>
+			<cost>25</cost>
+			<source>SR5</source>
+			<page>433</page>
+		</gear>
+	</gears>
+</chummer>

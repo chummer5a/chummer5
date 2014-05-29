@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chummer>
+	<version>-500</version>
+	<echoes>
+		<echo>
+			<name>Attack Upgrade</name>
+			<limit>no</limit>
+			<bonus>
+				<livingpersona>
+					<attack>1</attack>
+				</livingpersona>
+			</bonus>
+			<source>SR5</source>
+			<page>258</page>
+		</echo>
+		<echo>
+			<name>Data Processing Upgrade</name>
+			<limit>no</limit>
+			<bonus>
+				<livingpersona>
+					<dataprocessing>1</dataprocessing>
+				</livingpersona>
+			</bonus>
+			<source>SR5</source>
+			<page>258</page>
+		</echo>
+		<echo>
+			<name>Firewall Upgrade</name>
+			<limit>no</limit>
+			<bonus>
+				<livingpersona>
+					<firewall>1</firewall>
+				</livingpersona>
+			</bonus>
+			<source>SR5</source>
+			<page>258</page>
+		</echo>
+		<echo>
+			<name>Mind Over Machine</name>
+			<limit>no</limit>
+			<source>SR5</source>
+			<page>258</page>
+		</echo>
+		<echo>
+			<name>NeuroFilter</name>
+			<limit>no</limit>
+			<bonus>
+				<livingpersona>
+					<biofeedback>1</biofeedback>
+				</livingpersona>
+			</bonus>
+			<source>SR5</source>
+			<page>258</page>
+		</echo>
+		<echo>
+			<name>Overclocking</name>
+			<bonus>
+				<livingpersona>
+					<response>1</response>
+				</livingpersona>
+				<matrixinitiativediceadd>1</matrixinitiativediceadd>
+			</bonus>
+			<source>SR5</source>
+			<page>258</page>
+		</echo>
+		<echo>
+			<name>Resonance Link</name>
+			<source>SR5</source>
+			<page>258</page>
+		</echo>
+		<echo>
+			<name>Resonance [Program]</name>
+			<limit>no</limit>
+			<bonus>
+				<selectprogram/>
+			</bonus>
+			<source>SR5</source>
+			<page>258</page>
+		</echo>
+		<echo>
+			<name>Sleaze Upgrade</name>
+			<limit>no</limit>
+			<bonus>
+				<livingpersona>
+					<sleaze>1</sleaze>
+				</livingpersona>
+			</bonus>
+			<source>SR5</source>
+			<page>258</page>
+		</echo>
+	</echoes>
+</chummer>

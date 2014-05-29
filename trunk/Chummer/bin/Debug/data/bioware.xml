@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chummer>
+	<version>-500</version>
+	<grades>
+		<grade>
+			<name>Standard</name>
+			<ess>1</ess>
+			<cost>1</cost>
+			<avail>0</avail>
+			<source>SR5</source>
+			<page>451</page>
+		</grade>
+		<grade>
+			<name>Used</name>
+			<ess>1.25</ess>
+			<cost>0.75</cost>
+			<avail>-4</avail>
+			<source>SR5</source>
+			<page>451</page>
+		</grade>
+		<grade>
+			<name>Alphaware</name>
+			<ess>0.8</ess>
+			<cost>1.2</cost>
+			<avail>+2</avail>
+			<source>SR5</source>
+			<page>451</page>
+		</grade>
+		<grade>
+			<name>Betaware</name>
+			<ess>0.7</ess>
+			<cost>1.5</cost>
+			<avail>+4</avail>
+			<source>SR5</source>
+			<page>451</page>
+		</grade>
+		<grade>
+			<name>Deltaware</name>
+			<ess>0.5</ess>
+			<cost>2.5</cost>
+			<avail>+8</avail>
+			<source>SR5</source>
+			<page>451</page>
+		</grade>
+	</grades>
+	<categories>
+		<category>Basic</category>
+		<category>Cultured</category>
+	</categories>
+	<biowares>
+		<bioware>
+			<name>Adrenaline Pump</name>
+			<category>Basic</category>
+			<rating>3</rating>
+			<ess>Rating * 0.75</ess>
+			<capacity>0</capacity>
+			<avail>(Rating * 6)F</avail>
+			<cost>Rating * 55000</cost>
+			<source>SR5</source>
+			<page>459</page>
+		</bioware>
+		<bioware>
+			<name>Bone Density Augmentation</name>
+			<category>Basic</category>
+			<rating>4</rating>
+			<ess>Rating * 0.3</ess>
+			<capacity>0</capacity>
+			<avail>(Rating * 4)</avail>
+			<cost>Rating * 5000</cost>
+			<bonus>
+				<damageresistance>Rating</damageresistance>
+				<unarmeddv>Rating-1</unarmeddv>
+				<unarmeddvphysical />
+			</bonus>
+			<source>SR5</source>
+			<page>459</page>
+		</bioware>
+		<bioware>
+			<name>Cat's Eyes</name>
+			<category>Basic</category>
+			<ess>0.1</ess>
+			<capacity>0</capacity>
+			<avail>4</avail>
+			<cost>4000</cost>
+			<source>SR5</source>
+			<page>459</page>
+		</bioware>
+		<bioware>
+			<name>Cerebral Booster</name>
+			<category>Cultured</category>
+			<rating>3</rating>
+			<ess>Rating * 0.2</ess>
+			<capacity>0</capacity>
+			<avail>Rating * 6</avail>
+			<cost>Rating * 31500</cost>
+			<bonus>
+				<specificattribute>
+					<name>LOG</name>
+					<val>Rating</val>
+				</specificattribute>
+			</bonus>
+			<source>SR5</source>
+			<page>460</page>
+		</bioware>
+		<bioware>
+			<name>Damage Compensators</name>
+			<category>Cultured</category>
+			<rating>12</rating>
+			<ess>Rating * 0.1</ess>
+			<capacity>0</capacity>
+			<avail>(Rating * 3)F</avail>
+			<cost>Rating * 2000</cost>
+			<bonus>
+				<conditionmonitor>
+					<thresholdoffset>Rating</thresholdoffset>
+				</conditionmonitor>
+			</bonus>
+			<source>SR5</source>
+			<page>460</page>
+		</bioware>
+		<bioware>
+			<name>Enhanced Articulation</name>
+			<category>Basic</category>
+			<ess>0.3</ess>
+			<capacity>0</capacity>
+			<avail>12</avail>
+			<cost>24000</cost>
+			<bonus>
+				<skillarticulation>
+					<bonus>1</bonus>
+				</skillarticulation>
+				<physicallimit>+1</physicallimit>
+			</bonus>
+			<source>SR5</source>
+			<page>460</page>
+		</bioware>
+		<bioware>
+			<name>Mnemonic Enhancer</name>
+			<category>Cultured</category>
+			<rating>3</rating>
+			<ess>Rating * 0.1</ess>
+			<capacity>0</capacity>
+			<avail>Rating * 5</avail>
+			<cost>Rating * 9000</cost>
+			<bonus>
+				<skillcategory>
+					<name>Academic</name>
+					<bonus>Rating</bonus>
+				</skillcategory>
+				<skillcategory>
+					<name>Interest</name>
+					<bonus>Rating</bonus>
+				</skillcategory>
+				<skillcategory>
+					<name>Language</name>
+					<bonus>Rating</bonus>
+				</skillcategory>
+				<skillcategory>
+					<name>Professional</name>
+					<bonus>Rating</bonus>
+				</skillcategory>
+				<skillcategory>
+					<name>Street</name>
+					<bonus>Rating</bonus>
+				</skillcategory>
+				<mentallimit>+1</mentallimit>
+			</bonus>
+			<source>SR5</source>
+			<page>460</page>
+		</bioware>
+		<bioware>
+			<name>Muscle Augmentation</name>
+			<category>Basic</category>
+			<rating>4</rating>
+			<ess>Rating * 0.2</ess>
+			<capacity>0</capacity>
+			<avail>(Rating * 5)R</avail>
+			<cost>Rating * 31000</cost>
+			<bonus>
+				<specificattribute>
+					<name>STR</name>
+					<val>Rating</val>
+				</specificattribute>
+			</bonus>
+			<source>SR5</source>
+			<page>459</page>
+		</bioware>
+		<bioware>
+			<name>Muscle Toner</name>
+			<category>Basic</category>
+			<rating>4</rating>
+			<ess>Rating * 0.2</ess>
+			<capacity>0</capacity>
+			<avail>(Rating * 5)R</avail>
+			<cost>Rating * 32000</cost>
+			<bonus>
+				<specificattribute>
+					<name>AGI</name>
+					<val>Rating</val>
+				</specificattribute>
+			</bonus>
+			<source>SR5</source>
+			<page>459</page>
+		</bioware>
+		<bioware>
+			<name>Orthoskin</name>
+			<category>Basic</category>
+			<rating>4</rating>
+			<ess>Rating * 0.25</ess>
+			<capacity>0</capacity>
+			<avail>(Rating * 4)R</avail>
+			<cost>Rating * 6000</cost>
+			<bonus>
+				<armor>Rating</armor>
+			</bonus>
+			<source>SR5</source>
+			<page>459</page>
+		</bioware>
+		<bioware>
+			<name>Pain Editor</name>
+			<category>Cultured</category>
+			<ess>0.3</ess>
+			<capacity>0</capacity>
+			<avail>18F</avail>
+			<cost>48000</cost>
+			<source>SR5</source>
+			<page>460</page>
+		</bioware>
+		<bioware>
+			<name>Pathogenic Defense</name>
+			<category>Basic</category>
+			<rating>6</rating>
+			<ess>Rating * 0.1</ess>
+			<capacity>0</capacity>
+			<avail>(Rating * 2)</avail>
+			<cost>Rating * 4500</cost>
+			<source>SR5</source>
+			<page>459</page>
+		</bioware>
+		<bioware>
+			<name>Platelet Factories</name>
+			<category>Basic</category>
+			<ess>0.2</ess>
+			<capacity>0</capacity>
+			<avail>12</avail>
+			<cost>17000</cost>
+			<source>SR5</source>
+			<page>459</page>
+		</bioware>
+		<bioware>
+			<name>Reflex Recorder (Skill)</name>
+			<category>Cultured</category>
+			<ess>0.1</ess>
+			<capacity>0</capacity>
+			<avail>10</avail>
+			<cost>14000</cost>
+			<bonus>
+				<selectskill excludecategory="Magical Active,Resonance Active,Social Active,Technical Active,Vechicle Active">
+					<val>1</val>
+					<applytorating>yes</applytorating>
+				</selectskill>
+			</bonus>
+			<source>SR5</source>
+			<page>460</page>
+		</bioware>
+		<bioware>
+			<name>Skin Pocket</name>
+			<category>Basic</category>
+			<ess>0.1</ess>
+			<capacity>0</capacity>
+			<avail>4</avail>
+			<cost>12000</cost>
+			<source>SR5</source>
+			<page>459</page>
+		</bioware>
+		<bioware>
+			<name>Sleep Regulator</name>
+			<category>Cultured</category>
+			<ess>0.1</ess>
+			<capacity>0</capacity>
+			<avail>6</avail>
+			<cost>12000</cost>
+			<source>SR5</source>
+			<page>460</page>
+		</bioware>
+		<bioware>
+			<name>Suprathyroid Gland</name>
+			<category>Basic</category>
+			<ess>0.7</ess>
+			<capacity>0</capacity>
+			<avail>20R</avail>
+			<cost>140000</cost>
+			<bonus>
+				<specificattribute>
+					<name>BOD</name>
+					<val>1</val>
+				</specificattribute>
+				<specificattribute>
+					<name>AGI</name>
+					<val>1</val>
+				</specificattribute>
+				<specificattribute>
+					<name precedence="1">REA</name>
+					<val>1</val>
+				</specificattribute>
+				<specificattribute>
+					<name>STR</name>
+					<val>1</val>
+				</specificattribute>
+				<lifestylecost>1.25</lifestylecost>
+			</bonus>
+			<source>SR5</source>
+			<page>459</page>
+		</bioware>
+		<bioware>
+			<name>Symbiotes</name>
+			<category>Basic</category>
+			<rating>4</rating>
+			<ess>Rating * 0.2</ess>
+			<capacity>0</capacity>
+			<avail>Rating * 5</avail>
+			<cost>Rating * 3500</cost>
+			<source>SR5</source>
+			<page>459</page>
+		</bioware>
+		<bioware>
+			<name>Synaptic Booster</name>
+			<category>Cultured</category>
+			<rating>3</rating>
+			<ess>Rating * 0.5</ess>
+			<capacity>0</capacity>
+			<avail>(Rating * 6)R</avail>
+			<cost>Rating * 95000</cost>
+			<bonus>
+				<initiativepass>Rating</initiativepass>
+				<specificattribute>
+					<name precedence="1">REA</name>
+					<val>Rating</val>
+				</specificattribute>
+			</bonus>
+			<source>SR5</source>
+			<page>461</page>
+		</bioware>
+		<bioware>
+			<name>Synthacardium</name>
+			<category>Basic</category>
+			<rating>3</rating>
+			<ess>Rating * 0.1</ess>
+			<capacity>0</capacity>
+			<avail>Rating * 4</avail>
+			<cost>Rating * 30000</cost>
+			<bonus>
+				<skillgroup>
+					<name>Athletics</name>
+					<bonus>Rating</bonus>
+				</skillgroup>
+			</bonus>
+			<source>SR4</source>
+			<page>346</page>
+		</bioware>
+		<bioware>
+			<name>Tailored Pheromones</name>
+			<category>Basic</category>
+			<rating>3</rating>
+			<ess>Rating * 0.2</ess>
+			<capacity>0</capacity>
+			<avail>(Rating * 4)R</avail>
+			<cost>Rating * 31000</cost>
+			<bonus>
+				<skillcategory>
+					<name>Social Active</name>
+					<bonus>Rating</bonus>
+				</skillcategory>
+			</bonus>
+			<source>SR5</source>
+			<page>460</page>
+		</bioware>
+		<bioware>
+			<name>Toxin Extractor</name>
+			<category>Basic</category>
+			<rating>6</rating>
+			<ess>Rating * 0.2</ess>
+			<capacity>0</capacity>
+			<avail>Rating * 3</avail>
+			<cost>Rating * 4800</cost>
+			<source>SR5</source>
+			<page>460</page>
+		</bioware>
+		<bioware>
+			<name>Tracheal Filter</name>
+			<category>Basic</category>
+			<rating>6</rating>
+			<ess>Rating * 0.1</ess>
+			<capacity>0</capacity>
+			<avail>Rating * 3</avail>
+			<cost>Rating * 4500</cost>
+			<source>SR5</source>
+			<page>460</page>
+		</bioware>
+	</biowares>
+</chummer>
