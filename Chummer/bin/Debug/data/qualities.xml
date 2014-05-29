@@ -1,0 +1,1215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<chummer>
+	<version>-500</version>
+	<categories>
+		<category>Positive</category>
+		<category>Negative</category>
+	</categories>
+	<qualities>
+		<quality>
+			<name>Ambidextrous</name>
+			<karma>4</karma>
+			<limit>no</limit>
+			<category>Positive</category>
+			<bonus />
+			<source>SR5</source>
+			<page>71</page>
+		</quality>
+		<quality>
+			<name>Analytical Mind</name>
+			<karma>5</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SR5</source>
+			<page>71</page>
+		</quality>
+		<quality>
+			<name>Aptitude</name>
+			<karma>14</karma>
+			<category>Positive</category>
+			<bonus>
+				<selectskill>
+					<max>1</max>
+				</selectskill>
+			</bonus>
+			<source>SR5</source>
+			<page>71</page>
+		</quality>
+		<quality>
+			<name>Astral Chameleon</name>
+			<karma>10</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SR5</source>
+			<page>71</page>
+		</quality>
+		<quality>
+			<name>Bilingual</name>
+			<karma>5</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SR5</source>
+			<page>71</page>
+		</quality>
+		<quality>
+			<name>Blandness</name>
+			<karma>8</karma>
+			<category>Positive</category>
+			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>Distinctive Style</quality>
+				</oneof>
+			</forbidden>
+			<source>SR5</source>
+			<page>71</page>
+		</quality>
+		<quality>
+			<name>Catlike</name>
+			<karma>7</karma>
+			<category>Positive</category>
+			<mutant>yes</mutant>
+			<bonus>
+				<specificskill>
+					<name>Sneaking</name>
+					<bonus>2</bonus>
+					<applytorating>yes</applytorating>
+				</specificskill>
+			</bonus>
+			<source>SR5</source>
+			<page>71</page>
+		</quality>
+		<quality>
+			<name>Codeslinger</name>
+			<karma>10</karma>
+			<category>Positive</category>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>71</page>
+		</quality>
+		<quality>
+			<name>Double Jointed</name>
+			<karma>6</karma>
+			<category>Positive</category>
+			<bonus>
+				<specificskill>
+					<name>Escape Artist</name>
+					<bonus>2</bonus>
+				</specificskill>
+			</bonus>
+			<source>SR5</source>
+			<page>71</page>
+		</quality>
+		<quality>
+			<name>Exceptional Attribute</name>
+			<karma>14</karma>
+			<category>Positive</category>
+			<bonus>
+				<selectattribute>
+					<excludeattribute>EDG</excludeattribute>
+					<excludeattribute>MAG</excludeattribute>
+					<excludeattribute>RES</excludeattribute>
+					<max>1</max>
+				</selectattribute>
+			</bonus>
+			<source>SR5</source>
+			<page>71</page>
+		</quality>
+		<quality>
+			<name>First Impression</name>
+			<karma>11</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SR5</source>
+			<page>74</page>
+		</quality>
+		<quality>
+			<name>Focused Concentration</name>
+			<karma>4</karma>
+			<limit>6</limit>
+			<category>Positive</category>
+			<required>
+				<oneof>
+					<quality>Magician</quality>
+					<quality>Mystic Adept</quality>
+				</oneof>
+			</required>
+			<source>SR5</source>
+			<page>74</page>
+		</quality>
+		<quality>
+			<name>Gearhead</name>
+			<karma>11</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SR5</source>
+			<page>74</page>
+		</quality>
+		<quality>
+			<name>Guts</name>
+			<karma>10</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SR5</source>
+			<page>74</page>
+		</quality>
+		<quality>
+			<name>High Pain Tolerance</name>
+			<karma>7</karma>
+			<limit>3</limit>
+			<category>Positive</category>
+			<bonus>
+				<conditionmonitor>
+					<thresholdoffset precedence="0">rating</thresholdoffset>
+				</conditionmonitor>
+			</bonus>
+			<source>SR5</source>
+			<page>74</page>
+		</quality>
+		<quality>
+			<name>Home Ground</name>
+			<karma>10</karma>
+			<category>Positive</category>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR4</source>
+			<page>91</page>
+		</quality>
+		<quality>
+			<name>Human-Looking</name>
+			<karma>6</karma>
+			<category>Positive</category>
+			<bonus />
+			<required>
+				<oneof>
+					<metatype>Elf</metatype>
+					<metatype>Dwarf</metatype>
+					<metatype>Ork</metatype>
+				</oneof>
+			</required>
+			<source>SR5</source>
+			<page>75</page>
+		</quality>
+		<quality>
+			<name>Indomitable (Mental)</name>
+			<karma>8</karma>
+			<limit>3</limit>
+			<category>Positive</category>
+			<bonus>
+				<limitmodifier>
+					<limit>Mental</limit>
+					<value>Rating</value>
+				</limitmodifier>
+			</bonus>
+			<source>SR5</source>
+			<page>75</page>
+		</quality>
+		<quality>
+			<name>Indomitable (Physical)</name>
+			<karma>8</karma>
+			<limit>3</limit>
+			<category>Positive</category>
+			<bonus>
+				<limitmodifier>
+					<limit>Physical</limit>
+					<value>Rating</value>
+				</limitmodifier>
+			</bonus>
+			<source>SR5</source>
+			<page>75</page>
+		</quality>
+		<quality>
+			<name>Indomitable (Social)</name>
+			<karma>8</karma>
+			<limit>3</limit>
+			<category>Positive</category>
+			<bonus>
+				<limitmodifier>
+					<limit>Social</limit>
+					<value>Rating</value>
+				</limitmodifier>
+			</bonus>
+			<source>SR5</source>
+			<page>75</page>
+		</quality>
+		<quality>
+			<name>Juryrigger</name>
+			<karma>10</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SR5</source>
+			<page>75</page>
+		</quality>
+		<quality>
+			<name>Lucky</name>
+			<karma>12</karma>
+			<category>Positive</category>
+			<bonus>
+				<specificattribute>
+					<name>EDG</name>
+					<max>1</max>
+				</specificattribute>
+			</bonus>
+			<source>SR5</source>
+			<page>76</page>
+		</quality>
+		<quality>
+			<name>Magic Resistance</name>
+			<karma>6</karma>
+			<limit>4</limit>
+			<category>Positive</category>
+			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>Adept</quality>
+					<quality>Magician</quality>
+					<quality>Mystic Adept</quality>
+				</oneof>
+			</forbidden>
+			<source>SR5</source>
+			<page>76</page>
+		</quality>
+		<quality>
+			<name>Mentor Spirit</name>
+			<karma>5</karma>
+			<category>Positive</category>
+			<bonus>
+				<selectmentorspirit />
+			</bonus>
+			<required>
+				<oneof>
+					<quality>Adept</quality>
+					<quality>Magician</quality>
+					<quality>Mystic Adept</quality>
+				</oneof>
+			</required>
+			<source>SR5</source>
+			<page>76</page>
+		</quality>
+		<quality>
+			<name>Natural Athlete</name>
+			<karma>7</karma>
+			<category>Positive</category>
+			<bonus>
+				<specificskill>
+					<name>Running</name>
+					<bonus>2</bonus>
+					<applytorating>yes</applytorating>
+				</specificskill>
+				<specificskill>
+					<name>Gymnastics</name>
+					<bonus>2</bonus>
+					<applytorating>yes</applytorating>
+				</specificskill>
+			</bonus>
+			<source>SR5</source>
+			<page>76</page>
+		</quality>
+		<quality>
+			<name>Natural Hardening</name>
+			<karma>10</karma>
+			<category>Positive</category>
+			<bonus>
+				<livingpersona>
+					<biofeedback>1</biofeedback>
+				</livingpersona>
+			</bonus>
+			<source>SR5</source>
+			<page>76</page>
+		</quality>
+		<quality>
+			<name>Natural Immunity (Basic)</name>
+			<karma>4</karma>
+			<category>Positive</category>
+			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>Natural Immunity (Full)</quality>
+				</oneof>
+			</forbidden>
+			<source>SR5</source>
+			<page>76</page>
+		</quality>
+		<quality>
+			<name>Natural Immunity (Full)</name>
+			<karma>10</karma>
+			<category>Positive</category>
+			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>Natural Immunity (Basic)</quality>
+				</oneof>
+			</forbidden>
+			<source>SR5</source>
+			<page>76</page>
+		</quality>
+		<quality>
+			<name>Photographic Memory</name>
+			<karma>6</karma>
+			<category>Positive</category>
+			<bonus>
+				<memory>2</memory>
+			</bonus>
+			<source>SR5</source>
+			<page>76</page>
+		</quality>
+		<quality>
+			<name>Quick Healer</name>
+			<karma>3</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SR5</source>
+			<page>77</page>
+		</quality>
+		<quality>
+			<name>Resistance to Pathogens</name>
+			<karma>4</karma>
+			<category>Positive</category>
+			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>Resistance to Pathogens and Toxins</quality>
+				</oneof>
+			</forbidden>
+			<source>SR5</source>
+			<page>77</page>
+		</quality>
+		<quality>
+			<name>Resistance to Toxins</name>
+			<karma>5</karma>
+			<category>Positive</category>
+			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>Resistance to Pathogens and Toxins</quality>
+				</oneof>
+			</forbidden>
+			<source>SR5</source>
+			<page>77</page>
+		</quality>
+		<quality>
+			<name>Resistance to Pathogens and Toxins</name>
+			<karma>8</karma>
+			<category>Positive</category>
+			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>Resistance to Pathogens</quality>
+					<quality>Resistance to Toxins</quality>
+				</oneof>
+			</forbidden>
+			<source>SR5</source>
+			<page>77</page>
+		</quality>
+		<quality>
+			<name>Spirit Affinity</name>
+			<karma>7</karma>
+			<category>Positive</category>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>77</page>
+		</quality>
+		<quality>
+			<name>Toughness</name>
+			<karma>9</karma>
+			<category>Positive</category>
+			<bonus>
+				<damageresistance>1</damageresistance>
+			</bonus>
+			<source>SR5</source>
+			<page>77</page>
+		</quality>
+		<quality>
+			<name>Will to Live</name>
+			<karma>3</karma>
+			<limit>3</limit>
+			<category>Positive</category>
+			<bonus>
+				<conditionmonitor>
+					<overflow>Rating</overflow>
+				</conditionmonitor>
+			</bonus>
+			<source>SR5</source>
+			<page>77</page>
+		</quality>
+		<quality>
+			<name>Deus Vult!</name>
+			<karma>4</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>AP</source>
+			<page>16</page>
+		</quality>
+		<quality>
+			<name>My Country, Right or Wrong</name>
+			<karma>4</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>AP</source>
+			<page>17</page>
+		</quality>
+		<quality>
+			<name>Out For Myself</name>
+			<karma>4</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>AP</source>
+			<page>17</page>
+		</quality>
+		<quality>
+			<name>Strive For Perfection</name>
+			<karma>4</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>AP</source>
+			<page>17</page>
+		</quality>
+		<quality>
+			<name>Acrobatic Defender</name>
+			<karma>4</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>RG</source>
+			<page>127</page>
+		</quality>
+		<quality>
+			<name>Agile Defender</name>
+			<karma>4</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>RG</source>
+			<page>127</page>
+		</quality>
+		<quality>
+			<name>Brand Loyalty (Manufacturer)</name>
+			<karma>3</karma>
+			<category>Positive</category>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>RG</source>
+			<page>127</page>
+		</quality>
+		<quality>
+			<name>Brand Loyalty (Product)</name>
+			<karma>3</karma>
+			<category>Positive</category>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>RG</source>
+			<page>127</page>
+		</quality>
+		<quality>
+			<name>One Trick Pony</name>
+			<karma>7</karma>
+			<category>Positive</category>
+			<bonus>
+				<martialart>One Trick Pony</martialart>
+			</bonus>
+			<source>RG</source>
+			<page>127</page>
+		</quality>
+		<quality>
+			<name>Perceptive Defender</name>
+			<karma>4</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>RG</source>
+			<page>127</page>
+		</quality>
+		<quality>
+			<name>Sharpshooter</name>
+			<karma>4</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>RG</source>
+			<page>127</page>
+		</quality>
+		<quality>
+			<name>Too Pretty To Hit</name>
+			<karma>3</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>RG</source>
+			<page>127</page>
+		</quality>
+		<quality>
+			<name>Radiation Sponge</name>
+			<karma>5</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>RG</source>
+			<page>169</page>
+		</quality>
+		<quality>
+			<name>Rad-Tolerant</name>
+			<karma>3</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>RG</source>
+			<page>169</page>
+		</quality>
+		<quality>
+			<name>Spacer</name>
+			<karma>3</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>RG</source>
+			<page>169</page>
+		</quality>
+		<quality>
+			<name>Low-Light Vision</name>
+			<karma>0</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SR5</source>
+			<page>66</page>
+		</quality>
+		<quality>
+			<name>Thermographic Vision</name>
+			<karma>0</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SR5</source>
+			<page>66</page>
+		</quality>
+		<quality>
+			<name>Magician</name>
+			<karma>0</karma>
+			<category>Positive</category>
+			<bonus />
+			<hide>yes</hide>
+			<source>SR5</source>
+			<page>69</page>
+		</quality>
+		<quality>
+			<name>Adept</name>
+			<karma>0</karma>
+			<category>Positive</category>
+			<bonus />
+			<hide>yes</hide>
+			<source>SR5</source>
+			<page>69</page>
+		</quality>
+		<quality>
+			<name>Mystic Adept</name>
+			<karma>0</karma>
+			<category>Positive</category>
+			<bonus />
+			<hide>yes</hide>
+			<source>SR5</source>
+			<page>69</page>
+		</quality>
+		<quality>
+			<name>Technomancer</name>
+			<karma>0</karma>
+			<category>Positive</category>
+			<bonus />
+			<hide>yes</hide>
+			<source>SR5</source>
+			<page>69</page>
+		</quality>
+		<quality>
+			<name>Aspected Magician</name>
+			<karma>0</karma>
+			<category>Positive</category>
+			<bonus />
+			<hide>yes</hide>
+			<source>SR5</source>
+			<page>69</page>
+		</quality>
+		<quality>
+			<name>Addiction (Mild)</name>
+			<karma>-4</karma>
+			<category>Negative</category>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>77</page>
+		</quality>
+		<quality>
+			<name>Addiction (Moderate)</name>
+			<karma>-9</karma>
+			<category>Negative</category>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>78</page>
+		</quality>
+		<quality>
+			<name>Addiction (Severe)</name>
+			<karma>-20</karma>
+			<category>Negative</category>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>78</page>
+		</quality>
+		<quality>
+			<name>Addiction (Burnout)</name>
+			<karma>-25</karma>
+			<category>Negative</category>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+				<social>-3</social>
+			</bonus>
+			<source>SR5</source>
+			<page>78</page>
+		</quality>
+		<quality>
+			<name>Allergy (Uncommon, Mild)</name>
+			<karma>-5</karma>
+			<category>Negative</category>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>78</page>
+		</quality>
+		<quality>
+			<name>Allergy (Uncommon, Moderate)</name>
+			<karma>-10</karma>
+			<category>Negative</category>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>78</page>
+		</quality>
+		<quality>
+			<name>Allergy (Uncommon, Severe)</name>
+			<karma>-15</karma>
+			<category>Negative</category>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>78</page>
+		</quality>
+		<quality>
+			<name>Allergy (Uncommon, Extreme)</name>
+			<karma>-20</karma>
+			<category>Negative</category>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>78</page>
+		</quality>
+		<quality>
+			<name>Allergy (Common, Mild)</name>
+			<karma>-10</karma>
+			<category>Negative</category>
+			<metagenetic>yes</metagenetic>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR4</source>
+			<page>94</page>
+		</quality>
+		<quality>
+			<name>Allergy (Common, Moderate)</name>
+			<karma>-15</karma>
+			<category>Negative</category>
+			<metagenetic>yes</metagenetic>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR4</source>
+			<page>94</page>
+		</quality>
+		<quality>
+			<name>Allergy (Common, Severe)</name>
+			<karma>-20</karma>
+			<category>Negative</category>
+			<metagenetic>yes</metagenetic>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR4</source>
+			<page>94</page>
+		</quality>
+		<quality>
+			<name>Allergy (Common, Extreme)</name>
+			<karma>-25</karma>
+			<category>Negative</category>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>78</page>
+		</quality>
+		<quality>
+			<name>Astral Beacon</name>
+			<karma>-10</karma>
+			<category>Negative</category>
+			<bonus />
+			<required>
+				<oneof>
+					<quality>Adept</quality>
+					<quality>Aspected Magician</quality>
+					<quality>Magician</quality>
+					<quality>Mystic Adept</quality>
+				</oneof>
+			</required>
+			<source>SR5</source>
+			<page>78</page>
+		</quality>
+		<quality>
+			<name>Bad Luck</name>
+			<karma>-12</karma>
+			<category>Negative</category>
+			<source>SR5</source>
+			<page>79</page>
+		</quality>
+		<quality>
+			<name>Bad Rep</name>
+			<karma>-7</karma>
+			<category>Negative</category>
+			<bonus>
+				<notoriety>3</notoriety>
+			</bonus>
+			<source>SR5</source>
+			<page>79</page>
+		</quality>
+		<quality>
+			<name>Code of Honor: Assassin's Creed</name>
+			<bp>-15</bp>
+			<category>Negative</category>
+			<bonus />
+			<source>SR5</source>
+			<page>79</page>
+		</quality>
+		<quality>
+			<name>Code of Honor: Warrior's Code</name>
+			<bp>-15</bp>
+			<category>Negative</category>
+			<bonus />
+			<source>SR5</source>
+			<page>80</page>
+		</quality>
+		<quality>
+			<name>Codeblock</name>
+			<karma>-10</karma>
+			<category>Negative</category>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>80</page>
+		</quality>
+		<quality>
+			<name>Combat Paralysis</name>
+			<karma>-12</karma>
+			<category>Negative</category>
+			<bonus />
+			<source>SR5</source>
+			<page>80</page>
+		</quality>
+		<quality>
+			<name>Dependent (Nuisance)</name>
+			<karma>-3</karma>
+			<category>Negative</category>
+			<bonus>
+				<lifestylecost>110</lifestylecost>
+			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>Dependent (Inconvenience)</quality>
+					<quality>Dependent (Demanding)</quality>
+				</oneof>
+			</forbidden>
+			<source>SR5</source>
+			<page>80</page>
+		</quality>
+		<quality>
+			<name>Dependent (Inconvenience)</name>
+			<karma>-6</karma>
+			<category>Negative</category>
+			<bonus>
+				<lifestylecost>120</lifestylecost>
+			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>Dependent (Nuisance)</quality>
+					<quality>Dependent (Demanding)</quality>
+				</oneof>
+			</forbidden>
+			<source>SR5</source>
+			<page>80</page>
+		</quality>
+		<quality>
+			<name>Dependent (Demanding)</name>
+			<karma>-9</karma>
+			<category>Negative</category>
+			<bonus>
+				<lifestylecost>130</lifestylecost>
+			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>Dependent (Nuisance)</quality>
+					<quality>Dependent (Inconvenience)</quality>
+				</oneof>
+			</forbidden>
+			<source>SR5</source>
+			<page>80</page>
+		</quality>
+		<quality>
+			<name>Distinctive Style</name>
+			<karma>-5</karma>
+			<category>Negative</category>
+			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>Blandness</quality>
+				</oneof>
+			</forbidden>
+			<source>SR5</source>
+			<page>80</page>
+		</quality>
+		<quality>
+			<name>Elf Poser</name>
+			<karma>-6</karma>
+			<category>Negative</category>
+			<bonus />
+			<required>
+				<allof>
+					<metatype>Human</metatype>
+				</allof>
+			</required>
+			<source>SR5</source>
+			<page>81</page>
+		</quality>
+		<quality>
+			<name>Gremlins</name>
+			<karma>-4</karma>
+			<limit>4</limit>
+			<category>Negative</category>
+			<bonus />
+			<source>SR5</source>
+			<page>81</page>
+		</quality>
+		<quality>
+			<name>Incompetent</name>
+			<karma>-5</karma>
+			<category>Negative</category>
+			<bonus>
+				<selectskill>
+					<max>-6</max>
+				</selectskill>
+			</bonus>
+			<source>SR5</source>
+			<page>81</page>
+		</quality>
+		<quality>
+			<name>Insomnia (Basic)</name>
+			<karma>-10</karma>
+			<category>Negative</category>
+			<bonus />
+			<source>SR5</source>
+			<page>81</page>
+		</quality>
+		<quality>
+			<name>Insomnia (Full)</name>
+			<karma>-15</karma>
+			<category>Negative</category>
+			<bonus />
+			<source>SR5</source>
+			<page>81</page>
+		</quality>
+		<quality>
+			<name>Loss of Confidence</name>
+			<karma>-5</karma>
+			<category>Negative</category>
+			<bonus>
+				<selectskill>
+					<bonus>-2</bonus>
+				</selectskill>
+			</bonus>
+			<source>SR5</source>
+			<page>82</page>
+		</quality>
+		<quality>
+			<name>Low Pain Tolerance</name>
+			<karma>-9</karma>
+			<category>Negative</category>
+			<bonus>
+				<conditionmonitor>
+					<threshold>-1</threshold>
+				</conditionmonitor>
+			</bonus>
+			<source>SR5</source>
+			<page>82</page>
+		</quality>
+		<quality>
+			<name>Ork Poser</name>
+			<karma>-6</karma>
+			<category>Negative</category>
+			<required>
+				<oneof>
+					<metatype>Human</metatype>
+					<metatype>Elf</metatype>
+				</oneof>
+			</required>
+			<source>SR5</source>
+			<page>82</page>
+		</quality>
+		<quality>
+			<name>Prejudiced (Common, Biased)</name>
+			<karma>-5</karma>
+			<category>Negative</category>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>82</page>
+		</quality>
+		<quality>
+			<name>Prejudiced (Common, Outspoken)</name>
+			<karma>-7</karma>
+			<category>Negative</category>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>82</page>
+		</quality>
+		<quality>
+			<name>Prejudiced (Common, Radical)</name>
+			<karma>-10</karma>
+			<category>Negative</category>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>82</page>
+		</quality>
+		<quality>
+			<name>Prejudiced (Specific, Biased)</name>
+			<karma>-3</karma>
+			<category>Negative</category>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>82</page>
+		</quality>
+		<quality>
+			<name>Prejudiced (Specific, Outspoken)</name>
+			<karma>-5</karma>
+			<category>Negative</category>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>82</page>
+		</quality>
+		<quality>
+			<name>Prejudiced (Specific, Radical)</name>
+			<karma>-8</karma>
+			<category>Negative</category>
+			<limit>no</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>82</page>
+		</quality>
+		<quality>
+			<name>Scorched</name>
+			<karma>-10</karma>
+			<category>Negative</category>
+			<bonus />
+			<source>SR5</source>
+			<page>83</page>
+		</quality>
+		<quality>
+			<name>Sensitive System</name>
+			<karma>-12</karma>
+			<category>Negative</category>
+			<bonus>
+				<sensitivesystem />
+			</bonus>
+			<source>SR5</source>
+			<page>83</page>
+		</quality>
+		<quality>
+			<name>Simsense Vertigo</name>
+			<karma>-5</karma>
+			<category>Negative</category>
+			<bonus />
+			<source>SR5</source>
+			<page>83</page>
+		</quality>
+		<quality>
+			<name>SINner (Corporate)</name>
+			<karma>-25</karma>
+			<category>Negative</category>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>SINner (Criminal)</quality>
+					<quality>SINner (National)</quality>
+					<quality>SINner (Corporate Limited)</quality>
+				</oneof>
+			</forbidden>
+			<source>SR5</source>
+			<page>85</page>
+		</quality>
+		<quality>
+			<name>SINner (National)</name>
+			<karma>-5</karma>
+			<category>Negative</category>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>SINner (Criminal)</quality>
+					<quality>SINner (Corporate)</quality>
+					<quality>SINner (Corporate Limited)</quality>
+				</oneof>
+			</forbidden>
+			<source>SR5</source>
+			<page>84</page>
+		</quality>
+		<quality>
+			<name>SINner (Corporate Limited)</name>
+			<karma>-15</karma>
+			<category>Negative</category>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>SINner (Criminal)</quality>
+					<quality>SINner (National)</quality>
+					<quality>SINner (Corporate)</quality>
+				</oneof>
+			</forbidden>
+			<source>SR5</source>
+			<page>84</page>
+		</quality>
+		<quality>
+			<name>SINner (Criminal)</name>
+			<karma>-10</karma>
+			<category>Negative</category>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>SINner (Corporate)</quality>
+					<quality>SINner (National)</quality>
+					<quality>SINner (Corporate Limited)</quality>
+				</oneof>
+			</forbidden>
+			<source>SR5</source>
+			<page>84</page>
+		</quality>
+		<quality>
+			<name>Social Stress</name>
+			<karma>-8</karma>
+			<category>Negative</category>
+			<bonus />
+			<source>SR5</source>
+			<page>85</page>
+		</quality>
+		<quality>
+			<name>Spirit Bane</name>
+			<karma>-7</karma>
+			<category>Negative</category>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SR5</source>
+			<page>85</page>
+		</quality>
+		<quality>
+			<name>Uncouth</name>
+			<karma>-14</karma>
+			<category>Negative</category>
+			<bonus>
+				<uncouth />
+			</bonus>
+			<source>SR5</source>
+			<page>85</page>
+		</quality>
+		<quality>
+			<name>Consummate Professional</name>
+			<karma>-3</karma>
+			<category>Negative</category>
+			<bonus />
+			<source>AP</source>
+			<page>17</page>
+		</quality>
+		<quality>
+			<name>Combat Junkie</name>
+			<karma>-7</karma>
+			<category>Negative</category>
+			<bonus />
+			<source>RG</source>
+			<page>127</page>
+		</quality>
+		<quality>
+			<name>Blighted (6 Months)</name>
+			<karma>-5</karma>
+			<category>Negative</category>
+			<bonus />
+			<source>RG</source>
+			<page>169</page>
+		</quality>
+		<quality>
+			<name>Blighted (12 Months)</name>
+			<karma>-10</karma>
+			<category>Negative</category>
+			<bonus />
+			<source>RG</source>
+			<page>169</page>
+		</quality>
+		<quality>
+			<name>Blighted (24 Months)</name>
+			<karma>-15</karma>
+			<category>Negative</category>
+			<bonus />
+			<source>RG</source>
+			<page>169</page>
+		</quality>
+		<quality>
+			<name>Earther</name>
+			<karma>-3</karma>
+			<category>Negative</category>
+			<bonus />
+			<source>RG</source>
+			<page>169</page>
+		</quality>
+	</qualities>
+</chummer>

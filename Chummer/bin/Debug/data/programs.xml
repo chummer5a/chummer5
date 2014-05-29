@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chummer>
+	<version>-500</version>
+	<categories>
+		<category>Common Programs</category>
+		<category>Hacking Programs</category>
+		<category>PI-Tac</category>
+		<category>Software</category>
+		<category>Skillsofts</category>
+	</categories>
+	<programs>
+		<program>
+			<name>Browse</name>
+			<category>Common Programs</category>
+			<avail>0</avail>
+			<cost>80</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Configurator</name>
+			<category>Common Programs</category>
+			<avail>0</avail>
+			<cost>80</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Edit</name>
+			<category>Common Programs</category>
+			<avail>0</avail>
+			<cost>80</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Encryption</name>
+			<category>Common Programs</category>
+			<avail>0</avail>
+			<cost>80</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Signal Scrub</name>
+			<category>Common Programs</category>
+			<avail>0</avail>
+			<cost>80</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Toolbox</name>
+			<category>Common Programs</category>
+			<avail>0</avail>
+			<cost>80</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Virtual Machine</name>
+			<category>Common Programs</category>
+			<avail>0</avail>
+			<cost>80</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Armor</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Baby Monitor</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Biofeedback</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Biofeedback Filter</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Blackout</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Decrypt</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Defuse</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Demolition</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Exploit</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Fork</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Guard</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Hammer</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Lockdown</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Mugger</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Shell</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Sneak</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Stealth</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Track</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Wrapper</name>
+			<category>Hacking Programs</category>
+			<avail>4R</avail>
+			<cost>250</cost>
+			<source>SR5</source>
+			<page>245</page>
+		</program>
+		<program>
+			<name>Agent</name>
+			<category>Software</category>
+			<maxrating>6</maxrating>
+			<avail>Rating * 3</avail>
+			<cost>FixedValues([1000],[2000],[3000],[8000],[10000],[12000])</cost>
+			<source>SR5</source>
+			<page>246</page>
+		</program>
+		<program>
+			<name>Activesoft</name>
+			<skill>Varies</skill>
+			<category>Skillsofts</category>
+			<maxrating>6</maxrating>
+			<tags>
+				<tag>Skillsoft</tag>
+				<tag>Activesoft</tag>
+			</tags>
+			<bonus>
+				<selectskill />
+			</bonus>
+			<avail>8</avail>
+			<cost>Rating * 5000</cost>
+			<source>SR5</source>
+			<page>442</page>
+		</program>
+		<program>
+			<name>Knowsoft</name>
+			<skill>Varies</skill>
+			<category>Skillsofts</category>
+			<maxrating>6</maxrating>
+			<tags>
+				<tag>Skillsoft</tag>
+				<tag>Knowsoft</tag>
+			</tags>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>4</avail>
+			<cost>Rating * 2000</cost>
+			<source>SR5</source>
+			<page>442</page>
+		</program>
+		<program>
+			<name>Linguasoft</name>
+			<skill>Varies</skill>
+			<category>Skillsofts</category>
+			<maxrating>6</maxrating>
+			<tags>
+				<tag>Skillsoft</tag>
+				<tag>Linguasoft</tag>
+			</tags>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>2</avail>
+			<cost>Rating * 1000</cost>
+			<source>SR5</source>
+			<page>442</page>
+		</program>
+		<program>
+			<name>Datasoft</name>
+			<category>Software</category>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>4</avail>
+			<cost>120</cost>
+			<source>SR5</source>
+			<page>441</page>
+		</program>
+		<program>
+			<name>Mapsoft</name>
+			<category>Software</category>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>4</avail>
+			<cost>100</cost>
+			<source>SR5</source>
+			<page>441</page>
+		</program>
+		<program>
+			<name>Shopsoft</name>
+			<category>Software</category>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>4</avail>
+			<cost>150</cost>
+			<source>SR5</source>
+			<page>441</page>
+		</program>
+		<program>
+			<name>Tutorsoft</name>
+			<category>Software</category>
+			<maxrating>6</maxrating>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<avail>Rating</avail>
+			<cost>Rating * 400</cost>
+			<source>SR5</source>
+			<page>442</page>
+		</program>
+		<program>
+			<name>PI-Tac Level I (Renraku Taka)</name>
+			<category>PI-Tac</category>
+			<avail>18F</avail>
+			<cost>517500</cost>
+			<source>RG</source>
+			<page>105</page>
+		</program>
+		<program>
+			<name>PI-Tac Level II (Novatech Tactician)</name>
+			<category>PI-Tac</category>
+			<avail>18F</avail>
+			<cost>824000</cost>
+			<source>RG</source>
+			<page>105</page>
+		</program>
+		<program>
+			<name>PI-Tac Level III (ComPac-Esprit General)</name>
+			<category>PI-Tac</category>
+			<avail>24F</avail>
+			<cost>1234000</cost>
+			<source>RG</source>
+			<page>105</page>
+		</program>
+	</programs>
+</chummer>

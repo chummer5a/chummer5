@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chummer>
+	<version>-500</version>
+	<metamagics>
+		<metamagic>
+			<name>Adept Centering</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<source>SR5</source>
+			<page>325</page>
+		</metamagic>
+		<metamagic>
+			<name>Centering</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<source>SR5</source>
+			<page>325</page>
+		</metamagic>
+		<metamagic>
+			<name>Fixation</name>
+			<adept>yes</adept>
+			<magician>yes</magician>
+			<source>SR5</source>
+			<page>325</page>
+		</metamagic>
+		<metamagic>
+			<name>Flexible Signature</name>
+			<adept>yes</adept>
+			<magician>yes</magician>
+			<source>SR5</source>
+			<page>325</page>
+		</metamagic>
+		<metamagic>
+			<name>Masking</name>
+			<adept>yes</adept>
+			<magician>yes</magician>
+			<source>SR5</source>
+			<page>326</page>
+		</metamagic>
+		<metamagic>
+			<name>Power Point</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<source>SR5</source>
+			<page>326</page>
+		</metamagic>
+		<metamagic>
+			<name>Quickening</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<bonus>
+				<quickeningmetamagic/>
+			</bonus>
+			<source>SR5</source>
+			<page>326</page>
+		</metamagic>
+		<metamagic>
+			<name>Shielding</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<source>SR5</source>
+			<page>326</page>
+		</metamagic>
+		<metamagic>
+			<name>Spell Shaping</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<source>SR5</source>
+			<page>326</page>
+		</metamagic>
+	</metamagics>
+</chummer>

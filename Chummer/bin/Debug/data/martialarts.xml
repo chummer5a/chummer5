@@ -1,0 +1,1155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chummer>
+	<version>-500</version>
+	<martialarts>
+		<martialart>
+			<name>52 Blocks</name>
+			<techniques>
+				<technique><name>Called Shot (Disarm)</name></technique>
+				<technique><name>Kick Attack</name></technique>
+				<technique><name>Multiple Opponent Defense (Defender has Defended)</name></technique>
+				<technique><name>Pouncing Dragon</name></technique>
+				<technique><name>Randori (Dirty Trick)</name></technique>
+				<technique><name>Rooted Tree</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>128</page>
+		</martialart>
+		<martialart>
+			<name>Aikido</name>
+			<techniques>
+				<technique><name>Called Shot (Disarm)</name></technique>
+				<technique><name>Constrictor's Crush</name></technique>
+				<technique><name>Counterstrike</name></technique>
+				<technique><name>Throw Person</name></technique>
+				<technique><name>Yielding Force (Counter Strike)</name></technique>
+				<technique><name>Yielding Force (Throw)</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>128</page>
+		</martialart>
+		<martialart>
+			<name>Arnis De Mano</name>
+			<techniques>
+				<technique><name>Close Quarter Defense Against Firearms</name></technique>
+				<technique><name>Multiple Opponent Combat</name></technique>
+				<technique><name>Opposing Force (Parry)</name></technique>
+				<technique><name>Randori (Vitals)</name></technique>
+				<technique><name>Two-Weapon Style Attack</name></technique>
+				<technique><name>Two-Weapon Style Defense</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>128</page>
+		</martialart>
+		<martialart>
+			<name>Bartitsu</name>
+			<techniques>
+				<technique><name>Ballestra</name></technique>
+				<technique><name>Bending of the Reed</name></technique>
+				<technique><name>Called Shot (Disarm)</name></technique>
+				<technique><name>Kick Attack</name></technique>
+				<technique><name>Riposte</name></technique>
+				<technique><name>Sweep</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>128</page>
+		</martialart>
+		<martialart>
+			<name>Boxing (Brawler Style)</name>
+			<techniques>
+				<technique><name>Clinch</name></technique>
+				<technique><name>Full Offense</name></technique>
+				<technique><name>Haymaker</name></technique>
+				<technique><name>Opposing Force (Block)</name></technique>
+				<technique><name>Stagger</name></technique>
+				<technique><name>Thunder Strike</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>129</page>
+		</martialart>
+		<martialart>
+			<name>Boxing (Classic Style)</name>
+			<techniques>
+				<technique><name>Bending of the Reed</name></technique>
+				<technique><name>Called Shot (Feint)</name></technique>
+				<technique><name>Haymaker</name></technique>
+				<technique><name>Oaken Stance (Defense Against Being Knocked Down)</name></technique>
+				<technique><name>Opposing Force (Block)</name></technique>
+				<technique><name>Silken Storm</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>129</page>
+		</martialart>
+		<martialart>
+			<name>Boxing (Swarmer Style)</name>
+			<techniques>
+				<technique><name>Bending of the Reed</name></technique>
+				<technique><name>Called Shot (Feint)</name></technique>
+				<technique><name>Clinch</name></technique>
+				<technique><name>Haymaker</name></technique>
+				<technique><name>Silken Storm</name></technique>
+				<technique><name>Two-Headed Snake</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>129</page>
+		</martialart>
+		<martialart>
+			<name>Capoeira</name>
+			<techniques>
+				<technique><name>Bending of the Reed</name></technique>
+				<technique><name>Called Shot (Feint)</name></technique>
+				<technique><name>Kick Attack</name></technique>
+				<technique><name>Kip-Up</name></technique>
+				<technique><name>Sweep</name></technique>
+				<technique><name>Tricking</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>129</page>
+		</martialart>
+		<martialart>
+			<name>Carromeleg</name>
+			<techniques>
+				<technique><name>Counterstrike</name></technique>
+				<technique><name>Iaijutsu</name></technique>
+				<technique><name>Imposing Stone</name></technique>
+				<technique><name>Riposte</name></technique>
+				<technique><name>Shadow Block</name></technique>
+				<technique><name>Stagger</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>129</page>
+		</martialart>
+		<martialart>
+			<name>Chakram Fighting</name>
+			<techniques>
+				<technique><name>Called Shot (Pin)</name></technique>
+				<technique><name>Close Quarter Firearms (Thrown Weapons)</name></technique>
+				<technique><name>Knucklebreaker (Blast Out of Hands)</name></technique>
+				<technique><name>Multiple Opponent Defense (Friends in Melee)</name></technique>
+				<technique><name>Opposing Force (Block)</name></technique>
+				<technique><name>Ti Khao</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>129</page>
+		</martialart>
+		<martialart>
+			<name>Drunken Boxing</name>
+			<techniques>
+				<technique><name>Called Shot (Disarm)</name></technique>
+				<technique><name>Called Shot (Feint)</name></technique>
+				<technique><name>Defiant Dance</name></technique>
+				<technique><name>Full Offense</name></technique>
+				<technique><name>Karmic Response</name></technique>
+				<technique><name>Two-Headed Snake</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>130</page>
+		</martialart>
+		<martialart>
+			<name>Fiore Dei Liberi</name>
+			<techniques>
+				<technique><name>Called Shot (Break Weapon)</name></technique>
+				<technique><name>Opposing Force (Parry)</name></technique>
+				<technique><name>Riposte</name></technique>
+				<technique><name>Two-Weapon Style Attack</name></technique>
+				<technique><name>Two-Weapon Style Defense</name></technique>
+				<technique><name>Yielding Force (Riposte)</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>130</page>
+		</martialart>
+		<martialart>
+			<name>Firefight</name>
+			<techniques>
+				<technique><name>Clinch</name></technique>
+				<technique><name>Close Quarter Defense Against Firearms</name></technique>
+				<technique><name>Close Quarter Firearms (Pistols)</name></technique>
+				<technique><name>Multiple Opponent Defense (Friends in Melee)</name></technique>
+				<technique><name>Oaken Stance (Defense Against Being Knocked Down)</name></technique>
+				<technique><name>Oaken Stance (Defense Against Being Charged)</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>130</page>
+		</martialart>
+		<martialart>
+			<name>Gun Kata</name>
+			<techniques>
+				<technique><name>Close Quarter Firearms (Pistols)</name></technique>
+				<technique><name>Kip-Up</name></technique>
+				<technique><name>Multiple Opponent Defense (Friends in Melee)</name></technique>
+				<technique><name>Opposing Force (Block)</name></technique>
+				<technique><name>Tricking</name></technique>
+				<technique><name>Stagger</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>130</page>
+		</martialart>
+		<martialart>
+			<name>Jeet Kune Do</name>
+			<techniques>
+				<technique><name>Bending of the Reed</name></technique>
+				<technique><name>Counterstrike</name></technique>
+				<technique><name>Kick Attack</name></technique>
+				<technique><name>Opposing Force (Block)</name></technique>
+				<technique><name>Randori (Vitals)</name></technique>
+				<technique><name>Yielding Force (Counterstrike)</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>130</page>
+		</martialart>
+		<martialart>
+			<name>Jogo Du Pau</name>
+			<techniques>
+				<technique><name>Barbed Hooks</name></technique>
+				<technique><name>Herding</name></technique>
+				<technique><name>Oaken Stance (Defense Against Being Charged)</name></technique>
+				<technique><name>Oaken Stance (Defense Against Being Knocked Down)</name></technique>
+				<technique><name>Opposing Force (Parry)</name></technique>
+				<technique><name>Pouncing Dragon</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>130</page>
+		</martialart>
+		<martialart>
+			<name>Jujitsu</name>
+			<techniques>
+				<technique><name>Called Shot (Disarm)</name></technique>
+				<technique><name>Chin Na</name></technique>
+				<technique><name>Clinch</name></technique>
+				<technique><name>Sacrificial Throw</name></technique>
+				<technique><name>Sweep</name></technique>
+				<technique><name>Throw Person</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>131</page>
+		</martialart>
+		<martialart>
+			<name>Karate</name>
+			<techniques>
+				<technique><name>Counterstrike</name></technique>
+				<technique><name>Kick Attack</name></technique>
+				<technique><name>Kip-Up</name></technique>
+				<technique><name>Opposing Force (Block)</name></technique>
+				<technique><name>Sweep</name></technique>
+				<technique><name>Yielding Force (Counterstrike)</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>131</page>
+		</martialart>
+		<martialart>
+			<name>Kenjutsu</name>
+			<techniques>
+				<technique><name>Bending of the Reed</name></technique>
+				<technique><name>Finishing Move</name></technique>
+				<technique><name>Iaijutsu</name></technique>
+				<technique><name>Multiple Opponent Combat</name></technique>
+				<technique><name>Multiple Opponent Defense (Friends in Melee)</name></technique>
+				<technique><name>Opposing Force (Parry)</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>131</page>
+		</martialart>
+		<martialart>
+			<name>Knight Errant Tactical</name>
+			<techniques>
+				<technique><name>Barbed Hooks</name></technique>
+				<technique><name>Broken Fang</name></technique>
+				<technique><name>Called Shot (Break Weapon)></name></technique>
+				<technique><name>Close Quarter Defense Against Firearms</name></technique>
+				<technique><name>Hammer Fist</name></technique>
+				<technique><name>Imposing Stone</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>132</page>
+		</martialart>
+		<martialart>
+			<name>Krav Maga</name>
+			<techniques>
+				<technique><name>Called Shot (Disarm)</name></technique>
+				<technique><name>Clinch</name></technique>
+				<technique><name>Constrictor's Crush</name></technique>
+				<technique><name>Imposing Stone</name></technique>
+				<technique><name>Releasing Talons</name></technique>
+				<technique><name>Ti Khao</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>132</page>
+		</martialart>
+		<martialart>
+			<name>Kunst Des Fechtens</name>
+			<techniques>
+				<technique><name>Half Sword</name></technique>
+				<technique><name>Multiple Opponent Combat</name></technique>
+				<technique><name>Opposing Force (Parry)</name></technique>
+				<technique><name>Pouncing Dragon</name></technique>
+				<technique><name>Riposte</name></technique>
+				<technique><name>Yielding Force (Riposte)</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>132</page>
+		</martialart>
+		<martialart>
+			<name>Kyujutsu</name>
+			<techniques>
+				<technique><name>Called Shot (Pin)</name></technique>
+				<technique><name>Close Quarter Firearms (Archery)</name></technique>
+				<technique><name>Hammer Fist</name></technique>
+				<technique><name>Knucklebreaker (Blast Out of Hand)</name></technique>
+				<technique><name>Soaring Shackles</name></technique>
+				<technique><name>Tricking</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>132</page>
+		</martialart>
+		<martialart>
+			<name>La Verdadera Destreza</name>
+			<techniques>
+				<technique><name>Ballestra</name></technique>
+				<technique><name>Multiple Opponent Combat</name></technique>
+				<technique><name>Multiple Opponent Defense (Friends in Melee)</name></technique>
+				<technique><name>Multiple Opponent Defense (Defender has Defended)</name></technique>
+				<technique><name>Opposing Force (Parry)</name></technique>
+				<technique><name>Riposte</name></technique>
+				<technique><name>Yielding Force (Riposte)</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>132</page>
+		</martialart>
+		<martialart>
+			<name>Lone Star Tactical</name>
+			<techniques>
+				<technique><name>Called Shot (Break Weapon)</name></technique>
+				<technique><name>Close Quarter Defense Against Firearms</name></technique>
+				<technique><name>Herding</name></technique>
+				<technique><name>Multiple Opponent Defense (Defender has Defended</name></technique>
+				<technique><name>Oaken Stance (Defense Against Being Charged)</name></technique>
+				<technique><name>Rooted Tree</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>132</page>
+		</martialart>
+		<martialart>
+			<name>Muay Thai</name>
+			<techniques>
+				<technique><name>Clinch</name></technique>
+				<technique><name>Crushing Jaws</name></technique>
+				<technique><name>Finishing Move</name></technique>
+				<technique><name>Kick Attack</name></technique>
+				<technique><name>Thunderstrike</name></technique>
+				<technique><name>Ti Khao</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>133</page>
+		</martialart>
+		<martialart>
+			<name>Ninjutsu</name>
+			<techniques>
+				<technique><name>Counterstrike</name></technique>
+				<technique><name>Dim Mak</name></technique>
+				<technique><name>Flying Kick</name></technique>
+				<technique><name>Kick Attack</name></technique>
+				<technique><name>Randori (Dirty Trick)</name></technique>
+				<technique><name>Tricking</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>133</page>
+		</martialart>
+		<martialart>
+			<name>Okichitaw</name>
+			<techniques>
+				<technique><name>Called Shot (Pin)</name></technique>
+				<technique><name>Counterstrike</name></technique>
+				<technique><name>Oaken Stance (Parry)</name></technique>
+				<technique><name>Randori (Vitals)</name></technique>
+				<technique><name>Shadow Block</name></technique>
+				<technique><name>Sweep</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>133</page>
+		</martialart>
+		<martialart>
+			<name>Parkour</name>
+			<techniques>
+				<technique><name>Bending of the Reed</name></technique>
+				<technique><name>Kip-Up</name></technique>
+				<technique><name>Leaping Mantis</name></technique>
+				<technique><name>Monkey Climb</name></technique>
+				<technique><name>Rolling Cloud</name></technique>
+				<technique><name>Shadow Block</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>133</page>
+		</martialart>
+		<martialart>
+			<name>Pentjak-Silat</name>
+			<techniques>
+				<technique><name>Called Shot (Break Weapon)</name></technique>
+				<technique><name>Called Shot (Disarm)</name></technique>
+				<technique><name>Dim Mak</name></technique>
+				<technique><name>Jiao Di (Charge)</name></technique>
+				<technique><name>Randori (Vitals)</name></technique>
+				<technique><name>Silken Storm</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>133</page>
+		</martialart>
+		<martialart>
+			<name>Quarterstaff Fighting</name>
+			<techniques>
+				<technique><name>Jiao Di (Knock Down)</name></technique>
+				<technique><name>Multiple Opponent Combat</name></technique>
+				<technique><name>Opposing Force (Parry)</name></technique>
+				<technique><name>Sweep</name></technique>
+				<technique><name>Stagger</name></technique>
+				<technique><name>Thunderstrike</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>133</page>
+		</martialart>
+		<martialart>
+			<name>Sangre Y Acero</name>
+			<techniques>
+				<technique><name>Called Shot (Break Weapon)</name></technique>
+				<technique><name>Clinch</name></technique>
+				<technique><name>Crushing Jaws</name></technique>
+				<technique><name>Finishing Move</name></technique>
+				<technique><name>Pouncing Dragon</name></technique>
+				<technique><name>Tricking</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>133</page>
+		</martialart>
+		<martialart>
+			<name>Tae Kwon Do</name>
+			<techniques>
+				<technique><name>Counterstrike</name></technique>
+				<technique><name>Flying Kick</name></technique>
+				<technique><name>Kick Attack</name></technique>
+				<technique><name>Opposing Force (Block)</name></technique>
+				<technique><name>Sweep</name></technique>
+				<technique><name>Tricking</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>133</page>
+		</martialart>
+		<martialart>
+			<name>The Cowboy Way</name>
+			<techniques>
+				<technique><name>Called Shot (Entanglement)</name></technique>
+				<technique><name>Hammerfist</name></technique>
+				<technique><name>Haymaker</name></technique>
+				<technique><name>Knucklebreaker (Blast Out of Hands)</name></technique>
+				<technique><name>Stagger</name></technique>
+				<technique><name>Tricking</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>133</page>
+		</martialart>
+		<martialart>
+			<name>Turkish Archery</name>
+			<techniques>
+				<technique><name>Called Shot (Pin)</name></technique>
+				<technique><name>Close Quarters Defense Against Firearms</name></technique>
+				<technique><name>Hammerfist</name></technique>
+				<technique><name>Silken Storm</name></technique>
+				<technique><name>Soaring Shackles</name></technique>
+				<technique><name>Thunder Strike</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>134</page>
+		</martialart>
+		<martialart>
+			<name>Whip Fighting</name>
+			<techniques>
+				<technique><name>Bending of the Reed</name></technique>
+				<technique><name>Called Shot (Entanglement)</name></technique>
+				<technique><name>Hammerfist</name></technique>
+				<technique><name>Herding</name></technique>
+				<technique><name>Multiple Opponent Defense (Friends in Melee)</name></technique>
+				<technique><name>Multiple Opponent Combat</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>134</page>
+		</martialart>
+		<martialart>
+			<name>Wildcat</name>
+			<techniques>
+				<technique><name>Clinch</name></technique>
+				<technique><name>Counterstrike</name></technique>
+				<technique><name>Dim Mak</name></technique>
+				<technique><name>Finishing Move</name></technique>
+				<technique><name>Multiple Opponent Combat</name></technique>
+				<technique><name>Ti Khao</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>134</page>
+		</martialart>
+		<martialart>
+			<name>Wrestling (Sport Style)</name>
+			<techniques>
+				<technique><name>Clinch</name></technique>
+				<technique><name>Constrictor's Crush</name></technique>
+				<technique><name>Jiao Di (Knock Down)</name></technique>
+				<technique><name>Karmic Response</name></technique>
+				<technique><name>Sweep</name></technique>
+				<technique><name>Throw Person</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>134</page>
+		</martialart>
+		<martialart>
+			<name>Wrestling (Sumo Style)</name>
+			<techniques>
+				<technique><name>Barbed Hooks</name></technique>
+				<technique><name>Clinch</name></technique>
+				<technique><name>Herding</name></technique>
+				<technique><name>Jiao Di (Knock Down)</name></technique>
+				<technique><name>Rooted Tree</name></technique>
+				<technique><name>Throw Person</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>134</page>
+		</martialart>
+		<martialart>
+			<name>Wrestling (Professional Style)</name>
+			<techniques>
+				<technique><name>Clinch</name></technique>
+				<technique><name>Jiao Di (Charge)</name></technique>
+				<technique><name>Karmic Response</name></technique>
+				<technique><name>Sacrifice Throw</name></technique>
+				<technique><name>Tricking</name></technique>
+				<technique><name>Yielding Force (Throw)</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>134</page>
+		</martialart>
+		<martialart>
+			<name>Wrestling (MMA Style)</name>
+			<techniques>
+				<technique><name>Clinch</name></technique>
+				<technique><name>Constrictor's Crush</name></technique>
+				<technique><name>Crushing Jaws</name></technique>
+				<technique><name>Jiao Di (Knock Down)</name></technique>
+				<technique><name>Kick Attack</name></technique>
+				<technique><name>Pouncing Dragon</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>135</page>
+		</martialart>
+		<martialart>
+			<name>Wudang Sword</name>
+			<techniques>
+				<technique><name>Ballestra</name></technique>
+				<technique><name>Finishing Move</name></technique>
+				<technique><name>Flying Kick</name></technique>
+				<technique><name>Hammerfist</name></technique>
+				<technique><name>Iaijutsu</name></technique>
+				<technique><name>Riposte</name></technique>
+			</techniques>
+			<source>RG</source>
+			<page>135</page>
+		</martialart>
+		<martialart>
+			<name>One Trick Pony</name>
+			<quality>yes</quality>
+			<techniques>
+				<technique>
+					<name>Ballestra</name>
+				</technique>
+				<technique>
+					<name>Barbed Hooks</name>
+				</technique>
+				<technique>
+					<name>Bending of the Reed</name>
+				</technique>
+				<technique>
+					<name>Broken Fang</name>
+				</technique>
+				<technique>
+					<name>Called Shot (Break Weapon)</name>
+				</technique>
+				<technique>
+					<name>Called Shot (Disarm)</name>
+				</technique>
+				<technique>
+					<name>Called Shot (Entanglement)</name>
+				</technique>
+				<technique>
+					<name>Called Shot (Feint)</name>
+				</technique>
+				<technique>
+					<name>Called Shot (Pin)</name>
+				</technique>
+				<technique>
+					<name>Chin Na</name>
+				</technique>
+				<technique>
+					<name>Clinch</name>
+				</technique>
+				<technique>
+					<name>Close Quarter Firearms (Archery)</name>
+				</technique>
+				<technique>
+					<name>Close Quarter Firearms (Thrown Weapons)</name>
+				</technique>
+				<technique>
+					<name>Close Quarter Firearms (Automatics)</name>
+				</technique>
+				<technique>
+					<name>Close Quarter Firearms (Exotic Ranged Weapon)</name>
+				</technique>
+				<technique>
+					<name>Close Quarter Firearms (Heavy Weapons)</name>
+				</technique>
+				<technique>
+					<name>Close Quarter Firearms (Longarms)</name>
+				</technique>
+				<technique>
+					<name>Close Quarter Firearms (Pistols)</name>
+				</technique>
+				<technique>
+					<name>Close Quarter Defense Against Firearms</name>
+				</technique>
+				<technique>
+					<name>Constrictor's Crush</name>
+				</technique>
+				<technique>
+					<name>Counterstrike</name>
+				</technique>
+				<technique>
+					<name>Crushing Jaws</name>
+				</technique>
+				<technique>
+					<name>Defiant Dance</name>
+				</technique>
+				<technique>
+					<name>Dim Mak</name>
+				</technique>
+				<technique>
+					<name>Finishing Move</name>
+				</technique>
+				<technique>
+					<name>Flying Kick</name>
+				</technique>
+				<technique>
+					<name>Full Offense</name>
+				</technique>
+				<technique>
+					<name>Grasping Vines</name>
+				</technique>
+				<technique>
+					<name>Half Sword</name>
+				</technique>
+				<technique>
+					<name>Hammerfist</name>
+				</technique>
+				<technique>
+					<name>Haymaker</name>
+				</technique>
+				<technique>
+					<name>Herding</name>
+				</technique>
+				<technique>
+					<name>Iaijutsu</name>
+				</technique>
+				<technique>
+					<name>Imposing Stone</name>
+				</technique>
+				<technique>
+					<name>Jiao Di (Charge)</name>
+				</technique>
+				<technique>
+					<name>Jiao Di (Knock Down)</name>
+				</technique>
+				<technique>
+					<name>Karmic Response</name>
+				</technique>
+				<technique>
+					<name>Kick Attack</name>
+				</technique>
+				<technique>
+					<name>Kip-Up</name>
+				</technique>
+				<technique>
+					<name>Knucklebreaker (Disarm)</name>
+				</technique>
+				<technique>
+					<name>Knucklebreaker (Blast Out of Hands)</name>
+				</technique>
+				<technique>
+					<name>Leaping Mantis</name>
+				</technique>
+				<technique>
+					<name>Monkey Climb</name>
+				</technique>
+				<technique>
+					<name>Multiple Opponent Combat</name>
+				</technique>
+				<technique>
+					<name>Multiple Opponent Defense (Friends in Melee)</name>
+				</technique>
+				<technique>
+					<name>Multiple Opponent Defense (Defender has Defended)</name>
+				</technique>
+				<technique>
+					<name>Oaken Stance (Defense Against Being Knocked Down)</name>
+				</technique>
+				<technique>
+					<name>Oaken Stance (Defense Against Being Charged)</name>
+				</technique>
+				<technique>
+					<name>Opposing Force (Block)</name>
+				</technique>
+				<technique>
+					<name>Opposing Force (Parry)</name>
+				</technique>
+				<technique>
+					<name>Releasing Talons</name>
+				</technique>
+				<technique>
+					<name>Randori (Dirty Trick)</name>
+				</technique>
+				<technique>
+					<name>Randori (Vitals)</name>
+				</technique>
+				<technique>
+					<name>Randori (Specific Location)</name>
+				</technique>
+				<technique>
+					<name>Riposte</name>
+				</technique>
+				<technique>
+					<name>Rooted Tree</name>
+				</technique>
+				<technique>
+					<name>Sacrifice Throw</name>
+				</technique>
+				<technique>
+					<name>Shadow Block</name>
+				</technique>
+				<technique>
+					<name>Silken Storm</name>
+				</technique>
+				<technique>
+					<name>Soaring Shackles</name>
+				</technique>
+				<technique>
+					<name>Stagger</name>
+				</technique>
+				<technique>
+					<name>Pouncing Dragon</name>
+				</technique>
+				<technique>
+					<name>Rolling Clouds</name>
+				</technique>
+				<technique>
+					<name>Sweep</name>
+				</technique>
+				<technique>
+					<name>Throw Person</name>
+				</technique>
+				<technique>
+					<name>Thunder Strike</name>
+				</technique>
+				<technique>
+					<name>Ti Khao</name>
+				</technique>
+				<technique>
+					<name>Tricking</name>
+				</technique>
+				<technique>
+					<name>Two-Headed Snake</name>
+				</technique>
+				<technique>
+					<name>Two-Weapon Style Attack</name>
+				</technique>
+				<technique>
+					<name>Two-Weapon Style Defense</name>
+				</technique>
+				<technique>
+					<name>Yielding Force (Riposte)</name>
+				</technique>
+				<technique>
+					<name>Yielding Force (Counterstrike)</name>
+				</technique>
+				<technique>
+					<name>Yielding Force (Throw)</name>
+				</technique>
+			</techniques>
+			<source>RG</source>
+			<page>127</page>
+		</martialart>
+	</martialarts>
+	<techniques>
+		<technique>
+			<name>Ballestra</name>
+			<source>RG</source>
+			<page>135</page>
+		</technique>
+		<technique>
+			<name>Barbed Hooks</name>
+			<source>RG</source>
+			<page>135</page>
+		</technique>
+		<technique>
+			<name>Bending of the Reed</name>
+			<source>RG</source>
+			<page>135</page>
+		</technique>
+		<technique>
+			<name>Broken Fang</name>
+			<source>RG</source>
+			<page>135</page>
+		</technique>
+		<technique>
+			<name>Called Shot (Break Weapon)</name>
+			<source>RG</source>
+			<page>136</page>
+		</technique>
+		<technique>
+			<name>Called Shot (Disarm)</name>
+			<source>RG</source>
+			<page>136</page>
+		</technique>
+		<technique>
+			<name>Called Shot (Entanglement)</name>
+			<source>RG</source>
+			<page>136</page>
+		</technique>
+		<technique>
+			<name>Called Shot (Feint)</name>
+			<source>RG</source>
+			<page>136</page>
+		</technique>
+		<technique>
+			<name>Called Shot (Pin)</name>
+			<source>RG</source>
+			<page>136</page>
+		</technique>
+		<technique>
+			<name>Chin Na</name>
+			<source>RG</source>
+			<page>136</page>
+		</technique>
+		<technique>
+			<name>Clinch</name>
+			<source>RG</source>
+			<page>136</page>
+		</technique>
+		<technique>
+			<name>Close Quarter Firearms (Archery)</name>
+			<source>RG</source>
+			<page>136</page>
+		</technique>
+		<technique>
+			<name>Close Quarter Firearms (Thrown Weapons)</name>
+			<source>RG</source>
+			<page>136</page>
+		</technique>
+		<technique>
+			<name>Close Quarter Firearms (Automatics)</name>
+			<source>RG</source>
+			<page>136</page>
+		</technique>
+		<technique>
+			<name>Close Quarter Firearms (Exotic Ranged Weapon)</name>
+			<source>RG</source>
+			<page>136</page>
+		</technique>
+		<technique>
+			<name>Close Quarter Firearms (Heavy Weapons)</name>
+			<source>RG</source>
+			<page>136</page>
+		</technique>
+		<technique>
+			<name>Close Quarter Firearms (Longarms)</name>
+			<source>RG</source>
+			<page>136</page>
+		</technique>
+		<technique>
+			<name>Close Quarter Firearms (Pistols)</name>
+			<source>RG</source>
+			<page>136</page>
+		</technique>
+		<technique>
+			<name>Close Quarter Defense Against Firearms</name>
+			<source>RG</source>
+			<page>137</page>
+		</technique>
+		<technique>
+			<name>Constrictor's Crush</name>
+			<source>RG</source>
+			<page>137</page>
+		</technique>
+		<technique>
+			<name>Counterstrike</name>
+			<source>RG</source>
+			<page>137</page>
+		</technique>
+		<technique>
+			<name>Crushing Jaws</name>
+			<source>RG</source>
+			<page>137</page>
+		</technique>
+		<technique>
+			<name>Defiant Dance</name>
+			<source>RG</source>
+			<page>137</page>
+		</technique>
+		<technique>
+			<name>Dim Mak</name>
+			<source>RG</source>
+			<page>137</page>
+		</technique>
+		<technique>
+			<name>Finishing Move</name>
+			<source>RG</source>
+			<page>137</page>
+		</technique>
+		<technique>
+			<name>Flying Kick</name>
+			<source>RG</source>
+			<page>137</page>
+		</technique>
+		<technique>
+			<name>Full Offense</name>
+			<source>RG</source>
+			<page>137</page>
+		</technique>
+		<technique>
+			<name>Grasping Vines</name>
+			<source>RG</source>
+			<page>137</page>
+		</technique>
+		<technique>
+			<name>Half Sword</name>
+			<source>RG</source>
+			<page>137</page>
+		</technique>
+		<technique>
+			<name>Hammerfist</name>
+			<source>RG</source>
+			<page>138</page>
+		</technique>
+		<technique>
+			<name>Haymaker</name>
+			<source>RG</source>
+			<page>138</page>
+		</technique>
+		<technique>
+			<name>Herding</name>
+			<source>RG</source>
+			<page>138</page>
+		</technique>
+		<technique>
+			<name>Iaijutsu</name>
+			<source>RG</source>
+			<page>138</page>
+		</technique>
+		<technique>
+			<name>Imposing Stone</name>
+			<source>RG</source>
+			<page>138</page>
+		</technique>
+		<technique>
+			<name>Jiao Di (Charge)</name>
+			<source>RG</source>
+			<page>138</page>
+		</technique>
+		<technique>
+			<name>Jiao Di (Knock Down)</name>
+			<source>RG</source>
+			<page>138</page>
+		</technique>
+		<technique>
+			<name>Karmic Response</name>
+			<source>RG</source>
+			<page>138</page>
+		</technique>
+		<technique>
+			<name>Kick Attack</name>
+			<source>RG</source>
+			<page>138</page>
+		</technique>
+		<technique>
+			<name>Kip-Up</name>
+			<source>RG</source>
+			<page>139</page>
+		</technique>
+		<technique>
+			<name>Knucklebreaker (Disarm)</name>
+			<source>RG</source>
+			<page>139</page>
+		</technique>
+		<technique>
+			<name>Knucklebreaker (Blast Out of Hands)</name>
+			<source>RG</source>
+			<page>139</page>
+		</technique>
+		<technique>
+			<name>Leaping Mantis</name>
+			<source>RG</source>
+			<page>139</page>
+		</technique>
+		<technique>
+			<name>Monkey Climb</name>
+			<source>RG</source>
+			<page>139</page>
+		</technique>
+		<technique>
+			<name>Multiple Opponent Combat</name>
+			<source>RG</source>
+			<page>139</page>
+		</technique>
+		<technique>
+			<name>Multiple Opponent Defense (Friends in Melee)</name>
+			<source>RG</source>
+			<page>139</page>
+		</technique>
+		<technique>
+			<name>Multiple Opponent Defense (Defender has Defended)</name>
+			<source>RG</source>
+			<page>139</page>
+		</technique>
+		<technique>
+			<name>Oaken Stance (Defense Against Being Knocked Down)</name>
+			<source>RG</source>
+			<page>139</page>
+		</technique>
+		<technique>
+			<name>Oaken Stance (Defense Against Being Charged)</name>
+			<source>RG</source>
+			<page>139</page>
+		</technique>
+		<technique>
+			<name>Opposing Force (Block)</name>
+			<source>RG</source>
+			<page>139</page>
+		</technique>
+		<technique>
+			<name>Opposing Force (Parry)</name>
+			<source>RG</source>
+			<page>139</page>
+		</technique>
+		<technique>
+			<name>Releasing Talons</name>
+			<source>RG</source>
+			<page>139</page>
+		</technique>
+		<technique>
+			<name>Randori (Dirty Trick)</name>
+			<source>RG</source>
+			<page>140</page>
+		</technique>
+		<technique>
+			<name>Randori (Vitals)</name>
+			<source>RG</source>
+			<page>140</page>
+		</technique>
+		<technique>
+			<name>Randori (Specific Location)</name>
+			<source>RG</source>
+			<page>140</page>
+		</technique>
+		<technique>
+			<name>Riposte</name>
+			<source>RG</source>
+			<page>140</page>
+		</technique>
+		<technique>
+			<name>Rooted Tree</name>
+			<source>RG</source>
+			<page>140</page>
+		</technique>
+		<technique>
+			<name>Sacrifice Throw</name>
+			<source>RG</source>
+			<page>140</page>
+		</technique>
+		<technique>
+			<name>Shadow Block</name>
+			<source>RG</source>
+			<page>140</page>
+		</technique>
+		<technique>
+			<name>Silken Storm</name>
+			<source>RG</source>
+			<page>140</page>
+		</technique>
+		<technique>
+			<name>Soaring Shackles</name>
+			<source>RG</source>
+			<page>141</page>
+		</technique>
+		<technique>
+			<name>Stagger</name>
+			<source>RG</source>
+			<page>141</page>
+		</technique>
+		<technique>
+			<name>Pouncing Dragon</name>
+			<source>RG</source>
+			<page>141</page>
+		</technique>
+		<technique>
+			<name>Rolling Clouds</name>
+			<source>RG</source>
+			<page>141</page>
+		</technique>
+		<technique>
+			<name>Sweep</name>
+			<source>RG</source>
+			<page>141</page>
+		</technique>
+		<technique>
+			<name>Throw Person</name>
+			<source>RG</source>
+			<page>141</page>
+		</technique>
+		<technique>
+			<name>Thunder Strike</name>
+			<source>RG</source>
+			<page>141</page>
+		</technique>
+		<technique>
+			<name>Ti Khao</name>
+			<source>RG</source>
+			<page>141</page>
+		</technique>
+		<technique>
+			<name>Tricking</name>
+			<source>RG</source>
+			<page>141</page>
+		</technique>
+		<technique>
+			<name>Two-Headed Snake</name>
+			<source>RG</source>
+			<page>141</page>
+		</technique>
+		<technique>
+			<name>Two-Weapon Style Attack</name>
+			<source>RG</source>
+			<page>141</page>
+		</technique>
+		<technique>
+			<name>Two-Weapon Style Defense</name>
+			<source>RG</source>
+			<page>141</page>
+		</technique>
+		<technique>
+			<name>Yielding Force (Riposte)</name>
+			<source>RG</source>
+			<page>141</page>
+		</technique>
+		<technique>
+			<name>Yielding Force (Counterstrike)</name>
+			<source>RG</source>
+			<page>141</page>
+		</technique>
+		<technique>
+			<name>Yielding Force (Throw)</name>
+			<source>RG</source>
+			<page>141</page>
+		</technique>
+	</techniques>
+</chummer>

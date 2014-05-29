@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chummer>
+	<version>-500</version>
+	<mentors>
+		<mentor>
+			<name>Bear</name>
+			<advantage>All: +2 dice for tests to resist damage (not including drain).</advantage>
+			<disadvantage>You might go berserk when you take Physical damage in combat or if someone under your care is badly injured. Make a Simple Charisma + Willpower Test (wound modifiers apply). You go berserk for 3 turns minus 1 turn per hit, so 3 or more hits averts the berserk rage entirely. If you’re already going berserk, increase the duration. When you’re berserk, you go after your attacker(s) without regard for your own safety. If you incapacitate the target(s) before the time is up, the berserk fury dissipates.</disadvantage>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice for Health spells, preparations, and rituals</name>
+					<bonus>
+						<spellcategory>
+							<name>Health</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice>
+					<name>Adept: 1 free level of Rapid Healing</name>
+					<bonus>
+						<specificpower>
+							<name>Rapid Healing</name>
+							<val>1</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SR5</source>
+			<page>321</page>
+		</mentor>
+		<mentor>
+			<name>Cat</name>
+			<advantage>All: +2 dice to either Gymnastics or Infiltration Tests (choose one).</advantage>
+			<disadvantage>Cat magicians toy with their prey. Unless you succeed in a Charisma + Willpower (3) Test at the start of combat, you cannot make an attack that incapacitates your target. If you take any Physical damage, all this playing around stops.</disadvantage>
+			<choices>
+				<choice>
+					<name>+2 dice on Gymnastics Tests</name>
+					<bonus>
+						<specificskill>
+							<name>Gymnastics</name>
+							<bonus>2</bonus>
+							<applytorating>no</applytorating>
+						</specificskill>
+					</bonus>
+				</choice>
+				<choice>
+					<name>+2 dice on Infiltration Tests</name>
+					<bonus>
+						<specificskill>
+							<name>Infiltration</name>
+							<bonus>2</bonus>
+							<applytorating>no</applytorating>
+						</specificskill>
+					</bonus>
+				</choice>
+				<choice set="2">
+					<name>Magician: +2 dice for Illusion spells, preparations, and rituals</name>
+					<bonus>
+						<spellcategory>
+							<name>Illusion</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice set="2">
+					<name>Adept: 2 free levels of Light Body</name>
+					<bonus>
+						<specificpower>
+							<name>Light Body</name>
+							<val>2</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SR5</source>
+			<page>321</page>
+		</mentor>
+		<mentor>
+			<name>Dog</name>
+			<advantage>All: +2 dice for Tracking tests.</advantage>
+			<disadvantage>A Dog magician is stubbornly loyal. You can never leave someone behind, betray your comrades, or let another sacrifice themselves in your place without making a successful Charisma + Willpower (3) Test.</disadvantage>
+			<bonus>
+				<specificskill>
+					<name>Tracking</name>
+					<bonus>2</bonus>
+					<applytorating>no</applytorating>
+				</specificskill>
+			</bonus>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice for Detection spells, preparations, and rituals</name>
+					<bonus>
+						<spellcategory>
+							<name>Detection</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice>
+					<name>Adept: 2 free Improved Sense powers</name>
+					<bonus>
+						<specificpower>
+							<name>Improved Sense</name>
+							<val>2</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SR5</source>
+			<page>321</page>
+		</mentor>
+		<mentor>
+			<name>Dragonslayer</name>
+			<advantage>All: +2 dice pool modifier for one social skill of choice.</advantage>
+			<advantage></advantage>
+			<disadvantage>If you break a promise, whether by choice or by accident, you take a –1 dice pool modifier to all actions until you make good on your promise.</disadvantage>
+			<bonus>
+				<selectskill skillcategory="Social Active">
+					<bonus>2</bonus>
+					<applytorating>no</applytorating>
+				</selectskill>
+			</bonus>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice for Combat spells, preparations, and rituals</name>
+					<bonus>
+						<spellcategory>
+							<name>Detection</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice>
+					<name>Adept: 1 free level of Enhanced Accuracy (skill) and 1 free level of Danger Sense</name>
+					<bonus>
+						<specificpower>
+							<name>Enhanced Accuracy (skill)</name>
+							<val>1</val>
+						</specificpower>
+						<specificpower>
+							<name>Danger Sense</name>
+							<val>1</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SR5</source>
+			<page>321</page>
+		</mentor>
+		<mentor>
+			<name>Eagle</name>
+			<advantage>All: +2 dice to Perception Tests.</advantage>
+			<disadvantage>You get the Allergy (pollutants, mild) quality (p. 322; no bonus Karma for this negative quality).</disadvantage>
+			<addqualities>
+				<addquality select="Pollutants">Allergy (Common, Mild)</addquality>
+			</addqualities>
+			<bonus>
+				<specificskill>
+					<name>Perception</name>
+					<bonus>2</bonus>
+					<applytorating>no</applytorating>
+				</specificskill>
+			</bonus>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice summoning spirits of air</name>
+				</choice>
+				<choice>
+					<name>Adept: 1 free level of Combat Sense</name>
+					<bonus>
+						<specificpower>
+							<name>Combat Sense</name>
+							<val>1</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SR5</source>
+			<page>322</page>
+		</mentor>
+		<mentor>
+			<name>Fire-Bringer</name>
+			<advantage>All: +2 dice to Artisan skill tests or Alchemy skill tests (choose one).</advantage>
+			<disadvantage>When someone sincerely asks you for help, you can’t refuse without succeeding in a Simple Charisma + Willpower (3) Test.</disadvantage>
+			<choices>
+				<choice>
+					<name>+2 dice on Artisan Tests</name>
+					<bonus>
+						<specificskill>
+							<name>Artisan</name>
+							<bonus>2</bonus>
+							<applytorating>no</applytorating>
+						</specificskill>
+					</bonus>
+				</choice>
+				<choice>
+					<name>+2 dice on Alchemy Tests</name>
+					<bonus>
+						<specificskill>
+							<name>Alchemy</name>
+							<bonus>2</bonus>
+							<applytorating>no</applytorating>
+						</specificskill>
+					</bonus>
+				</choice>
+				<choice set="2">
+					<name>Magician: +2 dice for spells, preparations, and spell rituals in the Manipulation category</name>
+					<bonus>
+						<spellcategory>
+							<name>Manipulation</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice set="2">
+					<name>Adept: 1 free level of Improved Ability on a non-combat skill</name>
+					<bonus>
+						<specificpower>
+							<name>Improved Ability (skill)</name>
+							<val>1</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SR5</source>
+			<page>322</page>
+		</mentor>
+		<mentor>
+			<name>Mountain</name>
+			<advantage>All: +2 dice to Survival Tests.</advantage>
+			<disadvantage>When a Mountain magician makes a plan, she sticks to it. You must make a Charisma + Willpower (3) Test to abandon a planned course of action in favor of a new one. If you fail, you must endeavor to continue with your original plan, even if it means going on alone. Similarly, you must succeed in a Charisma + Willpower (3) Test to proceed in anything withouta plan.</disadvantage>
+			<bonus>
+				<specificskill>
+					<name>Survival</name>
+					<bonus>2</bonus>
+					<applytorating>no</applytorating>
+				</specificskill>
+			</bonus>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice for Counterspelling Tests and anchored rituals</name>
+					<bonus>
+						<specificskill>
+							<name>Counterspelling</name>
+							<val>2</val>
+							<applytorating>no</applytorating>
+						</specificskill>
+					</bonus>
+				</choice>
+				<choice>
+					<name>Adept: 1 free level of Mystic Armor</name>
+					<bonus>
+						<specificpower>
+							<name>Mystic Armor</name>
+							<val>1</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SR5</source>
+			<page>322</page>
+		</mentor>
+		<mentor>
+			<name>Rat</name>
+			<advantage>All: +2 dice for Sneaking Tests.</advantage>
+			<disadvantage>A Rat magician must make a Charisma + Willpower (3) Test to not immediately flee or seek cover whenever caught in a combat situation. If there is nowhere to flee, she is forced to fight.</disadvantage>
+			<bonus>
+				<specificskill>
+					<name>Sneaking</name>
+					<bonus>2</bonus>
+					<applytorating>no</applytorating>
+				</specificskill>
+			</bonus>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice to Alchemy tests when harvesting reagents, and you may use reagents of any tradition</name>
+				</choice>
+				<choice>
+					<name>Adept: 2 free levels of Natural Immunity</name>
+					<bonus>
+						<specificpower>
+							<name>Natural Immunity</name>
+							<val>2</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SR5</source>
+			<page>323</page>
+		</mentor>
+		<mentor>
+			<name>Raven</name>
+			<advantage>All: +2 dice for Con tests.</advantage>
+			<disadvantage>You must make a Charisma + Willpower (3) Test to avoid exploiting someone else’s misfortune to your own advantage or to pull a clever trick or prank even if it’s to the disadvantage of your friends.</disadvantage>
+			<bonus>
+				<specificskill>
+					<name>Con</name>
+					<bonus>2</bonus>
+					<applytorating>no</applytorating>
+				</specificskill>
+			</bonus>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice for spells, preparations, and spell rituals in the Manipulation category</name>
+					<bonus>
+						<spellcategory>
+							<name>Manipulation</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice>
+					<name>Adept: Free Traceless Walk and 1 level of Voice Control</name>
+					<bonus>
+						<specificpower>
+							<name>Traceless Walk</name>
+							<free>yes</free>
+						</specificpower>
+						<specificpower>
+							<name>Voice Control</name>
+							<val>1</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SR5</source>
+			<page>323</page>
+		</mentor>
+		<mentor>
+			<name>Sea</name>
+			<advantage>All:+2 dice for Swimming Tests.</advantage>
+			<disadvantage>You must make a Charisma + Willpower (3) Test to give away something you own or be charitable in some way.</disadvantage>
+			<bonus>
+				<specificskill>
+					<name>Swimming</name>
+					<bonus>2</bonus>
+					<applytorating>no</applytorating>
+				</specificskill>
+			</bonus>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice summoning spirits of water</name>
+				</choice>
+				<choice>
+					<name>Adept: 1 free level of Improved Ability on an athletic skill</name>
+					<bonus>
+						<specificpower>
+							<name>Improved Ability (skill)</name>
+							<val>1</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SR5</source>
+			<page>323</page>
+		</mentor>
+		<mentor>
+			<name>Seducer</name>
+			<advantage>All: +2 dice for Con Tests.</advantage>
+			<disadvantage>You must succeed in a Charisma + Willpower (3) Test to avoid pursuing a vice or indulgence (drugs, BTLs, sex, and so on) when it is made available.</disadvantage>
+			<bonus>
+				<specificskill>
+					<name>Con</name>
+					<bonus>2</bonus>
+					<applytorating>no</applytorating>
+				</specificskill>
+			</bonus>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice for spells, preparations, and spell rituals in the Illusion category</name>
+					<bonus>
+						<spellcategory>
+							<name>Illusion</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice>
+					<name>Adept: 1 free level of Improved Ability for a skill in the Acting or Influence skill group</name>
+					<bonus>
+						<specificpower>
+							<name>Improved Ability (skill)</name>
+							<val>1</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SR5</source>
+			<page>323</page>
+		</mentor>
+		<mentor>
+			<name>Shark</name>
+			<advantage>All: +2 dice to Unarmed Combat tests.</advantage>
+			<disadvantage>You might go berserk when you take Physical damage in combat. Every time it happens, make a Simple Charisma + Willpower Test (wound modifiers apply). You go berserk for 3 turns minus 1 turn per hit, so 3 or more hits averts the berserk rage entirely. If you’re already going berserk, increase the duration. When you’re berserk, you go after your attacker(s) without regard for your own safety. If you run out of targets before the time’s up, you keep attacking their bodies.</disadvantage>
+			<bonus>
+				<specificskill>
+					<name>Unarmed Combat</name>
+					<bonus>2</bonus>
+					<applytorating>no</applytorating>
+				</specificskill>
+			</bonus>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice for spells, preparations, and spell rituals in the Combat category</name>
+					<bonus>
+						<spellcategory>
+							<name>Combat</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice>
+					<name>Adept: Free Killing Hands</name>
+					<bonus>
+						<specificpower>
+							<name>Killing Hands</name>
+							<free>yes</free>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SR5</source>
+			<page>323</page>
+		</mentor>
+		<mentor>
+			<name>Snake</name>
+			<advantage>All: +2 to Arcana tests.</advantage>
+			<disadvantage>You must succeed in a Charisma + Willpower (3) Test to avoid pursuing secrets or knowledge that few people know about when you receive hints of its existence.</disadvantage>
+			<bonus>
+				<specificskill>
+					<name>Arcana</name>
+					<bonus>2</bonus>
+					<applytorating>no</applytorating>
+				</specificskill>
+			</bonus>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice for spells, preparations, and spell rituals in the Detection category</name>
+					<bonus>
+						<spellcategory>
+							<name>Detection</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice>
+					<name>Adept: 2 free levels of Kinesics</name>
+					<bonus>
+						<specificpower>
+							<name>Kinesics</name>
+							<val>2</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SR5</source>
+			<page>324</page>
+		</mentor>
+		<mentor>
+			<name>Thunderbird</name>
+			<advantage>All: +2 dice for Intimidation Tests.</advantage>
+			<disadvantage>A Thunderbird magician must succeed in a Charisma + Willpower (3) Test to avoid responding to an insult in kind.</disadvantage>
+			<bonus>
+				<specificskill>
+					<name>Intimidation</name>
+					<bonus>2</bonus>
+					<applytorating>no</applytorating>
+				</specificskill>
+			</bonus>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice for summoning spirits of air</name>
+				</choice>
+				<choice>
+					<name>Adept: 1 free level of Critical Strike (skill)</name>
+					<bonus>
+						<specificpower>
+							<name>Critical Strike (skill)</name>
+							<val>1</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SR5</source>
+			<page>324</page>
+		</mentor>
+		<mentor>
+			<name>Wise Warrior</name>
+			<advantage>All: +2 to dice to Leadership or Instruction skill tests (choose one).</advantage>
+			<disadvantage>If you act dishonorably or without courtesy, whether by choice or by accident, you take a –1 dice pool modifier to all actions until you atone for your behavior.</disadvantage>
+			<choices>
+				<choice>
+					<name>+2 dice for Leadership skill tests</name>
+					<bonus>
+						<specificskill>
+							<name>Leadership</name>
+							<bonus>2</bonus>
+							<applytorating>no</applytorating>
+						</specificskill>
+					</bonus>
+				</choice>
+				<choice>
+					<name>+2 dice for Instruction skill tests</name>
+					<bonus>
+						<specificskill>
+							<name>Instruction</name>
+							<bonus>2</bonus>
+							<applytorating>no</applytorating>
+						</specificskill>
+					</bonus>
+				</choice>
+			</choices>
+			<choices>
+				<choice>
+					<name>Magician:+2 dice for spells, preparations, and spell rituals in the Combat category</name>
+					<bonus>
+						<spellcategory>
+							<name>Combat</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice>
+					<name>Adept: 1 free level of Improved Ability on a Combat skill</name>
+					<bonus>
+						<specificpower>
+							<name>Improved Ability (skill)</name>
+							<val>1</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SR5</source>
+			<page>324</page>
+		</mentor>
+		<mentor>
+			<name>Wolf</name>
+			<advantage>All: +2 dice to Tracking tests.</advantage>
+			<disadvantage>You must succeed in a Charisma + Willpower (3) Test to retreat from a fight.</disadvantage>
+			<bonus>
+				<specificskill>
+					<name>Tracking</name>
+					<bonus>2</bonus>
+					<applytorating>no</applytorating>
+				</specificskill>
+			</bonus>
+			<choices>
+				<choice>
+					<name>Magician:+2 dice for spells, preparations, and spell rituals in the Combat category</name>
+					<bonus>
+						<spellcategory>
+							<name>Combat</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice>
+					<name>Adept: 2 free levels of Attribute Boost (Agility)</name>
+					<bonus>
+						<specificpower>
+							<name>Attribute Boost (Agility)</name>
+							<val>2</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SR5</source>
+			<page>324</page>
+		</mentor>
+	</mentors>
+</chummer>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chummer>
+	<version>-500</version>
+	<books>
+		<book>
+			<name>Assassin's Primer</name>
+			<code>AP</code>
+		</book>
+		<book>
+			<name>Gun Heaven 3</name>
+			<code>GH3</code>
+		</book>
+		<book>
+			<name>Run and Gun</name>
+			<code>RG</code>
+		</book>
+		<book>
+			<name>Shadowrun 5th Edition</name>
+			<code>SR5</code>
+		</book>
+	</books>
+</chummer>
