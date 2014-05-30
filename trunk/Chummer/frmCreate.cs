@@ -3807,7 +3807,7 @@ namespace Chummer
 			UpdateCharacterInfo();
 
             // Calculate the character's move.
-            _objCharacter.Movement = (_objCharacter.AGI.Value * 2).ToString() + "/" + (_objCharacter.AGI.Value * 4).ToString();
+            _objCharacter.Movement = (_objCharacter.AGI.Augmented * 2).ToString() + "/" + (_objCharacter.AGI.Augmented * 4).ToString();
             lblMovement.Text = _objCharacter.Movement;
 
 			_blnIsDirty = true;
@@ -5283,7 +5283,112 @@ namespace Chummer
 
 		private void cmdAddSpell_Click(object sender, EventArgs e)
         {
+            // Count the number of Spells the character currently has and make sure they do not try to select more Spells than they are allowed.
+            // The maximum number of Spells a character can start with is 2 x (highest of Spellcasting or Ritual Spellcasting Skill).
+            int intSpellCount = 0;
+            foreach (TreeNode nodCategory in treSpells.Nodes)
+            {
+                foreach (TreeNode nodSpell in nodCategory.Nodes)
+                {
+                    intSpellCount++;
+                }
+            }
 
+            // Run through the list of Active Skills and pick out the two applicable ones.
+            int intSkillValue = 0;
+            foreach (SkillControl objSkillControl in panActiveSkills.Controls)
+            {
+                if ((objSkillControl.SkillName == "Spellcasting" || objSkillControl.SkillName == "Ritual Spellcasting") && objSkillControl.SkillRating > intSkillValue)
+                    intSkillValue = objSkillControl.SkillRating + objSkillControl.SkillObject.RatingModifiers;
+            }
+
+            // Check against the maximum allowable number of spells
+            if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
+            {
+                if (intSpellCount >= ((_objCharacter.SpellLimit) + _objImprovementManager.ValueOf(Improvement.ImprovementType.SpellLimit)) && !_objCharacter.IgnoreRules)
+                {
+                    MessageBox.Show(LanguageManager.Instance.GetString("Message_PrioritySpellLimit"), LanguageManager.Instance.GetString("MessageTitle_SpellLimit"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+            else
+            {
+                if (intSpellCount >= ((2 * intSkillValue) + _objImprovementManager.ValueOf(Improvement.ImprovementType.SpellLimit)) && !_objCharacter.IgnoreRules)
+                {
+                    MessageBox.Show(LanguageManager.Instance.GetString("Message_SpellLimit"), LanguageManager.Instance.GetString("MessageTitle_SpellLimit"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+
+            frmSelectSpell frmPickSpell = new frmSelectSpell(_objCharacter);
+            frmPickSpell.ShowDialog(this);
+            // Make sure the dialogue window was not canceled.
+            if (frmPickSpell.DialogResult == DialogResult.Cancel)
+                return;
+
+            // Open the Spells XML file and locate the selected piece.
+            XmlDocument objXmlDocument = XmlManager.Instance.Load("spells.xml");
+
+            XmlNode objXmlSpell = objXmlDocument.SelectSingleNode("/chummer/spells/spell[name = \"" + frmPickSpell.SelectedSpell + "\"]");
+
+            Spell objSpell = new Spell(_objCharacter);
+            TreeNode objNode = new TreeNode();
+            objSpell.Create(objXmlSpell, _objCharacter, objNode, "", frmPickSpell.Limited, frmPickSpell.Extended);
+            objNode.ContextMenuStrip = cmsSpell;
+            if (objSpell.InternalId == Guid.Empty.ToString())
+                return;
+
+            _objCharacter.Spells.Add(objSpell);
+
+            switch (objSpell.Category)
+            {
+                case "Combat":
+                    treSpells.Nodes[0].Nodes.Add(objNode);
+                    treSpells.Nodes[0].Expand();
+                    break;
+                case "Detection":
+                    treSpells.Nodes[1].Nodes.Add(objNode);
+                    treSpells.Nodes[1].Expand();
+                    break;
+                case "Health":
+                    treSpells.Nodes[2].Nodes.Add(objNode);
+                    treSpells.Nodes[2].Expand();
+                    break;
+                case "Illusion":
+                    treSpells.Nodes[3].Nodes.Add(objNode);
+                    treSpells.Nodes[3].Expand();
+                    break;
+                case "Manipulation":
+                    treSpells.Nodes[4].Nodes.Add(objNode);
+                    treSpells.Nodes[4].Expand();
+                    break;
+                case "Ritual":
+                    treSpells.Nodes[5].Nodes.Add(objNode);
+                    treSpells.Nodes[5].Expand();
+                    break;
+            }
+
+            treSpells.SelectedNode = objNode;
+
+            _objFunctions.SortTree(treSpells);
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+
+            intSpellCount = 0;
+            foreach (TreeNode nodCategory in treSpells.Nodes)
+            {
+                foreach (TreeNode nodSpell in nodCategory.Nodes)
+                {
+                    intSpellCount++;
+                }
+            }
+
+            lblPBuildSpells.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.SpellLimit - intSpellCount).ToString(), _objCharacter.SpellLimit.ToString());
+
+            if (frmPickSpell.AddAgain)
+                cmdAddSpell_Click(sender, e);
         }
 
 		private void cmdDeleteSpell_Click(object sender, EventArgs e)
@@ -5605,7 +5710,111 @@ namespace Chummer
 
 		private void cmdAddComplexForm_Click(object sender, EventArgs e)
         {
+            if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
+            {
+                // The number of Complex Form Points cannot exceed the priority limit.
+                int intCFP = 0;
+                foreach (TechProgram tp in _objCharacter.TechPrograms)
+                {
+                    intCFP += tp.Rating;
+                }
 
+                if (intCFP >= ((_objCharacter.CFPLimit) + _objImprovementManager.ValueOf(Improvement.ImprovementType.ComplexFormLimit)) && !_objCharacter.IgnoreRules)
+                {
+                    MessageBox.Show(LanguageManager.Instance.GetString("Message_PriorityComplexFormLimit"), LanguageManager.Instance.GetString("MessageTitle_ComplexFormLimit"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+            }
+            else
+            {
+                // The number of Complex Forms cannot exceed twice the character's LOG.
+                if (_objCharacter.TechPrograms.Count >= ((_objCharacter.LOG.Value * 2) + _objImprovementManager.ValueOf(Improvement.ImprovementType.ComplexFormLimit)) && !_objCharacter.IgnoreRules)
+                {
+                    MessageBox.Show(LanguageManager.Instance.GetString("Message_ComplexFormLimit"), LanguageManager.Instance.GetString("MessageTitle_ComplexFormLimit"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+
+            // Let the user select a Program.
+            frmSelectProgram frmPickProgram = new frmSelectProgram(_objCharacter);
+            frmPickProgram.ShowDialog(this);
+
+            // Make sure the dialogue window was not canceled.
+            if (frmPickProgram.DialogResult == DialogResult.Cancel)
+                return;
+
+            XmlDocument objXmlDocument = XmlManager.Instance.Load("programs.xml");
+
+            XmlNode objXmlProgram = objXmlDocument.SelectSingleNode("/chummer/programs/program[name = \"" + frmPickProgram.SelectedProgram + "\"]");
+
+            TreeNode objNode = new TreeNode();
+            TechProgram objProgram = new TechProgram(_objCharacter);
+            objProgram.Create(objXmlProgram, _objCharacter, objNode);
+            if (objProgram.InternalId == Guid.Empty.ToString())
+                return;
+
+            _objCharacter.TechPrograms.Add(objProgram);
+
+            if (objProgram.CalculatedCapacity > 0)
+                objNode.ContextMenuStrip = cmsComplexForm;
+
+            switch (objProgram.Category)
+            {
+                case "Advanced":
+                    treComplexForms.Nodes[0].Nodes.Add(objNode);
+                    treComplexForms.Nodes[0].Expand();
+                    break;
+                case "ARE Programs":
+                    treComplexForms.Nodes[1].Nodes.Add(objNode);
+                    treComplexForms.Nodes[1].Expand();
+                    break;
+                case "Autosoft":
+                    treComplexForms.Nodes[2].Nodes.Add(objNode);
+                    treComplexForms.Nodes[2].Expand();
+                    break;
+                case "Common Use":
+                    treComplexForms.Nodes[3].Nodes.Add(objNode);
+                    treComplexForms.Nodes[3].Expand();
+                    break;
+                case "Hacking":
+                    treComplexForms.Nodes[4].Nodes.Add(objNode);
+                    treComplexForms.Nodes[4].Expand();
+                    break;
+                case "Malware":
+                    treComplexForms.Nodes[5].Nodes.Add(objNode);
+                    treComplexForms.Nodes[5].Expand();
+                    break;
+                case "Sensor Software":
+                    treComplexForms.Nodes[6].Nodes.Add(objNode);
+                    treComplexForms.Nodes[6].Expand();
+                    break;
+                case "Skillsofts":
+                    treComplexForms.Nodes[7].Nodes.Add(objNode);
+                    treComplexForms.Nodes[7].Expand();
+                    break;
+                case "Tactical AR Software":
+                    treComplexForms.Nodes[8].Nodes.Add(objNode);
+                    treComplexForms.Nodes[8].Expand();
+                    break;
+            }
+
+            _objFunctions.SortTree(treComplexForms);
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+
+            int intCcomplexForms = 0;
+            foreach (TechProgram tp in _objCharacter.TechPrograms)
+            {
+                intCcomplexForms += tp.Rating;
+            }
+
+            lblPBuildComplexForms.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.CFPLimit - intCcomplexForms).ToString(), _objCharacter.CFPLimit.ToString());
+
+            if (frmPickProgram.AddAgain)
+                cmdAddComplexForm_Click(sender, e);
         }
 
 		private void cmdDeleteArmor_Click(object sender, EventArgs e)
