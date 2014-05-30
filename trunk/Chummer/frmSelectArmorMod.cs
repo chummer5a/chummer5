@@ -15,7 +15,7 @@ namespace Chummer
 		private bool _blnAddAgain = false;
 		private int _intArmorCost = 0;
 		private int _intMarkup = 0;
-		private CapacityStyle _objCapacityStyle = CapacityStyle.Zero;
+		private CapacityStyle _objCapacityStyle = CapacityStyle.Standard;
 
 		private XmlDocument _objXmlDocument = new XmlDocument();
 		private readonly Character _objCharacter;
@@ -59,13 +59,17 @@ namespace Chummer
 
 			foreach (XmlNode objXmlMod in objXmlModList)
 			{
-				ListItem objItem = new ListItem();
-				objItem.Value = objXmlMod["name"].InnerText;
-				if (objXmlMod["translate"] != null)
-					objItem.Name = objXmlMod["translate"].InnerText;
-				else
-					objItem.Name = objXmlMod["name"].InnerText;
-				lstMods.Add(objItem);
+                bool blnHide = (objXmlMod["hide"] != null);
+                if (!blnHide)
+                {
+                    ListItem objItem = new ListItem();
+                    objItem.Value = objXmlMod["name"].InnerText;
+                    if (objXmlMod["translate"] != null)
+                        objItem.Name = objXmlMod["translate"].InnerText;
+                    else
+                        objItem.Name = objXmlMod["name"].InnerText;
+                    lstMods.Add(objItem);
+                }
 			}
 			SortListItem objSort = new SortListItem();
 			lstMods.Sort(objSort.Compare);

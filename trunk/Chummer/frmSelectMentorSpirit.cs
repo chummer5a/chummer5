@@ -134,6 +134,11 @@ namespace Chummer
 					cboChoice2.DisplayMember = "Name";
 					cboChoice2.DataSource = lstChoice2;
 				}
+                else 
+                {
+                    lblChoice2.Visible = false;
+                    cboChoice2.Visible = false;
+                }
 
 				cboChoice1.Top = lblAdvantage.Top + lblAdvantage.Height + 6;
 				lblChoice1.Top = cboChoice1.Top + 3;
