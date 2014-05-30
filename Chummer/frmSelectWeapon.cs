@@ -120,7 +120,12 @@ namespace Chummer
             lblWeaponAvail.Text = objWeapon.TotalAvail;
 
 			int intItemCost = 0;
-			double dblCost = Convert.ToDouble(objXmlWeapon["cost"].InnerText, GlobalOptions.Instance.CultureInfo);
+            double dblCost = 0;
+            try
+            {
+                dblCost = Convert.ToDouble(objXmlWeapon["cost"].InnerText, GlobalOptions.Instance.CultureInfo);
+            }
+            catch { }
 			dblCost *= 1 + (Convert.ToDouble(nudMarkup.Value, GlobalOptions.Instance.CultureInfo) / 100.0);
 			lblWeaponCost.Text = String.Format("{0:###,###,##0¥}", dblCost);
 			try

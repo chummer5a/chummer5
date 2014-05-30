@@ -81,26 +81,34 @@ namespace Chummer
 
 		private void cboBuildMethod_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (cboBuildMethod.SelectedValue.ToString() == "Karma")
-			{
-				if (_objOptions.BuildMethod == "Karma")
-				{
-					lblDescription.Text = LanguageManager.Instance.GetString("String_SelectBP_KarmaSummary").Replace("{0}", _objOptions.BuildPoints.ToString());
-					if (!_blnUseCurrentValues)
-						nudBP.Value = _objOptions.BuildPoints;
-				}
-				else
-				{
-					lblDescription.Text = LanguageManager.Instance.GetString("String_SelectBP_KarmaSummary").Replace("{0}", "750");
-					if (!_blnUseCurrentValues)
-						nudBP.Value = 750;
-				}
-                nudBP.Visible = true;
-            }
-            else if (cboBuildMethod.SelectedValue.ToString() == "Priority")
+            if (cboBuildMethod.SelectedValue == null)
             {
                 lblDescription.Text = LanguageManager.Instance.GetString("String_SelectBP_PrioritySummary");
                 nudBP.Visible = false;
+            }
+            else
+            {
+                if (cboBuildMethod.SelectedValue.ToString() == "Karma")
+                {
+                    if (_objOptions.BuildMethod == "Karma")
+                    {
+                        lblDescription.Text = LanguageManager.Instance.GetString("String_SelectBP_KarmaSummary").Replace("{0}", _objOptions.BuildPoints.ToString());
+                        if (!_blnUseCurrentValues)
+                            nudBP.Value = _objOptions.BuildPoints;
+                    }
+                    else
+                    {
+                        lblDescription.Text = LanguageManager.Instance.GetString("String_SelectBP_KarmaSummary").Replace("{0}", "750");
+                        if (!_blnUseCurrentValues)
+                            nudBP.Value = 750;
+                    }
+                    nudBP.Visible = true;
+                }
+                else if (cboBuildMethod.SelectedValue.ToString() == "Priority")
+                {
+                    lblDescription.Text = LanguageManager.Instance.GetString("String_SelectBP_PrioritySummary");
+                    nudBP.Visible = false;
+                }
             }
         }
 
