@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-913</version>
+	<version>-500</version>
 	<skillgroups>
-		<name>Animal Husbandry</name>
+		<name>Acting</name>
 		<name>Athletics</name>
 		<name>Biotech</name>
 		<name>Close Combat</name>
 		<name>Conjuring</name>
 		<name>Cracking</name>
 		<name>Electronics</name>
+		<name>Enchanting</name>
 		<name>Firearms</name>
 		<name>Influence</name>
-		<name>Mechanic</name>
+		<name>Engineering</name>
 		<name>Outdoors</name>
 		<name>Sorcery</name>
 		<name>Stealth</name>
@@ -19,10 +20,10 @@
 	</skillgroups>
 	<categories>
 		<category type="active">Combat Active</category>
-		<category type="active">Magical Active</category>
 		<category type="active">Physical Active</category>
-		<category type="active">Resonance Active</category>
 		<category type="active">Social Active</category>
+		<category type="active">Magical Active</category>
+		<category type="active">Resonance Active</category>
 		<category type="active">Technical Active</category>
 		<category type="active">Vehicle Active</category>
 		<category type="knowledge">Academic</category>
@@ -37,132 +38,158 @@
 			<attribute>LOG</attribute>
 			<category>Technical Active</category>
 			<default>No</default>
-			<skillgroup>Mechanic</skillgroup>
+			<skillgroup>Engineering</skillgroup>
 			<specs>
 				<spec>Aerospace</spec>
 				<spec>Fixed Wing</spec>
-				<spec>LTA</spec>
+				<spec>LTA (blimp)</spec>
 				<spec>Rotary Wing</spec>
 				<spec>Tilt Wing</spec>
 				<spec>Vector Thrust</spec>
 			</specs>
-			<source>SR4</source>
-			<page>126</page>
+			<source>SR5</source>
+			<page>143</page>
+		</skill>
+		<skill>
+			<name>Alchemy</name>
+			<attribute>MAG</attribute>
+			<category>Magical Active</category>
+			<default>No</default>
+			<skillgroup>Enchanting</skillgroup>
+			<specs>
+				<spec>Combat</spec>
+				<spec>Command</spec>
+				<spec>Contact</spec>
+				<spec>Detection</spec>
+				<spec>Health</spec>
+				<spec>Illusion</spec>
+				<spec>Manipulation</spec>
+				<spec>Time</spec>
+				<spec>[Trigger]</spec>
+			</specs>
+			<source>SR5</source>
+			<page>142</page>
 		</skill>
 		<skill>
 			<name>Animal Handling</name>
-			<attribute>INT</attribute>
+			<attribute>CHA</attribute>
 			<category>Physical Active</category>
 			<default>Yes</default>
 			<skillgroup>Animal Husbandry</skillgroup>
 			<specs>
-				<spec>Animal Type</spec>
-				<spec>Security</spec>
-				<spec>Veterinary</spec>
-				<spec>Wildlife</spec>
+				<spec>Herding</spec>
+				<spec>Riding</spec>
+				<spec>Training</spec>
+				<spec>[Animal Type]</spec>
 			</specs>
-			<source>RW</source>
-			<page>34</page>
-		</skill>
-		<skill>
-			<name>Animal Training</name>
-			<attribute>INT</attribute>
-			<category>Physical Active</category>
-			<default>Yes</default>
-			<skillgroup>Animal Husbandry</skillgroup>
-			<specs>
-				<spec>Animal Type</spec>
-			</specs>
-			<source>RW</source>
-			<page>34</page>
+			<source>SR5</source>
+			<page>143</page>
 		</skill>
 		<skill>
 			<name>Arcana</name>
 			<attribute>LOG</attribute>
 			<category>Magical Active</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Spell Design</spec>
 				<spec>Focus Design</spec>
-				<spec>Ally Spirit Formula</spec>
-				<spec>Free Spirit Formula</spec>
+				<spec>Spirit Formula</spec>
 			</specs>
-			<source>SR4</source>
-			<page>122</page>
+			<source>SR5</source>
+			<page>142</page>
+		</skill>
+		<skill>
+			<name>Artificing</name>
+			<attribute>MAG</attribute>
+			<category>Magical Active</category>
+			<default>No</default>
+			<skillgroup>Enchanting</skillgroup>
+			<specs>
+				<spec>Focus Analysis</spec>
+				<spec>[Focus Type]</spec>
+			</specs>
+			<source>SR5</source>
+			<page>142</page>
 		</skill>
 		<skill>
 			<name>Archery</name>
 			<attribute>AGI</attribute>
 			<category>Combat Active</category>
 			<default>Yes</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
-				<spec>Bows</spec>
-				<spec>Crossbows</spec>
-				<spec>Slingshots</spec>
+				<spec>Bow</spec>
+				<spec>Crossbow</spec>
+				<spec>Non-Standard Ammunition</spec>
+				<spec>Slingshot</spec>
 			</specs>
-			<source>SR4</source>
-			<page>121</page>
+			<source>SR5</source>
+			<page>130</page>
 		</skill>
 		<skill>
 			<name>Armorer</name>
 			<attribute>LOG</attribute>
 			<category>Technical Active</category>
 			<default>Yes</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Armor</spec>
 				<spec>Artillery</spec>
 				<spec>Explosives</spec>
 				<spec>Firearms</spec>
+				<spec>Melee Weapons</spec>
 				<spec>Heavy Weapons</spec>
 				<spec>Weapon Accessories</spec>
 			</specs>
-			<source>SR4</source>
-			<page>126</page>
+			<source>SR5</source>
+			<page>143</page>
 		</skill>
 		<skill>
 			<name>Artisan</name>
 			<attribute>INT</attribute>
 			<category>Technical Active</category>
-			<default>Yes</default>
-			<skillgroup />
+			<default>No</default>
+			<skillgroup/>
 			<specs>
 				<spec>Carpentry</spec>
-				<spec>Guitars</spec>
-				<spec>Painting</spec>
-				<spec>Sculpture</spec>
+				<spec>Cooking</spec>
+				<spec>Drawing</spec>
+				<spec>Sculpting</spec>
+				<spec>[Discipline]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>126</page>
+			<source>SR5</source>
+			<page>143</page>
 		</skill>
 		<skill>
 			<name>Assensing</name>
 			<attribute>INT</attribute>
 			<category>Magical Active</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Aura Reading</spec>
 				<spec>Astral Signatures</spec>
-				<spec>Psychometry</spec>
-				<spec>Aura Type</spec>
+				<spec>[Aura Type]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>122</page>
+			<source>SR5</source>
+			<page>142</page>
 		</skill>
 		<skill>
 			<name>Astral Combat</name>
 			<attribute>WIL</attribute>
 			<category>Magical Active</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
-				<spec>Focus Type</spec>
+				<spec>Magicians</spec>
+				<spec>Mana Barriers</spec>
+				<spec>Spirits</spec>
+				<spec>[Weapon Focus Type]</spec>
+				<spec>[Other Opponent Type]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>122</page>
+			<source>SR5</source>
+			<page>142</page>
 		</skill>
 		<skill>
 			<name>Automatics</name>
@@ -172,28 +199,27 @@
 			<skillgroup>Firearms</skillgroup>
 			<specs>
 				<spec>Assault Rifles</spec>
-				<spec>Battle Rifles</spec>
-				<spec>Carbines</spec>
+				<spec>Cyber-Implant</spec>
 				<spec>Machine Pistols</spec>
 				<spec>Submachine Guns</spec>
 			</specs>
-			<source>SR4</source>
-			<page>121</page>
+			<source>SR5</source>
+			<page>130</page>
 		</skill>
 		<skill>
 			<name>Automotive Mechanic</name>
 			<attribute>LOG</attribute>
 			<category>Technical Active</category>
 			<default>No</default>
-			<skillgroup>Mechanic</skillgroup>
+			<skillgroup>Engineering</skillgroup>
 			<specs>
-				<spec>Anthroform</spec>
 				<spec>Hover</spec>
 				<spec>Tracked</spec>
+				<spec>Walker</spec>
 				<spec>Wheeled</spec>
 			</specs>
-			<source>SR4</source>
-			<page>126</page>
+			<source>SR5</source>
+			<page>143</page>
 		</skill>
 		<skill>
 			<name>Banishing</name>
@@ -202,10 +228,15 @@
 			<default>No</default>
 			<skillgroup>Conjuring</skillgroup>
 			<specs>
-				<spec>Spirit Type</spec>
+				<spec>Spirits of Air</spec>
+				<spec>Spirits of Beasts</spec>
+				<spec>Spirits of Earth</spec>
+				<spec>Spirits of Fire</spec>
+				<spec>Spirits of Man</spec>
+				<spec>Spirits of Water</spec>
 			</specs>
-			<source>SR4</source>
-			<page>123</page>
+			<source>SR5</source>
+			<page>142</page>
 		</skill>
 		<skill>
 			<name>Binding</name>
@@ -214,10 +245,15 @@
 			<default>No</default>
 			<skillgroup>Conjuring</skillgroup>
 			<specs>
-				<spec>Spirit Type</spec>
+				<spec>Spirits of Air</spec>
+				<spec>Spirits of Beasts</spec>
+				<spec>Spirits of Earth</spec>
+				<spec>Spirits of Fire</spec>
+				<spec>Spirits of Man</spec>
+				<spec>Spirits of Water</spec>
 			</specs>
-			<source>SR4</source>
-			<page>123</page>
+			<source>SR5</source>
+			<page>142</page>
 		</skill>
 		<skill>
 			<name>Blades</name>
@@ -227,41 +263,44 @@
 			<skillgroup>Close Combat</skillgroup>
 			<specs>
 				<spec>Axes</spec>
-				<spec>Cyber-Implant Blades</spec>
 				<spec>Knives</spec>
 				<spec>Swords</spec>
 				<spec>Parrying</spec>
 			</specs>
-			<source>SR4</source>
-			<page>122</page>
+			<source>SR5</source>
+			<page>130</page>
+		</skill>
+		<skill>
+			<name>Biotechnology</name>
+			<attribute>LOG</attribute>
+			<category>Technical Active</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Bioinformatics</spec>
+				<spec>Bioware</spec>
+				<spec>Cloning</spec>
+				<spec>Gene Therapy</spec>
+				<spec>Vat Maintenance</spec>
+			</specs>
+			<source>SR5</source>
+			<page>144</page>
 		</skill>
 		<skill>
 			<name>Chemistry</name>
 			<attribute>LOG</attribute>
 			<category>Technical Active</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
-				<spec>Compounds</spec>
-				<spec>Drugs</spec>
-				<spec>Toxins</spec>
+				<spec>Analytical</spec>
+				<spec>Biochemistry</spec>
+				<spec>Inorganic</spec>
+				<spec>Organic</spec>
+				<spec>Physical</spec>
 			</specs>
-			<source>SR4</source>
-			<page>126</page>
-		</skill>
-		<skill>
-			<name>Climbing</name>
-			<attribute>STR</attribute>
-			<category>Physical Active</category>
-			<default>Yes</default>
-			<skillgroup>Athletics</skillgroup>
-			<specs>
-				<spec>Assisted</spec>
-				<spec>Freehand</spec>
-				<spec>Rappelling</spec>
-			</specs>
-			<source>SR4</source>
-			<page>124</page>
+			<source>SR5</source>
+			<page>144</page>
 		</skill>
 		<skill>
 			<name>Clubs</name>
@@ -276,8 +315,8 @@
 				<spec>Staves</spec>
 				<spec>Parrying</spec>
 			</specs>
-			<source>SR4</source>
-			<page>122</page>
+			<source>SR5</source>
+			<page>131</page>
 		</skill>
 		<skill>
 			<name>Compiling</name>
@@ -286,10 +325,10 @@
 			<default>No</default>
 			<skillgroup>Tasking</skillgroup>
 			<specs>
-				<spec>Sprite Type</spec>
+				<spec>[Sprite Type]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>125</page>
+			<source>SR5</source>
+			<page>143</page>
 		</skill>
 		<skill>
 			<name>Computer</name>
@@ -298,24 +337,26 @@
 			<default>Yes</default>
 			<skillgroup>Electronics</skillgroup>
 			<specs>
-				<spec>Program or Device Type</spec>
+				<spec>Edit File</spec>
+				<spec>Matrix Perception</spec>
+				<spec>Matrix Search</spec>
+				<spec>[Action]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>126</page>
+			<source>SR5</source>
+			<page>144</page>
 		</skill>
 		<skill>
 			<name>Con</name>
 			<attribute>CHA</attribute>
 			<category>Social Active</category>
 			<default>Yes</default>
-			<skillgroup>Influence</skillgroup>
+			<skillgroup>Acting</skillgroup>
 			<specs>
 				<spec>Fast Talk</spec>
-				<spec>Impersonation</spec>
 				<spec>Seduction</spec>
 			</specs>
-			<source>SR4</source>
-			<page>125</page>
+			<source>SR5</source>
+			<page>138</page>
 		</skill>
 		<skill>
 			<name>Counterspelling</name>
@@ -324,10 +365,14 @@
 			<default>No</default>
 			<skillgroup>Sorcery</skillgroup>
 			<specs>
-				<spec>Spell Type</spec>
+				<spec>Combat</spec>
+				<spec>Detection</spec>
+				<spec>Health</spec>
+				<spec>Illusion</spec>
+				<spec>Manipulation</spec>
 			</specs>
-			<source>SR4</source>
-			<page>123</page>
+			<source>SR5</source>
+			<page>142</page>
 		</skill>
 		<skill>
 			<name>Cybercombat</name>
@@ -336,10 +381,15 @@
 			<default>Yes</default>
 			<skillgroup>Cracking</skillgroup>
 			<specs>
-				<spec>Specific Opponents</spec>
+				<spec>Devices</spec>
+				<spec>Grids</spec>
+				<spec>IC</spec>
+				<spec>Personas</spec>
+				<spec>Sprites</spec>
+				<spec>[Target Type]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>126</page>
+			<source>SR5</source>
+			<page>144</page>
 		</skill>
 		<skill>
 			<name>Cybertechnology</name>
@@ -348,26 +398,13 @@
 			<default>No</default>
 			<skillgroup>Biotech</skillgroup>
 			<specs>
-				<spec>Bioware</spec>
 				<spec>Bodyware</spec>
 				<spec>Cyberlimbs</spec>
 				<spec>Headware</spec>
-				<spec>Nanoware</spec>
+				<spec>Repair</spec>
 			</specs>
-			<source>SR4</source>
-			<page>126</page>
-		</skill>
-		<skill>
-			<name>Data Search</name>
-			<attribute>LOG</attribute>
-			<category>Technical Active</category>
-			<default>Yes</default>
-			<skillgroup>Electronics</skillgroup>
-			<specs>
-				<spec>Source or Data Type</spec>
-			</specs>
-			<source>SR4</source>
-			<page>127</page>
+			<source>SR5</source>
+			<page>144</page>
 		</skill>
 		<skill>
 			<name>Decompiling</name>
@@ -376,25 +413,25 @@
 			<default>No</default>
 			<skillgroup>Tasking</skillgroup>
 			<specs>
-				<spec>Sprite Type</spec>
+				<spec>[Sprite Type]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>125</page>
+			<source>SR5</source>
+			<page>143</page>
 		</skill>
 		<skill>
 			<name>Demolitions</name>
 			<attribute>LOG</attribute>
 			<category>Technical Active</category>
 			<default>Yes</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Commercial Explosives</spec>
 				<spec>Defusing</spec>
 				<spec>Improvised Explosives</spec>
 				<spec>Plastic Explosives</spec>
 			</specs>
-			<source>SR4</source>
-			<page>127</page>
+			<source>SR5</source>
+			<page>144</page>
 		</skill>
 		<skill>
 			<name>Disguise</name>
@@ -406,39 +443,46 @@
 				<spec>Camouflage</spec>
 				<spec>Cosmetic</spec>
 				<spec>Theatrical</spec>
-				<spec>Trideo</spec>
+				<spec>Trideo &amp; Video</spec>
 			</specs>
-			<source>SR4</source>
-			<page>124</page>
+			<source>SR5</source>
+			<page>133</page>
+		</skill>
+		<skill>
+			<name>Disenchanting</name>
+			<attribute>MAG</attribute>
+			<category>Magical Active</category>
+			<default>No</default>
+			<skillgroup>Enchanting</skillgroup>
+			<specs>
+				<spec>[Type]</spec>
+			</specs>
+			<source>SR5</source>
+			<page>142</page>
 		</skill>
 		<skill>
 			<name>Diving</name>
 			<attribute>BOD</attribute>
 			<category>Physical Active</category>
 			<default>Yes</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
+				<spec>Arctic</spec>
+				<spec>Cave</spec>
+				<spec>Commercial</spec>
+				<spec>Controlled Hyperventilation</spec>
 				<spec>Liquid Breathing Apparatus</spec>
+				<spec>Military</spec>
 				<spec>Mixed Gas</spec>
 				<spec>Oxygen Extraction</spec>
 				<spec>SCUBA</spec>
+				<spec>[Other Breathing Apparatus]</spec>
+				<spec>[Other Condition]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>124</page>
+			<source>SR5</source>
+			<page>133</page>
 		</skill>
-		<skill>
-			<name>Dodge</name>
-			<attribute>REA</attribute>
-			<category>Combat Active</category>
-			<default>Yes</default>
-			<skillgroup />
-			<specs>
-				<spec>Melee Combat</spec>
-				<spec>Ranged Combat</spec>
-			</specs>
-			<source>SR4</source>
-			<page>122</page>
-		</skill>
+		
 		<skill>
 			<name>Electronic Warfare</name>
 			<attribute>LOG</attribute>
@@ -451,34 +495,25 @@
 				<spec>Jamming</spec>
 				<spec>Sensor Operations</spec>
 			</specs>
-			<source>SR4</source>
-			<page>127</page>
+			<source>SR5</source>
+			<page>144</page>
 		</skill>
-		<skill>
-			<name>Enchanting</name>
-			<attribute>MAG</attribute>
-			<category>Magical Active</category>
-			<default>No</default>
-			<skillgroup />
-			<specs>
-				<spec>Artificing</spec>
-				<spec>Alchemy</spec>
-				<spec>Vessel Preparation</spec>
-			</specs>
-			<source>SR4</source>
-			<page>123</page>
-		</skill>
+		
 		<skill>
 			<name>Escape Artist</name>
 			<attribute>AGI</attribute>
 			<category>Physical Active</category>
 			<default>Yes</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
-				<spec>By Restraint</spec>
+				<spec>Contortionism</spec>
+				<spec>Cuffs</spec>
+				<spec>Ropes</spec>
+				<spec>Zip Ties</spec>
+				<spec>[Other Restraint]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>124</page>
+			<source>SR5</source>
+			<page>133</page>
 		</skill>
 		<skill>
 			<name>Etiquette</name>
@@ -487,10 +522,15 @@
 			<default>Yes</default>
 			<skillgroup>Influence</skillgroup>
 			<specs>
-				<spec>Culture or Subculture</spec>
+				<spec>Corporate</spec>
+				<spec>High Society</spec>
+				<spec>Media</spec>
+				<spec>Mercenary</spec>
+				<spec>Street</spec>
+				<spec>Yakuza</spec>
 			</specs>
-			<source>SR4</source>
-			<page>125</page>
+			<source>SR5</source>
+			<page>138</page>
 		</skill>
 		<skill>
 			<name>First Aid</name>
@@ -499,31 +539,22 @@
 			<default>Yes</default>
 			<skillgroup>Biotech</skillgroup>
 			<specs>
-				<spec>Type of Treatment</spec>
+				<spec>Broken Bones</spec>
+				<spec>Burns</spec>
+				<spec>Gunshot Wounds</spec>
+				<spec>Resuscitation</spec>
+				<spec>[Type of Treatment]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>127</page>
+			<source>SR5</source>
+			<page>144</page>
 		</skill>
-		<skill>
-			<name>Flight</name>
-			<attribute>STR</attribute>
-			<category>Physical Active</category>
-			<default>Yes</default>
-			<skillgroup>Athletics</skillgroup>
-			<specs>
-				<spec>Diving</spec>
-				<spec>Long Distance</spec>
-				<spec>Rough Weather</spec>
-			</specs>
-			<source>RC</source>
-			<page>88</page>
-		</skill>
+		
 		<skill>
 			<name>Forgery</name>
 			<attribute>AGI</attribute>
 			<category>Technical Active</category>
 			<default>Yes</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Counterfeiting</spec>
 				<spec>Credstick Forgery</spec>
@@ -531,15 +562,15 @@
 				<spec>Image Doctoring</spec>
 				<spec>Paper Forgery</spec>
 			</specs>
-			<source>SR4</source>
-			<page>127</page>
+			<source>SR5</source>
+			<page>144</page>
 		</skill>
 		<skill>
 			<name>Gunnery</name>
 			<attribute>AGI</attribute>
 			<category>Vehicle Active</category>
 			<default>Yes</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Artillery</spec>
 				<spec>Ballistic</spec>
@@ -547,8 +578,8 @@
 				<spec>Guided Missile</spec>
 				<spec>Rocket</spec>
 			</specs>
-			<source>SR4</source>
-			<page>128</page>
+			<source>SR5</source>
+			<page>146</page>
 		</skill>
 		<skill>
 			<name>Gymnastics</name>
@@ -558,14 +589,14 @@
 			<skillgroup>Athletics</skillgroup>
 			<specs>
 				<spec>Balance</spec>
-				<spec>Breakfall</spec>
+				<spec>Climbing</spec>
 				<spec>Dance</spec>
-				<spec>Jumping</spec>
+				<spec>Leaping</spec>
 				<spec>Parkour</spec>
-				<spec>Tumbling</spec>
+				<spec>Rolling</spec>
 			</specs>
-			<source>SR4</source>
-			<page>124</page>
+			<source>SR5</source>
+			<page>133</page>
 		</skill>
 		<skill>
 			<name>Hacking</name>
@@ -574,10 +605,13 @@
 			<default>Yes</default>
 			<skillgroup>Cracking</skillgroup>
 			<specs>
-				<spec>Program or Device Type</spec>
+				<spec>Devices</spec>
+				<spec>Files</spec>
+				<spec>Hosts</spec>
+				<spec>Personas</spec>
 			</specs>
-			<source>SR4</source>
-			<page>127</page>
+			<source>SR5</source>
+			<page>145</page>
 		</skill>
 		<skill>
 			<name>Hardware</name>
@@ -586,17 +620,20 @@
 			<default>No</default>
 			<skillgroup>Electronics</skillgroup>
 			<specs>
-				<spec>Specific Devices</spec>
+				<spec>Commlinks</spec>
+				<spec>Cyberdecks</spec>
+				<spec>Smartguns</spec>
+				<spec>[Hardware Type]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>127</page>
+			<source>SR5</source>
+			<page>145</page>
 		</skill>
 		<skill>
 			<name>Heavy Weapons</name>
 			<attribute>AGI</attribute>
 			<category>Combat Active</category>
 			<default>Yes</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Assault Cannons</spec>
 				<spec>Grenade Launchers</spec>
@@ -604,65 +641,83 @@
 				<spec>Machine Guns</spec>
 				<spec>Rocket Launchers</spec>
 			</specs>
-			<source>SR4</source>
-			<page>122</page>
+			<source>SR5</source>
+			<page>132</page>
 		</skill>
 		<skill>
+			<name>Impersonation</name>
+			<attribute>CHA</attribute>
+			<category>Social Active</category>
+			<default>Yes</default>
+			<skillgroup>Acting</skillgroup>
+			<specs>
+				<spec>Dwarf</spec>
+				<spec>Elf</spec>
+				<spec>Human</spec>
+				<spec>Ork</spec>
+				<spec>Troll</spec>
+			</specs>
+			<source>SR5</source>
+			<page>138</page>
+		</skill>		<skill>
 			<name>Industrial Mechanic</name>
 			<attribute>LOG</attribute>
 			<category>Technical Active</category>
 			<default>No</default>
-			<skillgroup>Mechanic</skillgroup>
+			<skillgroup>Engineering</skillgroup>
 			<specs>
 				<spec>Electrical Power Systems</spec>
 				<spec>Hydraulics</spec>
-				<spec>Robotics</spec>
+				<spec>HVAC</spec>
+				<spec>Industrial Robotics</spec>
 				<spec>Structural</spec>
 				<spec>Welding</spec>
 			</specs>
-			<source>SR4</source>
-			<page>127</page>
+			<source>SR5</source>
+			<page>145</page>
 		</skill>
 		<skill>
-			<name>Infiltration</name>
+			<name>Sneaking</name>
 			<attribute>AGI</attribute>
 			<category>Physical Active</category>
 			<default>Yes</default>
 			<skillgroup>Stealth</skillgroup>
 			<specs>
+				<spec>Desert</spec>
+				<spec>Jungle</spec>
 				<spec>Urban</spec>
-				<spec>Vehicle</spec>
 				<spec>Wilderness</spec>
+				<spec>[Terrain]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>124</page>
+			<source>SR5</source>
+			<page>133</page>
 		</skill>
 		<skill>
 			<name>Instruction</name>
 			<attribute>CHA</attribute>
 			<category>Social Active</category>
 			<default>Yes</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
-				<spec>Active or Knowledge Skill Category</spec>
+				<spec>[Active or Knowledge Skill Category]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>125</page>
+			<source>SR5</source>
+			<page>138</page>
 		</skill>
 		<skill>
 			<name>Intimidation</name>
 			<attribute>CHA</attribute>
 			<category>Social Active</category>
 			<default>Yes</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Interrogation</spec>
 				<spec>Mental</spec>
 				<spec>Physical</spec>
 				<spec>Torture</spec>
 			</specs>
-			<source>SR4</source>
-			<page>125</page>
+			<source>SR5</source>
+			<page>139</page>
 		</skill>
 		<skill>
 			<name>Leadership</name>
@@ -671,26 +726,30 @@
 			<default>Yes</default>
 			<skillgroup>Influence</skillgroup>
 			<specs>
-				<spec>Gut Check</spec>
-				<spec>Morale</spec>
-				<spec>Persuasion</spec>
-				<spec>Strategy</spec>
-				<spec>Tactics</spec>
+				<spec>Command</spec>
+				<spec>Direct</spec>
+				<spec>Inspire</spec>
+				<spec>Rally</spec>
 			</specs>
-			<source>SR4</source>
-			<page>125</page>
+			<source>SR5</source>
+			<page>139</page>
 		</skill>
 		<skill>
 			<name>Locksmith</name>
 			<attribute>AGI</attribute>
 			<category>Technical Active</category>
-			<default>Yes</default>
-			<skillgroup />
+			<default>No</default>
+			<skillgroup/>
 			<specs>
-				<spec>Lock Type</spec>
+				<spec>Combination</spec>
+				<spec>Keypad</spec>
+				<spec>Maglock</spec>
+				<spec>Tumbler</spec>
+				<spec>Voice Recognition</spec>
+				<spec>[Lock Type]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>127</page>
+			<source>SR5</source>
+			<page>145</page>
 		</skill>
 		<skill>
 			<name>Longarms</name>
@@ -699,12 +758,13 @@
 			<default>Yes</default>
 			<skillgroup>Firearms</skillgroup>
 			<specs>
+				<spec>Extended-Range Shots</spec>
+				<spec>Long-Range Shots</spec>
 				<spec>Shotguns</spec>
 				<spec>Sniper Rifles</spec>
-				<spec>Sports Rifles</spec>
 			</specs>
-			<source>SR4</source>
-			<page>122</page>
+			<source>SR5</source>
+			<page>132</page>
 		</skill>
 		<skill>
 			<name>Medicine</name>
@@ -720,40 +780,39 @@
 				<spec>Organ Culture</spec>
 				<spec>Trauma Surgery</spec>
 			</specs>
-			<source>SR4</source>
-			<page>127</page>
+			<source>SR5</source>
+			<page>145</page>
 		</skill>
 		<skill>
 			<name>Nautical Mechanic</name>
 			<attribute>LOG</attribute>
 			<category>Technical Active</category>
 			<default>No</default>
-			<skillgroup>Mechanic</skillgroup>
+			<skillgroup>Engineering</skillgroup>
 			<specs>
 				<spec>Motorboat</spec>
 				<spec>Sailboat</spec>
 				<spec>Ship</spec>
 				<spec>Submarine</spec>
 			</specs>
-			<source>SR4</source>
-			<page>127</page>
+			<source>SR5</source>
+			<page>145</page>
 		</skill>
 		<skill>
 			<name>Navigation</name>
 			<attribute>INT</attribute>
-			<category>Physical Active</category>
+			<category>Technical Active</category>
 			<default>Yes</default>
 			<skillgroup>Outdoors</skillgroup>
 			<specs>
-				<spec>Desert</spec>
-				<spec>Forest</spec>
-				<spec>Jungle</spec>
-				<spec>Mountain</spec>
-				<spec>Polar</spec>
-				<spec>Urban</spec>
+				<spec>Augmented Reality Markers</spec>
+				<spec>Celestial</spec>
+				<spec>Compass</spec>
+				<spec>Maps</spec>
+				<spec>GPS</spec>
 			</specs>
-			<source>SR4</source>
-			<page>124</page>
+			<source>SR5</source>
+			<page>145</page>
 		</skill>
 		<skill>
 			<name>Negotiation</name>
@@ -763,64 +822,84 @@
 			<skillgroup>Influence</skillgroup>
 			<specs>
 				<spec>Bargaining</spec>
+				<spec>Contracts</spec>
 				<spec>Diplomacy</spec>
-				<spec>Sense Motive</spec>
 			</specs>
-			<source>SR4</source>
-			<page>125</page>
+			<source>SR5</source>
+			<page>139</page>
 		</skill>
 		<skill>
 			<name>Palming</name>
 			<attribute>AGI</attribute>
 			<category>Physical Active</category>
-			<default>Yes</default>
+			<default>No</default>
 			<skillgroup>Stealth</skillgroup>
 			<specs>
 				<spec>Legerdemain</spec>
 				<spec>Pickpocket</spec>
-				<spec>Shoplifting</spec>
+				<spec>Pilfering</spec>
 			</specs>
-			<source>SR4</source>
-			<page>124</page>
+			<source>SR5</source>
+			<page>133</page>
 		</skill>
 		<skill>
-			<name>Parachuting</name>
+			<name>Performance</name>
+			<attribute>CHA</attribute>
+			<category>Social Active</category>
+			<default>Yes</default>
+			<skillgroup>Acting</skillgroup>
+			<specs>
+				<spec>Acting</spec>
+				<spec>Comedy</spec>
+				<spec>Presentation</spec>
+				<spec>[Musical Instrument]</spec>
+			</specs>
+			<source>SR5</source>
+			<page>139</page>
+		</skill>
+		<skill>
+			<name>Free-Fall</name>
 			<attribute>BOD</attribute>
 			<category>Physical Active</category>
 			<default>Yes</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>BASE Jumping</spec>
+				<spec>Break-Fall</spec>
+				<spec>Bungee</spec>
 				<spec>HALO</spec>
 				<spec>Low Altitude</spec>
-				<spec>Recreational</spec>
+				<spec>Parachute</spec>
 				<spec>Static Line</spec>
+				<spec>Wingsuit</spec>
+				<spec>Zipline</spec>
 			</specs>
-			<source>SR4</source>
-			<page>124</page>
+			<source>SR5</source>
+			<page>133</page>
 		</skill>
 		<skill>
 			<name>Perception</name>
 			<attribute>INT</attribute>
 			<category>Physical Active</category>
 			<default>Yes</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Hearing</spec>
 				<spec>Scent</spec>
+				<spec>Searching</spec>
 				<spec>Taste</spec>
 				<spec>Touch</spec>
 				<spec>Visual</spec>
 			</specs>
-			<source>SR4</source>
-			<page>124</page>
+			<source>SR5</source>
+			<page>133</page>
 		</skill>
 		<skill>
 			<name>Pilot Aerospace</name>
 			<attribute>REA</attribute>
 			<category>Vehicle Active</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Deep Space</spec>
 				<spec>Launch Craft</spec>
@@ -828,15 +907,15 @@
 				<spec>Semiballistic</spec>
 				<spec>Suborbital</spec>
 			</specs>
-			<source>SR4</source>
-			<page>128</page>
+			<source>SR5</source>
+			<page>146</page>
 		</skill>
 		<skill>
 			<name>Pilot Aircraft</name>
 			<attribute>REA</attribute>
 			<category>Vehicle Active</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Fixed-Wing</spec>
 				<spec>Lighter-Than-Air</spec>
@@ -845,55 +924,56 @@
 				<spec>Tilt Wing</spec>
 				<spec>Vectored Thrust</spec>
 			</specs>
-			<source>SR4</source>
-			<page>128</page>
+			<source>SR5</source>
+			<page>147</page>
 		</skill>
 		<skill>
-			<name>Pilot Anthroform</name>
+			<name>Pilot Walker</name>
 			<attribute>REA</attribute>
 			<category>Vehicle Active</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Biped</spec>
+				<spec>Multiped</spec>
 				<spec>Quadruped</spec>
 				<spec>Remote Operation</spec>
 			</specs>
-			<source>SR4</source>
-			<page>128</page>
+			<source>SR5</source>
+			<page>147</page>
 		</skill>
 		<skill>
 			<name>Pilot Ground Craft</name>
 			<attribute>REA</attribute>
 			<category>Vehicle Active</category>
 			<default>Yes</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Bike</spec>
-				<spec>Car</spec>
 				<spec>Hovercraft</spec>
 				<spec>Remote Operation</spec>
 				<spec>Tracked</spec>
 				<spec>Wheeled</spec>
 			</specs>
-			<source>SR4</source>
-			<page>128</page>
+			<source>SR5</source>
+			<page>147</page>
 		</skill>
 		<skill>
 			<name>Pilot Watercraft</name>
 			<attribute>REA</attribute>
 			<category>Vehicle Active</category>
 			<default>Yes</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
+				<spec>Hydrofoil</spec>
 				<spec>Motorboat</spec>
 				<spec>Remote Operation</spec>
 				<spec>Sail</spec>
 				<spec>Ship</spec>
 				<spec>Submarine</spec>
 			</specs>
-			<source>SR4</source>
-			<page>128</page>
+			<source>SR5</source>
+			<page>147</page>
 		</skill>
 		<skill>
 			<name>Pistols</name>
@@ -907,8 +987,8 @@
 				<spec>Semi-Automatics</spec>
 				<spec>Tasers</spec>
 			</specs>
-			<source>SR4</source>
-			<page>122</page>
+			<source>SR5</source>
+			<page>132</page>
 		</skill>
 		<skill>
 			<name>Registering</name>
@@ -917,24 +997,12 @@
 			<default>No</default>
 			<skillgroup>Tasking</skillgroup>
 			<specs>
-				<spec>Sprite Type</spec>
+				<spec>[Sprite Type]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>125</page>
+			<source>SR5</source>
+			<page>143</page>
 		</skill>
-		<skill>
-			<name>Riding</name>
-			<attribute>REA</attribute>
-			<category>Physical Active</category>
-			<default>Yes</default>
-			<skillgroup>Animal Husbandry</skillgroup>
-			<specs>
-				<spec>Animal Type</spec>
-				<spec>Riding Style</spec>
-			</specs>
-			<source>RW</source>
-			<page>35</page>
-		</skill>
+		
 		<skill>
 			<name>Ritual Spellcasting</name>
 			<attribute>MAG</attribute>
@@ -942,14 +1010,10 @@
 			<default>No</default>
 			<skillgroup>Sorcery</skillgroup>
 			<specs>
-				<spec>Combat</spec>
-				<spec>Detection</spec>
-				<spec>Health</spec>
-				<spec>Illusion</spec>
-				<spec>Manipulation</spec>
+				<spec>[Keyword]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>123</page>
+			<source>SR5</source>
+			<page>142</page>
 		</skill>
 		<skill>
 			<name>Running</name>
@@ -958,28 +1022,17 @@
 			<default>Yes</default>
 			<skillgroup>Athletics</skillgroup>
 			<specs>
-				<spec>Long Distance</spec>
+				<spec>Desert</spec>
+				<spec>Distance</spec>
 				<spec>Sprinting</spec>
 				<spec>Urban</spec>
 				<spec>Wilderness</spec>
+				<spec>[Terrain]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>124</page>
+			<source>SR5</source>
+			<page>133</page>
 		</skill>
-		<skill>
-			<name>Shadowing</name>
-			<attribute>INT</attribute>
-			<category>Physical Active</category>
-			<default>Yes</default>
-			<skillgroup>Stealth</skillgroup>
-			<specs>
-				<spec>Stakeouts</spec>
-				<spec>Tail Evasion</spec>
-				<spec>Tailing</spec>
-			</specs>
-			<source>SR4</source>
-			<page>124</page>
-		</skill>
+		
 		<skill>
 			<name>Software</name>
 			<attribute>LOG</attribute>
@@ -987,12 +1040,11 @@
 			<default>No</default>
 			<skillgroup>Electronics</skillgroup>
 			<specs>
-				<spec>Defensive Utilities</spec>
-				<spec>Offensive Utilities</spec>
-				<spec>Masking Utilities</spec>
+				<spec>Data Bombs</spec>
+				<spec>[Complex Form]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>127</page>
+			<source>SR5</source>
+			<page>145</page>
 		</skill>
 		<skill>
 			<name>Spellcasting</name>
@@ -1007,8 +1059,8 @@
 				<spec>Illusion</spec>
 				<spec>Manipulation</spec>
 			</specs>
-			<source>SR4</source>
-			<page>123</page>
+			<source>SR5</source>
+			<page>143</page>
 		</skill>
 		<skill>
 			<name>Summoning</name>
@@ -1017,10 +1069,15 @@
 			<default>No</default>
 			<skillgroup>Conjuring</skillgroup>
 			<specs>
-				<spec>Spirit Type</spec>
+				<spec>Spirits of Air</spec>
+				<spec>Spirits of Beasts</spec>
+				<spec>Spirits of Earth</spec>
+				<spec>Spirits of Fire</spec>
+				<spec>Spirits of Man</spec>
+				<spec>Spirits of Water</spec>
 			</specs>
-			<source>SR4</source>
-			<page>123</page>
+			<source>SR5</source>
+			<page>143</page>
 		</skill>
 		<skill>
 			<name>Survival</name>
@@ -1035,9 +1092,10 @@
 				<spec>Mountain</spec>
 				<spec>Polar</spec>
 				<spec>Urban</spec>
+				<spec>[Terrain]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>124</page>
+			<source>SR5</source>
+			<page>133</page>
 		</skill>
 		<skill>
 			<name>Swimming</name>
@@ -1046,26 +1104,25 @@
 			<default>Yes</default>
 			<skillgroup>Athletics</skillgroup>
 			<specs>
+				<spec>Dash</spec>
 				<spec>Long Distance</spec>
-				<spec>Sprinting</spec>
 			</specs>
-			<source>SR4</source>
-			<page>124</page>
+			<source>SR5</source>
+			<page>134</page>
 		</skill>
 		<skill>
 			<name>Throwing Weapons</name>
 			<attribute>AGI</attribute>
 			<category>Combat Active</category>
 			<default>Yes</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
-				<spec>Lobbed</spec>
-				<spec>Overhand</spec>
-				<spec>Shuriken</spec>
-				<spec>Throwing Knives</spec>
+				<spec>Aerodynamic</spec>
+				<spec>Blades</spec>
+				<spec>Non-Aerodynamic</spec>
 			</specs>
-			<source>SR4</source>
-			<page>122</page>
+			<source>SR5</source>
+			<page>132</page>
 		</skill>
 		<skill>
 			<name>Tracking</name>
@@ -1080,9 +1137,10 @@
 				<spec>Mountain</spec>
 				<spec>Polar</spec>
 				<spec>Urban</spec>
+				<spec>[Terrain]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>125</page>
+			<source>SR5</source>
+			<page>134</page>
 		</skill>
 		<skill>
 			<name>Unarmed Combat</name>
@@ -1091,61 +1149,40 @@
 			<default>Yes</default>
 			<skillgroup>Close Combat</skillgroup>
 			<specs>
-				<spec>Cyber-Implants</spec>
-				<spec>Martial Arts</spec>
-				<spec>Subdual Combat</spec>
-				<spec>Parrying</spec>
+				<spec>Blocking</spec>
+				<spec>Cyber Implants</spec>
+				<spec>Subduing Combat</spec>
+				<spec>[Martial Art]</spec>
 			</specs>
-			<source>SR4</source>
-			<page>122</page>
-		</skill>
-		<skill>
-			<name>VetTech</name>
-			<attribute>LOG</attribute>
-			<category>Technical Active</category>
-			<default>No</default>
-			<skillgroup>Animal Husbandry</skillgroup>
-			<specs>
-				<spec>Animal Type</spec>
-			</specs>
-			<source>RW</source>
-			<page>35</page>
+			<source>SR5</source>
+			<page>132</page>
 		</skill>
 		<skill>
 			<name>Exotic Melee Weapon</name>
 			<attribute>AGI</attribute>
 			<category>Combat Active</category>
-			<default>Yes</default>
+			<default>No</default>
 			<exotic>Yes</exotic>
-			<skillgroup />
-			<specs />
-			<source>SR4</source>
-			<page>122</page>
+			<skillgroup/>
+			<specs/>
+			<source>SR5</source>
+			<page>131</page>
 		</skill>
 		<skill>
 			<name>Exotic Ranged Weapon</name>
 			<attribute>AGI</attribute>
 			<category>Combat Active</category>
-			<default>Yes</default>
-			<exotic>Yes</exotic>
-			<skillgroup />
-			<specs>
-				<spec>Flamethrowers</spec>
-				<spec>Laser Weapons</spec>
-			</specs>
-			<source>SR4</source>
-			<page>122</page>
-		</skill>
-		<skill>
-			<name>Pilot Exotic Vehicle</name>
-			<attribute>REA</attribute>
-			<category>Vehicle Active</category>
 			<default>No</default>
 			<exotic>Yes</exotic>
-			<skillgroup />
-			<specs />
-			<source>SR4</source>
-			<page>128</page>
+			<skillgroup/>
+			<specs>
+				<spec>Blowguns</spec>
+				<spec>Gyrojet Pistols</spec>
+				<spec>Flamethrowers</spec>
+				<spec>Lasers</spec>
+			</specs>
+			<source>SR5</source>
+			<page>131</page>
 		</skill>
 	</skills>
 	<knowledgeskills>
@@ -1154,7 +1191,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1167,7 +1204,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1180,7 +1217,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1193,7 +1230,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1206,7 +1243,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1219,7 +1256,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1232,7 +1269,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1245,7 +1282,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1258,7 +1295,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1271,7 +1308,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1284,7 +1321,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1297,7 +1334,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1310,7 +1347,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1323,7 +1360,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1336,7 +1373,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1349,7 +1386,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1362,7 +1399,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1375,7 +1412,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1388,7 +1425,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1401,7 +1438,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1414,7 +1451,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1427,7 +1464,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1440,7 +1477,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1453,7 +1490,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1466,7 +1503,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1479,7 +1516,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1492,7 +1529,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1505,7 +1542,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1518,7 +1555,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1531,7 +1568,7 @@
 			<attribute>INT</attribute>
 			<category>Language</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Read/Write</spec>
 				<spec>Speak</spec>
@@ -1544,79 +1581,79 @@
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
-			<specs />
+			<skillgroup/>
+			<specs/>
 		</skill>
 		<skill>
 			<name>Area Knowledge: Cheyenne</name>
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
-			<specs />
+			<skillgroup/>
+			<specs/>
 		</skill>
 		<skill>
 			<name>Area Knowledge: Chicago</name>
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
-			<specs />
+			<skillgroup/>
+			<specs/>
 		</skill>
 		<skill>
 			<name>Area Knowledge: Denver</name>
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
-			<specs />
+			<skillgroup/>
+			<specs/>
 		</skill>
 		<skill>
 			<name>Area Knowledge: FDC</name>
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
-			<specs />
+			<skillgroup/>
+			<specs/>
 		</skill>
 		<skill>
 			<name>Area Knowledge: Hong-Kong</name>
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
-			<specs />
+			<skillgroup/>
+			<specs/>
 		</skill>
 		<skill>
 			<name>Area Knowledge: LA</name>
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
-			<specs />
+			<skillgroup/>
+			<specs/>
 		</skill>
 		<skill>
 			<name>Area Knowledge: Manhattan</name>
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
-			<specs />
+			<skillgroup/>
+			<specs/>
 		</skill>
 		<skill>
 			<name>Area Knowledge: Portland</name>
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
-			<specs />
+			<skillgroup/>
+			<specs/>
 		</skill>
 		<skill>
 			<name>Area Knowledge: Seattle</name>
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Auburn</spec>
 				<spec>Bellevue</spec>
@@ -1637,7 +1674,7 @@
 			<attribute>INT</attribute>
 			<category>Interest</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Beers</spec>
 				<spec>Coolers</spec>
@@ -1689,7 +1726,7 @@
 			<attribute>LOG</attribute>
 			<category>Professional</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Commercial</spec>
 				<spec>Residential</spec>
@@ -1710,7 +1747,7 @@
 			<attribute>LOG</attribute>
 			<category>Academic</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Da Vinci</spec>
 				<spec>Monet</spec>
@@ -1737,7 +1774,7 @@
 			<attribute>LOG</attribute>
 			<category>Academic</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Anatomy</spec>
 				<spec>Microbiology</spec>
@@ -1749,7 +1786,7 @@
 			<attribute>LOG</attribute>
 			<category>Professional</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Budgeting</spec>
 				<spec>Compliance</spec>
@@ -1768,7 +1805,7 @@
 			<attribute>LOG</attribute>
 			<category>Academic</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Industrial</spec>
 				<spec>Organic</spec>
@@ -1780,7 +1817,7 @@
 			<attribute>LOG</attribute>
 			<category>Professional</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Ambush</spec>
 				<spec>Guerilla</spec>
@@ -1800,7 +1837,7 @@
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Atlanta</spec>
 				<spec>Awakened</spec>
@@ -1844,7 +1881,7 @@
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Hacking</spec>
 				<spec>Magic</spec>
@@ -1868,7 +1905,7 @@
 			<attribute>LOG</attribute>
 			<category>Academic</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Corporate</spec>
 				<spec>Tribal</spec>
@@ -1919,7 +1956,7 @@
 			<attribute>LOG</attribute>
 			<category>Academic</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Chemical</spec>
 				<spec>Civil</spec>
@@ -1929,11 +1966,24 @@
 			</specs>
 		</skill>
 		<skill>
+			<name>Fashion</name>
+			<attribute>INT</attribute>
+			<category>Interest</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Harajuku Scene</spec>
+				<spec>London Scene</spec>
+				<spec>New York Scene</spec>
+				<spec>Paris Scene</spec>
+			</specs>
+		</skill>
+		<skill>
 			<name>Firearms</name>
 			<attribute>LOG</attribute>
 			<category>Professional</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Accessories</spec>
 				<spec>Ammunition</spec>
@@ -1951,7 +2001,7 @@
 			<attribute>INT</attribute>
 			<category>Interest</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Dawn of Atlantis</spec>
 				<spec>Dark Eye</spec>
@@ -1971,7 +2021,7 @@
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Ancients</spec>
 				<spec>Area Boys</spec>
@@ -2031,7 +2081,7 @@
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Turf</spec>
 				<spec>Politics</spec>
@@ -2046,7 +2096,7 @@
 			<attribute>LOG</attribute>
 			<category>Academic</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Art</spec>
 				<spec>Corporate</spec>
@@ -2098,12 +2148,28 @@
 			</specs>
 		</skill>
 		<skill>
+			<name>Matrix Games</name>
+			<attribute>INT</attribute>
+			<category>Interest</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Dawn of Atlantis III</spec>
+				<spec>Dragon Storm</spec>
+				<spec>Grand Larceny</spec>
+				<spec>Killing Floor</spec>
+				<spec>Shadowrun Online</spec>
+			</specs>
+		</skill>
+		<skill>
 			<name>Music</name>
 			<attribute>INT</attribute>
 			<category>Interest</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
+				<spec>Astral Rock</spec>
+				<spec>Electron Wave</spec>
 				<spec>Goblin Rock</spec>
 				<spec>Powernoize</spec>
 				<spec>Rockabilly</spec>
@@ -2121,7 +2187,7 @@
 			<attribute>INT</attribute>
 			<category>Interest</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Business</spec>
 				<spec>Entertainment</spec>
@@ -2176,7 +2242,7 @@
 			<attribute>LOG</attribute>
 			<category>Academic</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Spirits</spec>
 				<spec>N. America</spec>
@@ -2197,7 +2263,7 @@
 			<attribute>LOG</attribute>
 			<category>Academic</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Corporate</spec>
 				<spec>Military</spec>
@@ -2252,7 +2318,7 @@
 			<attribute>LOG</attribute>
 			<category>Academic</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Science Fiction</spec>
 				<spec>Poetry</spec>
@@ -2275,7 +2341,7 @@
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Turf</spec>
 				<spec>Politics</spec>
@@ -2290,7 +2356,7 @@
 			<attribute>LOG</attribute>
 			<category>Academic</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Adepts</spec>
 				<spec>Shamans</spec>
@@ -2303,7 +2369,7 @@
 			<attribute>LOG</attribute>
 			<category>Academic</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Sorcery</spec>
 				<spec>Conjuring</spec>
@@ -2320,7 +2386,7 @@
 			<attribute>LOG</attribute>
 			<category>Academic</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Blood Magic</spec>
 				<spec>Toxic Magic</spec>
@@ -2332,7 +2398,7 @@
 			<attribute>INT</attribute>
 			<category>Interest</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Air Force</spec>
 				<spec>Army</spec>
@@ -2348,7 +2414,7 @@
 			<attribute>LOG</attribute>
 			<category>Academic</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Islam</spec>
 				<spec>Judaism</spec>
@@ -2366,7 +2432,7 @@
 			<attribute>INT</attribute>
 			<category>Interest</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Bank</spec>
 				<spec>Corporate</spec>
@@ -2381,7 +2447,7 @@
 			<attribute>LOG</attribute>
 			<category>Academic</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Lone Star</spec>
 				<spec>Knight Errant</spec>
@@ -2394,7 +2460,7 @@
 			<attribute>LOG</attribute>
 			<category>Academic</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Corporate</spec>
 				<spec>Crimson Rush</spec>
@@ -2411,7 +2477,7 @@
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Turf</spec>
 				<spec>Politics</spec>
@@ -2428,7 +2494,7 @@
 			<attribute>LOG</attribute>
 			<category>Professional</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Beast</spec>
 				<spec>Earth</spec>
@@ -2448,16 +2514,48 @@
 			<attribute>INT</attribute>
 			<category>Interest</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Baseball</spec>
+				<spec>Basketball</spec>
 				<spec>Combat Biking</spec>
+				<spec>Court Ball</spec>
 				<spec>Football</spec>
+				<spec>MMA</spec>
 				<spec>Hockey</spec>
 				<spec>Soccer</spec>
+				<spec>Stickball</spec>
 				<spec>UFC</spec>
 				<spec>Urban Brawl</spec>
 				<spec>Wrestling</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Street Drugs</name>
+			<attribute>INT</attribute>
+			<category>Interest</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>BTLs</spec>
+				<spec>Cram</spec>
+				<spec>Deepweed</spec>
+				<spec>Novacoke</spec>
+				<spec>Spike</spec>
+				<spec>Tempo</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Sprawl Life</name>
+			<attribute>INT</attribute>
+			<category>Street</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Scavenging</spec>
+				<spec>Soup Kitchens</spec>
+				<spec>Squats</spec>
+				<spec>Street Docs</spec>
 			</specs>
 		</skill>
 		<skill>
@@ -2465,7 +2563,7 @@
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Ghost Cartels</spec>
 				<spec>Mafia</spec>
@@ -2507,7 +2605,7 @@
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Turf</spec>
 				<spec>Politics</spec>
@@ -2522,7 +2620,7 @@
 			<attribute>INT</attribute>
 			<category>Interest</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Action</spec>
 				<spec>Cop</spec>
@@ -2537,7 +2635,7 @@
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Arson</spec>
 				<spec>Black Magic</spec>
@@ -2570,7 +2668,7 @@
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Turf</spec>
 				<spec>Politics</spec>
@@ -2585,7 +2683,7 @@
 			<attribute>INT</attribute>
 			<category>Street</category>
 			<default>No</default>
-			<skillgroup />
+			<skillgroup/>
 			<specs>
 				<spec>Turf</spec>
 				<spec>Politics</spec>

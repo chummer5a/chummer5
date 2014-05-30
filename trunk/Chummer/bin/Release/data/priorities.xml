@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chummer>
+  <version>-500</version>
+	<categories>
+		<category>Heritage</category>
+		<category>Talent</category>
+		<category>Attributes</category>
+		<category>Skills</category>
+		<category>Resources</category>
+	</categories>
+	<priorities>
+		<priority>
+			<name>A - Any metatype</name>
+      <value>A</value>
+			<category>Heritage</category>
+      <metatypes>
+        <metatype>
+          <name>Human</name>
+          <value>9</value>
+        </metatype>
+        <metatype>
+          <name>Dwarf</name>
+          <value>7</value>
+        </metatype>
+        <metatype>
+          <name>Ork</name>
+          <value>7</value>
+        </metatype>
+        <metatype>
+          <name>Elf</name>
+          <value>8</value>
+        </metatype>
+        <metatype>
+          <name>Troll</name>
+          <value>5</value>
+        </metatype>
+      </metatypes>
+		</priority>
+    <priority>
+      <name>B - Any metatype</name>
+      <value>B</value>
+      <category>Heritage</category>
+      <metatypes>
+        <metatype>
+          <name>Human</name>
+          <value>7</value>
+        </metatype>
+        <metatype>
+          <name>Dwarf</name>
+          <value>4</value>
+        </metatype>
+        <metatype>
+          <name>Ork</name>
+          <value>4</value>
+        </metatype>
+        <metatype>
+          <name>Elf</name>
+          <value>6</value>
+        </metatype>
+        <metatype>
+          <name>Troll</name>
+          <value>0</value>
+        </metatype>
+      </metatypes>
+    </priority>
+    <priority>
+      <name>C - Human, Dwarf, Elf, or Ork</name>
+      <value>C</value>
+      <category>Heritage</category>
+      <metatypes>
+        <metatype>
+          <name>Human</name>
+          <value>5</value>
+        </metatype>
+        <metatype>
+          <name>Dwarf</name>
+          <value>1</value>
+        </metatype>
+        <metatype>
+          <name>Elf</name>
+          <value>3</value>
+        </metatype>
+        <metatype>
+          <name>Ork</name>
+          <value>0</value>
+        </metatype>
+      </metatypes>
+    </priority>
+    <priority>
+      <name>D - Human or Elf</name>
+      <value>D</value>
+      <category>Heritage</category>
+      <metatypes>
+        <metatype>
+          <name>Human</name>
+          <value>3</value>
+        </metatype>
+        <metatype>
+          <name>Elf</name>
+          <value>0</value>
+        </metatype>
+      </metatypes>
+    </priority>
+    <priority>
+      <name>E - Human</name>
+      <value>E</value>
+      <category>Heritage</category>
+      <metatypes>
+        <metatype>
+          <name>Human</name>
+          <value>1</value>
+        </metatype>
+      </metatypes>
+    </priority>
+    <priority>
+      <name>A - Magician or Technomancer</name>
+      <value>A</value>
+      <category>Talent</category>
+      <talents>
+        <talent>
+          <name>Magician - 6 Magic/10 Spells</name>
+          <value>Magician</value>
+          <qualities>
+            <quality>Magician</quality>
+          </qualities>
+          <magic>5</magic>
+          <spells>9</spells>
+          <skillqty>2</skillqty>
+          <skillval>5</skillval>
+          <skilltype>magic</skilltype>
+        </talent>
+        <talent>
+          <name>Mystic Adept - 6 Magic/10 Spells</name>
+          <value>Mystic Adept</value>
+          <qualities>
+            <quality>Mystic Adept</quality>
+          </qualities>
+          <magic>6</magic>
+          <spells>10</spells>
+          <skillqty>2</skillqty>
+          <skillval>5</skillval>
+          <skilltype>magic</skilltype>
+        </talent>
+        <talent>
+          <name>Technomancer - 6 Resonance/5 Complex Forms</name>
+          <value>Technomancer</value>
+          <qualities>
+            <quality>Technomancer</quality>
+          </qualities>
+          <resonance>5</resonance>
+          <cfp>5</cfp>
+          <skillqty>2</skillqty>
+          <skillval>5</skillval>
+          <skilltype>resonance</skilltype>
+        </talent>
+      </talents>
+    </priority>
+    <priority>
+      <name>B - Adept, Magician, or Technomancer</name>
+      <value>B</value>
+      <category>Talent</category>
+      <talents>
+        <talent>
+          <name>Adept - 6 Magic</name>
+          <value>Adept</value>
+          <qualities>
+            <quality>Adept</quality>
+          </qualities>
+          <magic>6</magic>
+          <skillqty>1</skillqty>
+          <skillval>4</skillval>
+          <skilltype>active</skilltype>
+        </talent>
+        <talent>
+          <name>Magician - 4 Magic/7 Spells</name>
+          <value>Magician</value>
+          <qualities>
+            <quality>Magician</quality>
+          </qualities>
+          <magic>4</magic>
+          <spells>7</spells>
+          <skillqty>2</skillqty>
+          <skillval>4</skillval>
+          <skilltype>magic</skilltype>
+        </talent>
+        <talent>
+          <name>Mystic Adept - 4 Magic/7 Spells</name>
+          <value>Mystic Adept</value>
+          <qualities>
+            <quality>Mystic Adept</quality>
+          </qualities>
+          <magic>4</magic>
+          <spells>7</spells>
+          <skillqty>2</skillqty>
+          <skillval>4</skillval>
+          <skilltype>magic</skilltype>
+        </talent>
+        <talent>
+          <name>Aspected Magician - 5 Magic</name>
+          <value>Aspected Magician</value>
+          <qualities>
+            <quality>Aspected Magician</quality>
+          </qualities>
+          <magic>5</magic>
+          <skillgroupqty>1</skillgroupqty>
+          <skillgroupval>4</skillgroupval>
+          <skillgrouptype>magic</skillgrouptype>
+        </talent>
+        <talent>
+          <name>Technomancer - 4 Resonance/2 Complex Forms</name>
+          <value>Technomancer</value>
+          <qualities>
+            <quality>Technomancer</quality>
+          </qualities>
+          <resonance>4</resonance>
+          <cfp>2</cfp>
+          <skillqty>2</skillqty>
+          <skillval>4</skillval>
+          <skilltype>resonance</skilltype>
+        </talent>
+      </talents>
+    </priority>
+    <priority>
+      <name>C - Adept or Technomancer</name>
+      <value>C</value>
+      <category>Talent</category>
+      <talents>
+        <talent>
+          <name>Adept - 4 Magic</name>
+          <value>Adept</value>
+          <qualities>
+            <quality>Adept</quality>
+          </qualities>
+          <magic>4</magic>
+          <skillqty>1</skillqty>
+          <skillval>2</skillval>
+          <skilltype>active</skilltype>
+        </talent>
+        <talent>
+          <name>Magician - 3 Magic/5 Spells</name>
+          <value>Magician</value>
+          <qualities>
+            <quality>Magician</quality>
+          </qualities>
+          <magic>3</magic>
+          <spells>5</spells>
+        </talent>
+        <talent>
+          <name>Mystic Adept - 3 Magic/5 Spells</name>
+          <value>Mystic Adept</value>
+          <qualities>
+            <quality>Mystic Adept</quality>
+          </qualities>
+          <magic>3</magic>
+          <spells>5</spells>
+        </talent>
+        <talent>
+          <name>Aspected Magician - 3 Magic</name>
+          <value>Aspected Magician</value>
+          <qualities>
+            <quality>Aspected Magician</quality>
+          </qualities>
+          <magic>3</magic>
+          <skillgroupqty>1</skillgroupqty>
+          <skillgroupval>2</skillgroupval>
+          <skillgrouptype>magic</skillgrouptype>
+        </talent>
+        <talent>
+          <name>Technomancer - 3 Resonance/1 Complex Forms</name>
+          <value>Technomancer</value>
+          <qualities>
+            <quality>Technomancer</quality>
+          </qualities>
+          <resonance>3</resonance>
+          <cfp>1</cfp>
+        </talent>
+      </talents>
+    </priority>
+    <priority>
+      <name>D - Adept or Technomancer</name>
+      <value>D</value>
+      <category>Talent</category>
+      <talents>
+        <talent>
+          <name>Adept - 2 Magic</name>
+          <value>Adept</value>
+          <qualities>
+            <quality>Adept</quality>
+          </qualities>
+          <magic>2</magic>
+        </talent>
+        <talent>
+          <name>Aspected Magician - 2 Magic</name>
+          <value>Aspected Magician</value>
+          <qualities>
+            <quality>Aspected Magician</quality>
+          </qualities>
+          <magic>2</magic>
+        </talent>
+      </talents>
+    </priority>
+    <priority>
+      <name>E - Mundane</name>
+      <value>E</value>
+      <category>Talent</category>
+      <talents>
+        <talent>
+          <name>Mundane</name>
+          <value>Mundane</value>
+          <magic>0</magic>
+          <maxmagic>0</maxmagic>
+        </talent>
+      </talents>
+    </priority>
+    <priority>
+      <name>A - 24 Attributes</name>
+      <value>A</value>
+      <category>Attributes</category>
+      <attributes>24</attributes>
+    </priority>
+    <priority>
+      <name>B - 20 Attributes</name>
+      <value>B</value>
+      <category>Attributes</category>
+      <attributes>20</attributes>
+    </priority>
+    <priority>
+      <name>C - 16 Attributes</name>
+      <value>C</value>
+      <category>Attributes</category>
+      <attributes>16</attributes>
+    </priority>
+    <priority>
+      <name>D - 14 Attributes</name>
+      <value>D</value>
+      <category>Attributes</category>
+      <attributes>14</attributes>
+    </priority>
+    <priority>
+      <name>E - 12 Attributes</name>
+      <value>E</value>
+      <category>Attributes</category>
+      <attributes>12</attributes>
+    </priority>
+    <priority>
+      <name>A - 46 Skills/10 Skill Groups</name>
+      <value>A</value>
+      <category>Skills</category>
+      <skills>46</skills>
+      <skillgroups>10</skillgroups>
+    </priority>
+    <priority>
+      <name>B - 36 Skills/5 Skill Groups</name>
+      <value>B</value>
+      <category>Skills</category>
+      <skills>36</skills>
+      <skillgroups>5</skillgroups>
+    </priority>
+    <priority>
+      <name>C - 28 Skills/2 Skill Groups</name>
+      <value>C</value>
+      <category>Skills</category>
+      <skills>28</skills>
+      <skillgroups>2</skillgroups>
+    </priority>
+    <priority>
+      <name>D - 22 Skills/0 Skill Groups</name>
+      <value>D</value>
+      <category>Skills</category>
+      <skills>22</skills>
+      <skillgroups>0</skillgroups>
+    </priority>
+    <priority>
+      <name>E - 18 Skills/0 Skill Groups</name>
+      <value>E</value>
+      <category>Skills</category>
+      <skills>18</skills>
+      <skillgroups>0</skillgroups>
+    </priority>
+    <priority>
+      <name>A - 450,000¥</name>
+      <value>A</value>
+      <category>Resources</category>
+      <resources>450000</resources>
+    </priority>
+    <priority>
+      <name>B - 275,000¥</name>
+      <value>B</value>
+      <category>Resources</category>
+      <resources>275000</resources>
+    </priority>
+    <priority>
+      <name>C - 140,000¥</name>
+      <value>C</value>
+      <category>Resources</category>
+      <resources>140000</resources>
+    </priority>
+    <priority>
+      <name>D - 50,000¥</name>
+      <value>D</value>
+      <category>Resources</category>
+      <resources>50000</resources>
+    </priority>
+    <priority>
+      <name>E - 6,000¥</name>
+      <value>E</value>
+      <category>Resources</category>
+      <resources>6000</resources>
+    </priority>
+  </priorities>
+</chummer>
