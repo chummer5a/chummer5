@@ -1,10 +1,19 @@
 Build 5.102
+- Added bonus skills during priority selection that are based on the character's talent priority selection.
+- Made a change which now auto-selects the first available metatype on the list when selecting metatype
 - Fixed the broken weapon accessories that was causing UI errors
 - Fixed errors when selecting certain gear that was causing UI errors
 - Fixed issues with vehicle acceleration that was causing UI errors
 - Fixed issues with quality selection that was causing UI errors
-- Made a change which now auto-selects the first available metatype on the list when selecting metatype
-- Added bonus skills during priority selection that are based on the character's talent priority selection.
+- Fixed movement rates to calculate using augmented AGI
+- Fixed an issue with there being two dropdowns when selecting a mentor spirit
+- Fixed an issue with armor and armor mod capacity calculation
+- Fixed an issue preventing the select spell dialog from being shown
+- Fixed an issue preventing the complex form dialog from being shown
+- Fixed an issue causing the karma cost for the code of honor negative qualities to be shown incorrectly
+- Fixed an issue causing the Social Limit to use the wrong Essence value for calculation.
+- Fixed an issue allowing Low-Light Vision and Thermographic Vision to be selectable qualities.
+- Fixed an issue which allowed armor enhancements which should not be user-selectable to show up in the armor mod dialog.
 
 Build 5.101
 - Chummer5 alpha initial release

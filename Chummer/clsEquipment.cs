@@ -1929,7 +1929,7 @@ namespace Chummer
 					return 0;
 
 				// Calculate the remaining Capacity for a Suit of Armor.
-				if (_strArmorCapacity != "0" && _strArmorCapacity != "" && _objCharacter.Options.ArmorSuitCapacity)
+				if (_strArmorCapacity != "0" && _strArmorCapacity != "") // && _objCharacter.Options.ArmorSuitCapacity)
 				{
 					// Run through its Armor Mods and deduct the Capacity costs.
 					foreach (ArmorMod objMod in _lstArmorMods)
@@ -1969,7 +1969,7 @@ namespace Chummer
 				}
 
 				// Calculate the remaining Capacity for a standard piece of Armor using the Maximum Armor Modifications rules.
-				if ((_strArmorCapacity == "0" || _strArmorCapacity == "") && _objCharacter.Options.MaximumArmorModifications)
+				if ((_strArmorCapacity == "0" || _strArmorCapacity == "")) // && _objCharacter.Options.MaximumArmorModifications)
 				{
 					// Run through its Armor Mods and deduct the Rating (or 1 if it has no Rating).
 					foreach (ArmorMod objMod in _lstArmorMods)
@@ -2003,9 +2003,9 @@ namespace Chummer
 			{
 				CapacityStyle objReturn = CapacityStyle.Zero;
 				
-				if ((_strArmorCapacity == "" || _strArmorCapacity == "0") && _objCharacter.Options.MaximumArmorModifications)
+				if ((_strArmorCapacity == "" || _strArmorCapacity == "0")) // && _objCharacter.Options.MaximumArmorModifications)
 					objReturn = CapacityStyle.PerRating;
-				if (_strArmorCapacity != "" && _strArmorCapacity != "0" && _objCharacter.Options.ArmorSuitCapacity)
+				if (_strArmorCapacity != "" && _strArmorCapacity != "0") // && _objCharacter.Options.ArmorSuitCapacity)
 					objReturn = CapacityStyle.Standard;
 
 				return objReturn;
