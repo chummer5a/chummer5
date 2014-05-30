@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-925</version>
+	<version>-500</version>
 	<ranges>
 		<range>
 			<category>Tasers</category>
@@ -47,13 +47,13 @@
 			<min>0</min>
 			<short>10</short>
 			<medium>40</medium>
-			<long>85</long>
+			<long>80</long>
 			<extreme>150</extreme>
 		</range>
 		<range>
 			<category>Assault Rifles</category>
 			<min>0</min>
-			<short>50</short>
+			<short>25</short>
 			<medium>150</medium>
 			<long>350</long>
 			<extreme>550</extreme>
@@ -61,55 +61,47 @@
 		<range>
 			<category>Shotguns</category>
 			<min>0</min>
+			<short>15</short>
+			<medium>30</medium>
+			<long>45</long>
+			<extreme>60</extreme>
+		</range>
+		<range>
+			<category>Shotguns (slug)</category>
+			<min>0</min>
 			<short>10</short>
 			<medium>40</medium>
 			<long>80</long>
 			<extreme>150</extreme>
 		</range>
 		<range>
-			<category>Flechette</category>
-			<min>0</min>
-			<short>10</short>
-			<medium>25</medium>
-			<long>40</long>
-			<extreme>60</extreme>
-		</range>
-		<range>
-			<category>Sports Rifles</category>
-			<min>0</min>
-			<short>100</short>
-			<medium>250</medium>
-			<long>500</long>
-			<extreme>750</extreme>
-		</range>
-		<range>
 			<category>Sniper Rifles</category>
 			<min>0</min>
-			<short>150</short>
+			<short>50</short>
 			<medium>350</medium>
 			<long>800</long>
 			<extreme>1500</extreme>
 		</range>
 		<range>
+			<category>Sporting Rifles</category>
+			<min>0</min>
+			<short>50</short>
+			<medium>250</medium>
+			<long>500</long>
+			<extreme>750</extreme>
+		</range>
+		<range>
 			<category>Light Machine Guns</category>
 			<min>0</min>
-			<short>75</short>
+			<short>25</short>
 			<medium>200</medium>
 			<long>400</long>
 			<extreme>800</extreme>
 		</range>
 		<range>
-			<category>Medium Machine Guns</category>
+			<category>Medium/Heavy Machinegun</category>
 			<min>0</min>
-			<short>80</short>
-			<medium>250</medium>
-			<long>750</long>
-			<extreme>1200</extreme>
-		</range>
-		<range>
-			<category>Heavy Machine Guns</category>
-			<min>0</min>
-			<short>80</short>
+			<short>40</short>
 			<medium>250</medium>
 			<long>750</long>
 			<extreme>1200</extreme>
@@ -117,13 +109,13 @@
 		<range>
 			<category>Assault Cannons</category>
 			<min>0</min>
-			<short>100</short>
+			<short>50</short>
 			<medium>300</medium>
 			<long>750</long>
 			<extreme>1500</extreme>
 		</range>
 		<range>
-			<category>Grenade Launchers</category>
+			<category>Grenade Launcher</category>
 			<min>5</min>
 			<short>50</short>
 			<medium>100</medium>
@@ -131,28 +123,12 @@
 			<extreme>500</extreme>
 		</range>
 		<range>
-			<category>Missile Launchers</category>
+			<category>Missile Launcher</category>
 			<min>20</min>
 			<short>70</short>
 			<medium>150</medium>
 			<long>450</long>
 			<extreme>1500</extreme>
-		</range>
-		<range>
-			<category>Mortar Launchers</category>
-			<min>150</min>
-			<short>300</short>
-			<medium>1000</medium>
-			<long>4000</long>
-			<extreme>6000</extreme>
-		</range>
-		<range>
-			<category>Ballistas</category>
-			<min>20</min>
-			<short>100</short>
-			<medium>500</medium>
-			<long>3000</long>
-			<extreme>5000</extreme>
 		</range>
 		<range>
 			<category>Bows</category>
@@ -187,44 +163,20 @@
 			<extreme>180</extreme>
 		</range>
 		<range>
-			<category>Pistol Crossbows</category>
-			<min>0</min>
-			<short>5</short>
-			<medium>15</medium>
-			<long>30</long>
-			<extreme>50</extreme>
-		</range>
-		<range>
-			<category>Battle Rifles</category>
-			<min>0</min>
-			<short>100</short>
-			<medium>250</medium>
-			<long>500</long>
-			<extreme>750</extreme>
-		</range>
-		<range>
-			<category>Heavy Mortar</category>
-			<min>0</min>
-			<short>600</short>
-			<medium>1000</medium>
-			<long>8000</long>
-			<extreme>12000</extreme>
-		</range>
-		<range>
-			<category>Howitzer</category>
-			<min>0</min>
-			<short>1500</short>
-			<medium>8500</medium>
-			<long>18000</long>
-			<extreme>30000</extreme>
-		</range>
-		<range>
 			<category>Thrown Knife</category>
 			<min>0</min>
 			<short>STR</short>
 			<medium>STR*2</medium>
 			<long>STR*3</long>
 			<extreme>STR*5</extreme>
+		</range>
+		<range>
+			<category>Net</category>
+			<min>0</min>
+			<short>STR/2</short>
+			<medium>STR</medium>
+			<long>STR*1.5</long>
+			<extreme>STR*2.5</extreme>
 		</range>
 		<range>
 			<category>Shuriken</category>
@@ -235,7 +187,7 @@
 			<extreme>STR*7</extreme>
 		</range>
 		<range>
-			<category>Grenades</category>
+			<category>Standard Grenade</category>
 			<min>0</min>
 			<short>STR*2</short>
 			<medium>STR*4</medium>
@@ -243,20 +195,12 @@
 			<extreme>STR*10</extreme>
 		</range>
 		<range>
-			<category>Aerodynamic Grenades</category>
+			<category>Aerodynamic Grenade</category>
 			<min>0</min>
 			<short>STR*2</short>
 			<medium>STR*4</medium>
 			<long>STR*8</long>
 			<extreme>STR*15</extreme>
-		</range>
-		<range>
-			<category>Blowguns</category>
-			<min>0</min>
-			<short>BOD</short>
-			<medium>BOD*2</medium>
-			<long>BOD*3</long>
-			<extreme>BOD*4</extreme>
 		</range>
 	</ranges>
 </chummer>
