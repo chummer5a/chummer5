@@ -105,7 +105,7 @@ namespace Chummer
 					}
 					try
 					{
-						int objValue = objTemp.TotalHandling;
+						string objValue = objTemp.TotalHandling;
 					}
 					catch
 					{

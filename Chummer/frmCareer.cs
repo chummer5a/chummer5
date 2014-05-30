@@ -10084,8 +10084,7 @@ namespace Chummer
 			frmPickVehicleMod.VehicleCost = Convert.ToInt32(objSelectedVehicle.Cost);
 			frmPickVehicleMod.Body = objSelectedVehicle.Body;
 			frmPickVehicleMod.Speed = objSelectedVehicle.Speed;
-			frmPickVehicleMod.AccelRunning = objSelectedVehicle.AccelRunning;
-			frmPickVehicleMod.AccelWalking = objSelectedVehicle.AccelWalking;
+			frmPickVehicleMod.Accel = objSelectedVehicle.Accel;
 			frmPickVehicleMod.DeviceRating = objSelectedVehicle.DeviceRating;
 			frmPickVehicleMod.HasModularElectronics = objSelectedVehicle.HasModularElectronics();
 

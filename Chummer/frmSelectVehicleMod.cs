@@ -14,8 +14,7 @@ namespace Chummer
 		private int _intVehicleCost = 0;
 		private int _intBody = 0;
 		private int _intSpeed = 0;
-		private int _intAccelRunning = 0;
-		private int _intAccelWalking = 0;
+		private string _strAccel = "0";
 		private int _intWeaponCost = 0;
 		private int _intTotalWeaponCost = 0;
 		private int _intModMultiplier = 1;
@@ -234,24 +233,13 @@ namespace Chummer
 		}
 
 		/// <summary>
-		/// Vehicle's Acceleration (Running) speed.
-		/// </summary>
-		public int AccelRunning
-		{
-			set
-			{
-				_intAccelRunning = value;
-			}
-		}
-
-		/// <summary>
 		/// Vehicle's Acceleration (Walking) speed.
 		/// </summary>
-		public int AccelWalking
+		public string Accel
 		{
 			set
 			{
-				_intAccelWalking = value;
+				_strAccel = value;
 			}
 		}
 
@@ -519,8 +507,7 @@ namespace Chummer
 					strCost = strCost.Replace("Total Cost", _intTotalWeaponCost.ToString());
 					strCost = strCost.Replace("Body", _intBody.ToString());
 					strCost = strCost.Replace("Speed", _intSpeed.ToString());
-					strCost = strCost.Replace("Accel(Running)", _intAccelRunning.ToString());
-					strCost = strCost.Replace("Accel", _intAccelWalking.ToString());
+					strCost = strCost.Replace("Accel", _strAccel.ToString());
 					if (chkFreeItem.Checked)
 						strCost = "0";
 

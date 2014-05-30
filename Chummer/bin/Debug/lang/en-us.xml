@@ -469,6 +469,18 @@
 			<key>String_MountBarrel</key>
 			<text>Barrel</text>
 		</string>
+		<string>
+			<key>String_MountSide</key>
+			<text>Side</text>
+		</string>
+		<string>
+			<key>String_MountInternal</key>
+			<text>Internal</text>
+		</string>
+		<string>
+			<key>String_MountStock</key>
+			<text>Stock</text>
+		</string>
 		<!-- Common Message Boxes -->
 		<string>
 			<key>Message_FileNotFound</key>

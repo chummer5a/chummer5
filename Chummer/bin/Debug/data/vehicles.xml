@@ -736,6 +736,7 @@
 			<name>Rigger Interface</name>
 			<category>All</category>
 			<rating>0</rating>
+			<slots>0</slots>
 			<avail>4</avail>
 			<cost>1000</cost>
 			<source>SR5</source>
@@ -745,6 +746,7 @@
 			<name>Weapon Mount</name>
 			<category>All</category>
 			<rating>0</rating>
+			<slots>0</slots>
 			<avail>8F</avail>
 			<cost>2500</cost>
 			<source>SR5</source>
@@ -754,6 +756,7 @@
 			<name>Weapon Mount, Manual</name>
 			<category>All</category>
 			<rating>0</rating>
+			<slots>0</slots>
 			<avail>9F</avail>
 			<cost>3000</cost>
 			<source>SR5</source>
@@ -763,6 +766,7 @@
 			<name>Heavy Weapon Mount</name>
 			<category>All</category>
 			<rating>0</rating>
+			<slots>0</slots>
 			<avail>14F</avail>
 			<cost>5000</cost>
 			<source>SR5</source>
@@ -772,6 +776,7 @@
 			<name>Heavy Weapon Mount, Manual</name>
 			<category>All</category>
 			<rating>0</rating>
+			<slots>0</slots>
 			<avail>15F</avail>
 			<cost>5500</cost>
 			<source>SR5</source>

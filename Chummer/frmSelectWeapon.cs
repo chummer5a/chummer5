@@ -110,7 +110,7 @@ namespace Chummer
 			TreeNode objNode = new TreeNode();
 			objWeapon.Create(objXmlWeapon, _objCharacter, objNode, null, null, null);
 
-			lblWeaponReach.Text = objWeapon.TotalReach.ToString();
+            lblWeaponReach.Text = objWeapon.TotalReach.ToString();
 			lblWeaponDamage.Text = objWeapon.CalculatedDamage();
 			lblWeaponAP.Text = objWeapon.TotalAP;
 			lblWeaponMode.Text = objWeapon.CalculatedMode;
@@ -151,7 +151,7 @@ namespace Chummer
 			lblSource.Text = strBook + " " + strPage;
 
 			// Build a list of included Accessories and Modifications that come with the weapon.
-			string strAccessories = "";
+            string strAccessories = "";
 			XmlNodeList objXmlNodeList = objXmlWeapon.SelectNodes("accessories/accessory");
 			foreach (XmlNode objXmlAccessory in objXmlNodeList)
 			{
@@ -161,7 +161,7 @@ namespace Chummer
 				else
 					strAccessories += objXmlItem["name"].InnerText + "\n";
 			}
-			objXmlNodeList = objXmlWeapon.SelectNodes("mods/mod");
+            objXmlNodeList = objXmlWeapon.SelectNodes("mods/mod");
 			foreach (XmlNode objXmlMod in objXmlNodeList)
 			{
 				XmlNode objXmlItem = _objXmlDocument.SelectSingleNode("/chummer/mods/mod[name = \"" + objXmlMod.InnerText + "\"]");
@@ -175,7 +175,7 @@ namespace Chummer
 			else
 				lblIncludedAccessories.Text = strAccessories;
 
-			tipTooltip.SetToolTip(lblSource, _objCharacter.Options.LanguageBookLong(objXmlWeapon["source"].InnerText) + " " + LanguageManager.Instance.GetString("String_Page") + " " + strPage);
+            tipTooltip.SetToolTip(lblSource, _objCharacter.Options.LanguageBookLong(objXmlWeapon["source"].InnerText) + " " + LanguageManager.Instance.GetString("String_Page") + " " + strPage);
         }
 
 		private void cmdOK_Click(object sender, EventArgs e)
