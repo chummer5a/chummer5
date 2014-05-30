@@ -18,7 +18,7 @@
 		</string>
 		<string>
 			<key>String_Special</key>
-			<text>Special</text>
+			<text>Special Attributes</text>
 		</string>
 		<string>
 			<key>String_SpecialAttributePoints</key>
@@ -27,6 +27,14 @@
 		<string>
 			<key>String_AttributePoints</key>
 			<text>Attribute Points</text>
+		</string>
+		<string>
+			<key>String_MartialArtsCount</key>
+			<text>Martial Arts</text>
+		</string>
+		<string>
+			<key>String_TechniquesCount</key>
+			<text>Techniques</text>
 		</string>
 		<string>
 			<key>String_SkillPoints</key>
@@ -145,6 +153,10 @@
 			<text>Name:</text>
 		</string>
 		<string>
+			<key>Label_Bonus</key>
+			<text>Bonus:</text>
+		</string>
+		<string>
 			<key>Label_Category</key>
 			<text>Category:</text>
 		</string>
@@ -187,6 +199,10 @@
 		<string>
 			<key>Label_Cost</key>
 			<text>Cost:</text>
+		</string>
+		<string>
+			<key>Label_Accuracy</key>
+			<text>Accuracy:</text>
 		</string>
 		<string>
 			<key>Label_Slots</key>
@@ -277,8 +293,8 @@
 			<text>Capacity:</text>
 		</string>
 		<string>
-			<key>Label_Response</key>
-			<text>Response:</text>
+			<key>Label_DeviceRating</key>
+			<text>DeviceRating:</text>
 		</string>
 		<string>
 			<key>Label_Signal</key>
@@ -301,20 +317,16 @@
 			<text>Maximum Capacity allowed:</text>
 		</string>
 		<string>
-			<key>Label_BallisticArmorShort</key>
-			<text>Ballistic:</text>
+			<key>Label_ArmorShort</key>
+			<text>Name:</text>
 		</string>
 		<string>
-			<key>Label_BallisticArmorLong</key>
-			<text>Ballistic Armor:</text>
+			<key>Label_ArmorValueShort</key>
+			<text>Armor:</text>
 		</string>
 		<string>
-			<key>Label_ImpactArmorShort</key>
-			<text>Impact:</text>
-		</string>
-		<string>
-			<key>Label_ImpactArmorLong</key>
-			<text>Impact Armor:</text>
+			<key>Label_ArmorLong</key>
+			<text>Armor:</text>
 		</string>
 		<string>
 			<key>Label_Test</key>
@@ -409,12 +421,8 @@
 			<text>hours</text>
 		</string>
 		<string>
-			<key>String_BallisticEncumbrance</key>
-			<text>Ballistic Encumbrance</text>
-		</string>
-		<string>
-			<key>String_ImpactEncumbrance</key>
-			<text>Impact Encumbrance</text>
+			<key>String_ArmorEncumbrance</key>
+			<text>Armor Encumbrance</text>
 		</string>
 		<string>
 			<key>String_StackedFocus</key>
@@ -839,7 +847,7 @@
 		</string>
 		<string>
 			<key>Menu_AddAdvantage</key>
-			<text>&amp;Add Advantage</text>
+			<text>&amp;Add Technique</text>
 		</string>
 		<string>
 			<key>Menu_Notes</key>
@@ -1138,6 +1146,10 @@
 			<text>Are you sure you want to delete this Vehicle location? All of the Gear in this location will be moved to the Vehicle itself.</text>
 		</string>
 		<string>
+			<key>Message_DeleteLimitModifier</key>
+			<text>Are you sure you want to delete this Limit Modifier?</text>
+		</string>
+		<string>
 			<key>Message_DeleteMartialArt</key>
 			<text>Are you sure you want to delete this Martial Art/Maneuver?</text>
 		</string>
@@ -1234,8 +1246,16 @@
 			<text>You must select a Martial Art to add an Advantage to.</text>
 		</string>
 		<string>
+			<key>Message_SelectLimitModifier</key>
+			<text>You must select a Limit to add a Modifier to.</text>
+		</string>
+		<string>
 			<key>MessageTitle_SelectMartialArtAdvantage</key>
 			<text>Select Martial Art</text>
+		</string>
+		<string>
+			<key>MessageTitle_SelectLimitModifier</key>
+			<text>Select Limit Modifier</text>
 		</string>
 		<string>
 			<key>Message_PositiveQualityLimit</key>
@@ -2708,7 +2728,7 @@
 		</string>
 		<string>
 			<key>Label_MysticAdeptAssignment</key>
-			<text>Mystic Adept MAG Assignment</text>
+			<text>Mystic Adept Power Points</text>
 		</string>
 		<string>
 			<key>Label_Magician</key>
@@ -2948,7 +2968,7 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		</string>
 		<string>
 			<key>Node_SelectedGeomancyRituals</key>
-			<text>Selected Geomancy Rituals</text>
+			<text>Selected Rituals</text>
 		</string>
 		<string>
 			<key>Tip_SpellsSelectedSpells</key>
@@ -3064,6 +3084,32 @@ Only one attribute may be at its Maximum value during character creation.</text>
 			<key>Tip_TechnomancerBiofeedbackFilter</key>
 			<text>Living Persona Biofeedback Filter is equal to CHA.</text>
 		</string>
+		<!-- Limit Tab -->
+		<string>
+			<key>Tab_Limits</key>
+			<text>Limits</text>
+		</string>
+		<string>
+			<key>String_AddLimitModifier</key>
+			<text>Add Limit Modifier</text>
+		</string>
+		<string>
+			<key>String_EnterLimitModifier</key>
+			<text>Enter a Limit Modifier</text>
+		</string>
+		<string>
+			<key>Node_Physical</key>
+			<text>Physical</text>
+		</string>
+		<string>
+			<key>Node_Mental</key>
+			<text>Mental</text>
+		</string>
+		<string>
+			<key>Node_Social</key>
+			<text>Social</text>
+		</string>
+
 		<!-- Critter Tab -->
 		<string>
 			<key>Button_AddCritterPower</key>
@@ -3234,20 +3280,12 @@ Only one attribute may be at its Maximum value during character creation.</text>
 			<text>Equipped Armor and Armor Mods are factored into Armor Encumbrance and a character's highest Armor Ratings.</text>
 		</string>
 		<string>
-			<key>Tip_ArmorDegradationBPlus</key>
-			<text>Repair Ballistic Rating.</text>
+			<key>Tip_ArmorDegradationPlus</key>
+			<text>Repair Armor Rating.</text>
 		</string>
 		<string>
-			<key>Tip_ArmorDegradationBMinus</key>
-			<text>Damage Ballistic Rating.</text>
-		</string>
-		<string>
-			<key>Tip_ArmorDegradationIPlus</key>
-			<text>Repair Impact Rating.</text>
-		</string>
-		<string>
-			<key>Tip_ArmorDegradationIMinus</key>
-			<text>Damage Impact Rating.</text>
+			<key>Tip_ArmorDegradationMinus</key>
+			<text>Damage Armor Rating.</text>
 		</string>
 		<!-- Street Gear/Weapon Tab -->
 		<string>
@@ -3749,7 +3787,19 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		</string>
 		<string>
 			<key>Label_OtherMatrixInit</key>
-			<text>Matrix Initiative:</text>
+			<text>Matrix Initiative (AR):</text>
+		</string>
+		<string>
+			<key>Label_OtherMatrixInitVRCold</key>
+			<text>Matrix Initiative (Cold):</text>
+		</string>
+		<string>
+			<key>Label_OtherMatrixInitVRHot</key>
+			<text>Matrix Initiative (Hot):</text>
+		</string>
+		<string>
+			<key>Label_OtherRiggingInit</key>
+			<text>Rigging Initiative (AR):</text>
 		</string>
 		<string>
 			<key>Label_OtherMatrixIP</key>
@@ -3764,12 +3814,8 @@ Only one attribute may be at its Maximum value during character creation.</text>
 			<text>Astral Initiative Passes:</text>
 		</string>
 		<string>
-			<key>Label_OtherBallistic</key>
-			<text>Ballistic Armor:</text>
-		</string>
-		<string>
-			<key>Label_OtherImpact</key>
-			<text>Impact Armor:</text>
+			<key>Label_OtherArmor</key>
+			<text>Armor:</text>
 		</string>
 		<string>
 			<key>Label_OtherEssence</key>
@@ -3848,12 +3894,8 @@ Only one attribute may be at its Maximum value during character creation.</text>
 			<text>Characters have 3 Astral Initiative Passes.</text>
 		</string>
 		<string>
-			<key>Tip_OtherBallisticArmor</key>
-			<text>Only the highest single Ballistic value is used to determine your Armor Rating. If the total Ballistic value for all pieces worn exceeds BOD x 2, you receive a -1 penalty to AGI for every 2 points you are over.</text>
-		</string>
-		<string>
-			<key>Tip_OtherImpactArmor</key>
-			<text>Only the highest single Impact value is used to determine your Armor Rating. If the total Impact value for all pieces worn exceeds BOD x 2, you receive a -1 penalty to AGI for every 2 points you are over.</text>
+			<key>Tip_OtherArmor</key>
+			<text>Only the highest single Armor value is used to determine your Armor Rating. If the total Armor value for all pieces worn exceeds BOD x 2, you receive a -1 penalty to AGI for every 2 points you are over.</text>
 		</string>
 		<string>
 			<key>Tip_OtherEssence</key>
@@ -3901,12 +3943,8 @@ Only one attribute may be at its Maximum value during character creation.</text>
 			<text>CM Penalty:</text>
 		</string>
 		<string>
-			<key>Label_CMBallistic</key>
-			<text>Ballistic Armor:</text>
-		</string>
-		<string>
-			<key>Label_CMImpact</key>
-			<text>Impact Armor:</text>
+			<key>Label_CMArmor</key>
+			<text>Armor:</text>
 		</string>
 		<string>
 			<key>Label_CMResistancePool</key>
@@ -5609,7 +5647,15 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		<!-- Advanced Lifestyle Window -->
 		<string>
 			<key>Title_SelectAdvancedLifestyle</key>
-			<text>Build Advanced Lifestyle</text>
+			<text>Build Lifestyle</text>
+		</string>
+		<string>
+			<key>Label_SelectAdvancedLifestyle_Qualities</key>
+			<text>Qualities</text>
+		</string>
+		<string>
+			<key>Label_SelectAdvancedLifestyle_Lifestyle</key>
+			<text>Lifestyle:</text>
 		</string>
 		<string>
 			<key>Label_SelectAdvancedLifestyle_PositiveQualities</key>
