@@ -1521,12 +1521,61 @@
 			<page>83</page>
 		</armor>			
 		<armor>
-			<name>Survival Bubble</name>
+			<name>Survival Bubble, Rating 1</name>
 			<category>Specialty Armor</category>
-			<maxrating>6</maxrating>
 			<armor>4</armor>
 			<armorcapacity>4</armorcapacity>
-			<avail>Rating * 3</avail>
+			<avail>3</avail>
+			<cost>2000</cost>
+			<source>RG</source>
+			<page>83</page>
+		</armor>			
+		<armor>
+			<name>Survival Bubble, Rating 2</name>
+			<category>Specialty Armor</category>
+			<armor>4</armor>
+			<armorcapacity>4</armorcapacity>
+			<avail>6</avail>
+			<cost>2000</cost>
+			<source>RG</source>
+			<page>83</page>
+		</armor>			
+		<armor>
+			<name>Survival Bubble, Rating 3</name>
+			<category>Specialty Armor</category>
+			<armor>4</armor>
+			<armorcapacity>4</armorcapacity>
+			<avail>9</avail>
+			<cost>2000</cost>
+			<source>RG</source>
+			<page>83</page>
+		</armor>			
+		<armor>
+			<name>Survival Bubble, Rating 4</name>
+			<category>Specialty Armor</category>
+			<armor>4</armor>
+			<armorcapacity>4</armorcapacity>
+			<avail>12</avail>
+			<cost>2000</cost>
+			<source>RG</source>
+			<page>83</page>
+		</armor>			
+		<armor>
+			<name>Survival Bubble, Rating 5</name>
+			<category>Specialty Armor</category>
+			<armor>4</armor>
+			<armorcapacity>4</armorcapacity>
+			<avail>15</avail>
+			<cost>2000</cost>
+			<source>RG</source>
+			<page>83</page>
+		</armor>			
+		<armor>
+			<name>Survival Bubble, Rating 6</name>
+			<category>Specialty Armor</category>
+			<armor>4</armor>
+			<armorcapacity>4</armorcapacity>
+			<avail>18</avail>
 			<cost>2000</cost>
 			<source>RG</source>
 			<page>83</page>

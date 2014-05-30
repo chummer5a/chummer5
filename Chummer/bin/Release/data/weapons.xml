@@ -104,7 +104,7 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Laser Sight</accessory>
-				<accessory rating="2">Powered Slide Mount</accessory>
+				<accessory>Slide Mount</accessory>
 			</accessories>
 			<source>GH3</source>
 			<page>35</page>
@@ -114,6 +114,7 @@
 			<category>Assault Cannons</category>
 			<type>Ranged</type>
 			<conceal>6</conceal>
+			<accuracy>4</accuracy>
 			<reach>0</reach>
 			<damage>16P</damage>
 			<ap>-6</ap>
@@ -152,8 +153,8 @@
 				<mount>Under</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Advanced Safety</accessory>
-				<accessory>Integrated Commlink (4)</accessory>
+				<accessory>Advanced Safety System, Basic</accessory>
+				<accessory>Weapon Commlink</accessory>
 				<accessory>Imaging Scope</accessory>
 			</accessories>
 			<source>RG</source>
@@ -308,9 +309,7 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Bipod</accessory>
-				<accessory>Electronic Firing</accessory>
 				<accessory>Laser Sight</accessory>
-				<accessory>Melee Hardening</accessory>
 			</accessories>
 			<source>GH3</source>
 			<page>14</page>
@@ -360,7 +359,6 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Laser Sight</accessory>
-				<accessory>Gas Vent 2</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>428</page>
@@ -540,8 +538,6 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Imaging Scope</accessory>
-				<accessory>Metahuman Customization</accessory>
-				<accessory>Melee Hardening</accessory>
 			</accessories>
 			<source>GH3</source>
 			<page>15</page>
@@ -621,8 +617,6 @@
 				<mount>Under</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Electronic Firing</accessory>
-				<accessory>Melee Hardening</accessory>
 				<accessory>Smartgun System, External</accessory>
 			</accessories>
 			<source>GH3</source>
@@ -1287,7 +1281,7 @@
 			<spec>Saps</spec>
 			<conceal>0</conceal>
 			<accuracy>5</accuracy>
-			<reach>-</reach>
+			<reach>0</reach>
 			<damage>(STR+2)P</damage>
 			<ap>-</ap>
 			<mode>0</mode>
@@ -1400,6 +1394,7 @@
 			<category>Crossbows</category>
 			<type>Ranged</type>
 			<conceal>6</conceal>
+			<accuracy>5</accuracy>
 			<reach>0</reach>
 			<damage>10P</damage>
 			<ap>-3</ap>
@@ -1437,6 +1432,7 @@
 			<category>Crossbows</category>
 			<type>Ranged</type>
 			<conceal>4</conceal>
+			<accuracy>6</accuracy>
 			<reach>0</reach>
 			<damage>7P</damage>
 			<ap>-2</ap>
@@ -1824,8 +1820,7 @@
 			<cost>10000</cost>
 			<allowaccessory>true</allowaccessory>
 			<accessories>
-				<accessory>Reduced Weight</accessory>
-				<accessory rating="1">Powered Slide Mount</accessory>
+				<accessory>Slide Mount</accessory>
 			</accessories>
 			<range>Light Pistols</range>
 			<source>GH3</source>
@@ -2478,7 +2473,7 @@
 			<damage>12P</damage>
 			<ap>-4</ap>
 			<mode>FA</mode>
-			<rc>1</rc>
+			<rc>4</rc>
 			<ammo>50(c) or 100(belt)</ammo>
 			<avail>18F</avail>
 			<cost>19600</cost>
@@ -2489,7 +2484,6 @@
 				<mount>Under</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Gas Vent 3</accessory>
 				<accessory>Hip Pad Bracing System</accessory>
 				<accessory>Laser Sight</accessory>
 			</accessories>
@@ -2647,9 +2641,7 @@
 				<mount>Barrel</mount>
 				<mount>Top</mount>
 			</accessorymounts>
-			<accessories>
-				<accessory>Melee Hardening</accessory>
-			</accessories>
+			<accessories />
 			<source>GH3</source>
 			<page>6</page>
 		</weapon>
@@ -2720,7 +2712,7 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Smartgun System, External</accessory>
-				<accessory>Safe Target System, Basic</accessory>
+				<accessory>Safe Target System, Base</accessory>
 				<accessory>Advanced Safety System, Basic</accessory>
 			</accessories>
 			<source>RG</source>
@@ -3218,8 +3210,8 @@
 				<mount>Under</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Slide Mount (top)</accessory>
-				<accessory>Slide Mount (underbarrel)</accessory>
+				<accessory>Slide Mount</accessory>
+				<accessory>Slide Mount</accessory>
 				<accessory>Smartgun System, External</accessory>
 			</accessories>
 			<source>RG</source>
@@ -3250,7 +3242,6 @@
 				<accessory>Stock</accessory>
 				<accessory>Shock Pad</accessory>
 				<accessory>Laser Sight</accessory>
-				<accessory>Gas Vent 2</accessory>
 			</accessories>
 			<source>SR4</source>
 			<page>320</page>
@@ -3278,7 +3269,6 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Bipod</accessory>
-				<accessories>Metahuman Customization</accessories>
 			</accessories>
 			<source>GH3</source>
 			<page>34</page>
@@ -3305,8 +3295,8 @@
 				<mount>Under</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Gas Vent 2</accessory>
-				<accessory>Safe Target System (20 RFID, 20 Image Profiles)</accessory>
+				<accessory>Safe Target System, Base</accessory>
+				<accessory>Safe Target System, Additional set of RFID or GPS data (10 data sets)</accessory>
 				<accessory>Smartgun System, External</accessory>
 			</accessories>
 			<source>RG</source>
@@ -3616,7 +3606,7 @@
 			<damage>7P</damage>
 			<ap>-</ap>
 			<mode>SA/BF</mode>
-			<rc>0</rc>
+			<rc>2</rc>
 			<ammo>40(c)</ammo>
 			<avail>9R</avail>
 			<cost>830</cost>
@@ -3626,7 +3616,6 @@
 				<mount>Top</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Gas Vent 2</accessory>
 				<accessory>Smartgun System, External</accessory>
 			</accessories>
 			<source>SR5</source>
@@ -3653,7 +3642,6 @@
 				<mount>Top</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Electronic Firing</accessory>
 				<accessory>Folding Stock</accessory>
 				<accessory>Laser Sight</accessory>
 			</accessories>
@@ -3848,7 +3836,7 @@
 			<damage>6P</damage>
 			<ap>-</ap>
 			<mode>BF/FA</mode>
-			<rc>0</rc>
+			<rc>2</rc>
 			<ammo>15(c)</ammo>
 			<avail>7R</avail>
 			<cost>800</cost>
@@ -3858,7 +3846,6 @@
 				<mount>Top</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Gas Vent 2</accessory>
 				<accessory>Laser Sight</accessory>
 			</accessories>
 			<source>RG</source>
@@ -3886,7 +3873,6 @@
 				<mount>Under</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Gas Vent 2</accessory>
 				<accessory>Laser Sight</accessory>
 				<accessory>Tripod</accessory>
 			</accessories>
@@ -3943,7 +3929,7 @@
 			<accessories>
 				<accessory>Foregrip</accessory>
 				<accessory>Laser Sight</accessory>
-				<accessory>Under-barrel Tripod</accessory>
+				<accessory>Tripod</accessory>
 			</accessories>
 			<range>Medium/Heavy Machinegun</range>
 			<source>RG</source>
@@ -4000,9 +3986,7 @@
 			<avail>19F</avail>
 			<cost>7500</cost>
 			<allowaccessory>true</allowaccessory>
-			<accessories>
-				<accessory>Laser Designator</accessory>
-			</accessories>
+			<accessories />
 			<source>RG</source>
 			<page>46</page>
 		</weapon>
@@ -4066,10 +4050,8 @@
 			<cost>1200</cost>
 			<allowaccessory>true</allowaccessory>
 			<accessories>
-				<accessory>Advanced Safety, Basic System</accessory>
-				<accessory>Melee Hardening</accessory>
+				<accessory>Advanced Safety System, Basic</accessory>
 				<accessory>Smartgun System, External</accessory>
-				<accessory>Trigger Removal</accessory>
 			</accessories>
 			<source>GH3</source>
 			<page>22</page>
@@ -4215,9 +4197,7 @@
 				<mount>Top</mount>
 				<mount>Under</mount>
 			</accessorymounts>
-			<accessories>
-				<accessory>Metahuman Customization</accessory>
-			</accessories>
+			<accessories />
 			<source>GH3</source>
 			<page>17</page>
 		</weapon>
@@ -4295,8 +4275,8 @@
 				<mount>Under</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Slide Mount (top)</accessory>
-				<accessory>Slide Mount (underbarrel)</accessory>
+				<accessory>Slide Mount</accessory>
+				<accessory>Slide Mount</accessory>
 			</accessories>
 			<source>RG</source>
 			<page>42</page>
@@ -4306,7 +4286,7 @@
 			<category>Shotguns</category>
 			<type>Ranged</type>
 			<conceal>6</conceal>
-			<accuracy/>
+			<accuracy>4</accuracy>
 			<reach>0</reach>
 			<damage>10P</damage>
 			<ap>-1</ap>
@@ -4662,12 +4642,11 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Bipod</accessory>
-				<accessory>Commlink (Rating 5)</accessory>
+				<accessory>Weapon Commlink</accessory>
 				<accessory>Smartgun System, External</accessory>
 				<accessory>Imaging Scope</accessory>
 				<accessory>Underbarrel Weight</accessory>
-				<accessory>Safe Target System, Basic</accessory>
-				<accessory>Extended Barrel</accessory>
+				<accessory>Safe Target System, Base</accessory>
 			</accessories>
 			<source>RG</source>
 			<page>38</page>
@@ -4853,7 +4832,7 @@
 			<page>26</page>
 		</weapon>
 		<weapon>
-			<name>Mortimer of London "Trafalger" Gun Cane</name>
+			<name>Mortimer of London 'Trafalger' Gun Cane</name>
 			<category>Special Weapons</category>
 			<type>Ranged</type>
 			<conceal>4</conceal>
@@ -5103,7 +5082,7 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Imaging Scope</accessory>
-				<accessory>Extreme Environment Mod Rating 1</accessory>
+				<accessory>Extreme Environment Modification, Level 1</accessory>
 			</accessories>
 			<source>GH3</source>
 			<page>30</page>
@@ -5288,7 +5267,7 @@
 			<accessories>
 				<accessory>Folding Stock</accessory>
 				<accessory>Foregrip</accessory>
-				<accessory rating="2">Powered Slide Mount</accessory>
+				<accessory>Slide Mount</accessory>
 				<accessory>Smartgun System, External</accessory>
 			</accessories>
 			<source>GH3</source>
@@ -5343,7 +5322,6 @@
 			<accessories>
 				<accessory>Folding Stock</accessory>
 				<accessory>Laser Sight</accessory>
-				<accessory>Gas Vent 2</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>427</page>
@@ -5390,7 +5368,7 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Stock</accessory>
-				<accessory>Flashlight</accessory>
+				<accessory>Flashlight, Standard</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>427</page>
@@ -5458,7 +5436,7 @@
 			<damage>8P</damage>
 			<ap>-</ap>
 			<mode>BF/FA</mode>
-			<rc>0</rc>
+			<rc>2</rc>
 			<ammo>32(c)</ammo>
 			<avail>6R</avail>
 			<cost>800</cost>
@@ -5468,7 +5446,6 @@
 				<mount>Top</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Gas Vent 2</accessory>
 				<accessory>Smartgun System, External</accessory>
 				<accessory>Sound Suppressor</accessory>
 			</accessories>
@@ -5495,9 +5472,7 @@
 				<mount>Top</mount>
 				<mount>Under</mount>
 			</accessorymounts>
-			<accessories>
-				<accessory>Metahuman Customization</accessory>
-			</accessories>
+			<accessories />
 			<source>GH3</source>
 			<page>10</page>
 		</weapon>
@@ -6160,6 +6135,16 @@
 		</accessory>
 		<accessory>
 			<name>Folding Stock</name>
+			<mount>Stock</mount>
+			<avail>2</avail>
+			<cost>30</cost>
+			<rc>1</rc>
+			<rcgroup>2</rcgroup>
+			<source>RG</source>
+			<page>51</page>
+		</accessory>
+		<accessory>
+			<name>Stock</name>
 			<mount>Stock</mount>
 			<avail>2</avail>
 			<cost>30</cost>
