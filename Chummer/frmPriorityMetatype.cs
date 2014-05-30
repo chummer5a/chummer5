@@ -165,6 +165,7 @@ namespace Chummer
             // Load Metatypes
             LoadMetatypes();
             PopulateTalents();
+            lstMetatypes.SelectedIndex = 0;
 
 			// Add Possession and Inhabitation to the list of Critter Tradition variations.
 			tipTooltip.SetToolTip(chkPossessionBased, LanguageManager.Instance.GetString("Tip_Metatype_PossessionTradition"));
@@ -316,6 +317,270 @@ namespace Chummer
         private void cmdOK_Click(object sender, EventArgs e)
         {
             MetatypeSelected();
+        }
+
+        private void cboTalents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string strLabel = LanguageManager.Instance.GetString("String_MetamagicSkillBase");
+
+            if (cboTalents.SelectedIndex >= 0)
+            {
+                if (cboTalent.SelectedValue.ToString() == "A")
+                {
+                    if (cboTalents.SelectedValue.ToString() == "Magician")
+                    {
+                        strLabel = String.Format(strLabel, LanguageManager.Instance.GetString("String_MetamagicSkillMagicianA"));
+                        lblMetatypeSkillSelection.Text = strLabel;
+
+                        List<ListItem> lstSkills1 = new List<ListItem>();
+                        List<ListItem> lstSkills2 = new List<ListItem>();
+                        XmlNodeList objXmlMagicalSkills = GetMagicalSkillList();
+                        foreach (XmlNode objXmlSkill in objXmlMagicalSkills)
+                        {
+                            ListItem objItem = new ListItem();
+                            objItem.Value = objXmlSkill["name"].InnerText;
+                            objItem.Name = objXmlSkill["name"].InnerText;
+                            lstSkills1.Add(objItem);
+                            lstSkills2.Add(objItem);
+                        }
+                        cboSkill1.ValueMember = "Value";
+                        cboSkill1.DisplayMember = "Name";
+                        cboSkill1.DataSource = lstSkills1;
+
+                        cboSkill2.ValueMember = "Value";
+                        cboSkill2.DisplayMember = "Name";
+                        cboSkill2.DataSource = lstSkills2;
+
+                        lblMetatypeSkillSelection.Visible = true;
+                        cboSkill1.Visible = true;
+                        cboSkill2.Visible = true;
+                    }
+                    else if (cboTalents.SelectedValue.ToString() == "Technomancer")
+                    {
+                        strLabel = String.Format(strLabel, LanguageManager.Instance.GetString("String_MetamagicSkillTechnomancerA"));
+                        lblMetatypeSkillSelection.Text = strLabel;
+
+                        List<ListItem> lstSkills1 = new List<ListItem>();
+                        List<ListItem> lstSkills2 = new List<ListItem>();
+                        XmlNodeList objXmlResonanceSkills = GetResonanceSkillList();
+                        foreach (XmlNode objXmlSkill in objXmlResonanceSkills)
+                        {
+                            ListItem objItem = new ListItem();
+                            objItem.Value = objXmlSkill["name"].InnerText;
+                            objItem.Name = objXmlSkill["name"].InnerText;
+                            lstSkills1.Add(objItem);
+                            lstSkills2.Add(objItem);
+                        }
+                        cboSkill1.ValueMember = "Value";
+                        cboSkill1.DisplayMember = "Name";
+                        cboSkill1.DataSource = lstSkills1;
+
+                        cboSkill2.ValueMember = "Value";
+                        cboSkill2.DisplayMember = "Name";
+                        cboSkill2.DataSource = lstSkills2;
+
+                        lblMetatypeSkillSelection.Visible = true;
+                        cboSkill1.Visible = true;
+                        cboSkill2.Visible = true;
+                    }
+                    else
+                    {
+                        lblMetatypeSkillSelection.Visible = false;
+                        cboSkill1.Visible = false;
+                        cboSkill2.Visible = false;
+                    }
+                }
+                else if (cboTalent.SelectedValue.ToString() == "B")
+                {
+                    if (cboTalents.SelectedValue.ToString() == "Magician")
+                    {
+                        strLabel = String.Format(strLabel, LanguageManager.Instance.GetString("String_MetamagicSkillMagicianB"));
+                        lblMetatypeSkillSelection.Text = strLabel;
+
+                        List<ListItem> lstSkills1 = new List<ListItem>();
+                        List<ListItem> lstSkills2 = new List<ListItem>();
+                        XmlNodeList objXmlMagicalSkills = GetMagicalSkillList();
+                        foreach (XmlNode objXmlSkill in objXmlMagicalSkills)
+                        {
+                            ListItem objItem = new ListItem();
+                            objItem.Value = objXmlSkill["name"].InnerText;
+                            objItem.Name = objXmlSkill["name"].InnerText;
+                            lstSkills1.Add(objItem);
+                            lstSkills2.Add(objItem);
+                        }
+                        cboSkill1.ValueMember = "Value";
+                        cboSkill1.DisplayMember = "Name";
+                        cboSkill1.DataSource = lstSkills1;
+
+                        cboSkill2.ValueMember = "Value";
+                        cboSkill2.DisplayMember = "Name";
+                        cboSkill2.DataSource = lstSkills2;
+
+                        lblMetatypeSkillSelection.Visible = true;
+                        cboSkill1.Visible = true;
+                        cboSkill2.Visible = true;
+                    }
+                    else if (cboTalents.SelectedValue.ToString() == "Technomancer")
+                    {
+                        strLabel = String.Format(strLabel, LanguageManager.Instance.GetString("String_MetamagicSkillTechnomancerB"));
+                        lblMetatypeSkillSelection.Text = strLabel;
+
+                        List<ListItem> lstSkills1 = new List<ListItem>();
+                        List<ListItem> lstSkills2 = new List<ListItem>();
+                        XmlNodeList objXmlResonanceSkills = GetResonanceSkillList();
+                        foreach (XmlNode objXmlSkill in objXmlResonanceSkills)
+                        {
+                            ListItem objItem = new ListItem();
+                            objItem.Value = objXmlSkill["name"].InnerText;
+                            objItem.Name = objXmlSkill["name"].InnerText;
+                            lstSkills1.Add(objItem);
+                            lstSkills2.Add(objItem);
+                        }
+                        cboSkill1.ValueMember = "Value";
+                        cboSkill1.DisplayMember = "Name";
+                        cboSkill1.DataSource = lstSkills1;
+
+                        cboSkill2.ValueMember = "Value";
+                        cboSkill2.DisplayMember = "Name";
+                        cboSkill2.DataSource = lstSkills2;
+
+                        lblMetatypeSkillSelection.Visible = true;
+                        cboSkill1.Visible = true;
+                        cboSkill2.Visible = true;
+                    }
+                    else if (cboTalents.SelectedValue.ToString() == "Adept")
+                    {
+                        strLabel = String.Format(strLabel, LanguageManager.Instance.GetString("String_MetamagicSkillAdeptB"));
+                        lblMetatypeSkillSelection.Text = strLabel;
+
+                        List<ListItem> lstSkills1 = new List<ListItem>();
+                        XmlNodeList objXmlActiveSkills = GetActiveSkillList();
+                        foreach (XmlNode objXmlSkill in objXmlActiveSkills)
+                        {
+                            ListItem objItem = new ListItem();
+                            objItem.Value = objXmlSkill["name"].InnerText;
+                            objItem.Name = objXmlSkill["name"].InnerText;
+                            lstSkills1.Add(objItem);
+                        }
+                        cboSkill1.ValueMember = "Value";
+                        cboSkill1.DisplayMember = "Name";
+                        cboSkill1.DataSource = lstSkills1;
+
+                        lblMetatypeSkillSelection.Visible = true;
+                        cboSkill1.Visible = true;
+                        cboSkill2.Visible = false;
+                    }
+                    else if (cboTalents.SelectedValue.ToString() == "Aspected Magician")
+                    {
+                        strLabel = String.Format(strLabel, LanguageManager.Instance.GetString("String_MetamagicSkillAspectedB"));
+                        lblMetatypeSkillSelection.Text = strLabel;
+
+                        List<ListItem> lstSkills1 = new List<ListItem>();
+
+                        ListItem objItem = new ListItem();
+                        objItem.Value = "Conjuring";
+                        objItem.Name = "Conjuring";
+                        lstSkills1.Add(objItem);
+
+                        objItem = new ListItem();
+                        objItem.Value = "Enchanting";
+                        objItem.Name = "Enchanting";
+                        lstSkills1.Add(objItem);
+
+                        objItem = new ListItem();
+                        objItem.Value = "Sorcery";
+                        objItem.Name = "Sorcery";
+                        lstSkills1.Add(objItem);
+
+                        cboSkill1.ValueMember = "Value";
+                        cboSkill1.DisplayMember = "Name";
+                        cboSkill1.DataSource = lstSkills1;
+
+                        lblMetatypeSkillSelection.Visible = true;
+                        cboSkill1.Visible = true;
+                        cboSkill2.Visible = false;
+                    }
+                    else
+                    {
+                        lblMetatypeSkillSelection.Visible = false;
+                        cboSkill1.Visible = false;
+                        cboSkill2.Visible = false;
+                    }
+                }
+                else if (cboTalent.SelectedValue.ToString() == "C")
+                {
+                    if (cboTalents.SelectedValue.ToString() == "Adept")
+                    {
+                        strLabel = String.Format(strLabel, LanguageManager.Instance.GetString("String_MetamagicSkillAdeptC"));
+                        lblMetatypeSkillSelection.Text = strLabel;
+
+                        List<ListItem> lstSkills1 = new List<ListItem>();
+                        XmlNodeList objXmlActiveSkills = GetActiveSkillList();
+                        foreach (XmlNode objXmlSkill in objXmlActiveSkills)
+                        {
+                            ListItem objItem = new ListItem();
+                            objItem.Value = objXmlSkill["name"].InnerText;
+                            objItem.Name = objXmlSkill["name"].InnerText;
+                            lstSkills1.Add(objItem);
+                        }
+                        cboSkill1.ValueMember = "Value";
+                        cboSkill1.DisplayMember = "Name";
+                        cboSkill1.DataSource = lstSkills1;
+
+                        lblMetatypeSkillSelection.Visible = true;
+                        cboSkill1.Visible = true;
+                        cboSkill2.Visible = false;
+                    }
+                    else if (cboTalents.SelectedValue.ToString() == "Aspected Magician")
+                    {
+                        strLabel = String.Format(strLabel, LanguageManager.Instance.GetString("String_MetamagicSkillAspectedC"));
+                        lblMetatypeSkillSelection.Text = strLabel;
+
+                        List<ListItem> lstSkills1 = new List<ListItem>();
+
+                        ListItem objItem = new ListItem();
+                        objItem.Value = "Conjuring";
+                        objItem.Name = "Conjuring";
+                        lstSkills1.Add(objItem);
+
+                        objItem = new ListItem();
+                        objItem.Value = "Enchanting";
+                        objItem.Name = "Enchanting";
+                        lstSkills1.Add(objItem);
+
+                        objItem = new ListItem();
+                        objItem.Value = "Sorcery";
+                        objItem.Name = "Sorcery";
+                        lstSkills1.Add(objItem);
+
+                        cboSkill1.ValueMember = "Value";
+                        cboSkill1.DisplayMember = "Name";
+                        cboSkill1.DataSource = lstSkills1;
+
+                        lblMetatypeSkillSelection.Visible = true;
+                        cboSkill1.Visible = true;
+                        cboSkill2.Visible = false;
+                    }
+                    else
+                    {
+                        lblMetatypeSkillSelection.Visible = false;
+                        cboSkill1.Visible = false;
+                        cboSkill2.Visible = false;
+                    }
+                }
+                else
+                {
+                    lblMetatypeSkillSelection.Visible = false;
+                    cboSkill1.Visible = false;
+                    cboSkill2.Visible = false;
+                }
+            }
+            else
+            {
+                lblMetatypeSkillSelection.Visible = false;
+                cboSkill1.Visible = false;
+                cboSkill2.Visible = false;
+            }
         }
 
 		private void cboMetavariant_SelectedIndexChanged(object sender, EventArgs e)
@@ -504,6 +769,7 @@ namespace Chummer
             LoadMetatypes();
             lstMetatypes.SelectedValue = strMetatype;
             PopulateTalents();
+            cboTalents.SelectedIndex = -1;
 
             if (cboTalent.SelectedValue.ToString() == "E")
                 cboTalents.SelectedIndex = 0;
@@ -642,6 +908,12 @@ namespace Chummer
             if (cboTalents.SelectedIndex == -1)
             {
                 MessageBox.Show(LanguageManager.Instance.GetString("Message_Metatype_SelectTalent"), LanguageManager.Instance.GetString("MessageTitle_Metatype_SelectTalent"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if ((cboSkill1.SelectedIndex == -1 && cboSkill1.Visible) || (cboSkill2.SelectedIndex == -1 && cboSkill2.Visible))
+            {
+                MessageBox.Show(LanguageManager.Instance.GetString("Message_Metatype_SelectSkill"), LanguageManager.Instance.GetString("MessageTitle_Metatype_SelectSkill"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -1242,6 +1514,48 @@ namespace Chummer
                         break;
                 }
 
+                // Set Free Skills/Skill Groups
+                int intFreeLevels = 0;
+                bool blnFound1 = false;
+                bool blnFound2 = false;
+                bool blnGroup = (cboTalents.SelectedValue.ToString() == "Aspected Magician");
+                if (cboTalent.SelectedValue.ToString() == "A")
+                    intFreeLevels = 5;
+                else if (cboTalent.SelectedValue.ToString() == "B")
+                    intFreeLevels = 4;
+                else if (cboTalent.SelectedValue.ToString() == "C")
+                    intFreeLevels = 2;
+                foreach (Skill objSkill in _objCharacter.Skills)
+                {
+                    if (cboSkill1.Visible && objSkill.Name == cboSkill1.Text && !blnGroup)
+                    {
+                        blnFound1 = true;
+                        objSkill.FreeLevels = intFreeLevels;
+                        if (objSkill.Rating < intFreeLevels)
+                            objSkill.Rating = intFreeLevels;
+                    }
+                    else if (cboSkill2.Visible && objSkill.Name == cboSkill2.Text && !blnGroup)
+                    {
+                        blnFound2 = true;
+                        objSkill.FreeLevels = intFreeLevels;
+                        if (objSkill.Rating < intFreeLevels)
+                            objSkill.Rating = intFreeLevels;
+                    }
+                    else
+                        objSkill.FreeLevels = 0;
+                }
+                foreach (SkillGroup objSkillGroup in _objCharacter.SkillGroups)
+                {
+                    if (cboSkill1.Visible && objSkillGroup.Name == cboSkill1.Text && blnGroup)
+                    {
+                        objSkillGroup.FreeLevels = intFreeLevels;
+                        if (objSkillGroup.Rating < intFreeLevels)
+                            objSkillGroup.Rating = intFreeLevels;
+                    }
+                    else
+                        objSkillGroup.FreeLevels = 0;
+                }
+
                 // Set Special Attributes
                 _objCharacter.Special = Convert.ToInt32(lblSpecial.Text);
                 _objCharacter.TotalSpecial = Convert.ToInt32(lblSpecial.Text);
@@ -1491,10 +1805,35 @@ namespace Chummer
             PopulateMetatypes();
         }
 
-		private void chkPossessionBased_CheckedChanged(object sender, EventArgs e)
+        private XmlNodeList GetMagicalSkillList()
+        {
+            XmlNodeList objXmlSkillList;
+            XmlDocument objXmlSkillsDocument = XmlManager.Instance.Load("skills.xml");
+            objXmlSkillList = objXmlSkillsDocument.SelectNodes("/chummer/skills/skill[category = \"Magical Active\"]");
+            return objXmlSkillList;
+        }
+
+        private XmlNodeList GetResonanceSkillList()
+        {
+            XmlNodeList objXmlSkillList;
+            XmlDocument objXmlSkillsDocument = XmlManager.Instance.Load("skills.xml");
+            objXmlSkillList = objXmlSkillsDocument.SelectNodes("/chummer/skills/skill[category = \"Resonance Active\"]");
+            return objXmlSkillList;
+        }
+
+        private XmlNodeList GetActiveSkillList()
+        {
+            XmlNodeList objXmlSkillList;
+            XmlDocument objXmlSkillsDocument = XmlManager.Instance.Load("skills.xml");
+            objXmlSkillList = objXmlSkillsDocument.SelectNodes("/chummer/skills/skill");
+            return objXmlSkillList;
+        }
+
+        private void chkPossessionBased_CheckedChanged(object sender, EventArgs e)
 		{
 			cboPossessionMethod.Enabled = chkPossessionBased.Checked;
 		}
 		#endregion
+
     }
 }

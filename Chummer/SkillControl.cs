@@ -92,7 +92,12 @@ namespace Chummer
 				nudSkill.Visible = false;
 				lblSkillRating.Visible = true;
 				cmdImproveSkill.Visible = true;
-				
+
+                if (_objSkill.FreeLevels > 0)
+                    nudSkill.Minimum = _objSkill.FreeLevels;
+                else
+                    nudSkill.Minimum = 0;
+
 				// Show the Dice Rolling button if the option is enabled.
 				if (_objSkill.CharacterObject.Options.AllowSkillDiceRolling)
 				{
@@ -626,6 +631,11 @@ namespace Chummer
 					}
 				}
 			}
+
+            if (_objSkill.FreeLevels > 0)
+                nudSkill.Minimum = _objSkill.FreeLevels;
+            else
+                nudSkill.Minimum = 0;
 
 			if (cboSpec.Text != "" && !_objSkill.ExoticSkill)
 				lblModifiedRating.Text += " (" + (intRating + 2).ToString() + ")";

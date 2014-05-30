@@ -1504,6 +1504,7 @@ namespace Chummer
 		private int _intRating = 0;
 		private int _intRatingMaximum = 6;
 		private bool _blnBroken = false;
+        private int _intFreeLevels = 0;
 
 		#region Save and Load Methods
 		/// <summary>
@@ -1515,7 +1516,8 @@ namespace Chummer
 			objWriter.WriteStartElement("skillgroup");
 			objWriter.WriteElementString("name", _strName);
 			objWriter.WriteElementString("rating", _intRating.ToString());
-			objWriter.WriteElementString("ratingmax", _intRatingMaximum.ToString());
+            objWriter.WriteElementString("freelevels", _intFreeLevels.ToString());
+            objWriter.WriteElementString("ratingmax", _intRatingMaximum.ToString());
 			objWriter.WriteElementString("broken", _blnBroken.ToString());
 			objWriter.WriteEndElement();
 		}
@@ -1529,7 +1531,14 @@ namespace Chummer
 			_strName = objNode["name"].InnerText;
 			_intRating = Convert.ToInt32(objNode["rating"].InnerText);
 			_intRatingMaximum = Convert.ToInt32(objNode["ratingmax"].InnerText);
-			try
+            try
+            {
+                _intFreeLevels = Convert.ToInt32(objNode["freelevels"].InnerText);
+            }
+            catch
+            {
+            }
+            try
 			{
 				_blnBroken = Convert.ToBoolean(objNode["broken"].InnerText);
 			}
@@ -1594,7 +1603,22 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Skill Group's free levels.
+        /// </summary>
+        public int FreeLevels
+        {
+            get
+            {
+                return _intFreeLevels;
+            }
+            set
+            {
+                _intFreeLevels = value;
+            }
+        }
+
+        /// <summary>
 		/// Skill Group's maximum rating.
 		/// </summary>
 		public int RatingMaximum
@@ -1728,6 +1752,7 @@ namespace Chummer
 		private bool _blnDefault = false;
 		private string _strName = "";
 		private int _intRating = 0;
+        private int _intFreeLevels = 0;
 		private int _intRatingMaximum = 6;
 		private bool _blnKnowledgeSkill = false;
 		private bool _blnExoticSkill = false;
@@ -1758,7 +1783,8 @@ namespace Chummer
 			objWriter.WriteElementString("grouped", _blnIsGrouped.ToString());
 			objWriter.WriteElementString("default", _blnDefault.ToString());
 			objWriter.WriteElementString("rating", _intRating.ToString());
-			objWriter.WriteElementString("ratingmax", _intRatingMaximum.ToString());
+            objWriter.WriteElementString("freelevels", _intFreeLevels.ToString());
+            objWriter.WriteElementString("ratingmax", _intRatingMaximum.ToString());
 			objWriter.WriteElementString("knowledge", _blnKnowledgeSkill.ToString());
 			objWriter.WriteElementString("exotic", _blnExoticSkill.ToString());
 			objWriter.WriteElementString("spec", _strSkillSpec);
@@ -1783,7 +1809,8 @@ namespace Chummer
 			_blnIsGrouped = Convert.ToBoolean(objNode["grouped"].InnerText);
 			_blnDefault = Convert.ToBoolean(objNode["default"].InnerText);
 			_intRating = Convert.ToInt32(objNode["rating"].InnerText);
-			_intRatingMaximum = Convert.ToInt32(objNode["ratingmax"].InnerText);
+            _intFreeLevels = Convert.ToInt32(objNode["freelevels"].InnerText);
+            _intRatingMaximum = Convert.ToInt32(objNode["ratingmax"].InnerText);
 			_blnKnowledgeSkill = Convert.ToBoolean(objNode["knowledge"].InnerText);
 			try
 			{
@@ -1938,7 +1965,22 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Skill's free levels.
+        /// </summary>
+        public int FreeLevels
+        {
+            get
+            {
+                return _intFreeLevels;
+            }
+            set
+            {
+                _intFreeLevels = value;
+            }
+        }
+
+        /// <summary>
 		/// Is this Skill a Knowledge Skill?
 		/// </summary>
 		public bool KnowledgeSkill
@@ -3099,29 +3141,52 @@ namespace Chummer
 
 			if (_intRating > 0 && !_blnIsGrouped)
 			{
-				// The first point in a Skill costs KarmaNewActiveSkill.
-				// Each additional beyond 1 costs i x KarmaImproveActiveSkill.
-				if ((_objCharacter.Uneducated && _strSkillCategory == "Technical Active") || (_objCharacter.Uncouth && _strSkillCategory == "Social Active") || (_objCharacter.Infirm && _strSkillCategory == "Physical Active"))
-					intBP += _objCharacter.Options.KarmaNewActiveSkill * 2;
-				else
-					intBP += _objCharacter.Options.KarmaNewActiveSkill;
-				for (int i = 2; i <= _intRating; i++)
-				{
-					if ((_objCharacter.Uneducated && _strSkillCategory == "Technical Active") || (_objCharacter.Uncouth && _strSkillCategory == "Social Active") || (_objCharacter.Infirm && _strSkillCategory == "Physical Active"))
-					{
-						intBP += (i * _objCharacter.Options.KarmaImproveActiveSkill * 2);
-						// Karma cost is doubled when increasing a Skill's Rating above 6.
-						if (i > 6)
-							intBP += (i * _objCharacter.Options.KarmaImproveActiveSkill) * 2;
-					}
-					else
-					{
-						intBP += i * _objCharacter.Options.KarmaImproveActiveSkill;
-						// Karma cost is doubled when increasing a Skill's Rating above 6.
-						if (i > 6)
-							intBP += i * _objCharacter.Options.KarmaImproveActiveSkill;
-					}
-				}
+                if (_intFreeLevels > 0)
+                {
+                    for (int i = _intFreeLevels + 1; i <= _intRating; i++)
+                    {
+                        if ((_objCharacter.Uneducated && _strSkillCategory == "Technical Active") || (_objCharacter.Uncouth && _strSkillCategory == "Social Active") || (_objCharacter.Infirm && _strSkillCategory == "Physical Active"))
+                        {
+                            intBP += (i * _objCharacter.Options.KarmaImproveActiveSkill * 2);
+                            // Karma cost is doubled when increasing a Skill's Rating above 6.
+                            if (i > 6)
+                                intBP += (i * _objCharacter.Options.KarmaImproveActiveSkill) * 2;
+                        }
+                        else
+                        {
+                            intBP += i * _objCharacter.Options.KarmaImproveActiveSkill;
+                            // Karma cost is doubled when increasing a Skill's Rating above 6.
+                            if (i > 6)
+                                intBP += i * _objCharacter.Options.KarmaImproveActiveSkill;
+                        }
+                    }
+                }
+                else
+                {
+				    // The first point in a Skill costs KarmaNewActiveSkill.
+				    // Each additional beyond 1 costs i x KarmaImproveActiveSkill.
+				    if ((_objCharacter.Uneducated && _strSkillCategory == "Technical Active") || (_objCharacter.Uncouth && _strSkillCategory == "Social Active") || (_objCharacter.Infirm && _strSkillCategory == "Physical Active"))
+					    intBP += _objCharacter.Options.KarmaNewActiveSkill * 2;
+				    else
+					    intBP += _objCharacter.Options.KarmaNewActiveSkill;
+				    for (int i = 2; i <= _intRating; i++)
+				    {
+					    if ((_objCharacter.Uneducated && _strSkillCategory == "Technical Active") || (_objCharacter.Uncouth && _strSkillCategory == "Social Active") || (_objCharacter.Infirm && _strSkillCategory == "Physical Active"))
+					    {
+						    intBP += (i * _objCharacter.Options.KarmaImproveActiveSkill * 2);
+						    // Karma cost is doubled when increasing a Skill's Rating above 6.
+						    if (i > 6)
+							    intBP += (i * _objCharacter.Options.KarmaImproveActiveSkill) * 2;
+					    }
+					    else
+					    {
+						    intBP += i * _objCharacter.Options.KarmaImproveActiveSkill;
+						    // Karma cost is doubled when increasing a Skill's Rating above 6.
+						    if (i > 6)
+							    intBP += i * _objCharacter.Options.KarmaImproveActiveSkill;
+					    }
+				    }
+                }
 			}
 
 			// Specialization Cost (Exotic skills do not count since their "Spec" is actually what the Skill is being used for and cannot be Specialized).

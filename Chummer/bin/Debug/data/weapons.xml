@@ -1746,7 +1746,7 @@
 		</weapon>
 		<weapon>
 			<name>Grapple Gun</name>
-			<category>Exotic Ranged Weapon</category>
+			<category>Exotic Ranged Weapons</category>
 			<type>Ranged</type>
 			<spec>Grapple Gun</spec>
 			<conceal>6</conceal>
@@ -1766,7 +1766,7 @@
 		</weapon>
 		<weapon>
 			<name>Hold-Fast Sprayer</name>
-			<category>Exotic Ranged Weapon</category>
+			<category>Exotic Ranged Weapons</category>
 			<type>Ranged</type>
 			<spec>Sprayer</spec>
 			<conceal>6</conceal>
@@ -1786,7 +1786,7 @@
 		</weapon>
 		<weapon>
 			<name>Micro Flare Launcher</name>
-			<category>Exotic Ranged Weapon</category>
+			<category>Exotic Ranged Weapons</category>
 			<type>Ranged</type>
 			<spec>Flare Launcher</spec>
 			<conceal>-2</conceal>
@@ -4671,7 +4671,7 @@
 				<mount>Top</mount>
 				<mount>Under</mount>
 			</accessorymounts>
-			<useskill>Exotic Ranged Weapon</useskill>
+			<useskill>Exotic Ranged Weapons</useskill>
 			<range>Light Pistols</range>
 			<source>SR5</source>
 			<page>429</page>
@@ -4695,7 +4695,7 @@
 				<mount>Top</mount>
 				<mount>Under</mount>
 			</accessorymounts>
-			<useskill>Exotic Ranged Weapon</useskill>
+			<useskill>Exotic Ranged Weapons</useskill>
 			<range>Shotguns</range>
 			<source>RG</source>
 			<page>26</page>
@@ -4716,7 +4716,7 @@
 			<cost>15</cost>
 			<allowaccessory>false</allowaccessory>
 			<accessorymounts/>
-			<useskill>Exotic Ranged Weapon</useskill>
+			<useskill>Exotic Ranged Weapons</useskill>
 			<range>Shuriken</range>
 			<source>RG</source>
 			<page>26</page>
@@ -4737,7 +4737,7 @@
 			<cost>75</cost>
 			<allowaccessory>false</allowaccessory>
 			<accessorymounts/>
-			<useskill>Exotic Ranged Weapon</useskill>
+			<useskill>Exotic Ranged Weapons</useskill>
 			<range>Shuriken</range>
 			<source>RG</source>
 			<page>26</page>
@@ -4760,7 +4760,7 @@
 			<accessorymounts>
 				<accesorymount>top</accesorymount>
 			</accessorymounts>
-			<useskill>Exotic Ranged Weapon</useskill>
+			<useskill>Exotic Ranged Weapons</useskill>
 			<range>Heavy Pistols</range>
 			<source>RG</source>
 			<page>26</page>
@@ -4784,7 +4784,7 @@
 				<mount>Top</mount>
 				<mount>Under</mount>
 			</accessorymounts>
-			<useskill>Exotic Ranged Weapon</useskill>
+			<useskill>Exotic Ranged Weapons</useskill>
 			<range>Submachine Guns</range>
 			<source>SR5</source>
 			<page>430</page>
@@ -4805,7 +4805,7 @@
 			<cost>150</cost>
 			<allowaccessory>false</allowaccessory>
 			<accessorymounts/>
-			<useskill>Exotic Ranged Weapon</useskill>
+			<useskill>Exotic Ranged Weapons</useskill>
 			<range>Heavy Pistols</range>
 			<source>RG</source>
 			<page>27</page>
@@ -4826,7 +4826,7 @@
 			<cost>4000</cost>
 			<allowaccessory>false</allowaccessory>
 			<accessorymounts/>
-			<useskill>Exotic Ranged Weapon</useskill>
+			<useskill>Exotic Ranged Weapons</useskill>
 			<range>Shuriken</range>
 			<source>RG</source>
 			<page>26</page>
@@ -4847,7 +4847,7 @@
 			<cost>750</cost>
 			<allowaccessory>false</allowaccessory>
 			<accessorymounts/>
-			<useskill>Exotic Ranged Weapon</useskill>
+			<useskill>Exotic Ranged Weapons</useskill>
 			<range>Heavy Pistols</range>
 			<source>RG</source>
 			<page>27</page>
@@ -4870,7 +4870,7 @@
 			<accessorymounts>
 				<mount>Top</mount>
 			</accessorymounts>
-			<useskill>Exotic Ranged Weapon</useskill>
+			<useskill>Exotic Ranged Weapons</useskill>
 			<range>Heavy Pistols</range>
 			<source>SR5</source>
 			<page>430</page>
@@ -4894,7 +4894,7 @@
 				<mount>Top</mount>
 				<mount>Under</mount>
 			</accessorymounts>
-			<useskill>Exotic Ranged Weapon</useskill>
+			<useskill>Exotic Ranged Weapons</useskill>
 			<range>Sniper Rifles</range>
 			<source>SR5</source>
 			<page>430</page>
@@ -4915,7 +4915,7 @@
 			<cost>750</cost>
 			<allowaccessory>false</allowaccessory>
 			<accessorymounts/>
-			<useskill>Exotic Ranged Weapon</useskill>
+			<useskill>Exotic Ranged Weapons</useskill>
 			<range>Light Pistols</range>
 			<source>RG</source>
 			<page>28</page>
@@ -4936,7 +4936,7 @@
 			<cost>1000</cost>
 			<allowaccessory>false</allowaccessory>
 			<accessorymounts/>
-			<useskill>Exotic Ranged Weapon</useskill>
+			<useskill>Exotic Ranged Weapons</useskill>
 			<range>Light Pistols</range>
 			<source>RG</source>
 			<page>28</page>
@@ -4957,7 +4957,7 @@
 			<cost>1250</cost>
 			<allowaccessory>false</allowaccessory>
 			<accessorymounts/>
-			<useskill>Exotic Ranged Weapon</useskill>
+			<useskill>Exotic Ranged Weapons</useskill>
 			<range>Tasers</range>
 			<source>RG</source>
 			<page>28</page>

@@ -47,10 +47,10 @@ namespace Chummer
 			}
 
 			// Load the Quality information.
-			_objXmlDocument = XmlManager.Instance.Load("qualities.xml");
+            _objXmlDocument = XmlManager.Instance.Load("qualities.xml");
 
 			// Populate the Quality Category list.
-			XmlNodeList objXmlCategoryList = _objXmlDocument.SelectNodes("/chummer/categories/category");
+            XmlNodeList objXmlCategoryList = _objXmlDocument.SelectNodes("/chummer/categories/category");
 			foreach (XmlNode objXmlCategory in objXmlCategoryList)
 			{
 				ListItem objItem = new ListItem();
@@ -71,7 +71,7 @@ namespace Chummer
 			cboCategory.DataSource = _lstCategory;
 
 			// Select the first Category in the list.
-			if (_strSelectCategory == "")
+            if (_strSelectCategory == "")
 				cboCategory.SelectedIndex = 0;
 			else
 				cboCategory.SelectedValue = _strSelectCategory;
@@ -80,18 +80,11 @@ namespace Chummer
 				cboCategory.SelectedIndex = 0;
 
 			// Change the BP Label to Karma if the character is being built with Karma instead (or is in Career Mode).
-			if (_objCharacter.BuildMethod == CharacterBuildMethod.Karma || _objCharacter.Created)
+            if (_objCharacter.BuildMethod == CharacterBuildMethod.Karma || _objCharacter.BuildMethod == CharacterBuildMethod.Priority || _objCharacter.Created)
 				lblBPLabel.Text = LanguageManager.Instance.GetString("Label_Karma");
 
-			// Determine if the character should have access to the Metagenetic Qualities checkbox by checking if they meet the requirements for 360-degree Eyesight.
-			// A dummy Quality is used since the character may take 360-degree Eyesight and we don't want it actually appearing in the list of Qualities.
-			XmlNode objXmlNode = _objXmlDocument.SelectSingleNode("/chummer/qualities/quality[name = \"360-degree Eyesight\"]");
-			XmlNode objXmlDummy = objXmlNode.Clone();
-			objXmlDummy["name"].InnerText = "Dummy Quality";
-			chkMetagenetic.Visible = RequirementMet(objXmlDummy, false);
-
-			BuildQualityList();
-		}
+            BuildQualityList();
+        }
 
 		private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
 		{
