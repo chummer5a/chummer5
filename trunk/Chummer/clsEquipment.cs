@@ -12245,8 +12245,7 @@ namespace Chummer
 		private int _intVehicleCost = 0;
 		private int _intBody = 0;
 		private int _intSpeed = 0;
-		private int _intAccelRunning = 0;
-		private int _intAccelWalking = 0;
+		private string _strAccel = "0";
 
 		private readonly Character _objCharacter;
 
@@ -12959,27 +12958,15 @@ namespace Chummer
 			}
 		}
 
-		public int AccelRunning
+		public string Accel
 		{
 			get
 			{
-				return _intAccelRunning;
+				return _strAccel;
 			}
 			set
 			{
-				_intAccelRunning = value;
-			}
-		}
-
-		public int AccelWalking
-		{
-			get
-			{
-				return _intAccelWalking;
-			}
-			set
-			{
-				_intAccelWalking = value;
+                _strAccel = value;
 			}
 		}
 
@@ -13152,8 +13139,7 @@ namespace Chummer
 				else
 					strCost = strCost.Replace("Body", "2");
 				strCost = strCost.Replace("Speed", _intSpeed.ToString());
-				strCost = strCost.Replace("Accel(Running)", _intAccelRunning.ToString());
-				strCost = strCost.Replace("Accel", _intAccelWalking.ToString());
+				strCost = strCost.Replace("Accel", _strAccel);
 				XPathExpression xprCost = nav.Compile(strCost);
 				intReturn = Convert.ToInt32(nav.Evaluate(xprCost), GlobalOptions.Instance.CultureInfo);
 
@@ -13199,8 +13185,7 @@ namespace Chummer
 				else
 					strCost = strCost.Replace("Body", "2");
 				strCost = strCost.Replace("Speed", _intSpeed.ToString());
-				strCost = strCost.Replace("Accel(Running)", _intAccelRunning.ToString());
-				strCost = strCost.Replace("Accel", _intAccelWalking.ToString());
+				strCost = strCost.Replace("Accel", _strAccel);
 				XPathExpression xprCost = nav.Compile(strCost);
 				intReturn = Convert.ToInt32(nav.Evaluate(xprCost).ToString());
 
@@ -13285,7 +13270,7 @@ namespace Chummer
 		private Guid _guiID = new Guid();
 		private string _strName = "";
 		private string _strCategory = "";
-		private int _intHandling = 0;
+		private string _strHandling = "0";
 		private string _strAccel = "";
 		private int _intSpeed = 0;
 		private int _intPilot = 0;
@@ -13336,7 +13321,7 @@ namespace Chummer
 		{
 			_strName = objXmlVehicle["name"].InnerText;
 			_strCategory = objXmlVehicle["category"].InnerText;
-			_intHandling = Convert.ToInt32(objXmlVehicle["handling"].InnerText);
+			_strHandling = objXmlVehicle["handling"].InnerText;
 			_strAccel = objXmlVehicle["accel"].InnerText;
 			_intSpeed = Convert.ToInt32(objXmlVehicle["speed"].InnerText);
 			_intPilot = Convert.ToInt32(objXmlVehicle["pilot"].InnerText);
@@ -13572,7 +13557,7 @@ namespace Chummer
 			objWriter.WriteElementString("guid", _guiID.ToString());
 			objWriter.WriteElementString("name", _strName);
 			objWriter.WriteElementString("category", _strCategory);
-			objWriter.WriteElementString("handling", _intHandling.ToString());
+			objWriter.WriteElementString("handling", _strHandling);
 			objWriter.WriteElementString("accel", _strAccel);
 			objWriter.WriteElementString("speed", _intSpeed.ToString());
 			objWriter.WriteElementString("pilot", _intPilot.ToString());
@@ -13637,7 +13622,7 @@ namespace Chummer
 			_guiID = Guid.Parse(objNode["guid"].InnerText);
 			_strName = objNode["name"].InnerText;
 			_strCategory = objNode["category"].InnerText;
-			_intHandling = Convert.ToInt32(objNode["handling"].InnerText);
+			_strHandling = objNode["handling"].InnerText;
 			_strAccel = objNode["accel"].InnerText;
 			_intSpeed = Convert.ToInt32(objNode["speed"].InnerText);
 			_intPilot = Convert.ToInt32(objNode["pilot"].InnerText);
@@ -13913,15 +13898,15 @@ namespace Chummer
 		/// <summary>
 		/// Handling.
 		/// </summary>
-		public int Handling
+		public string Handling
 		{
 			get
 			{
-				return _intHandling;
+				return _strHandling;
 			}
 			set
 			{
-				_intHandling = value;
+				_strHandling = value;
 			}
 		}
 
@@ -14193,30 +14178,6 @@ namespace Chummer
 		}
 
 		/// <summary>
-		/// Acceleration "Walking" speed (first number of the set).
-		/// </summary>
-		public int AccelWalking
-		{
-			get
-			{
-				string[] strAccel = _strAccel.Split('/');
-				return Convert.ToInt32(strAccel[0]);
-			}
-		}
-
-		/// <summary>
-		/// Acceleration "Running" speed (second number of the set).
-		/// </summary>
-		public int AccelRunning
-		{
-			get
-			{
-				string[] strAccel = _strAccel.Split('/');
-				return Convert.ToInt32(strAccel[1]);
-			}
-		}
-
-		/// <summary>
 		/// Number of Slots the Vehicle has for Modifications.
 		/// </summary>
 		public int Slots
@@ -14436,8 +14397,7 @@ namespace Chummer
 						objMod.VehicleCost = Convert.ToInt32(_strCost);
 						objMod.Body = _intBody;
 						objMod.Speed = _intSpeed;
-						objMod.AccelRunning = AccelRunning;
-						objMod.AccelWalking = AccelWalking;
+						objMod.Accel = Accel;
 
 						intCost += objMod.TotalCost;
 					}
@@ -14517,8 +14477,7 @@ namespace Chummer
 		{
 			get
 			{
-				decimal decAccelWalking = Convert.ToDecimal(AccelWalking, GlobalOptions.Instance.CultureInfo);
-				decimal decAccelRunning = Convert.ToDecimal(AccelRunning, GlobalOptions.Instance.CultureInfo);
+				decimal decAccelWalking = Convert.ToDecimal(Accel, GlobalOptions.Instance.CultureInfo);
 
 				foreach (VehicleMod objMod in _lstVehicleMods)
 				{
@@ -14538,12 +14497,10 @@ namespace Chummer
 								XPathExpression xprRunning = nav.Compile(strAccel[1].Replace("Rating", objMod.Rating.ToString()).Replace("+", string.Empty));
 
 								decAccelWalking += Convert.ToDecimal(nav.Evaluate(xprWalking), GlobalOptions.Instance.CultureInfo);
-								decAccelRunning += Convert.ToDecimal(nav.Evaluate(xprRunning), GlobalOptions.Instance.CultureInfo);
 							}
 							else
 							{
-								decAccelWalking += (Convert.ToDecimal(AccelWalking, GlobalOptions.Instance.CultureInfo) * Convert.ToDecimal(objMod.Bonus["accel"].InnerText, GlobalOptions.Instance.CultureInfo));
-								decAccelRunning += (Convert.ToDecimal(AccelRunning, GlobalOptions.Instance.CultureInfo) * Convert.ToDecimal(objMod.Bonus["accel"].InnerText, GlobalOptions.Instance.CultureInfo));
+								decAccelWalking += (Convert.ToDecimal(Accel, GlobalOptions.Instance.CultureInfo) * Convert.ToDecimal(objMod.Bonus["accel"].InnerText, GlobalOptions.Instance.CultureInfo));
 							}
 						}
 					}
@@ -14553,17 +14510,14 @@ namespace Chummer
 				// The value must also exceed the Armor Rating that the Vehicles comes equipped with by default.
 				if (TotalArmor > TotalBody && TotalArmor > _intArmor)
 				{
-					decAccelWalking -= (Convert.ToDecimal(AccelWalking, GlobalOptions.Instance.CultureInfo) * 0.2m);
-					decAccelRunning -= (Convert.ToDecimal(AccelRunning, GlobalOptions.Instance.CultureInfo) * 0.2m);
+					decAccelWalking -= (Convert.ToDecimal(Accel, GlobalOptions.Instance.CultureInfo) * 0.2m);
 				}
 
 				// Make sure Acceleration doesn't go below 0.
 				if (decAccelWalking < 0.0m)
 					decAccelWalking = 0.0m;
-				if (decAccelRunning < 0.0m)
-					decAccelRunning = 0.0m;
 
-				return Convert.ToInt32(Math.Ceiling(decAccelWalking)).ToString() + "/" + Convert.ToInt32(Math.Ceiling(decAccelRunning)).ToString();
+				return Convert.ToInt32(Math.Ceiling(decAccelWalking)).ToString();
 			}
 		}
 
@@ -14593,23 +14547,23 @@ namespace Chummer
 		/// <summary>
 		/// Total Handling of the Vehicle including Modifications.
 		/// </summary>
-		public int TotalHandling
+		public string TotalHandling
 		{
 			get
 			{
-				int intHandling = _intHandling;
+				string strHandling = _strHandling;
 
-				foreach (VehicleMod objMod in _lstVehicleMods)
-				{
-					if (!objMod.IncludedInVehicle && objMod.Installed && objMod.Bonus != null)
-					{
-						// Add the Modification's Handling to the Vehicle's base Handling.
-						if (objMod.Bonus.InnerXml.Contains("<handling>"))
-							intHandling += Convert.ToInt32(objMod.Bonus["handling"].InnerText);
-					}
-				}
+                //foreach (VehicleMod objMod in _lstVehicleMods)
+                //{
+                //    if (!objMod.IncludedInVehicle && objMod.Installed && objMod.Bonus != null)
+                //    {
+                //        // Add the Modification's Handling to the Vehicle's base Handling.
+                //        if (objMod.Bonus.InnerXml.Contains("<handling>"))
+                //            intHandling += Convert.ToInt32(objMod.Bonus["handling"].InnerText);
+                //    }
+                //}
 
-				return intHandling;
+				return strHandling;
 			}
 		}
 

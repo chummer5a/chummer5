@@ -2544,6 +2544,7 @@
 		<gear>
 			<name>Restraint, Metal</name>
 			<category>Security Devices</category>
+			<rating>0</rating>
 			<avail>0</avail>
 			<cost>20</cost>
 			<source>SR5</source>
@@ -3746,6 +3747,7 @@
 		<gear>
 			<name>Telescoping Mirror on a Stick</name>
 			<category>Tools of the Trade</category>
+			<rating>0</rating>
 			<avail>10</avail>
 			<cost>35</cost>
 			<source>RG</source>

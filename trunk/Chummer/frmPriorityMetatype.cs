@@ -1516,8 +1516,6 @@ namespace Chummer
 
                 // Set Free Skills/Skill Groups
                 int intFreeLevels = 0;
-                bool blnFound1 = false;
-                bool blnFound2 = false;
                 bool blnGroup = (cboTalents.SelectedValue.ToString() == "Aspected Magician");
                 if (cboTalent.SelectedValue.ToString() == "A")
                     intFreeLevels = 5;
@@ -1529,14 +1527,12 @@ namespace Chummer
                 {
                     if (cboSkill1.Visible && objSkill.Name == cboSkill1.Text && !blnGroup)
                     {
-                        blnFound1 = true;
                         objSkill.FreeLevels = intFreeLevels;
                         if (objSkill.Rating < intFreeLevels)
                             objSkill.Rating = intFreeLevels;
                     }
                     else if (cboSkill2.Visible && objSkill.Name == cboSkill2.Text && !blnGroup)
                     {
-                        blnFound2 = true;
                         objSkill.FreeLevels = intFreeLevels;
                         if (objSkill.Rating < intFreeLevels)
                             objSkill.Rating = intFreeLevels;

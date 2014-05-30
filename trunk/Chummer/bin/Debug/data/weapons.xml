@@ -6271,14 +6271,6 @@
 			<page>52</page>
 		</accessory>
 		<accessory>
-			<name>Slide Mount</name>
-			<mount>Top/Under/Side</mount>
-			<avail>4</avail>
-			<cost>500</cost>
-			<source>RG</source>
-			<page>52</page>
-		</accessory>
-		<accessory>
 			<name>Tracker</name>
 			<mount/>
 			<avail>4</avail>

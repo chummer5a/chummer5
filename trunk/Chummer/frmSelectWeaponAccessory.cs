@@ -35,7 +35,7 @@ namespace Chummer
 
 		private void frmSelectWeaponAccessory_Load(object sender, EventArgs e)
 		{
-			foreach (Label objLabel in this.Controls.OfType<Label>())
+            foreach (Label objLabel in this.Controls.OfType<Label>())
 			{
 				if (objLabel.Text.StartsWith("["))
 					objLabel.Text = "";
