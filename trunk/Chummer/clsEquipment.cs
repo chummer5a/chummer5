@@ -4185,7 +4185,7 @@ namespace Chummer
 		private bool _blnInstalled = true;
 		private bool _blnDiscountCost = false;
 		private bool _blnRequireAmmo = true;
-        private int _intAccuracy = 0;
+        private string _strAccuracy = "";
 
 		private readonly Character _objCharacter;
 
@@ -4211,7 +4211,7 @@ namespace Chummer
 			_strCategory = objXmlWeapon["category"].InnerText;
 			_strType = objXmlWeapon["type"].InnerText;
 			_intReach = Convert.ToInt32(objXmlWeapon["reach"].InnerText);
-            _intAccuracy = Convert.ToInt32(objXmlWeapon["accuracy"].InnerText);
+            _strAccuracy = objXmlWeapon["accuracy"].InnerText;
             _strDamage = objXmlWeapon["damage"].InnerText;
 			_strAP = objXmlWeapon["ap"].InnerText;
 			_strMode = objXmlWeapon["mode"].InnerText;
@@ -4232,7 +4232,11 @@ namespace Chummer
 			{
 			}
 			_strAvail = objXmlWeapon["avail"].InnerText;
-			_intCost = Convert.ToInt32(objXmlWeapon["cost"].InnerText);
+            try
+            {
+                _intCost = Convert.ToInt32(objXmlWeapon["cost"].InnerText);
+            }
+            catch { }
 			_strSource = objXmlWeapon["source"].InnerText;
 			_strPage = objXmlWeapon["page"].InnerText;
 
@@ -4398,7 +4402,7 @@ namespace Chummer
 			objWriter.WriteElementString("included", _blnIncludedInWeapon.ToString());
 			objWriter.WriteElementString("installed", _blnInstalled.ToString());
 			objWriter.WriteElementString("requireammo", _blnRequireAmmo.ToString());
-            objWriter.WriteElementString("accuracy", _intAccuracy.ToString());
+            objWriter.WriteElementString("accuracy", _strAccuracy.ToString());
             if (_lstAccessories.Count > 0)
 			{
 				objWriter.WriteStartElement("accessories");
@@ -4447,7 +4451,7 @@ namespace Chummer
 			if (objNode["spec2"] != null)
 				_strSpec2 = objNode["spec2"].InnerText;
 			_intReach = Convert.ToInt32(objNode["reach"].InnerText);
-            _intAccuracy = Convert.ToInt32(objNode["accuracy"].InnerText);
+            _strAccuracy = objNode["accuracy"].InnerText;
             _strDamage = objNode["damage"].InnerText;
 			_strAP = objNode["ap"].InnerText;
 			_strMode = objNode["mode"].InnerText;
@@ -5042,15 +5046,15 @@ namespace Chummer
         /// <summary>
         /// Accuracy.
         /// </summary>
-        public int Accuracy
+        public string Accuracy
         {
             get
             {
-                return _intAccuracy;
+                return _strAccuracy;
             }
             set
             {
-                _intAccuracy = value;
+                _strAccuracy = value;
             }
         }
 
@@ -6425,30 +6429,39 @@ namespace Chummer
         /// <summary>
         /// The full Accuracy of the Weapon including modifiers from accessories.
         /// </summary>
-        public int TotalAccuracy
+        public string TotalAccuracy
         {
             get
             {
-                int intAccuracy = _intAccuracy;
-                foreach (WeaponAccessory wa in _lstAccessories)
+                string strAccuracy = _strAccuracy;
+
+                if (strAccuracy == "Physical" || strAccuracy == "Missile")
                 {
-                    if (wa.Name == "Laser Sight")
+                    return strAccuracy;
+                }
+                else
+                {
+                    int intAccuracy = Convert.ToInt32(strAccuracy);
+                    foreach (WeaponAccessory wa in _lstAccessories)
                     {
-                        // Skip it if there is a smartgun on this weapon
-                        bool blnFound = false;
-                        foreach (WeaponAccessory wal in _lstAccessories)
+                        if (wa.Name == "Laser Sight")
                         {
-                            if (wal.Name.StartsWith("Smartgun"))
-                                blnFound = true;
+                            // Skip it if there is a smartgun on this weapon
+                            bool blnFound = false;
+                            foreach (WeaponAccessory wal in _lstAccessories)
+                            {
+                                if (wal.Name.StartsWith("Smartgun"))
+                                    blnFound = true;
+                            }
+                            if (!blnFound)
+                                intAccuracy += wa.Accuracy;
                         }
-                        if (!blnFound)
+                        else
                             intAccuracy += wa.Accuracy;
                     }
-                    else
-                        intAccuracy += wa.Accuracy;
-                }
 
-                return intAccuracy;
+                    return intAccuracy.ToString();
+                }
             }
         }
 
