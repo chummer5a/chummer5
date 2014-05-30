@@ -1,5 +1,13 @@
-Build 501
-- Chummer5 alpha
+Build 5.102
+- Fixed the broken weapon accessories that was causing UI errors
+- Fixed errors when selecting certain gear that was causing UI errors
+- Fixed issues with vehicle acceleration that was causing UI errors
+- Fixed issues with quality selection that was causing UI errors
+- Made a change which now auto-selects the first available metatype on the list when selecting metatype
+- Added bonus skills during priority selection that are based on the character's talent priority selection.
+
+Build 5.101
+- Chummer5 alpha initial release
 
 Build 490
 - corrected how Essence information is stored in regions that use something other than "." to separate decimal places would cause an error to be thrown

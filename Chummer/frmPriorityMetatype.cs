@@ -917,6 +917,12 @@ namespace Chummer
                 return;
             }
 
+            if (cboSkill1.Visible && cboSkill2.Visible && cboSkill1.SelectedValue.ToString() == cboSkill2.SelectedValue.ToString())
+            {
+                MessageBox.Show(LanguageManager.Instance.GetString("Message_Metatype_Duplicate"), LanguageManager.Instance.GetString("MessageTitle_Metatype_Duplicate"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             if (lstMetatypes.Text != "")
             {
 				ImprovementManager objImprovementManager = new ImprovementManager(_objCharacter);
@@ -1581,7 +1587,7 @@ namespace Chummer
                 _objCharacter.BuildKarma = 25;
 
                 // Set starting movement rate
-                _objCharacter.Movement = (_objCharacter.AGI.Value * 2).ToString() + "/" + (_objCharacter.AGI.Value * 4).ToString();
+                _objCharacter.Movement = (_objCharacter.AGI.Augmented * 2).ToString() + "/" + (_objCharacter.AGI.Augmented * 4).ToString();
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();

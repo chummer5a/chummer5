@@ -5262,7 +5262,7 @@ namespace Chummer
         {
             get
             {
-                int intLimit = Convert.ToInt32(Math.Ceiling(((Convert.ToDecimal(_attCHA.TotalValue) * 2) + Convert.ToDecimal(_attWIL.TotalValue) + Convert.ToDecimal(_attESS.TotalValue)) / 3));
+                int intLimit = Convert.ToInt32(Math.Ceiling(((Convert.ToDecimal(_attCHA.TotalValue) * 2) + Convert.ToDecimal(_attWIL.TotalValue) + Essence) / 3));
                 return intLimit;
             }
         }
@@ -5435,7 +5435,7 @@ namespace Chummer
                             string strRun = objXmlDocument.SelectSingleNode("/chummer/metatypes/metatype[name = \"" + _strMetatype + "\"]")["run"].InnerText;
                             string strSprint = objXmlDocument.SelectSingleNode("/chummer/metatypes/metatype[name = \"" + _strMetatype + "\"]")["sprint"].InnerText;
 
-                            _strMovement = String.Format("{0}/{1}", (_attAGI.Value * 2), (_attAGI.Value * 4));
+                            _strMovement = String.Format("{0}/{1}", (_attAGI.Augmented * 2), (_attAGI.Augmented * 4));
                         }
                         catch
                         { }

@@ -566,6 +566,7 @@
 		<quality>
 			<name>Low-Light Vision</name>
 			<karma>0</karma>
+			<hide>yes</hide>
 			<category>Positive</category>
 			<bonus />
 			<source>SR5</source>
@@ -574,6 +575,7 @@
 		<quality>
 			<name>Thermographic Vision</name>
 			<karma>0</karma>
+			<hide>yes</hide>
 			<category>Positive</category>
 			<bonus />
 			<source>SR5</source>
@@ -794,16 +796,16 @@
 			<page>79</page>
 		</quality>
 		<quality>
-			<name>Code of Honor: Assassin's Creed</name>
-			<bp>-15</bp>
+			<name>Code of Honor&#58; Assassin's Creed</name>
+			<karma>-15</karma>
 			<category>Negative</category>
 			<bonus />
 			<source>SR5</source>
 			<page>79</page>
 		</quality>
 		<quality>
-			<name>Code of Honor: Warrior's Code</name>
-			<bp>-15</bp>
+			<name>Code of Honor&#58; Warrior's Code</name>
+			<karma>-15</karma>
 			<category>Negative</category>
 			<bonus />
 			<source>SR5</source>

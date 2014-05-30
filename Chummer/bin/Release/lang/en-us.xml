@@ -6814,5 +6814,13 @@ Only one attribute may be at its Maximum value during character creation.</text>
 			<key>String_MetamagicSkillAspectedC</key>
 			<text>1 magical skill group to start at rating 2</text>
 		</string>
+		<string>
+			<key>Message_Metatype_Duplicate</key>
+			<text>You may not select the same skill twice.</text>
+		</string>
+		<string>
+			<key>MessageTitle_Metatype_Duplicate</key>
+			<text>Duplicate Selection</text>
+		</string>
 	</strings>
 </chummer>
