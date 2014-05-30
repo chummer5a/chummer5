@@ -100,19 +100,6 @@
 			<page>142</page>
 		</skill>
 		<skill>
-			<name>Artificing</name>
-			<attribute>MAG</attribute>
-			<category>Magical Active</category>
-			<default>No</default>
-			<skillgroup>Enchanting</skillgroup>
-			<specs>
-				<spec>Focus Analysis</spec>
-				<spec>[Focus Type]</spec>
-			</specs>
-			<source>SR5</source>
-			<page>142</page>
-		</skill>
-		<skill>
 			<name>Archery</name>
 			<attribute>AGI</attribute>
 			<category>Combat Active</category>
@@ -144,6 +131,19 @@
 			</specs>
 			<source>SR5</source>
 			<page>143</page>
+		</skill>
+		<skill>
+			<name>Artificing</name>
+			<attribute>MAG</attribute>
+			<category>Magical Active</category>
+			<default>No</default>
+			<skillgroup>Enchanting</skillgroup>
+			<specs>
+				<spec>Focus Analysis</spec>
+				<spec>[Focus Type]</spec>
+			</specs>
+			<source>SR5</source>
+			<page>142</page>
 		</skill>
 		<skill>
 			<name>Artisan</name>
@@ -256,21 +256,6 @@
 			<page>142</page>
 		</skill>
 		<skill>
-			<name>Blades</name>
-			<attribute>AGI</attribute>
-			<category>Combat Active</category>
-			<default>Yes</default>
-			<skillgroup>Close Combat</skillgroup>
-			<specs>
-				<spec>Axes</spec>
-				<spec>Knives</spec>
-				<spec>Swords</spec>
-				<spec>Parrying</spec>
-			</specs>
-			<source>SR5</source>
-			<page>130</page>
-		</skill>
-		<skill>
 			<name>Biotechnology</name>
 			<attribute>LOG</attribute>
 			<category>Technical Active</category>
@@ -285,6 +270,21 @@
 			</specs>
 			<source>SR5</source>
 			<page>144</page>
+		</skill>
+		<skill>
+			<name>Blades</name>
+			<attribute>AGI</attribute>
+			<category>Combat Active</category>
+			<default>Yes</default>
+			<skillgroup>Close Combat</skillgroup>
+			<specs>
+				<spec>Axes</spec>
+				<spec>Knives</spec>
+				<spec>Swords</spec>
+				<spec>Parrying</spec>
+			</specs>
+			<source>SR5</source>
+			<page>130</page>
 		</skill>
 		<skill>
 			<name>Chemistry</name>
@@ -434,6 +434,18 @@
 			<page>144</page>
 		</skill>
 		<skill>
+			<name>Disenchanting</name>
+			<attribute>MAG</attribute>
+			<category>Magical Active</category>
+			<default>No</default>
+			<skillgroup>Enchanting</skillgroup>
+			<specs>
+				<spec>[Type]</spec>
+			</specs>
+			<source>SR5</source>
+			<page>142</page>
+		</skill>
+		<skill>
 			<name>Disguise</name>
 			<attribute>INT</attribute>
 			<category>Physical Active</category>
@@ -447,18 +459,6 @@
 			</specs>
 			<source>SR5</source>
 			<page>133</page>
-		</skill>
-		<skill>
-			<name>Disenchanting</name>
-			<attribute>MAG</attribute>
-			<category>Magical Active</category>
-			<default>No</default>
-			<skillgroup>Enchanting</skillgroup>
-			<specs>
-				<spec>[Type]</spec>
-			</specs>
-			<source>SR5</source>
-			<page>142</page>
 		</skill>
 		<skill>
 			<name>Diving</name>
@@ -533,6 +533,34 @@
 			<page>138</page>
 		</skill>
 		<skill>
+			<name>Exotic Melee Weapon</name>
+			<attribute>AGI</attribute>
+			<category>Combat Active</category>
+			<default>No</default>
+			<exotic>Yes</exotic>
+			<skillgroup/>
+			<specs/>
+			<source>SR5</source>
+			<page>131</page>
+		</skill>
+		
+		<skill>
+			<name>Exotic Ranged Weapon</name>
+			<attribute>AGI</attribute>
+			<category>Combat Active</category>
+			<default>No</default>
+			<exotic>Yes</exotic>
+			<skillgroup/>
+			<specs>
+				<spec>Blowguns</spec>
+				<spec>Gyrojet Pistols</spec>
+				<spec>Flamethrowers</spec>
+				<spec>Lasers</spec>
+			</specs>
+			<source>SR5</source>
+			<page>131</page>
+		</skill>
+		<skill>
 			<name>First Aid</name>
 			<attribute>LOG</attribute>
 			<category>Technical Active</category>
@@ -548,7 +576,6 @@
 			<source>SR5</source>
 			<page>144</page>
 		</skill>
-		
 		<skill>
 			<name>Forgery</name>
 			<attribute>AGI</attribute>
@@ -564,6 +591,26 @@
 			</specs>
 			<source>SR5</source>
 			<page>144</page>
+		</skill>
+		<skill>
+			<name>Free-Fall</name>
+			<attribute>BOD</attribute>
+			<category>Physical Active</category>
+			<default>Yes</default>
+			<skillgroup/>
+			<specs>
+				<spec>BASE Jumping</spec>
+				<spec>Break-Fall</spec>
+				<spec>Bungee</spec>
+				<spec>HALO</spec>
+				<spec>Low Altitude</spec>
+				<spec>Parachute</spec>
+				<spec>Static Line</spec>
+				<spec>Wingsuit</spec>
+				<spec>Zipline</spec>
+			</specs>
+			<source>SR5</source>
+			<page>133</page>
 		</skill>
 		<skill>
 			<name>Gunnery</name>
@@ -612,8 +659,7 @@
 			</specs>
 			<source>SR5</source>
 			<page>145</page>
-		</skill>
-		<skill>
+		</skill>		<skill>
 			<name>Hardware</name>
 			<attribute>LOG</attribute>
 			<category>Technical Active</category>
@@ -659,7 +705,8 @@
 			</specs>
 			<source>SR5</source>
 			<page>138</page>
-		</skill>		<skill>
+		</skill>
+		<skill>
 			<name>Industrial Mechanic</name>
 			<attribute>LOG</attribute>
 			<category>Technical Active</category>
@@ -675,22 +722,6 @@
 			</specs>
 			<source>SR5</source>
 			<page>145</page>
-		</skill>
-		<skill>
-			<name>Sneaking</name>
-			<attribute>AGI</attribute>
-			<category>Physical Active</category>
-			<default>Yes</default>
-			<skillgroup>Stealth</skillgroup>
-			<specs>
-				<spec>Desert</spec>
-				<spec>Jungle</spec>
-				<spec>Urban</spec>
-				<spec>Wilderness</spec>
-				<spec>[Terrain]</spec>
-			</specs>
-			<source>SR5</source>
-			<page>133</page>
 		</skill>
 		<skill>
 			<name>Instruction</name>
@@ -843,41 +874,6 @@
 			<page>133</page>
 		</skill>
 		<skill>
-			<name>Performance</name>
-			<attribute>CHA</attribute>
-			<category>Social Active</category>
-			<default>Yes</default>
-			<skillgroup>Acting</skillgroup>
-			<specs>
-				<spec>Acting</spec>
-				<spec>Comedy</spec>
-				<spec>Presentation</spec>
-				<spec>[Musical Instrument]</spec>
-			</specs>
-			<source>SR5</source>
-			<page>139</page>
-		</skill>
-		<skill>
-			<name>Free-Fall</name>
-			<attribute>BOD</attribute>
-			<category>Physical Active</category>
-			<default>Yes</default>
-			<skillgroup/>
-			<specs>
-				<spec>BASE Jumping</spec>
-				<spec>Break-Fall</spec>
-				<spec>Bungee</spec>
-				<spec>HALO</spec>
-				<spec>Low Altitude</spec>
-				<spec>Parachute</spec>
-				<spec>Static Line</spec>
-				<spec>Wingsuit</spec>
-				<spec>Zipline</spec>
-			</specs>
-			<source>SR5</source>
-			<page>133</page>
-		</skill>
-		<skill>
 			<name>Perception</name>
 			<attribute>INT</attribute>
 			<category>Physical Active</category>
@@ -893,6 +889,21 @@
 			</specs>
 			<source>SR5</source>
 			<page>133</page>
+		</skill>
+		<skill>
+			<name>Performance</name>
+			<attribute>CHA</attribute>
+			<category>Social Active</category>
+			<default>Yes</default>
+			<skillgroup>Acting</skillgroup>
+			<specs>
+				<spec>Acting</spec>
+				<spec>Comedy</spec>
+				<spec>Presentation</spec>
+				<spec>[Musical Instrument]</spec>
+			</specs>
+			<source>SR5</source>
+			<page>139</page>
 		</skill>
 		<skill>
 			<name>Pilot Aerospace</name>
@@ -928,21 +939,6 @@
 			<page>147</page>
 		</skill>
 		<skill>
-			<name>Pilot Walker</name>
-			<attribute>REA</attribute>
-			<category>Vehicle Active</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Biped</spec>
-				<spec>Multiped</spec>
-				<spec>Quadruped</spec>
-				<spec>Remote Operation</spec>
-			</specs>
-			<source>SR5</source>
-			<page>147</page>
-		</skill>
-		<skill>
 			<name>Pilot Ground Craft</name>
 			<attribute>REA</attribute>
 			<category>Vehicle Active</category>
@@ -954,6 +950,21 @@
 				<spec>Remote Operation</spec>
 				<spec>Tracked</spec>
 				<spec>Wheeled</spec>
+			</specs>
+			<source>SR5</source>
+			<page>147</page>
+		</skill>
+		<skill>
+			<name>Pilot Walker</name>
+			<attribute>REA</attribute>
+			<category>Vehicle Active</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Biped</spec>
+				<spec>Multiped</spec>
+				<spec>Quadruped</spec>
+				<spec>Remote Operation</spec>
 			</specs>
 			<source>SR5</source>
 			<page>147</page>
@@ -990,6 +1001,7 @@
 			<source>SR5</source>
 			<page>132</page>
 		</skill>
+		
 		<skill>
 			<name>Registering</name>
 			<attribute>RES</attribute>
@@ -1002,7 +1014,6 @@
 			<source>SR5</source>
 			<page>143</page>
 		</skill>
-		
 		<skill>
 			<name>Ritual Spellcasting</name>
 			<attribute>MAG</attribute>
@@ -1015,6 +1026,7 @@
 			<source>SR5</source>
 			<page>142</page>
 		</skill>
+		
 		<skill>
 			<name>Running</name>
 			<attribute>STR</attribute>
@@ -1032,7 +1044,22 @@
 			<source>SR5</source>
 			<page>133</page>
 		</skill>
-		
+		<skill>
+			<name>Sneaking</name>
+			<attribute>AGI</attribute>
+			<category>Physical Active</category>
+			<default>Yes</default>
+			<skillgroup>Stealth</skillgroup>
+			<specs>
+				<spec>Desert</spec>
+				<spec>Jungle</spec>
+				<spec>Urban</spec>
+				<spec>Wilderness</spec>
+				<spec>[Terrain]</spec>
+			</specs>
+			<source>SR5</source>
+			<page>133</page>
+		</skill>
 		<skill>
 			<name>Software</name>
 			<attribute>LOG</attribute>
@@ -1157,35 +1184,60 @@
 			<source>SR5</source>
 			<page>132</page>
 		</skill>
-		<skill>
-			<name>Exotic Melee Weapon</name>
-			<attribute>AGI</attribute>
-			<category>Combat Active</category>
-			<default>No</default>
-			<exotic>Yes</exotic>
-			<skillgroup/>
-			<specs/>
-			<source>SR5</source>
-			<page>131</page>
-		</skill>
-		<skill>
-			<name>Exotic Ranged Weapon</name>
-			<attribute>AGI</attribute>
-			<category>Combat Active</category>
-			<default>No</default>
-			<exotic>Yes</exotic>
-			<skillgroup/>
-			<specs>
-				<spec>Blowguns</spec>
-				<spec>Gyrojet Pistols</spec>
-				<spec>Flamethrowers</spec>
-				<spec>Lasers</spec>
-			</specs>
-			<source>SR5</source>
-			<page>131</page>
-		</skill>
 	</skills>
 	<knowledgeskills>
+		<skill>
+			<name>Alcohol</name>
+			<attribute>INT</attribute>
+			<category>Interest</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Beers</spec>
+				<spec>Coolers</spec>
+				<spec>Hard Liquor</spec>
+				<spec>Wines</spec>
+				<spec>Atlanta</spec>
+				<spec>Cheyenne</spec>
+				<spec>Chicago</spec>
+				<spec>Denver</spec>
+				<spec>Hong-Kong</spec>
+				<spec>LA</spec>
+				<spec>Manhattan</spec>
+				<spec>FDC</spec>
+				<spec>Portland</spec>
+				<spec>Seattle</spec>
+				<spec>Saskatoon</spec>
+				<spec>Sacramento</spec>
+				<spec>Quebec City</spec>
+				<spec>Algonkian-Manitou Council</spec>
+				<spec>Athabaskan Council</spec>
+				<spec>Amazonia</spec>
+				<spec>Aztlan</spec>
+				<spec>Carribean League</spec>
+				<spec>California Free State</spec>
+				<spec>Pueblo Corporate Council</spec>
+				<spec>CAS</spec>
+				<spec>UCAS</spec>
+				<spec>Quebec</spec>
+				<spec>Salish-Shidhe Council</spec>
+				<spec>Sioux</spec>
+				<spec>Tir Tairngire</spec>
+				<spec>Tsimshian Protectorate</spec>
+				<spec>Yukutan</spec>
+				<spec>N. America</spec>
+				<spec>S. America</spec>
+				<spec>Antarctica</spec>
+				<spec>Africa</spec>
+				<spec>Western Europe</spec>
+				<spec>Eastern Europe</spec>
+				<spec>Northern Europe</spec>
+				<spec>Asia - Pacific</spec>
+				<spec>Asia - Minor</spec>
+				<spec>Middle East</spec>
+				<spec>Australia</spec>
+			</specs>
+		</skill>
 		<skill>
 			<name>Arabic</name>
 			<attribute>INT</attribute>
@@ -1200,380 +1252,24 @@
 			</specs>
 		</skill>
 		<skill>
-			<name>Bengali</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
+			<name>Architecture</name>
+			<attribute>LOG</attribute>
+			<category>Professional</category>
 			<default>No</default>
 			<skillgroup/>
 			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Bulgarian</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-		<name>Croatian</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Cantonese</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Danish</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>English</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-		<name>French</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-		<name>German</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Hebrew</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Hindi-Urdu</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Indonesian</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Italian</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Japanese</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Korean</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Latin</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Mandarin</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Or'zet</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Persian</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Portuguese</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Punjabi</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Polish</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Russian</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Sioux</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Spanish</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Sperethiel</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Thai</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Turkish</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Wu</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Xiang</name>
-			<attribute>INT</attribute>
-			<category>Language</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Read/Write</spec>
-				<spec>Speak</spec>
-				<spec>Dialect</spec>
-				<spec>Lingo</spec>
+				<spec>Commercial</spec>
+				<spec>Residential</spec>
+				<spec>Elven</spec>
+				<spec>Orcish</spec>
+				<spec>Medieval</spec>
+				<spec>Gothic</spec>
+				<spec>Renaissance</spec>
+				<spec>Baroque</spec>
+				<spec>Victorian</spec>
+				<spec>Neo-Classical</spec>
+				<spec>Modern</spec>
+				<spec>High-Tech</spec>
 			</specs>
 		</skill>
 		<skill>
@@ -1670,79 +1366,6 @@
 			</specs>
 		</skill>
 		<skill>
-			<name>Alcohol</name>
-			<attribute>INT</attribute>
-			<category>Interest</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Beers</spec>
-				<spec>Coolers</spec>
-				<spec>Hard Liquor</spec>
-				<spec>Wines</spec>
-				<spec>Atlanta</spec>
-				<spec>Cheyenne</spec>
-				<spec>Chicago</spec>
-				<spec>Denver</spec>
-				<spec>Hong-Kong</spec>
-				<spec>LA</spec>
-				<spec>Manhattan</spec>
-				<spec>FDC</spec>
-				<spec>Portland</spec>
-				<spec>Seattle</spec>
-				<spec>Saskatoon</spec>
-				<spec>Sacramento</spec>
-				<spec>Quebec City</spec>
-				<spec>Algonkian-Manitou Council</spec>
-				<spec>Athabaskan Council</spec>
-				<spec>Amazonia</spec>
-				<spec>Aztlan</spec>
-				<spec>Carribean League</spec>
-				<spec>California Free State</spec>
-				<spec>Pueblo Corporate Council</spec>
-				<spec>CAS</spec>
-				<spec>UCAS</spec>
-				<spec>Quebec</spec>
-				<spec>Salish-Shidhe Council</spec>
-				<spec>Sioux</spec>
-				<spec>Tir Tairngire</spec>
-				<spec>Tsimshian Protectorate</spec>
-				<spec>Yukutan</spec>
-				<spec>N. America</spec>
-				<spec>S. America</spec>
-				<spec>Antarctica</spec>
-				<spec>Africa</spec>
-				<spec>Western Europe</spec>
-				<spec>Eastern Europe</spec>
-				<spec>Northern Europe</spec>
-				<spec>Asia - Pacific</spec>
-				<spec>Asia - Minor</spec>
-				<spec>Middle East</spec>
-				<spec>Australia</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Architecture</name>
-			<attribute>LOG</attribute>
-			<category>Professional</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Commercial</spec>
-				<spec>Residential</spec>
-				<spec>Elven</spec>
-				<spec>Orcish</spec>
-				<spec>Medieval</spec>
-				<spec>Gothic</spec>
-				<spec>Renaissance</spec>
-				<spec>Baroque</spec>
-				<spec>Victorian</spec>
-				<spec>Neo-Classical</spec>
-				<spec>Modern</spec>
-				<spec>High-Tech</spec>
-			</specs>
-		</skill>
-		<skill>
 			<name>Art</name>
 			<attribute>LOG</attribute>
 			<category>Academic</category>
@@ -1767,69 +1390,6 @@
 				<spec>Asia - Minor</spec>
 				<spec>Middle East</spec>
 				<spec>Australia</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Biology</name>
-			<attribute>LOG</attribute>
-			<category>Academic</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Anatomy</spec>
-				<spec>Microbiology</spec>
-				<spec>Physiology</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Business</name>
-			<attribute>LOG</attribute>
-			<category>Professional</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Budgeting</spec>
-				<spec>Compliance</spec>
-				<spec>Reporting</spec>
-				<spec>Manufacturing</spec>
-				<spec>People Management</spec>
-				<spec>Project Management</spec>
-				<spec>Retail</spec>
-				<spec>Supply and Demand</spec>
-				<spec>Small Business</spec>
-				<spec>Time Management</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Chemistry</name>
-			<attribute>LOG</attribute>
-			<category>Academic</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Industrial</spec>
-				<spec>Organic</spec>
-				<spec>Pharmaceuticals</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Combat Tactics</name>
-			<attribute>LOG</attribute>
-			<category>Professional</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Ambush</spec>
-				<spec>Guerilla</spec>
-				<spec>Hostage Rescue</spec>
-				<spec>Magic</spec>
-				<spec>Anti-Magic</spec>
-				<spec>Open Field</spec>
-				<spec>Outer Space</spec>
-				<spec>Terror</spec>
-				<spec>Underwater</spec>
-				<spec>Urban</spec>
-				<spec>Wilderness</spec>
 			</specs>
 		</skill>
 		<skill>
@@ -1874,6 +1434,134 @@
 				<spec>Troll</spec>
 				<spec>Vory</spec>
 				<spec>Yakuza</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Bengali</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Biology</name>
+			<attribute>LOG</attribute>
+			<category>Academic</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Anatomy</spec>
+				<spec>Microbiology</spec>
+				<spec>Physiology</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Bulgarian</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Business</name>
+			<attribute>LOG</attribute>
+			<category>Professional</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Budgeting</spec>
+				<spec>Compliance</spec>
+				<spec>Reporting</spec>
+				<spec>Manufacturing</spec>
+				<spec>People Management</spec>
+				<spec>Project Management</spec>
+				<spec>Retail</spec>
+				<spec>Supply and Demand</spec>
+				<spec>Small Business</spec>
+				<spec>Time Management</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Cantonese</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Chemistry</name>
+			<attribute>LOG</attribute>
+			<category>Academic</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Industrial</spec>
+				<spec>Organic</spec>
+				<spec>Pharmaceuticals</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Combat Tactics</name>
+			<attribute>LOG</attribute>
+			<category>Professional</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Ambush</spec>
+				<spec>Guerilla</spec>
+				<spec>Hostage Rescue</spec>
+				<spec>Magic</spec>
+				<spec>Anti-Magic</spec>
+				<spec>Open Field</spec>
+				<spec>Outer Space</spec>
+				<spec>Terror</spec>
+				<spec>Underwater</spec>
+				<spec>Urban</spec>
+				<spec>Wilderness</spec>
+			</specs>
+		</skill>
+		<skill>
+		<name>Croatian</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Danish</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
 			</specs>
 		</skill>
 		<skill>
@@ -1966,6 +1654,19 @@
 			</specs>
 		</skill>
 		<skill>
+			<name>English</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
+			</specs>
+		</skill>
+		<skill>
 			<name>Fashion</name>
 			<attribute>INT</attribute>
 			<category>Interest</category>
@@ -1994,6 +1695,19 @@
 				<spec>Longarms</spec>
 				<spec>Modification</spec>
 				<spec>Pistols</spec>
+			</specs>
+		</skill>
+		<skill>
+		<name>French</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
 			</specs>
 		</skill>
 		<skill>
@@ -2077,6 +1791,19 @@
 			</specs>
 		</skill>
 		<skill>
+		<name>German</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
+			</specs>
+		</skill>
+		<skill>
 			<name>Ghost Cartels</name>
 			<attribute>INT</attribute>
 			<category>Street</category>
@@ -2089,6 +1816,32 @@
 				<spec>History</spec>
 				<spec>Organizations</spec>
 				<spec>Safe Houses</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Hebrew</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Hindi-Urdu</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
 			</specs>
 		</skill>
 		<skill>
@@ -2148,169 +1901,68 @@
 			</specs>
 		</skill>
 		<skill>
-			<name>Matrix Games</name>
+			<name>Indonesian</name>
 			<attribute>INT</attribute>
-			<category>Interest</category>
+			<category>Language</category>
 			<default>No</default>
 			<skillgroup/>
 			<specs>
-				<spec>Dawn of Atlantis III</spec>
-				<spec>Dragon Storm</spec>
-				<spec>Grand Larceny</spec>
-				<spec>Killing Floor</spec>
-				<spec>Shadowrun Online</spec>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
 			</specs>
 		</skill>
 		<skill>
-			<name>Music</name>
+			<name>Italian</name>
 			<attribute>INT</attribute>
-			<category>Interest</category>
+			<category>Language</category>
 			<default>No</default>
 			<skillgroup/>
 			<specs>
-				<spec>Astral Rock</spec>
-				<spec>Electron Wave</spec>
-				<spec>Goblin Rock</spec>
-				<spec>Powernoize</spec>
-				<spec>Rockabilly</spec>
-				<spec>Sinthcore</spec>
-				<spec>Wizpunk</spec>
-				<spec>Trash Metal Troll</spec>
-				<spec>Retro Gothic</spec>
-				<spec>Elven Rap</spec>
-				<spec>Neo-J Pop</spec>
-				<spec>Nova K Rock</spec>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
 			</specs>
 		</skill>
 		<skill>
-			<name>News</name>
+			<name>Japanese</name>
 			<attribute>INT</attribute>
-			<category>Interest</category>
+			<category>Language</category>
 			<default>No</default>
 			<skillgroup/>
 			<specs>
-				<spec>Business</spec>
-				<spec>Entertainment</spec>
-				<spec>Health</spec>
-				<spec>Science/Environment</spec>
-				<spec>Sports</spec>
-				<spec>Technology</spec>
-				<spec>Underworld</spec>
-				<spec>Atlanta</spec>
-				<spec>Cheyenne</spec>
-				<spec>Chicago</spec>
-				<spec>Denver</spec>
-				<spec>Hong-Kong</spec>
-				<spec>LA</spec>
-				<spec>Manhattan</spec>
-				<spec>FDC</spec>
-				<spec>Portland</spec>
-				<spec>Seattle</spec>
-				<spec>Saskatoon</spec>
-				<spec>Sacramento</spec>
-				<spec>Quebec City</spec>
-				<spec>Algonkian-Manitou Council</spec>
-				<spec>Athabaskan Council</spec>
-				<spec>Amazonia</spec>
-				<spec>Aztlan</spec>
-				<spec>Carribean League</spec>
-				<spec>California Free State</spec>
-				<spec>Pueblo Corporate Council</spec>
-				<spec>CAS</spec>
-				<spec>UCAS</spec>
-				<spec>Quebec</spec>
-				<spec>Salish-Shidhe Council</spec>
-				<spec>Sioux</spec>
-				<spec>Tir Tairngire</spec>
-				<spec>Tsimshian Protectorate</spec>
-				<spec>Yukutan</spec>
-				<spec>N. America</spec>
-				<spec>S. America</spec>
-				<spec>Antarctica</spec>
-				<spec>Africa</spec>
-				<spec>Western Europe</spec>
-				<spec>Eastern Europe</spec>
-				<spec>Northern Europe</spec>
-				<spec>Asia - Pacific</spec>
-				<spec>Asia - Minor</spec>
-				<spec>Middle East</spec>
-				<spec>Australia</spec>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
 			</specs>
 		</skill>
 		<skill>
-			<name>Parazoology</name>
-			<attribute>LOG</attribute>
-			<category>Academic</category>
+			<name>Korean</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
 			<default>No</default>
 			<skillgroup/>
 			<specs>
-				<spec>Spirits</spec>
-				<spec>N. America</spec>
-				<spec>S. America</spec>
-				<spec>Antarctica</spec>
-				<spec>Africa</spec>
-				<spec>Western Europe</spec>
-				<spec>Eastern Europe</spec>
-				<spec>Northern Europe</spec>
-				<spec>Asia - Pacific</spec>
-				<spec>Asia - Minor</spec>
-				<spec>Middle East</spec>
-				<spec>Australia</spec>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
 			</specs>
 		</skill>
 		<skill>
-			<name>Politics</name>
-			<attribute>LOG</attribute>
-			<category>Academic</category>
+			<name>Latin</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
 			<default>No</default>
 			<skillgroup/>
 			<specs>
-				<spec>Corporate</spec>
-				<spec>Military</spec>
-				<spec>Political</spec>
-				<spec>Social</spec>
-				<spec>Tribal</spec>
-				<spec>Underworld</spec>
-				<spec>Atlanta</spec>
-				<spec>Cheyenne</spec>
-				<spec>Chicago</spec>
-				<spec>Denver</spec>
-				<spec>Hong-Kong</spec>
-				<spec>LA</spec>
-				<spec>Manhattan</spec>
-				<spec>FDC</spec>
-				<spec>Portland</spec>
-				<spec>Seattle</spec>
-				<spec>Saskatoon</spec>
-				<spec>Sacramento</spec>
-				<spec>Quebec City</spec>
-				<spec>Algonkian-Manitou Council</spec>
-				<spec>Athabaskan Council</spec>
-				<spec>Amazonia</spec>
-				<spec>Aztlan</spec>
-				<spec>Carribean League</spec>
-				<spec>California Free State</spec>
-				<spec>Pueblo Corporate Council</spec>
-				<spec>CAS</spec>
-				<spec>UCAS</spec>
-				<spec>Quebec</spec>
-				<spec>Salish-Shidhe Council</spec>
-				<spec>Sioux</spec>
-				<spec>Tir Tairngire</spec>
-				<spec>Tsimshian Protectorate</spec>
-				<spec>Yukutan</spec>
-				<spec>N. America</spec>
-				<spec>S. America</spec>
-				<spec>Antarctica</spec>
-				<spec>Africa</spec>
-				<spec>Western Europe</spec>
-				<spec>Eastern Europe</spec>
-				<spec>Northern Europe</spec>
-				<spec>Asia - Pacific</spec>
-				<spec>Asia - Minor</spec>
-				<spec>Middle East</spec>
-				<spec>Australia</spec>
-				<spec>Politics</spec>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
 			</specs>
 		</skill>
 		<skill>
@@ -2394,6 +2046,33 @@
 			</specs>
 		</skill>
 		<skill>
+			<name>Mandarin</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Matrix Games</name>
+			<attribute>INT</attribute>
+			<category>Interest</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Dawn of Atlantis III</spec>
+				<spec>Dragon Storm</spec>
+				<spec>Grand Larceny</spec>
+				<spec>Killing Floor</spec>
+				<spec>Shadowrun Online</spec>
+			</specs>
+		</skill>
+		<skill>
 			<name>Military</name>
 			<attribute>INT</attribute>
 			<category>Interest</category>
@@ -2407,6 +2086,223 @@
 				<spec>Military Magic</spec>
 				<spec>Navy</spec>
 				<spec>Special Forces</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Music</name>
+			<attribute>INT</attribute>
+			<category>Interest</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Astral Rock</spec>
+				<spec>Electron Wave</spec>
+				<spec>Goblin Rock</spec>
+				<spec>Powernoize</spec>
+				<spec>Rockabilly</spec>
+				<spec>Sinthcore</spec>
+				<spec>Wizpunk</spec>
+				<spec>Trash Metal Troll</spec>
+				<spec>Retro Gothic</spec>
+				<spec>Elven Rap</spec>
+				<spec>Neo-J Pop</spec>
+				<spec>Nova K Rock</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>News</name>
+			<attribute>INT</attribute>
+			<category>Interest</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Business</spec>
+				<spec>Entertainment</spec>
+				<spec>Health</spec>
+				<spec>Science/Environment</spec>
+				<spec>Sports</spec>
+				<spec>Technology</spec>
+				<spec>Underworld</spec>
+				<spec>Atlanta</spec>
+				<spec>Cheyenne</spec>
+				<spec>Chicago</spec>
+				<spec>Denver</spec>
+				<spec>Hong-Kong</spec>
+				<spec>LA</spec>
+				<spec>Manhattan</spec>
+				<spec>FDC</spec>
+				<spec>Portland</spec>
+				<spec>Seattle</spec>
+				<spec>Saskatoon</spec>
+				<spec>Sacramento</spec>
+				<spec>Quebec City</spec>
+				<spec>Algonkian-Manitou Council</spec>
+				<spec>Athabaskan Council</spec>
+				<spec>Amazonia</spec>
+				<spec>Aztlan</spec>
+				<spec>Carribean League</spec>
+				<spec>California Free State</spec>
+				<spec>Pueblo Corporate Council</spec>
+				<spec>CAS</spec>
+				<spec>UCAS</spec>
+				<spec>Quebec</spec>
+				<spec>Salish-Shidhe Council</spec>
+				<spec>Sioux</spec>
+				<spec>Tir Tairngire</spec>
+				<spec>Tsimshian Protectorate</spec>
+				<spec>Yukutan</spec>
+				<spec>N. America</spec>
+				<spec>S. America</spec>
+				<spec>Antarctica</spec>
+				<spec>Africa</spec>
+				<spec>Western Europe</spec>
+				<spec>Eastern Europe</spec>
+				<spec>Northern Europe</spec>
+				<spec>Asia - Pacific</spec>
+				<spec>Asia - Minor</spec>
+				<spec>Middle East</spec>
+				<spec>Australia</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Or'zet</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Parazoology</name>
+			<attribute>LOG</attribute>
+			<category>Academic</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Spirits</spec>
+				<spec>N. America</spec>
+				<spec>S. America</spec>
+				<spec>Antarctica</spec>
+				<spec>Africa</spec>
+				<spec>Western Europe</spec>
+				<spec>Eastern Europe</spec>
+				<spec>Northern Europe</spec>
+				<spec>Asia - Pacific</spec>
+				<spec>Asia - Minor</spec>
+				<spec>Middle East</spec>
+				<spec>Australia</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Persian</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Polish</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Politics</name>
+			<attribute>LOG</attribute>
+			<category>Academic</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Corporate</spec>
+				<spec>Military</spec>
+				<spec>Political</spec>
+				<spec>Social</spec>
+				<spec>Tribal</spec>
+				<spec>Underworld</spec>
+				<spec>Atlanta</spec>
+				<spec>Cheyenne</spec>
+				<spec>Chicago</spec>
+				<spec>Denver</spec>
+				<spec>Hong-Kong</spec>
+				<spec>LA</spec>
+				<spec>Manhattan</spec>
+				<spec>FDC</spec>
+				<spec>Portland</spec>
+				<spec>Seattle</spec>
+				<spec>Saskatoon</spec>
+				<spec>Sacramento</spec>
+				<spec>Quebec City</spec>
+				<spec>Algonkian-Manitou Council</spec>
+				<spec>Athabaskan Council</spec>
+				<spec>Amazonia</spec>
+				<spec>Aztlan</spec>
+				<spec>Carribean League</spec>
+				<spec>California Free State</spec>
+				<spec>Pueblo Corporate Council</spec>
+				<spec>CAS</spec>
+				<spec>UCAS</spec>
+				<spec>Quebec</spec>
+				<spec>Salish-Shidhe Council</spec>
+				<spec>Sioux</spec>
+				<spec>Tir Tairngire</spec>
+				<spec>Tsimshian Protectorate</spec>
+				<spec>Yukutan</spec>
+				<spec>N. America</spec>
+				<spec>S. America</spec>
+				<spec>Antarctica</spec>
+				<spec>Africa</spec>
+				<spec>Western Europe</spec>
+				<spec>Eastern Europe</spec>
+				<spec>Northern Europe</spec>
+				<spec>Asia - Pacific</spec>
+				<spec>Asia - Minor</spec>
+				<spec>Middle East</spec>
+				<spec>Australia</spec>
+				<spec>Politics</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Portuguese</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Punjabi</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
 			</specs>
 		</skill>
 		<skill>
@@ -2428,18 +2324,16 @@
 			</specs>
 		</skill>
 		<skill>
-			<name>Security Design</name>
+			<name>Russian</name>
 			<attribute>INT</attribute>
-			<category>Interest</category>
+			<category>Language</category>
 			<default>No</default>
 			<skillgroup/>
 			<specs>
-				<spec>Bank</spec>
-				<spec>Corporate</spec>
-				<spec>Government</spec>
-				<spec>Home</spec>
-				<spec>Public Event</spec>
-				<spec>Vehicle</spec>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
 			</specs>
 		</skill>
 		<skill>
@@ -2453,6 +2347,21 @@
 				<spec>Knight Errant</spec>
 				<spec>Hard Corps</spec>
 				<spec>Minutemen Security</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Security Design</name>
+			<attribute>INT</attribute>
+			<category>Interest</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Bank</spec>
+				<spec>Corporate</spec>
+				<spec>Government</spec>
+				<spec>Home</spec>
+				<spec>Public Event</spec>
+				<spec>Vehicle</spec>
 			</specs>
 		</skill>
 		<skill>
@@ -2487,6 +2396,45 @@
 				<spec>News</spec>
 				<spec>Personalities</spec>
 				<spec>Rumours</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Sioux</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Spanish</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Sperethiel</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
 			</specs>
 		</skill>
 		<skill>
@@ -2531,6 +2479,19 @@
 			</specs>
 		</skill>
 		<skill>
+			<name>Sprawl Life</name>
+			<attribute>INT</attribute>
+			<category>Street</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Scavenging</spec>
+				<spec>Soup Kitchens</spec>
+				<spec>Squats</spec>
+				<spec>Street Docs</spec>
+			</specs>
+		</skill>
+		<skill>
 			<name>Street Drugs</name>
 			<attribute>INT</attribute>
 			<category>Interest</category>
@@ -2543,19 +2504,6 @@
 				<spec>Novacoke</spec>
 				<spec>Spike</spec>
 				<spec>Tempo</spec>
-			</specs>
-		</skill>
-		<skill>
-			<name>Sprawl Life</name>
-			<attribute>INT</attribute>
-			<category>Street</category>
-			<default>No</default>
-			<skillgroup/>
-			<specs>
-				<spec>Scavenging</spec>
-				<spec>Soup Kitchens</spec>
-				<spec>Squats</spec>
-				<spec>Street Docs</spec>
 			</specs>
 		</skill>
 		<skill>
@@ -2601,6 +2549,19 @@
 			</specs>
 		</skill>
 		<skill>
+			<name>Thai</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
+			</specs>
+		</skill>
+		<skill>
 			<name>Triads</name>
 			<attribute>INT</attribute>
 			<category>Street</category>
@@ -2628,6 +2589,19 @@
 				<spec>Fantasy</spec>
 				<spec>Rom-Com</spec>
 				<spec>Sci-fi</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Turkish</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
 			</specs>
 		</skill>
 		<skill>
@@ -2676,6 +2650,32 @@
 				<spec>History</spec>
 				<spec>Organizations</spec>
 				<spec>Safe Houses</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Wu</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Xiang</name>
+			<attribute>INT</attribute>
+			<category>Language</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Read/Write</spec>
+				<spec>Speak</spec>
+				<spec>Dialect</spec>
+				<spec>Lingo</spec>
 			</specs>
 		</skill>
 		<skill>

@@ -1352,7 +1352,38 @@ namespace Chummer
 		}
 		#endregion
 
-		/// <summary>
+        #region Logging Functions
+        public void Logger(string lines)
+        {
+
+            // Write the string to a file.append mode is enabled so that the log
+            // lines get appended to  test.txt than wiping content and writing the log
+
+            System.IO.StreamWriter file = new System.IO.StreamWriter("e:\\test.txt", true);
+            file.WriteLine(lines);
+            file.Close();
+
+            //// Create the source, if it does not already exist.
+            //if (!EventLog.SourceExists("Chummer5"))
+            //{
+            //    //An event log source should not be created and immediately used.
+            //    //There is a latency time to enable the source, it should be created
+            //    //prior to executing the application that uses the source.
+            //    //Execute this sample a second time to use the new source.
+            //    EventLog.CreateEventSource("Chummer5", "MyNewLog");
+            //    // The source is created.  Exit the application to allow it to be registered.
+            //    return;
+            //}
+
+            //// Create an EventLog instance and assign its source.
+            //EventLog myLog = new EventLog();
+            //myLog.Source = "Chummer5";
+
+            //// Write an informational entry to the event log.    
+            //myLog.WriteEntry(lines);
+        }
+        #endregion
+        /// <summary>
 		/// Verify that the user wants to delete an item.
 		/// </summary>
 		public bool ConfirmDelete(string strMessage)

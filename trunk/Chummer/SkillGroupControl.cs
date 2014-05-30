@@ -44,6 +44,11 @@ namespace Chummer
 				lblGroupRating.Visible = true;
 			}
 
+            if (_objSkillGroup.FreeLevels > 0)
+                nudSkill.Minimum = _objSkillGroup.FreeLevels;
+            else
+                nudSkill.Minimum = 0;
+
 			if (_objSkillGroup.Broken)
 				IsEnabled = false;
 			this.Width = cmdImproveSkill.Left + cmdImproveSkill.Width;

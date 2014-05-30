@@ -76,6 +76,9 @@
             this.lblSpecial = new System.Windows.Forms.Label();
             this.lblSpecialAttributes = new System.Windows.Forms.Label();
             this.tipTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.cboSkill2 = new System.Windows.Forms.ComboBox();
+            this.cboSkill1 = new System.Windows.Forms.ComboBox();
+            this.lblMetatypeSkillSelection = new System.Windows.Forms.Label();
             this.pnlPriorities.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudForce)).BeginInit();
             this.pnlMetatypes.SuspendLayout();
@@ -105,7 +108,7 @@
             this.cboResources.Location = new System.Drawing.Point(182, 109);
             this.cboResources.Name = "cboResources";
             this.cboResources.Size = new System.Drawing.Size(286, 21);
-            this.cboResources.TabIndex = 111;
+            this.cboResources.TabIndex = 5;
             this.cboResources.SelectedIndexChanged += new System.EventHandler(this.cboResources_SelectedIndexChanged);
             // 
             // lblResourcesLabel
@@ -125,7 +128,7 @@
             this.cboSkills.Location = new System.Drawing.Point(182, 82);
             this.cboSkills.Name = "cboSkills";
             this.cboSkills.Size = new System.Drawing.Size(286, 21);
-            this.cboSkills.TabIndex = 109;
+            this.cboSkills.TabIndex = 4;
             this.cboSkills.SelectedIndexChanged += new System.EventHandler(this.cboSkills_SelectedIndexChanged);
             // 
             // lblSkillsLabel
@@ -145,7 +148,7 @@
             this.cboAttributes.Location = new System.Drawing.Point(182, 55);
             this.cboAttributes.Name = "cboAttributes";
             this.cboAttributes.Size = new System.Drawing.Size(286, 21);
-            this.cboAttributes.TabIndex = 107;
+            this.cboAttributes.TabIndex = 3;
             this.cboAttributes.SelectedIndexChanged += new System.EventHandler(this.cboAttributes_SelectedIndexChanged);
             // 
             // lblAttributesLabel
@@ -165,7 +168,7 @@
             this.cboTalent.Location = new System.Drawing.Point(182, 28);
             this.cboTalent.Name = "cboTalent";
             this.cboTalent.Size = new System.Drawing.Size(286, 21);
-            this.cboTalent.TabIndex = 105;
+            this.cboTalent.TabIndex = 2;
             this.cboTalent.SelectedIndexChanged += new System.EventHandler(this.cboTalent_SelectedIndexChanged);
             // 
             // lblTalentLabel
@@ -185,7 +188,7 @@
             this.cboHeritage.Location = new System.Drawing.Point(182, 1);
             this.cboHeritage.Name = "cboHeritage";
             this.cboHeritage.Size = new System.Drawing.Size(286, 21);
-            this.cboHeritage.TabIndex = 103;
+            this.cboHeritage.TabIndex = 1;
             this.cboHeritage.SelectedIndexChanged += new System.EventHandler(this.cboHeritage_SelectedIndexChanged);
             // 
             // lblHeritageLabel
@@ -201,7 +204,7 @@
             // chkBloodSpirit
             // 
             this.chkBloodSpirit.AutoSize = true;
-            this.chkBloodSpirit.Location = new System.Drawing.Point(185, 226);
+            this.chkBloodSpirit.Location = new System.Drawing.Point(173, 250);
             this.chkBloodSpirit.Name = "chkBloodSpirit";
             this.chkBloodSpirit.Size = new System.Drawing.Size(79, 17);
             this.chkBloodSpirit.TabIndex = 69;
@@ -215,7 +218,7 @@
             this.cboPossessionMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPossessionMethod.Enabled = false;
             this.cboPossessionMethod.FormattingEnabled = true;
-            this.cboPossessionMethod.Location = new System.Drawing.Point(203, 272);
+            this.cboPossessionMethod.Location = new System.Drawing.Point(173, 296);
             this.cboPossessionMethod.Name = "cboPossessionMethod";
             this.cboPossessionMethod.Size = new System.Drawing.Size(174, 21);
             this.cboPossessionMethod.TabIndex = 65;
@@ -224,7 +227,7 @@
             // chkPossessionBased
             // 
             this.chkPossessionBased.AutoSize = true;
-            this.chkPossessionBased.Location = new System.Drawing.Point(185, 249);
+            this.chkPossessionBased.Location = new System.Drawing.Point(173, 273);
             this.chkPossessionBased.Name = "chkPossessionBased";
             this.chkPossessionBased.Size = new System.Drawing.Size(211, 17);
             this.chkPossessionBased.TabIndex = 64;
@@ -275,7 +278,7 @@
             this.cboCategory.Location = new System.Drawing.Point(3, 3);
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(158, 21);
-            this.cboCategory.TabIndex = 66;
+            this.cboCategory.TabIndex = 6;
             this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
             // 
             // cmdCancel
@@ -285,7 +288,7 @@
             this.cmdCancel.Location = new System.Drawing.Point(313, 323);
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(75, 23);
-            this.cmdCancel.TabIndex = 68;
+            this.cmdCancel.TabIndex = 12;
             this.cmdCancel.Tag = "String_Cancel";
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
@@ -293,7 +296,7 @@
             // lblMetavariantQualities
             // 
             this.lblMetavariantQualities.AutoSize = true;
-            this.lblMetavariantQualities.Location = new System.Drawing.Point(189, 189);
+            this.lblMetavariantQualities.Location = new System.Drawing.Point(286, 230);
             this.lblMetavariantQualities.Name = "lblMetavariantQualities";
             this.lblMetavariantQualities.Size = new System.Drawing.Size(33, 13);
             this.lblMetavariantQualities.TabIndex = 63;
@@ -305,7 +308,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(182, 176);
+            this.label4.Location = new System.Drawing.Point(170, 230);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 62;
@@ -316,7 +319,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(310, 173);
+            this.label2.Location = new System.Drawing.Point(325, 230);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 58;
@@ -328,7 +331,7 @@
             // 
             this.cboMetavariant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMetavariant.FormattingEnabled = true;
-            this.cboMetavariant.Location = new System.Drawing.Point(313, 189);
+            this.cboMetavariant.Location = new System.Drawing.Point(326, 246);
             this.cboMetavariant.Name = "cboMetavariant";
             this.cboMetavariant.Size = new System.Drawing.Size(129, 21);
             this.cboMetavariant.TabIndex = 59;
@@ -341,7 +344,7 @@
             this.cmdOK.Location = new System.Drawing.Point(394, 323);
             this.cmdOK.Name = "cmdOK";
             this.cmdOK.Size = new System.Drawing.Size(75, 23);
-            this.cmdOK.TabIndex = 67;
+            this.cmdOK.TabIndex = 11;
             this.cmdOK.Tag = "String_OK";
             this.cmdOK.Text = "OK";
             this.cmdOK.UseVisualStyleBackColor = true;
@@ -536,12 +539,15 @@
             this.lstMetatypes.Name = "lstMetatypes";
             this.lstMetatypes.Size = new System.Drawing.Size(158, 316);
             this.lstMetatypes.Sorted = true;
-            this.lstMetatypes.TabIndex = 35;
+            this.lstMetatypes.TabIndex = 7;
             this.lstMetatypes.SelectedIndexChanged += new System.EventHandler(this.lstMetatypes_SelectedIndexChanged);
             this.lstMetatypes.DoubleClick += new System.EventHandler(this.lstMetatypes_DoubleClick);
             // 
             // pnlMetatypes
             // 
+            this.pnlMetatypes.Controls.Add(this.lblMetatypeSkillSelection);
+            this.pnlMetatypes.Controls.Add(this.cboSkill1);
+            this.pnlMetatypes.Controls.Add(this.cboSkill2);
             this.pnlMetatypes.Controls.Add(this.cboTalents);
             this.pnlMetatypes.Controls.Add(this.lblSpecial);
             this.pnlMetatypes.Controls.Add(this.lblSpecialAttributes);
@@ -588,7 +594,8 @@
             this.cboTalents.Location = new System.Drawing.Point(182, 3);
             this.cboTalents.Name = "cboTalents";
             this.cboTalents.Size = new System.Drawing.Size(286, 21);
-            this.cboTalents.TabIndex = 72;
+            this.cboTalents.TabIndex = 8;
+            this.cboTalents.SelectedIndexChanged += new System.EventHandler(this.cboTalents_SelectedIndexChanged);
             // 
             // lblSpecial
             // 
@@ -618,6 +625,37 @@
             this.tipTooltip.ReshowDelay = 100;
             this.tipTooltip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.tipTooltip.ToolTipTitle = "Chummer Help";
+            // 
+            // cboSkill2
+            // 
+            this.cboSkill2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSkill2.FormattingEnabled = true;
+            this.cboSkill2.Location = new System.Drawing.Point(182, 205);
+            this.cboSkill2.Name = "cboSkill2";
+            this.cboSkill2.Size = new System.Drawing.Size(286, 21);
+            this.cboSkill2.TabIndex = 10;
+            this.cboSkill2.Visible = false;
+            // 
+            // cboSkill1
+            // 
+            this.cboSkill1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSkill1.FormattingEnabled = true;
+            this.cboSkill1.Location = new System.Drawing.Point(182, 178);
+            this.cboSkill1.Name = "cboSkill1";
+            this.cboSkill1.Size = new System.Drawing.Size(286, 21);
+            this.cboSkill1.TabIndex = 9;
+            this.cboSkill1.Visible = false;
+            // 
+            // lblMetatypeSkillSelection
+            // 
+            this.lblMetatypeSkillSelection.Location = new System.Drawing.Point(182, 147);
+            this.lblMetatypeSkillSelection.Name = "lblMetatypeSkillSelection";
+            this.lblMetatypeSkillSelection.Size = new System.Drawing.Size(286, 28);
+            this.lblMetatypeSkillSelection.TabIndex = 75;
+            this.lblMetatypeSkillSelection.Tag = "String_MetamagicSkillBase";
+            this.lblMetatypeSkillSelection.Text = "Based on your talent selection, you may choose 2 magical skills to start at ratin" +
+    "g 5.";
+            this.lblMetatypeSkillSelection.Visible = false;
             // 
             // frmPriorityMetatype
             // 
@@ -691,5 +729,8 @@
         internal System.Windows.Forms.Label lblSpecial;
         internal System.Windows.Forms.Label lblSpecialAttributes;
         private System.Windows.Forms.ComboBox cboTalents;
+        private System.Windows.Forms.Label lblMetatypeSkillSelection;
+        private System.Windows.Forms.ComboBox cboSkill1;
+        private System.Windows.Forms.ComboBox cboSkill2;
     }
 }
