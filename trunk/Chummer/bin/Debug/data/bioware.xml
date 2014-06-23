@@ -307,7 +307,7 @@
 					<name>STR</name>
 					<val>1</val>
 				</specificattribute>
-				<lifestylecost>1.25</lifestylecost>
+				<lifestylecost>125</lifestylecost>
 			</bonus>
 			<source>SR5</source>
 			<page>459</page>

@@ -116,7 +116,7 @@ namespace Chummer
 			// Automatic Update.
 			try
 			{
-				_blnAutomaticUpdate = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("autoupdate").ToString());
+				_blnAutomaticUpdate = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("autoupdate").ToString());
 			}
 			catch
 			{
@@ -125,7 +125,7 @@ namespace Chummer
 			// Whether or not the app should only download localised files in the user's selected language.
 			try
 			{
-				_blnLocalisedUpdatesOnly = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("localisedupdatesonly").ToString());
+				_blnLocalisedUpdatesOnly = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("localisedupdatesonly").ToString());
 			}
 			catch
 			{
@@ -134,7 +134,7 @@ namespace Chummer
 			// Whether or not dates should include the time.
 			try
 			{
-				_blnDatesIncludeTime = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("datesincludetime").ToString());
+				_blnDatesIncludeTime = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("datesincludetime").ToString());
 			}
 			catch
 			{
@@ -143,7 +143,7 @@ namespace Chummer
 			// Whether or not printouts should be sent to a file before loading them in the browser. This is a fix for getting printing to work properly on Linux using Wine.
 			try
 			{
-				_blnPrintToFileFirst = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("printtofilefirst").ToString());
+				_blnPrintToFileFirst = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("printtofilefirst").ToString());
 			}
 			catch
 			{
@@ -152,7 +152,7 @@ namespace Chummer
 			// Default character sheet.
 			try
 			{
-				_strDefaultCharacterSheet = Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("defaultsheet").ToString();
+				_strDefaultCharacterSheet = Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("defaultsheet").ToString();
 			}
 			catch
 			{
@@ -162,7 +162,7 @@ namespace Chummer
 			// Username.
 			try
 			{
-				_strOmaeUserName = Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("omaeusername").ToString();
+				_strOmaeUserName = Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("omaeusername").ToString();
 			}
 			catch
 			{
@@ -170,7 +170,7 @@ namespace Chummer
 			// Password.
 			try
 			{
-				_strOmaePassword = Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("omaepassword").ToString();
+				_strOmaePassword = Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("omaepassword").ToString();
 			}
 			catch
 			{
@@ -178,7 +178,7 @@ namespace Chummer
 			// AutoLogin.
 			try
 			{
-				_blnOmaeAutoLogin = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("omaeautologin").ToString());
+				_blnOmaeAutoLogin = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("omaeautologin").ToString());
 			}
 			catch
 			{
@@ -186,7 +186,7 @@ namespace Chummer
 			// Language.
 			try
 			{
-				_strLanguage = Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("language").ToString();
+				_strLanguage = Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("language").ToString();
 			}
 			catch
 			{
@@ -194,7 +194,7 @@ namespace Chummer
 			// Startup in Fullscreen mode.
 			try
 			{
-				_blnStartupFullscreen = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("startupfullscreen").ToString());
+				_blnStartupFullscreen = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("startupfullscreen").ToString());
 			}
 			catch
 			{
@@ -202,7 +202,7 @@ namespace Chummer
 			// Single instace of the Dice Roller window.
 			try
 			{
-				_blnSingleDiceRoller = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("singlediceroller").ToString());
+				_blnSingleDiceRoller = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("singlediceroller").ToString());
 			}
 			catch
 			{
@@ -211,7 +211,7 @@ namespace Chummer
 			// PDF application path.
 			try
 			{
-				_strPDFAppPath = Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("pdfapppath").ToString();
+				_strPDFAppPath = Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("pdfapppath").ToString();
 			}
 			catch
 			{
@@ -225,7 +225,7 @@ namespace Chummer
 				try
 				{
 					SourcebookInfo objSource = new SourcebookInfo();
-					string strTemp = Registry.CurrentUser.CreateSubKey("Software\\Chummer\\Sourcebook").GetValue(objXmlBook["code"].InnerText).ToString();
+					string strTemp = Registry.CurrentUser.CreateSubKey("Software\\Chummer5\\Sourcebook").GetValue(objXmlBook["code"].InnerText).ToString();
 					string[] strParts = strTemp.Split('|');
 					objSource.Code = objXmlBook["code"].InnerText;
 					objSource.Path = strParts[0];
@@ -534,7 +534,7 @@ namespace Chummer
 			if (strFiles.Count > 10)
 				strFiles.RemoveRange(10, strFiles.Count - 10);
 
-			RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer");
+			RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer5");
 			int i = 0;
 			foreach (string strItem in strFiles)
 			{
@@ -561,7 +561,7 @@ namespace Chummer
 				}
 			}
 
-			RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer");
+			RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer5");
 			int i = 0;
 			foreach (string strItem in strFiles)
 			{
@@ -589,7 +589,7 @@ namespace Chummer
 		/// </summary>
 		public List<string> ReadMRUList()
 		{
-			RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer");
+			RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer5");
 			List<string> lstFiles = new List<string>();
 
 			for (int i = 1; i <= 10; i++)
@@ -623,7 +623,7 @@ namespace Chummer
 			if (strFiles.Count > 10)
 				strFiles.RemoveRange(10, strFiles.Count - 10);
 
-			RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer");
+			RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer5");
 			int i = 0;
 			foreach (string strItem in strFiles)
 			{
@@ -650,7 +650,7 @@ namespace Chummer
 				}
 			}
 
-			RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer");
+			RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer5");
 			int i = 0;
 			foreach (string strItem in strFiles)
 			{
@@ -678,7 +678,7 @@ namespace Chummer
 		/// </summary>
 		public List<string> ReadStickyMRUList()
 		{
-			RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer");
+			RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer5");
 			List<string> lstFiles = new List<string>();
 
 			for (int i = 1; i <= 10; i++)
@@ -716,7 +716,7 @@ namespace Chummer
 		private bool _blnFreeContactsFlat = false;
 		private bool _blnFreeKarmaKnowledge = false;
 		private bool _blnNoSingleArmorEncumbrance = false;
-		private bool _blnIgnoreArmorEncumbrance = false;
+		private bool _blnIgnoreArmorEncumbrance = true;
 		private bool _blnAlternateArmorEncumbrance = false;
 		private bool _blnESSLossReducesMaximumOnly = false;
 		private bool _blnAllowSkillRegrouping = false;
@@ -815,21 +815,21 @@ namespace Chummer
 		private int _intKarmaLeaveGroup = 1;
 
 		// Karma Foci variables.
-		private int _intKarmaAnchoringFocus = 6;
-		private int _intKarmaBanishingFocus = 3;
-		private int _intKarmaBindingFocus = 3;
-		private int _intKarmaCenteringFocus = 6;
-		private int _intKarmaCounterspellingFocus = 3;
-		private int _intKarmaDiviningFocus = 6;
-		private int _intKarmaDowsingFocus = 6;
-		private int _intKarmaInfusionFocus = 3;
-		private int _intKarmaMaskingFocus = 6;
-		private int _intKarmaPowerFocus = 8;
-		private int _intKarmaShieldingFocus = 6;
-		private int _intKarmaSpellcastingFocus = 4;
-		private int _intKarmaSummoningFocus = 4;
+		private int _intKarmaAlchemicalFocus = 3;
+		private int _intKarmaBanishingFocus = 2;
+		private int _intKarmaBindingFocus = 2;
+		private int _intKarmaCenteringFocus = 3;
+		private int _intKarmaCounterspellingFocus = 2;
+		private int _intKarmaDisenchantingFocus = 3;
+		private int _intKarmaFlexibleSignatureFocus = 3;
+		private int _intKarmaMaskingFocus = 3;
+		private int _intKarmaPowerFocus = 6;
+		private int _intKarmaQiFocus = 2;
+        private int _intKarmaRitualSpellcastingFocus = 2;
+        private int _intKarmaSpellcastingFocus = 2;
+        private int _intKarmaSpellShapingFocus = 3;
+        private int _intKarmaSummoningFocus = 2;
 		private int _intKarmaSustainingFocus = 2;
-		private int _intKarmaSymbolicLinkFocus = 1;
 		private int _intKarmaWeaponFocus = 3;
 
 		// Default build settings.
@@ -1101,8 +1101,8 @@ namespace Chummer
 			objWriter.WriteElementString("karmajoingroup", _intKarmaJoinGroup.ToString());
 			// <karmaleavegroup />
 			objWriter.WriteElementString("karmaleavegroup", _intKarmaLeaveGroup.ToString());
-			// <karmaanchoringfocus />
-			objWriter.WriteElementString("karmaanchoringfocus", _intKarmaAnchoringFocus.ToString());
+            // <karmaalchemicalfocus />
+			objWriter.WriteElementString("karmaalchemicalfocus", _intKarmaAlchemicalFocus.ToString());
 			// <karmabanishingfocus />
 			objWriter.WriteElementString("karmabanishingfocus", _intKarmaBanishingFocus.ToString());
 			// <karmabindingfocus />
@@ -1111,26 +1111,26 @@ namespace Chummer
 			objWriter.WriteElementString("karmacenteringfocus", _intKarmaCenteringFocus.ToString());
 			// <karmacounterspellingfocus />
 			objWriter.WriteElementString("karmacounterspellingfocus", _intKarmaCounterspellingFocus.ToString());
-			// <karmadiviningfocus />
-			objWriter.WriteElementString("karmadiviningfocus", _intKarmaDiviningFocus.ToString());
-			// <karmadowsingfocus />
-			objWriter.WriteElementString("karmadowsingfocus", _intKarmaDowsingFocus.ToString());
-			// <karmainfusionfocus />
-			objWriter.WriteElementString("karmainfusionfocus", _intKarmaInfusionFocus.ToString());
+            // <karmadisenchantingfocus />
+			objWriter.WriteElementString("karmadisenchantingfocus", _intKarmaDisenchantingFocus.ToString());
+            // <karmaflexiblesignaturefocus />
+			objWriter.WriteElementString("karmaflexiblesignaturefocus", _intKarmaFlexibleSignatureFocus.ToString());
 			// <karmamaskingfocus />
 			objWriter.WriteElementString("karmamaskingfocus", _intKarmaMaskingFocus.ToString());
 			// <karmapowerfocus />
 			objWriter.WriteElementString("karmapowerfocus", _intKarmaPowerFocus.ToString());
-			// <karmashieldingfocus />
-			objWriter.WriteElementString("karmashieldingfocus", _intKarmaShieldingFocus.ToString());
+            // <karmaqifocus />
+            objWriter.WriteElementString("karmaqifocus", _intKarmaQiFocus.ToString());
+            // <karmaritualspellcastingfocus />
+            objWriter.WriteElementString("karmaritualspellcastingfocus", _intKarmaRitualSpellcastingFocus.ToString());
 			// <karmaspellcastingfocus />
 			objWriter.WriteElementString("karmaspellcastingfocus", _intKarmaSpellcastingFocus.ToString());
-			// <karmasummoningfocus />
+            // <karmaspellshapingfocus />
+            objWriter.WriteElementString("karmaspellshapingfocus", _intKarmaSpellShapingFocus.ToString());
+            // <karmasummoningfocus />
 			objWriter.WriteElementString("karmasummoningfocus", _intKarmaSummoningFocus.ToString());
 			// <karmasustainingfocus />
 			objWriter.WriteElementString("karmasustainingfocus", _intKarmaSustainingFocus.ToString());
-			// <karmasymboliclinkfocus />
-			objWriter.WriteElementString("karmasymboliclinkfocus", _intKarmaSymbolicLinkFocus.ToString());
 			// <karmaweaponfocus />
 			objWriter.WriteElementString("karmaweaponfocus", _intKarmaWeaponFocus.ToString());
 			// </karmacost>
@@ -1691,21 +1691,21 @@ namespace Chummer
 			try
 			{
 				// Attempt to load the Karma costs for Foci.
-				_intKarmaAnchoringFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmaanchoringfocus").InnerText);
+				_intKarmaAlchemicalFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmaalchemicalfocus").InnerText);
 				_intKarmaBanishingFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmabanishingfocus").InnerText);
 				_intKarmaBindingFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmabindingfocus").InnerText);
 				_intKarmaCenteringFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmacenteringfocus").InnerText);
 				_intKarmaCounterspellingFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmacounterspellingfocus").InnerText);
-				_intKarmaDiviningFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmadiviningfocus").InnerText);
-				_intKarmaDowsingFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmadowsingfocus").InnerText);
-				_intKarmaInfusionFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmainfusionfocus").InnerText);
+				_intKarmaDisenchantingFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmadisenchantingfocus").InnerText);
+				_intKarmaFlexibleSignatureFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmaflexiblesignaturefocus").InnerText);
 				_intKarmaMaskingFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmamaskingfocus").InnerText);
 				_intKarmaPowerFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmapowerfocus").InnerText);
-				_intKarmaShieldingFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmashieldingfocus").InnerText);
-				_intKarmaSpellcastingFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmaspellcastingfocus").InnerText);
-				_intKarmaSummoningFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmasummoningfocus").InnerText);
+				_intKarmaQiFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmaqifocus").InnerText);
+				_intKarmaRitualSpellcastingFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmaritualspellcastingfocus").InnerText);
+                _intKarmaSpellcastingFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmaspellcastingfocus").InnerText);
+                _intKarmaSpellShapingFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmaspellshapingfocus").InnerText);
+                _intKarmaSummoningFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmasummoningfocus").InnerText);
 				_intKarmaSustainingFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmasustainingfocus").InnerText);
-				_intKarmaSymbolicLinkFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmasymboliclinkfocus").InnerText);
 				_intKarmaWeaponFocus = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmaweaponfocus").InnerText);
 			}
 			catch
@@ -1735,8 +1735,8 @@ namespace Chummer
 			// Confirm delete.
 			try
 			{
-				_blnConfirmDelete = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("confirmdelete").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("confirmdelete");
+				_blnConfirmDelete = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("confirmdelete").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("confirmdelete");
 			}
 			catch
 			{
@@ -1745,8 +1745,8 @@ namespace Chummer
 			// Confirm Karama Expense.
 			try
 			{
-				_blnConfirmKarmaExpense = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("confirmkarmaexpense").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("confirmkarmaexpense");
+				_blnConfirmKarmaExpense = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("confirmkarmaexpense").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("confirmkarmaexpense");
 			}
 			catch
 			{
@@ -1755,8 +1755,8 @@ namespace Chummer
 			// Print all Active Skills with a total value greater than 0 (as opposed to only printing those with a Rating higher than 0).
 			try
 			{
-				_blnPrintSkillsWithZeroRating = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("printzeroratingskills").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("printzeroratingskills");
+				_blnPrintSkillsWithZeroRating = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("printzeroratingskills").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("printzeroratingskills");
 			}
 			catch
 			{
@@ -1765,8 +1765,8 @@ namespace Chummer
 			// More Lethal Gameplay.
 			try
 			{
-				_blnMoreLethalGameplay = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("morelethalgameplay").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("morelethalgameplay");
+				_blnMoreLethalGameplay = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("morelethalgameplay").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("morelethalgameplay");
 			}
 			catch
 			{
@@ -1775,8 +1775,8 @@ namespace Chummer
 			// Spirit Force Based on Total MAG.
 			try
 			{
-				_blnSpiritForceBasedOnTotalMAG = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("spiritforcebasedontotalmag").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("spiritforcebasedontotalmag");
+				_blnSpiritForceBasedOnTotalMAG = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("spiritforcebasedontotalmag").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("spiritforcebasedontotalmag");
 			}
 			catch
 			{
@@ -1785,8 +1785,8 @@ namespace Chummer
 			// Skill Defaulting Includes Modifers.
 			try
 			{
-				_blnSkillDefaultingIncludesModifiers = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("skilldefaultingincludesmodifiers").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("skilldefaultingincludesmodifiers");
+				_blnSkillDefaultingIncludesModifiers = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("skilldefaultingincludesmodifiers").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("skilldefaultingincludesmodifiers");
 			}
 			catch
 			{
@@ -1795,8 +1795,8 @@ namespace Chummer
 			// Enforce Skill Maximum Modified Rating.
 			try
 			{
-				_blnEnforceSkillMaximumModifiedRating = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("enforceskillmaximummodifiedrating").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("enforceskillmaximummodifiedrating");
+				_blnEnforceSkillMaximumModifiedRating = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("enforceskillmaximummodifiedrating").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("enforceskillmaximummodifiedrating");
 			}
 			catch
 			{
@@ -1805,8 +1805,8 @@ namespace Chummer
 			// Cap Skill Rating.
 			try
 			{
-				_blnCapSkillRating = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("capskillrating").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("capskillrating");
+				_blnCapSkillRating = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("capskillrating").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("capskillrating");
 			}
 			catch
 			{
@@ -1815,8 +1815,8 @@ namespace Chummer
 			// Print Expenses.
 			try
 			{
-				_blnPrintExpenses = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("printexpenses").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("printexpenses");
+				_blnPrintExpenses = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("printexpenses").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("printexpenses");
 			}
 			catch
 			{
@@ -1825,8 +1825,8 @@ namespace Chummer
 			// Nuyen per Build Point
 			try
 			{
-				_intNuyenPerBP = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("nuyenperbp").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("nuyenperbp");
+				_intNuyenPerBP = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("nuyenperbp").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("nuyenperbp");
 			}
 			catch
 			{
@@ -1835,8 +1835,8 @@ namespace Chummer
 			// Free Contacts
 			try
 			{
-				_blnFreeContacts = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("freekarmacontacts").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("freekarmacontacts");
+				_blnFreeContacts = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("freekarmacontacts").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("freekarmacontacts");
 			}
 			catch
 			{
@@ -1845,8 +1845,8 @@ namespace Chummer
 			// Free Contacts Multiplier
 			try
 			{
-				_intFreeContactsMultiplier = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("freekarmacontactsmultiplier").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("freekarmacontactsmultiplier");
+				_intFreeContactsMultiplier = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("freekarmacontactsmultiplier").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("freekarmacontactsmultiplier");
 			}
 			catch
 			{
@@ -1855,8 +1855,8 @@ namespace Chummer
 			// Free Contacts Flat
 			try
 			{
-				_blnFreeContactsFlat = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("freecontactsflat").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("freecontactsflat");
+				_blnFreeContactsFlat = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("freecontactsflat").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("freecontactsflat");
 			}
 			catch
 			{
@@ -1865,8 +1865,8 @@ namespace Chummer
 			// Free Contacts Flat Number
 			try
 			{
-				_intFreeContactsFlatNumber = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("freecontactsflatnumber").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("freecontactsflatnumber");
+				_intFreeContactsFlatNumber = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("freecontactsflatnumber").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("freecontactsflatnumber");
 			}
 			catch
 			{
@@ -1875,8 +1875,8 @@ namespace Chummer
 			// Karma Free Knowledge
 			try
 			{
-				_blnFreeKarmaKnowledge = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("freekarmaknowledge").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("freekarmaknowledge");
+				_blnFreeKarmaKnowledge = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("freekarmaknowledge").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("freekarmaknowledge");
 			}
 			catch
 			{
@@ -1885,8 +1885,8 @@ namespace Chummer
 			// No Single Armor Encumbrance
 			try
 			{
-				_blnNoSingleArmorEncumbrance = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("nosinglearmorencumbrance").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("nosinglearmorencumbrance");
+				_blnNoSingleArmorEncumbrance = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("nosinglearmorencumbrance").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("nosinglearmorencumbrance");
 			}
 			catch
 			{
@@ -1895,8 +1895,8 @@ namespace Chummer
 			// Essence Loss Reduces Maximum Only.
 			try
 			{
-				_blnESSLossReducesMaximumOnly = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("esslossreducesmaximumonly").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("esslossreducesmaximumonly");
+				_blnESSLossReducesMaximumOnly = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("esslossreducesmaximumonly").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("esslossreducesmaximumonly");
 			}
 			catch
 			{
@@ -1905,8 +1905,8 @@ namespace Chummer
 			// Allow Skill Regrouping.
 			try
 			{
-				_blnAllowSkillRegrouping = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("allowskillregrouping").ToString());
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("allowskillregrouping");
+				_blnAllowSkillRegrouping = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("allowskillregrouping").ToString());
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("allowskillregrouping");
 			}
 			catch
 			{
@@ -1915,47 +1915,47 @@ namespace Chummer
 			// Attempt to populate the Karma values.
 			try
 			{
-				_intKarmaAttribute = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmaattribute").ToString());
-				_intKarmaQuality = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmaquality").ToString());
-				_intKarmaSpecialization = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmaspecialization").ToString());
-				_intKarmaNewKnowledgeSkill = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmanewknowledgeskill").ToString());
-				_intKarmaNewActiveSkill = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmanewactiveskill").ToString());
-				_intKarmaNewSkillGroup = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmanewskillgroup").ToString());
-				_intKarmaImproveKnowledgeSkill = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmaimproveknowledgeskill").ToString());
-				_intKarmaImproveActiveSkill = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmaimproveactiveskill").ToString());
-				_intKarmaImproveSkillGroup = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmaimproveskillgroup").ToString());
-				_intKarmaSpell = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmaspell").ToString());
-				_intKarmaNewComplexForm = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmanewcomplexform").ToString());
-				_intKarmaImproveComplexForm = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmaimprovecomplexform").ToString());
-				_intKarmaNuyenPer = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmanuyenper").ToString());
-				_intKarmaContact = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmacontact").ToString());
-				_intKarmaCarryover = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmacarryover").ToString());
-				_intKarmaSpirit = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmaspirit").ToString());
-				_intKarmaManeuver = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmamaneuver").ToString());
-				_intKarmaInitiation = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmainitiation").ToString());
-				_intKarmaMetamagic = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmametamagic").ToString());
-				_intKarmaComplexFormOption = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("karmacomplexformoption").ToString());
+				_intKarmaAttribute = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmaattribute").ToString());
+				_intKarmaQuality = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmaquality").ToString());
+				_intKarmaSpecialization = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmaspecialization").ToString());
+				_intKarmaNewKnowledgeSkill = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmanewknowledgeskill").ToString());
+				_intKarmaNewActiveSkill = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmanewactiveskill").ToString());
+				_intKarmaNewSkillGroup = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmanewskillgroup").ToString());
+				_intKarmaImproveKnowledgeSkill = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmaimproveknowledgeskill").ToString());
+				_intKarmaImproveActiveSkill = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmaimproveactiveskill").ToString());
+				_intKarmaImproveSkillGroup = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmaimproveskillgroup").ToString());
+				_intKarmaSpell = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmaspell").ToString());
+				_intKarmaNewComplexForm = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmanewcomplexform").ToString());
+				_intKarmaImproveComplexForm = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmaimprovecomplexform").ToString());
+				_intKarmaNuyenPer = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmanuyenper").ToString());
+				_intKarmaContact = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmacontact").ToString());
+				_intKarmaCarryover = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmacarryover").ToString());
+				_intKarmaSpirit = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmaspirit").ToString());
+				_intKarmaManeuver = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmamaneuver").ToString());
+				_intKarmaInitiation = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmainitiation").ToString());
+				_intKarmaMetamagic = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmametamagic").ToString());
+				_intKarmaComplexFormOption = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmacomplexformoption").ToString());
 				// Delete the Registry keys ones the values have been retrieve since they will no longer be used.
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmaattribute");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmaquality");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmaspecialization");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmanewknowledgeskill");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmanewactiveskill");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmanewskillgroup");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmaimproveknowledgeskill");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmaimproveactiveskill");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmaimproveskillgroup");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmaspell");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmanewcomplexform");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmaimprovecomplexform");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmanuyenper");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmacontact");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmacarryover");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmaspirit");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmamaneuver");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmainitiation");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmametamagic");
-				Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("karmacomplexformoption");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmaattribute");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmaquality");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmaspecialization");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmanewknowledgeskill");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmanewactiveskill");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmanewskillgroup");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmaimproveknowledgeskill");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmaimproveactiveskill");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmaimproveskillgroup");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmaspell");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmanewcomplexform");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmaimprovecomplexform");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmanuyenper");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmacontact");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmacarryover");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmaspirit");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmamaneuver");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmainitiation");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmametamagic");
+				Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("karmacomplexformoption");
 			}
 			catch
 			{
@@ -1965,13 +1965,13 @@ namespace Chummer
 			string strBookList = "";
 			try
 			{
-				strBookList = Registry.CurrentUser.CreateSubKey("Software\\Chummer").GetValue("books").ToString();
+				strBookList = Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("books").ToString();
 			}
 			catch
 			{
 				// We were unable to get the Registry key which means the book options have not been saved yet, so create the default values.
 				strBookList = "Shadowrun 4th Edition";
-				RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer");
+				RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer5");
 				objRegistry.SetValue("books", strBookList);
 			}
 			string[] strBooks = strBookList.Split(',');
@@ -1992,7 +1992,7 @@ namespace Chummer
 			}
 
 			// Delete the Registry keys ones the values have been retrieve since they will no longer be used.
-			Registry.CurrentUser.CreateSubKey("Software\\Chummer").DeleteValue("books");
+			Registry.CurrentUser.CreateSubKey("Software\\Chummer5").DeleteValue("books");
 		}
 
 		/// <summary>
@@ -3714,17 +3714,17 @@ namespace Chummer
 		}
 
 		/// <summary>
-		/// Karma cost for Anchoring Foci.
+		/// Karma cost for Alchemical Foci.
 		/// </summary>
-		public int KarmaAnchoringFocus
+		public int KarmaAlchemicalFocus
 		{
 			get
 			{
-				return _intKarmaAnchoringFocus;
+				return _intKarmaAlchemicalFocus;
 			}
 			set
 			{
-				_intKarmaAnchoringFocus = value;
+                _intKarmaAlchemicalFocus = value;
 			}
 		}
 
@@ -3789,47 +3789,32 @@ namespace Chummer
 		}
 
 		/// <summary>
-		/// Karma cost for Divining Foci.
+		/// Karma cost for Disenchanting Foci.
 		/// </summary>
-		public int KarmaDiviningFocus
+		public int KarmaDisenchantingFocus
 		{
 			get
 			{
-				return _intKarmaDiviningFocus;
+				return _intKarmaDisenchantingFocus;
 			}
 			set
 			{
-				_intKarmaDiviningFocus = value;
+                _intKarmaDisenchantingFocus = value;
 			}
 		}
 
 		/// <summary>
-		/// Karma cost for Dowsing Foci.
+		/// Karma cost for Flexible Signature Foci.
 		/// </summary>
-		public int KarmaDowsingFocus
+		public int KarmaFlexibleSignatureFocus
 		{
 			get
 			{
-				return _intKarmaDowsingFocus;
+				return _intKarmaFlexibleSignatureFocus;
 			}
 			set
 			{
-				_intKarmaDowsingFocus = value;
-			}
-		}
-
-		/// <summary>
-		/// Karma cost for Infusion Foci.
-		/// </summary>
-		public int KarmaInfusionFocus
-		{
-			get
-			{
-				return _intKarmaInfusionFocus;
-			}
-			set
-			{
-				_intKarmaInfusionFocus = value;
+                _intKarmaFlexibleSignatureFocus = value;
 			}
 		}
 
@@ -3864,36 +3849,66 @@ namespace Chummer
 		}
 
 		/// <summary>
-		/// Karma cost for Shielding Foci.
+		/// Karma cost for Qi Foci.
 		/// </summary>
-		public int KarmaShieldingFocus
+		public int KarmaQiFocus
 		{
 			get
 			{
-				return _intKarmaShieldingFocus;
+				return _intKarmaQiFocus;
 			}
 			set
 			{
-				_intKarmaShieldingFocus = value;
+                _intKarmaQiFocus = value;
 			}
 		}
 
 		/// <summary>
-		/// Karma cost for Spellcasting Foci.
+		/// Karma cost for Ritual Spellcasting Foci.
 		/// </summary>
-		public int KarmaSpellcastingFocus
+		public int KarmaRitualSpellcastingFocus
 		{
 			get
 			{
-				return _intKarmaSpellcastingFocus;
+				return _intKarmaRitualSpellcastingFocus;
 			}
 			set
 			{
-				_intKarmaSpellcastingFocus = value;
+                _intKarmaRitualSpellcastingFocus = value;
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Karma cost for Spellcasting Foci.
+        /// </summary>
+        public int KarmaSpellcastingFocus
+        {
+            get
+            {
+                return _intKarmaSpellcastingFocus;
+            }
+            set
+            {
+                _intKarmaSpellcastingFocus = value;
+            }
+        }
+
+        /// <summary>
+        /// Karma cost for Spell Shaping Foci.
+        /// </summary>
+        public int KarmaSpellShapingFocus
+        {
+            get
+            {
+                return _intKarmaSpellShapingFocus;
+            }
+            set
+            {
+                _intKarmaSpellShapingFocus = value;
+            }
+        }
+
+        /// <summary>
 		/// Karma cost for Summoning Foci.
 		/// </summary>
 		public int KarmaSummoningFocus
@@ -3920,21 +3935,6 @@ namespace Chummer
 			set
 			{
 				_intKarmaSustainingFocus = value;
-			}
-		}
-
-		/// <summary>
-		/// Karma cost for Symbolic Link Foci.
-		/// </summary>
-		public int KarmaSymbolicLinkFocus
-		{
-			get
-			{
-				return _intKarmaSymbolicLinkFocus;
-			}
-			set
-			{
-				_intKarmaSymbolicLinkFocus = value;
 			}
 		}
 

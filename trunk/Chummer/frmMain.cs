@@ -556,7 +556,7 @@ namespace Chummer
 		/// <param name="blnClearFileName">Whether or not the name of the save file should be cleared.</param>
 		public void LoadCharacter(string strFileName, bool blnIncludeInMRU = true, string strNewName = "", bool blnClearFileName = false)
 		{
-			if (File.Exists(strFileName) && strFileName.EndsWith("chum"))
+			if (File.Exists(strFileName) && strFileName.EndsWith("chum5"))
 			{
 				bool blnLoaded = false;
 				Character objCharacter = new Character();

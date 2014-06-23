@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Chummer")]
 [assembly: AssemblyDescription("Character generator for Shadowrun 5th Edition")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Keith Rudolph. Chummer5 update by Adam Schmidt: srchummer5@gmail.com")]
+[assembly: AssemblyCompany("Chummer for 4th edition by Keith Rudolph.\n\rChummer5 update by Adam Schmidt: srchummer5@gmail.com")]
 [assembly: AssemblyProduct("Chummer")]
 [assembly: AssemblyCopyright("Copyright © Keith Rudolph 2013")]
 [assembly: AssemblyTrademark("")]

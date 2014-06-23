@@ -1693,6 +1693,7 @@
             this.lblKarmaWeaponFocusExtra.TabIndex = 107;
             this.lblKarmaWeaponFocusExtra.Tag = "Label_Options_Force";
             this.lblKarmaWeaponFocusExtra.Text = "x Force";
+            this.lblKarmaWeaponFocusExtra.Visible = false;
             // 
             // nudKarmaWeaponFocus
             // 
@@ -1700,6 +1701,7 @@
             this.nudKarmaWeaponFocus.Name = "nudKarmaWeaponFocus";
             this.nudKarmaWeaponFocus.Size = new System.Drawing.Size(47, 20);
             this.nudKarmaWeaponFocus.TabIndex = 106;
+            this.nudKarmaWeaponFocus.Visible = false;
             // 
             // lblKarmaWeaponFocus
             // 
@@ -1710,6 +1712,7 @@
             this.lblKarmaWeaponFocus.TabIndex = 105;
             this.lblKarmaWeaponFocus.Tag = "Label_Options_WeaponFocus";
             this.lblKarmaWeaponFocus.Text = "Weapon Focus";
+            this.lblKarmaWeaponFocus.Visible = false;
             // 
             // lblKarmaSymbolicLinkFocusExtra
             // 
@@ -1720,6 +1723,7 @@
             this.lblKarmaSymbolicLinkFocusExtra.TabIndex = 104;
             this.lblKarmaSymbolicLinkFocusExtra.Tag = "Label_Options_Force";
             this.lblKarmaSymbolicLinkFocusExtra.Text = "x Force";
+            this.lblKarmaSymbolicLinkFocusExtra.Visible = false;
             // 
             // nudKarmaSymbolicLinkFocus
             // 
@@ -1727,6 +1731,7 @@
             this.nudKarmaSymbolicLinkFocus.Name = "nudKarmaSymbolicLinkFocus";
             this.nudKarmaSymbolicLinkFocus.Size = new System.Drawing.Size(47, 20);
             this.nudKarmaSymbolicLinkFocus.TabIndex = 103;
+            this.nudKarmaSymbolicLinkFocus.Visible = false;
             // 
             // lblKarmaSymbolicLinkFocus
             // 
@@ -1737,6 +1742,7 @@
             this.lblKarmaSymbolicLinkFocus.TabIndex = 102;
             this.lblKarmaSymbolicLinkFocus.Tag = "Label_Options_SymbolicLinkFocus";
             this.lblKarmaSymbolicLinkFocus.Text = "Symbolic Link Focus";
+            this.lblKarmaSymbolicLinkFocus.Visible = false;
             // 
             // lblKarmaSustainingFocusExtra
             // 
@@ -1747,6 +1753,7 @@
             this.lblKarmaSustainingFocusExtra.TabIndex = 101;
             this.lblKarmaSustainingFocusExtra.Tag = "Label_Options_Force";
             this.lblKarmaSustainingFocusExtra.Text = "x Force";
+            this.lblKarmaSustainingFocusExtra.Visible = false;
             // 
             // nudKarmaSustainingFocus
             // 
@@ -1754,6 +1761,7 @@
             this.nudKarmaSustainingFocus.Name = "nudKarmaSustainingFocus";
             this.nudKarmaSustainingFocus.Size = new System.Drawing.Size(47, 20);
             this.nudKarmaSustainingFocus.TabIndex = 100;
+            this.nudKarmaSustainingFocus.Visible = false;
             // 
             // lblKarmaSustainingFocus
             // 
@@ -1764,6 +1772,7 @@
             this.lblKarmaSustainingFocus.TabIndex = 99;
             this.lblKarmaSustainingFocus.Tag = "Label_Options_SustainingFocus";
             this.lblKarmaSustainingFocus.Text = "Sustaining Focus";
+            this.lblKarmaSustainingFocus.Visible = false;
             // 
             // lblKarmaSummoningFocusExtra
             // 
@@ -1774,6 +1783,7 @@
             this.lblKarmaSummoningFocusExtra.TabIndex = 98;
             this.lblKarmaSummoningFocusExtra.Tag = "Label_Options_Force";
             this.lblKarmaSummoningFocusExtra.Text = "x Force";
+            this.lblKarmaSummoningFocusExtra.Visible = false;
             // 
             // nudKarmaSummoningFocus
             // 
@@ -1781,6 +1791,7 @@
             this.nudKarmaSummoningFocus.Name = "nudKarmaSummoningFocus";
             this.nudKarmaSummoningFocus.Size = new System.Drawing.Size(47, 20);
             this.nudKarmaSummoningFocus.TabIndex = 97;
+            this.nudKarmaSummoningFocus.Visible = false;
             // 
             // lblKarmaSummoningFocus
             // 
@@ -1791,6 +1802,7 @@
             this.lblKarmaSummoningFocus.TabIndex = 96;
             this.lblKarmaSummoningFocus.Tag = "Label_Options_SummoningFocus";
             this.lblKarmaSummoningFocus.Text = "Summoning Focus";
+            this.lblKarmaSummoningFocus.Visible = false;
             // 
             // lblKarmaSpellcastingFocusExtra
             // 
@@ -1801,6 +1813,7 @@
             this.lblKarmaSpellcastingFocusExtra.TabIndex = 95;
             this.lblKarmaSpellcastingFocusExtra.Tag = "Label_Options_Force";
             this.lblKarmaSpellcastingFocusExtra.Text = "x Force";
+            this.lblKarmaSpellcastingFocusExtra.Visible = false;
             // 
             // nudKarmaSpellcastingFocus
             // 
@@ -1808,6 +1821,7 @@
             this.nudKarmaSpellcastingFocus.Name = "nudKarmaSpellcastingFocus";
             this.nudKarmaSpellcastingFocus.Size = new System.Drawing.Size(47, 20);
             this.nudKarmaSpellcastingFocus.TabIndex = 94;
+            this.nudKarmaSpellcastingFocus.Visible = false;
             // 
             // lblKarmaSpellcastingFocus
             // 
@@ -1818,6 +1832,7 @@
             this.lblKarmaSpellcastingFocus.TabIndex = 93;
             this.lblKarmaSpellcastingFocus.Tag = "Label_Options_SpellcastingFocus";
             this.lblKarmaSpellcastingFocus.Text = "Spellcasting Focus";
+            this.lblKarmaSpellcastingFocus.Visible = false;
             // 
             // lblKarmaShieldingFocusExtra
             // 
@@ -1828,6 +1843,7 @@
             this.lblKarmaShieldingFocusExtra.TabIndex = 92;
             this.lblKarmaShieldingFocusExtra.Tag = "Label_Options_Force";
             this.lblKarmaShieldingFocusExtra.Text = "x Force";
+            this.lblKarmaShieldingFocusExtra.Visible = false;
             // 
             // nudKarmaShieldingFocus
             // 
@@ -1835,6 +1851,7 @@
             this.nudKarmaShieldingFocus.Name = "nudKarmaShieldingFocus";
             this.nudKarmaShieldingFocus.Size = new System.Drawing.Size(47, 20);
             this.nudKarmaShieldingFocus.TabIndex = 91;
+            this.nudKarmaShieldingFocus.Visible = false;
             // 
             // lblKarmaShieldingFocus
             // 
@@ -1845,6 +1862,7 @@
             this.lblKarmaShieldingFocus.TabIndex = 90;
             this.lblKarmaShieldingFocus.Tag = "Label_Options_ShieldingFocus";
             this.lblKarmaShieldingFocus.Text = "Shielding Focus";
+            this.lblKarmaShieldingFocus.Visible = false;
             // 
             // lblKarmaPowerFocusExtra
             // 
@@ -1855,6 +1873,7 @@
             this.lblKarmaPowerFocusExtra.TabIndex = 89;
             this.lblKarmaPowerFocusExtra.Tag = "Label_Options_Force";
             this.lblKarmaPowerFocusExtra.Text = "x Force";
+            this.lblKarmaPowerFocusExtra.Visible = false;
             // 
             // nudKarmaPowerFocus
             // 
@@ -1862,6 +1881,7 @@
             this.nudKarmaPowerFocus.Name = "nudKarmaPowerFocus";
             this.nudKarmaPowerFocus.Size = new System.Drawing.Size(47, 20);
             this.nudKarmaPowerFocus.TabIndex = 88;
+            this.nudKarmaPowerFocus.Visible = false;
             // 
             // lblKarmaPowerFocus
             // 
@@ -1872,6 +1892,7 @@
             this.lblKarmaPowerFocus.TabIndex = 87;
             this.lblKarmaPowerFocus.Tag = "Label_Options_PowerFocus";
             this.lblKarmaPowerFocus.Text = "Power Focus";
+            this.lblKarmaPowerFocus.Visible = false;
             // 
             // lblKarmaMaskingFocusExtra
             // 
@@ -1882,6 +1903,7 @@
             this.lblKarmaMaskingFocusExtra.TabIndex = 86;
             this.lblKarmaMaskingFocusExtra.Tag = "Label_Options_Force";
             this.lblKarmaMaskingFocusExtra.Text = "x Force";
+            this.lblKarmaMaskingFocusExtra.Visible = false;
             // 
             // nudKarmaMaskingFocus
             // 
@@ -1889,6 +1911,7 @@
             this.nudKarmaMaskingFocus.Name = "nudKarmaMaskingFocus";
             this.nudKarmaMaskingFocus.Size = new System.Drawing.Size(47, 20);
             this.nudKarmaMaskingFocus.TabIndex = 85;
+            this.nudKarmaMaskingFocus.Visible = false;
             // 
             // lblKarmaMaskingFocus
             // 
@@ -1899,6 +1922,7 @@
             this.lblKarmaMaskingFocus.TabIndex = 84;
             this.lblKarmaMaskingFocus.Tag = "Label_Options_MaskingFocus";
             this.lblKarmaMaskingFocus.Text = "Masking Focus";
+            this.lblKarmaMaskingFocus.Visible = false;
             // 
             // lblKarmaInfusionFocusExtra
             // 
@@ -1909,6 +1933,7 @@
             this.lblKarmaInfusionFocusExtra.TabIndex = 83;
             this.lblKarmaInfusionFocusExtra.Tag = "Label_Options_Force";
             this.lblKarmaInfusionFocusExtra.Text = "x Force";
+            this.lblKarmaInfusionFocusExtra.Visible = false;
             // 
             // nudKarmaInfusionFocus
             // 
@@ -1916,6 +1941,7 @@
             this.nudKarmaInfusionFocus.Name = "nudKarmaInfusionFocus";
             this.nudKarmaInfusionFocus.Size = new System.Drawing.Size(47, 20);
             this.nudKarmaInfusionFocus.TabIndex = 82;
+            this.nudKarmaInfusionFocus.Visible = false;
             // 
             // lblKarmaInfusionFocus
             // 
@@ -1926,6 +1952,7 @@
             this.lblKarmaInfusionFocus.TabIndex = 81;
             this.lblKarmaInfusionFocus.Tag = "Label_Options_InfusionFocus";
             this.lblKarmaInfusionFocus.Text = "Infusion Focus";
+            this.lblKarmaInfusionFocus.Visible = false;
             // 
             // lblKarmaDowsingFocusExtra
             // 
@@ -1936,6 +1963,7 @@
             this.lblKarmaDowsingFocusExtra.TabIndex = 80;
             this.lblKarmaDowsingFocusExtra.Tag = "Label_Options_Force";
             this.lblKarmaDowsingFocusExtra.Text = "x Force";
+            this.lblKarmaDowsingFocusExtra.Visible = false;
             // 
             // nudKarmaDowsingFocus
             // 
@@ -1943,6 +1971,7 @@
             this.nudKarmaDowsingFocus.Name = "nudKarmaDowsingFocus";
             this.nudKarmaDowsingFocus.Size = new System.Drawing.Size(47, 20);
             this.nudKarmaDowsingFocus.TabIndex = 79;
+            this.nudKarmaDowsingFocus.Visible = false;
             // 
             // lblKarmaDowsingFocus
             // 
@@ -1953,6 +1982,7 @@
             this.lblKarmaDowsingFocus.TabIndex = 78;
             this.lblKarmaDowsingFocus.Tag = "Label_Options_DowsingFocus";
             this.lblKarmaDowsingFocus.Text = "Dowsing Focus";
+            this.lblKarmaDowsingFocus.Visible = false;
             // 
             // lblKarmaDiviningFocusExtra
             // 
@@ -1963,6 +1993,7 @@
             this.lblKarmaDiviningFocusExtra.TabIndex = 77;
             this.lblKarmaDiviningFocusExtra.Tag = "Label_Options_Force";
             this.lblKarmaDiviningFocusExtra.Text = "x Force";
+            this.lblKarmaDiviningFocusExtra.Visible = false;
             // 
             // nudKarmaDiviningFocus
             // 
@@ -1970,6 +2001,7 @@
             this.nudKarmaDiviningFocus.Name = "nudKarmaDiviningFocus";
             this.nudKarmaDiviningFocus.Size = new System.Drawing.Size(47, 20);
             this.nudKarmaDiviningFocus.TabIndex = 76;
+            this.nudKarmaDiviningFocus.Visible = false;
             // 
             // lblKarmaDiviningFocus
             // 
@@ -1980,6 +2012,7 @@
             this.lblKarmaDiviningFocus.TabIndex = 75;
             this.lblKarmaDiviningFocus.Tag = "Label_Options_DiviningFocus";
             this.lblKarmaDiviningFocus.Text = "Divining Focus";
+            this.lblKarmaDiviningFocus.Visible = false;
             // 
             // lblKarmaCounterspellingFocusExtra
             // 
@@ -1990,6 +2023,7 @@
             this.lblKarmaCounterspellingFocusExtra.TabIndex = 74;
             this.lblKarmaCounterspellingFocusExtra.Tag = "Label_Options_Force";
             this.lblKarmaCounterspellingFocusExtra.Text = "x Force";
+            this.lblKarmaCounterspellingFocusExtra.Visible = false;
             // 
             // nudKarmaCounterspellingFocus
             // 
@@ -1997,6 +2031,7 @@
             this.nudKarmaCounterspellingFocus.Name = "nudKarmaCounterspellingFocus";
             this.nudKarmaCounterspellingFocus.Size = new System.Drawing.Size(47, 20);
             this.nudKarmaCounterspellingFocus.TabIndex = 73;
+            this.nudKarmaCounterspellingFocus.Visible = false;
             // 
             // lblKarmaCounterspellingFocus
             // 
@@ -2007,6 +2042,7 @@
             this.lblKarmaCounterspellingFocus.TabIndex = 72;
             this.lblKarmaCounterspellingFocus.Tag = "Label_Options_CounterspellingFocus";
             this.lblKarmaCounterspellingFocus.Text = "Counterspelling Focus";
+            this.lblKarmaCounterspellingFocus.Visible = false;
             // 
             // lblKarmaCenteringFocusExtra
             // 
@@ -2017,6 +2053,7 @@
             this.lblKarmaCenteringFocusExtra.TabIndex = 71;
             this.lblKarmaCenteringFocusExtra.Tag = "Label_Options_Force";
             this.lblKarmaCenteringFocusExtra.Text = "x Force";
+            this.lblKarmaCenteringFocusExtra.Visible = false;
             // 
             // nudKarmaCenteringFocus
             // 
@@ -2024,6 +2061,7 @@
             this.nudKarmaCenteringFocus.Name = "nudKarmaCenteringFocus";
             this.nudKarmaCenteringFocus.Size = new System.Drawing.Size(47, 20);
             this.nudKarmaCenteringFocus.TabIndex = 70;
+            this.nudKarmaCenteringFocus.Visible = false;
             // 
             // lblKarmaCenteringFocus
             // 
@@ -2034,6 +2072,7 @@
             this.lblKarmaCenteringFocus.TabIndex = 69;
             this.lblKarmaCenteringFocus.Tag = "Label_Options_CenteringFocus";
             this.lblKarmaCenteringFocus.Text = "Centering Focus";
+            this.lblKarmaCenteringFocus.Visible = false;
             // 
             // lblKarmaBindingFocusExtra
             // 
@@ -2044,6 +2083,7 @@
             this.lblKarmaBindingFocusExtra.TabIndex = 68;
             this.lblKarmaBindingFocusExtra.Tag = "Label_Options_Force";
             this.lblKarmaBindingFocusExtra.Text = "x Force";
+            this.lblKarmaBindingFocusExtra.Visible = false;
             // 
             // nudKarmaBindingFocus
             // 
@@ -2051,6 +2091,7 @@
             this.nudKarmaBindingFocus.Name = "nudKarmaBindingFocus";
             this.nudKarmaBindingFocus.Size = new System.Drawing.Size(47, 20);
             this.nudKarmaBindingFocus.TabIndex = 67;
+            this.nudKarmaBindingFocus.Visible = false;
             // 
             // lblKarmaBindingFocus
             // 
@@ -2061,6 +2102,7 @@
             this.lblKarmaBindingFocus.TabIndex = 66;
             this.lblKarmaBindingFocus.Tag = "Label_Options_BindingFocus";
             this.lblKarmaBindingFocus.Text = "Binding Focus";
+            this.lblKarmaBindingFocus.Visible = false;
             // 
             // lblKarmaBanishingFocusExtra
             // 
@@ -2071,6 +2113,7 @@
             this.lblKarmaBanishingFocusExtra.TabIndex = 65;
             this.lblKarmaBanishingFocusExtra.Tag = "Label_Options_Force";
             this.lblKarmaBanishingFocusExtra.Text = "x Force";
+            this.lblKarmaBanishingFocusExtra.Visible = false;
             // 
             // nudKarmaBanishingFocus
             // 
@@ -2078,6 +2121,7 @@
             this.nudKarmaBanishingFocus.Name = "nudKarmaBanishingFocus";
             this.nudKarmaBanishingFocus.Size = new System.Drawing.Size(47, 20);
             this.nudKarmaBanishingFocus.TabIndex = 64;
+            this.nudKarmaBanishingFocus.Visible = false;
             // 
             // lblKarmaBanishingFocus
             // 
@@ -2088,6 +2132,7 @@
             this.lblKarmaBanishingFocus.TabIndex = 63;
             this.lblKarmaBanishingFocus.Tag = "Label_Options_BanishingFocus";
             this.lblKarmaBanishingFocus.Text = "Banishing Focus";
+            this.lblKarmaBanishingFocus.Visible = false;
             // 
             // lblKarmaAnchoringFocusExtra
             // 
@@ -2098,6 +2143,7 @@
             this.lblKarmaAnchoringFocusExtra.TabIndex = 62;
             this.lblKarmaAnchoringFocusExtra.Tag = "Label_Options_Force";
             this.lblKarmaAnchoringFocusExtra.Text = "x Force";
+            this.lblKarmaAnchoringFocusExtra.Visible = false;
             // 
             // nudKarmaAnchoringFocus
             // 
@@ -2105,6 +2151,7 @@
             this.nudKarmaAnchoringFocus.Name = "nudKarmaAnchoringFocus";
             this.nudKarmaAnchoringFocus.Size = new System.Drawing.Size(47, 20);
             this.nudKarmaAnchoringFocus.TabIndex = 61;
+            this.nudKarmaAnchoringFocus.Visible = false;
             // 
             // lblKarmaAnchoringFocus
             // 
@@ -2115,6 +2162,7 @@
             this.lblKarmaAnchoringFocus.TabIndex = 60;
             this.lblKarmaAnchoringFocus.Tag = "Label_Options_AnchoringFocus";
             this.lblKarmaAnchoringFocus.Text = "Anchoring Focus";
+            this.lblKarmaAnchoringFocus.Visible = false;
             // 
             // lblKarmaComplexFormSkillsoftExtra
             // 

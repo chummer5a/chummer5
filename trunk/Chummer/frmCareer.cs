@@ -19228,8 +19228,8 @@ namespace Chummer
 				int intKarmaMultiplier = 0;
 				switch (strFocusName)
 				{
-					case "Symbolic Link Focus":
-						intKarmaMultiplier = _objOptions.KarmaSymbolicLinkFocus;
+					case "Alchemical Focus":
+                        intKarmaMultiplier = _objOptions.KarmaAlchemicalFocus;
 						break;
 					case "Sustaining Focus":
 						intKarmaMultiplier = _objOptions.KarmaSustainingFocus;
@@ -19246,14 +19246,20 @@ namespace Chummer
 					case "Weapon Focus":
 						intKarmaMultiplier = _objOptions.KarmaWeaponFocus;
 						break;
-					case "Spellcasting Focus":
-						intKarmaMultiplier = _objOptions.KarmaSpellcastingFocus;
+					case "Ritual Spellcasting Focus":
+						intKarmaMultiplier = _objOptions.KarmaRitualSpellcastingFocus;
 						break;
-					case "Summoning Focus":
+                    case "Spellcasting Focus":
+                        intKarmaMultiplier = _objOptions.KarmaSpellcastingFocus;
+                        break;
+                    case "Spell Shaping Focus":
+                        intKarmaMultiplier = _objOptions.KarmaSpellShapingFocus;
+                        break;
+                    case "Summoning Focus":
 						intKarmaMultiplier = _objOptions.KarmaSummoningFocus;
 						break;
-					case "Anchoring Focus":
-						intKarmaMultiplier = _objOptions.KarmaAnchoringFocus;
+					case "Disenchanting Focus":
+                        intKarmaMultiplier = _objOptions.KarmaDisenchantingFocus;
 						break;
 					case "Centering Focus":
 						intKarmaMultiplier = _objOptions.KarmaCenteringFocus;
@@ -19261,20 +19267,14 @@ namespace Chummer
 					case "Masking Focus":
 						intKarmaMultiplier = _objOptions.KarmaMaskingFocus;
 						break;
-					case "Shielding Focus":
-						intKarmaMultiplier = _objOptions.KarmaShieldingFocus;
+					case "Flexible Signature Focus":
+						intKarmaMultiplier = _objOptions.KarmaFlexibleSignatureFocus;
 						break;
 					case "Power Focus":
 						intKarmaMultiplier = _objOptions.KarmaPowerFocus;
 						break;
-					case "Divining Focus":
-						intKarmaMultiplier = _objOptions.KarmaDiviningFocus;
-						break;
-					case "Dowsing Focus":
-						intKarmaMultiplier = _objOptions.KarmaDowsingFocus;
-						break;
-					case "Infusion Focus":
-						intKarmaMultiplier = _objOptions.KarmaInfusionFocus;
+					case "Qi Focus":
+                        intKarmaMultiplier = _objOptions.KarmaQiFocus;
 						break;
 					default:
 						intKarmaMultiplier = 1;

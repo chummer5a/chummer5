@@ -4586,8 +4586,8 @@ namespace Chummer
 					int intKarmaMultiplier = 0;
 					switch (strFocusName)
 					{
-						case "Symbolic Link Focus":
-							intKarmaMultiplier = _objCharacter.Options.KarmaSymbolicLinkFocus;
+						case "Qi Focus":
+							intKarmaMultiplier = _objCharacter.Options.KarmaQiFocus;
 							break;
 						case "Sustaining Focus":
 							intKarmaMultiplier = _objCharacter.Options.KarmaSustainingFocus;
@@ -4610,8 +4610,8 @@ namespace Chummer
 						case "Summoning Focus":
 							intKarmaMultiplier = _objCharacter.Options.KarmaSummoningFocus;
 							break;
-						case "Anchoring Focus":
-							intKarmaMultiplier = _objCharacter.Options.KarmaAnchoringFocus;
+						case "Alchemical Focus":
+							intKarmaMultiplier = _objCharacter.Options.KarmaAlchemicalFocus;
 							break;
 						case "Centering Focus":
 							intKarmaMultiplier = _objCharacter.Options.KarmaCenteringFocus;
@@ -4619,20 +4619,20 @@ namespace Chummer
 						case "Masking Focus":
 							intKarmaMultiplier = _objCharacter.Options.KarmaMaskingFocus;
 							break;
-						case "Shielding Focus":
-							intKarmaMultiplier = _objCharacter.Options.KarmaShieldingFocus;
+						case "Disenchanting Focus":
+							intKarmaMultiplier = _objCharacter.Options.KarmaDisenchantingFocus;
 							break;
 						case "Power Focus":
 							intKarmaMultiplier = _objCharacter.Options.KarmaPowerFocus;
 							break;
-						case "Divining Focus":
-							intKarmaMultiplier = _objCharacter.Options.KarmaDiviningFocus;
+						case "Flexible Signature Focus":
+							intKarmaMultiplier = _objCharacter.Options.KarmaFlexibleSignatureFocus;
 							break;
-						case "Dowsing Focus":
-							intKarmaMultiplier = _objCharacter.Options.KarmaDowsingFocus;
+						case "Ritual Spellcasting Focus":
+							intKarmaMultiplier = _objCharacter.Options.KarmaRitualSpellcastingFocus;
 							break;
-						case "Infusion Focus":
-							intKarmaMultiplier = _objCharacter.Options.KarmaInfusionFocus;
+						case "Spell Shaping Focus":
+							intKarmaMultiplier = _objCharacter.Options.KarmaSpellShapingFocus;
 							break;
 						default:
 							intKarmaMultiplier = 1;

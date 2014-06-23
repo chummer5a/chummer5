@@ -367,9 +367,10 @@ namespace Chummer
 			// Nuyen can be affected by Qualities, so adjust the total amount available to the character.
             if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
             {
-                lblNuyen.Visible = false;
-                lblNuyenTotal.Visible = false;
-                nudNuyen.Visible = false;
+                //lblNuyen.Visible = false;
+                //lblNuyenTotal.Visible = false;
+                //nudNuyen.Visible = false;
+                nudNuyen.Maximum = 10;
             }
             else 
             { 
@@ -3704,42 +3705,6 @@ namespace Chummer
 				}
 			}
 
-			// Make sure the number of BP spent on attributes does not exceed half of the BP allowed for character creation.
-			if (!_objCharacter.IgnoreRules && !_objOptions.AllowExceedAttributeBP && !_blnFreestyle)
-			{
-				if (!_objOptions.SpecialAttributeKarmaLimit)
-				{
-					// Include Special Attributes in the max 50% of Karma spent on Attributes limit.
-					if (CalculatePrimaryAttributeBP() + CalculateSpecialAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudBOD.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudBOD.Value = nudBOD.Minimum;
-						}
-					}
-				}
-				else
-				{
-					// Don't include Special Attributes in the max 50% of Karma spent on Attributes limit.
-					if (CalculatePrimaryAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudBOD.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudBOD.Value = nudBOD.Minimum;
-						}
-					}
-				}
-			}
 			_objCharacter.BOD.Value = Convert.ToInt32(nudBOD.Value);
 			UpdateCharacterInfo();
 
@@ -3767,42 +3732,6 @@ namespace Chummer
 				}
 			}
 
-			// Make sure the number of BP spent on attributes does not exceed half of the BP allowed for character creation.
-			if (!_objCharacter.IgnoreRules && !_objOptions.AllowExceedAttributeBP && !_blnFreestyle)
-			{
-				if (!_objOptions.SpecialAttributeKarmaLimit)
-				{
-					// Include Special Attributes in the max 50% of Karma spent on Attributes limit.
-					if (CalculatePrimaryAttributeBP() + CalculateSpecialAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudAGI.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudAGI.Value = nudAGI.Minimum;
-						}
-					}
-				}
-				else
-				{
-					// Don't include Special Attributes in the max 50% of Karma spent on Attributes limit.
-					if (CalculatePrimaryAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudAGI.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudAGI.Value = nudAGI.Minimum;
-						}
-					}
-				}
-			}
 			_objCharacter.AGI.Value = Convert.ToInt32(nudAGI.Value);
 			UpdateCharacterInfo();
 
@@ -3834,42 +3763,6 @@ namespace Chummer
 				}
 			}
 
-			// Make sure the number of BP spent on attributes does not exceed half of the BP allowed for character creation.
-			if (!_objCharacter.IgnoreRules && !_objOptions.AllowExceedAttributeBP && !_blnFreestyle)
-			{
-				if (!_objOptions.SpecialAttributeKarmaLimit)
-				{
-					// Include Special Attributes in the max 50% of Karma spent on Attributes limit.
-					if (CalculatePrimaryAttributeBP() + CalculateSpecialAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudREA.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudREA.Value = nudREA.Minimum;
-						}
-					}
-				}
-				else
-				{
-					// Don't include Special Attributes in the max 50% of Karma spent on Attributes limit.
-					if (CalculatePrimaryAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudREA.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudREA.Value = nudREA.Minimum;
-						}
-					}
-				}
-			}
 			_objCharacter.REA.Value = Convert.ToInt32(nudREA.Value);
 			UpdateCharacterInfo();
 
@@ -3897,42 +3790,6 @@ namespace Chummer
 				}
 			}
 
-			// Make sure the number of BP spent on attributes does not exceed half of the BP allowed for character creation.
-			if (!_objCharacter.IgnoreRules && !_objOptions.AllowExceedAttributeBP && !_blnFreestyle)
-			{
-				if (!_objOptions.SpecialAttributeKarmaLimit)
-				{
-					// Include Special Attributes in the max 50% of Karma spent on Attributes limit.
-					if (CalculatePrimaryAttributeBP() + CalculateSpecialAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudSTR.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudSTR.Value = nudSTR.Minimum;
-						}
-					}
-				}
-				else
-				{
-					// Don't include Special Attributes in the max 50% of Karma spent on Attributes limit.
-					if (CalculatePrimaryAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudSTR.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudSTR.Value = nudSTR.Minimum;
-						}
-					}
-				}
-			}
 			_objCharacter.STR.Value = Convert.ToInt32(nudSTR.Value);
 			UpdateCharacterInfo();
 
@@ -3960,44 +3817,7 @@ namespace Chummer
 				}
 			}
 
-			// Make sure the number of BP spent on attributes does not exceed half of the BP allowed for character creation.
-			if (!_objCharacter.IgnoreRules && !_objOptions.AllowExceedAttributeBP && !_blnFreestyle)
-			{
-				if (!_objOptions.SpecialAttributeKarmaLimit)
-				{
-					// Include Special Attributes in the max 50% of Karma spent on Attributes limit.
-					if (CalculatePrimaryAttributeBP() + CalculateSpecialAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudCHA.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudCHA.Value = nudCHA.Minimum;
-						}
-					}
-				}
-				else
-				{
-					// Don't include Special Attributes in the max 50% of Karma spent on Attributes limit.
-					if (CalculatePrimaryAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudCHA.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudCHA.Value = nudCHA.Minimum;
-						}
-					}
-				}
-			}
 			_objCharacter.CHA.Value = Convert.ToInt32(nudCHA.Value);
-			UpdateCharacterInfo();
 
             // Calculate the BP used by Contacts.
             _objCharacter.ContactPoints = _objCharacter.CHA.Value * 3;
@@ -4010,7 +3830,14 @@ namespace Chummer
                     intContactPointsUsed += (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.BPContact;
                 }
             }
-            lblPBuildContacts.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.ContactPoints - intContactPointsUsed).ToString(), _objCharacter.ContactPoints.ToString());
+
+            if (_objCharacter.ContactPoints - intContactPointsUsed < 0)
+                lblPBuildContacts.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (0).ToString(), _objCharacter.ContactPoints.ToString());
+            else
+                lblPBuildContacts.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.ContactPoints - intContactPointsUsed).ToString(), _objCharacter.ContactPoints.ToString());
+
+            UpdateCharacterInfo();
+            CalculateBP();
 
 			_blnIsDirty = true;
 			UpdateWindowTitle();
@@ -4036,42 +3863,6 @@ namespace Chummer
 				}
 			}
 
-			// Make sure the number of BP spent on attributes does not exceed half of the BP allowed for character creation.
-			if (!_objCharacter.IgnoreRules && !_objOptions.AllowExceedAttributeBP && !_blnFreestyle)
-			{
-				if (!_objOptions.SpecialAttributeKarmaLimit)
-				{
-					// Include Special Attributes in the max 50% of Karma spent on Attributes limit.
-					if (CalculatePrimaryAttributeBP() + CalculateSpecialAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudINT.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudINT.Value = nudINT.Minimum;
-						}
-					}
-				}
-				else
-				{
-					// Don't include Special Attributes in the max 50% of Karma spent on Attributes limit.
-					if (CalculatePrimaryAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudINT.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudINT.Value = nudINT.Minimum;
-						}
-					}
-				}
-			}
 			_objCharacter.INT.Value = Convert.ToInt32(nudINT.Value);
 			UpdateCharacterInfo();
 
@@ -4099,42 +3890,6 @@ namespace Chummer
 				}
 			}
 
-			// Make sure the number of BP spent on attributes does not exceed half of the BP allowed for character creation.
-			if (!_objCharacter.IgnoreRules && !_objOptions.AllowExceedAttributeBP && !_blnFreestyle)
-			{
-				if (!_objOptions.SpecialAttributeKarmaLimit)
-				{
-					// Include Special Attributes in the max 50% of Karma spent on Attributes limit.
-					if (CalculatePrimaryAttributeBP() + CalculateSpecialAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudLOG.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudLOG.Value = nudLOG.Minimum;
-						}
-					}
-				}
-				else
-				{
-					// Don't include Special Attributes in the max 50% of Karma spent on Attributes limit.
-					if (CalculatePrimaryAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudLOG.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudLOG.Value = nudLOG.Minimum;
-						}
-					}
-				}
-			}
 			_objCharacter.LOG.Value = Convert.ToInt32(nudLOG.Value);
 			UpdateCharacterInfo();
 
@@ -4162,42 +3917,6 @@ namespace Chummer
 				}
 			}
 
-			// Make sure the number of BP spent on attributes does not exceed half of the BP allowed for character creation.
-			if (!_objCharacter.IgnoreRules && !_objOptions.AllowExceedAttributeBP && !_blnFreestyle)
-			{
-				if (!_objOptions.SpecialAttributeKarmaLimit)
-				{
-					// Include Special Attributes in the max 50% of Karma spent on Attributes limit.
-					if (CalculatePrimaryAttributeBP() + CalculateSpecialAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudWIL.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudWIL.Value = nudWIL.Minimum;
-						}
-					}
-				}
-				else
-				{
-					// Don't include Special Attributes in the max 50% of Karma spent on Attributes limit.
-					if (CalculatePrimaryAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudWIL.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudWIL.Value = nudWIL.Minimum;
-						}
-					}
-				}
-			}
 			_objCharacter.WIL.Value = Convert.ToInt32(nudWIL.Value);
 			UpdateCharacterInfo();
 
@@ -4211,25 +3930,6 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-			// Make sure the number of BP spent on attributes does not exceed half of the BP allowed for character creation.
-			if (!_objCharacter.IgnoreRules && !_objOptions.AllowExceedAttributeBP && !_blnFreestyle)
-			{
-				if (_objCharacter.BuildMethod == CharacterBuildMethod.Karma && !_objOptions.SpecialAttributeKarmaLimit)
-				{
-					if (CalculatePrimaryAttributeBP() + CalculateSpecialAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudEDG.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudEDG.Value = nudEDG.Minimum;
-						}
-					}
-				}
-			}
 			_objCharacter.EDG.Value = Convert.ToInt32(nudEDG.Value);
 			UpdateCharacterInfo();
 
@@ -4243,25 +3943,6 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-			// Make sure the number of BP spent on attributes does not exceed half of the BP allowed for character creation.
-			if (!_objCharacter.IgnoreRules && !_objOptions.AllowExceedAttributeBP && !_blnFreestyle)
-			{
-				if (_objCharacter.BuildMethod == CharacterBuildMethod.Karma && !_objOptions.SpecialAttributeKarmaLimit)
-				{
-					if (CalculatePrimaryAttributeBP() + CalculateSpecialAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudMAG.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudMAG.Value = nudMAG.Minimum;
-						}
-					}
-				}
-			}
 			_objCharacter.MAG.Value = Convert.ToInt32(nudMAG.Value);
 
 			if (_objCharacter.Metatype == "Free Spirit")
@@ -4294,25 +3975,6 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-			// Make sure the number of BP spent on attributes does not exceed half of the BP allowed for character creation.
-			if (!_objCharacter.IgnoreRules && !_objOptions.AllowExceedAttributeBP && !_blnFreestyle)
-			{
-				if (_objCharacter.BuildMethod == CharacterBuildMethod.Karma && !_objOptions.SpecialAttributeKarmaLimit)
-				{
-					if (CalculatePrimaryAttributeBP() + CalculateSpecialAttributeBP() > ((_objCharacter.BuildKarma / 2) + (_objCharacter.MetatypeBP * 2)))
-					{
-						try
-						{
-							nudRES.Value -= 1;
-							ShowAttributeBPRule();
-						}
-						catch
-						{
-							nudRES.Value = nudRES.Minimum;
-						}
-					}
-				}
-			}
 			_objCharacter.RES.Value = Convert.ToInt32(nudRES.Value);
 
 			try
@@ -4419,6 +4081,7 @@ namespace Chummer
 					objSkillControl.SkillRating = 4;
 				}
 			}
+            CalculateBP();
 			UpdateCharacterInfo();
 
 			_blnIsDirty = true;
@@ -4428,7 +4091,8 @@ namespace Chummer
 		private void objSkill_SpecializationChanged(Object sender)
 		{
 			// Handle the SpecializationChanged event for the SkillControl object.
-			UpdateCharacterInfo();
+            CalculateBP();
+            UpdateCharacterInfo();
 
 			_blnIsDirty = true;
 			UpdateWindowTitle();
@@ -4457,7 +4121,8 @@ namespace Chummer
 			}
 			// Remove the SkillControl that raised the Event.
 			panKnowledgeSkills.Controls.Remove(objSender);
-			UpdateCharacterInfo();
+            CalculateBP();
+            UpdateCharacterInfo();
 
 			_blnIsDirty = true;
 			UpdateWindowTitle();
@@ -5305,7 +4970,7 @@ namespace Chummer
             // Check against the maximum allowable number of spells
             if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
             {
-                if (intSpellCount >= ((_objCharacter.SpellLimit) + _objImprovementManager.ValueOf(Improvement.ImprovementType.SpellLimit)) && !_objCharacter.IgnoreRules)
+                if (intSpellCount >= ((_objCharacter.MAG.TotalValue * 2) + _objImprovementManager.ValueOf(Improvement.ImprovementType.SpellLimit)) && !_objCharacter.IgnoreRules)
                 {
                     MessageBox.Show(LanguageManager.Instance.GetString("Message_PrioritySpellLimit"), LanguageManager.Instance.GetString("MessageTitle_SpellLimit"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -5384,8 +5049,10 @@ namespace Chummer
                     intSpellCount++;
                 }
             }
-
-            lblPBuildSpells.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.SpellLimit - intSpellCount).ToString(), _objCharacter.SpellLimit.ToString());
+            if (intSpellCount - _objCharacter.SpellLimit > 0)
+                lblPBuildSpells.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (0).ToString(), _objCharacter.SpellLimit.ToString());
+            else
+                lblPBuildSpells.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.SpellLimit - intSpellCount).ToString(), _objCharacter.SpellLimit.ToString());
 
             if (frmPickSpell.AddAgain)
                 cmdAddSpell_Click(sender, e);
@@ -14747,8 +14414,115 @@ namespace Chummer
             if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
             {
                 _objCharacter.Attributes = _objCharacter.TotalAttributes - intBP;
-                lblPBuildAttributes.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.Attributes).ToString(), _objCharacter.TotalAttributes.ToString());
-                return 0;
+                if (_objCharacter.Attributes < 0)
+                    lblPBuildAttributes.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (0).ToString(), _objCharacter.TotalAttributes.ToString());
+                else
+                    lblPBuildAttributes.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.Attributes).ToString(), _objCharacter.TotalAttributes.ToString());
+
+                // If the character overspent on primary attributes, the excess must be charged to Karma.
+                if (_objCharacter.Attributes < 0)
+                {
+                    // Figure out the lowest costing attributes in turn to account for the extra primary attribute points. Charge these to Karma.
+                    int intBOD = _objCharacter.BOD.Value;
+                    int intAGI = _objCharacter.AGI.Value;
+                    int intREA = _objCharacter.REA.Value;
+                    int intSTR = _objCharacter.STR.Value;
+                    int intCHA = _objCharacter.CHA.Value;
+                    int intINT = _objCharacter.INT.Value;
+                    int intWIL = _objCharacter.WIL.Value;
+                    int intLOG = _objCharacter.LOG.Value;
+                    int intKarma = 0;
+
+                    // Do this loop once for each point overspent
+                    for (int i = _objCharacter.Attributes; i < 0; i++)
+                    {
+                        // For each attribute, check if points were spent (value > minimum) and if the current score is lower than the current lowest score which had points spent on it.
+                        string strLowest = "";
+                        int intLowest = 99;
+                        if (intBOD < intLowest && intBOD > _objCharacter.BOD.TotalMinimum)
+                        {
+                            strLowest = "BOD";
+                            intLowest = intBOD;
+                        }
+                        if (intAGI < intLowest && intAGI > _objCharacter.AGI.TotalMinimum)
+                        {
+                            strLowest = "AGI";
+                            intLowest = intAGI;
+                        }
+                        if (intREA < intLowest && intREA > _objCharacter.REA.TotalMinimum)
+                        {
+                            strLowest = "REA";
+                            intLowest = intREA;
+                        }
+                        if (intSTR < intLowest && intSTR > _objCharacter.STR.TotalMinimum)
+                        {
+                            strLowest = "STR";
+                            intLowest = intSTR;
+                        }
+                        if (intCHA < intLowest && intCHA > _objCharacter.CHA.TotalMinimum)
+                        {
+                            strLowest = "CHA";
+                            intLowest = intCHA;
+                        }
+                        if (intINT < intLowest && intINT > _objCharacter.INT.TotalMinimum)
+                        {
+                            strLowest = "INT";
+                            intLowest = intINT;
+                        }
+                        if (intWIL < intLowest && intWIL > _objCharacter.WIL.TotalMinimum)
+                        {
+                            strLowest = "WIL";
+                            intLowest = intWIL;
+                        }
+                        if (intLOG < intLowest && intLOG > _objCharacter.LOG.TotalMinimum)
+                        {
+                            strLowest = "LOG";
+                            intLowest = intLOG;
+                        }
+
+                        // Calculate the Karma cost of this attribute point and add it to the running total. Decrement the attribute so it won't be counted on the next pass (if any).
+                        switch (strLowest)
+                        {
+                            case "BOD":
+                                intKarma += intBOD * _objOptions.KarmaAttribute;
+                                intBOD -= 1;
+                                break;
+                            case "AGI":
+                                intKarma += intAGI * _objOptions.KarmaAttribute;
+                                intAGI -= 1;
+                                break;
+                            case "STR":
+                                intKarma += intSTR * _objOptions.KarmaAttribute;
+                                intSTR -= 1;
+                                break;
+                            case "REA":
+                                intKarma += intREA * _objOptions.KarmaAttribute;
+                                intREA -= 1;
+                                break;
+                            case "CHA":
+                                intKarma += intCHA * _objOptions.KarmaAttribute;
+                                intCHA -= 1;
+                                break;
+                            case "INT":
+                                intKarma += intINT * _objOptions.KarmaAttribute;
+                                intINT -= 1;
+                                break;
+                            case "WIL":
+                                intKarma += intWIL * _objOptions.KarmaAttribute;
+                                intWIL -= 1;
+                                break;
+                            case "LOG":
+                                intKarma += intLOG * _objOptions.KarmaAttribute;
+                                intLOG -= 1;
+                                break;
+                        }
+                    }
+                    return intKarma;
+                }
+                else
+                {
+                    return 0;
+                }
             }
             else
             {
@@ -14853,9 +14627,67 @@ namespace Chummer
 
             if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
             {
+
                 _objCharacter.Special = _objCharacter.TotalSpecial - intBP;
-                lblPBuildSpecial.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.Special).ToString(), _objCharacter.TotalSpecial.ToString());
-                return 0;
+                if (_objCharacter.Special < 0)
+                    lblPBuildSpecial.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (0).ToString(), _objCharacter.TotalSpecial.ToString());
+                else
+                    lblPBuildSpecial.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.Special).ToString(), _objCharacter.TotalSpecial.ToString());
+
+                // If the character overspent on primary attributes, the excess must be charged to Karma.
+                if (_objCharacter.Special < 0)
+                {
+                    // Figure out the lowest costing attributes in turn to account for the extra primary attribute points. Charge these to Karma.
+                    int intEDG = _objCharacter.EDG.Value;
+                    int intMAG = _objCharacter.MAG.Value;
+                    int intRES = _objCharacter.RES.Value;
+                    int intKarma = 0;
+
+                    // Do this loop once for each point overspent
+                    for (int i = _objCharacter.Special; i < 0; i++)
+                    {
+                        // For each attribute, check if points were spent (value > minimum) and if the current score is lower than the current lowest score which had points spent on it.
+                        string strLowest = "";
+                        int intLowest = 99;
+                        if (intEDG < intLowest && intEDG > _objCharacter.EDG.TotalMinimum)
+                        {
+                            strLowest = "EDG";
+                            intLowest = intEDG;
+                        }
+                        if (intMAG < intLowest && intMAG > _objCharacter.MAG.TotalMinimum)
+                        {
+                            strLowest = "";
+                            intLowest = intMAG;
+                        }
+                        if (intRES < intLowest && intRES > _objCharacter.RES.TotalMinimum)
+                        {
+                            strLowest = "RES";
+                            intLowest = intRES;
+                        }
+
+                        // Calculate the Karma cost of this attribute point and add it to the running total. Decrement the attribute so it won't be counted on the next pass (if any).
+                        switch (strLowest)
+                        {
+                            case "EDG":
+                                intKarma += intEDG * _objOptions.KarmaAttribute;
+                                intEDG -= 1;
+                                break;
+                            case "MAG":
+                                intKarma += intMAG * _objOptions.KarmaAttribute;
+                                intMAG -= 1;
+                                break;
+                            case "RES":
+                                intKarma += intRES * _objOptions.KarmaAttribute;
+                                intRES -= 1;
+                                break;
+                        }
+                    }
+                    return intKarma;
+                }
+                else
+                {
+                    return 0;
+                }
             }
             else
             {
@@ -14929,7 +14761,15 @@ namespace Chummer
                         intContactPointsUsed = 0;
                     }
                 }
-                lblPBuildContacts.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.ContactPoints - intContactPointsUsed).ToString(), _objCharacter.ContactPoints.ToString());
+
+                if (_objCharacter.ContactPoints - intContactPointsUsed < 0)
+                {
+                    lblPBuildContacts.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (0).ToString(), _objCharacter.ContactPoints.ToString());
+                    intPointsUsed -= (_objCharacter.ContactPoints - intContactPointsUsed);
+                    intPointsRemain += (_objCharacter.ContactPoints - intContactPointsUsed);
+                }
+                else
+                    lblPBuildContacts.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.ContactPoints - intContactPointsUsed).ToString(), _objCharacter.ContactPoints.ToString());
             }
             else
             {
@@ -15073,8 +14913,8 @@ namespace Chummer
             }
             else
             {
-                CalculatePrimaryAttributeBP();
-                CalculateSpecialAttributeBP();
+                intPointsRemain -= CalculatePrimaryAttributeBP();
+                intPointsRemain -= CalculateSpecialAttributeBP();
             }
 
             if (nudMysticAdeptMAGMagician.Value > 0)
@@ -15098,18 +14938,78 @@ namespace Chummer
             }
 
 			// Calculate the BP used by Skill Groups.
-			intPointsUsed = 0;
-            if (true) // (_objCharacter.BuildMethod != CharacterBuildMethod.Priority)
+            if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
             {
+                // Get the total point value
+                intPointsUsed = 0;
                 foreach (SkillGroupControl objGroupControl in panSkillGroups.Controls)
                 {
-                    if (objGroupControl.GroupRating > 0)
+                    // If the Skill Group has been broken, get the Rating value for the lowest Skill in the Group.
+                    if (objGroupControl.Broken && _objOptions.BreakSkillGroupsInCreateMode)
+                    {
+                        int intMin = 999;
+                        foreach (Skill objSkill in _objCharacter.Skills)
+                        {
+                            if (objSkill.SkillGroup == objGroupControl.GroupName)
+                            {
+                                if (objSkill.Rating < intMin)
+                                    intMin = objSkill.Rating;
+                            }
+                        }
+                        intPointsUsed += intMin;
+                    }
+                    else
+                    {
+                        if (objGroupControl.GroupRating > objGroupControl.GroupRatingMinimum)
+                        {
+                            intPointsUsed += objGroupControl.GroupRating - objGroupControl.GroupRatingMinimum;
+                        }
+                    }
+                }
+
+                // If they've spent more points than they have available from their build priorities, figure out the cheapest option for paying for the extra points with karma.
+                if (intPointsUsed > _objCharacter.SkillGroupPointsMaximum)
+                {
+                    // Reset their working values
+                    foreach (SkillGroupControl objGroupControl in panSkillGroups.Controls)
+                    {
+                        objGroupControl.ResetWorkingRating();
+                    }
+
+                    for (int i = intPointsUsed; i > _objCharacter.SkillGroupPointsMaximum; i--)
+                    {
+                        // Find the lowest skill with points in it
+                        int intMin = 999;
+                        SkillGroupControl objLowSkillGroup = new SkillGroupControl(_objOptions);
+                        foreach (SkillGroupControl objSkillGroup in panSkillGroups.Controls)
+                        {
+                            if (objSkillGroup.GroupWorkingRating > objSkillGroup.GroupRatingMinimum && objSkillGroup.GroupWorkingRating < intMin)
+                            {
+                                intMin = objSkillGroup.GroupWorkingRating;
+                                objLowSkillGroup = objSkillGroup;
+                            }
+                        }
+                        if (objLowSkillGroup.GroupWorkingRating == objLowSkillGroup.GroupRatingMinimum + 1)
+                            intPointsRemain -= _objOptions.KarmaNewSkillGroup;
+                        else
+                            intPointsRemain -= objLowSkillGroup.GroupWorkingRating * _objOptions.KarmaImproveSkillGroup;
+
+                        objLowSkillGroup.GroupWorkingRating--;
+                    }
+                }
+            }
+            else 
+            { 
+			    intPointsUsed = 0;
+                foreach (SkillGroupControl objGroupControl in panSkillGroups.Controls)
+                {
+                    if (objGroupControl.GroupRating > objGroupControl.GroupRatingMinimum)
                     {
                         // The first point in a Skill Group costs KaramNewSkillGroup.
                         // Each additional beyond 1 costs i x KarmaImproveSkillGroup.
                         intPointsRemain -= _objOptions.KarmaNewSkillGroup;
                         intPointsUsed += _objOptions.KarmaNewSkillGroup;
-                        for (int i = 2; i <= objGroupControl.GroupRating; i++)
+                        for (int i = objGroupControl.GroupRatingMinimum + 2; i <= objGroupControl.GroupRating; i++)
                         {
                             intPointsRemain -= i * _objOptions.KarmaImproveSkillGroup;
                             intPointsUsed += i * _objOptions.KarmaImproveSkillGroup;
@@ -15140,12 +15040,125 @@ namespace Chummer
                 }
                 lblSkillGroupsBP.Text = String.Format("{0} " + strPoints, intPointsUsed.ToString());
                 intFreestyleBP += intPointsUsed;
+            }
 
+            if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
+            {
+                // Get the total point value
+                intPointsUsed = 0;
+                foreach (SkillControl objSkillControl in panActiveSkills.Controls)
+                {
+                    if (objSkillControl.SkillRating > objSkillControl.SkillRatingMinimum && !objSkillControl.IsGrouped)
+                    {
+                        intPointsUsed += objSkillControl.SkillRating - objSkillControl.SkillRatingMinimum;
+                    }
+
+                    // Specialization Cost (Exotic skills do not count since their "Spec" is actually what the Skill is being used for and cannot be Specialized).
+                    if (objSkillControl.SkillSpec.Trim() != string.Empty && !objSkillControl.SkillObject.ExoticSkill)
+                    {
+                        // Each Specialization costs KarmaSpecialization.
+                        intPointsRemain -= _objOptions.KarmaSpecialization;
+                        intPointsUsed += _objOptions.KarmaSpecialization;
+                    }
+
+                    if (_objOptions.BreakSkillGroupsInCreateMode)
+                    {
+                        int intMin = 999;
+                        bool blnApplyModifier = false;
+
+                        // Find the matching Skill Group.
+                        foreach (SkillGroup objGroup in _objCharacter.SkillGroups)
+                        {
+                            if (objGroup.Broken && objGroup.Name == objSkillControl.SkillGroup)
+                            {
+                                // Determine the lowest Rating amongst the Skills in the Groups.
+                                foreach (Skill objSkill in _objCharacter.Skills)
+                                {
+                                    if (objSkill.SkillGroup == objGroup.Name)
+                                    {
+                                        if (objSkill.Rating < intMin)
+                                        {
+                                            intMin = objSkill.Rating;
+                                            blnApplyModifier = true;
+                                        }
+                                    }
+                                }
+                                break;
+                            }
+                        }
+
+                        if (blnApplyModifier)
+                        {
+                            // Refund the first X points of Karma cost for the Skill.
+                            if (objSkillControl.SkillRatingMinimum == 0)
+                            {
+                                if (intMin >= 1)
+                                {
+                                    intPointsRemain += _objOptions.KarmaNewActiveSkill;
+                                    intPointsUsed -= _objOptions.KarmaNewActiveSkill;
+                                }
+                                if (intMin > 1)
+                                {
+                                    for (int i = objSkillControl.SkillRatingMinimum + 2; i <= intMin; i++)
+                                    {
+                                        intPointsRemain += i * _objOptions.KarmaImproveActiveSkill;
+                                        intPointsUsed -= i * _objOptions.KarmaImproveActiveSkill;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (intMin > 1)
+                                {
+                                    for (int i = objSkillControl.SkillRatingMinimum + 1; i <= intMin; i++)
+                                    {
+                                        intPointsRemain += i * _objOptions.KarmaImproveActiveSkill;
+                                        intPointsUsed -= i * _objOptions.KarmaImproveActiveSkill;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // If they've spent more points than they have available from their build priorities, figure out the cheapest option for paying for the extra points with karma.
+                if (intPointsUsed > _objCharacter.SkillPointsMaximum)
+                {
+                    // Reset their working values
+                    foreach (SkillControl objSkillControl in panActiveSkills.Controls)
+                    {
+                        objSkillControl.ResetWorkingRating();
+                    }
+
+                    for (int i = intPointsUsed; i > _objCharacter.SkillPointsMaximum; i--)
+                    {
+                        // Find the lowest skill with points in it
+                        int intMin = 999;
+                        SkillControl objLowSkill = new SkillControl();
+                        foreach (SkillControl objSkill in panActiveSkills.Controls)
+                        {
+                            if (objSkill.WorkingRating > objSkill.SkillRatingMinimum && objSkill.WorkingRating < intMin)
+                            {
+                                intMin = objSkill.WorkingRating;
+                                objLowSkill = objSkill;
+                            }
+                        }
+                        if (objLowSkill.WorkingRating == objLowSkill.SkillRatingMinimum + 1)
+                            intPointsRemain -= _objOptions.KarmaNewActiveSkill;
+                        else
+                            intPointsRemain -= objLowSkill.WorkingRating * _objOptions.KarmaImproveActiveSkill;
+
+                        objLowSkill.WorkingRating--;
+                    }
+                }
+            }
+            else
+            {
                 // Calculate the BP used by Active Skills.
                 intPointsUsed = 0;
                 foreach (SkillControl objSkillControl in panActiveSkills.Controls)
                 {
-                    if (objSkillControl.SkillRating > 0 && !objSkillControl.IsGrouped)
+                    if (objSkillControl.SkillRating > objSkillControl.SkillRatingMinimum && !objSkillControl.IsGrouped)
                     {
                         // The first point in a Skill costs KarmaNewActiveSkill.
                         // Each additional beyond 1 costs i x KarmaImproveActiveSkill.
@@ -15159,7 +15172,7 @@ namespace Chummer
                             intPointsRemain -= _objOptions.KarmaNewActiveSkill;
                             intPointsUsed += _objOptions.KarmaNewActiveSkill;
                         }
-                        for (int i = 2; i <= objSkillControl.SkillRating; i++)
+                        for (int i = objSkillControl.SkillRatingMinimum + 2; i <= objSkillControl.SkillRating; i++)
                         {
                             if ((_objCharacter.Uneducated && objSkillControl.SkillCategory == "Technical Active") || (_objCharacter.Uncouth && objSkillControl.SkillCategory == "Social Active") || (_objCharacter.Infirm && objSkillControl.SkillCategory == "Physical Active"))
                             {
@@ -15240,115 +15253,115 @@ namespace Chummer
                         intPointsUsed += _objOptions.KarmaSpecialization;
                     }
                 }
+            
                 lblActiveSkillsBP.Text = String.Format("{0} " + strPoints, intPointsUsed.ToString());
                 intFreestyleBP += intPointsUsed;
+            }
+            // Calculate the BP used by Knowledge Skills.
+            int intPointsInKnowledgeSkills = 0;
+            intPointsUsed = 0;
+            int intSpecCount = 0;
+            foreach (SkillControl objSkillControl in panKnowledgeSkills.Controls)
+            {
+                // Add the current Skill's SkillRating to the counter.
+                intPointsInKnowledgeSkills += objSkillControl.SkillRating;
 
-                // Calculate the BP used by Knowledge Skills.
-                int intPointsInKnowledgeSkills = 0;
-                intPointsUsed = 0;
-                int intSpecCount = 0;
-                foreach (SkillControl objSkillControl in panKnowledgeSkills.Controls)
-                {
-                    // Add the current Skill's SkillRating to the counter.
+                // The cost is double if the character is Uneducated and is an Academic or Professional Skill.
+                if (_objCharacter.Uneducated && (objSkillControl.SkillCategory == "Academic" || objSkillControl.SkillCategory == "Professional"))
                     intPointsInKnowledgeSkills += objSkillControl.SkillRating;
 
-                    // The cost is double if the character is Uneducated and is an Academic or Professional Skill.
-                    if (_objCharacter.Uneducated && (objSkillControl.SkillCategory == "Academic" || objSkillControl.SkillCategory == "Professional"))
-                        intPointsInKnowledgeSkills += objSkillControl.SkillRating;
+                // The Linguistics Adept Power gives 1 free point in Languages.
+                if (_objImprovementManager.ValueOf(Improvement.ImprovementType.AdeptLinguistics) > 0 && objSkillControl.SkillCategory == "Language" && objSkillControl.SkillRating > 0)
+                    intPointsInKnowledgeSkills--;
 
-                    // The Linguistics Adept Power gives 1 free point in Languages.
-                    if (_objImprovementManager.ValueOf(Improvement.ImprovementType.AdeptLinguistics) > 0 && objSkillControl.SkillCategory == "Language" && objSkillControl.SkillRating > 0)
-                        intPointsInKnowledgeSkills--;
-
-                    if (objSkillControl.SkillSpec.Trim() != string.Empty)
-                    {
-                        if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
-                            intPointsInKnowledgeSkills++;
-                        else
-                            intPointsInKnowledgeSkills += _objOptions.KarmaSpecialization;
-                        intSpecCount++;
-                    }
-                }
-
-                // Specializations do not count towards free Knowledge Skills in Karma Build mode.
-                if (_objCharacter.BuildMethod == CharacterBuildMethod.Karma && _objOptions.FreeKarmaKnowledge)
-                    intPointsInKnowledgeSkills -= (intSpecCount * _objOptions.KarmaSpecialization);
-
-                // If the number of points in Knowledge Skills exceeds the free amount, the remaining amount is deducted from BP.
-                if (intPointsInKnowledgeSkills > _objCharacter.KnowledgeSkillPoints)
+                if (objSkillControl.SkillSpec.Trim() != string.Empty)
                 {
-                    // Working with Karma is different. Go through all of the Knowledge Skills and calculate their costs individually.
-                    foreach (SkillControl objSkillControl in panKnowledgeSkills.Controls)
+                    if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
+                        intPointsInKnowledgeSkills++;
+                    else
+                        intPointsInKnowledgeSkills += _objOptions.KarmaSpecialization;
+                    intSpecCount++;
+                }
+            }
+
+            // Specializations do not count towards free Knowledge Skills in Karma Build mode.
+            if (_objCharacter.BuildMethod == CharacterBuildMethod.Karma && _objOptions.FreeKarmaKnowledge)
+                intPointsInKnowledgeSkills -= (intSpecCount * _objOptions.KarmaSpecialization);
+
+            // If the number of points in Knowledge Skills exceeds the free amount, the remaining amount is deducted from BP.
+            if (intPointsInKnowledgeSkills > _objCharacter.KnowledgeSkillPoints)
+            {
+                // Working with Karma is different. Go through all of the Knowledge Skills and calculate their costs individually.
+                foreach (SkillControl objSkillControl in panKnowledgeSkills.Controls)
+                {
+                    // The first point in a Knowledge Skill costs KarmaNewKnowledgeSkill.
+                    // Each additional beyond 1 costs i x KarmaImproveKnowledgeSkill.
+                    if (objSkillControl.SkillRating > 0)
                     {
-                        // The first point in a Knowledge Skill costs KarmaNewKnowledgeSkill.
-                        // Each additional beyond 1 costs i x KarmaImproveKnowledgeSkill.
-                        if (objSkillControl.SkillRating > 0)
+                        // Adepts with the Linguist Power get the first point of a Language for free.
+                        if (!(_objImprovementManager.ValueOf(Improvement.ImprovementType.AdeptLinguistics) > 0 && objSkillControl.SkillCategory == "Language" && objSkillControl.SkillRating > 0))
                         {
-                            // Adepts with the Linguist Power get the first point of a Language for free.
-                            if (!(_objImprovementManager.ValueOf(Improvement.ImprovementType.AdeptLinguistics) > 0 && objSkillControl.SkillCategory == "Language" && objSkillControl.SkillRating > 0))
-                            {
-                                intPointsRemain -= _objOptions.KarmaNewKnowledgeSkill;
-                                intPointsUsed += _objOptions.KarmaNewKnowledgeSkill;
-                            }
-                            for (int i = 2; i <= objSkillControl.SkillRating; i++)
-                            {
-                                intPointsRemain -= i * _objOptions.KarmaImproveKnowledgeSkill;
-                                intPointsUsed += i * _objOptions.KarmaImproveKnowledgeSkill;
-                            }
-                            if (objSkillControl.SkillSpec.Trim() != string.Empty)
-                            {
-                                intPointsRemain -= _objOptions.KarmaSpecialization;
-                                intPointsUsed += _objOptions.KarmaSpecialization;
-                            }
+                            intPointsRemain -= _objOptions.KarmaNewKnowledgeSkill;
+                            intPointsUsed += _objOptions.KarmaNewKnowledgeSkill;
+                        }
+                        for (int i = 2; i <= objSkillControl.SkillRating; i++)
+                        {
+                            intPointsRemain -= i * _objOptions.KarmaImproveKnowledgeSkill;
+                            intPointsUsed += i * _objOptions.KarmaImproveKnowledgeSkill;
+                        }
+                        if (objSkillControl.SkillSpec.Trim() != string.Empty)
+                        {
+                            intPointsRemain -= _objOptions.KarmaSpecialization;
+                            intPointsUsed += _objOptions.KarmaSpecialization;
                         }
                     }
-
-                    if (_objCharacter.BuildMethod == CharacterBuildMethod.Karma && _objOptions.FreeKarmaKnowledge)
-                    {
-                        // Working with Karma and free Knowledge Skills.
-                        int intKnowledgePointsUsed = intPointsInKnowledgeSkills;
-                        if (intKnowledgePointsUsed > _objCharacter.KnowledgeSkillPoints)
-                            intKnowledgePointsUsed = _objCharacter.KnowledgeSkillPoints;
-
-                        // Go back through the controls and start adjusting costs for free points.
-                        int intRating = 0;
-                        do
-                        {
-                            intRating++;
-                            foreach (SkillControl objSkillControl in panKnowledgeSkills.Controls)
-                            {
-                                if (intRating <= objSkillControl.SkillRating)
-                                {
-                                    intKnowledgePointsUsed--;
-                                    if (intRating == 1)
-                                    {
-                                        intPointsRemain += _objOptions.KarmaNewKnowledgeSkill;
-                                        intPointsUsed -= _objOptions.KarmaNewKnowledgeSkill;
-                                    }
-                                    else
-                                    {
-                                        intPointsRemain += intRating * _objOptions.KarmaImproveKnowledgeSkill;
-                                        intPointsUsed -= intRating * _objOptions.KarmaImproveKnowledgeSkill;
-                                    }
-                                    if (intKnowledgePointsUsed == 0)
-                                        break;
-                                }
-                            }
-                        } while (intKnowledgePointsUsed > 0);
-                    }
-                    // Update the label that displays the number of free Knowledge Skill points remaining.
-                    lblKnowledgeSkillPoints.Text = String.Format("0 " + LanguageManager.Instance.GetString("String_Of") + " {0}", _objCharacter.KnowledgeSkillPoints.ToString());
-                    lblPBuildKnowledgeSkills.Text = String.Format("0 " + LanguageManager.Instance.GetString("String_Of") + " {0}", _objCharacter.KnowledgeSkillPoints.ToString());
                 }
-                else
+
+                if ((_objCharacter.BuildMethod == CharacterBuildMethod.Karma && _objOptions.FreeKarmaKnowledge) || _objCharacter.BuildMethod == CharacterBuildMethod.Priority)
                 {
-                    // Update the label that displays the number of free Knowledge Skill points remaining.
-                    lblKnowledgeSkillPoints.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.KnowledgeSkillPoints - intPointsInKnowledgeSkills).ToString(), _objCharacter.KnowledgeSkillPoints.ToString());
-                    lblPBuildKnowledgeSkills.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.KnowledgeSkillPoints - intPointsInKnowledgeSkills).ToString(), _objCharacter.KnowledgeSkillPoints.ToString());
+                    // Working with Karma and free Knowledge Skills.
+                    int intKnowledgePointsUsed = intPointsInKnowledgeSkills;
+                    if (intKnowledgePointsUsed > _objCharacter.KnowledgeSkillPoints)
+                        intKnowledgePointsUsed = _objCharacter.KnowledgeSkillPoints;
+
+                    // Go back through the controls and start adjusting costs for free points.
+                    int intRating = 0;
+                    do
+                    {
+                        intRating++;
+                        foreach (SkillControl objSkillControl in panKnowledgeSkills.Controls)
+                        {
+                            if (intRating <= objSkillControl.SkillRating)
+                            {
+                                intKnowledgePointsUsed--;
+                                if (intRating == 1)
+                                {
+                                    intPointsRemain += _objOptions.KarmaNewKnowledgeSkill;
+                                    intPointsUsed -= _objOptions.KarmaNewKnowledgeSkill;
+                                }
+                                else
+                                {
+                                    intPointsRemain += intRating * _objOptions.KarmaImproveKnowledgeSkill;
+                                    intPointsUsed -= intRating * _objOptions.KarmaImproveKnowledgeSkill;
+                                }
+                                if (intKnowledgePointsUsed == 0)
+                                    break;
+                            }
+                        }
+                    } while (intKnowledgePointsUsed > 0);
                 }
-                lblKnowledgeSkillsBP.Text = String.Format("{0} " + strPoints, intPointsUsed.ToString());
-                intFreestyleBP += intPointsUsed;
+                // Update the label that displays the number of free Knowledge Skill points remaining.
+                lblKnowledgeSkillPoints.Text = String.Format("0 " + LanguageManager.Instance.GetString("String_Of") + " {0}", _objCharacter.KnowledgeSkillPoints.ToString());
+                lblPBuildKnowledgeSkills.Text = String.Format("0 " + LanguageManager.Instance.GetString("String_Of") + " {0}", _objCharacter.KnowledgeSkillPoints.ToString());
             }
+            else
+            {
+                // Update the label that displays the number of free Knowledge Skill points remaining.
+                lblKnowledgeSkillPoints.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.KnowledgeSkillPoints - intPointsInKnowledgeSkills).ToString(), _objCharacter.KnowledgeSkillPoints.ToString());
+                lblPBuildKnowledgeSkills.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.KnowledgeSkillPoints - intPointsInKnowledgeSkills).ToString(), _objCharacter.KnowledgeSkillPoints.ToString());
+            }
+            lblKnowledgeSkillsBP.Text = String.Format("{0} " + strPoints, intPointsUsed.ToString());
+            intFreestyleBP += intPointsUsed;
 
 			// Calculate the BP used by Resources/Nuyen.
 			intPointsRemain -= (int)nudNuyen.Value;
@@ -15371,8 +15384,8 @@ namespace Chummer
 				}
 
 				// Each spell costs KarmaSpell.
-				intPointsRemain -= intSpellCount * _objOptions.KarmaSpell;
-				intPointsUsed += intSpellCount * _objOptions.KarmaSpell;
+                intPointsRemain -= Math.Max(0, intSpellCount - _objCharacter.SpellLimit) * _objOptions.KarmaSpell;
+                intPointsUsed += Math.Max(0, intSpellCount - _objCharacter.SpellLimit) * _objOptions.KarmaSpell;
 				tipTooltip.SetToolTip(lblSpellsBP, intSpellCount.ToString() + " x " + _objOptions.KarmaSpell + " " + LanguageManager.Instance.GetString("String_Karma") + " = " + intPointsUsed.ToString() + " " + LanguageManager.Instance.GetString("String_Karma"));
 			}
 			lblSpellsBP.Text = String.Format("{0} " + strPoints, intPointsUsed.ToString());
@@ -15387,11 +15400,14 @@ namespace Chummer
 				int intPosition = strFocusName.IndexOf("(");
 				if (intPosition > -1)
 					strFocusName = strFocusName.Substring(0, intPosition - 1);
-				int intKarmaMultiplier = 0;
+                intPosition = strFocusName.IndexOf(",");
+                if (intPosition > -1)
+                    strFocusName = strFocusName.Substring(0, intPosition);
+                int intKarmaMultiplier = 0;
 				switch (strFocusName)
 				{
-					case "Symbolic Link Focus":
-						intKarmaMultiplier = _objOptions.KarmaSymbolicLinkFocus;
+					case "Qi Focus":
+						intKarmaMultiplier = _objOptions.KarmaQiFocus;
 						break;
 					case "Sustaining Focus":
 						intKarmaMultiplier = _objOptions.KarmaSustainingFocus;
@@ -15411,11 +15427,17 @@ namespace Chummer
 					case "Spellcasting Focus":
 						intKarmaMultiplier = _objOptions.KarmaSpellcastingFocus;
 						break;
-					case "Summoning Focus":
+                    case "Ritual Spellcasting Focus":
+                        intKarmaMultiplier = _objOptions.KarmaRitualSpellcastingFocus;
+                        break;
+                    case "Spell Shaping Focus":
+                        intKarmaMultiplier = _objOptions.KarmaSpellShapingFocus;
+                        break;
+                    case "Summoning Focus":
 						intKarmaMultiplier = _objOptions.KarmaSummoningFocus;
 						break;
-					case "Anchoring Focus":
-						intKarmaMultiplier = _objOptions.KarmaAnchoringFocus;
+					case "Alchemical Focus":
+						intKarmaMultiplier = _objOptions.KarmaAlchemicalFocus;
 						break;
 					case "Centering Focus":
 						intKarmaMultiplier = _objOptions.KarmaCenteringFocus;
@@ -15423,20 +15445,14 @@ namespace Chummer
 					case "Masking Focus":
 						intKarmaMultiplier = _objOptions.KarmaMaskingFocus;
 						break;
-					case "Shielding Focus":
-						intKarmaMultiplier = _objOptions.KarmaShieldingFocus;
+					case "Disenchanting Focus":
+                        intKarmaMultiplier = _objOptions.KarmaDisenchantingFocus;
 						break;
 					case "Power Focus":
 						intKarmaMultiplier = _objOptions.KarmaPowerFocus;
 						break;
-					case "Divining Focus":
-						intKarmaMultiplier = _objOptions.KarmaDiviningFocus;
-						break;
-					case "Dowsing Focus":
-						intKarmaMultiplier = _objOptions.KarmaDowsingFocus;
-						break;
-					case "Infusion Focus":
-						intKarmaMultiplier = _objOptions.KarmaInfusionFocus;
+					case "Flexible Signature Focus":
+						intKarmaMultiplier = _objOptions.KarmaFlexibleSignatureFocus;
 						break;
 					default:
 						intKarmaMultiplier = 1;
@@ -15661,26 +15677,43 @@ namespace Chummer
 					objSkillControl.SkillRatingMaximum = objSkillControl.SkillObject.RatingMaximum;
 					objSkillControl.RefreshControl();
                     if (!objSkillControl.IsGrouped)
-                        intSkills += objSkillControl.SkillRating;
+                        intSkills += objSkillControl.SkillRating - objSkillControl.SkillRatingMinimum;
                 }
                 _objCharacter.SkillPoints = _objCharacter.SkillPointsMaximum - intSkills;
-                lblPBuildActiveSkills.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", _objCharacter.SkillPoints.ToString(), _objCharacter.SkillPointsMaximum.ToString());
+                if (_objCharacter.SkillPoints < 0)
+                    lblPBuildActiveSkills.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (0).ToString(), _objCharacter.SkillPointsMaximum.ToString());
+                else
+                    lblPBuildActiveSkills.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", _objCharacter.SkillPoints.ToString(), _objCharacter.SkillPointsMaximum.ToString());
 
 				// Update the character's Knowledge Skill information.
+                intSkills = 0;
 				foreach (SkillControl objSkillControl in panKnowledgeSkills.Controls)
 				{
+                    intSkills += objSkillControl.SkillRating;
 					objSkillControl.SkillRatingMaximum = objSkillControl.SkillObject.RatingMaximum;
 					objSkillControl.RefreshControl();
 				}
+                if (_objCharacter.KnowledgeSkillPoints - intSkills < 0)
+                    lblPBuildKnowledgeSkills.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (0).ToString(), _objCharacter.KnowledgeSkillPoints.ToString());
+                else
+                    lblPBuildKnowledgeSkills.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.KnowledgeSkillPoints - intSkills).ToString(), _objCharacter.KnowledgeSkillPoints.ToString());
 
                 // Update the character's skill group information.
                 int intSkillGroups = 0;
                 foreach (SkillGroupControl objSkillGroupControl in panSkillGroups.Controls)
                 {
-                    intSkillGroups += objSkillGroupControl.GroupRating;
+                    intSkillGroups += objSkillGroupControl.GroupRating - objSkillGroupControl.GroupRatingMinimum;
                 }
-                _objCharacter.SkillGroupPoints = _objCharacter.SkillGroupPointsMaximum - intSkillGroups;
-                lblPBuildSkillGroups.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", _objCharacter.SkillGroupPoints.ToString(), _objCharacter.SkillGroupPointsMaximum.ToString());
+                if (intSkillGroups > _objCharacter.SkillGroupPoints)
+                {
+                    lblPBuildSkillGroups.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (0).ToString(), _objCharacter.SkillGroupPointsMaximum.ToString());
+                    _objCharacter.SkillGroupPoints = 0;
+                }
+                else
+                {
+                    lblPBuildSkillGroups.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", _objCharacter.SkillGroupPoints.ToString(), _objCharacter.SkillGroupPointsMaximum.ToString());
+                    _objCharacter.SkillGroupPoints = _objCharacter.SkillGroupPointsMaximum - intSkillGroups;
+                }
 
 				// Condition Monitor.
 				double dblBOD = _objCharacter.BOD.TotalValue;
@@ -15723,8 +15756,11 @@ namespace Chummer
 				else
 					nudNuyen.Maximum = 100000;
 
-				int intNuyen;
-				intNuyen = Convert.ToInt32(nudNuyen.Value) * _objOptions.KarmaNuyenPer;
+				int intNuyen = 0;
+                if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
+                    intNuyen = _objCharacter.StartingNuyen;
+
+				intNuyen += Convert.ToInt32(nudNuyen.Value) * _objOptions.KarmaNuyenPer;
 				intNuyen += Convert.ToInt32(_objImprovementManager.ValueOf(Improvement.ImprovementType.Nuyen));
 
 				lblNuyenTotal.Text = String.Format("= {0:###,###,##0¥}", intNuyen);
@@ -16333,11 +16369,11 @@ namespace Chummer
 		/// </summary>
 		private int CalculateNuyen()
 		{
-			int intNuyen;
+			int intNuyen = 0;
             if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
                 intNuyen = _objCharacter.StartingNuyen;
-			else
-				intNuyen = Convert.ToInt32(nudNuyen.Value) * _objOptions.KarmaNuyenPer;
+
+            intNuyen += Convert.ToInt32(nudNuyen.Value) * _objOptions.KarmaNuyenPer;
 			intNuyen += Convert.ToInt32(_objImprovementManager.ValueOf(Improvement.ImprovementType.Nuyen));
 
 			int intDeductions = 0;
