@@ -14,6 +14,7 @@ namespace Chummer
 		private SkillGroup _objSkillGroup;
 		private readonly bool _blnCareer = false;
 		private bool _blnIsEnabled = true;
+        private int _intWorkingRating = 0;
 
         // GroupRatingChanged Event.
         public event GroupRatingChangedHandler GroupRatingChanged;
@@ -122,6 +123,32 @@ namespace Chummer
 				}
 				strTooltip = strTooltip.Substring(0, strTooltip.Length - 2);
 				tipTooltip.SetToolTip(txtGroupName, strTooltip);
+            }
+        }
+
+        /// <summary>
+        /// Minimum Group Rating from Free Levels granted by Priority selection
+        /// </summary>
+        public int GroupRatingMinimum
+        {
+            get
+            {
+                return _objSkillGroup.FreeLevels;
+            }
+        }
+
+        /// <summary>
+        /// Working rating used when evaluating skill group costs
+        /// </summary>
+        public int GroupWorkingRating
+        {
+            get
+            {
+                return _intWorkingRating;
+            }
+            set
+            {
+                _intWorkingRating = value;
             }
         }
 
@@ -306,5 +333,15 @@ namespace Chummer
 			}
 		}
 		#endregion
+
+        #region Methods
+        /// <summary>
+        /// Resets the working rating used when calculating karma costs of skill groups
+        /// </summary>
+        public void ResetWorkingRating()
+        {
+            _intWorkingRating = _objSkillGroup.Rating;
+        }
+        #endregion
     }
 }

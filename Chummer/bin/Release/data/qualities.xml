@@ -9,7 +9,6 @@
 		<quality>
 			<name>Ambidextrous</name>
 			<karma>4</karma>
-			<limit>no</limit>
 			<category>Positive</category>
 			<bonus />
 			<source>SR5</source>
@@ -162,7 +161,7 @@
 			<category>Positive</category>
 			<bonus>
 				<conditionmonitor>
-					<thresholdoffset precedence="0">rating</thresholdoffset>
+					<thresholdoffset precedence="0">Rating</thresholdoffset>
 				</conditionmonitor>
 			</bonus>
 			<source>SR5</source>
@@ -175,8 +174,8 @@
 			<bonus>
 				<selecttext />
 			</bonus>
-			<source>SR4</source>
-			<page>91</page>
+			<source>SR5</source>
+			<page>74</page>
 		</quality>
 		<quality>
 			<name>Human-Looking</name>
@@ -1212,6 +1211,32 @@
 			<bonus />
 			<source>RG</source>
 			<page>169</page>
+		</quality>
+		<quality>
+			<name>Uneducated</name>
+			<karma>-8</karma>
+			<category>Negative</category>
+			<bonus>
+				<uneducated />
+			</bonus>
+			<source>SR5</source>
+			<page>87</page>
+		</quality>
+		<quality>
+			<name>Unsteady Hands</name>
+			<karma>-7</karma>
+			<category>Negative</category>
+			<bonus />
+			<source>SR5</source>
+			<page>87</page>
+		</quality>
+		<quality>
+			<name>Weak Immune System</name>
+			<karma>-10</karma>
+			<category>Negative</category>
+			<bonus />
+			<source>SR5</source>
+			<page>87</page>
 		</quality>
 	</qualities>
 </chummer>

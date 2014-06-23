@@ -427,22 +427,22 @@ namespace Chummer
             _objOptions.UseContactPoints = chkContactPoints.Checked;
 
 			// Foci options.
-			_objOptions.KarmaAnchoringFocus = Convert.ToInt32(nudKarmaAnchoringFocus.Value);
-			_objOptions.KarmaBanishingFocus = Convert.ToInt32(nudKarmaBanishingFocus.Value);
-			_objOptions.KarmaBindingFocus = Convert.ToInt32(nudKarmaBindingFocus.Value);
-			_objOptions.KarmaCenteringFocus = Convert.ToInt32(nudKarmaCenteringFocus.Value);
-			_objOptions.KarmaCounterspellingFocus = Convert.ToInt32(nudKarmaCounterspellingFocus.Value);
-			_objOptions.KarmaDiviningFocus = Convert.ToInt32(nudKarmaDiviningFocus.Value);
-			_objOptions.KarmaDowsingFocus = Convert.ToInt32(nudKarmaDowsingFocus.Value);
-			_objOptions.KarmaInfusionFocus = Convert.ToInt32(nudKarmaInfusionFocus.Value);
-			_objOptions.KarmaMaskingFocus = Convert.ToInt32(nudKarmaMaskingFocus.Value);
-			_objOptions.KarmaPowerFocus = Convert.ToInt32(nudKarmaPowerFocus.Value);
-			_objOptions.KarmaShieldingFocus = Convert.ToInt32(nudKarmaShieldingFocus.Value);
-			_objOptions.KarmaSpellcastingFocus = Convert.ToInt32(nudKarmaSpellcastingFocus.Value);
-			_objOptions.KarmaSummoningFocus = Convert.ToInt32(nudKarmaSummoningFocus.Value);
-			_objOptions.KarmaSustainingFocus = Convert.ToInt32(nudKarmaSustainingFocus.Value);
-			_objOptions.KarmaSymbolicLinkFocus = Convert.ToInt32(nudKarmaSymbolicLinkFocus.Value);
-			_objOptions.KarmaWeaponFocus = Convert.ToInt32(nudKarmaWeaponFocus.Value);
+            //_objOptions.KarmaAlchemicalFocus = Convert.ToInt32(nudKarmaAnchoringFocus.Value);
+            //_objOptions.KarmaBanishingFocus = Convert.ToInt32(nudKarmaBanishingFocus.Value);
+            //_objOptions.KarmaBindingFocus = Convert.ToInt32(nudKarmaBindingFocus.Value);
+            //_objOptions.KarmaCenteringFocus = Convert.ToInt32(nudKarmaCenteringFocus.Value);
+            //_objOptions.KarmaCounterspellingFocus = Convert.ToInt32(nudKarmaCounterspellingFocus.Value);
+            //_objOptions.KarmaDiviningFocus = Convert.ToInt32(nudKarmaDiviningFocus.Value);
+            //_objOptions.KarmaDowsingFocus = Convert.ToInt32(nudKarmaDowsingFocus.Value);
+            //_objOptions.KarmaInfusionFocus = Convert.ToInt32(nudKarmaInfusionFocus.Value);
+            //_objOptions.KarmaMaskingFocus = Convert.ToInt32(nudKarmaMaskingFocus.Value);
+            //_objOptions.KarmaPowerFocus = Convert.ToInt32(nudKarmaPowerFocus.Value);
+            //_objOptions.KarmaShieldingFocus = Convert.ToInt32(nudKarmaShieldingFocus.Value);
+            //_objOptions.KarmaSpellcastingFocus = Convert.ToInt32(nudKarmaSpellcastingFocus.Value);
+            //_objOptions.KarmaSummoningFocus = Convert.ToInt32(nudKarmaSummoningFocus.Value);
+            //_objOptions.KarmaSustainingFocus = Convert.ToInt32(nudKarmaSustainingFocus.Value);
+            //_objOptions.KarmaSymbolicLinkFocus = Convert.ToInt32(nudKarmaSymbolicLinkFocus.Value);
+            //_objOptions.KarmaWeaponFocus = Convert.ToInt32(nudKarmaWeaponFocus.Value);
 
 			// Build method options.
 			_objOptions.BuildMethod = cboBuildMethod.SelectedValue.ToString();
@@ -1562,22 +1562,22 @@ namespace Chummer
 			nudKarmaJoinGroup.Value = _objOptions.KarmaJoinGroup;
 			nudKarmaLeaveGroup.Value = _objOptions.KarmaLeaveGroup;
 
-			nudKarmaAnchoringFocus.Value = _objOptions.KarmaAnchoringFocus;
-			nudKarmaBanishingFocus.Value = _objOptions.KarmaBanishingFocus;
-			nudKarmaBindingFocus.Value = _objOptions.KarmaBindingFocus;
-			nudKarmaCenteringFocus.Value = _objOptions.KarmaCenteringFocus;
-			nudKarmaCounterspellingFocus.Value = _objOptions.KarmaCounterspellingFocus;
-			nudKarmaDiviningFocus.Value = _objOptions.KarmaDiviningFocus;
-			nudKarmaDowsingFocus.Value = _objOptions.KarmaDowsingFocus;
-			nudKarmaInfusionFocus.Value = _objOptions.KarmaInfusionFocus;
-			nudKarmaMaskingFocus.Value = _objOptions.KarmaMaskingFocus;
-			nudKarmaPowerFocus.Value = _objOptions.KarmaPowerFocus;
-			nudKarmaShieldingFocus.Value = _objOptions.KarmaShieldingFocus;
-			nudKarmaSpellcastingFocus.Value = _objOptions.KarmaSpellcastingFocus;
-			nudKarmaSummoningFocus.Value = _objOptions.KarmaSummoningFocus;
-			nudKarmaSustainingFocus.Value = _objOptions.KarmaSustainingFocus;
-			nudKarmaSymbolicLinkFocus.Value = _objOptions.KarmaSymbolicLinkFocus;
-			nudKarmaWeaponFocus.Value = _objOptions.KarmaWeaponFocus;
+            //nudKarmaAnchoringFocus.Value = _objOptions.KarmaAnchoringFocus;
+            //nudKarmaBanishingFocus.Value = _objOptions.KarmaBanishingFocus;
+            //nudKarmaBindingFocus.Value = _objOptions.KarmaBindingFocus;
+            //nudKarmaCenteringFocus.Value = _objOptions.KarmaCenteringFocus;
+            //nudKarmaCounterspellingFocus.Value = _objOptions.KarmaCounterspellingFocus;
+            //nudKarmaDiviningFocus.Value = _objOptions.KarmaDiviningFocus;
+            //nudKarmaDowsingFocus.Value = _objOptions.KarmaDowsingFocus;
+            //nudKarmaInfusionFocus.Value = _objOptions.KarmaInfusionFocus;
+            //nudKarmaMaskingFocus.Value = _objOptions.KarmaMaskingFocus;
+            //nudKarmaPowerFocus.Value = _objOptions.KarmaPowerFocus;
+            //nudKarmaShieldingFocus.Value = _objOptions.KarmaShieldingFocus;
+            //nudKarmaSpellcastingFocus.Value = _objOptions.KarmaSpellcastingFocus;
+            //nudKarmaSummoningFocus.Value = _objOptions.KarmaSummoningFocus;
+            //nudKarmaSustainingFocus.Value = _objOptions.KarmaSustainingFocus;
+            //nudKarmaSymbolicLinkFocus.Value = _objOptions.KarmaSymbolicLinkFocus;
+            //nudKarmaWeaponFocus.Value = _objOptions.KarmaWeaponFocus;
 
 			// Load default build method info.
 			cboBuildMethod.SelectedValue = _objOptions.BuildMethod;
@@ -1606,7 +1606,7 @@ namespace Chummer
 			GlobalOptions.Instance.DatesIncludeTime = chkDatesIncludeTime.Checked;
 			GlobalOptions.Instance.PrintToFileFirst = chkPrintToFileFirst.Checked;
 			GlobalOptions.Instance.PDFAppPath = txtPDFAppPath.Text;
-			RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer");
+			RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer5");
 			objRegistry.SetValue("autoupdate", chkAutomaticUpdate.Checked.ToString());
 			objRegistry.SetValue("localisedupdatesonly", chkLocalisedUpdatesOnly.Checked.ToString());
 			objRegistry.SetValue("language", cboLanguage.SelectedValue.ToString());
@@ -1619,7 +1619,7 @@ namespace Chummer
 			objRegistry.SetValue("pdfapppath", txtPDFAppPath.Text);
 
 			// Save the SourcebookInfo.
-			RegistryKey objSourceRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer\\Sourcebook");
+			RegistryKey objSourceRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer5\\Sourcebook");
 			foreach (SourcebookInfo objSource in GlobalOptions.Instance.SourcebookInfo)
 				objSourceRegistry.SetValue(objSource.Code, objSource.Path + "|" + objSource.Offset.ToString());
 		}

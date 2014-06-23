@@ -32,6 +32,7 @@ namespace Chummer
 
 		private string _strOldSpec = "";
 		private bool _blnSkipRefresh = false;
+        private int _intWorkingRating = 0;
 
 		#region Control Events
 		public SkillControl()
@@ -329,6 +330,32 @@ namespace Chummer
         }
 
         /// <summary>
+        /// Minimum Rating from Free Levels granted by Priority selection
+        /// </summary>
+        public int SkillRatingMinimum
+        {
+            get
+            {
+                return _objSkill.FreeLevels;
+            }
+        }
+
+        /// <summary>
+        /// Minimum Rating from Free Levels granted by Priority selection
+        /// </summary>
+        public int WorkingRating
+        {
+            get
+            {
+                return _intWorkingRating;
+            }
+            set
+            {
+                _intWorkingRating = value;
+            }
+        }
+
+        /// <summary>
         /// Maximum Skill Rating.
         /// </summary>
         public int SkillRatingMaximum
@@ -562,6 +589,14 @@ namespace Chummer
         public void AddSpec(string strSpec)
         {
             cboSpec.Items.Add(strSpec);
+        }
+
+        /// <summary>
+        /// Resets the working rating used when calculating karma costs of skill groups
+        /// </summary>
+        public void ResetWorkingRating()
+        {
+            _intWorkingRating = _objSkill.Rating;
         }
 
 		/// <summary>

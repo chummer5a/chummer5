@@ -65,7 +65,7 @@ namespace Chummer
             {
                 _objCharacter.BuildPoints = 0;
                 _objCharacter.BuildKarma = Convert.ToInt32(nudBP.Value);
-                _objCharacter.NuyenMaximumBP = 100;
+                _objCharacter.NuyenMaximumBP = 10;
                 _objCharacter.BuildMethod = CharacterBuildMethod.Priority;
             }
             _objCharacter.IgnoreRules = chkIgnoreRules.Checked;

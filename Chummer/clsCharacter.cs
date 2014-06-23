@@ -333,7 +333,11 @@ namespace Chummer
             // <special />
             objWriter.WriteElementString("special", _intKarma.ToString());
             // <totalspecial />
-            objWriter.WriteElementString("totalspecial", _intTotalKarma.ToString());
+            objWriter.WriteElementString("totalspecial", _intTotalSpecial.ToString());
+            // <totalattributes />
+            objWriter.WriteElementString("totalattributes", _intTotalAttributes.ToString());
+            // <contactpoints />
+            objWriter.WriteElementString("contactpoints", _intContactPoints.ToString());
             // <spelllimit />
             objWriter.WriteElementString("spelllimit", _intSpellLimit.ToString());
             // <cfplimit />
@@ -1025,6 +1029,13 @@ namespace Chummer
             try
             {
                 _intTotalAttributes = Convert.ToInt32(objXmlCharacter["totalattributes"].InnerText);
+            }
+            catch
+            {
+            }
+            try
+            {
+                _intContactPoints= Convert.ToInt32(objXmlCharacter["contactpoints"].InnerText);
             }
             catch
             {
@@ -5427,7 +5438,7 @@ namespace Chummer
 						objXmlDocument = XmlManager.Instance.Load("metatypes.xml");
 					try
 					{
-						_strMovement = objXmlDocument.SelectSingleNode("/chummer/metatypes/metatype[name = \"" + _strMetatype + "\"]")["movement"].InnerText;
+                        _strMovement = "0"; // objXmlDocument.SelectSingleNode("/chummer/metatypes/metatype[name = \"" + _strMetatype + "\"]")["movement"].InnerText;
 
                         try
                         {

@@ -1,4 +1,26 @@
-Build 5.102
+Build 5.103 (alpha)
+- Moved registry settings for Chummer to a new Chummer5 key to better support side-by-side installation.
+- Now calculates karma cost when overspending on Primary Attributes and auto-calculates the cheapest option.
+- Now calculates karma cost when overspending on Special Attributes and auto-calculates the cheapest option.
+- Now allows purchasing Nuyen for Karma at a rate of 2000 Nuyen per Karma, max 10.
+- Fixed karma cost calculation when getting free skill ratings from the character's talent priority selection.
+- Fixed karma costs for spirits.
+- Fixed karma costs for contacts including free contact points from CHA.
+- Fixed karma costs for bound foci.
+- Now charges karma correctly both when selecting spells provided by your talent selection and when purchasing extra spells.
+- Fixed karma costs for skill groups when buying more than your priority selection grants.
+- Fixed karma costs for skills when buying more than your priority selection grants.
+- Fixed karma costs for knowledge skills when buying more than your attributes grant. This uses the original code for calculating these costs which forces the player to pay for the most expensive points rather than what might be the most optimal.  As an example, if you have two knowledge skills named A and B and have 6 free knowledge skill points. If you set A at a value of 4 and B at 3, you'll use your 6 free points to raise them each to three and then pay karma to raise A to 4 costing you 4 karma. The optimal path would raise A to 4, B to 2, and then pay karma to raise B to 3 costing you 3 karma.  I've coded everything else (active skills, skill groups, and both primary and special attributes) to use the optimal path for paying karma for items raised beyond what your priorities provide for and wonder if it might be the right thing to do that here as well.
+- Fixed character loading so that it loads the total available primary and special attributes per priority selection.
+- Now ignores armor encumbrance (was a holdover from 4th edition).
+- Fixed an issue where gear standard to a piece of armor wasn't showing up.
+- Added the missing Home Ground positive quality.
+- Added the missing Uneducated, Unsteady Hands, and Weak Immune System negative qualities.
+- Fixed an error with the High Pain Tolerance positive quality.
+- Removed the ability to add the Ambidextrous positive quality multiple times (this was a holdover from 4th edition where there was the ability to have more than 2 arms).
+- Fixed the suprathyroid bioware so that it doesn't cause an error. There is a remaining issue where it isn't updating the lifestyle cost accordingly. This will be fixed in a future release.
+
+Build 5.102 (alpha)
 - Added bonus skills during priority selection that are based on the character's talent priority selection.
 - Made a change which now auto-selects the first available metatype on the list when selecting metatype
 - Fixed the broken weapon accessories that was causing UI errors
@@ -15,7 +37,7 @@ Build 5.102
 - Fixed an issue allowing Low-Light Vision and Thermographic Vision to be selectable qualities.
 - Fixed an issue which allowed armor enhancements which should not be user-selectable to show up in the armor mod dialog.
 
-Build 5.101
+Build 5.101 (alpha)
 - Chummer5 alpha initial release
 
 Build 490

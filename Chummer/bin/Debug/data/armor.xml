@@ -356,7 +356,7 @@
 			<avail>6</avail>
 			<cost>1300</cost>
 			<gears>
-				<gear>Holster</gear>
+				<usegear>Holster</usegear>
 			</gears>
 			<source>RG</source>
 			<page>58</page>
@@ -398,7 +398,7 @@
 			<avail>6</avail>
 			<cost>1000</cost>
 			<gears>
-				<gear>Holster</gear>
+				<usegear>Holster</usegear>
 			</gears>
 			<source>RG</source>
 			<page>58</page>
@@ -411,7 +411,7 @@
 			<avail>6</avail>
 			<cost>1000</cost>
 			<gears>
-				<gear>Holster</gear>
+				<usegear>Holster</usegear>
 			</gears>
 			<source>RG</source>
 			<page>58</page>
@@ -424,7 +424,7 @@
 			<avail>6</avail>
 			<cost>1000</cost>
 			<gears>
-				<gear>Holster</gear>
+				<usegear>Holster</usegear>
 			</gears>
 			<source>RG</source>
 			<page>58</page>
@@ -472,7 +472,7 @@
 				<name>Custom Fit</name>
 			</mods>
 			<gears>
-				<gear>Concealable Holster</gear>
+				<usegear>Concealable Holster</usegear>
 			</gears>
 			<bonus>
 				<limitmodifier>
@@ -495,7 +495,7 @@
 				<name>Custom Fit (Stack)</name>
 			</mods>
 			<gears>
-				<gear>Holster</gear>
+				<usegear>Holster</usegear>
 			</gears>
 			<bonus>
 				<limitmodifier>
@@ -692,7 +692,7 @@
 			<cost>1300</cost>
 			<addmodcategory>Globetrotter Jacket Liners</addmodcategory>
 			<gears>
-				<gear>Holster</gear>
+				<usegear>Holster</usegear>
 			</gears>
 			<source>RG</source>
 			<page>63</page>
@@ -731,7 +731,7 @@
 				<name>Gear Access</name>
 			</mods>
 			<gears>
-				<gear>Holster</gear>
+				<usegear>Holster</usegear>
 			</gears>
 			<source>RG</source>
 			<page>63</page>
@@ -768,7 +768,7 @@
 				<name>Gear Access</name>
 			</mods>
 			<gears>
-				<gear>Holster</gear>
+				<usegear>Holster</usegear>
 			</gears>
 			<source>RG</source>
 			<page>64</page>
@@ -884,7 +884,7 @@
 				<name>Restrictive</name>
 			</mods>
 			<gears>
-				<gear>Holster</gear>
+				<usegear>Holster</usegear>
 			</gears>
 			<bonus>
 				<limitmodifier>
@@ -908,7 +908,7 @@
 				<name>Restrictive</name>
 			</mods>
 			<gears>
-				<gear>Holster</gear>
+				<usegear>Holster</usegear>
 			</gears>
 			<bonus>
 				<limitmodifier>
@@ -932,7 +932,7 @@
 				<name>Restrictive</name>
 			</mods>
 			<gears>
-				<gear>Holster</gear>
+				<usegear>Holster</usegear>
 			</gears>
 			<bonus>
 				<limitmodifier>
@@ -1175,7 +1175,7 @@
 			<avail>12R</avail>
 			<cost>4000</cost>
 			<gears>
-				<gear>Flashpak</gear>
+				<usegear>Flashpak</usegear>
 			</gears>
 			<source>RG</source>
 			<page>72</page>
@@ -1188,11 +1188,11 @@
 			<avail>12R</avail>
 			<cost>5000</cost>
 			<mods>
-				<name>Biomonitor</name>
 				<name>Custom Fit</name>
 			</mods>
 			<gears>
-				<gear>Holster</gear>
+				<usegear>Biomonitor</usegear>
+				<usegear>Holster</usegear>
 			</gears>
 			<source>RG</source>
 			<page>72</page>
@@ -1263,8 +1263,10 @@
 			<cost>1000</cost>
 			<mods>
 				<name>Custom Fit</name>
-				<name>Flare Compensation</name>
 			</mods>
+			<gears>
+				<usegear>Flare Compensation</usegear>
+			</gears>
 			<source>RG</source>
 			<page>75</page>
 		</armor>			
@@ -1287,8 +1289,10 @@
 			<cost>800</cost>
 			<mods>
 				<name rating="4">Insulation</name>
-				<name>Flare Compensation</name>
 			</mods>
+			<gears>
+				<usegear>Flare Compensation</usegear>
+			</gears>
 			<source>RG</source>
 			<page>76</page>
 		</armor>			
@@ -1302,8 +1306,10 @@
 			<mods>
 				<name rating="6">Insulation</name>
 				<name rating="4">Thermal Damping</name>
-				<name>Flare Compensation</name>
 			</mods>
+			<gears>
+				<usegear>Flare Compensation</usegear>
+			</gears>
 			<source>RG</source>
 			<page>76</page>
 		</armor>			
@@ -1318,11 +1324,11 @@
 				<name>Custom Fit</name>
 				<name rating="5">Insulation</name>
 				<name rating="4">Thermal Damping</name>
-				<name>Flare Compensation</name>
 				<name>Gear Access</name>
 			</mods>
 			<gears>
-				<gear>Gas mask</gear>
+				<usegear>Gas Mask</usegear>
+				<usegear>Flare Compensation</usegear>
 			</gears>
 			<bonus>
 				<limitmodifier>
@@ -1343,9 +1349,11 @@
 			<mods>
 				<name>Custom Fit</name>
 				<name rating="4">Insulation</name>
-				<name>Flare Compensation</name>
 				<name>Restrictive</name>
 			</mods>
+			<gears>
+				<usegear>Flare Compensation</usegear>
+			</gears>
 			<source>RG</source>
 			<page>78</page>
 		</armor>			
@@ -1358,9 +1366,11 @@
 			<cost>10000</cost>
 			<mods>
 				<name>Custom Fit</name>
-				<name>Flare Compensation</name>
 				<name rating="3">Ruthenium Polymer Coating</name>
 			</mods>
+			<gears>
+				<usegear>Flare Compensation</usegear>
+			</gears>
 			<source>RG</source>
 			<page>78</page>
 		</armor>			
@@ -1371,9 +1381,9 @@
 			<armorcapacity>6</armorcapacity>
 			<avail>8</avail>
 			<cost>900</cost>
-			<mods>
-				<name>Low-Light Vision</name>
-			</mods>
+			<gears>
+				<usegear>Low Light</usegear>
+			</gears>
 			<source>RG</source>
 			<page>79</page>
 		</armor>			
@@ -1384,9 +1394,9 @@
 			<armorcapacity>4</armorcapacity>
 			<avail>8</avail>
 			<cost>300</cost>
-			<mods>
-				<name>Gas mask</name>
-			</mods>
+			<gears>
+				<usegear>Gas Mask</usegear>
+			</gears>
 			<source>RG</source>
 			<page>79</page>
 		</armor>			
@@ -1440,12 +1450,12 @@
 			<mods>
 				<name rating="4">Insulation</name>
 				<name rating="2">Fire Resistance</name>
-				<name rating="3">Radiation Shield</name>
+				<name rating="3">Radiation Shielding</name>
 				<name rating="2">Chemical Protection</name>
 				<name>Custom Fit</name>
 			</mods>
 			<gears>
-				<gear>Gas Mask</gear>
+				<usegear>Gas Mask</usegear>
 			</gears>
 			<source>RG</source>
 			<page>81</page>
@@ -1458,14 +1468,16 @@
 			<avail>16</avail>
 			<cost>12000</cost>
 			<mods>
-				<name>Biomonitor</name>
-				<name rating="3">Commlink</name>
 				<name>Chemical Seal</name>
 				<name rating="6">Insulation</name>
 				<name rating="4">Thermal Damping</name>
 				<name>Custom Fit</name>
-				<name>Flare Compensation</name>
 			</mods>
+			<gears>
+				<usegear>Renraku Sensei</usegear>
+				<usegear>Flare Compensation</usegear>
+				<usegear>Biomonitor</usegear>
+			</gears>
 			<source>RG</source>
 			<page>81</page>
 		</armor>			
@@ -1477,14 +1489,16 @@
 			<avail>24</avail>
 			<cost>25000</cost>
 			<mods>
-				<name>Biomonitor</name>
-				<name rating="3">Commlink</name>
 				<name>Chemical Seal</name>
 				<name rating="6">Insulation</name>
 				<name rating="4">Thermal Damping</name>
 				<name>Custom Fit</name>
-				<name>Flare Compensation</name>
 			</mods>
+			<gears>
+				<usegear>Renraku Sensei</usegear>
+				<usegear>Flare Compensation</usegear>
+				<usegear>Biomonitor</usegear>
+			</gears>
 			<source>RG</source>
 			<page>81</page>
 		</armor>			
@@ -1496,14 +1510,16 @@
 			<avail>24R</avail>
 			<cost>35000</cost>
 			<mods>
-				<name>Biomonitor</name>
-				<name rating="3">Commlink</name>
 				<name>Chemical Seal</name>
 				<name rating="6">Insulation</name>
 				<name rating="4">Fire Resistance</name>
 				<name rating="4">Thermal Damping</name>
 				<name>Custom Fit</name>
 			</mods>
+			<gears>
+				<usegear>Renraku Sensei</usegear>
+				<usegear>Biomonitor</usegear>
+			</gears>
 			<source>RG</source>
 			<page>82</page>
 		</armor>			

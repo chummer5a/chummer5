@@ -566,7 +566,7 @@ namespace Chummer
 					panLoggedIn.Visible = true;
 
 					// Save the settings.
-					RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer");
+					RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer5");
 					GlobalOptions.Instance.OmaeUserName = txtUserName.Text;
 					objRegistry.SetValue("omaeusername", txtUserName.Text);
 					if (chkAutoLogin.Checked)
