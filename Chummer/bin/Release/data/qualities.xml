@@ -281,6 +281,7 @@
 			<required>
 				<oneof>
 					<quality>Adept</quality>
+					<quality>Aspected Magician</quality>
 					<quality>Magician</quality>
 					<quality>Mystic Adept</quality>
 				</oneof>
@@ -795,20 +796,14 @@
 			<page>79</page>
 		</quality>
 		<quality>
-			<name>Code of Honor&#58; Assassin's Creed</name>
+			<name>Code of Honor</name>
 			<karma>-15</karma>
 			<category>Negative</category>
-			<bonus />
+			<bonus>
+				<selecttext />
+			</bonus>
 			<source>SR5</source>
 			<page>79</page>
-		</quality>
-		<quality>
-			<name>Code of Honor&#58; Warrior's Code</name>
-			<karma>-15</karma>
-			<category>Negative</category>
-			<bonus />
-			<source>SR5</source>
-			<page>80</page>
 		</quality>
 		<quality>
 			<name>Codeblock</name>

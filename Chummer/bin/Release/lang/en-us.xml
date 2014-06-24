@@ -173,6 +173,10 @@
 			<text>Speed:</text>
 		</string>
 		<string>
+			<key>Label_Response</key>
+			<text>Response:</text>
+		</string>
+		<string>
 			<key>Label_Device</key>
 			<text>Device:</text>
 		</string>

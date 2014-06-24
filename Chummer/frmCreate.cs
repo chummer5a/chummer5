@@ -15057,8 +15057,8 @@ namespace Chummer
                     if (objSkillControl.SkillSpec.Trim() != string.Empty && !objSkillControl.SkillObject.ExoticSkill)
                     {
                         // Each Specialization costs KarmaSpecialization.
-                        intPointsRemain -= _objOptions.KarmaSpecialization;
-                        intPointsUsed += _objOptions.KarmaSpecialization;
+                        // intPointsRemain -= _objOptions.KarmaSpecialization;
+                        intPointsUsed += 1;
                     }
 
                     if (_objOptions.BreakSkillGroupsInCreateMode)
@@ -15678,6 +15678,10 @@ namespace Chummer
 					objSkillControl.RefreshControl();
                     if (!objSkillControl.IsGrouped)
                         intSkills += objSkillControl.SkillRating - objSkillControl.SkillRatingMinimum;
+                    if (objSkillControl.SkillSpec.Trim() != string.Empty && !objSkillControl.SkillObject.ExoticSkill)
+                    {
+                        intSkills ++;
+                    }
                 }
                 _objCharacter.SkillPoints = _objCharacter.SkillPointsMaximum - intSkills;
                 if (_objCharacter.SkillPoints < 0)
@@ -15704,7 +15708,7 @@ namespace Chummer
                 {
                     intSkillGroups += objSkillGroupControl.GroupRating - objSkillGroupControl.GroupRatingMinimum;
                 }
-                if (intSkillGroups > _objCharacter.SkillGroupPoints)
+                if (intSkillGroups > _objCharacter.SkillGroupPointsMaximum)
                 {
                     lblPBuildSkillGroups.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (0).ToString(), _objCharacter.SkillGroupPointsMaximum.ToString());
                     _objCharacter.SkillGroupPoints = 0;

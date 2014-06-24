@@ -1,3 +1,11 @@
+Build 5.104 (alpha)
+- Fixed a bug which could cause completed character files not to load.
+- Fixed an issue prventing Synthacardium from appearing.
+- Fixed a bug preventing gear plugins with ratings from being added to other gear.
+- Changed the Code of Honor negative quality to all the user to enter text for their code.
+- Fixed the costs for skill specialization. Per pages 89 and 107, skill specialization uses one skill point during character creation and 7 karam as part of character advancement.
+- Fixed an issue causing skill group points (and the resulting karma costs) to be handled incorrectly.
+
 Build 5.103 (alpha)
 - Moved registry settings for Chummer to a new Chummer5 key to better support side-by-side installation.
 - Now calculates karma cost when overspending on Primary Attributes and auto-calculates the cheapest option.
