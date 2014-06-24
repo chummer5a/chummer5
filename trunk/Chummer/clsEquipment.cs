@@ -2475,7 +2475,7 @@ namespace Chummer
 				// More than one Weapon can be added, so loop through all occurrences.
 				foreach (XmlNode objXmlAddWeapon in objXmlCyberware.SelectNodes("addweapon"))
 				{
-					XmlNode objXmlWeapon = objXmlWeaponDocument.SelectSingleNode("/chummer/weapons/weapon[name = \"" + objXmlAddWeapon.InnerText + "\" and starts-with(category, \"Cyberware\")]");
+					XmlNode objXmlWeapon = objXmlWeaponDocument.SelectSingleNode("/chummer/weapons/weapon[name = \"" + objXmlAddWeapon.InnerText + "\"]"); // and starts-with(category, \"Cyberware\")]");
 
 					TreeNode objGearWeaponNode = new TreeNode();
 					Weapon objGearWeapon = new Weapon(objCharacter);
@@ -10863,14 +10863,24 @@ namespace Chummer
 			{
 				if (objChild.Avail.StartsWith("+"))
 				{
-					if (objChild.Avail.Contains("R") || objChild.Avail.Contains("F"))
-					{
-						if (strAvailText != "F")
-							strAvailText = objChild.Avail.Substring(objChild.Avail.Length - 1);
-						intAvail += Convert.ToInt32(objChild.Avail.Replace("F", string.Empty).Replace("R", string.Empty));
-					}
-					else
-						intAvail += Convert.ToInt32(objChild.Avail);
+                    string strAvail = objChild.Avail.Replace("Rating", objChild.Rating.ToString());
+                    strAvail = strAvail.Substring(1).Trim();
+                    if (strAvail.Contains("R") || strAvail.Contains("F"))
+                    {
+                        if (strAvailText != "F")
+                            strAvailText = strAvail.Substring(strAvail.Length - 1);
+                        XmlDocument objXmlDocument = new XmlDocument();
+                        XPathNavigator nav = objXmlDocument.CreateNavigator();
+                        XPathExpression xprAvail = nav.Compile(strAvail.Replace("F", string.Empty).Replace("R", string.Empty));
+                        intAvail += Convert.ToInt32(nav.Evaluate(xprAvail));
+                    }
+                    else
+                    {
+                        XmlDocument objXmlDocument = new XmlDocument();
+                        XPathNavigator nav = objXmlDocument.CreateNavigator();
+                        XPathExpression xprAvail = nav.Compile(strAvail.Replace("F", string.Empty).Replace("R", string.Empty));
+                        intAvail += Convert.ToInt32(nav.Evaluate(xprAvail));
+                    }
 				}
 			}
 

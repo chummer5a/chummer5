@@ -445,7 +445,7 @@
 			this.lblArmorAvail = new System.Windows.Forms.Label();
 			this.treArmor = new System.Windows.Forms.TreeView();
 			this.lblArmorAvailLabel = new System.Windows.Forms.Label();
-			this.lblArmorLabel = new System.Windows.Forms.Label();
+			// this.lblArmorLabel = new System.Windows.Forms.Label();
 			this.lblArmor = new System.Windows.Forms.Label();
 			this.cmsArmor = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.tsAddArmorMod = new System.Windows.Forms.ToolStripMenuItem();
@@ -836,7 +836,7 @@
 			this.lblMatrixIP = new System.Windows.Forms.Label();
 			this.lblRemainingNuyen = new System.Windows.Forms.Label();
 			this.lblESSMax = new System.Windows.Forms.Label();
-			this.lblArmor = new System.Windows.Forms.Label();
+			// this.lblArmor = new System.Windows.Forms.Label();
 			this.lblAstralINI = new System.Windows.Forms.Label();
 			this.lblMatrixINI = new System.Windows.Forms.Label();
 			this.lblIP = new System.Windows.Forms.Label();

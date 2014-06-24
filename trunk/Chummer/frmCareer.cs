@@ -25340,8 +25340,8 @@ namespace Chummer
 			tipTooltip.SetToolTip(cmdDecreaseLifestyleMonths, LanguageManager.Instance.GetString("Tab_DecreaseLifestyleMonths"));
 			// Armor Tab.
 			tipTooltip.SetToolTip(chkArmorEquipped, LanguageManager.Instance.GetString("Tip_ArmorEquipped"));
-			tipTooltip.SetToolTip(cmdArmorIncrease, LanguageManager.Instance.GetString("Tip_ArmorDegradationAPlus"));
-			tipTooltip.SetToolTip(cmdArmorDecrease, LanguageManager.Instance.GetString("Tip_ArmorDegradationAMinus"));
+			// tipTooltip.SetToolTip(cmdArmorIncrease, LanguageManager.Instance.GetString("Tip_ArmorDegradationAPlus"));
+			// tipTooltip.SetToolTip(cmdArmorDecrease, LanguageManager.Instance.GetString("Tip_ArmorDegradationAMinus"));
 			// Weapon Tab.
 			tipTooltip.SetToolTip(chkWeaponAccessoryInstalled, LanguageManager.Instance.GetString("Tip_WeaponInstalled"));
 			tipTooltip.SetToolTip(cmdWeaponBuyAmmo, LanguageManager.Instance.GetString("Tip_BuyAmmo"));
