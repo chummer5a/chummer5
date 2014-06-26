@@ -2265,24 +2265,6 @@ namespace Chummer
 							}
 						}
 					}
-
-					foreach (TechProgram objProgram in _objCharacter.TechPrograms)
-					{
-						// Look for any Skillsoft Complex Forms that would conflict with the Skill's Rating.
-						if (objProgram.Category == "Skillsofts" && (objProgram.Extra == _strName || objProgram.Extra == _strName + ", " + LanguageManager.Instance.GetString("Label_SelectGear_Hacked")))
-						{
-							if (objProgram.Rating > _intRating)
-							{
-								// Use the Complex Form's Rating or Skillwire Rating, whichever is lower.
-								// If this is a Knowsoft or Linguasoft, it is not limited to the Skillwire Rating.
-								if (objProgram.Name == "Activesoft")
-									intRating = Math.Min(objProgram.Rating, objImprovementManager.ValueOf(Improvement.ImprovementType.Skillwire));
-								else
-									intRating = objProgram.Rating;
-								break;
-							}
-						}
-					}
 				}
 
 				return intRating;
@@ -5575,25 +5557,20 @@ namespace Chummer
 	/// <summary>
 	/// A Technoamncer Program or Complex Form.
 	/// </summary>
-	public class TechProgram
+	public class ComplexForm
 	{
 		private Guid _guiID = new Guid();
 		private string _strName = "";
-		private string _strCategory = "";
-		private int _intRating = 1;
-		private int _intMaxRating = 0;
-		private string _strCapacity = "";
-		private string _strSource = "";
-		private string _strSkill = "";
+        private string _strTarget = "";
+        private string _strDuration = "";
+        private string _strFV = "";
+        private string _strSource = "";
 		private string _strPage = "";
-		private string _strExtra = "";
-		private List<string> _lstTags = new List<string>();
-		private List<TechProgramOption> _lstOptions = new List<TechProgramOption>();
-		private string _strNotes = "";
+        private string _strNotes = "";
 		private readonly Character _objCharacter;
 
 		#region Constructor, Create, Save, Load, and Print Methods
-		public TechProgram(Character objCharacter)
+        public ComplexForm(Character objCharacter)
 		{
 			// Create the GUID for the new Complex Form.
 			_guiID = Guid.NewGuid();
@@ -5608,36 +5585,16 @@ namespace Chummer
 		public void Create(XmlNode objXmlProgramNode, Character objCharacter, TreeNode objNode, string strForcedValue = "")
 		{
 			_strName = objXmlProgramNode["name"].InnerText;
-			_strCategory = objXmlProgramNode["category"].InnerText;
+            _strTarget = objXmlProgramNode["target"].InnerText;
 			_strSource = objXmlProgramNode["source"].InnerText;
 			_strPage = objXmlProgramNode["page"].InnerText;
-			_strCapacity = objXmlProgramNode["capacity"].InnerText;
-			_strSkill = objXmlProgramNode["skill"].InnerText;
-
-			if (objXmlProgramNode["maxrating"].InnerText != "")
-				_intMaxRating = Convert.ToInt32(objXmlProgramNode["maxrating"].InnerText);
-
-			if (objXmlProgramNode.InnerXml.Contains("<tags>"))
-			{
-				foreach (XmlNode objXmlTag in objXmlProgramNode.SelectNodes("tags/tag"))
-					_lstTags.Add(objXmlTag.InnerText);
-			}
-
-			ImprovementManager objImprovementManager = new ImprovementManager(objCharacter);
-			objImprovementManager.ForcedValue = strForcedValue;
-
-			if (objXmlProgramNode["bonus"] != null)
-			{
-				if (!objImprovementManager.CreateImprovements(Improvement.ImprovementSource.ComplexForm, _guiID.ToString(), objXmlProgramNode["bonus"], false, 1, DisplayNameShort))
-				{
-					_guiID = Guid.Empty;
-					return;
-				}
-				if (objImprovementManager.SelectedValue != "")
-				{
-					_strExtra = objImprovementManager.SelectedValue;
-				}
-			}
+            _strDuration = objXmlProgramNode["duration"].InnerText;
+            _strFV = objXmlProgramNode["fv"].InnerText;
+            try
+            {
+                _strNotes = objXmlProgramNode["notes"].InnerText;
+            }
+            catch { }
 
 			objNode.Text = DisplayName;
 			objNode.Tag = _guiID.ToString();
@@ -5649,29 +5606,12 @@ namespace Chummer
 		/// <param name="objWriter">XmlTextWriter to write with.</param>
 		public void Save(XmlTextWriter objWriter)
 		{
-			objWriter.WriteStartElement("techprogram");
+			objWriter.WriteStartElement("complexform");
 			objWriter.WriteElementString("guid", _guiID.ToString());
 			objWriter.WriteElementString("name", _strName);
-			objWriter.WriteElementString("category", _strCategory);
-			objWriter.WriteElementString("rating", _intRating.ToString());
-			objWriter.WriteElementString("maxrating", _intMaxRating.ToString());
-			objWriter.WriteElementString("capacity", _strCapacity);
-			objWriter.WriteElementString("extra", _strExtra);
-			objWriter.WriteElementString("skill", _strSkill);
-			if (_lstTags.Count > 0)
-			{
-				objWriter.WriteStartElement("tags");
-				foreach (string strTag in _lstTags)
-					objWriter.WriteElementString("tag", strTag);
-				objWriter.WriteEndElement();
-			}
-			if (_lstOptions.Count > 0)
-			{
-				objWriter.WriteStartElement("programoptions");
-				foreach (TechProgramOption objOption in _lstOptions)
-					objOption.Save(objWriter);
-				objWriter.WriteEndElement();
-			}
+            objWriter.WriteElementString("target", _strTarget);
+            objWriter.WriteElementString("duration", _strDuration);
+            objWriter.WriteElementString("fv", _strFV);
 			objWriter.WriteElementString("source", _strSource);
 			objWriter.WriteElementString("page", _strPage);
 			objWriter.WriteElementString("notes", _strNotes);
@@ -5694,46 +5634,26 @@ namespace Chummer
 			_strName = objNode["name"].InnerText;
 			try
 			{
-				_strCategory = objNode["category"].InnerText;
-			}
-			catch
-			{
-			}
-			_intRating = Convert.ToInt32(objNode["rating"].InnerText);
-			try
-			{
-				_intMaxRating = Convert.ToInt32(objNode["maxrating"].InnerText);
+                _strTarget = objNode["target"].InnerText;
 			}
 			catch
 			{
 			}
 			try
 			{
-				_strCapacity = objNode["capacity"].InnerText;
+                _strDuration = objNode["duration"].InnerText;
 			}
 			catch
 			{
 			}
-			if (objNode["tags"] != null)
-			{
-				foreach (XmlNode objXmlTag in objNode.SelectNodes("tags/tag"))
-					_lstTags.Add(objXmlTag.InnerText);
-			}
-			try
-			{
-				_strExtra = objNode["extra"].InnerText;
-			}
-			catch
-			{
-			}
-			try
-			{
-				_strSkill = objNode["skill"].InnerText;
-			}
-			catch
-			{
-			}
-			try
+            try
+            {
+                _strFV = objNode["fv"].InnerText;
+            }
+            catch
+            {
+            }
+            try
 			{
 				_strSource = objNode["source"].InnerText;
 			}
@@ -5743,21 +5663,6 @@ namespace Chummer
 			try
 			{
 				_strPage = objNode["page"].InnerText;
-			}
-			catch
-			{
-			}
-			try
-			{
-				if (objNode["programoptions"] != null)
-				{
-					foreach (XmlNode objXmlOption in objNode.SelectNodes("programoptions/programoption"))
-					{
-						TechProgramOption objOption = new TechProgramOption(_objCharacter);
-						objOption.Load(objXmlOption);
-						_lstOptions.Add(objOption);
-					}
-				}
 			}
 			catch
 			{
@@ -5777,21 +5682,13 @@ namespace Chummer
 		/// <param name="objWriter">XmlTextWriter to write with.</param>
 		public void Print(XmlTextWriter objWriter)
 		{
-			objWriter.WriteStartElement("techprogram");
+			objWriter.WriteStartElement("complexform");
 			objWriter.WriteElementString("name", DisplayNameShort);
-			objWriter.WriteElementString("category", DisplayCategory);
-			if (!_objCharacter.Options.AlternateComplexFormCost)
-				objWriter.WriteElementString("rating", _intRating.ToString());
-			else
-				objWriter.WriteElementString("rating", "0");
-			objWriter.WriteElementString("extra", LanguageManager.Instance.TranslateExtra(_strExtra));
-			objWriter.WriteElementString("skill", DisplaySkill);
+			objWriter.WriteElementString("duration", _strDuration);
+			objWriter.WriteElementString("fv", _strFV);
+			objWriter.WriteElementString("target", _strTarget);
 			objWriter.WriteElementString("source", _objCharacter.Options.LanguageBookShort(_strSource));
 			objWriter.WriteElementString("page", Page);
-			objWriter.WriteStartElement("programoptions");
-			foreach (TechProgramOption objOption in _lstOptions)
-				objOption.Print(objWriter);
-			objWriter.WriteEndElement();
 			if (_objCharacter.Options.PrintNotes)
 				objWriter.WriteElementString("notes", _strNotes);
 			objWriter.WriteEndElement();
@@ -5834,16 +5731,16 @@ namespace Chummer
 			{
 				string strReturn = _strName;
 				// Get the translated name if applicable.
-				if (GlobalOptions.Instance.Language != "en-us")
-				{
-					XmlDocument objXmlDocument = XmlManager.Instance.Load("programs.xml");
-					XmlNode objNode = objXmlDocument.SelectSingleNode("/chummer/programs/program[name = \"" + _strName + "\"]");
-					if (objNode != null)
-					{
-						if (objNode["translate"] != null)
-							strReturn = objNode["translate"].InnerText;
-					}
-				}
+                //if (GlobalOptions.Instance.Language != "en-us")
+                //{
+                //    XmlDocument objXmlDocument = XmlManager.Instance.Load("complexforms.xml");
+                //    XmlNode objNode = objXmlDocument.SelectSingleNode("/chummer/complexforms/complexform[name = \"" + _strName + "\"]");
+                //    if (objNode != null)
+                //    {
+                //        if (objNode["translate"] != null)
+                //            strReturn = objNode["translate"].InnerText;
+                //    }
+                //}
 
 				return strReturn;
 			}
@@ -5857,156 +5754,56 @@ namespace Chummer
 			get
 			{
 				string strReturn = DisplayNameShort;
-
-				if (_intRating > 0 && !_objCharacter.Options.AlternateComplexFormCost)
-					strReturn += " (" + LanguageManager.Instance.GetString("String_Rating") + " " + _intRating.ToString() + ")";
-				if (_strExtra != "")
-				{
-					LanguageManager.Instance.Load(GlobalOptions.Instance.Language, this);
-					// Attempt to retrieve the Attribute name.
-					try
-					{
-						if (LanguageManager.Instance.GetString("String_Attribute" + _strExtra + "Short") != "")
-							strReturn += " (" + LanguageManager.Instance.GetString("String_Attribute" + _strExtra + "Short") + ")";
-						else
-							strReturn += " (" + LanguageManager.Instance.TranslateExtra(_strExtra) + ")";
-					}
-					catch
-					{
-						strReturn += " (" + LanguageManager.Instance.TranslateExtra(_strExtra) + ")";
-					}
-				}
-
 				return strReturn;
 			}
 		}
 
 		/// <summary>
-		/// Translated Category.
+		/// Complex Form's Duration.
 		/// </summary>
-		public string DisplayCategory
+        public string Duration
 		{
 			get
 			{
-				string strReturn = _strCategory;
-				// Get the translated name if applicable.
-				if (GlobalOptions.Instance.Language != "en-us")
-				{
-					XmlDocument objXmlDocument = XmlManager.Instance.Load("programs.xml");
-					XmlNode objNode = objXmlDocument.SelectSingleNode("/chummer/categories/categories[. = \"" + _strCategory + "\"]");
-					if (objNode != null)
-					{
-						if (objNode["translate"] != null)
-							strReturn = objNode["translate"].InnerText;
-					}
-				}
-
-				return strReturn;
-			}
-		}
-
-		/// <summary>
-		/// Complex Form's Category.
-		/// </summary>
-		public string Category
-		{
-			get
-			{
-				return _strCategory;
+				return _strDuration;
 			}
 			set
 			{
-				_strCategory = value;
+                _strDuration = value;
 			}
 		}
 
 		/// <summary>
-		/// The Complex Form's Rating.
+		/// The Complex Form's FV.
 		/// </summary>
-		public int Rating
+        public string FV
 		{
 			get
 			{
-				return _intRating;
+                return _strFV;
 			}
 			set
 			{
-				_intRating = value;
+                _strFV = value;
 			}
 		}
 
-		/// <summary>
-		/// The Complex Form's Maximum Rating.
-		/// </summary>
-		public int MaxRating
-		{
-			get
-			{
-				return _intMaxRating;
-			}
-			set
-			{
-				_intMaxRating = value;
-			}
-		}
+        /// <summary>
+        /// The Complex Form's Target.
+        /// </summary>
+        public string Target
+        {
+            get
+            {
+                return _strTarget;
+            }
+            set
+            {
+                _strTarget = value;
+            }
+        }
 
-		/// <summary>
-		/// The Complex Form's Tags including any added by Options.
-		/// </summary>
-		public List<string> Tags
-		{
-			get
-			{
-				List<string> lstTags = _lstTags;
-				// Add in any Tags from Options.
-				foreach (TechProgramOption objOption in _lstOptions)
-				{
-					foreach (string strTag in objOption.Tags)
-						lstTags.Add(strTag);
-				}
-
-				return lstTags;
-			}
-		}
-
-		/// <summary>
-		/// The TechProgramOptions attached to the Complex Form.
-		/// </summary>
-		public List<TechProgramOption> Options
-		{
-			get
-			{
-				return _lstOptions;
-			}
-		}
-
-		/// <summary>
-		/// The Complex Form's Capacity for Options.
-		/// </summary>
-		public string Capacity
-		{
-			get
-			{
-				return _strCapacity;
-			}
-			set
-			{
-				_strCapacity = value;
-			}
-		}
-
-		/// <summary>
-		/// Capacity Remaining.
-		/// </summary>
-		public int CapacityRemaining
-		{
-			get
-			{
-				return CalculatedCapacity - _lstOptions.Count;
-			}
-		}
-		
-		/// <summary>
+        /// <summary>
 		/// Complex Form's Source.
 		/// </summary>
 		public string Source
@@ -6030,490 +5827,22 @@ namespace Chummer
 			{
 				string strReturn = _strPage;
 				// Get the translated name if applicable.
-				if (GlobalOptions.Instance.Language != "en-us")
-				{
-					XmlDocument objXmlDocument = XmlManager.Instance.Load("programs.xml");
-					XmlNode objNode = objXmlDocument.SelectSingleNode("/chummer/programs/program[name = \"" + _strName + "\"]");
-					if (objNode != null)
-					{
-						if (objNode["altpage"] != null)
-							strReturn = objNode["altpage"].InnerText;
-					}
-				}
+                //if (GlobalOptions.Instance.Language != "en-us")
+                //{
+                //    XmlDocument objXmlDocument = XmlManager.Instance.Load("complexforms.xml");
+                //    XmlNode objNode = objXmlDocument.SelectSingleNode("/chummer/complexforms/complexform[name = \"" + _strName + "\"]");
+                //    if (objNode != null)
+                //    {
+                //        if (objNode["altpage"] != null)
+                //            strReturn = objNode["altpage"].InnerText;
+                //    }
+                //}
 
 				return strReturn;
 			}
 			set
 			{
 				_strPage = value;
-			}
-		}
-
-		/// <summary>
-		/// Extra information from Improvement dialogues.
-		/// </summary>
-		public string Extra
-		{
-			get
-			{
-				return _strExtra;
-			}
-			set
-			{
-				_strExtra = value;
-			}
-		}
-
-		/// <summary>
-		/// Common Skill.
-		/// </summary>
-		public string Skill
-		{
-			get
-			{
-				return _strSkill;
-			}
-			set
-			{
-				_strSkill = value;
-			}
-		}
-
-		/// <summary>
-		/// Translated Common Skill.
-		/// </summary>
-		public string DisplaySkill
-		{
-			get
-			{
-				string strReturn = "";
-
-				if (_strSkill == "None")
-					strReturn = LanguageManager.Instance.GetString("String_None");
-				else if (_strSkill == "Varies")
-					strReturn = LanguageManager.Instance.GetString("String_Varies");
-				else if (_strSkill == "System")
-					strReturn = LanguageManager.Instance.GetString("String_System");
-				else if (_strSkill == "Response")
-					strReturn = LanguageManager.Instance.GetString("String_Response");
-				else if (_strSkill == "Firewall")
-					strReturn = LanguageManager.Instance.GetString("String_Firewall");
-				else if (_strSkill == "Signal")
-					strReturn = LanguageManager.Instance.GetString("String_Signal");
-				else
-				{
-					XmlDocument objXmlDocument = XmlManager.Instance.Load("skills.xml");
-					XmlNode objNode = objXmlDocument.SelectSingleNode("/chummer/skills/skill[name = \"" + _strSkill + "\"]");
-					if (objNode["translate"] != null)
-						strReturn = objNode["translate"].InnerText;
-					else
-						strReturn = _strSkill;
-				}
-
-				return strReturn;
-			}
-		}
-
-		/// <summary>
-		/// Notes.
-		/// </summary>
-		public string Notes
-		{
-			get
-			{
-				return _strNotes;
-			}
-			set
-			{
-				_strNotes = value;
-			}
-		}
-		#endregion
-
-		#region Complex Properties
-		/// <summary>
-		/// Caculated Capacity of the Complex Form.
-		/// </summary>
-		public int CalculatedCapacity
-		{
-			get
-			{
-				if (_strCapacity.Contains("Rating"))
-				{
-					// If the Capaicty is determined by the Rating, evaluate the expression.
-					XmlDocument objXmlDocument = new XmlDocument();
-					XPathNavigator nav = objXmlDocument.CreateNavigator();
-
-					// XPathExpression cannot evaluate while there are square brackets, so remove them if necessary.
-					bool blnSquareBrackets = _strCapacity.Contains('[');
-					string strCapacity = _strCapacity;
-					if (blnSquareBrackets)
-						strCapacity = strCapacity.Substring(1, strCapacity.Length - 2);
-					strCapacity = strCapacity.Replace("/", " div ");
-					XPathExpression xprCapacity = nav.Compile(strCapacity.Replace("Rating", _intRating.ToString()));
-
-					int intReturn = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(nav.Evaluate(xprCapacity).ToString(), GlobalOptions.Instance.CultureInfo)));
-
-					return intReturn;
-				}
-				else
-				{
-					// Just a straight Capacity, so return the value.
-					return Convert.ToInt32(_strCapacity);
-				}
-			}
-		}
-		#endregion
-	}
-
-	/// <summary>
-	/// A Technomancer Complex Form Option.
-	/// </summary>
-	public class TechProgramOption
-	{
-		private Guid _guiID = new Guid();
-		private string _strName = "";
-		private int _intRating = 0;
-		private int _intMaxRating = 6;
-		private string _strSource = "";
-		private string _strPage = "";
-		private string _strExtra = "";
-		private List<string> _lstTags = new List<string>();
-		private string _strNotes = "";
-		private readonly Character _objCharacter;
-
-		#region Constructor, Create, Save, Load, and Print Methods
-		public TechProgramOption(Character objCharacter)
-		{
-			// Create the GUID for the new Complex Form.
-			_guiID = Guid.NewGuid();
-			_objCharacter = objCharacter;
-		}
-
-		/// Create a Complex Form from an XmlNode.
-		/// <param name="objXmlOptionNode">XmlNode to create the object from.</param>
-		/// <param name="objCharacter">Character the Gear is being added to.</param>
-		/// <param name="objNode">TreeNode to populate a TreeView.</param>
-		/// <param name="strForcedValue">Value to forcefully select for any ImprovementManager prompts.</param>
-		public void Create(XmlNode objXmlOptionNode, Character objCharacter, TreeNode objNode, string strForcedValue = "")
-		{
-			_strName = objXmlOptionNode["name"].InnerText;
-			_strSource = objXmlOptionNode["source"].InnerText;
-			_strPage = objXmlOptionNode["page"].InnerText;
-
-			if (objXmlOptionNode["maxrating"].InnerText != "")
-				_intMaxRating = Convert.ToInt32(objXmlOptionNode["maxrating"].InnerText);
-
-			if (_intMaxRating > 0)
-				_intRating = 1;
-
-			if (objXmlOptionNode.InnerXml.Contains("<tags>"))
-			{
-				foreach (XmlNode objXmlTag in objXmlOptionNode.SelectNodes("tags/tag"))
-					_lstTags.Add(objXmlTag.InnerText);
-			}
-
-			ImprovementManager objImprovementManager = new ImprovementManager(objCharacter);
-			objImprovementManager.ForcedValue = strForcedValue;
-
-			if (objXmlOptionNode["bonus"] != null)
-			{
-				if (!objImprovementManager.CreateImprovements(Improvement.ImprovementSource.ComplexForm, _guiID.ToString(), objXmlOptionNode["bonus"], false, 1, DisplayNameShort))
-				{
-					_guiID = Guid.Empty;
-					return;
-				}
-				if (objImprovementManager.SelectedValue != "")
-				{
-					_strExtra = objImprovementManager.SelectedValue;
-				}
-			}
-
-			objNode.Text = DisplayName;
-			if (_strExtra != "")
-				objNode.Text += " (" + _strExtra + ")";
-			objNode.Tag = _guiID.ToString();
-		}
-
-		/// <summary>
-		/// Save the object's XML to the XmlWriter.
-		/// </summary>
-		/// <param name="objWriter">XmlTextWriter to write with.</param>
-		public void Save(XmlTextWriter objWriter)
-		{
-			objWriter.WriteStartElement("programoption");
-			objWriter.WriteElementString("guid", _guiID.ToString());
-			objWriter.WriteElementString("name", _strName);
-			objWriter.WriteElementString("rating", _intRating.ToString());
-			objWriter.WriteElementString("maxrating", _intMaxRating.ToString());
-			objWriter.WriteElementString("extra", _strExtra);
-			if (_lstTags.Count > 0)
-			{
-				objWriter.WriteStartElement("tags");
-				foreach (string strTag in _lstTags)
-					objWriter.WriteElementString("tag", strTag);
-				objWriter.WriteEndElement();
-			}
-			objWriter.WriteElementString("source", _strSource);
-			objWriter.WriteElementString("page", _strPage);
-			objWriter.WriteElementString("notes", _strNotes);
-			objWriter.WriteEndElement();
-		}
-
-		/// <summary>
-		/// Load the Complex Form Option from the XmlNode.
-		/// </summary>
-		/// <param name="objNode">XmlNode to load.</param>
-		public void Load(XmlNode objNode)
-		{
-			try
-			{
-				_guiID = Guid.Parse(objNode["guid"].InnerText);
-			}
-			catch
-			{
-			}
-			_strName = objNode["name"].InnerText;
-			_intRating = Convert.ToInt32(objNode["rating"].InnerText);
-			try
-			{
-				_intMaxRating = Convert.ToInt32(objNode["maxrating"].InnerText);
-			}
-			catch
-			{
-			}
-			if (objNode["tags"] != null)
-			{
-				foreach (XmlNode objXmlTag in objNode.SelectNodes("tags/tag"))
-					_lstTags.Add(objXmlTag.InnerText);
-			}
-			try
-			{
-				_strExtra = objNode["extra"].InnerText;
-			}
-			catch
-			{
-			}
-			try
-			{
-				_strSource = objNode["source"].InnerText;
-			}
-			catch
-			{
-			}
-			try
-			{
-				_strPage = objNode["page"].InnerText;
-			}
-			catch
-			{
-			}
-			try
-			{
-				_strNotes = objNode["notes"].InnerText;
-			}
-			catch
-			{
-			}
-		}
-
-		/// <summary>
-		/// Print the object's XML to the XmlWriter.
-		/// </summary>
-		/// <param name="objWriter">XmlTextWriter to write with.</param>
-		public void Print(XmlTextWriter objWriter)
-		{
-			objWriter.WriteStartElement("programoption");
-			objWriter.WriteElementString("name", DisplayNameShort);
-			objWriter.WriteElementString("rating", _intRating.ToString());
-			objWriter.WriteElementString("extra", LanguageManager.Instance.TranslateExtra(_strExtra));
-			objWriter.WriteElementString("source", _objCharacter.Options.LanguageBookShort(_strSource));
-			objWriter.WriteElementString("page", Page);
-			if (_objCharacter.Options.PrintNotes)
-				objWriter.WriteElementString("notes", _strNotes);
-			objWriter.WriteEndElement();
-		}
-		#endregion
-
-		#region Properties
-		/// <summary>
-		/// Internal identifier which will be used to identify this Complex Form Option in the Improvement system.
-		/// </summary>
-		public string InternalId
-		{
-			get
-			{
-				return _guiID.ToString();
-			}
-		}
-
-		/// <summary>
-		/// Program's name.
-		/// </summary>
-		public string Name
-		{
-			get
-			{
-				return _strName;
-			}
-			set
-			{
-				_strName = value;
-			}
-		}
-
-		/// <summary>
-		/// The name of the object as it should be displayed on printouts (translated name only).
-		/// </summary>
-		public string DisplayNameShort
-		{
-			get
-			{
-				string strReturn = _strName;
-				// Get the translated name if applicable.
-				if (GlobalOptions.Instance.Language != "en-us")
-				{
-					XmlDocument objXmlDocument = XmlManager.Instance.Load("programs.xml");
-					XmlNode objNode = objXmlDocument.SelectSingleNode("/chummer/options/option[name = \"" + _strName + "\"]");
-					if (objNode != null)
-					{
-						if (objNode["translate"] != null)
-							strReturn = objNode["translate"].InnerText;
-					}
-				}
-
-				return strReturn;
-			}
-		}
-
-		/// <summary>
-		/// The name of the object as it should be displayed in lists. Name (Extra).
-		/// </summary>
-		public string DisplayName
-		{
-			get
-			{
-				string strReturn = DisplayNameShort;
-
-				if (_intRating > 0)
-					strReturn += " (" + LanguageManager.Instance.GetString("String_Rating") + " " + _intRating.ToString() + ")";
-				if (_strExtra != "")
-				{
-					LanguageManager.Instance.Load(GlobalOptions.Instance.Language, this);
-					// Attempt to retrieve the Attribute name.
-					try
-					{
-						if (LanguageManager.Instance.GetString("String_Attribute" + _strExtra + "Short") != "")
-							strReturn += " (" + LanguageManager.Instance.GetString("String_Attribute" + _strExtra + "Short") + ")";
-						else
-							strReturn += " (" + LanguageManager.Instance.TranslateExtra(_strExtra) + ")";
-					}
-					catch
-					{
-						strReturn += " (" + LanguageManager.Instance.TranslateExtra(_strExtra) + ")";
-					}
-				}
-
-				return strReturn;
-			}
-		}
-
-		/// <summary>
-		/// The Complex Form Option's Rating.
-		/// </summary>
-		public int Rating
-		{
-			get
-			{
-				return _intRating;
-			}
-			set
-			{
-				_intRating = value;
-			}
-		}
-
-		/// <summary>
-		/// The Complex Form Option's Maximum Rating.
-		/// </summary>
-		public int MaxRating
-		{
-			get
-			{
-				return _intMaxRating;
-			}
-			set
-			{
-				_intMaxRating = value;
-			}
-		}
-
-		/// <summary>
-		/// The Complex Form Option's Tags.
-		/// </summary>
-		public List<string> Tags
-		{
-			get
-			{
-				return _lstTags;
-			}
-		}
-
-		/// <summary>
-		/// Complex Form Option's Source.
-		/// </summary>
-		public string Source
-		{
-			get
-			{
-				return _strSource;
-			}
-			set
-			{
-				_strSource = value;
-			}
-		}
-
-		/// <summary>
-		/// Sourcebook Page Number.
-		/// </summary>
-		public string Page
-		{
-			get
-			{
-				string strReturn = _strPage;
-				// Get the translated name if applicable.
-				if (GlobalOptions.Instance.Language != "en-us")
-				{
-					XmlDocument objXmlDocument = XmlManager.Instance.Load("programs.xml");
-					XmlNode objNode = objXmlDocument.SelectSingleNode("/chummer/options/option[name = \"" + _strName + "\"]");
-					if (objNode != null)
-					{
-						if (objNode["altpage"] != null)
-							strReturn = objNode["altpage"].InnerText;
-					}
-				}
-
-				return strReturn;
-			}
-			set
-			{
-				_strPage = value;
-			}
-		}
-
-		/// <summary>
-		/// Extra information from Improvement dialogues.
-		/// </summary>
-		public string Extra
-		{
-			get
-			{
-				return _strExtra;
-			}
-			set
-			{
-				_strExtra = value;
 			}
 		}
 

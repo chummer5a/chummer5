@@ -11579,6 +11579,10 @@ namespace Chummer
 	{
 		private bool _blnIsLivingPersona = false;
 		private bool _blnActiveCommlink = false;
+        private int _intAttack = 0;
+        private int _intSleaze = 0;
+        private int _intDataProcessing = 0;
+        private int _intFirewall = 0;
 
 		#region Constructor, Create, Save, Load, and Print Methods
 		public Commlink(Character objCharacter) : base(objCharacter)
@@ -11638,6 +11642,10 @@ namespace Chummer
 			_strSource = objXmlGear["source"].InnerText;
 			_strPage = objXmlGear["page"].InnerText;
 			_intDeviceRating = Convert.ToInt32(objXmlGear["devicerating"].InnerText);
+            _intAttack = Convert.ToInt32(objXmlGear["attack"].InnerText);
+            _intSleaze= Convert.ToInt32(objXmlGear["sleaze"].InnerText);
+            _intDataProcessing = Convert.ToInt32(objXmlGear["dataprocessing"].InnerText);
+            _intFirewall = Convert.ToInt32(objXmlGear["firewall"].InnerText);
 
 			if (GlobalOptions.Instance.Language != "en-us")
 			{
@@ -11818,6 +11826,10 @@ namespace Chummer
 			_strAvail10 = objGear.Avail10;
 			_intCostFor = objGear.CostFor;
 			_intDeviceRating = objGear.DeviceRating;
+            _intAttack = objGear.Attack;
+            _intDataProcessing = objGear.DataProcessing;
+            _intFirewall = objGear.Firewall;
+            _intSleaze = objGear.Sleaze;
 			_strCost = objGear.Cost;
 			_strCost3 = objGear.Cost3;
 			_strCost6 = objGear.Cost6;
@@ -11883,7 +11895,11 @@ namespace Chummer
 			objWriter.WriteElementString("source", _strSource);
 			objWriter.WriteElementString("page", _strPage);
 			objWriter.WriteElementString("devicerating", _intDeviceRating.ToString());
-			objWriter.WriteElementString("gearname", _strGearName);
+            objWriter.WriteElementString("attack", _intAttack.ToString());
+            objWriter.WriteElementString("sleaze", _intSleaze.ToString());
+            objWriter.WriteElementString("dataprocessing", _intDataProcessing.ToString());
+            objWriter.WriteElementString("firewall", _intFirewall.ToString());
+            objWriter.WriteElementString("gearname", _strGearName);
 			objWriter.WriteStartElement("children");
 			foreach (Gear objGear in _objChildren)
 			{
@@ -11960,6 +11976,34 @@ namespace Chummer
 			{
 			}
             _intDeviceRating = Convert.ToInt32(objNode["devicerating"].InnerText);
+            try
+            {
+                _intAttack = Convert.ToInt32(objNode["attack"].InnerText);
+            }
+            catch
+            {
+            }
+            try
+            {
+                _intSleaze = Convert.ToInt32(objNode["sleaze"].InnerText);
+            }
+            catch
+            {
+            }
+            try
+            {
+                _intDataProcessing = Convert.ToInt32(objNode["dataprocessing"].InnerText);
+            }
+            catch
+            {
+            }
+            try
+            {
+                _intFirewall = Convert.ToInt32(objNode["firewall"].InnerText);
+            }
+            catch
+            {
+            }
 
 			try
 			{
@@ -12078,7 +12122,11 @@ namespace Chummer
 			objWriter.WriteElementString("issin", false.ToString());
 			objWriter.WriteElementString("maxrating", _intMaxRating.ToString());
 			objWriter.WriteElementString("rating", _intRating.ToString());
-			objWriter.WriteElementString("qty", _intQty.ToString());
+            objWriter.WriteElementString("attack", _intAttack.ToString());
+            objWriter.WriteElementString("sleaze", _intSleaze.ToString());
+            objWriter.WriteElementString("dataprocessing", _intDataProcessing.ToString());
+            objWriter.WriteElementString("firewall", _intFirewall.ToString());
+            objWriter.WriteElementString("qty", _intQty.ToString());
 			objWriter.WriteElementString("avail", TotalAvail(true));
 			objWriter.WriteElementString("avail_english", TotalAvail(true, true));
 			objWriter.WriteElementString("cost", TotalCost.ToString());
@@ -12090,10 +12138,7 @@ namespace Chummer
 			objWriter.WriteElementString("gearname", _strGearName);
 			objWriter.WriteElementString("source", _objCharacter.Options.LanguageBookShort(_strSource));
 			objWriter.WriteElementString("page", Page);
-			if (_strName == "Living Persona")
-				objWriter.WriteElementString("devicerating", TotalDeviceRating.ToString() + " (" + (TotalDeviceRating + 1).ToString() + ")");
-			else
-				objWriter.WriteElementString("devicerating", TotalDeviceRating.ToString());
+			objWriter.WriteElementString("devicerating", TotalDeviceRating.ToString());
 			objWriter.WriteElementString("processorlimit", ProcessorLimit.ToString());
 			objWriter.WriteElementString("conditionmonitor", ConditionMonitor.ToString());
 			objWriter.WriteElementString("active", _blnActiveCommlink.ToString());
@@ -12138,7 +12183,67 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Attack.
+        /// </summary>
+        public int Attack
+        {
+            get
+            {
+                return _intAttack;
+            }
+            set
+            {
+                _intAttack = value;
+            }
+        }
+
+        /// <summary>
+        /// Sleaze.
+        /// </summary>
+        public int Sleaze
+        {
+            get
+            {
+                return _intSleaze;
+            }
+            set
+            {
+                _intSleaze = value;
+            }
+        }
+
+        /// <summary>
+        /// Data Processing.
+        /// </summary>
+        public int DataProcessing
+        {
+            get
+            {
+                return _intDataProcessing;
+            }
+            set
+            {
+                _intDataProcessing = value;
+            }
+        }
+
+        /// <summary>
+        /// Firewall.
+        /// </summary>
+        public int Firewall
+        {
+            get
+            {
+                return _intFirewall;
+            }
+            set
+            {
+                _intFirewall = value;
+            }
+        }
+
+        /// <summary>
 		/// Whether or not this Commlink is a Living Persona. This should only be set by the character when printing.
 		/// </summary>
 		public bool IsLivingPersona

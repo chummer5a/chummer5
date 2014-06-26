@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chummer>
+	<version>-500</version>
+	<complexforms>
+		<complexform>
+			<name>Cleaner</name>
+			<target>Persona</target>
+			<duration>P</duration>
+			<fv>L+1</fv>
+			<source>SR5</source>
+			<page>252</page>
+		</complexform>
+		<complexform>
+			<name>Diffusion of [Matrix Attribute]</name>
+			<target>Device</target>
+			<duration>S</duration>
+			<fv>L+1</fv>
+			<source>SR5</source>
+			<page>252</page>
+		</complexform>
+		<complexform>
+			<name>Editor</name>
+			<target>File</target>
+			<duration>P</duration>
+			<fv>L+2</fv>
+			<source>SR5</source>
+			<page>252</page>
+		</complexform>
+		<complexform>
+			<name>Infusion of [Matrix Attribute]</name>
+			<target>Device</target>
+			<duration>S</duration>
+			<fv>L+1</fv>
+			<source>SR5</source>
+			<page>252</page>
+		</complexform>
+		<complexform>
+			<name>Static Veil</name>
+			<target>Persona</target>
+			<duration>S</duration>
+			<fv>L-1</fv>
+			<source>SR5</source>
+			<page>252</page>
+		</complexform>
+		<complexform>
+			<name>Pulse Storm</name>
+			<target>Persona</target>
+			<duration>I</duration>
+			<fv>L+0</fv>
+			<source>SR5</source>
+			<page>252</page>
+		</complexform>
+		<complexform>
+			<name>Puppeteer</name>
+			<target>Device</target>
+			<duration>I</duration>
+			<fv>L+4</fv>
+			<source>SR5</source>
+			<page>252</page>
+		</complexform>
+		<complexform>
+			<name>Resonance Channel</name>
+			<target>Device</target>
+			<duration>S</duration>
+			<fv>L-1</fv>
+			<source>SR5</source>
+			<page>252</page>
+		</complexform>
+		<complexform>
+			<name>Resonance Spike</name>
+			<target>Device</target>
+			<duration>I</duration>
+			<fv>L+0</fv>
+			<source>SR5</source>
+			<page>253</page>
+		</complexform>
+		<complexform>
+			<name>Resonance Veil</name>
+			<target>Device</target>
+			<duration>S</duration>
+			<fv>L-1</fv>
+			<source>SR5</source>
+			<page>253</page>
+		</complexform>
+		<complexform>
+			<name>Static Bomb</name>
+			<target>Self</target>
+			<duration>I</duration>
+			<fv>L+2</fv>
+			<source>SR5</source>
+			<page>253</page>
+		</complexform>
+		<complexform>
+			<name>Stitches</name>
+			<target>Sprite</target>
+			<duration>P</duration>
+			<fv>L-2</fv>
+			<source>SR5</source>
+			<page>253</page>
+		</complexform>
+		<complexform>
+			<name>Transcendent Grid</name>
+			<target>Self</target>
+			<duration>I</duration>
+			<fv>L-3</fv>
+			<source>SR5</source>
+			<page>253</page>
+		</complexform>
+		<complexform>
+			<name>Tattletale</name>
+			<target>Persona</target>
+			<duration>P</duration>
+			<fv>L-2</fv>
+			<source>SR5</source>
+			<page>253</page>
+		</complexform>
+	</complexforms>
+</chummer>

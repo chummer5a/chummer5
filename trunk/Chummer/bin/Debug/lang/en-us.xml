@@ -309,6 +309,18 @@
 			<text>System:</text>
 		</string>
 		<string>
+			<key>Label_Attack</key>
+			<text>Attack:</text>
+		</string>
+		<string>
+			<key>Label_Sleaze</key>
+			<text>Sleaze:</text>
+		</string>
+		<string>
+			<key>Label_DataProcessing</key>
+			<text>Data Processing:</text>
+		</string>
+		<string>
 			<key>Label_Firewall</key>
 			<text>Firewall:</text>
 		</string>
@@ -6180,8 +6192,16 @@ Only one attribute may be at its Maximum value during character creation.</text>
 			<text>Select a Program</text>
 		</string>
 		<string>
-			<key>Label_SelectProgram_CommonlyUsedSkill</key>
-			<text>Commonly Used Skill:</text>
+			<key>Label_SelectProgram_Target</key>
+			<text>Target:</text>
+		</string>
+		<string>
+			<key>Label_SelectProgram_Duration</key>
+			<text>Duration:</text>
+		</string>
+		<string>
+			<key>Label_SelectProgram_FV</key>
+			<text>FV:</text>
 		</string>
 		<!-- Select Program Option Window -->
 		<string>

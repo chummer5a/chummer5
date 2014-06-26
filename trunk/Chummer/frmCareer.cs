@@ -822,73 +822,16 @@ namespace Chummer
 			}
 
 			// Populate Technomancer Complex Forms/Programs.
-			foreach (TechProgram objProgram in _objCharacter.TechPrograms)
+            foreach (ComplexForm objProgram in _objCharacter.ComplexForms)
 			{
 				TreeNode objNode = new TreeNode();
 				objNode.Text = objProgram.DisplayName;
-				if (objProgram.Extra != "")
-					objNode.Text += " (" + objProgram.Extra + ")";
 				objNode.Tag = objProgram.InternalId;
-				if (Convert.ToInt32(objProgram.CalculatedCapacity) > 0)
-					objNode.ContextMenuStrip = cmsComplexForm;
 				if (objProgram.Notes != string.Empty)
 					objNode.ForeColor = Color.SaddleBrown;
 				objNode.ToolTipText = objProgram.Notes;
-
-				foreach (TechProgramOption objOption in objProgram.Options)
-				{
-					TreeNode objChild = new TreeNode();
-					objChild.Text = objOption.DisplayName;
-					objChild.ContextMenuStrip = cmsComplexFormPlugin;
-					if (objOption.Extra != "")
-						objChild.Text += " (" + objProgram.Extra + ")";
-					objChild.Tag = objOption.InternalId;
-					if (objOption.Notes != string.Empty)
-						objChild.ForeColor = Color.SaddleBrown;
-					objChild.ToolTipText = objOption.Notes;
-					objNode.Nodes.Add(objChild);
-					objNode.Expand();
-				}
-
-				switch (objProgram.Category)
-				{
-					case "Advanced":
-						treComplexForms.Nodes[0].Nodes.Add(objNode);
-						treComplexForms.Nodes[0].Expand();
-						break;
-					case "ARE Programs":
-						treComplexForms.Nodes[1].Nodes.Add(objNode);
-						treComplexForms.Nodes[1].Expand();
-						break;
-					case "Autosoft":
-						treComplexForms.Nodes[2].Nodes.Add(objNode);
-						treComplexForms.Nodes[2].Expand();
-						break;
-					case "Common Use":
-						treComplexForms.Nodes[3].Nodes.Add(objNode);
-						treComplexForms.Nodes[3].Expand();
-						break;
-					case "Hacking":
-						treComplexForms.Nodes[4].Nodes.Add(objNode);
-						treComplexForms.Nodes[4].Expand();
-						break;
-					case "Malware":
-						treComplexForms.Nodes[5].Nodes.Add(objNode);
-						treComplexForms.Nodes[5].Expand();
-						break;
-					case "Sensor Software":
-						treComplexForms.Nodes[6].Nodes.Add(objNode);
-						treComplexForms.Nodes[6].Expand();
-						break;
-					case "Skillsofts":
-						treComplexForms.Nodes[7].Nodes.Add(objNode);
-						treComplexForms.Nodes[7].Expand();
-						break;
-					case "Tactical AR Software":
-						treComplexForms.Nodes[8].Nodes.Add(objNode);
-						treComplexForms.Nodes[8].Expand();
-						break;
-				}
+				treComplexForms.Nodes[0].Nodes.Add(objNode);
+				treComplexForms.Nodes[0].Expand();
 			}
 
 			// Populate Martial Arts.
@@ -2273,72 +2216,6 @@ namespace Chummer
 					{
 						_objImprovementManager.ForcedValue = strSelected;
 						_objImprovementManager.CreateImprovements(Improvement.ImprovementSource.Power, objPower.InternalId, objNode["bonus"], false, Convert.ToInt32(objPower.Rating), objPower.DisplayNameShort);
-					}
-				}
-			}
-
-			// Refresh Complex Forms.
-			objXmlDocument = XmlManager.Instance.Load("programs.xml");
-			foreach (TechProgram objProgram in _objCharacter.TechPrograms)
-			{
-				string strSelected = objProgram.Extra;
-
-				XmlNode objNode = objXmlDocument.SelectSingleNode("/chummer/programs/program[name = \"" + objProgram.Name + "\"]");
-				if (objNode != null)
-				{
-					_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.ComplexForm, objProgram.InternalId);
-					if (objNode["bonus"] != null)
-					{
-						_objImprovementManager.ForcedValue = strSelected;
-						_objImprovementManager.CreateImprovements(Improvement.ImprovementSource.ComplexForm, objProgram.InternalId, objNode["bonus"], false, objProgram.Rating, objProgram.DisplayNameShort);
-						if (_objImprovementManager.SelectedValue != "")
-							objProgram.Extra = _objImprovementManager.SelectedValue;
-
-						foreach (TreeNode objParentNode in treComplexForms.Nodes)
-						{
-							foreach (TreeNode objChildNode in objParentNode.Nodes)
-							{
-								if (objChildNode.Tag.ToString() == objProgram.InternalId)
-								{
-									objChildNode.Text = objProgram.DisplayName;
-									break;
-								}
-							}
-						}
-					}
-				}
-
-				foreach (TechProgramOption objOption in objProgram.Options)
-				{
-					string strOptionSelected = objOption.Extra;
-
-					XmlNode objChild = objXmlDocument.SelectSingleNode("/chummer/options/option[name = \"" + objOption.Name + "\"]");
-
-					if (objChild != null)
-					{
-						_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.ComplexForm, objOption.InternalId);
-						if (objChild["bonus"] != null)
-						{
-							_objImprovementManager.ForcedValue = strOptionSelected;
-							_objImprovementManager.CreateImprovements(Improvement.ImprovementSource.ComplexForm, objOption.InternalId, objChild["bonus"], false, objOption.Rating, objOption.DisplayNameShort);
-							if (_objImprovementManager.SelectedValue != "")
-								objOption.Extra = _objImprovementManager.SelectedValue;
-
-							foreach (TreeNode objParentNode in treComplexForms.Nodes)
-							{
-								foreach (TreeNode objChildNode in objParentNode.Nodes)
-								{
-									foreach (TreeNode objPluginNode in objChildNode.Nodes)
-									{
-										if (objPluginNode.Tag.ToString() == objProgram.InternalId)
-										{
-											objPluginNode.Text = objProgram.DisplayName;
-											break;
-										}
-									}
-								}
-							}
-						}
 					}
 				}
 			}
@@ -5509,21 +5386,17 @@ namespace Chummer
 
 			int intKarmaCost = _objOptions.KarmaNewComplexForm;
 
-			XmlDocument objXmlDocument = XmlManager.Instance.Load("programs.xml");
+			XmlDocument objXmlDocument = XmlManager.Instance.Load("complexforms.xml");
 
-			XmlNode objXmlProgram = objXmlDocument.SelectSingleNode("/chummer/programs/program[name = \"" + frmPickProgram.SelectedProgram + "\"]");
+            XmlNode objXmlProgram = objXmlDocument.SelectSingleNode("/chummer/complexforms/complexform[name = \"" + frmPickProgram.SelectedProgram + "\"]");
 
 			TreeNode objNode = new TreeNode();
-			TechProgram objProgram = new TechProgram(_objCharacter);
+            ComplexForm objProgram = new ComplexForm(_objCharacter);
 			objProgram.Create(objXmlProgram, _objCharacter, objNode);
 			if (objProgram.InternalId == Guid.Empty.ToString())
 				return;
 
-			_objCharacter.TechPrograms.Add(objProgram);
-
-			// Skillsofts only cost KarmaComplexFormSkillsoft Karma.
-			if (objProgram.Category == "Skillsofts")
-				intKarmaCost = _objOptions.KarmaComplexFormSkillsoft;
+            _objCharacter.ComplexForms.Add(objProgram);
 
 			// If using the optional rule for costing the same as Spells, change the Karma cost.
 			if (_objOptions.AlternateComplexFormCost)
@@ -5545,48 +5418,8 @@ namespace Chummer
 				return;
 			}
 
-			if (Convert.ToInt32(objProgram.CalculatedCapacity) > 0)
-				objNode.ContextMenuStrip = cmsComplexForm;
-
-			switch (objProgram.Category)
-			{
-				case "Advanced":
-					treComplexForms.Nodes[0].Nodes.Add(objNode);
-					treComplexForms.Nodes[0].Expand();
-					break;
-				case "ARE Programs":
-					treComplexForms.Nodes[1].Nodes.Add(objNode);
-					treComplexForms.Nodes[1].Expand();
-					break;
-				case "Autosoft":
-					treComplexForms.Nodes[2].Nodes.Add(objNode);
-					treComplexForms.Nodes[2].Expand();
-					break;
-				case "Common Use":
-					treComplexForms.Nodes[3].Nodes.Add(objNode);
-					treComplexForms.Nodes[3].Expand();
-					break;
-				case "Hacking":
-					treComplexForms.Nodes[4].Nodes.Add(objNode);
-					treComplexForms.Nodes[4].Expand();
-					break;
-				case "Malware":
-					treComplexForms.Nodes[5].Nodes.Add(objNode);
-					treComplexForms.Nodes[5].Expand();
-					break;
-				case "Sensor Software":
-					treComplexForms.Nodes[6].Nodes.Add(objNode);
-					treComplexForms.Nodes[6].Expand();
-					break;
-				case "Skillsofts":
-					treComplexForms.Nodes[7].Nodes.Add(objNode);
-					treComplexForms.Nodes[7].Expand();
-					break;
-				case "Tactical AR Software":
-					treComplexForms.Nodes[8].Nodes.Add(objNode);
-					treComplexForms.Nodes[8].Expand();
-					break;
-			}
+			treComplexForms.Nodes[0].Nodes.Add(objNode);
+			treComplexForms.Nodes[0].Expand();
 
 			// Create the Expense Log Entry.
 			ExpenseLogEntry objExpense = new ExpenseLogEntry();
@@ -7537,23 +7370,11 @@ namespace Chummer
 						return;
 
 					// Locate the Program that is selected in the tree.
-					TechProgram objProgram = _objFunctions.FindTechProgram(treComplexForms.SelectedNode.Tag.ToString(), _objCharacter.TechPrograms);
+                    ComplexForm objProgram = _objFunctions.FindComplexForm(treComplexForms.SelectedNode.Tag.ToString(), _objCharacter.ComplexForms);
 
 					_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.ComplexForm, objProgram.InternalId);
 
-					_objCharacter.TechPrograms.Remove(objProgram);
-					treComplexForms.SelectedNode.Remove();
-				}
-				if (treComplexForms.SelectedNode.Level == 2)
-				{
-					if (!_objFunctions.ConfirmDelete(LanguageManager.Instance.GetString("Message_DeleteComplexFormOption")))
-						return;
-
-					// Locate the Program Option that is selected in the tree.
-					TechProgram objProgram = new TechProgram(_objCharacter);
-					TechProgramOption objOption = _objFunctions.FindTechProgramOption(treComplexForms.SelectedNode.Tag.ToString(), _objCharacter.TechPrograms, out objProgram);
-
-					objProgram.Options.Remove(objOption);
+                    _objCharacter.ComplexForms.Remove(objProgram);
 					treComplexForms.SelectedNode.Remove();
 				}
 				UpdateCharacterInfo();
@@ -7571,13 +7392,10 @@ namespace Chummer
 			if (treComplexForms.SelectedNode.Level == 1)
 			{
 				// Locate the Program that is selected in the tree.
-				TechProgram objProgram = _objFunctions.FindTechProgram(treComplexForms.SelectedNode.Tag.ToString(), _objCharacter.TechPrograms);
+                ComplexForm objProgram = _objFunctions.FindComplexForm(treComplexForms.SelectedNode.Tag.ToString(), _objCharacter.ComplexForms);
 
 				// Make sure the character has enough Karma.
-				int intKarmaCost = (objProgram.Rating + 1) * _objOptions.KarmaImproveComplexForm;
-				// Skillsofts only cost KarmaComplexFormSkillsoft to Improve.
-				if (objProgram.Category == "Skillsofts")
-					intKarmaCost = _objOptions.KarmaComplexFormSkillsoft;
+				int intKarmaCost = _objOptions.KarmaImproveComplexForm;
 
 				if (intKarmaCost > _objCharacter.Karma)
 				{
@@ -7585,12 +7403,12 @@ namespace Chummer
 					return;
 				}
 
-				if (!ConfirmKarmaExpense(LanguageManager.Instance.GetString("Message_ConfirmKarmaExpense").Replace("{0}", objProgram.DisplayNameShort).Replace("{1}", (objProgram.Rating + 1).ToString()).Replace("{2}", intKarmaCost.ToString())))
+                if (!ConfirmKarmaExpense(LanguageManager.Instance.GetString("Message_ConfirmKarmaExpenseSpend").Replace("{0}", intKarmaCost.ToString()).Replace("{1}", objProgram.DisplayNameShort)))
 					return;
 
 				// Create the Expense Log Entry.
 				ExpenseLogEntry objExpense = new ExpenseLogEntry();
-				objExpense.Create(intKarmaCost * -1, LanguageManager.Instance.GetString("String_ExpenseComplexForm") + " " + objProgram.DisplayNameShort + " " + objProgram.Rating + " -> " + (objProgram.Rating + 1).ToString(), ExpenseType.Karma, DateTime.Now);
+				objExpense.Create(intKarmaCost * -1, LanguageManager.Instance.GetString("String_ExpenseComplexForm") + " " + objProgram.DisplayNameShort, ExpenseType.Karma, DateTime.Now);
 				_objCharacter.ExpenseEntries.Add(objExpense);
 				_objCharacter.Karma -= intKarmaCost;
 
@@ -7598,81 +7416,10 @@ namespace Chummer
 				objUndo.CreateKarma(KarmaExpenseType.ImproveComplexForm, objProgram.InternalId);
 				objExpense.Undo = objUndo;
 
-				objProgram.Rating += 1;
 				treComplexForms.SelectedNode.Text = objProgram.DisplayName;
-				lblComplexFormRating.Text = objProgram.Rating.ToString();
-
-				int intMaxRating = objProgram.MaxRating;
-				if (intMaxRating == 0)
-					intMaxRating = _objCharacter.RES.TotalValue;
-
-				if (objProgram.Rating < _objCharacter.RES.TotalValue && objProgram.Rating < intMaxRating)
-				{
-					string strTip = LanguageManager.Instance.GetString("Tip_ImproveItem").Replace("{0}", (objProgram.Rating + 1).ToString()).Replace("{1}", ((objProgram.Rating + 1) * _objOptions.KarmaImproveComplexForm).ToString());
-					tipTooltip.SetToolTip(cmdImproveComplexForm, strTip);
-					cmdImproveComplexForm.Enabled = true;
-				}
-				else
-					cmdImproveComplexForm.Enabled = false;
-			}
-			else
-			{
-				TechProgram objProgram = new TechProgram(_objCharacter);
-				TechProgramOption objProgramOption = new TechProgramOption(_objCharacter);
-				// Locate the Program Option that is selected in the tree.
-				foreach (TechProgram objCharacterProgram in _objCharacter.TechPrograms)
-				{
-					foreach (TechProgramOption objCharacterProgramOption in objCharacterProgram.Options)
-					{
-						if (objCharacterProgramOption.InternalId == treComplexForms.SelectedNode.Tag.ToString())
-						{
-							objProgram = objCharacterProgram;
-							objProgramOption = objCharacterProgramOption;
-							break;
-						}
-					}
-				}
-
-				// Make sure the character has enough Karma.
-				int intKarmaCost = _objOptions.KarmaComplexFormOption;
-				// Skillsofts Options only cost KarmaComplexFormSkillsoft Karma.
-				if (objProgram.Category == "Skillsofts")
-					intKarmaCost = _objOptions.KarmaComplexFormSkillsoft;
-
-				if (intKarmaCost > _objCharacter.Karma)
-				{
-					MessageBox.Show(LanguageManager.Instance.GetString("Message_NotEnoughKarma"), LanguageManager.Instance.GetString("MessageTitle_NotEnoughKarma"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-					return;
-				}
-
-				if (!ConfirmKarmaExpense(LanguageManager.Instance.GetString("Message_ConfirmKarmaExpense").Replace("{0}", objProgramOption.DisplayNameShort).Replace("{1}", (objProgramOption.Rating + 1).ToString()).Replace("{2}", intKarmaCost.ToString())))
-					return;
-
-				// Create the Expense Log Entry.
-				ExpenseLogEntry objExpense = new ExpenseLogEntry();
-				objExpense.Create(intKarmaCost * -1, LanguageManager.Instance.GetString("String_ExpenseComplexFormOption") + " " + objProgramOption.DisplayNameShort + " " + objProgramOption.Rating + " -> " + (objProgramOption.Rating + 1).ToString(), ExpenseType.Karma, DateTime.Now);
-				_objCharacter.ExpenseEntries.Add(objExpense);
-				_objCharacter.Karma -= intKarmaCost;
-
-				ExpenseUndo objUndo = new ExpenseUndo();
-				objUndo.CreateKarma(KarmaExpenseType.ImproveComplexFormOption, objProgramOption.InternalId);
-				objExpense.Undo = objUndo;
-
-				objProgramOption.Rating += 1;
-				treComplexForms.SelectedNode.Text = objProgramOption.DisplayName;
-				lblComplexFormRating.Text = objProgramOption.Rating.ToString();
-
-				if (objProgramOption.Rating < objProgramOption.MaxRating)
-				{
-					string strTip = LanguageManager.Instance.GetString("Tip_ImproveItem").Replace("{0}", (objProgramOption.Rating + 1).ToString()).Replace("{1}", _objOptions.KarmaComplexFormOption.ToString());
-					tipTooltip.SetToolTip(cmdImproveComplexForm, strTip);
-					cmdImproveComplexForm.Enabled = true;
-				}
-				else
-					cmdImproveComplexForm.Enabled = false;
 			}
 
-			UpdateCharacterInfo();
+            UpdateCharacterInfo();
 
 			_blnIsDirty = true;
 			UpdateWindowTitle();
@@ -12979,97 +12726,6 @@ namespace Chummer
 			UpdateWindowTitle();
 		}
 
-		private void tsAddComplexFormOption_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				if (treComplexForms.SelectedNode.Level == 0)
-				{
-					MessageBox.Show(LanguageManager.Instance.GetString("Message_SelectComplexForm"), LanguageManager.Instance.GetString("MessageTitle_SelectComplexForm"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-					return;
-				}
-			}
-			catch
-			{
-				MessageBox.Show(LanguageManager.Instance.GetString("Message_SelectComplexForm"), LanguageManager.Instance.GetString("MessageTitle_SelectComplexForm"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-				return;
-			}
-
-			if (treComplexForms.SelectedNode.Level > 1)
-				treComplexForms.SelectedNode = treComplexForms.SelectedNode.Parent;
-
-			// Locate the Program that is selected in the tree.
-			TechProgram objProgram = _objFunctions.FindTechProgram(treComplexForms.SelectedNode.Tag.ToString(), _objCharacter.TechPrograms);
-
-			if (objProgram.CalculatedCapacity == 0)
-			{
-				MessageBox.Show(LanguageManager.Instance.GetString("Message_CannotAddComplexFormOption"), LanguageManager.Instance.GetString("MessageTitle_CannotAddComplexFormOption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-				return;
-			}
-			else
-			{
-				if (objProgram.Options.Count >= objProgram.CalculatedCapacity && !_objCharacter.IgnoreRules)
-				{
-					MessageBox.Show(LanguageManager.Instance.GetString("Message_ConntAddComplexFormOptionLimit").Replace("{0}", objProgram.CalculatedCapacity.ToString()), LanguageManager.Instance.GetString("MessageTitle_CannotAddComplexFormOption"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-					return;
-				}
-			}
-
-			frmSelectProgramOption frmPickProgramOption = new frmSelectProgramOption(_objCharacter);
-			frmPickProgramOption.ProgramName = objProgram.Name;
-			frmPickProgramOption.ProgramCategory = objProgram.Category;
-			frmPickProgramOption.ProgramTags = objProgram.Tags;
-			frmPickProgramOption.ShowDialog(this);
-
-			if (frmPickProgramOption.DialogResult == DialogResult.Cancel)
-				return;
-
-			// Make sure the character has enough Karma to improve the Attribute.
-			int intKarmaCost = _objOptions.KarmaComplexFormOption;
-			// Skillsofts Options only cost KarmaComplexFormSkillsoft Karma.
-			if (objProgram.Category == "Skillsofts")
-				intKarmaCost = _objOptions.KarmaComplexFormSkillsoft;
-			if (intKarmaCost > _objCharacter.Karma)
-			{
-				MessageBox.Show(LanguageManager.Instance.GetString("Message_NotEnoughKarma"), LanguageManager.Instance.GetString("MessageTitle_NotEnoughKarma"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-				return;
-			}
-
-			if (!ConfirmKarmaExpense(LanguageManager.Instance.GetString("Message_ConfirmKarmaExpenseComplexFormOption").Replace("{0}", intKarmaCost.ToString())))
-				return;
-
-			XmlDocument objXmlDocument = XmlManager.Instance.Load("programs.xml");
-
-			XmlNode objXmlOption = objXmlDocument.SelectSingleNode("/chummer/options/option[name = \"" + frmPickProgramOption.SelectedOption + "\"]");
-
-			TreeNode objNode = new TreeNode();
-			TechProgramOption objOption = new TechProgramOption(_objCharacter);
-			objOption.Create(objXmlOption, _objCharacter, objNode);
-			objNode.ContextMenuStrip = cmsComplexFormPlugin;
-			if (objOption.InternalId == Guid.Empty.ToString())
-				return;
-
-			// Create the Karma expense.
-			ExpenseLogEntry objExpense = new ExpenseLogEntry();
-			objExpense.Create(intKarmaCost * -1, LanguageManager.Instance.GetString("String_ExpenseAddComplexFormOption") + " " + frmPickProgramOption.SelectedOption, ExpenseType.Karma, DateTime.Now);
-			_objCharacter.ExpenseEntries.Add(objExpense);
-			_objCharacter.Karma -= intKarmaCost;
-
-			ExpenseUndo objUndo = new ExpenseUndo();
-			objUndo.CreateKarma(KarmaExpenseType.AddComplexFormOption, objOption.InternalId);
-			objExpense.Undo = objUndo;
-
-			objProgram.Options.Add(objOption);
-
-			treComplexForms.SelectedNode.Nodes.Add(objNode);
-			treComplexForms.SelectedNode.Expand();
-
-			UpdateCharacterInfo();
-
-			_blnIsDirty = true;
-			UpdateWindowTitle();
-		}
-
 		private void tsGearAddNexus_Click(object sender, EventArgs e)
 		{
 			treGear.SelectedNode = treGear.Nodes[0];
@@ -13597,7 +13253,7 @@ namespace Chummer
 					break;
 				case KarmaExpenseType.AddComplexForm:
 					// Locate the Complex Form that was affected.
-					foreach (TechProgram objProgram in _objCharacter.TechPrograms)
+                    foreach (ComplexForm objProgram in _objCharacter.ComplexForms)
 					{
 						if (objProgram.InternalId == objEntry.Undo.ObjectId)
 						{
@@ -13605,7 +13261,7 @@ namespace Chummer
 							_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.ComplexForm, objProgram.InternalId);
 
 							// Remove the Complex Form from the character.
-							_objCharacter.TechPrograms.Remove(objProgram);
+                            _objCharacter.ComplexForms.Remove(objProgram);
 
 							// Remove the Complex Form from the Tree.
 							foreach (TreeNode objParent in treComplexForms.Nodes)
@@ -13620,78 +13276,6 @@ namespace Chummer
 								}
 							}
 							break;
-						}
-					}
-					break;
-				case KarmaExpenseType.ImproveComplexForm:
-					// Locate the Complex Form that was affected.
-					foreach (TechProgram objProgram in _objCharacter.TechPrograms)
-					{
-						if (objProgram.InternalId == objEntry.Undo.ObjectId)
-						{
-							objProgram.Rating--;
-							try
-							{
-								if (treComplexForms.SelectedNode.Tag.ToString() == objProgram.InternalId)
-									lblComplexFormRating.Text = objProgram.Rating.ToString();
-							}
-							catch
-							{
-							}
-							break;
-						}
-					}
-					break;
-				case KarmaExpenseType.AddComplexFormOption:
-					// Locate the Complex Form Option that was affected.
-					foreach (TechProgram objProgram in _objCharacter.TechPrograms)
-					{
-						foreach (TechProgramOption objOption in objProgram.Options)
-						{
-							if (objOption.InternalId == objEntry.Undo.ObjectId)
-							{
-								// Remove the Option from the Complex Form.
-								objProgram.Options.Remove(objOption);
-
-								// Remove the Option from the Tree.
-								foreach (TreeNode objParent in treComplexForms.Nodes)
-								{
-									foreach (TreeNode objNode in objParent.Nodes)
-									{
-										foreach (TreeNode objChild in objNode.Nodes)
-										{
-											if (objChild.Tag.ToString() == objEntry.Undo.ObjectId)
-											{
-												objChild.Remove();
-												break;
-											}
-										}
-									}
-								}
-								break;
-							}
-						}
-					}
-					break;
-				case KarmaExpenseType.ImproveComplexFormOption:
-					// Locate the Complex Form Option that was affected.
-					foreach (TechProgram objProgram in _objCharacter.TechPrograms)
-					{
-						foreach (TechProgramOption objOption in objProgram.Options)
-						{
-							if (objOption.InternalId == objEntry.Undo.ObjectId)
-							{
-								objOption.Rating--;
-								try
-								{
-									if (treComplexForms.SelectedNode.Tag.ToString() == objOption.InternalId)
-										lblComplexFormRating.Text = objOption.Rating.ToString();
-								}
-								catch
-								{
-								}
-								break;
-							}
 						}
 					}
 					break;
@@ -15293,7 +14877,7 @@ namespace Chummer
 			try
 			{
 				bool blnFound = false;
-				TechProgram objComplexForm = _objFunctions.FindTechProgram(treComplexForms.SelectedNode.Tag.ToString(), _objCharacter.TechPrograms);
+                ComplexForm objComplexForm = _objFunctions.FindComplexForm(treComplexForms.SelectedNode.Tag.ToString(), _objCharacter.ComplexForms);
 				if (objComplexForm != null)
 					blnFound = true;
 
@@ -15635,39 +15219,6 @@ namespace Chummer
 						treVehicles.SelectedNode.ForeColor = SystemColors.WindowText;
 				}
 				treVehicles.SelectedNode.ToolTipText = objWeapon.Notes;
-			}
-		}
-
-		private void tsComplexFormPluginNotes_Click(object sender, EventArgs e)
-		{
-			bool blnFound = false;
-			TechProgram objFoundProgram = new TechProgram(_objCharacter);
-			TechProgramOption objOption = _objFunctions.FindTechProgramOption(treComplexForms.SelectedNode.Tag.ToString(), _objCharacter.TechPrograms, out objFoundProgram);
-			if (objOption != null)
-				blnFound = true;
-
-			if (blnFound)
-			{
-				frmNotes frmItemNotes = new frmNotes();
-				frmItemNotes.Notes = objOption.Notes;
-				string strOldValue = objOption.Notes;
-				frmItemNotes.ShowDialog(this);
-
-				if (frmItemNotes.DialogResult == DialogResult.OK)
-				{
-					objOption.Notes = frmItemNotes.Notes;
-					if (objOption.Notes != strOldValue)
-					{
-						_blnIsDirty = true;
-						UpdateWindowTitle();
-					}
-				}
-
-				if (objOption.Notes != string.Empty)
-					treComplexForms.SelectedNode.ForeColor = Color.SaddleBrown;
-				else
-					treComplexForms.SelectedNode.ForeColor = SystemColors.WindowText;
-				treComplexForms.SelectedNode.ToolTipText = objOption.Notes;
 			}
 		}
 
@@ -19538,7 +19089,6 @@ namespace Chummer
 		private void treComplexForms_AfterSelect(object sender, TreeViewEventArgs e)
 		{
 			RefreshSelectedComplexForm();
-			RefreshComplexFormSkill();
 		}
 
 		private void cboStream_SelectedIndexChanged(object sender, EventArgs e)
@@ -19576,21 +19126,6 @@ namespace Chummer
 			{
 				cmdDeleteComplexForm_Click(sender, e);
 			}
-		}
-
-		private void cboComplexFormSkill_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			RefreshComplexFormSkill();
-		}
-
-		private void cboComplexFormAttribute_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			RefreshComplexFormSkill();
-		}
-
-		private void nudComplexFormRating_ValueChanged(object sender, EventArgs e)
-		{
-			RefreshComplexFormSkill();
 		}
 		#endregion
 
@@ -26288,65 +25823,12 @@ namespace Chummer
 				if (treComplexForms.SelectedNode.Level == 1)
 				{
 					// Locate the Program that is selected in the tree.
-					TechProgram objProgram = _objFunctions.FindTechProgram(treComplexForms.SelectedNode.Tag.ToString(), _objCharacter.TechPrograms);
+                    ComplexForm objProgram = _objFunctions.FindComplexForm(treComplexForms.SelectedNode.Tag.ToString(), _objCharacter.ComplexForms);
 
-					int intMaxRating = objProgram.MaxRating;
-					if (intMaxRating == 0)
-						intMaxRating = _objCharacter.RES.TotalValue;
-
-					if (objProgram.Rating < _objCharacter.RES.TotalValue && objProgram.Rating < intMaxRating)
-					{
-						string strTooltip = LanguageManager.Instance.GetString("Tip_ImproveItem").Replace("{0}", (objProgram.Rating + 1).ToString()).Replace("{1}", ((objProgram.Rating + 1) * _objOptions.KarmaImproveComplexForm).ToString());
-						tipTooltip.SetToolTip(cmdImproveComplexForm, strTooltip);
-						cmdImproveComplexForm.Enabled = true;
-					}
-					else
-						cmdImproveComplexForm.Enabled = false;
-
-					lblComplexFormSkill.Text = objProgram.DisplaySkill;
-					lblComplexFormRating.Text = objProgram.Rating.ToString();
 					string strBook = _objOptions.LanguageBookShort(objProgram.Source);
 					string strPage = objProgram.Page;
 					lblComplexFormSource.Text = strBook + " " + strPage;
 					tipTooltip.SetToolTip(lblComplexFormSource, _objOptions.LanguageBookLong(objProgram.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objProgram.Page);
-
-					try
-					{
-						cboComplexFormSkill.SelectedValue = objProgram.Skill;
-						if (cboComplexFormSkill.SelectedIndex < 0)
-						{
-							_blnSkipRefresh = true;
-							cboComplexFormSkill.SelectedIndex = 0;
-							_blnSkipRefresh = false;
-						}
-					}
-					catch
-					{
-						_blnSkipRefresh = true;
-						cboComplexFormSkill.SelectedIndex = 0;
-						_blnSkipRefresh = false;
-					}
-
-					RefreshComplexFormSkill();
-				}
-				else if (treComplexForms.SelectedNode.Level == 2)
-				{
-					// Locate the selected Option.
-					TechProgram objProgram = new TechProgram(_objCharacter);
-					TechProgramOption objOption = _objFunctions.FindTechProgramOption(treComplexForms.SelectedNode.Tag.ToString(), _objCharacter.TechPrograms, out objProgram);
-
-					if (objOption.Rating < objOption.MaxRating)
-					{
-						string strTooltip = LanguageManager.Instance.GetString("Tip_ImproveItem").Replace("{0}", (objOption.Rating + 1).ToString()).Replace("{1}", _objOptions.KarmaComplexFormOption.ToString());
-						tipTooltip.SetToolTip(cmdImproveComplexForm, strTooltip);
-						cmdImproveComplexForm.Enabled = true;
-					}
-					else
-						cmdImproveComplexForm.Enabled = false;
-
-					lblComplexFormRating.Text = objOption.Rating.ToString();
-					lblComplexFormSource.Text = objOption.Source + " " + objOption.Page;
-					tipTooltip.SetToolTip(lblComplexFormSource, _objOptions.BookFromCode(objOption.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objOption.Page);
 				}
 				else
 				{
@@ -26355,51 +25837,6 @@ namespace Chummer
 			}
 			catch
 			{
-			}
-		}
-
-		/// <summary>
-		/// Refresh the Skill information for the currently selected Complex Form.
-		/// </summary>
-		private void RefreshComplexFormSkill()
-		{
-			// Locate the Program that is selected in the tree.
-			try
-			{
-				if (treComplexForms.SelectedNode == null)
-					return;
-			}
-			catch
-			{
-				return;
-			}
-
-			TechProgram objProgram = _objFunctions.FindTechProgram(treComplexForms.SelectedNode.Tag.ToString(), _objCharacter.TechPrograms);
-			if (objProgram == null)
-				return;
-
-			// Update the Dice Pool information.
-			Skill objSkill = new Skill(_objCharacter);
-			foreach (Skill objCharacterSkill in _objCharacter.Skills)
-			{
-				if (objCharacterSkill.Name == cboComplexFormSkill.SelectedValue.ToString())
-				{
-					objSkill = objCharacterSkill;
-					break;
-				}
-			}
-
-			if (!_objOptions.AlternateMatrixAttribute)
-			{
-				if (!_objOptions.AlternateComplexFormCost)
-					lblComplexFormDicePool.Text = " + " + objProgram.Rating.ToString() + " = " + (objSkill.TotalRating - objSkill.AttributeModifiers + objProgram.Rating).ToString();
-				else
-					lblComplexFormDicePool.Text = " + " + nudComplexFormRating.Value.ToString() + " = " + (objSkill.TotalRating - objSkill.AttributeModifiers + nudComplexFormRating.Value).ToString();
-			}
-			else
-			{
-				// If using the Alternate Matrix Attribute optional rule, use the selected Attribute instead of the Program's Rating.
-				lblComplexFormDicePool.Text = " = " + (objSkill.TotalRating - objSkill.AttributeModifiers + _objCharacter.GetAttribute(cboComplexFormAttribute.SelectedValue.ToString()).TotalValue).ToString();
 			}
 		}
 

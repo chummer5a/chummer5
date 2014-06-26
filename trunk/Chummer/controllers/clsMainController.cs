@@ -666,7 +666,7 @@ namespace Chummer
 		public void ClearTechnomancerTab(TreeView treComplexForms)
 		{
 			// Run through all of the Complex Forms and remove their Improvements.
-			foreach (TechProgram objProgram in _objCharacter.TechPrograms)
+            foreach (ComplexForm objProgram in _objCharacter.ComplexForms)
 				_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.ComplexForm, objProgram.InternalId);
 
 			// Clear the list of Complex Forms.
@@ -674,7 +674,7 @@ namespace Chummer
 				objNode.Nodes.Clear();
 
 			_objCharacter.Spirits.Clear();
-			_objCharacter.TechPrograms.Clear();
+            _objCharacter.ComplexForms.Clear();
 		}
 
 		/// <summary>

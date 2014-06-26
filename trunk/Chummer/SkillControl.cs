@@ -648,25 +648,6 @@ namespace Chummer
 				}
 			}
 
-			foreach (TechProgram objProgram in _objSkill.CharacterObject.TechPrograms)
-			{
-				// Look for any Skillsoft Complex Forms that would conflict with the Skill's Rating.
-				if (objProgram.Category == "Skillsofts" && (objProgram.Extra == _objSkill.Name || objProgram.Extra == _objSkill.Name + ", " + LanguageManager.Instance.GetString("Label_SelectGear_Hacked")))
-				{
-					if (objProgram.Rating > _objSkill.Rating)
-					{
-						// Use the Complex Form's Rating or Skillwire Rating, whichever is lower.
-						// If this is a Knowsoft or Linguasoft, it is not limited to the Skillwire Rating.
-						if (objProgram.Name == "Activesoft")
-							intSkillRating = Math.Min(objProgram.Rating, objImprovementManager.ValueOf(Improvement.ImprovementType.Skillwire));
-						else
-							intSkillRating = objProgram.Rating;
-						blnSkillsoft = true;
-						break;
-					}
-				}
-			}
-
             if (_objSkill.FreeLevels > 0)
                 nudSkill.Minimum = _objSkill.FreeLevels;
             else

@@ -725,38 +725,17 @@ namespace Chummer
 			}
 
 			// Add any Complex Forms the Critter comes with (typically Sprites)
-			XmlDocument objXmlProgramDocument = XmlManager.Instance.Load("programs.xml");
+            XmlDocument objXmlProgramDocument = XmlManager.Instance.Load("complexforms.xml");
 			foreach (XmlNode objXmlComplexForm in objXmlCritter.SelectNodes("complexforms/complexform"))
 			{
-				int intRating = 0;
-				if (objXmlComplexForm.Attributes["rating"] != null)
-					intRating = Convert.ToInt32(ExpressionToString(objXmlComplexForm.Attributes["rating"].InnerText, Convert.ToInt32(nudForce.Value), 0));
 				string strForceValue = "";
 				if (objXmlComplexForm.Attributes["select"] != null)
 					strForceValue = objXmlComplexForm.Attributes["select"].InnerText;
-				XmlNode objXmlProgram = objXmlProgramDocument.SelectSingleNode("/chummer/programs/program[name = \"" + objXmlComplexForm.InnerText + "\"]");
+				XmlNode objXmlProgram = objXmlProgramDocument.SelectSingleNode("/chummer/complexforms/complexform[name = \"" + objXmlComplexForm.InnerText + "\"]");
 				TreeNode objNode = new TreeNode();
-				TechProgram objProgram = new TechProgram(objCharacter);
+                ComplexForm objProgram = new ComplexForm(objCharacter);
 				objProgram.Create(objXmlProgram, objCharacter, objNode, strForceValue);
-				objProgram.Rating = intRating;
-				objCharacter.TechPrograms.Add(objProgram);
-
-				// Add the Program Option if applicable.
-				if (objXmlComplexForm.Attributes["option"] != null)
-				{
-					int intOptRating = 0;
-					if (objXmlComplexForm.Attributes["optionrating"] != null)
-						intOptRating = Convert.ToInt32(ExpressionToString(objXmlComplexForm.Attributes["optionrating"].InnerText, Convert.ToInt32(nudForce.Value), 0));
-					string strOptForceValue = "";
-					if (objXmlComplexForm.Attributes["optionselect"] != null)
-						strOptForceValue = objXmlComplexForm.Attributes["optionselect"].InnerText;
-					XmlNode objXmlOption = objXmlProgramDocument.SelectSingleNode("/chummer/options/option[name = \"" + objXmlComplexForm.Attributes["option"].InnerText + "\"]");
-					TreeNode objNodeOpt = new TreeNode();
-					TechProgramOption objOption = new TechProgramOption(objCharacter);
-					objOption.Create(objXmlOption, objCharacter, objNodeOpt, strOptForceValue);
-					objOption.Rating = intOptRating;
-					objProgram.Options.Add(objOption);
-				}
+                objCharacter.ComplexForms.Add(objProgram);
 			}
 
 			// Add any Gear the Critter comes with (typically Programs for A.I.s)
