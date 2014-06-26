@@ -3820,7 +3820,6 @@
 			this.cboComplexFormAttribute.Name = "cboComplexFormAttribute";
 			this.cboComplexFormAttribute.Size = new System.Drawing.Size(68, 21);
 			this.cboComplexFormAttribute.TabIndex = 130;
-			this.cboComplexFormAttribute.SelectedIndexChanged += new System.EventHandler(this.cboComplexFormAttribute_SelectedIndexChanged);
 			// 
 			// cboComplexFormSkill
 			// 
@@ -3830,7 +3829,6 @@
 			this.cboComplexFormSkill.Name = "cboComplexFormSkill";
 			this.cboComplexFormSkill.Size = new System.Drawing.Size(141, 21);
 			this.cboComplexFormSkill.TabIndex = 129;
-			this.cboComplexFormSkill.SelectedIndexChanged += new System.EventHandler(this.cboComplexFormSkill_SelectedIndexChanged);
 			// 
 			// lblComplexFormDicePool
 			// 
@@ -4192,7 +4190,6 @@
             0,
             0});
 			this.nudComplexFormRating.Visible = false;
-			this.nudComplexFormRating.ValueChanged += new System.EventHandler(this.nudComplexFormRating_ValueChanged);
 			// 
 			// cmsComplexForm
 			// 
@@ -4210,7 +4207,6 @@
 			this.tsAddComplexFormOption.Size = new System.Drawing.Size(136, 22);
 			this.tsAddComplexFormOption.Tag = "Menu_AddOption";
 			this.tsAddComplexFormOption.Text = "&Add Option";
-			this.tsAddComplexFormOption.Click += new System.EventHandler(this.tsAddComplexFormOption_Click);
 			// 
 			// tsComplexFormNotes
 			// 
@@ -10854,7 +10850,6 @@
 			this.tsComplexFormPluginNotes.Size = new System.Drawing.Size(105, 22);
 			this.tsComplexFormPluginNotes.Tag = "Menu_Notes";
 			this.tsComplexFormPluginNotes.Text = "&Notes";
-			this.tsComplexFormPluginNotes.Click += new System.EventHandler(this.tsComplexFormPluginNotes_Click);
 			// 
 			// splitMain
 			// 

@@ -544,38 +544,14 @@ namespace Chummer
 		/// </summary>
 		/// <param name="strGuid">InternalId of the Complex Form to find.</param>
 		/// <param name="lstPrograms">List of Complex Forms to search.</param>
-		public TechProgram FindTechProgram(string strGuid, List<TechProgram> lstPrograms)
+        public ComplexForm FindComplexForm(string strGuid, List<ComplexForm> lstPrograms)
 		{
-			foreach (TechProgram objProgram in lstPrograms)
+            foreach (ComplexForm objProgram in lstPrograms)
 			{
 				if (objProgram.InternalId == strGuid)
 					return objProgram;
 			}
 
-			return null;
-		}
-
-		/// <summary>
-		/// Locate a Complex Form Option within the character's Complex Forms.
-		/// </summary>
-		/// <param name="strGuid">InternalId of the Complex Form Option to Find.</param>
-		/// <param name="lstPrograms">List of Complex Forms to search.</param>
-		/// <param name="objFoundProgram">Complex Form that the Option was found in.</param>
-		public TechProgramOption FindTechProgramOption(string strGuid, List<TechProgram> lstPrograms, out TechProgram objFoundProgram)
-		{
-			foreach (TechProgram objProgram in lstPrograms)
-			{
-				foreach (TechProgramOption objOption in objProgram.Options)
-				{
-					if (objOption.InternalId == strGuid)
-					{
-						objFoundProgram = objProgram;
-						return objOption;
-					}
-				}
-			}
-
-			objFoundProgram = null;
 			return null;
 		}
 

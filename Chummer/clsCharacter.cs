@@ -160,7 +160,7 @@ namespace Chummer
 		// Magic Tradition.
 		private string _strMagicTradition = "";
 		// Technomancer Stream.
-		private string _strTechnomancerStream = "";
+		private string _strTechnomancerStream = "Default";
 
 		// Condition Monitor Progress.
 		private int _intPhysicalCMFilled = 0;
@@ -176,7 +176,7 @@ namespace Chummer
 		private List<Focus> _lstFoci = new List<Focus>();
 		private List<StackedFocus> _lstStackedFoci = new List<StackedFocus>();
 		private List<Power> _lstPowers = new List<Power>();
-		private List<TechProgram> _lstTechPrograms = new List<TechProgram>();
+        private List<ComplexForm> _lstComplexForms = new List<ComplexForm>();
 		private List<MartialArt> _lstMartialArts = new List<MartialArt>();
 		private List<MartialArtManeuver> _lstMartialArtManeuvers = new List<MartialArtManeuver>();
         private List<LimitModifier> _lstLimitModifiers = new List<LimitModifier>();
@@ -341,7 +341,7 @@ namespace Chummer
             // <spelllimit />
             objWriter.WriteElementString("spelllimit", _intSpellLimit.ToString());
             // <cfplimit />
-            objWriter.WriteElementString("cfplimit", _intSpellLimit.ToString());
+            objWriter.WriteElementString("cfplimit", _intCFPLimit.ToString());
             // <streetcred />
 			objWriter.WriteElementString("streetcred", _intStreetCred.ToString());
 			// <notoriety />
@@ -535,13 +535,13 @@ namespace Chummer
 			// </spirits>
 			objWriter.WriteEndElement();
 
-			// <techprograms>
-			objWriter.WriteStartElement("techprograms");
-			foreach (TechProgram objProgram in _lstTechPrograms)
+            // <complexforms>
+			objWriter.WriteStartElement("complexforms");
+            foreach (ComplexForm objProgram in _lstComplexForms)
 			{
 				objProgram.Save(objWriter);
 			}
-			// </techprograms>
+            // </complexforms>
 			objWriter.WriteEndElement();
 
 			// <martialarts>
@@ -1444,12 +1444,12 @@ namespace Chummer
 			}
 
 			// Compex Forms/Technomancer Programs.
-			objXmlNodeList = objXmlDocument.SelectNodes("/character/techprograms/techprogram");
+			objXmlNodeList = objXmlDocument.SelectNodes("/character/complexforms/complexform");
 			foreach (XmlNode objXmlProgram in objXmlNodeList)
 			{
-				TechProgram objProgram = new TechProgram(this);
+                ComplexForm objProgram = new ComplexForm(this);
 				objProgram.Load(objXmlProgram);
-				_lstTechPrograms.Add(objProgram);
+				_lstComplexForms.Add(objProgram);
 			}
 
 			// Martial Arts.
@@ -2134,13 +2134,13 @@ namespace Chummer
 			// </spirits>
 			objWriter.WriteEndElement();
 
-			// <techprograms>
-			objWriter.WriteStartElement("techprograms");
-			foreach (TechProgram objProgram in _lstTechPrograms)
+			// <complexforms>
+			objWriter.WriteStartElement("complexforms");
+            foreach (ComplexForm objProgram in _lstComplexForms)
 			{
 				objProgram.Print(objWriter);
 			}
-			// </techprograms>
+            // </complexforms>
 			objWriter.WriteEndElement();
 
 			// <martialarts>
@@ -2243,19 +2243,13 @@ namespace Chummer
 				objLivingPersona.Name = LanguageManager.Instance.GetString("String_LivingPersona");
 				objLivingPersona.Category = LanguageManager.Instance.GetString("String_Commlink");
 				objLivingPersona.DeviceRating = _attRES.TotalValue;
-				objLivingPersona.Source = _objOptions.LanguageBookShort("SR5");
+                objLivingPersona.Attack = _attCHA.TotalValue;
+                objLivingPersona.Sleaze = _attINT.TotalValue;
+                objLivingPersona.DataProcessing = _attLOG.TotalValue;
+                objLivingPersona.Firewall = _attWIL.TotalValue;
+                objLivingPersona.Source = _objOptions.LanguageBookShort("SR5");
 				objLivingPersona.Page = "251";
 				objLivingPersona.IsLivingPersona = true;
-
-				Gear objLivingPersonaFilter = new Gear(this);
-				objLivingPersonaFilter.Name = LanguageManager.Instance.GetString("String_BiofeedbackFilter");
-				objLivingPersonaFilter.Category = LanguageManager.Instance.GetString("String_LivingPersonaGear");
-				objLivingPersonaFilter.MaxRating = _attCHA.TotalValue + _objImprovementManager.ValueOf(Improvement.ImprovementType.LivingPersonaBiofeedback);
-				objLivingPersonaFilter.Rating = _attCHA.TotalValue + _objImprovementManager.ValueOf(Improvement.ImprovementType.LivingPersonaBiofeedback);
-				objLivingPersonaFilter.Source = _objOptions.LanguageBookShort("SR5");
-				objLivingPersonaFilter.Page = "251";
-
-				objLivingPersona.Children.Add(objLivingPersonaFilter);
 
 				objLivingPersona.Print(objWriter);
 			}
@@ -2451,7 +2445,7 @@ namespace Chummer
 			_lstFoci = new List<Focus>();
 			_lstStackedFoci = new List<StackedFocus>();
 			_lstPowers = new List<Power>();
-			_lstTechPrograms = new List<TechProgram>();
+            _lstComplexForms = new List<ComplexForm>();
 			_lstMartialArts = new List<MartialArt>();
 			_lstMartialArtManeuvers = new List<MartialArtManeuver>();
             _lstLimitModifiers = new List<LimitModifier>();
@@ -2679,7 +2673,7 @@ namespace Chummer
 					}
 					break;
 				case Improvement.ImprovementSource.ComplexForm:
-					foreach (TechProgram objProgram in _lstTechPrograms)
+                    foreach (ComplexForm objProgram in _lstComplexForms)
 					{
 						if (objProgram.InternalId == objImprovement.SourceName)
 						{
@@ -4616,11 +4610,11 @@ namespace Chummer
 		/// <summary>
 		/// Technomancer Complex Forms.
 		/// </summary>
-		public List<TechProgram> TechPrograms
+        public List<ComplexForm> ComplexForms
 		{
 			get
 			{
-				return _lstTechPrograms;
+				return _lstComplexForms;
 			}
 		}
 

@@ -1121,23 +1121,26 @@
 										<td width="18%">
 											<strong>COMMLINK</strong>
 										</td>
-										<td width="18%" style="text-align:center;">
+										<td width="16%" style="text-align:center;">
 											<strong>DEVICE RATING</strong>
 										</td>
-										<td width="18%" style="text-align:center;">
-											
+										<td width="14%" style="text-align:center;">
+											<strong>ATTACK</strong>
 										</td>
-										<td width="18%" style="text-align:center;">
-											
+										<td width="14%" style="text-align:center;">
+											<strong>SLEAZE</strong>
 										</td>
-										<td width="18%" style="text-align:center;">
-											
+										<td width="14%" style="text-align:center;">
+											<strong>DATA PROC.</strong>
+										</td>
+										<td width="14%" style="text-align:center;">
+											<strong>FIREWALL</strong>
 										</td>
 										<td width="10%" style="text-align:center;"> </td>
 									</tr>
 									<xsl:call-template name="commlink"/>
 									<tr>
-										<td class="rowsummary" colspan="6"> COMMLINK/PROGRAMS <span
+										<td class="rowsummary" colspan="7"> COMMLINK/PROGRAMS <span
 												class="rowsummarybutton"
 												onClick="showhide(this,'ComlinkBlock');" colspan="1"
 												>Show: YES</span>
@@ -1346,7 +1349,7 @@
 					</div>
 				</xsl:if>
 
-				<xsl:if test="techprograms/techprogram">
+				<xsl:if test="complexforms/complexform">
 					<div class="block" id="ProgramBlock">
 						<table width="100%" cellspacing="0" cellpadding="0" border="0">
 							<tr>
@@ -1354,20 +1357,23 @@
 									<table width="100%" cellspacing="0" cellpadding="0" border="0"
 										class="tableborder">
 										<tr>
-											<td width="40%">
+											<td width="30%">
 												<strong>NAME</strong>
 											</td>
-											<td width="20%">
-												<strong>SKILL</strong>
+											<td width="15%">
+												<strong>TARGET</strong>
 											</td>
-											<td width="20%" style="text-align:center;">
-												<strong>RATING</strong>
+											<td width="15%" style="text-align:center;">
+												<strong>DURATION</strong>
+											</td>
+											<td width="15%" style="text-align:center;">
+												<strong>FV</strong>
 											</td>
 											<td width="20%" style="text-align:center;"> </td>
 										</tr>
 										<xsl:call-template name="complexforms"/>
 										<tr>
-											<td class="rowsummary" colspan="4"> COMPLEX FORMS <span
+											<td class="rowsummary" colspan="5"> COMPLEX FORMS <span
 												class="rowsummarybutton"
 												onClick="showhide(this,'ProgramBlock');"
 												colspan="1">Show: YES</span>
@@ -2346,17 +2352,20 @@
 					<xsl:value-of select="name"/>
 					<xsl:if test="extra != ''"> (<xsl:value-of select="extra"/>)</xsl:if>
 				</td>
-				<td width="18%" style="text-align:center;" valign="top">
+				<td width="16%" style="text-align:center;" valign="top">
 					<xsl:value-of select="devicerating"/>
 				</td>
-				<td width="18%" style="text-align:center;" valign="top">
-					
+				<td width="14%" style="text-align:center;" valign="top">
+					<xsl:value-of select="attack"/>
 				</td>
-				<td width="18%" style="text-align:center;" valign="top">
-					
+				<td width="14%" style="text-align:center;" valign="top">
+					<xsl:value-of select="sleaze"/>
 				</td>
-				<td width="18%" style="text-align:center;" valign="top">
-					
+				<td width="14%" style="text-align:center;" valign="top">
+					<xsl:value-of select="dataprocessing"/>
+				</td>
+				<td width="14%" style="text-align:center;" valign="top">
+					<xsl:value-of select="firewall"/>
 				</td>
 				<td width="10%" style="text-align:center;" valign="top">
 					<xsl:value-of select="source"/>
@@ -2368,7 +2377,7 @@
 				<xsl:if test="position() mod 2 != 1">
 					<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 				</xsl:if>
-				<td colspan="6" class="indent">
+				<td colspan="7" class="indent">
 					<strong>ACCESSORIES</strong>
 				</td>
 			</tr>
@@ -2376,7 +2385,7 @@
 				<xsl:if test="position() mod 2 != 1">
 					<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 				</xsl:if>
-				<td colspan="6" class="indent">
+				<td colspan="7" class="indent">
 					<xsl:for-each select="children/gear">
 						<xsl:sort select="name"/>
 						<xsl:value-of select="name"/>
@@ -2403,7 +2412,7 @@
 					<xsl:if test="position() mod 2 != 1">
 						<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 					</xsl:if>
-					<td colspan="6" class="notesrow">
+					<td colspan="7" class="notesrow">
 						<xsl:call-template name="PreserveLineBreaks">
 							<xsl:with-param name="text" select="notes"/>
 						</xsl:call-template>
@@ -2442,7 +2451,7 @@
 				<xsl:if test="position() mod 2 != 1">
 					<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 				</xsl:if>
-				<td colspan="6" class="indent">
+				<td colspan="7" class="indent">
 					<strong>ACCESSORIES</strong>
 				</td>
 			</tr>
@@ -2450,7 +2459,7 @@
 				<xsl:if test="position() mod 2 != 1">
 					<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 				</xsl:if>
-				<td colspan="6" class="indent">
+				<td colspan="7" class="indent">
 					<xsl:for-each select="children/gear">
 						<xsl:sort select="name"/>
 						<xsl:value-of select="name"/>
@@ -2477,7 +2486,7 @@
 					<xsl:if test="position() mod 2 != 1">
 						<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 					</xsl:if>
-					<td colspan="6" class="notesrow">
+					<td colspan="7" class="notesrow">
 						<xsl:call-template name="PreserveLineBreaks">
 							<xsl:with-param name="text" select="notes"/>
 						</xsl:call-template>
@@ -2516,7 +2525,7 @@
 				<xsl:if test="position() mod 2 != 1">
 					<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 				</xsl:if>
-				<td colspan="6" class="indent">
+				<td colspan="7" class="indent">
 					<strong>ACCESSORIES</strong>
 				</td>
 			</tr>
@@ -2524,7 +2533,7 @@
 				<xsl:if test="position() mod 2 != 1">
 					<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 				</xsl:if>
-				<td colspan="6" class="indent">
+				<td colspan="7" class="indent">
 					<xsl:for-each select="children/gear">
 						<xsl:sort select="name"/>
 						<xsl:value-of select="name"/>
@@ -2551,7 +2560,7 @@
 					<xsl:if test="position() mod 2 != 1">
 						<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 					</xsl:if>
-					<td colspan="6" class="notesrow">
+					<td colspan="7" class="notesrow">
 						<xsl:call-template name="PreserveLineBreaks">
 							<xsl:with-param name="text" select="notes"/>
 						</xsl:call-template>
@@ -3010,13 +3019,13 @@
 				Resist Fading with <xsl:value-of select="drain"/>
 			</td>
 		</tr>
-		<xsl:for-each select="techprograms/techprogram">
+		<xsl:for-each select="complexforms/complexform">
 			<xsl:sort select="name"/>
 			<tr>
 				<xsl:if test="position() mod 2 != 1">
 					<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 				</xsl:if>
-				<td width="40%">
+				<td width="30%">
 					<xsl:value-of select="name"/>
 					<xsl:if test="extra != ''"> (<xsl:value-of select="extra"/>)</xsl:if>
 					<xsl:if test="programoptions/programoption"> (<xsl:for-each
@@ -3028,11 +3037,14 @@
 							<xsl:if test="position() != last()">; </xsl:if>
 						</xsl:for-each>) </xsl:if>
 				</td>
-				<td width="20%">
-					<xsl:value-of select="skill"/>
+				<td width="15%">
+					<xsl:value-of select="target"/>
 				</td>
-				<td width="20%" style="text-align:center;">
-					<xsl:value-of select="rating"/>
+				<td width="15%" style="text-align:center;">
+					<xsl:value-of select="duration"/>
+				</td>
+				<td width="15%" style="text-align:center;">
+					<xsl:value-of select="fv"/>
 				</td>
 				<td width="20%" style="text-align:center;">
 					<xsl:value-of select="source"/>

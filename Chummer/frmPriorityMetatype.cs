@@ -1364,39 +1364,18 @@ namespace Chummer
 				}
 
             	// Add any Complex Forms the Critter comes with (typically Sprites)
-				XmlDocument objXmlProgramDocument = XmlManager.Instance.Load("programs.xml");
-				foreach (XmlNode objXmlComplexForm in objXmlCritter.SelectNodes("complexforms/complexform"))
-				{
-					int intRating = 0;
-					if (objXmlComplexForm.Attributes["rating"] != null)
-						intRating = Convert.ToInt32(ExpressionToString(objXmlComplexForm.Attributes["rating"].InnerText, Convert.ToInt32(nudForce.Value), 0));
-					string strForceValue = "";
-					if (objXmlComplexForm.Attributes["select"] != null)
-						strForceValue = objXmlComplexForm.Attributes["select"].InnerText;
-					XmlNode objXmlProgram = objXmlProgramDocument.SelectSingleNode("/chummer/programs/program[name = \"" + objXmlComplexForm.InnerText + "\"]");
-					TreeNode objNode = new TreeNode();
-					TechProgram objProgram = new TechProgram(_objCharacter);
-					objProgram.Create(objXmlProgram, _objCharacter, objNode, strForceValue);
-					objProgram.Rating = intRating;
-					_objCharacter.TechPrograms.Add(objProgram);
-
-					// Add the Program Option if applicable.
-					if (objXmlComplexForm.Attributes["option"] != null)
-					{
-						int intOptRating = 0;
-						if (objXmlComplexForm.Attributes["optionrating"] != null)
-							intOptRating = Convert.ToInt32(ExpressionToString(objXmlComplexForm.Attributes["optionrating"].InnerText, Convert.ToInt32(nudForce.Value), 0));
-						string strOptForceValue = "";
-						if (objXmlComplexForm.Attributes["optionselect"] != null)
-							strOptForceValue = objXmlComplexForm.Attributes["optionselect"].InnerText;
-						XmlNode objXmlOption = objXmlProgramDocument.SelectSingleNode("/chummer/options/option[name = \"" + objXmlComplexForm.Attributes["option"].InnerText + "\"]");
-						TreeNode objNodeOpt = new TreeNode();
-						TechProgramOption objOption = new TechProgramOption(_objCharacter);
-						objOption.Create(objXmlOption, _objCharacter, objNodeOpt, strOptForceValue);
-						objOption.Rating = intOptRating;
-						objProgram.Options.Add(objOption);
-					}
-				}
+				XmlDocument objXmlProgramDocument = XmlManager.Instance.Load("complexforms.xml");
+                foreach (XmlNode objXmlComplexForm in objXmlCritter.SelectNodes("complexforms/complexform"))
+                {
+                    string strForceValue = "";
+                    if (objXmlComplexForm.Attributes["select"] != null)
+                        strForceValue = objXmlComplexForm.Attributes["select"].InnerText;
+                    XmlNode objXmlProgram = objXmlProgramDocument.SelectSingleNode("/chummer/complexforms/complexform[name = \"" + objXmlComplexForm.InnerText + "\"]");
+                    TreeNode objNode = new TreeNode();
+                    ComplexForm objProgram = new ComplexForm(_objCharacter);
+                    objProgram.Create(objXmlProgram, _objCharacter, objNode, strForceValue);
+                    _objCharacter.ComplexForms.Add(objProgram);
+                }
 
 				// Add any Gear the Critter comes with (typically Programs for A.I.s)
 				XmlDocument objXmlGearDocument = XmlManager.Instance.Load("gear.xml");

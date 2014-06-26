@@ -1067,8 +1067,13 @@
 			<name>Meta Link</name>
 			<category>Commlinks</category>
 			<armorcapacity>[2]</armorcapacity>
+			<capacity>0</capacity>
 			<rating>0</rating>
 			<devicerating>1</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>1</dataprocessing>
+			<firewall>1</firewall>
 			<avail>2</avail>
 			<cost>100</cost>
 			<source>SR5</source>
@@ -1078,8 +1083,13 @@
 			<name>Sony Emperor</name>
 			<category>Commlinks</category>
 			<armorcapacity>[2]</armorcapacity>
+			<capacity>0</capacity>
 			<rating>0</rating>
 			<devicerating>2</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>2</dataprocessing>
+			<firewall>2</firewall>
 			<avail>4</avail>
 			<cost>700</cost>
 			<source>SR5</source>
@@ -1089,8 +1099,13 @@
 			<name>Renraku Sensei</name>
 			<category>Commlinks</category>
 			<armorcapacity>[2]</armorcapacity>
+			<capacity>0</capacity>
 			<rating>0</rating>
 			<devicerating>3</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>3</dataprocessing>
+			<firewall>3</firewall>
 			<avail>6</avail>
 			<cost>1000</cost>
 			<source>SR5</source>
@@ -1100,8 +1115,13 @@
 			<name>Erika Elite</name>
 			<category>Commlinks</category>
 			<armorcapacity>[2]</armorcapacity>
+			<capacity>0</capacity>
 			<rating>0</rating>
 			<devicerating>4</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>4</dataprocessing>
+			<firewall>4</firewall>
 			<avail>8</avail>
 			<cost>2500</cost>
 			<source>SR5</source>
@@ -1111,8 +1131,13 @@
 			<name>Hermes Ikon</name>
 			<category>Commlinks</category>
 			<armorcapacity>[2]</armorcapacity>
+			<capacity>0</capacity>
 			<rating>0</rating>
 			<devicerating>5</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>5</dataprocessing>
+			<firewall>5</firewall>
 			<avail>10</avail>
 			<cost>3000</cost>
 			<source>SR5</source>
@@ -1122,8 +1147,13 @@
 			<name>Transys Avalon</name>
 			<category>Commlinks</category>
 			<armorcapacity>[2]</armorcapacity>
+			<capacity>0</capacity>
 			<rating>0</rating>
 			<devicerating>6</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>6</dataprocessing>
+			<firewall>6</firewall>
 			<avail>12</avail>
 			<cost>5000</cost>
 			<source>SR5</source>
@@ -1133,8 +1163,13 @@
 			<name>Fairlight Caliban</name>
 			<category>Commlinks</category>
 			<armorcapacity>[2]</armorcapacity>
+			<capacity>0</capacity>
 			<rating>0</rating>
 			<devicerating>7</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>7</dataprocessing>
+			<firewall>7</firewall>
 			<avail>14</avail>
 			<cost>8000</cost>
 			<source>SR5</source>
@@ -1163,9 +1198,14 @@
 		<gear>
 			<name>Erika MCD-1</name>
 			<category>Cyberdecks</category>
+			<capacity>0</capacity>
 			<rating>0</rating>
 			<devicerating>1</devicerating>
 			<attributearray>4,3,2,1</attributearray>
+			<attack>4</attack>
+			<sleaze>3</sleaze>
+			<dataprocessing>2</dataprocessing>
+			<firewall>1</firewall>
 			<programs>1</programs>
 			<avail>3R</avail>
 			<cost>49500</cost>
@@ -1175,9 +1215,14 @@
 		<gear>
 			<name>Microdeck Summit</name>
 			<category>Cyberdecks</category>
+			<capacity>0</capacity>
 			<rating>0</rating>
 			<devicerating>1</devicerating>
 			<attributearray>4,3,3,1</attributearray>
+			<attack>4</attack>
+			<sleaze>3</sleaze>
+			<dataprocessing>3</dataprocessing>
+			<firewall>1</firewall>
 			<programs>1</programs>
 			<avail>3R</avail>
 			<cost>58000</cost>
@@ -1187,9 +1232,14 @@
 		<gear>
 			<name>Microtrónica Azteca 200</name>
 			<category>Cyberdecks</category>
+			<capacity>0</capacity>
 			<rating>0</rating>
 			<devicerating>2</devicerating>
 			<attributearray>5,4,3,2</attributearray>
+			<attack>5</attack>
+			<sleaze>4</sleaze>
+			<dataprocessing>3</dataprocessing>
+			<firewall>2</firewall>
 			<programs>2</programs>
 			<avail>6R</avail>
 			<cost>110250</cost>
@@ -1199,9 +1249,14 @@
 		<gear>
 			<name>Hermes Chariot</name>
 			<category>Cyberdecks</category>
+			<capacity>0</capacity>
 			<rating>0</rating>
 			<devicerating>2</devicerating>
 			<attributearray>5,4,4,2</attributearray>
+			<attack>5</attack>
+			<sleaze>4</sleaze>
+			<dataprocessing>4</dataprocessing>
+			<firewall>2</firewall>
 			<programs>2</programs>
 			<avail>6R</avail>
 			<cost>123000</cost>
@@ -1211,9 +1266,14 @@
 		<gear>
 			<name>Novatech Navigator</name>
 			<category>Cyberdecks</category>
+			<capacity>0</capacity>
 			<rating>0</rating>
 			<devicerating>3</devicerating>
 			<attributearray>6,5,4,3</attributearray>
+			<attack>6</attack>
+			<sleaze>5</sleaze>
+			<dataprocessing>4</dataprocessing>
+			<firewall>3</firewall>
 			<programs>3</programs>
 			<avail>9R</avail>
 			<cost>205750</cost>
@@ -1223,9 +1283,14 @@
 		<gear>
 			<name>Renraku Tsurugi</name>
 			<category>Cyberdecks</category>
+			<capacity>0</capacity>
 			<rating>0</rating>
 			<devicerating>3</devicerating>
 			<attributearray>6,5,5,3</attributearray>
+			<attack>6</attack>
+			<sleaze>5</sleaze>
+			<dataprocessing>5</dataprocessing>
+			<firewall>3</firewall>
 			<programs>3</programs>
 			<avail>9R</avail>
 			<cost>214125</cost>
@@ -1235,9 +1300,14 @@
 		<gear>
 			<name>Sony CIY-720</name>
 			<category>Cyberdecks</category>
+			<capacity>0</capacity>
 			<rating>0</rating>
 			<devicerating>4</devicerating>
 			<attributearray>7,6,5,4</attributearray>
+			<attack>7</attack>
+			<sleaze>6</sleaze>
+			<dataprocessing>5</dataprocessing>
+			<firewall>4</firewall>
 			<programs>4</programs>
 			<avail>12R</avail>
 			<cost>345000</cost>
@@ -1247,9 +1317,14 @@
 		<gear>
 			<name>Shiawase Cyber-5</name>
 			<category>Cyberdecks</category>
+			<capacity>0</capacity>
 			<rating>0</rating>
 			<devicerating>5</devicerating>
 			<attributearray>8,7,6,5</attributearray>
+			<attack>8</attack>
+			<sleaze>7</sleaze>
+			<dataprocessing>6</dataprocessing>
+			<firewall>5</firewall>
 			<programs>5</programs>
 			<avail>15R</avail>
 			<cost>549375</cost>
@@ -1259,9 +1334,14 @@
 		<gear>
 			<name>Fairlight Excalibur</name>
 			<category>Cyberdecks</category>
+			<capacity>0</capacity>
 			<rating>0</rating>
 			<devicerating>6</devicerating>
 			<attributearray>9,8,7,6</attributearray>
+			<attack>9</attack>
+			<sleaze>8</sleaze>
+			<dataprocessing>7</dataprocessing>
+			<firewall>6</firewall>
 			<programs>6</programs>
 			<avail>18R</avail>
 			<cost>823250</cost>

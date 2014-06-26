@@ -31,7 +31,7 @@ namespace Chummer
 			List<ListItem> lstOption = new List<ListItem>();
 
 			// Load the Programs information.
-			_objXmlDocument = XmlManager.Instance.Load("programs.xml");
+            _objXmlDocument = XmlManager.Instance.Load("complexforms.xml");
 
 			// Populate the Program list.
 			XmlNodeList objXmlOptionList = _objXmlDocument.SelectNodes("/chummer/options/option[" + _objCharacter.Options.BookXPath() + "]");

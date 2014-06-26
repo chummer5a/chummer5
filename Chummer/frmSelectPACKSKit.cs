@@ -325,13 +325,13 @@ namespace Chummer
 						}
 						break;
 					case "programs":
-						objXmlItemDocument = XmlManager.Instance.Load("programs.xml");
+						objXmlItemDocument = XmlManager.Instance.Load("complexforms.xml");
 
 						objParent.Text = LanguageManager.Instance.GetString("String_SelectPACKSKit_Programs");
 						treContents.Nodes.Add(objParent);
 						foreach (XmlNode objXmlProgram in objXmlItem.SelectNodes("program"))
 						{
-							XmlNode objNode = objXmlItemDocument.SelectSingleNode("/chummer/programs/program[name = \"" + objXmlProgram["name"].InnerText + "\"]");
+                            XmlNode objNode = objXmlItemDocument.SelectSingleNode("/chummer/complexforms/complexform[name = \"" + objXmlProgram["name"].InnerText + "\"]");
 							TreeNode objChild = new TreeNode();
 							if (objNode["translate"] != null)
 								objChild.Text = objNode["translate"].InnerText;

@@ -309,39 +309,14 @@ namespace Chummer
 			if (chkComplexForms.Checked)
 			{
 				// <programs>
-				objWriter.WriteStartElement("programs");
-				foreach (TechProgram objProgram in _objCharacter.TechPrograms)
+				objWriter.WriteStartElement("complexforms");
+                foreach (ComplexForm objProgram in _objCharacter.ComplexForms)
 				{
 					// <program>
-					objWriter.WriteStartElement("program");
+					objWriter.WriteStartElement("complexform");
 					objWriter.WriteStartElement("name");
-					if (objProgram.Extra != "")
-						objWriter.WriteAttributeString("select", objProgram.Extra);
 					objWriter.WriteValue(objProgram.Name);
 					objWriter.WriteEndElement();
-					if (objProgram.Rating > 0)
-						objWriter.WriteElementString("rating", objProgram.Rating.ToString());
-					if (objProgram.Options.Count > 0)
-					{
-						// <options>
-						objWriter.WriteStartElement("options");
-						foreach (TechProgramOption objOption in objProgram.Options)
-						{
-							// <option>
-							objWriter.WriteStartElement("option");
-							objWriter.WriteStartElement("name");
-							if (objOption.Extra != "")
-								objWriter.WriteAttributeString("select", objOption.Extra);
-							objWriter.WriteValue(objOption.Name);
-							objWriter.WriteEndElement();
-							if (objOption.Rating > 0)
-								objWriter.WriteElementString("rating", objOption.Rating.ToString());
-							// </option>
-							objWriter.WriteEndElement();
-						}
-						// </options>
-						objWriter.WriteEndElement();
-					}
 					// </program>
 					objWriter.WriteEndElement();
 				}

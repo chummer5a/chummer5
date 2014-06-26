@@ -43,24 +43,16 @@
             System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Selected Illusion Spells");
             System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Selected Manipulation Spells");
             System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Selected Rituals");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Selected Advanced Complex Forms");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Selected ARE Complex Forms");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Selected Autosoft Complex Forms");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Selected Common Use Complex Forms");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Selected Hacking Complex Forms");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Selected Malware Complex Forms");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Selected Sensor Complex Forms");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Selected Skillsoft Complex Forms");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Selected Tactical AR Complex Forms");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Critter Powers");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Weaknesses");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Selected Cyberware");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Selected Bioware");
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Selected Lifestyles");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Selected Armor");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Selected Weapons");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Selected Gear");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Selected Vehicles");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Selected Complex Forms");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Critter Powers");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Weaknesses");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Selected Cyberware");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Selected Bioware");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Selected Lifestyles");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Selected Armor");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Selected Weapons");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Selected Gear");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Selected Vehicles");
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.tssBPLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssBP = new System.Windows.Forms.ToolStripStatusLabel();
@@ -375,7 +367,6 @@
             this.treLimit = new System.Windows.Forms.TreeView();
             this.cmdDeleteLimitModifier = new System.Windows.Forms.Button();
             this.tabMartialArts = new System.Windows.Forms.TabPage();
-            this.cmdAddMartialArt = new SplitButton();
             this.lblMartialArtSource = new System.Windows.Forms.Label();
             this.lblMartialArtSourceLabel = new System.Windows.Forms.Label();
             this.treMartialArts = new System.Windows.Forms.TreeView();
@@ -411,7 +402,6 @@
             this.cmdDeleteSpell = new System.Windows.Forms.Button();
             this.cmdAddSpirit = new System.Windows.Forms.Button();
             this.panSpirits = new System.Windows.Forms.Panel();
-            this.cmdAddSpell = new SplitButton();
             this.tabAdept = new System.Windows.Forms.TabPage();
             this.panPowers = new System.Windows.Forms.Panel();
             this.lblPowerPoints = new System.Windows.Forms.Label();
@@ -419,29 +409,17 @@
             this.cmdAddPower = new System.Windows.Forms.Button();
             this.tabTechnomancer = new System.Windows.Forms.TabPage();
             this.lblLivingPersonaLabel = new System.Windows.Forms.Label();
-            this.lblLivingPersonaBiofeedbackFilter = new System.Windows.Forms.Label();
-            this.lblLivingPersonaBiofeedbackFilterLabel = new System.Windows.Forms.Label();
             this.lblLivingPersonaDeviceRating = new System.Windows.Forms.Label();
             this.lblLivingPersonaDeviceRatingLabel = new System.Windows.Forms.Label();
-            this.lblParagon = new System.Windows.Forms.Label();
-            this.lblParagonLabel = new System.Windows.Forms.Label();
-            this.lblParagonInformation = new System.Windows.Forms.Label();
-            this.lblComplexFormSkill = new System.Windows.Forms.Label();
-            this.lblComplexFormSkillLabel = new System.Windows.Forms.Label();
             this.lblFadingAttributesValue = new System.Windows.Forms.Label();
             this.lblFadingAttributes = new System.Windows.Forms.Label();
             this.lblFadingAttributesLabel = new System.Windows.Forms.Label();
-            this.cboStream = new System.Windows.Forms.ComboBox();
-            this.lblStreamLabel = new System.Windows.Forms.Label();
-            this.nudComplexFormRating = new System.Windows.Forms.NumericUpDown();
-            this.lblComplexFormRatingLabel = new System.Windows.Forms.Label();
             this.lblComplexFormSource = new System.Windows.Forms.Label();
             this.lblComplexFormSourceLabel = new System.Windows.Forms.Label();
             this.treComplexForms = new System.Windows.Forms.TreeView();
             this.cmdDeleteComplexForm = new System.Windows.Forms.Button();
             this.cmdAddSprite = new System.Windows.Forms.Button();
             this.panSprites = new System.Windows.Forms.Panel();
-            this.cmdAddComplexForm = new SplitButton();
             this.tabCritter = new System.Windows.Forms.TabPage();
             this.chkCritterPowerCount = new System.Windows.Forms.CheckBox();
             this.lblCritterPowerPointCost = new System.Windows.Forms.Label();
@@ -512,7 +490,6 @@
             this.lblCyberwareName = new System.Windows.Forms.Label();
             this.lblCyberwareNameLabel = new System.Windows.Forms.Label();
             this.treCyberware = new System.Windows.Forms.TreeView();
-            this.cmdAddCyberware = new SplitButton();
             this.tabStreetGear = new System.Windows.Forms.TabPage();
             this.tabStreetGearTabs = new System.Windows.Forms.TabControl();
             this.tabLifestyle = new System.Windows.Forms.TabPage();
@@ -554,7 +531,6 @@
             this.lblArmorAvail = new System.Windows.Forms.Label();
             this.treArmor = new System.Windows.Forms.TreeView();
             this.lblArmorAvailLabel = new System.Windows.Forms.Label();
-            this.cmdAddArmor = new SplitButton();
             this.tabWeapons = new System.Windows.Forms.TabPage();
             this.lblWeaponAccuracyLabel = new System.Windows.Forms.Label();
             this.lblWeaponAccuracy = new System.Windows.Forms.Label();
@@ -600,7 +576,6 @@
             this.lblWeaponAvail = new System.Windows.Forms.Label();
             this.lblWeaponRC = new System.Windows.Forms.Label();
             this.lblWeaponAvailLabel = new System.Windows.Forms.Label();
-            this.cmdAddWeapon = new SplitButton();
             this.tabGear = new System.Windows.Forms.TabPage();
             this.chkActiveCommlink = new System.Windows.Forms.CheckBox();
             this.chkCommlinks = new System.Windows.Forms.CheckBox();
@@ -634,7 +609,6 @@
             this.lblGearRatingLabel = new System.Windows.Forms.Label();
             this.treGear = new System.Windows.Forms.TreeView();
             this.cmdDeleteGear = new System.Windows.Forms.Button();
-            this.cmdAddGear = new SplitButton();
             this.tabPets = new System.Windows.Forms.TabPage();
             this.panPets = new System.Windows.Forms.FlowLayoutPanel();
             this.cmdAddPet = new System.Windows.Forms.Button();
@@ -700,7 +674,6 @@
             this.lblVehicleHandlingLabel = new System.Windows.Forms.Label();
             this.cmdDeleteVehicle = new System.Windows.Forms.Button();
             this.treVehicles = new System.Windows.Forms.TreeView();
-            this.cmdAddVehicle = new SplitButton();
             this.tabCharacterInfo = new System.Windows.Forms.TabPage();
             this.lblPublicAwareTotal = new System.Windows.Forms.Label();
             this.lblNotorietyTotal = new System.Windows.Forms.Label();
@@ -799,6 +772,28 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmsLimitModifier = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tssLimitModifierNotes = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblFV = new System.Windows.Forms.Label();
+            this.lblFVLabel = new System.Windows.Forms.Label();
+            this.lblDuration = new System.Windows.Forms.Label();
+            this.lblDurationLabel = new System.Windows.Forms.Label();
+            this.lblTarget = new System.Windows.Forms.Label();
+            this.lblTargetLabel = new System.Windows.Forms.Label();
+            this.cmdAddMartialArt = new SplitButton();
+            this.cmdAddSpell = new SplitButton();
+            this.cmdAddComplexForm = new SplitButton();
+            this.cmdAddCyberware = new SplitButton();
+            this.cmdAddArmor = new SplitButton();
+            this.cmdAddWeapon = new SplitButton();
+            this.cmdAddGear = new SplitButton();
+            this.cmdAddVehicle = new SplitButton();
+            this.lblLivingPersonaAttack = new System.Windows.Forms.Label();
+            this.lblLivingPersonaAttackLabel = new System.Windows.Forms.Label();
+            this.lblLivingPersonaSleaze = new System.Windows.Forms.Label();
+            this.lblLivingPersonaSleazeLabel = new System.Windows.Forms.Label();
+            this.lblLivingPersonaFirewall = new System.Windows.Forms.Label();
+            this.lblLivingPersonaFirewallLabel = new System.Windows.Forms.Label();
+            this.lblLivingPersonaDataProcessing = new System.Windows.Forms.Label();
+            this.lblLivingPersonaDataProcessingLabel = new System.Windows.Forms.Label();
             this.StatusStrip.SuspendLayout();
             this.cmsMartialArts.SuspendLayout();
             this.cmsSpellButton.SuspendLayout();
@@ -871,7 +866,6 @@
             this.tabMagician.SuspendLayout();
             this.tabAdept.SuspendLayout();
             this.tabTechnomancer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudComplexFormRating)).BeginInit();
             this.tabCritter.SuspendLayout();
             this.tabInitiation.SuspendLayout();
             this.tabCyberware.SuspendLayout();
@@ -1920,7 +1914,6 @@
             this.tsAddComplexFormOption.Size = new System.Drawing.Size(136, 22);
             this.tsAddComplexFormOption.Tag = "Menu_AddOption";
             this.tsAddComplexFormOption.Text = "&Add Option";
-            this.tsAddComplexFormOption.Click += new System.EventHandler(this.tsAddComplexFormOption_Click);
             // 
             // tsComplexFormNotes
             // 
@@ -2919,7 +2912,6 @@
             this.tsComplexFormPluginNotes.Size = new System.Drawing.Size(105, 22);
             this.tsComplexFormPluginNotes.Tag = "Menu_Notes";
             this.tsComplexFormPluginNotes.Text = "&Notes";
-            this.tsComplexFormPluginNotes.Click += new System.EventHandler(this.tsComplexFormPluginNotes_Click);
             // 
             // cmsBioware
             // 
@@ -4291,20 +4283,6 @@
             this.tabMartialArts.Tag = "Tab_MartialArts";
             this.tabMartialArts.Text = "Martial Arts";
             // 
-            // cmdAddMartialArt
-            // 
-            this.cmdAddMartialArt.AutoSize = true;
-            this.cmdAddMartialArt.ContextMenuStrip = this.cmsMartialArts;
-            this.cmdAddMartialArt.Location = new System.Drawing.Point(8, 6);
-            this.cmdAddMartialArt.Name = "cmdAddMartialArt";
-            this.cmdAddMartialArt.Size = new System.Drawing.Size(107, 23);
-            this.cmdAddMartialArt.SplitMenuStrip = this.cmsMartialArts;
-            this.cmdAddMartialArt.TabIndex = 55;
-            this.cmdAddMartialArt.Tag = "Button_AddMartialArt";
-            this.cmdAddMartialArt.Text = "&Add Martial Art";
-            this.cmdAddMartialArt.UseVisualStyleBackColor = true;
-            this.cmdAddMartialArt.Click += new System.EventHandler(this.cmdAddMartialArt_Click);
-            // 
             // lblMartialArtSource
             // 
             this.lblMartialArtSource.AutoSize = true;
@@ -4726,20 +4704,6 @@
             this.panSpirits.Size = new System.Drawing.Size(824, 156);
             this.panSpirits.TabIndex = 4;
             // 
-            // cmdAddSpell
-            // 
-            this.cmdAddSpell.AutoSize = true;
-            this.cmdAddSpell.ContextMenuStrip = this.cmsSpellButton;
-            this.cmdAddSpell.Location = new System.Drawing.Point(8, 26);
-            this.cmdAddSpell.Name = "cmdAddSpell";
-            this.cmdAddSpell.Size = new System.Drawing.Size(80, 23);
-            this.cmdAddSpell.SplitMenuStrip = this.cmsSpellButton;
-            this.cmdAddSpell.TabIndex = 140;
-            this.cmdAddSpell.Tag = "Button_AddSpell";
-            this.cmdAddSpell.Text = "&Add Spell";
-            this.cmdAddSpell.UseVisualStyleBackColor = true;
-            this.cmdAddSpell.Click += new System.EventHandler(this.cmdAddSpell_Click);
-            // 
             // tabAdept
             // 
             this.tabAdept.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -4797,23 +4761,26 @@
             // tabTechnomancer
             // 
             this.tabTechnomancer.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabTechnomancer.Controls.Add(this.lblLivingPersonaFirewall);
+            this.tabTechnomancer.Controls.Add(this.lblLivingPersonaFirewallLabel);
+            this.tabTechnomancer.Controls.Add(this.lblLivingPersonaDataProcessing);
+            this.tabTechnomancer.Controls.Add(this.lblLivingPersonaDataProcessingLabel);
+            this.tabTechnomancer.Controls.Add(this.lblLivingPersonaSleaze);
+            this.tabTechnomancer.Controls.Add(this.lblLivingPersonaSleazeLabel);
+            this.tabTechnomancer.Controls.Add(this.lblLivingPersonaAttack);
+            this.tabTechnomancer.Controls.Add(this.lblLivingPersonaAttackLabel);
+            this.tabTechnomancer.Controls.Add(this.lblFV);
+            this.tabTechnomancer.Controls.Add(this.lblFVLabel);
+            this.tabTechnomancer.Controls.Add(this.lblDuration);
+            this.tabTechnomancer.Controls.Add(this.lblDurationLabel);
+            this.tabTechnomancer.Controls.Add(this.lblTarget);
+            this.tabTechnomancer.Controls.Add(this.lblTargetLabel);
             this.tabTechnomancer.Controls.Add(this.lblLivingPersonaLabel);
-            this.tabTechnomancer.Controls.Add(this.lblLivingPersonaBiofeedbackFilter);
-            this.tabTechnomancer.Controls.Add(this.lblLivingPersonaBiofeedbackFilterLabel);
             this.tabTechnomancer.Controls.Add(this.lblLivingPersonaDeviceRating);
             this.tabTechnomancer.Controls.Add(this.lblLivingPersonaDeviceRatingLabel);
-            this.tabTechnomancer.Controls.Add(this.lblParagon);
-            this.tabTechnomancer.Controls.Add(this.lblParagonLabel);
-            this.tabTechnomancer.Controls.Add(this.lblParagonInformation);
-            this.tabTechnomancer.Controls.Add(this.lblComplexFormSkill);
-            this.tabTechnomancer.Controls.Add(this.lblComplexFormSkillLabel);
             this.tabTechnomancer.Controls.Add(this.lblFadingAttributesValue);
             this.tabTechnomancer.Controls.Add(this.lblFadingAttributes);
             this.tabTechnomancer.Controls.Add(this.lblFadingAttributesLabel);
-            this.tabTechnomancer.Controls.Add(this.cboStream);
-            this.tabTechnomancer.Controls.Add(this.lblStreamLabel);
-            this.tabTechnomancer.Controls.Add(this.nudComplexFormRating);
-            this.tabTechnomancer.Controls.Add(this.lblComplexFormRatingLabel);
             this.tabTechnomancer.Controls.Add(this.lblComplexFormSource);
             this.tabTechnomancer.Controls.Add(this.lblComplexFormSourceLabel);
             this.tabTechnomancer.Controls.Add(this.treComplexForms);
@@ -4840,25 +4807,6 @@
             this.lblLivingPersonaLabel.Tag = "String_LivingPersona";
             this.lblLivingPersonaLabel.Text = "Living Persona";
             // 
-            // lblLivingPersonaBiofeedbackFilter
-            // 
-            this.lblLivingPersonaBiofeedbackFilter.AutoSize = true;
-            this.lblLivingPersonaBiofeedbackFilter.Location = new System.Drawing.Point(760, 237);
-            this.lblLivingPersonaBiofeedbackFilter.Name = "lblLivingPersonaBiofeedbackFilter";
-            this.lblLivingPersonaBiofeedbackFilter.Size = new System.Drawing.Size(19, 13);
-            this.lblLivingPersonaBiofeedbackFilter.TabIndex = 114;
-            this.lblLivingPersonaBiofeedbackFilter.Text = "[0]";
-            // 
-            // lblLivingPersonaBiofeedbackFilterLabel
-            // 
-            this.lblLivingPersonaBiofeedbackFilterLabel.AutoSize = true;
-            this.lblLivingPersonaBiofeedbackFilterLabel.Location = new System.Drawing.Point(659, 237);
-            this.lblLivingPersonaBiofeedbackFilterLabel.Name = "lblLivingPersonaBiofeedbackFilterLabel";
-            this.lblLivingPersonaBiofeedbackFilterLabel.Size = new System.Drawing.Size(95, 13);
-            this.lblLivingPersonaBiofeedbackFilterLabel.TabIndex = 113;
-            this.lblLivingPersonaBiofeedbackFilterLabel.Tag = "Label_BiofeedbackFilter";
-            this.lblLivingPersonaBiofeedbackFilterLabel.Text = "Biofeedback Filter:";
-            // 
             // lblLivingPersonaDeviceRating
             // 
             this.lblLivingPersonaDeviceRating.AutoSize = true;
@@ -4877,55 +4825,6 @@
             this.lblLivingPersonaDeviceRatingLabel.TabIndex = 105;
             this.lblLivingPersonaDeviceRatingLabel.Tag = "Label_DeviceRating";
             this.lblLivingPersonaDeviceRatingLabel.Text = "Device Rating:";
-            // 
-            // lblParagon
-            // 
-            this.lblParagon.AutoSize = true;
-            this.lblParagon.Location = new System.Drawing.Point(404, 279);
-            this.lblParagon.Name = "lblParagon";
-            this.lblParagon.Size = new System.Drawing.Size(53, 13);
-            this.lblParagon.TabIndex = 104;
-            this.lblParagon.Text = "[Paragon]";
-            this.lblParagon.Visible = false;
-            // 
-            // lblParagonLabel
-            // 
-            this.lblParagonLabel.AutoSize = true;
-            this.lblParagonLabel.Location = new System.Drawing.Point(309, 279);
-            this.lblParagonLabel.Name = "lblParagonLabel";
-            this.lblParagonLabel.Size = new System.Drawing.Size(50, 13);
-            this.lblParagonLabel.TabIndex = 103;
-            this.lblParagonLabel.Tag = "Label_Paragon";
-            this.lblParagonLabel.Text = "Paragon:";
-            this.lblParagonLabel.Visible = false;
-            // 
-            // lblParagonInformation
-            // 
-            this.lblParagonInformation.Location = new System.Drawing.Point(309, 302);
-            this.lblParagonInformation.Name = "lblParagonInformation";
-            this.lblParagonInformation.Size = new System.Drawing.Size(526, 137);
-            this.lblParagonInformation.TabIndex = 102;
-            this.lblParagonInformation.Text = "[Paragon Information]";
-            this.lblParagonInformation.Visible = false;
-            // 
-            // lblComplexFormSkill
-            // 
-            this.lblComplexFormSkill.AutoSize = true;
-            this.lblComplexFormSkill.Location = new System.Drawing.Point(388, 78);
-            this.lblComplexFormSkill.Name = "lblComplexFormSkill";
-            this.lblComplexFormSkill.Size = new System.Drawing.Size(32, 13);
-            this.lblComplexFormSkill.TabIndex = 101;
-            this.lblComplexFormSkill.Text = "[Skill]";
-            // 
-            // lblComplexFormSkillLabel
-            // 
-            this.lblComplexFormSkillLabel.AutoSize = true;
-            this.lblComplexFormSkillLabel.Location = new System.Drawing.Point(309, 78);
-            this.lblComplexFormSkillLabel.Name = "lblComplexFormSkillLabel";
-            this.lblComplexFormSkillLabel.Size = new System.Drawing.Size(73, 13);
-            this.lblComplexFormSkillLabel.TabIndex = 100;
-            this.lblComplexFormSkillLabel.Tag = "Label_CommonSkill";
-            this.lblComplexFormSkillLabel.Text = "Common Skill:";
             // 
             // lblFadingAttributesValue
             // 
@@ -4955,54 +4854,10 @@
             this.lblFadingAttributesLabel.Tag = "Label_ResistFading";
             this.lblFadingAttributesLabel.Text = "Resist Fading with:";
             // 
-            // cboStream
-            // 
-            this.cboStream.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStream.FormattingEnabled = true;
-            this.cboStream.Location = new System.Drawing.Point(407, 143);
-            this.cboStream.Name = "cboStream";
-            this.cboStream.Size = new System.Drawing.Size(141, 21);
-            this.cboStream.TabIndex = 95;
-            this.cboStream.SelectedIndexChanged += new System.EventHandler(this.cboStream_SelectedIndexChanged);
-            // 
-            // lblStreamLabel
-            // 
-            this.lblStreamLabel.AutoSize = true;
-            this.lblStreamLabel.Location = new System.Drawing.Point(309, 146);
-            this.lblStreamLabel.Name = "lblStreamLabel";
-            this.lblStreamLabel.Size = new System.Drawing.Size(43, 13);
-            this.lblStreamLabel.TabIndex = 94;
-            this.lblStreamLabel.Tag = "Label_Stream";
-            this.lblStreamLabel.Text = "Stream:";
-            // 
-            // nudComplexFormRating
-            // 
-            this.nudComplexFormRating.Enabled = false;
-            this.nudComplexFormRating.Location = new System.Drawing.Point(391, 53);
-            this.nudComplexFormRating.Maximum = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.nudComplexFormRating.Name = "nudComplexFormRating";
-            this.nudComplexFormRating.Size = new System.Drawing.Size(33, 20);
-            this.nudComplexFormRating.TabIndex = 92;
-            this.nudComplexFormRating.ValueChanged += new System.EventHandler(this.nudComplexFormRating_ValueChanged);
-            // 
-            // lblComplexFormRatingLabel
-            // 
-            this.lblComplexFormRatingLabel.AutoSize = true;
-            this.lblComplexFormRatingLabel.Location = new System.Drawing.Point(309, 55);
-            this.lblComplexFormRatingLabel.Name = "lblComplexFormRatingLabel";
-            this.lblComplexFormRatingLabel.Size = new System.Drawing.Size(41, 13);
-            this.lblComplexFormRatingLabel.TabIndex = 91;
-            this.lblComplexFormRatingLabel.Tag = "Label_Rating";
-            this.lblComplexFormRatingLabel.Text = "Rating:";
-            // 
             // lblComplexFormSource
             // 
             this.lblComplexFormSource.AutoSize = true;
-            this.lblComplexFormSource.Location = new System.Drawing.Point(388, 101);
+            this.lblComplexFormSource.Location = new System.Drawing.Point(388, 123);
             this.lblComplexFormSource.Name = "lblComplexFormSource";
             this.lblComplexFormSource.Size = new System.Drawing.Size(47, 13);
             this.lblComplexFormSource.TabIndex = 90;
@@ -5012,7 +4867,7 @@
             // lblComplexFormSourceLabel
             // 
             this.lblComplexFormSourceLabel.AutoSize = true;
-            this.lblComplexFormSourceLabel.Location = new System.Drawing.Point(309, 101);
+            this.lblComplexFormSourceLabel.Location = new System.Drawing.Point(309, 123);
             this.lblComplexFormSourceLabel.Name = "lblComplexFormSourceLabel";
             this.lblComplexFormSourceLabel.Size = new System.Drawing.Size(44, 13);
             this.lblComplexFormSourceLabel.TabIndex = 89;
@@ -5026,41 +4881,9 @@
             this.treComplexForms.Name = "treComplexForms";
             treeNode14.Name = "nodProgramAdvancedRoot";
             treeNode14.Tag = "Node_SelectedAdvancedComplexForms";
-            treeNode14.Text = "Selected Advanced Complex Forms";
-            treeNode15.Name = "nodProgramARERoot";
-            treeNode15.Tag = "Node_SelectedAREComplexForms";
-            treeNode15.Text = "Selected ARE Complex Forms";
-            treeNode16.Name = "nodProgramAutosoftRoot";
-            treeNode16.Tag = "Node_SelectedAutosoftComplexForms";
-            treeNode16.Text = "Selected Autosoft Complex Forms";
-            treeNode17.Name = "nodProgramCommonUseRoot";
-            treeNode17.Tag = "Node_SelectedCommonUseComplexForms";
-            treeNode17.Text = "Selected Common Use Complex Forms";
-            treeNode18.Name = "nodProgramHackingRoot";
-            treeNode18.Tag = "Node_SelectedHackingComplexForms";
-            treeNode18.Text = "Selected Hacking Complex Forms";
-            treeNode19.Name = "nodProgramMalwareRoot";
-            treeNode19.Tag = "Node_SelectedMalwareComplexForms";
-            treeNode19.Text = "Selected Malware Complex Forms";
-            treeNode20.Name = "nodProgramSensorRoot";
-            treeNode20.Tag = "Node_SelectedSensorComplexForms";
-            treeNode20.Text = "Selected Sensor Complex Forms";
-            treeNode21.Name = "nodProgramSkillsoftRoot";
-            treeNode21.Tag = "Node_SelectedSkillsoftsComplexForms";
-            treeNode21.Text = "Selected Skillsoft Complex Forms";
-            treeNode22.Name = "nodProgramTacticsARRoot";
-            treeNode22.Tag = "Node_SelectedTacticalARComplexForms";
-            treeNode22.Text = "Selected Tactical AR Complex Forms";
+            treeNode14.Text = "Selected Complex Forms";
             this.treComplexForms.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode14,
-            treeNode15,
-            treeNode16,
-            treeNode17,
-            treeNode18,
-            treeNode19,
-            treeNode20,
-            treeNode21,
-            treeNode22});
+            treeNode14});
             this.treComplexForms.ShowNodeToolTips = true;
             this.treComplexForms.ShowRootLines = false;
             this.treComplexForms.Size = new System.Drawing.Size(295, 333);
@@ -5101,20 +4924,6 @@
             this.panSprites.Name = "panSprites";
             this.panSprites.Size = new System.Drawing.Size(827, 163);
             this.panSprites.TabIndex = 25;
-            // 
-            // cmdAddComplexForm
-            // 
-            this.cmdAddComplexForm.AutoSize = true;
-            this.cmdAddComplexForm.ContextMenuStrip = this.cmsComplexForm;
-            this.cmdAddComplexForm.Location = new System.Drawing.Point(8, 25);
-            this.cmdAddComplexForm.Name = "cmdAddComplexForm";
-            this.cmdAddComplexForm.Size = new System.Drawing.Size(123, 23);
-            this.cmdAddComplexForm.SplitMenuStrip = this.cmsComplexForm;
-            this.cmdAddComplexForm.TabIndex = 147;
-            this.cmdAddComplexForm.Tag = "Button_AddComplexForm";
-            this.cmdAddComplexForm.Text = "Add Complex Form";
-            this.cmdAddComplexForm.UseVisualStyleBackColor = true;
-            this.cmdAddComplexForm.Click += new System.EventHandler(this.cmdAddComplexForm_Click);
             // 
             // tabCritter
             // 
@@ -5367,15 +5176,15 @@
             this.treCritterPowers.HideSelection = false;
             this.treCritterPowers.Location = new System.Drawing.Point(8, 32);
             this.treCritterPowers.Name = "treCritterPowers";
-            treeNode23.Name = "nodCritterPowerRoot";
-            treeNode23.Tag = "Node_CritterPowers";
-            treeNode23.Text = "Critter Powers";
-            treeNode24.Name = "nodCritterWeaknessRoot";
-            treeNode24.Tag = "Node_CritterWeaknesses";
-            treeNode24.Text = "Weaknesses";
+            treeNode15.Name = "nodCritterPowerRoot";
+            treeNode15.Tag = "Node_CritterPowers";
+            treeNode15.Text = "Critter Powers";
+            treeNode16.Name = "nodCritterWeaknessRoot";
+            treeNode16.Tag = "Node_CritterWeaknesses";
+            treeNode16.Text = "Weaknesses";
             this.treCritterPowers.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode23,
-            treeNode24});
+            treeNode15,
+            treeNode16});
             this.treCritterPowers.ShowNodeToolTips = true;
             this.treCritterPowers.ShowPlusMinus = false;
             this.treCritterPowers.ShowRootLines = false;
@@ -5917,15 +5726,15 @@
             this.treCyberware.HideSelection = false;
             this.treCyberware.Location = new System.Drawing.Point(8, 36);
             this.treCyberware.Name = "treCyberware";
-            treeNode25.Name = "nodCyberwareRoot";
-            treeNode25.Tag = "Node_SelectedCyberware";
-            treeNode25.Text = "Selected Cyberware";
-            treeNode26.Name = "nodBioware";
-            treeNode26.Tag = "Node_SelectedBioware";
-            treeNode26.Text = "Selected Bioware";
+            treeNode17.Name = "nodCyberwareRoot";
+            treeNode17.Tag = "Node_SelectedCyberware";
+            treeNode17.Text = "Selected Cyberware";
+            treeNode18.Name = "nodBioware";
+            treeNode18.Tag = "Node_SelectedBioware";
+            treeNode18.Text = "Selected Bioware";
             this.treCyberware.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode25,
-            treeNode26});
+            treeNode17,
+            treeNode18});
             this.treCyberware.ShowNodeToolTips = true;
             this.treCyberware.ShowRootLines = false;
             this.treCyberware.Size = new System.Drawing.Size(295, 572);
@@ -5933,20 +5742,6 @@
             this.treCyberware.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treCyberware_AfterSelect);
             this.treCyberware.KeyDown += new System.Windows.Forms.KeyEventHandler(this.treCyberware_KeyDown);
             this.treCyberware.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeView_MouseDown);
-            // 
-            // cmdAddCyberware
-            // 
-            this.cmdAddCyberware.AutoSize = true;
-            this.cmdAddCyberware.ContextMenuStrip = this.cmsCyberware;
-            this.cmdAddCyberware.Location = new System.Drawing.Point(8, 7);
-            this.cmdAddCyberware.Name = "cmdAddCyberware";
-            this.cmdAddCyberware.Size = new System.Drawing.Size(107, 23);
-            this.cmdAddCyberware.SplitMenuStrip = this.cmsCyberware;
-            this.cmdAddCyberware.TabIndex = 91;
-            this.cmdAddCyberware.Tag = "Button_AddCyberware";
-            this.cmdAddCyberware.Text = "&Add Cyberware";
-            this.cmdAddCyberware.UseVisualStyleBackColor = true;
-            this.cmdAddCyberware.Click += new System.EventHandler(this.cmdAddCyberware_Click);
             // 
             // tabStreetGear
             // 
@@ -6118,11 +5913,11 @@
             this.treLifestyles.HideSelection = false;
             this.treLifestyles.Location = new System.Drawing.Point(6, 36);
             this.treLifestyles.Name = "treLifestyles";
-            treeNode27.Name = "nodLifestylesRoot";
-            treeNode27.Tag = "Node_SelectedLifestyles";
-            treeNode27.Text = "Selected Lifestyles";
+            treeNode19.Name = "nodLifestylesRoot";
+            treeNode19.Tag = "Node_SelectedLifestyles";
+            treeNode19.Text = "Selected Lifestyles";
             this.treLifestyles.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode27});
+            treeNode19});
             this.treLifestyles.ShowNodeToolTips = true;
             this.treLifestyles.ShowRootLines = false;
             this.treLifestyles.Size = new System.Drawing.Size(295, 537);
@@ -6441,11 +6236,11 @@
             this.treArmor.HideSelection = false;
             this.treArmor.Location = new System.Drawing.Point(6, 36);
             this.treArmor.Name = "treArmor";
-            treeNode28.Name = "nodArmorRoot";
-            treeNode28.Tag = "Node_SelectedArmor";
-            treeNode28.Text = "Selected Armor";
+            treeNode20.Name = "nodArmorRoot";
+            treeNode20.Tag = "Node_SelectedArmor";
+            treeNode20.Text = "Selected Armor";
             this.treArmor.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode28});
+            treeNode20});
             this.treArmor.ShowNodeToolTips = true;
             this.treArmor.Size = new System.Drawing.Size(295, 537);
             this.treArmor.TabIndex = 69;
@@ -6463,20 +6258,6 @@
             this.lblArmorAvailLabel.TabIndex = 74;
             this.lblArmorAvailLabel.Tag = "Label_Avail";
             this.lblArmorAvailLabel.Text = "Avail:";
-            // 
-            // cmdAddArmor
-            // 
-            this.cmdAddArmor.AutoSize = true;
-            this.cmdAddArmor.ContextMenuStrip = this.cmsArmor;
-            this.cmdAddArmor.Location = new System.Drawing.Point(6, 7);
-            this.cmdAddArmor.Name = "cmdAddArmor";
-            this.cmdAddArmor.Size = new System.Drawing.Size(84, 23);
-            this.cmdAddArmor.SplitMenuStrip = this.cmsArmor;
-            this.cmdAddArmor.TabIndex = 131;
-            this.cmdAddArmor.Tag = "Button_AddArmor";
-            this.cmdAddArmor.Text = "&Add Armor";
-            this.cmdAddArmor.UseVisualStyleBackColor = true;
-            this.cmdAddArmor.Click += new System.EventHandler(this.cmdAddArmor_Click);
             // 
             // tabWeapons
             // 
@@ -6785,11 +6566,11 @@
             this.treWeapons.HideSelection = false;
             this.treWeapons.Location = new System.Drawing.Point(6, 36);
             this.treWeapons.Name = "treWeapons";
-            treeNode29.Name = "nodWeaponsRoot";
-            treeNode29.Tag = "Node_SelectedWeapons";
-            treeNode29.Text = "Selected Weapons";
+            treeNode21.Name = "nodWeaponsRoot";
+            treeNode21.Tag = "Node_SelectedWeapons";
+            treeNode21.Text = "Selected Weapons";
             this.treWeapons.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode29});
+            treeNode21});
             this.treWeapons.ShowNodeToolTips = true;
             this.treWeapons.Size = new System.Drawing.Size(295, 540);
             this.treWeapons.TabIndex = 29;
@@ -6980,20 +6761,6 @@
             this.lblWeaponAvailLabel.TabIndex = 56;
             this.lblWeaponAvailLabel.Tag = "Label_Avail";
             this.lblWeaponAvailLabel.Text = "Avail:";
-            // 
-            // cmdAddWeapon
-            // 
-            this.cmdAddWeapon.AutoSize = true;
-            this.cmdAddWeapon.ContextMenuStrip = this.cmsWeapon;
-            this.cmdAddWeapon.Location = new System.Drawing.Point(6, 7);
-            this.cmdAddWeapon.Name = "cmdAddWeapon";
-            this.cmdAddWeapon.Size = new System.Drawing.Size(98, 23);
-            this.cmdAddWeapon.SplitMenuStrip = this.cmsWeapon;
-            this.cmdAddWeapon.TabIndex = 154;
-            this.cmdAddWeapon.Tag = "Button_AddWeapon";
-            this.cmdAddWeapon.Text = "&Add Weapon";
-            this.cmdAddWeapon.UseVisualStyleBackColor = true;
-            this.cmdAddWeapon.Click += new System.EventHandler(this.cmdAddWeapon_Click);
             // 
             // tabGear
             // 
@@ -7380,11 +7147,11 @@
             this.treGear.HideSelection = false;
             this.treGear.Location = new System.Drawing.Point(6, 36);
             this.treGear.Name = "treGear";
-            treeNode30.Name = "nodGearRoot";
-            treeNode30.Tag = "Node_SelectedGear";
-            treeNode30.Text = "Selected Gear";
+            treeNode22.Name = "nodGearRoot";
+            treeNode22.Tag = "Node_SelectedGear";
+            treeNode22.Text = "Selected Gear";
             this.treGear.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode30});
+            treeNode22});
             this.treGear.ShowNodeToolTips = true;
             this.treGear.Size = new System.Drawing.Size(295, 540);
             this.treGear.TabIndex = 49;
@@ -7404,20 +7171,6 @@
             this.cmdDeleteGear.Text = "Delete";
             this.cmdDeleteGear.UseVisualStyleBackColor = true;
             this.cmdDeleteGear.Click += new System.EventHandler(this.cmdDeleteGear_Click);
-            // 
-            // cmdAddGear
-            // 
-            this.cmdAddGear.AutoSize = true;
-            this.cmdAddGear.ContextMenuStrip = this.cmsGearButton;
-            this.cmdAddGear.Location = new System.Drawing.Point(3, 7);
-            this.cmdAddGear.Name = "cmdAddGear";
-            this.cmdAddGear.Size = new System.Drawing.Size(80, 23);
-            this.cmdAddGear.SplitMenuStrip = this.cmsGearButton;
-            this.cmdAddGear.TabIndex = 145;
-            this.cmdAddGear.Tag = "Button_AddGear";
-            this.cmdAddGear.Text = "&Add Gear";
-            this.cmdAddGear.UseVisualStyleBackColor = true;
-            this.cmdAddGear.Click += new System.EventHandler(this.cmdAddGear_Click);
             // 
             // tabPets
             // 
@@ -8139,11 +7892,11 @@
             this.treVehicles.HideSelection = false;
             this.treVehicles.Location = new System.Drawing.Point(8, 36);
             this.treVehicles.Name = "treVehicles";
-            treeNode31.Name = "nodVehiclesRoot";
-            treeNode31.Tag = "Node_SelectedVehicles";
-            treeNode31.Text = "Selected Vehicles";
+            treeNode23.Name = "nodVehiclesRoot";
+            treeNode23.Tag = "Node_SelectedVehicles";
+            treeNode23.Text = "Selected Vehicles";
             this.treVehicles.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode31});
+            treeNode23});
             this.treVehicles.ShowNodeToolTips = true;
             this.treVehicles.ShowRootLines = false;
             this.treVehicles.Size = new System.Drawing.Size(403, 572);
@@ -8152,20 +7905,6 @@
             this.treVehicles.DragOver += new System.Windows.Forms.DragEventHandler(this.treVehicles_DragOver);
             this.treVehicles.KeyDown += new System.Windows.Forms.KeyEventHandler(this.treVehicles_KeyDown);
             this.treVehicles.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeView_MouseDown);
-            // 
-            // cmdAddVehicle
-            // 
-            this.cmdAddVehicle.AutoSize = true;
-            this.cmdAddVehicle.ContextMenuStrip = this.cmsVehicle;
-            this.cmdAddVehicle.Location = new System.Drawing.Point(8, 7);
-            this.cmdAddVehicle.Name = "cmdAddVehicle";
-            this.cmdAddVehicle.Size = new System.Drawing.Size(92, 23);
-            this.cmdAddVehicle.SplitMenuStrip = this.cmsVehicle;
-            this.cmdAddVehicle.TabIndex = 185;
-            this.cmdAddVehicle.Tag = "Button_AddVehicle";
-            this.cmdAddVehicle.Text = "&Add Vehicle";
-            this.cmdAddVehicle.UseVisualStyleBackColor = true;
-            this.cmdAddVehicle.Click += new System.EventHandler(this.cmdAddVehicle_Click);
             // 
             // tabCharacterInfo
             // 
@@ -9218,6 +8957,251 @@
             this.tssLimitModifierNotes.Text = "&Notes";
             this.tssLimitModifierNotes.Click += new System.EventHandler(this.tssLimitModifierNotes_Click);
             // 
+            // lblFV
+            // 
+            this.lblFV.AutoSize = true;
+            this.lblFV.Location = new System.Drawing.Point(423, 100);
+            this.lblFV.Name = "lblFV";
+            this.lblFV.Size = new System.Drawing.Size(39, 13);
+            this.lblFV.TabIndex = 153;
+            this.lblFV.Text = "[None]";
+            // 
+            // lblFVLabel
+            // 
+            this.lblFVLabel.AutoSize = true;
+            this.lblFVLabel.Location = new System.Drawing.Point(309, 100);
+            this.lblFVLabel.Name = "lblFVLabel";
+            this.lblFVLabel.Size = new System.Drawing.Size(23, 13);
+            this.lblFVLabel.TabIndex = 152;
+            this.lblFVLabel.Tag = "Label_SelectProgram_FV";
+            this.lblFVLabel.Text = "FV:";
+            // 
+            // lblDuration
+            // 
+            this.lblDuration.AutoSize = true;
+            this.lblDuration.Location = new System.Drawing.Point(423, 77);
+            this.lblDuration.Name = "lblDuration";
+            this.lblDuration.Size = new System.Drawing.Size(39, 13);
+            this.lblDuration.TabIndex = 151;
+            this.lblDuration.Text = "[None]";
+            // 
+            // lblDurationLabel
+            // 
+            this.lblDurationLabel.AutoSize = true;
+            this.lblDurationLabel.Location = new System.Drawing.Point(309, 77);
+            this.lblDurationLabel.Name = "lblDurationLabel";
+            this.lblDurationLabel.Size = new System.Drawing.Size(50, 13);
+            this.lblDurationLabel.TabIndex = 150;
+            this.lblDurationLabel.Tag = "Label_SelectProgram_Duration";
+            this.lblDurationLabel.Text = "Duration:";
+            // 
+            // lblTarget
+            // 
+            this.lblTarget.AutoSize = true;
+            this.lblTarget.Location = new System.Drawing.Point(423, 55);
+            this.lblTarget.Name = "lblTarget";
+            this.lblTarget.Size = new System.Drawing.Size(39, 13);
+            this.lblTarget.TabIndex = 149;
+            this.lblTarget.Text = "[None]";
+            // 
+            // lblTargetLabel
+            // 
+            this.lblTargetLabel.AutoSize = true;
+            this.lblTargetLabel.Location = new System.Drawing.Point(309, 55);
+            this.lblTargetLabel.Name = "lblTargetLabel";
+            this.lblTargetLabel.Size = new System.Drawing.Size(41, 13);
+            this.lblTargetLabel.TabIndex = 148;
+            this.lblTargetLabel.Tag = "Label_SelectProgram_Target";
+            this.lblTargetLabel.Text = "Target:";
+            // 
+            // cmdAddMartialArt
+            // 
+            this.cmdAddMartialArt.AutoSize = true;
+            this.cmdAddMartialArt.ContextMenuStrip = this.cmsMartialArts;
+            this.cmdAddMartialArt.Location = new System.Drawing.Point(8, 6);
+            this.cmdAddMartialArt.Name = "cmdAddMartialArt";
+            this.cmdAddMartialArt.Size = new System.Drawing.Size(107, 23);
+            this.cmdAddMartialArt.SplitMenuStrip = this.cmsMartialArts;
+            this.cmdAddMartialArt.TabIndex = 55;
+            this.cmdAddMartialArt.Tag = "Button_AddMartialArt";
+            this.cmdAddMartialArt.Text = "&Add Martial Art";
+            this.cmdAddMartialArt.UseVisualStyleBackColor = true;
+            this.cmdAddMartialArt.Click += new System.EventHandler(this.cmdAddMartialArt_Click);
+            // 
+            // cmdAddSpell
+            // 
+            this.cmdAddSpell.AutoSize = true;
+            this.cmdAddSpell.ContextMenuStrip = this.cmsSpellButton;
+            this.cmdAddSpell.Location = new System.Drawing.Point(8, 26);
+            this.cmdAddSpell.Name = "cmdAddSpell";
+            this.cmdAddSpell.Size = new System.Drawing.Size(80, 23);
+            this.cmdAddSpell.SplitMenuStrip = this.cmsSpellButton;
+            this.cmdAddSpell.TabIndex = 140;
+            this.cmdAddSpell.Tag = "Button_AddSpell";
+            this.cmdAddSpell.Text = "&Add Spell";
+            this.cmdAddSpell.UseVisualStyleBackColor = true;
+            this.cmdAddSpell.Click += new System.EventHandler(this.cmdAddSpell_Click);
+            // 
+            // cmdAddComplexForm
+            // 
+            this.cmdAddComplexForm.AutoSize = true;
+            this.cmdAddComplexForm.ContextMenuStrip = this.cmsComplexForm;
+            this.cmdAddComplexForm.Location = new System.Drawing.Point(8, 25);
+            this.cmdAddComplexForm.Name = "cmdAddComplexForm";
+            this.cmdAddComplexForm.Size = new System.Drawing.Size(123, 23);
+            this.cmdAddComplexForm.SplitMenuStrip = this.cmsComplexForm;
+            this.cmdAddComplexForm.TabIndex = 147;
+            this.cmdAddComplexForm.Tag = "Button_AddComplexForm";
+            this.cmdAddComplexForm.Text = "Add Complex Form";
+            this.cmdAddComplexForm.UseVisualStyleBackColor = true;
+            this.cmdAddComplexForm.Click += new System.EventHandler(this.cmdAddComplexForm_Click);
+            // 
+            // cmdAddCyberware
+            // 
+            this.cmdAddCyberware.AutoSize = true;
+            this.cmdAddCyberware.ContextMenuStrip = this.cmsCyberware;
+            this.cmdAddCyberware.Location = new System.Drawing.Point(8, 7);
+            this.cmdAddCyberware.Name = "cmdAddCyberware";
+            this.cmdAddCyberware.Size = new System.Drawing.Size(107, 23);
+            this.cmdAddCyberware.SplitMenuStrip = this.cmsCyberware;
+            this.cmdAddCyberware.TabIndex = 91;
+            this.cmdAddCyberware.Tag = "Button_AddCyberware";
+            this.cmdAddCyberware.Text = "&Add Cyberware";
+            this.cmdAddCyberware.UseVisualStyleBackColor = true;
+            this.cmdAddCyberware.Click += new System.EventHandler(this.cmdAddCyberware_Click);
+            // 
+            // cmdAddArmor
+            // 
+            this.cmdAddArmor.AutoSize = true;
+            this.cmdAddArmor.ContextMenuStrip = this.cmsArmor;
+            this.cmdAddArmor.Location = new System.Drawing.Point(6, 7);
+            this.cmdAddArmor.Name = "cmdAddArmor";
+            this.cmdAddArmor.Size = new System.Drawing.Size(84, 23);
+            this.cmdAddArmor.SplitMenuStrip = this.cmsArmor;
+            this.cmdAddArmor.TabIndex = 131;
+            this.cmdAddArmor.Tag = "Button_AddArmor";
+            this.cmdAddArmor.Text = "&Add Armor";
+            this.cmdAddArmor.UseVisualStyleBackColor = true;
+            this.cmdAddArmor.Click += new System.EventHandler(this.cmdAddArmor_Click);
+            // 
+            // cmdAddWeapon
+            // 
+            this.cmdAddWeapon.AutoSize = true;
+            this.cmdAddWeapon.ContextMenuStrip = this.cmsWeapon;
+            this.cmdAddWeapon.Location = new System.Drawing.Point(6, 7);
+            this.cmdAddWeapon.Name = "cmdAddWeapon";
+            this.cmdAddWeapon.Size = new System.Drawing.Size(98, 23);
+            this.cmdAddWeapon.SplitMenuStrip = this.cmsWeapon;
+            this.cmdAddWeapon.TabIndex = 154;
+            this.cmdAddWeapon.Tag = "Button_AddWeapon";
+            this.cmdAddWeapon.Text = "&Add Weapon";
+            this.cmdAddWeapon.UseVisualStyleBackColor = true;
+            this.cmdAddWeapon.Click += new System.EventHandler(this.cmdAddWeapon_Click);
+            // 
+            // cmdAddGear
+            // 
+            this.cmdAddGear.AutoSize = true;
+            this.cmdAddGear.ContextMenuStrip = this.cmsGearButton;
+            this.cmdAddGear.Location = new System.Drawing.Point(3, 7);
+            this.cmdAddGear.Name = "cmdAddGear";
+            this.cmdAddGear.Size = new System.Drawing.Size(80, 23);
+            this.cmdAddGear.SplitMenuStrip = this.cmsGearButton;
+            this.cmdAddGear.TabIndex = 145;
+            this.cmdAddGear.Tag = "Button_AddGear";
+            this.cmdAddGear.Text = "&Add Gear";
+            this.cmdAddGear.UseVisualStyleBackColor = true;
+            this.cmdAddGear.Click += new System.EventHandler(this.cmdAddGear_Click);
+            // 
+            // cmdAddVehicle
+            // 
+            this.cmdAddVehicle.AutoSize = true;
+            this.cmdAddVehicle.ContextMenuStrip = this.cmsVehicle;
+            this.cmdAddVehicle.Location = new System.Drawing.Point(8, 7);
+            this.cmdAddVehicle.Name = "cmdAddVehicle";
+            this.cmdAddVehicle.Size = new System.Drawing.Size(92, 23);
+            this.cmdAddVehicle.SplitMenuStrip = this.cmsVehicle;
+            this.cmdAddVehicle.TabIndex = 185;
+            this.cmdAddVehicle.Tag = "Button_AddVehicle";
+            this.cmdAddVehicle.Text = "&Add Vehicle";
+            this.cmdAddVehicle.UseVisualStyleBackColor = true;
+            this.cmdAddVehicle.Click += new System.EventHandler(this.cmdAddVehicle_Click);
+            // 
+            // lblLivingPersonaAttack
+            // 
+            this.lblLivingPersonaAttack.AutoSize = true;
+            this.lblLivingPersonaAttack.Location = new System.Drawing.Point(393, 257);
+            this.lblLivingPersonaAttack.Name = "lblLivingPersonaAttack";
+            this.lblLivingPersonaAttack.Size = new System.Drawing.Size(19, 13);
+            this.lblLivingPersonaAttack.TabIndex = 155;
+            this.lblLivingPersonaAttack.Text = "[0]";
+            // 
+            // lblLivingPersonaAttackLabel
+            // 
+            this.lblLivingPersonaAttackLabel.AutoSize = true;
+            this.lblLivingPersonaAttackLabel.Location = new System.Drawing.Point(309, 257);
+            this.lblLivingPersonaAttackLabel.Name = "lblLivingPersonaAttackLabel";
+            this.lblLivingPersonaAttackLabel.Size = new System.Drawing.Size(41, 13);
+            this.lblLivingPersonaAttackLabel.TabIndex = 154;
+            this.lblLivingPersonaAttackLabel.Tag = "Label_Attack";
+            this.lblLivingPersonaAttackLabel.Text = "Attack:";
+            // 
+            // lblLivingPersonaSleaze
+            // 
+            this.lblLivingPersonaSleaze.AutoSize = true;
+            this.lblLivingPersonaSleaze.Location = new System.Drawing.Point(393, 277);
+            this.lblLivingPersonaSleaze.Name = "lblLivingPersonaSleaze";
+            this.lblLivingPersonaSleaze.Size = new System.Drawing.Size(19, 13);
+            this.lblLivingPersonaSleaze.TabIndex = 157;
+            this.lblLivingPersonaSleaze.Text = "[0]";
+            // 
+            // lblLivingPersonaSleazeLabel
+            // 
+            this.lblLivingPersonaSleazeLabel.AutoSize = true;
+            this.lblLivingPersonaSleazeLabel.Location = new System.Drawing.Point(309, 277);
+            this.lblLivingPersonaSleazeLabel.Name = "lblLivingPersonaSleazeLabel";
+            this.lblLivingPersonaSleazeLabel.Size = new System.Drawing.Size(42, 13);
+            this.lblLivingPersonaSleazeLabel.TabIndex = 156;
+            this.lblLivingPersonaSleazeLabel.Tag = "Label_Sleaze";
+            this.lblLivingPersonaSleazeLabel.Text = "Sleaze:";
+            // 
+            // lblLivingPersonaFirewall
+            // 
+            this.lblLivingPersonaFirewall.AutoSize = true;
+            this.lblLivingPersonaFirewall.Location = new System.Drawing.Point(393, 317);
+            this.lblLivingPersonaFirewall.Name = "lblLivingPersonaFirewall";
+            this.lblLivingPersonaFirewall.Size = new System.Drawing.Size(19, 13);
+            this.lblLivingPersonaFirewall.TabIndex = 161;
+            this.lblLivingPersonaFirewall.Text = "[0]";
+            // 
+            // lblLivingPersonaFirewallLabel
+            // 
+            this.lblLivingPersonaFirewallLabel.AutoSize = true;
+            this.lblLivingPersonaFirewallLabel.Location = new System.Drawing.Point(309, 317);
+            this.lblLivingPersonaFirewallLabel.Name = "lblLivingPersonaFirewallLabel";
+            this.lblLivingPersonaFirewallLabel.Size = new System.Drawing.Size(45, 13);
+            this.lblLivingPersonaFirewallLabel.TabIndex = 160;
+            this.lblLivingPersonaFirewallLabel.Tag = "Label_Firewall";
+            this.lblLivingPersonaFirewallLabel.Text = "Firewall:";
+            // 
+            // lblLivingPersonaDataProcessing
+            // 
+            this.lblLivingPersonaDataProcessing.AutoSize = true;
+            this.lblLivingPersonaDataProcessing.Location = new System.Drawing.Point(393, 297);
+            this.lblLivingPersonaDataProcessing.Name = "lblLivingPersonaDataProcessing";
+            this.lblLivingPersonaDataProcessing.Size = new System.Drawing.Size(19, 13);
+            this.lblLivingPersonaDataProcessing.TabIndex = 159;
+            this.lblLivingPersonaDataProcessing.Text = "[0]";
+            // 
+            // lblLivingPersonaDataProcessingLabel
+            // 
+            this.lblLivingPersonaDataProcessingLabel.AutoSize = true;
+            this.lblLivingPersonaDataProcessingLabel.Location = new System.Drawing.Point(309, 297);
+            this.lblLivingPersonaDataProcessingLabel.Name = "lblLivingPersonaDataProcessingLabel";
+            this.lblLivingPersonaDataProcessingLabel.Size = new System.Drawing.Size(88, 13);
+            this.lblLivingPersonaDataProcessingLabel.TabIndex = 158;
+            this.lblLivingPersonaDataProcessingLabel.Tag = "Label_DataProcessing";
+            this.lblLivingPersonaDataProcessingLabel.Text = "Data Processing:";
+            // 
             // frmCreate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9323,7 +9307,6 @@
             this.tabAdept.PerformLayout();
             this.tabTechnomancer.ResumeLayout(false);
             this.tabTechnomancer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudComplexFormRating)).EndInit();
             this.tabCritter.ResumeLayout(false);
             this.tabCritter.PerformLayout();
             this.tabInitiation.ResumeLayout(false);
@@ -9765,17 +9748,13 @@
 		private System.Windows.Forms.Button cmdAddCritterPower;
 		private System.Windows.Forms.ToolStripMenuItem tsWeaponName;
 		private System.Windows.Forms.ToolStripMenuItem tsWeaponAddUnderbarrel;
-		private System.Windows.Forms.Button cmdDeleteComplexForm;
-		private System.Windows.Forms.NumericUpDown nudComplexFormRating;
-		private System.Windows.Forms.Label lblComplexFormRatingLabel;
+        private System.Windows.Forms.Button cmdDeleteComplexForm;
 		private System.Windows.Forms.Label lblComplexFormSource;
 		private System.Windows.Forms.Label lblComplexFormSourceLabel;
 		private System.Windows.Forms.TreeView treComplexForms;
 		private System.Windows.Forms.Label lblFadingAttributesValue;
 		private System.Windows.Forms.Label lblFadingAttributes;
-		private System.Windows.Forms.Label lblFadingAttributesLabel;
-		private System.Windows.Forms.ComboBox cboStream;
-		private System.Windows.Forms.Label lblStreamLabel;
+        private System.Windows.Forms.Label lblFadingAttributesLabel;
 		private System.Windows.Forms.SplitContainer splitSkills;
 		private System.Windows.Forms.SplitContainer splitContacts;
 		private System.Windows.Forms.ContextMenuStrip cmsComplexForm;
@@ -9829,9 +9808,7 @@
 		private System.Windows.Forms.Label lblComposureLabel;
 		private System.Windows.Forms.CheckBox chkGearEquipped;
 		private System.Windows.Forms.ToolStripMenuItem mnuSpecialMutantCritter;
-		private System.Windows.Forms.ToolStripMenuItem mnuSpecialToxicCritter;
-		private System.Windows.Forms.Label lblComplexFormSkill;
-		private System.Windows.Forms.Label lblComplexFormSkillLabel;
+        private System.Windows.Forms.ToolStripMenuItem mnuSpecialToxicCritter;
 		private System.Windows.Forms.Label lblBuildSpecialAttributes;
 		private System.Windows.Forms.Label lblSpecialAttributesBP;
 		private System.Windows.Forms.Label lblArmorCapacity;
@@ -9841,9 +9818,6 @@
 		private System.Windows.Forms.ToolStripMenuItem tsArmorGearAddAsPlugin;
 		private System.Windows.Forms.Label lblMetamagicSource;
         private System.Windows.Forms.Label lblMetamagicSourceLabel;
-		private System.Windows.Forms.Label lblParagon;
-		private System.Windows.Forms.Label lblParagonLabel;
-		private System.Windows.Forms.Label lblParagonInformation;
 		private System.Windows.Forms.ToolStripMenuItem tsArmorNotes;
 		private System.Windows.Forms.ToolStripMenuItem tsWeaponNotes;
 		private System.Windows.Forms.ToolStripMenuItem tsCyberwareNotes;
@@ -9901,9 +9875,7 @@
 		private System.Windows.Forms.Label lblVehicleDeviceLabel;
 		private System.Windows.Forms.ToolStripMenuItem tsArmorName;
 		private System.Windows.Forms.SplitContainer splitMain;
-		private System.Windows.Forms.Label lblLivingPersonaLabel;
-		private System.Windows.Forms.Label lblLivingPersonaBiofeedbackFilter;
-        private System.Windows.Forms.Label lblLivingPersonaBiofeedbackFilterLabel;
+        private System.Windows.Forms.Label lblLivingPersonaLabel;
 		private System.Windows.Forms.Label lblLivingPersonaDeviceRating;
 		private System.Windows.Forms.Label lblLivingPersonaDeviceRatingLabel;
 		private System.Windows.Forms.Label lblMetatypeSource;
@@ -10108,6 +10080,20 @@
         private System.Windows.Forms.TreeView treSpells;
         private System.Windows.Forms.Button cmdDeleteSpell;
         private System.Windows.Forms.Label lblSelectedSpells;
+        private System.Windows.Forms.Label lblFV;
+        private System.Windows.Forms.Label lblFVLabel;
+        private System.Windows.Forms.Label lblDuration;
+        private System.Windows.Forms.Label lblDurationLabel;
+        private System.Windows.Forms.Label lblTarget;
+        private System.Windows.Forms.Label lblTargetLabel;
+        private System.Windows.Forms.Label lblLivingPersonaFirewall;
+        private System.Windows.Forms.Label lblLivingPersonaFirewallLabel;
+        private System.Windows.Forms.Label lblLivingPersonaDataProcessing;
+        private System.Windows.Forms.Label lblLivingPersonaDataProcessingLabel;
+        private System.Windows.Forms.Label lblLivingPersonaSleaze;
+        private System.Windows.Forms.Label lblLivingPersonaSleazeLabel;
+        private System.Windows.Forms.Label lblLivingPersonaAttack;
+        private System.Windows.Forms.Label lblLivingPersonaAttackLabel;
     }
 }
 

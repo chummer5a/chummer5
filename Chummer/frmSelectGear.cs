@@ -741,7 +741,7 @@ namespace Chummer
 				else
 					chkInherentProgram.Visible = false;
 
-				if (objXmlGear["category"].InnerText == "Commlinks" || objXmlGear["category"].InnerText == "Commlink Upgrade")
+				if (objXmlGear["category"].InnerText == "Commlinks" || objXmlGear["category"].InnerText == "Cyberdecks" || objXmlGear["category"].InnerText == "Commlink Upgrade")
 				{
 					lblGearDeviceRating.Text = objXmlGear["devicerating"].InnerText;
 				}

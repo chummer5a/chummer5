@@ -123,8 +123,8 @@
           <qualities>
             <quality>Magician</quality>
           </qualities>
-          <magic>5</magic>
-          <spells>9</spells>
+          <magic>6</magic>
+          <spells>10</spells>
           <skillqty>2</skillqty>
           <skillval>5</skillval>
           <skilltype>magic</skilltype>
@@ -147,7 +147,7 @@
           <qualities>
             <quality>Technomancer</quality>
           </qualities>
-          <resonance>5</resonance>
+          <resonance>6</resonance>
           <cfp>5</cfp>
           <skillqty>2</skillqty>
           <skillval>5</skillval>

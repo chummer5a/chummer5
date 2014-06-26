@@ -36,24 +36,10 @@ namespace Chummer
 			}
 
         	// Load the Programs information.
-			_objXmlDocument = XmlManager.Instance.Load("programs.xml");
-
-			// Populate the Category list.
-			XmlNodeList objXmlNodeList = _objXmlDocument.SelectNodes("/chummer/categories/category");
-			foreach (XmlNode objXmlCategory in objXmlNodeList)
-			{
-				TreeNode nodCategory = new TreeNode();
-				nodCategory.Tag = objXmlCategory.InnerText;
-				if (objXmlCategory.Attributes["translate"] != null)
-					nodCategory.Text = objXmlCategory.Attributes["translate"].InnerText;
-				else
-					nodCategory.Text = objXmlCategory.InnerText;
-
-				trePrograms.Nodes.Add(nodCategory);
-			}
+			_objXmlDocument = XmlManager.Instance.Load("complexforms.xml");
 
             // Populate the Program list.
-			objXmlNodeList = _objXmlDocument.SelectNodes("/chummer/programs/program[" + _objCharacter.Options.BookXPath() + "]");
+            XmlNodeList objXmlNodeList = _objXmlDocument.SelectNodes("/chummer/complexforms/complexform[" + _objCharacter.Options.BookXPath() + "]");
 
 			bool blnCheckForOptional = false;
 			XmlNode objXmlCritter = null;
@@ -84,14 +70,7 @@ namespace Chummer
 				else
 					nodProgram.Text = objXmlProgram["name"].InnerText;
 				nodProgram.Tag = objXmlProgram["name"].InnerText;
-                // Check to see if there is already a Category node for the Programs's category.
-                foreach (TreeNode nodCategory in trePrograms.Nodes)
-                {
-                    if (nodCategory.Level == 0 && nodCategory.Tag.ToString() == objXmlProgram["category"].InnerText)
-                    {
-                        nodParent = nodCategory;
-                    }
-                }
+                nodParent = trePrograms.Nodes[0];
 				
 				// If this is a Sprite with Optional Complex Forms, see if this Complex Form is allowed.
 				if (blnCheckForOptional)
@@ -101,34 +80,14 @@ namespace Chummer
 					{
 						if (objXmlForm.InnerText == objXmlProgram["name"].InnerText)
 							blnAdd = true;
-						if (objXmlForm.Attributes["category"] != null)
-						{
-							if (objXmlForm.Attributes["category"].InnerText == objXmlProgram["category"].InnerText)
-								blnAdd = true;
-						}
 					}
 				}
-
-				if (objXmlProgram["category"].InnerText == "Skillsofts" && !_blnBiowireEnabled && !_objCharacter.IgnoreRules)
-					blnAdd = false;
-				if (objXmlProgram["category"].InnerText == "Autosoft" && !_objCharacter.Options.TechnomancerAllowAutosoft)
-					blnAdd = false;
 
                 // Add the Program to the Category node.
 				if (blnAdd)
 					nodParent.Nodes.Add(nodProgram);
             }
-
-			// Remove any parent nodes that have no children.
-			List<TreeNode> lstRemove = new List<TreeNode>();
-			foreach (TreeNode objNode in trePrograms.Nodes)
-			{
-				if (objNode.Nodes.Count == 0)
-					lstRemove.Add(objNode);
-			}
-
-			foreach (TreeNode objNode in lstRemove)
-				trePrograms.Nodes.Remove(objNode);
+            trePrograms.Nodes[0].Expand();
         }
 
         private void trePrograms_AfterSelect(object sender, TreeViewEventArgs e)
@@ -137,37 +96,15 @@ namespace Chummer
             if (trePrograms.SelectedNode.Level > 0)
             {
             	// Display the Program information.
-                XmlNode objXmlProgram = _objXmlDocument.SelectSingleNode("/chummer/programs/program[name = \"" + trePrograms.SelectedNode.Tag + "\"]");
+                XmlNode objXmlProgram = _objXmlDocument.SelectSingleNode("/chummer/complexforms/complexform[name = \"" + trePrograms.SelectedNode.Tag + "\"]");
 
-				if (objXmlProgram["skill"].InnerText == "None")
-					lblCommonSkill.Text = LanguageManager.Instance.GetString("String_None");
-				else if (objXmlProgram["skill"].InnerText == "Varies")
-					lblCommonSkill.Text = LanguageManager.Instance.GetString("String_Varies");
-				else
-				{
-					XmlDocument objXmlSkillDocument = XmlManager.Instance.Load("skills.xml");
-					try
-					{
-						XmlNode objNode = objXmlSkillDocument.SelectSingleNode("/chummer/skills/skill[name = \"" + objXmlProgram["skill"].InnerText + "\"]");
-						if (objNode["translate"] != null)
-							lblCommonSkill.Text = objNode["translate"].InnerText;
-						else
-							lblCommonSkill.Text = objNode["name"].InnerText;
-					}
-					catch
-					{
-						if (objXmlProgram["skill"].InnerText == "Response")
-							lblCommonSkill.Text = LanguageManager.Instance.GetString("String_Response");
-						else if (objXmlProgram["skill"].InnerText == "System")
-							lblCommonSkill.Text = LanguageManager.Instance.GetString("String_System");
-						else if (objXmlProgram["skill"].InnerText == "Firewall")
-							lblCommonSkill.Text = LanguageManager.Instance.GetString("String_Firewall");
-						else if (objXmlProgram["skill"].InnerText == "Signal")
-							lblCommonSkill.Text = LanguageManager.Instance.GetString("String_Signal");
-						else
-							lblCommonSkill.Text = objXmlProgram["skill"].InnerText;
-					}
-				}
+                string strDuration = objXmlProgram["duration"].InnerText;
+                string strTarget = objXmlProgram["target"].InnerText;
+                string strFV = objXmlProgram["fv"].InnerText;
+
+                lblDuration.Text = strDuration;
+                lblTarget.Text = strTarget;
+                lblFV.Text = strFV;
 
 				string strBook = _objCharacter.Options.LanguageBookShort(objXmlProgram["source"].InnerText);
 				string strPage = objXmlProgram["page"].InnerText;
@@ -217,7 +154,7 @@ namespace Chummer
 		private void txtSearch_TextChanged(object sender, EventArgs e)
 		{
 			// Treat everything as being uppercase so the search is case-insensitive.
-			string strSearch = "/chummer/programs/program[(" + _objCharacter.Options.BookXPath() + ") and ((contains(translate(name,'abcdefghijklmnopqrstuvwxyzàáâãäåçèéêëìíîïñòóôõöùúûüýß','ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝß'), \"" + txtSearch.Text.ToUpper() + "\") and not(translate)) or contains(translate(translate,'abcdefghijklmnopqrstuvwxyzàáâãäåçèéêëìíîïñòóôõöùúûüýß','ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝß'), \"" + txtSearch.Text.ToUpper() + "\"))]";
+            string strSearch = "/chummer/complexforms/complexform[(" + _objCharacter.Options.BookXPath() + ") and ((contains(translate(name,'abcdefghijklmnopqrstuvwxyzàáâãäåçèéêëìíîïñòóôõöùúûüýß','ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝß'), \"" + txtSearch.Text.ToUpper() + "\") and not(translate)) or contains(translate(translate,'abcdefghijklmnopqrstuvwxyzàáâãäåçèéêëìíîïñòóôõöùúûüýß','ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝß'), \"" + txtSearch.Text.ToUpper() + "\"))]";
 
 			trePrograms.Nodes.Clear();
 
@@ -354,8 +291,15 @@ namespace Chummer
 
 		private void MoveControls()
 		{
-			lblCommonSkill.Left = lblCommonSkillLabel.Left + lblCommonSkillLabel.Width + 6;
-			lblSource.Left = lblSourceLabel.Left + lblSourceLabel.Width + 6;
+            int intLeft = lblDurationLabel.Width;
+            intLeft = Math.Max(intLeft, lblTargetLabel.Width);
+            intLeft = Math.Max(intLeft, lblFV.Width);
+            intLeft = Math.Max(intLeft, lblSourceLabel.Width);
+
+            lblTarget.Left = lblTargetLabel.Left + intLeft + 6;
+            lblDuration.Left = lblDurationLabel.Left + intLeft + 6;
+            lblFV.Left = lblFVLabel.Left + intLeft + 6;
+            lblSource.Left = lblSourceLabel.Left + intLeft + 6;
 
 			lblSearchLabel.Left = txtSearch.Left - 6 - lblSearchLabel.Width;
 		}
