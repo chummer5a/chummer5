@@ -9877,7 +9877,11 @@ namespace Chummer
 			_guiID = Guid.Parse(objNode["guid"].InnerText);
 			_strName = objNode["name"].InnerText;
 			_strCategory = objNode["category"].InnerText;
-			_strCapacity = objNode["capacity"].InnerText;
+            try
+            {
+                _strCapacity = objNode["capacity"].InnerText;
+            }
+            catch { }
 			try
 			{
 				_strArmorCapacity = objNode["armorcapacity"].InnerText;
@@ -9925,8 +9929,16 @@ namespace Chummer
 			{
 			}
 			_strCost = objNode["cost"].InnerText;
-			_strCost3 = objNode["cost3"].InnerText;
-			_strCost6 = objNode["cost6"].InnerText;
+            try
+            {
+                _strCost3 = objNode["cost3"].InnerText;
+            }
+            catch { }
+            try
+            {
+                _strCost6 = objNode["cost6"].InnerText;
+            }
+            catch { }
 			try
 			{
 				_strCost10 = objNode["cost10"].InnerText;

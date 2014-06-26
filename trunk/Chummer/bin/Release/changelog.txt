@@ -1,3 +1,7 @@
+Build 5.106 (alpha)
+- Fixed a bug which could cause an error when loading a character that has a commlink.
+- Fixed a bug which could cause an error when loading a character with a martial art.
+
 Build 5.105 (alpha) MILESTONE BUILD
 - Fixed the starting MAG and RES for Talent priority A selections.
 - Added support for Technomancers including Complex Forms, Living Persona, and Sprites. Submersion and Echoes will be added as character advancement support is added back in.
