@@ -5913,8 +5913,8 @@ namespace Chummer
 			objWriter.WriteElementString("source", _strSource);
 			objWriter.WriteElementString("page", _strPage);
 			objWriter.WriteElementString("rating", _intRating.ToString());
-			objWriter.WriteStartElement("martialartadvantages");
             objWriter.WriteElementString("isquality", _blnIsQuality.ToString());
+            objWriter.WriteStartElement("martialartadvantages");
             foreach (MartialArtAdvantage objAdvantage in _lstAdvantages)
 			{
 				objAdvantage.Save(objWriter);
