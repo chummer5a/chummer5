@@ -352,6 +352,7 @@ namespace Chummer
                 //lblNuyenTotal.Visible = false;
                 //nudNuyen.Visible = false;
                 nudNuyen.Maximum = 10;
+                nudNuyen.Value = _objCharacter.NuyenBP;
             }
             else 
             { 
@@ -6332,7 +6333,6 @@ namespace Chummer
             catch
             {
             }
-
         }
 
 		private void cmdDeleteMartialArt_Click(object sender, EventArgs e)
@@ -16607,7 +16607,6 @@ namespace Chummer
 				if (objArmor == null)
 					return;
 
-				lblArmor.Text = objArmor.TotalArmor.ToString();
                 lblArmorValue.Text = objArmor.TotalArmor.ToString();
 				lblArmorAvail.Text = objArmor.TotalAvail;
 				lblArmorCapacity.Text = objArmor.CalculatedCapacity + " (" + objArmor.CapacityRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
@@ -16636,7 +16635,6 @@ namespace Chummer
 
 				if (blnIsMod)
 				{
-					lblArmor.Text = objSelectedMod.Armor.ToString();
                     lblArmorValue.Text = objSelectedMod.Armor.ToString();
                     lblArmorAvail.Text = objSelectedMod.TotalAvail;
 					if (objSelectedArmor.CapacityDisplayStyle == CapacityStyle.Standard)
@@ -16685,7 +16683,6 @@ namespace Chummer
 				{
 					Gear objSelectedGear = _objFunctions.FindArmorGear(treArmor.SelectedNode.Tag.ToString(), _objCharacter.Armor, out objSelectedArmor);
 
-					lblArmor.Text = "";
                     lblArmorValue.Text = "";
                     lblArmorAvail.Text = objSelectedGear.TotalAvail(true);
 					if (objSelectedArmor.CapacityDisplayStyle == CapacityStyle.Standard)
@@ -16742,7 +16739,6 @@ namespace Chummer
 				Armor objSelectedArmor = new Armor(_objCharacter);
 				Gear objSelectedGear = _objFunctions.FindArmorGear(treArmor.SelectedNode.Tag.ToString(), _objCharacter.Armor, out objSelectedArmor);
 
-				lblArmor.Text = "";
                 lblArmorValue.Text = "";
                 lblArmorAvail.Text = objSelectedGear.TotalAvail(true);
 				lblArmorCapacity.Text = objSelectedGear.CalculatedArmorCapacity;
@@ -16780,7 +16776,6 @@ namespace Chummer
 			}
 			else
 			{
-				lblArmor.Text = "";
                 lblArmorValue.Text = "";
                 lblArmorAvail.Text = "";
 				lblArmorCost.Text = "";
@@ -18888,22 +18883,22 @@ namespace Chummer
                 intPointsUsed -= _objImprovementManager.ValueOf(Improvement.ImprovementType.FreeNegativeQualities);
                 intNegativePoints -= _objImprovementManager.ValueOf(Improvement.ImprovementType.FreeNegativeQualities);
 
-                // If the character is only allowed to gain 35 BP (70 Karma) from Negative Qualities but allowed to take as many as they'd like, limit their refunded points.
+                // If the character is only allowed to gain 25 Karma from Negative Qualities but allowed to take as many as they'd like, limit their refunded points.
                 if (_objOptions.ExceedNegativeQualitiesLimit)
                 {
-                    if (intNegativePoints < -35)
+                    if (intNegativePoints < -25)
                     {
-                        intNegativePoints += 35;
+                        intNegativePoints += 25;
                     }
                 }
 
-                // if positive points > 35
-                if (intPositivePointsUsed > 35)
-                    strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_PositiveQualityLimit").Replace("{0}", (35).ToString());
+                // if positive points > 25
+                if (intPositivePointsUsed > 25)
+                    strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_PositiveQualityLimit").Replace("{0}", (25).ToString());
 
-                // if positive points > negative points
-                if (intPositivePointsUsed > intNegativePoints)
-                    strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_PositiveQualityMoreThanNegativeQuality");
+                // if negative points > 25
+                if (intNegativePoints < -25)
+                    strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_NegativeQualityLimit").Replace("{0}", (25).ToString());
 
                 // Check if the character has gone over limits from optional rules
                 int intContactPointsUsed = 0;
@@ -19515,15 +19510,12 @@ namespace Chummer
 				}
 
 				// See if the character has any Karma remaining.
-				if (_objCharacter.BuildMethod == CharacterBuildMethod.Karma)
+				if (intBuildPoints > _objOptions.KarmaCarryover)
 				{
-					if (intBuildPoints > _objOptions.KarmaCarryover)
-					{
-						if (MessageBox.Show(LanguageManager.Instance.GetString("Message_ExtraKarma").Replace("{0}", intBuildPoints.ToString()).Replace("{1}", _objOptions.KarmaCarryover.ToString()), LanguageManager.Instance.GetString("MessageTitle_ExtraKarma"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
-							blnValid = false;
-						else
-							_objCharacter.Karma = _objOptions.KarmaCarryover;
-					}
+					if (MessageBox.Show(LanguageManager.Instance.GetString("Message_ExtraKarma").Replace("{0}", intBuildPoints.ToString()).Replace("{1}", _objOptions.KarmaCarryover.ToString()), LanguageManager.Instance.GetString("MessageTitle_ExtraKarma"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+						blnValid = false;
+					else
+						_objCharacter.Karma = _objOptions.KarmaCarryover;
 				}
 
 				// Determine the highest Lifestyle the character has.
@@ -19563,13 +19555,16 @@ namespace Chummer
 				frmStartingNuyen.Multiplier = objLifestyle.Multiplier;
 				frmStartingNuyen.Extra = intNuyenBonus;
 
-				frmStartingNuyen.ShowDialog(this);
+                if (blnValid)
+                {
+                    frmStartingNuyen.ShowDialog(this);
 
-				// Assign the starting Nuyen amount.
-				int intStartingNuyen = frmStartingNuyen.StartingNuyen;
-				if (intStartingNuyen < 0)
-					intStartingNuyen = 0;
-				_objCharacter.Nuyen = intStartingNuyen;
+                    // Assign the starting Nuyen amount.
+                    int intStartingNuyen = frmStartingNuyen.StartingNuyen;
+                    if (intStartingNuyen < 0)
+                        intStartingNuyen = 0;
+                    _objCharacter.Nuyen = intStartingNuyen;
+                }
 
                 // Cannot carry over more than 7 karma from the build process
                 if (_objCharacter.Karma > 7)
@@ -22362,10 +22357,5 @@ namespace Chummer
 			}
 		}
 		#endregion
-
-        private void mnuCreateMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
 	}
 }

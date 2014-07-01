@@ -139,8 +139,6 @@ namespace Chummer
 					tabInitiation.Text = LanguageManager.Instance.GetString("Tab_Initiation");
 					lblInitiateGradeLabel.Text = LanguageManager.Instance.GetString("Label_InitiationGrade");
 					cmdAddMetamagic.Text = LanguageManager.Instance.GetString("Button_AddMetamagic");
-					chkInitiationGroup.Text = LanguageManager.Instance.GetString("Checkbox_GroupInitiation");
-					chkInitiationOrdeal.Text = LanguageManager.Instance.GetString("Checkbox_InitiationOrdeal");
 					chkJoinGroup.Text = LanguageManager.Instance.GetString("Checkbox_JoinedGroup");
 					chkJoinGroup.Checked = _objCharacter.GroupMember;
 					txtGroupName.Text = _objCharacter.GroupName;
@@ -153,8 +151,6 @@ namespace Chummer
 					tabInitiation.Text = LanguageManager.Instance.GetString("Tab_Submersion");
 					lblInitiateGradeLabel.Text = LanguageManager.Instance.GetString("Label_SubmersionGrade");
 					cmdAddMetamagic.Text = LanguageManager.Instance.GetString("Button_AddEcho");
-					chkInitiationGroup.Text = LanguageManager.Instance.GetString("Checkbox_NetworkSubmersion");
-					chkInitiationOrdeal.Text = LanguageManager.Instance.GetString("Checkbox_SubmersionTask");
 					chkJoinGroup.Text = LanguageManager.Instance.GetString("Checkbox_JoinedNetwork");
 					chkJoinGroup.Checked = _objCharacter.GroupMember;
 					txtGroupName.Text = _objCharacter.GroupName;
@@ -1523,8 +1519,6 @@ namespace Chummer
 					tabInitiation.Text = LanguageManager.Instance.GetString("Tab_Initiation");
 					lblInitiateGradeLabel.Text = LanguageManager.Instance.GetString("Label_InitiationGrade");
 					cmdAddMetamagic.Text = LanguageManager.Instance.GetString("Button_AddMetamagic");
-					chkInitiationGroup.Text = LanguageManager.Instance.GetString("Checkbox_GroupInitiation");
-					chkInitiationOrdeal.Text = LanguageManager.Instance.GetString("Checkbox_InitiationOrdeal");
 					chkJoinGroup.Text = LanguageManager.Instance.GetString("Checkbox_JoinedGroup");
 				}
 			}
@@ -1589,8 +1583,6 @@ namespace Chummer
 					tabInitiation.Text = LanguageManager.Instance.GetString("Tab_Submersion");
 					lblInitiateGradeLabel.Text = LanguageManager.Instance.GetString("Label_SubmersionGrade");
 					cmdAddMetamagic.Text = LanguageManager.Instance.GetString("Button_AddEcho");
-					chkInitiationGroup.Text = LanguageManager.Instance.GetString("Checkbox_NetworkSubmersion");
-					chkInitiationOrdeal.Text = LanguageManager.Instance.GetString("Checkbox_SubmersionTask");
 					chkJoinGroup.Text = LanguageManager.Instance.GetString("Checkbox_JoinedNetwork");
 				}
 			}
@@ -4801,23 +4793,12 @@ namespace Chummer
 					MartialArt objMartialArt = _objFunctions.FindMartialArt(treMartialArts.SelectedNode.Tag.ToString(), _objCharacter.MartialArts);
 
 					_blnSkipRefresh = true;
-					if (objMartialArt.Rating < 4)
-					{
-						string strTip = LanguageManager.Instance.GetString("Tip_ImproveItem").Replace("{0}", (objMartialArt.Rating + 1).ToString()).Replace("{1}", (((objMartialArt.Rating + 1) * 5 * _objOptions.KarmaQuality) - ((objMartialArt.Rating) * 5 * _objOptions.KarmaQuality)).ToString());
-						tipTooltip.SetToolTip(cmdImproveMartialArtsRating, strTip);
-						cmdImproveMartialArtsRating.Enabled = true;
-					}
-					else
-						cmdImproveMartialArtsRating.Enabled = false;
-					lblMartialArtsRating.Text = objMartialArt.Rating.ToString();
 					string strBook = _objOptions.LanguageBookShort(objMartialArt.Source);
 					string strPage = objMartialArt.Page;
 					lblMartialArtSource.Text = strBook + " " + strPage;
 					tipTooltip.SetToolTip(lblMartialArtSource, _objOptions.LanguageBookLong(objMartialArt.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objMartialArt.Page);
 					_blnSkipRefresh = false;
 				}
-				else
-					cmdImproveMartialArtsRating.Enabled = false;
 
 				// Display the Martial Art Advantage information.
 				if (treMartialArts.SelectedNode.Level == 2)
@@ -4844,53 +4825,7 @@ namespace Chummer
 			}
 			catch
 			{
-				cmdImproveMartialArtsRating.Enabled = false;
 			}
-		}
-
-		private void cmdImproveMartialArtsRating_Click(object sender, EventArgs e)
-		{
-			// Locate the selected Martial Art.
-			MartialArt objMartialArt = _objFunctions.FindMartialArt(treMartialArts.SelectedNode.Tag.ToString(), _objCharacter.MartialArts);
-
-			// Make sure the character has enough Karma.
-			int intKarmaCost = ((objMartialArt.Rating + 1) * 5 * _objOptions.KarmaQuality) - ((objMartialArt.Rating) * 5 * _objOptions.KarmaQuality);
-
-			if (intKarmaCost > _objCharacter.Karma)
-			{
-				MessageBox.Show(LanguageManager.Instance.GetString("Message_NotEnoughKarma"), LanguageManager.Instance.GetString("MessageTitle_NotEnoughKarma"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-				return;
-			}
-
-			if (!ConfirmKarmaExpense(LanguageManager.Instance.GetString("Message_ConfirmKarmaExpense").Replace("{0}", objMartialArt.DisplayNameShort).Replace("{1}", (objMartialArt.Rating + 1).ToString()).Replace("{2}", intKarmaCost.ToString())))
-				return;
-
-			// Create the Expense Log Entry.
-			ExpenseLogEntry objExpense = new ExpenseLogEntry();
-			objExpense.Create(intKarmaCost * -1, LanguageManager.Instance.GetString("String_ExpenseMartialArt") + " " + objMartialArt.DisplayNameShort + " " + objMartialArt.Rating + " -> " + (objMartialArt.Rating + 1).ToString(), ExpenseType.Karma, DateTime.Now);
-			_objCharacter.ExpenseEntries.Add(objExpense);
-			_objCharacter.Karma -= intKarmaCost;
-
-			ExpenseUndo objUndo = new ExpenseUndo();
-			objUndo.CreateKarma(KarmaExpenseType.ImproveMartialArt, objMartialArt.Name);
-			objExpense.Undo = objUndo;
-
-			objMartialArt.Rating += 1;
-			lblMartialArtsRating.Text = objMartialArt.Rating.ToString();
-
-			if (objMartialArt.Rating < 4)
-			{
-				string strTip = LanguageManager.Instance.GetString("Tip_ImproveItem").Replace("{0}", (objMartialArt.Rating + 1).ToString()).Replace("{1}", (((objMartialArt.Rating + 1) * 5 * _objOptions.KarmaQuality) - ((objMartialArt.Rating) * 5 * _objOptions.KarmaQuality)).ToString());
-				tipTooltip.SetToolTip(cmdImproveMartialArtsRating, strTip);
-				cmdImproveMartialArtsRating.Enabled = true;
-			}
-			else
-				cmdImproveMartialArtsRating.Enabled = false;
-			
-			UpdateCharacterInfo();
-
-			_blnIsDirty = true;
-			UpdateWindowTitle();
 		}
 		#endregion
 
@@ -5947,8 +5882,8 @@ namespace Chummer
 		private void cmdAddLifestyle_Click(object sender, EventArgs e)
 		{
 			Lifestyle objLifestyle = new Lifestyle(_objCharacter);
-			frmSelectLifestyle frmPickLifestyle = new frmSelectLifestyle(objLifestyle, _objCharacter);
-			frmPickLifestyle.ShowDialog(this);
+            frmSelectAdvancedLifestyle frmPickLifestyle = new frmSelectAdvancedLifestyle(objLifestyle, _objCharacter);
+            frmPickLifestyle.ShowDialog(this);
 
 			// Make sure the dialogue window was not canceled.
 			if (frmPickLifestyle.DialogResult == DialogResult.Cancel)
@@ -6578,7 +6513,7 @@ namespace Chummer
 
 		private void cmdAddMartialArt_Click(object sender, EventArgs e)
 		{
-			int intKarmaCost = 5 * _objOptions.KarmaQuality;
+			int intKarmaCost = 7 * _objOptions.KarmaQuality;
 			if (intKarmaCost > _objCharacter.Karma)
 			{
 				MessageBox.Show(LanguageManager.Instance.GetString("Message_NotEnoughKarma"), LanguageManager.Instance.GetString("MessageTitle_NotEnoughKarma"), MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -10398,11 +10333,11 @@ namespace Chummer
 				MartialArt objMartialArt = _objFunctions.FindMartialArt(treMartialArts.SelectedNode.Tag.ToString(), _objCharacter.MartialArts);
 
 				// Make sure the user is not trying to add more Advantages than they are allowed (1 per Rating for the selected Martial Art).
-				if (objMartialArt.Advantages.Count >= objMartialArt.Rating && !_objCharacter.IgnoreRules)
-				{
-					MessageBox.Show(LanguageManager.Instance.GetString("Message_MartialArtAdvantageLimit").Replace("{0}", objMartialArt.DisplayNameShort), LanguageManager.Instance.GetString("MessageTitle_MartialArtAdvantageLimit"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-					return;
-				}
+                //if (objMartialArt.Advantages.Count >= objMartialArt.Rating && !_objCharacter.IgnoreRules)
+                //{
+                //    MessageBox.Show(LanguageManager.Instance.GetString("Message_MartialArtAdvantageLimit").Replace("{0}", objMartialArt.DisplayNameShort), LanguageManager.Instance.GetString("MessageTitle_MartialArtAdvantageLimit"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    return;
+                //}
 
 				frmSelectMartialArtAdvantage frmPickMartialArtAdvantage = new frmSelectMartialArtAdvantage(_objCharacter);
 				frmPickMartialArtAdvantage.MartialArt = objMartialArt.Name;
@@ -10427,6 +10362,19 @@ namespace Chummer
 
 				treMartialArts.SelectedNode.Nodes.Add(objNode);
 				treMartialArts.SelectedNode.Expand();
+
+                // Create the Expense Log Entry.
+                if (treMartialArts.SelectedNode.Nodes.Count > 1)
+                {
+                    ExpenseLogEntry objEntry = new ExpenseLogEntry();
+                    objEntry.Create(_objOptions.KarmaManeuver * -1, LanguageManager.Instance.GetString("String_ExpenseLearnTechnique") + " " + frmPickMartialArtAdvantage.SelectedAdvantage, ExpenseType.Karma, DateTime.Now);
+                    _objCharacter.ExpenseEntries.Add(objEntry);
+                    _objCharacter.Karma -= _objOptions.KarmaManeuver;
+
+                    ExpenseUndo objUndo = new ExpenseUndo();
+                    objUndo.CreateKarma(KarmaExpenseType.AddMartialArtManeuver, frmPickMartialArtAdvantage.SelectedAdvantage);
+                    objEntry.Undo = objUndo;
+                }
 
 				UpdateCharacterInfo();
 
@@ -13203,27 +13151,6 @@ namespace Chummer
 									objNode.Remove();
 									break;
 								}
-							}
-							break;
-						}
-					}
-					break;
-				case KarmaExpenseType.ImproveMartialArt:
-					// Locate the Martial Art that was affected.
-					foreach (MartialArt objMartialArt in _objCharacter.MartialArts)
-					{
-						if (objMartialArt.Name == objEntry.Undo.ObjectId)
-						{
-							objMartialArt.Rating--;
-							try
-							{
-								if (treMartialArts.SelectedNode.Tag.ToString() == objMartialArt.Name)
-								{
-									lblMartialArtsRating.Text = objMartialArt.Rating.ToString();
-								}
-							}
-							catch
-							{
 							}
 							break;
 						}
@@ -18910,10 +18837,6 @@ namespace Chummer
 
 				// Make sure the character has enough Karma.
 				double dblMultiplier = 1.0;
-				if (chkInitiationGroup.Checked)
-					dblMultiplier -= 0.2;
-				if (chkInitiationOrdeal.Checked)
-					dblMultiplier -= 0.2;
 				dblMultiplier = Math.Round(dblMultiplier, 2);
 
 				int intKarmaExpense = Convert.ToInt32(Math.Ceiling(Convert.ToDouble((10 + ((_objCharacter.InitiateGrade + 1) * _objOptions.KarmaInitiation)), GlobalOptions.Instance.CultureInfo) * dblMultiplier));
@@ -18935,7 +18858,7 @@ namespace Chummer
 
 				// Create the Initiate Grade object.
 				InitiationGrade objGrade = new InitiationGrade(_objCharacter);
-				objGrade.Create(_objCharacter.InitiateGrade + 1, _objCharacter.RESEnabled, chkInitiationGroup.Checked, chkInitiationOrdeal.Checked);
+				objGrade.Create(_objCharacter.InitiateGrade + 1, _objCharacter.RESEnabled, false, false);
 				_objCharacter.InitiationGrades.Add(objGrade);
 
 				ExpenseUndo objUndo = new ExpenseUndo();
@@ -18984,10 +18907,6 @@ namespace Chummer
 
 				// Make sure the character has enough Karma.
 				double dblMultiplier = 1.0;
-				if (chkInitiationGroup.Checked)
-					dblMultiplier -= 0.2;
-				if (chkInitiationOrdeal.Checked)
-					dblMultiplier -= 0.2;
 				dblMultiplier = Math.Round(dblMultiplier, 2);
 
 				int intKarmaExpense = Convert.ToInt32(Math.Ceiling(Convert.ToDouble((10 + ((_objCharacter.SubmersionGrade + 1) * _objOptions.KarmaInitiation)), GlobalOptions.Instance.CultureInfo) * dblMultiplier));
@@ -19009,7 +18928,7 @@ namespace Chummer
 
 				// Create the Initiate Grade object.
 				InitiationGrade objGrade = new InitiationGrade(_objCharacter);
-				objGrade.Create(_objCharacter.SubmersionGrade + 1, _objCharacter.RESEnabled, chkInitiationGroup.Checked, chkInitiationOrdeal.Checked);
+				objGrade.Create(_objCharacter.SubmersionGrade + 1, _objCharacter.RESEnabled, false, false);
 				_objCharacter.InitiationGrades.Add(objGrade);
 
 				ExpenseUndo objUndo = new ExpenseUndo();
@@ -19133,10 +19052,6 @@ namespace Chummer
 		private void chkInitiationGroup_CheckedChanged(object sender, EventArgs e)
 		{
 			double dblMultiplier = 1.0;
-			if (chkInitiationGroup.Checked)
-				dblMultiplier -= 0.2;
-			if (chkInitiationOrdeal.Checked)
-				dblMultiplier -= 0.2;
 			dblMultiplier = Math.Round(dblMultiplier, 2);
 
 			int intAmount = 0;
@@ -19157,10 +19072,6 @@ namespace Chummer
 		private void chkInitiationOrdeal_CheckedChanged(object sender, EventArgs e)
 		{
 			double dblMultiplier = 1.0;
-			if (chkInitiationGroup.Checked)
-				dblMultiplier -= 0.2;
-			if (chkInitiationOrdeal.Checked)
-				dblMultiplier -= 0.2;
 			dblMultiplier = Math.Round(dblMultiplier, 2);
 
 			int intAmount = 0;
@@ -21138,8 +21049,8 @@ namespace Chummer
 				}
 
 				// Armor Ratings.
-				lblArmor.Text = _objCharacter.TotalArmorRating.ToString();
-				lblCMArmor.Text = lblArmor.Text;
+                lblArmor.Text = _objCharacter.TotalArmorRating.ToString();
+                lblCMArmor.Text = lblArmorValue.Text;
 				string strArmorToolTip = "";
 				strArmorToolTip = LanguageManager.Instance.GetString("Tip_Armor") + " (" + _objCharacter.ArmorRating.ToString() + ")";
                 if (_objCharacter.ArmorRating != _objCharacter.TotalArmorRating)
@@ -21479,6 +21390,19 @@ namespace Chummer
 					tipTooltip.SetToolTip(lblLivingPersonaBiofeedbackFilter, strPersonaTip);
 				}
 
+                // Skill Limits
+                lblPhysical.Text = _objCharacter.LimitPhysical.ToString();
+                string strPhysical = "(STR [" + _objCharacter.STR.TotalValue.ToString() + "] * 2) + BOD [" + _objCharacter.BOD.TotalValue.ToString() + "] + REA [" + _objCharacter.REA.TotalValue.ToString() + "] / 3))";
+                tipTooltip.SetToolTip(lblPhysical, strPhysical);
+
+                lblMental.Text = _objCharacter.LimitMental.ToString();
+                string strMental = "(LOG [" + _objCharacter.LOG.TotalValue.ToString() + "] * 2) + INT [" + _objCharacter.INT.TotalValue.ToString() + "] + WIL [" + _objCharacter.WIL.TotalValue.ToString() + "] / 3))";
+                tipTooltip.SetToolTip(lblMental, strMental);
+
+                lblSocial.Text = _objCharacter.LimitSocial.ToString();
+                string strSocial = "(CHA [" + _objCharacter.CHA.TotalValue.ToString() + "] * 2) + WIL [" + _objCharacter.WIL.TotalValue.ToString() + "] + ESS [" + _objCharacter.ESS.TotalValue.ToString() + "] / 3))";
+                tipTooltip.SetToolTip(lblSocial, strSocial);
+
 				// Initiative.
 				lblINI.Text = _objCharacter.Initiative;
 				string strInit = "REA (" + _objCharacter.REA.Value.ToString() + ") + INT (" + _objCharacter.INT.Value.ToString() + ")";
@@ -21731,6 +21655,7 @@ namespace Chummer
 				lblWeaponAvail.Text = "";
 				lblWeaponCost.Text = "";
 				lblWeaponConceal.Text = "";
+                lblWeaponAccuracy.Text = "";
 				lblWeaponDamage.Text = "";
 				lblWeaponRC.Text = "";
 				lblWeaponAP.Text = "";
@@ -21897,7 +21822,8 @@ namespace Chummer
 				lblWeaponCost.Text = String.Format("{0:###,###,##0¥}", objWeapon.TotalCost);
 				lblWeaponConceal.Text = objWeapon.CalculatedConcealability();
 				lblWeaponDamage.Text = objWeapon.CalculatedDamage(intUseSTR);
-				lblWeaponRC.Text = objWeapon.TotalRC;
+                lblWeaponAccuracy.Text = objWeapon.TotalAccuracy.ToString();
+                lblWeaponRC.Text = objWeapon.TotalRC;
 				lblWeaponAP.Text = objWeapon.TotalAP;
 				lblWeaponReach.Text = objWeapon.TotalReach.ToString();
 				lblWeaponMode.Text = objWeapon.CalculatedMode;
@@ -21940,7 +21866,8 @@ namespace Chummer
 					lblWeaponConceal.Text = "+4";
 					lblWeaponDamage.Text = objWeapon.CalculatedDamage();
 					lblWeaponRC.Text = objWeapon.TotalRC;
-					lblWeaponAP.Text = objWeapon.TotalAP;
+                    lblWeaponAccuracy.Text = objWeapon.TotalAccuracy.ToString();
+                    lblWeaponAP.Text = objWeapon.TotalAP;
 					lblWeaponReach.Text = objWeapon.TotalReach.ToString();
 					lblWeaponMode.Text = objWeapon.CalculatedMode;
 					lblWeaponAmmo.Text = objWeapon.CalculatedAmmo();
@@ -22038,7 +21965,8 @@ namespace Chummer
 						lblWeaponName.Text = objSelectedAccessory.DisplayNameShort;
 						lblWeaponCategory.Text = LanguageManager.Instance.GetString("String_WeaponAccessory");
 						lblWeaponAvail.Text = objSelectedAccessory.TotalAvail;
-						lblWeaponCost.Text = String.Format("{0:###,###,##0¥}", Convert.ToInt32(objSelectedAccessory.TotalCost));
+                        lblWeaponAccuracy.Text = objWeapon.TotalAccuracy.ToString();
+                        lblWeaponCost.Text = String.Format("{0:###,###,##0¥}", Convert.ToInt32(objSelectedAccessory.TotalCost));
 						lblWeaponConceal.Text = objSelectedAccessory.Concealability.ToString();
 						lblWeaponDamage.Text = "";
 						lblWeaponRC.Text = objSelectedAccessory.RC;
@@ -22085,7 +22013,8 @@ namespace Chummer
 							lblWeaponAvail.Text = objSelectedMod.TotalAvail;
 							lblWeaponCost.Text = String.Format("{0:###,###,##0¥}", Convert.ToInt32(objSelectedMod.TotalCost));
 							lblWeaponConceal.Text = objSelectedMod.Concealability.ToString();
-							lblWeaponDamage.Text = "";
+                            lblWeaponAccuracy.Text = objWeapon.TotalAccuracy.ToString();
+                            lblWeaponDamage.Text = "";
 							lblWeaponRC.Text = objSelectedMod.RC;
 							lblWeaponAP.Text = "";
 							lblWeaponReach.Text = "";
@@ -22111,7 +22040,8 @@ namespace Chummer
 							lblWeaponCategory.Text = objGear.DisplayCategory;
 							lblWeaponAvail.Text = objGear.TotalAvail(true);
 							lblWeaponCost.Text = String.Format("{0:###,###,##0¥}", objGear.TotalCost);
-							lblWeaponConceal.Text = "";
+                            lblWeaponAccuracy.Text = objWeapon.TotalAccuracy.ToString();
+                            lblWeaponConceal.Text = "";
 							lblWeaponDamage.Text = "";
 							lblWeaponRC.Text = "";
 							lblWeaponAP.Text = "";
@@ -22175,7 +22105,7 @@ namespace Chummer
 				if (objArmor == null)
 					return;
 
-				lblArmor.Text = objArmor.TotalArmor.ToString();
+				lblArmorValue.Text = objArmor.TotalArmor.ToString();
 				lblArmorAvail.Text = objArmor.TotalAvail;
 				lblArmorCapacity.Text = objArmor.CalculatedCapacity + " (" + objArmor.CapacityRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 				lblArmorRating.Text = "";
@@ -22209,7 +22139,7 @@ namespace Chummer
 
 				if (blnIsMod)
 				{
-					lblArmor.Text = objSelectedMod.Armor.ToString();
+                    lblArmorValue.Text = objSelectedMod.Armor.ToString();
 					lblArmorAvail.Text = objSelectedMod.TotalAvail;
 					if (objSelectedArmor.CapacityDisplayStyle == CapacityStyle.Standard)
 						lblArmorCapacity.Text = objSelectedMod.CalculatedCapacity;
@@ -22241,7 +22171,7 @@ namespace Chummer
 				{
 					Gear objSelectedGear = _objFunctions.FindArmorGear(treArmor.SelectedNode.Tag.ToString(), _objCharacter.Armor, out objSelectedArmor);
 
-					lblArmor.Text = "";
+                    lblArmorValue.Text = "";
 					lblArmorAvail.Text = objSelectedGear.TotalAvail(true);
 					if (objSelectedArmor.CapacityDisplayStyle == CapacityStyle.Standard)
 						lblArmorCapacity.Text = objSelectedGear.CalculatedCapacity;
@@ -22276,7 +22206,7 @@ namespace Chummer
 				Armor objSelectedArmor = new Armor(_objCharacter);
 				Gear objSelectedGear = _objFunctions.FindArmorGear(treArmor.SelectedNode.Tag.ToString(), _objCharacter.Armor, out objSelectedArmor);
 
-				lblArmor.Text = "";
+                lblArmorValue.Text = "";
 				lblArmorAvail.Text = objSelectedGear.TotalAvail(true);
 				lblArmorCapacity.Text = objSelectedGear.CalculatedArmorCapacity;
 				try
@@ -22297,7 +22227,7 @@ namespace Chummer
 			}
 			else
 			{
-				lblArmor.Text = "";
+                lblArmorValue.Text = "";
 				lblArmorAvail.Text = "";
 				lblArmorCost.Text = "";
 				lblArmorSource.Text = "";
@@ -23405,10 +23335,6 @@ namespace Chummer
 				lblLifestyleSource.Text = "";
 				tipTooltip.SetToolTip(lblLifestyleSource, null);
 				lblLifestyleComforts.Text = "";
-				lblLifestyleEntertainment.Text = "";
-				lblLifestyleNecessities.Text = "";
-				lblLifestyleNeighborhood.Text = "";
-				lblLifestyleSecurity.Text = "";
 				lblLifestyleQualities.Text = "";
 				cmdIncreaseLifestyleMonths.Enabled = false;
 				cmdDecreaseLifestyleMonths.Enabled = false;
@@ -23418,68 +23344,138 @@ namespace Chummer
 			{
 				_blnSkipRefresh = true;
 
-				// Locate the selected Lifestyle.
-				Lifestyle objLifestyle = _objFunctions.FindLifestyle(treLifestyles.SelectedNode.Tag.ToString(), _objCharacter.Lifestyles);
-				if (objLifestyle == null)
-					return;
+                // Locate the selected Lifestyle.
+                Lifestyle objLifestyle = _objFunctions.FindLifestyle(treLifestyles.SelectedNode.Tag.ToString(), _objCharacter.Lifestyles);
+                if (objLifestyle == null)
+                    return;
 
-				decimal decMultiplier = 1.0m;
-				decimal decModifier = Convert.ToDecimal(_objImprovementManager.ValueOf(Improvement.ImprovementType.LifestyleCost), GlobalOptions.Instance.CultureInfo);
-				if (objLifestyle.StyleType == LifestyleType.Standard)
-					decModifier += Convert.ToDecimal(_objImprovementManager.ValueOf(Improvement.ImprovementType.BasicLifestyleCost), GlobalOptions.Instance.CultureInfo);
-				decMultiplier = 1.0m + Convert.ToDecimal(decModifier / 100, GlobalOptions.Instance.CultureInfo);
+                decimal decMultiplier = 1.0m;
+                decimal decModifier = Convert.ToDecimal(_objImprovementManager.ValueOf(Improvement.ImprovementType.LifestyleCost), GlobalOptions.Instance.CultureInfo);
+                if (objLifestyle.StyleType == LifestyleType.Standard)
+                    decModifier += Convert.ToDecimal(_objImprovementManager.ValueOf(Improvement.ImprovementType.BasicLifestyleCost), GlobalOptions.Instance.CultureInfo);
+                decMultiplier = 1.0m + Convert.ToDecimal(decModifier / 100, GlobalOptions.Instance.CultureInfo);
 
-				lblLifestyleCost.Text = String.Format("{0:###,###,##0¥}", objLifestyle.TotalMonthlyCost);
-				lblLifestyleMonths.Text = objLifestyle.Months.ToString();
-				string strBook = _objOptions.LanguageBookShort(objLifestyle.Source);
-				string strPage = objLifestyle.Page;
-				lblLifestyleSource.Text = strBook + " " + strPage;
-				tipTooltip.SetToolTip(lblLifestyleSource, _objOptions.LanguageBookLong(objLifestyle.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objLifestyle.Page);
-				cmdIncreaseLifestyleMonths.Enabled = true;
-				cmdDecreaseLifestyleMonths.Enabled = true;
+                lblLifestyleCost.Text = String.Format("{0:###,###,##0¥}", objLifestyle.TotalMonthlyCost);
+                lblLifestyleMonths.Text = Convert.ToDecimal(objLifestyle.Months, GlobalOptions.Instance.CultureInfo).ToString();
+                string strBook = _objOptions.LanguageBookShort(objLifestyle.Source);
+                string strPage = objLifestyle.Page;
+                lblLifestyleSource.Text = strBook + " " + strPage;
+                tipTooltip.SetToolTip(lblLifestyleSource, _objOptions.LanguageBookLong(objLifestyle.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objLifestyle.Page);
+                // lblLifestyleTotalCost.Text = String.Format("= {0:###,###,##0¥}", objLifestyle.TotalCost);
 
-				// Change the Cost/Month label.
-				if (objLifestyle.StyleType == LifestyleType.Safehouse)
-					lblLifestyleCostLabel.Text = LanguageManager.Instance.GetString("Label_SelectLifestyle_CostPerWeek");
-				else
-					lblLifestyleCostLabel.Text = LanguageManager.Instance.GetString("Label_SelectLifestyle_CostPerMonth");
+                // Change the Cost/Month label.
+                if (objLifestyle.StyleType == LifestyleType.Safehouse)
+                    lblLifestyleCostLabel.Text = LanguageManager.Instance.GetString("Label_SelectLifestyle_CostPerWeek");
+                else
+                    lblLifestyleCostLabel.Text = LanguageManager.Instance.GetString("Label_SelectLifestyle_CostPerMonth");
 
-				if (objLifestyle.BaseLifestyle != "")
-				{
-					XmlDocument objXmlDocument = XmlManager.Instance.Load("lifestyles.xml");
-					string strLifestyle = "";
-					string strQualities = "";
+                if (objLifestyle.BaseLifestyle != "")
+                {
+                    XmlDocument objXmlDocument = XmlManager.Instance.Load("lifestyles.xml");
+                    string strBaseLifestyle = "";
+                    string strQualities = "";
 
-					lblLifestyleQualities.Text = "";
-					XmlNode objNode = objXmlDocument.SelectSingleNode("/chummer/lifestyles/lifestyle[name = \"" + objLifestyle.BaseLifestyle + "\"]");
-					if (objNode["translate"] != null)
-                        strLifestyle = objNode["translate"].InnerText;
-					else
-                        strLifestyle = objNode["name"].InnerText;
+                    lblLifestyleQualities.Text = "";
+                    XmlNode objNode = objXmlDocument.SelectSingleNode("/chummer/lifestyles/lifestyle[name = \"" + objLifestyle.BaseLifestyle + "\"]");
+                    if (objNode["translate"] != null)
+                        strBaseLifestyle = objNode["translate"].InnerText;
+                    else
+                        strBaseLifestyle = objNode["name"].InnerText;
 
-					foreach (string strQuality in objLifestyle.Qualities)
-					{
-						string strQualityName = strQuality.Substring(0, strQuality.IndexOf('[') - 1);
-						objNode = objXmlDocument.SelectSingleNode("/chummer/qualities/quality[name = \"" + strQualityName + "\"]");
-						if (objNode["translate"] != null)
-							strQualities += objNode["translate"].InnerText;
-						else
-							strQualities += objNode["name"].InnerText;
-						strQualities += " [" + objNode["lp"].InnerText + "LP]\n";
-					}
+                    foreach (string strQuality in objLifestyle.Qualities)
+                    {
+                        if (strQualities.Length > 0)
+                            strQualities += ", ";
+                        string strQualityName = strQuality.Substring(0, strQuality.IndexOf('[') - 1);
+                        objNode = objXmlDocument.SelectSingleNode("/chummer/qualities/quality[name = \"" + strQualityName + "\"]");
+                        XmlNode nodCost = objNode["lifestylecost"];
+                        if (nodCost != null)
+                        {
+                            string strCost = nodCost.InnerText;
+                            int intCost = Convert.ToInt32(strCost) - 100;
+                            if (intCost > 0)
+                            {
+                                if (objNode["translate"] != null)
+                                    strQualities += objNode["translate"].InnerText + " [+" + intCost.ToString() + "%]";
+                                else
+                                    strQualities += objNode["name"].InnerText + " [+" + intCost.ToString() + "%]";
+                            }
+                            else
+                            {
+                                if (objNode["translate"] != null)
+                                    strQualities += objNode["translate"].InnerText + " [" + intCost.ToString() + "%]";
+                                else
+                                    strQualities += objNode["name"].InnerText + " [" + intCost.ToString() + "%]";
+                            }
+                        }
+                        else
+                        {
+                            string strCost = objNode["cost"].InnerText;
+                            if (objNode["translate"] != null)
+                                strQualities += objNode["translate"].InnerText + " [" + strCost + "¥]";
+                            else
+                                strQualities += objNode["name"].InnerText + " [" + strCost + "¥]";
+                        }
+                    }
 
-                    lblLifestyleComforts.Text = strLifestyle;
-					lblLifestyleQualities.Text += strQualities;
-				}
-				else
-				{
-					lblLifestyleComforts.Text = "";
-					lblLifestyleEntertainment.Text = "";
-					lblLifestyleNecessities.Text = "";
-					lblLifestyleNeighborhood.Text = "";
-					lblLifestyleSecurity.Text = "";
-					lblLifestyleQualities.Text = "";
-				}
+                    // Add any modifiers from Metatype
+                    XmlDocument objMetatypeDoc = XmlManager.Instance.Load("metatypes.xml");
+                    XmlNode objXmlMetatype = objMetatypeDoc.SelectSingleNode("/chummer/metatypes/metatype[name = \"" + _objCharacter.Metatype + "\"]");
+                    try
+                    {
+                        XmlNode objXmlMetatypeCost = objXmlMetatype["bonus"]["lifestylecost"];
+                        if (objXmlMetatypeCost != null)
+                        {
+                            if (strQualities.Length > 0)
+                                strQualities += ", ";
+                            if (Convert.ToDecimal(objXmlMetatypeCost.InnerText) > 0)
+                            {
+                                strQualities += objXmlMetatype["name"].InnerText + " [+" + (Convert.ToDecimal(objXmlMetatypeCost.InnerText) - 100).ToString() + "%]";
+                            }
+                            else
+                            {
+                                strQualities += objXmlMetatype["name"].InnerText + " [" + (Convert.ToDecimal(objXmlMetatypeCost.InnerText) - 100).ToString() + "%]";
+                            }
+                        }
+                    }
+                    catch { }
+
+                    // Add any modifiers from Qualities
+                    XmlDocument objXmlQualityDoc = XmlManager.Instance.Load("qualities.xml");
+                    foreach (Quality objQuality in _objCharacter.Qualities)
+                    {
+                        XmlNode objXmlQuality = objXmlQualityDoc.SelectSingleNode("/chummer/qualities/quality[name = \"" + objQuality.Name + "\"]");
+                        try
+                        {
+                            XmlNode objXmlQualityCost = objXmlQuality["bonus"]["lifestylecost"];
+                            if (objXmlQualityCost != null)
+                            {
+                                if (strQualities.Length > 0)
+                                    strQualities += ", ";
+                                if (Convert.ToDecimal(objXmlQualityCost.InnerText) > 0)
+                                {
+                                    strQualities += objXmlQuality["name"].InnerText + " [+" + (Convert.ToDecimal(objXmlQualityCost.InnerText) - 100).ToString() + "%]";
+                                }
+                                else
+                                {
+                                    strQualities += objXmlQuality["name"].InnerText + " [" + (Convert.ToDecimal(objXmlQualityCost.InnerText) - 100).ToString() + "%]";
+                                }
+                            }
+                        }
+                        catch { }
+                    }
+
+                    lblLifestyleComforts.Text = strBaseLifestyle;
+                    lblLifestyleQualities.Text += strQualities;
+
+                    cmdIncreaseLifestyleMonths.Enabled = true;
+                    cmdDecreaseLifestyleMonths.Enabled = true;
+                }
+                else
+                {
+                    lblLifestyleComforts.Text = "";
+                    lblLifestyleQualities.Text = "";
+                }
 
 				_blnSkipRefresh = false;
 			}
@@ -24948,8 +24944,7 @@ namespace Chummer
 			// Skills Tab.
 			cboSkillFilter.Left = cmdAddExoticSkill.Left - 6 - cboSkillFilter.Width;
 			// Martial Arts Tab.
-			cmdAddManeuver.Left = cmdAddMartialArt.Left + cmdAddMartialArt.Width + 6;
-			cmdDeleteMartialArt.Left = cmdAddManeuver.Left + cmdAddManeuver.Width + 6;
+			cmdDeleteMartialArt.Left = cmdAddMartialArt.Left + cmdAddMartialArt.Width + 6;
 			// Magician Tab.
 			cmdDeleteSpell.Left = cmdAddSpell.Left + cmdAddSpell.Width + 6;
 			// Technomancer Tab.
@@ -25102,10 +25097,7 @@ namespace Chummer
 			// Skills tab.
 
 			// Martial Arts tab.
-			intWidth = Math.Max(lblMartialArtsRatingLabel.Width, lblMartialArtSourceLabel.Width);
-			lblMartialArtsRating.Left = lblMartialArtsRatingLabel.Left + intWidth + 6;
-			cmdImproveMartialArtsRating.Left = lblMartialArtsRating.Left + lblMartialArtsRating.Width + 6;
-			lblMartialArtSource.Left = lblMartialArtSourceLabel.Left + intWidth + 6;
+            lblMartialArtSource.Left = lblMartialArtSourceLabel.Left + lblMartialArtSourceLabel.Width + 6;
 
 			// Spells and Spirits tab.
 			intWidth = Math.Max(lblSpellDescriptorsLabel.Width, lblSpellCategoryLabel.Width);
@@ -25254,28 +25246,21 @@ namespace Chummer
 			lblLifestyleCost.Left = lblLifestyleCostLabel.Left + lblLifestyleCostLabel.Width + 6;
 			lblLifestyleSource.Left = lblLifestyleSourceLabel.Left + lblLifestyleSourceLabel.Width + 6;
 
-			intWidth = Math.Max(lblLifestyleComfortsLabel.Width, lblLifestyleEntertainmentLabel.Width);
-			intWidth = Math.Max(intWidth, lblLifestyleNecessitiesLabel.Width);
-			intWidth = Math.Max(intWidth, lblLifestyleNeighborhoodLabel.Width);
-			intWidth = Math.Max(intWidth, lblLifestyleSecurityLabel.Width);
+			intWidth = lblLifestyleComfortsLabel.Width;
 
 			lblLifestyleComforts.Left = lblLifestyleComfortsLabel.Left + intWidth + 6;
-			lblLifestyleEntertainment.Left = lblLifestyleEntertainmentLabel.Left + intWidth + 6;
-			lblLifestyleNecessities.Left = lblLifestyleNecessitiesLabel.Left + intWidth + 6;
-			lblLifestyleNeighborhood.Left = lblLifestyleNeighborhoodLabel.Left + intWidth + 6;
-			lblLifestyleSecurity.Left = lblLifestyleSecurityLabel.Left + intWidth + 6;
 
 			lblLifestyleQualitiesLabel.Left = lblLifestyleComforts.Left + 132;
 			lblLifestyleQualities.Left = lblLifestyleQualitiesLabel.Left + 14;
 			lblLifestyleQualities.Width = tabLifestyle.Width - lblLifestyleQualities.Left - 10;
 
 			// Armor tab.
-			intWidth = lblArmorLabel.Width;
+			intWidth = lblArmorValueLabel.Width;
 			intWidth = Math.Max(intWidth, lblArmorRatingLabel.Width);
 			intWidth = Math.Max(intWidth, lblArmorCapacityLabel.Width);
 			intWidth = Math.Max(intWidth, lblArmorSourceLabel.Width);
 
-			lblArmor.Left = lblArmorLabel.Left + intWidth + 6;
+            lblArmorValue.Left = lblArmorValueLabel.Left + intWidth + 6;
 			lblArmorRating.Left = lblArmorRatingLabel.Left + intWidth + 6;
 			lblArmorCapacity.Left = lblArmorCapacityLabel.Left + intWidth + 6;
 			lblArmorSource.Left = lblArmorSourceLabel.Left + intWidth + 6;
@@ -25286,7 +25271,7 @@ namespace Chummer
 			lblArmorCostLabel.Left = lblArmorAvail.Left + lblArmorAvail.Width + 6;
 			lblArmorCost.Left = lblArmorCostLabel.Left + lblArmorCostLabel.Width + 6;
 
-			cmdArmorIncrease.Left = lblArmor.Left + 45;
+            cmdArmorIncrease.Left = lblArmorValue.Left + 45;
 			cmdArmorDecrease.Left = cmdArmorIncrease.Left + cmdArmorIncrease.Width + 6;
 
 			// Weapons tab.
@@ -25319,6 +25304,7 @@ namespace Chummer
 			lblWeaponCost.Left = lblWeaponCostLabel.Left + intWidth + 6;
 			chkIncludedInWeapon.Left = lblWeaponDamageLabel.Left + 176;
 			cmdWeaponMoveToVehicle.Left = lblWeaponDamageLabel.Left + 176;
+            lblWeaponAccuracy.Left = lblWeaponAccuracyLabel.Left + lblWeaponAccuracyLabel.Width + 6;
 
 			intWidth = Math.Max(lblWeaponAPLabel.Width, lblWeaponAmmoLabel.Width);
 			intWidth = Math.Max(intWidth, lblWeaponConcealLabel.Width);
@@ -25559,7 +25545,7 @@ namespace Chummer
 			lblMatrixIP.Left = lblCMPhysical.Left;
 			lblAstralINI.Left = lblCMPhysical.Left;
 			lblAstralIP.Left = lblCMPhysical.Left;
-			lblArmor.Left = lblCMPhysical.Left;
+            lblArmor.Left = lblCMPhysical.Left;
 			lblESSMax.Left = lblCMPhysical.Left;
 			lblRemainingNuyen.Left = lblCMPhysical.Left;
 			lblCareerKarma.Left = lblCMPhysical.Left;
@@ -26123,5 +26109,106 @@ namespace Chummer
 			UpdateCharacterInfo();
 		}
 		#endregion
+
+        private void cmdAddLimitModifier_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Select the Limit node if we're currently on a child.
+                if (treLimit.SelectedNode.Level > 1)
+                    treLimit.SelectedNode = treLimit.SelectedNode.Parent;
+
+                frmSelectLimitModifier frmPickLimitModifier = new frmSelectLimitModifier();
+                frmPickLimitModifier.ShowDialog(this);
+
+                if (frmPickLimitModifier.DialogResult == DialogResult.Cancel)
+                    return;
+
+                // Create the new limit modifier.
+                TreeNode objNode = new TreeNode();
+                LimitModifier objLimitModifier = new LimitModifier(_objCharacter);
+                string strLimit = treLimit.SelectedNode.Text;
+                objLimitModifier.Create(frmPickLimitModifier.SelectedName, frmPickLimitModifier.SelectedBonus, strLimit, _objCharacter, objNode);
+                if (objLimitModifier.InternalId == Guid.Empty.ToString())
+                    return;
+
+                objNode.ContextMenuStrip = cmsLimitModifier;
+                _objCharacter.LimitModifiers.Add(objLimitModifier);
+
+                treLimit.SelectedNode.Nodes.Add(objNode);
+                treLimit.SelectedNode.Expand();
+
+                _blnIsDirty = true;
+                UpdateWindowTitle();
+            }
+            catch
+            {
+                MessageBox.Show(LanguageManager.Instance.GetString("Message_SelectLimitModifier"), LanguageManager.Instance.GetString("MessageTitle_SelectLimitModifier"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void cmdDeleteLimitModifier_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (treLimit.SelectedNode.Level == 0)
+                    return;
+
+                if (!_objFunctions.ConfirmDelete(LanguageManager.Instance.GetString("Message_DeleteLimitModifier")))
+                    return;
+
+                string strLimit = treLimit.SelectedNode.Parent.Text;
+
+                // Delete the selected Martial Art.
+                LimitModifier objLimitModifier = _objFunctions.FindLimitModifier(treLimit.SelectedNode.Tag.ToString(), _objCharacter.LimitModifiers);
+
+                _objCharacter.LimitModifiers.Remove(objLimitModifier);
+                treLimit.SelectedNode.Remove();
+
+                _blnIsDirty = true;
+                UpdateWindowTitle();
+            }
+            catch
+            {
+            }
+        }
+
+        private void tssLimitModifierNotes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool blnFound = false;
+                LimitModifier obLimitModifier = _objFunctions.FindLimitModifier(treLimit.SelectedNode.Tag.ToString(), _objCharacter.LimitModifiers);
+                if (obLimitModifier != null)
+                    blnFound = true;
+
+                if (blnFound)
+                {
+                    frmNotes frmItemNotes = new frmNotes();
+                    frmItemNotes.Notes = obLimitModifier.Notes;
+                    string strOldValue = obLimitModifier.Notes;
+                    frmItemNotes.ShowDialog(this);
+
+                    if (frmItemNotes.DialogResult == DialogResult.OK)
+                    {
+                        obLimitModifier.Notes = frmItemNotes.Notes;
+                        if (obLimitModifier.Notes != strOldValue)
+                        {
+                            _blnIsDirty = true;
+                            UpdateWindowTitle();
+                        }
+                    }
+
+                    if (obLimitModifier.Notes != string.Empty)
+                        treLimit.SelectedNode.ForeColor = Color.SaddleBrown;
+                    else
+                        treLimit.SelectedNode.ForeColor = SystemColors.WindowText;
+                    treLimit.SelectedNode.ToolTipText = obLimitModifier.Notes;
+                }
+            }
+            catch
+            {
+            }
+        }
 	}
 }
