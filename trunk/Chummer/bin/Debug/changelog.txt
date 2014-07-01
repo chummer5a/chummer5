@@ -1,3 +1,18 @@
+Build 5.107 (alpha) MILESTONE BUILD
+- Fixed the karma cost for Martial Arts during character advancement.
+- Fixed nuyen entry so that it will correctly load karma spent on nuyen.
+- Fixed a bug preventing gear with ratings from being addeed to armor.
+- Fixed a bug allowing characters to carry over more karma than they should from character creation.
+- Fixed a bug which would sometimes show the Starting Nuyen dialog even if the character failed validation.
+- Added the Limits tab for created characters. Remember that limit modifiers are not added directly to the calculated limits but are shown on the character sheet.
+- Fixed how Martial Arts are handled during character advancement.
+- Removed discounts (group, ordeal) from Initiation and Submersion.
+- Removed fields related to joining a group or network.
+- Updated how lifestyles are handled during character advancement.
+- Fixed how armor values are displayed during character advancement.
+- Fixed how values were displayed on the Other Information tab during character advancement.
+- Added weapon accuracy to the Weapons tab.
+
 Build 5.106 (alpha)
 - Fixed a bug which could cause an error when loading a character that has a commlink.
 - Fixed a bug which could cause an error when loading a character with a martial art.

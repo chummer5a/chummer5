@@ -2114,6 +2114,10 @@
 			<text>Learned Spell</text>
 		</string>
 		<string>
+			<key>String_ExpenseLearnTechnique</key>
+			<text>Learned Technique</text>
+		</string>
+		<string>
 			<key>String_ExpenseLearnComplexForm</key>
 			<text>Learned Complex Form</text>
 		</string>
@@ -3923,7 +3927,7 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		</string>
 		<string>
 			<key>Tip_OtherArmor</key>
-			<text>Only the highest single Armor value is used to determine your Armor Rating. If the total Armor value for all pieces worn exceeds BOD x 2, you receive a -1 penalty to AGI for every 2 points you are over.</text>
+			<text>Only the highest single Armor value is used to determine your Armor Rating.</text>
 		</string>
 		<string>
 			<key>Tip_OtherEssence</key>

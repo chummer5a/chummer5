@@ -1837,14 +1837,38 @@ namespace Chummer
 				{
 					if (objChild.Avail.Contains("+") && !objChild.IncludedInParent)
 					{
-						if (objChild.Avail.Contains("R") || objChild.Avail.Contains("F"))
-						{
-							if (strAvailText != "F")
-								strAvailText = objChild.Avail.Substring(objChild.Avail.Length - 1);
-							intAvail += Convert.ToInt32(objChild.Avail.Replace("F", string.Empty).Replace("R", string.Empty));
-						}
-						else
-							intAvail += Convert.ToInt32(objChild.Avail);
+                        if (objChild.Avail.Contains("Rating"))
+                        {
+                            // If the cost is determined by the Rating, evaluate the expression.
+                            XmlDocument objXmlDocument = new XmlDocument();
+                            XPathNavigator nav = objXmlDocument.CreateNavigator();
+
+                            string strAvailability = "";
+                            string strAvailExpression = (objChild.Avail);
+
+                            strAvailability = strAvailExpression.Replace("Rating", objChild.Rating.ToString());
+                            if (strAvailability.Contains("R") || strAvailability.Contains("F"))
+						    {
+							    if (strAvailText != "F")
+                                    strAvailText = objChild.Avail.Substring(strAvailability.Length - 1);
+						    }
+                            strAvailability = strAvailability.Replace("F", string.Empty).Replace("R", string.Empty);
+                            if (strAvailability.StartsWith("+"))
+                                strAvailability = strAvailability.Substring(1);
+                            XPathExpression xprCost = nav.Compile(strAvailability);
+                            intAvail += Convert.ToInt32(nav.Evaluate(xprCost));
+                        }
+                        else
+                        {
+						    if (objChild.Avail.Contains("R") || objChild.Avail.Contains("F"))
+						    {
+							    if (strAvailText != "F")
+								    strAvailText = objChild.Avail.Substring(objChild.Avail.Length - 1);
+							    intAvail += Convert.ToInt32(objChild.Avail.Replace("F", string.Empty).Replace("R", string.Empty));
+						    }
+						    else
+							    intAvail += Convert.ToInt32(objChild.Avail);
+                        }
 					}
 				}
 
