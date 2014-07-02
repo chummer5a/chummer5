@@ -41,6 +41,9 @@
 			<name>Power Point</name>
 			<adept>yes</adept>
 			<magician>no</magician>
+			<bonus>
+				<adeptpowerpoints>1</adeptpowerpoints>
+			</bonus>
 			<source>SR5</source>
 			<page>326</page>
 		</metamagic>

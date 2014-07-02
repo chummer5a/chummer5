@@ -221,7 +221,7 @@
       </talents>
     </priority>
     <priority>
-      <name>C - Adept or Technomancer</name>
+      <name>C - Adept, Magician, or Technomancer</name>
       <value>C</value>
       <category>Talent</category>
       <talents>
@@ -277,7 +277,7 @@
       </talents>
     </priority>
     <priority>
-      <name>D - Adept or Technomancer</name>
+      <name>D - Adept or Aspected Magician</name>
       <value>D</value>
       <category>Talent</category>
       <talents>

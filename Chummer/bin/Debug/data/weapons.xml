@@ -3577,7 +3577,7 @@
 			<spec2>Revolvers</spec2>
 			<accuracy>5</accuracy>
 			<reach>0</reach>
-			<damage>6P/7P</damage>
+			<damage>6P</damage>
 			<ap>-</ap>
 			<mode>SA/SS</mode>
 			<rc>0</rc>

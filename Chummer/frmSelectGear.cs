@@ -837,7 +837,15 @@ namespace Chummer
 						}
 					}
 
-					if (objXmlGear["cost"].InnerText.StartsWith("Variable"))
+                    if (objXmlGear["cost"].InnerText.StartsWith("FixedValues"))
+                    {
+                        string[] strValues = objXmlGear["cost"].InnerText.Replace("FixedValues(", string.Empty).Replace(")", string.Empty).Split(',');
+                        string strCost ="0";
+                        if (nudRating.Value > 0)
+                            strCost = strValues[Convert.ToInt32(nudRating.Value) - 1].Replace("[", string.Empty).Replace("]", string.Empty);
+                        lblCost.Text = String.Format("{0:###,###,##0¥+}", Convert.ToInt32(strCost));
+                    }
+                    else if (objXmlGear["cost"].InnerText.StartsWith("Variable"))
 					{
 						int intMin = 0;
 						int intMax = 0;

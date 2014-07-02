@@ -1,3 +1,15 @@
+Build 5.108 (alpha)
+- Fixed the tooltip for social skill limits to show the correct Essence value.
+- Fixed the Yamaha Growler by using its on road speed within Chummer.
+- Fixed a bug which prevented raising skills above 6 during character advancement.
+- Fixed a bug in adding a gear-based weapon counterpart when adding a grapple gun as gear.
+- Fixed the pricing on Software Agents.
+- Updated the Taurus Omni-6 Light Pistol to show 6P damage, the damage value when using light pistol rounds.
+- Fixed an error which was preventing limit modifiers from populating during character advancement.
+- Fixed an error in the talent priority dropdown that was listing technomancer as an option with a "D" priority.
+- Fixed a bug in which selecting the Additional Power Point metamagic was not adding an additional power point.
+- Updated the skills and skill groups to reduce the maximum rating to 0 for magical skills and skill groups outside of the chosen skill group.  This happens when the priorities are selected and will not update existing characters.
+
 Build 5.107 (alpha) MILESTONE BUILD
 - Fixed the karma cost for Martial Arts during character advancement.
 - Fixed nuyen entry so that it will correctly load karma spent on nuyen.
