@@ -9552,7 +9552,7 @@ namespace Chummer
 				// More than one Weapon can be added, so loop through all occurrences.
 				foreach (XmlNode objXmlAddWeapon in objXmlGear.SelectNodes("addweapon"))
 				{
-					XmlNode objXmlWeapon = objXmlWeaponDocument.SelectSingleNode("/chummer/weapons/weapon[name = \"" + objXmlAddWeapon.InnerText + "\" and category = \"Gear\"]");
+					XmlNode objXmlWeapon = objXmlWeaponDocument.SelectSingleNode("/chummer/weapons/weapon[name = \"" + objXmlAddWeapon.InnerText + "\"]");
 
 					TreeNode objGearWeaponNode = new TreeNode();
 					Weapon objGearWeapon = new Weapon(objCharacter);
@@ -10500,7 +10500,16 @@ namespace Chummer
 		{
 			get
 			{
-				return _strCost;
+                if (_strCost.StartsWith("FixedValues"))
+                {
+                    string[] strValues = _strCost.Replace("FixedValues(", string.Empty).Replace(")", string.Empty).Split(',');
+                    string strCost = "0";
+                    if (_intRating > 0)
+                        strCost = strValues[Convert.ToInt32(_intRating) - 1].Replace("[", string.Empty).Replace("]", string.Empty);
+                    return strCost;
+                }
+                else
+                    return _strCost;
 			}
 			set
 			{
@@ -11262,7 +11271,15 @@ namespace Chummer
 					// Just a straight cost, so return the value.
 					if (_strCost == string.Empty)
 						intReturn = 0;
-					else
+                    else if (_strCost.StartsWith("FixedValues"))
+                    {
+                        string[] strValues = _strCost.Replace("FixedValues(", string.Empty).Replace(")", string.Empty).Split(',');
+                        string strCost = "0";
+                        if (_intRating > 0)
+                            strCost = strValues[Convert.ToInt32(_intRating) - 1].Replace("[", string.Empty).Replace("]", string.Empty);
+                        intReturn = Convert.ToInt32(strCost);
+                    }
+                    else
 						intReturn = Convert.ToInt32(_strCost);
 				}
 				intGearCost = intReturn;

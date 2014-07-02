@@ -215,7 +215,7 @@ namespace Chummer
 
 				if (value)
 				{
-					GroupRating = 0;
+					// GroupRating = 0;
 					IsEnabled = false;
 				}
 				else

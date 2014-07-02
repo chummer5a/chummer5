@@ -12,7 +12,7 @@ public delegate void SpecializationChangedHandler(Object sender);
 public delegate void SpecializationLeaveHandler(Object sender);
 // DeleteSkill Event Handler
 public delegate void DeleteSkillHandler(Object sender);
-public delegate void SkillKaramClickHandler(Object sender);
+public delegate void SkillKarmaClickHandler(Object sender);
 public delegate void DiceRollerHandler(Object sender);
 
 namespace Chummer
@@ -26,7 +26,7 @@ namespace Chummer
         public event SpecializationChangedHandler SpecializationChanged;
 		public event SpecializationLeaveHandler SpecializationLeave;
         public event DeleteSkillHandler DeleteSkill;
-		public event SkillKaramClickHandler SkillKarmaClicked;
+		public event SkillKarmaClickHandler SkillKarmaClicked;
 		public event DiceRollerHandler DiceRollerClicked;
 		public event BreakGroupHandler BreakGroupClicked;
 

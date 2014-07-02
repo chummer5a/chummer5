@@ -1523,7 +1523,20 @@ namespace Chummer
                             objSkill.Rating = intFreeLevels;
                     }
                     else
+                    {
                         objSkill.FreeLevels = 0;
+                        if (blnGroup)
+                        {
+                            // if this skill is a magical skill not belonging to the selected group, reduce the skill maximum to 0
+                            if (objSkill.SkillGroup == "Conjuring" || objSkill.SkillGroup == "Enchanting" || objSkill.SkillGroup == "Sorcery")
+                            {
+                                if (objSkill.SkillGroup != cboSkill1.SelectedValue.ToString())
+                                    objSkill.RatingMaximum = 0;
+                                else
+                                    objSkill.RatingMaximum = 6;
+                            }
+                        }
+                    }
                 }
                 foreach (SkillGroup objSkillGroup in _objCharacter.SkillGroups)
                 {
@@ -1535,6 +1548,18 @@ namespace Chummer
                     }
                     else
                         objSkillGroup.FreeLevels = 0;
+
+                    if (blnGroup)
+                    {
+                        // if this skill is a magical skill not belonging to the selected group, reduce the skill maximum to 0
+                        if (objSkillGroup.Name == "Conjuring" || objSkillGroup.Name == "Enchanting" || objSkillGroup.Name == "Sorcery")
+                        {
+                            if (objSkillGroup.Name != cboSkill1.SelectedValue.ToString())
+                                objSkillGroup.RatingMaximum = 0;
+                            else
+                                objSkillGroup.RatingMaximum = 6;
+                        }
+                    }
                 }
 
                 // Set Special Attributes

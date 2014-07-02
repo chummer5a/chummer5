@@ -3915,14 +3915,6 @@ namespace Chummer
 		{
 			// Handle the RatingChanged event for the Active SkillControl object.
 			SkillControl objSkillControl = (SkillControl)sender;
-			if (!_objCharacter.IgnoreRules)
-			{
-				if (!CanImproveSkill(objSkillControl.SkillName, panActiveSkills) && objSkillControl.SkillRating > 4)
-				{
-					objSkillControl.SkillRating = 4;
-				}
-			}
-
 			// If Summoning's Rating has changed, make sure the number of Services Owed by Spirits is brought in line.
 			if (objSkillControl.SkillName == "Summoning")
 			{
@@ -3952,14 +3944,6 @@ namespace Chummer
 		private void objKnowledgeSkill_RatingChanged(Object sender)
 		{
 			// Handle the RatingChanged even for the Knowledge SkillControl object.
-			if (!_objCharacter.IgnoreRules)
-			{
-				SkillControl objSkillControl = (SkillControl)sender;
-				if (!CanImproveSkill(objSkillControl.SkillName, panKnowledgeSkills) && objSkillControl.SkillRating > 4)
-				{
-					objSkillControl.SkillRating = 4;
-				}
-			}
             CalculateBP();
 			UpdateCharacterInfo();
 
@@ -13959,45 +13943,6 @@ namespace Chummer
 		}
 
 		/// <summary>
-		/// Check if any other Skill is already at its maximum value (1 at 6 or 2 at 5).
-		/// </summary>
-		/// <param name="strSkill"></param>
-		/// <param name="panSkillPanel">Skills Panel to check.</param>
-		private bool CanImproveSkill(string strSkill, Panel panSkillPanel)
-		{
-			int intSkillsAtFive = 0;
-			int intSkillsAtSix = 0;
-
-			foreach (SkillControl objSkillControl in panSkillPanel.Controls)
-			{
-				if (objSkillControl.SkillName != strSkill)
-				{
-					// If a Skill's Rating is at 5 or 6 (or 7 with Aptitude Postive Quality), increment the count of Skills at that Rating.
-					if (objSkillControl.SkillRating >= 6)
-						intSkillsAtSix++;
-					if (objSkillControl.SkillRating == 5)
-						intSkillsAtFive++;
-				}
-			}
-
-			// Check the current Skill's Rating and make sure it isn't trying to become 6 if at least one 5 already exists.
-			foreach (SkillControl objSkillControl in panSkillPanel.Controls)
-			{
-				if (objSkillControl.SkillName == strSkill)
-				{
-					// If the Skill Rating has just been bumped to 6 and there is at least one other Skill with a Skill Rating of 5, set this Skill's Skill Rating to 5 instead.
-					// Then return true which turns the handling back over to the SkillRatingChanged event to determine whether or not the Skill Rating needs to be changed any more.
-					if (objSkillControl.SkillRating == 6 && intSkillsAtFive > 0)
-					{
-						objSkillControl.SkillRating = 5;
-						return true;
-					}
-				}
-			}
-			return !(intSkillsAtSix == 1 | intSkillsAtFive == 2);
-		}
-
-		/// <summary>
 		/// Calculate the BP used by Primary Attributes.
 		/// </summary>
 		private int CalculatePrimaryAttributeBP()
@@ -15768,15 +15713,15 @@ namespace Chummer
 
                 // Skill Limits
                 lblPhysical.Text = _objCharacter.LimitPhysical.ToString();
-                string strPhysical = "(STR [" + _objCharacter.STR.TotalValue.ToString() + "] * 2) + BOD [" + _objCharacter.BOD.TotalValue.ToString() + "] + REA [" + _objCharacter.REA.TotalValue.ToString() + "] / 3))";
+                string strPhysical = "(STR [" + _objCharacter.STR.TotalValue.ToString() + "] * 2) + BOD [" + _objCharacter.BOD.TotalValue.ToString() + "] + REA [" + _objCharacter.REA.TotalValue.ToString() + "] / 3";
                 tipTooltip.SetToolTip(lblPhysical, strPhysical);
 
                 lblMental.Text = _objCharacter.LimitMental.ToString();
-                string strMental = "(LOG [" + _objCharacter.LOG.TotalValue.ToString() + "] * 2) + INT [" + _objCharacter.INT.TotalValue.ToString() + "] + WIL [" + _objCharacter.WIL.TotalValue.ToString() + "] / 3))";
+                string strMental = "(LOG [" + _objCharacter.LOG.TotalValue.ToString() + "] * 2) + INT [" + _objCharacter.INT.TotalValue.ToString() + "] + WIL [" + _objCharacter.WIL.TotalValue.ToString() + "] / 3";
                 tipTooltip.SetToolTip(lblMental, strMental);
 
                 lblSocial.Text = _objCharacter.LimitSocial.ToString();
-                string strSocial = "(CHA [" + _objCharacter.CHA.TotalValue.ToString() + "] * 2) + WIL [" + _objCharacter.WIL.TotalValue.ToString() + "] + ESS [" + _objCharacter.ESS.TotalValue.ToString() + "] / 3))";
+                string strSocial = "(CHA [" + _objCharacter.CHA.TotalValue.ToString() + "] * 2) + WIL [" + _objCharacter.WIL.TotalValue.ToString() + "] + ESS [" + _objCharacter.Essence.ToString() + "] / 3";
                 tipTooltip.SetToolTip(lblSocial, strSocial);
 
 				// Initiative.
@@ -16993,6 +16938,17 @@ namespace Chummer
 						return false;
 					}
 				}
+
+                if (_objCharacter.Created)
+                {
+                    foreach (Skill objSkill in _objCharacter.Skills)
+                    {
+                        if (objSkill.RatingMaximum == 6)
+                            objSkill.RatingMaximum = 12;
+                        else if (objSkill.RatingMaximum == 7)
+                            objSkill.RatingMaximum = 13;
+                    }
+                }
 
 				_objCharacter.Save();
 				_blnIsDirty = false;

@@ -869,7 +869,36 @@ namespace Chummer
 				treMartialArts.Nodes[1].Expand();
 			}
 
-			// Populate Lifestyles.
+            // Populate Limit Modifiers.
+            foreach (LimitModifier objLimitModifier in _objCharacter.LimitModifiers)
+            {
+                TreeNode objLimitModifierNode = new TreeNode();
+                objLimitModifierNode.Text = objLimitModifier.DisplayName;
+                objLimitModifierNode.Tag = objLimitModifier.Name;
+                objLimitModifierNode.ContextMenuStrip = cmsMartialArts;
+                if (objLimitModifier.Notes != string.Empty)
+                    objLimitModifierNode.ForeColor = Color.SaddleBrown;
+                objLimitModifierNode.ToolTipText = objLimitModifier.Notes;
+                objLimitModifierNode.ContextMenuStrip = cmsLimitModifier;
+
+                switch (objLimitModifier.Limit)
+                {
+                    case "Physical":
+                        treLimit.Nodes[0].Nodes.Add(objLimitModifierNode);
+                        treLimit.Nodes[0].Expand();
+                        break;
+                    case "Mental":
+                        treLimit.Nodes[1].Nodes.Add(objLimitModifierNode);
+                        treLimit.Nodes[1].Expand();
+                        break;
+                    case "Social":
+                        treLimit.Nodes[2].Nodes.Add(objLimitModifierNode);
+                        treLimit.Nodes[2].Expand();
+                        break;
+                }
+            }
+
+            // Populate Lifestyles.
 			foreach (Lifestyle objLifestyle in _objCharacter.Lifestyles)
 			{
 				TreeNode objLifestyleNode = new TreeNode();
@@ -3969,11 +3998,7 @@ namespace Chummer
 				intKarmaCost = _objOptions.KarmaNewActiveSkill;
 			else
 			{
-				if (objSkillControl.SkillRating >= 6)
-					// The cost for raising an Active Skill from 6 to 7 (thanks to Aptitude) is doubled.
-					intKarmaCost = ((objSkillControl.SkillRating + 1) * _objOptions.KarmaImproveActiveSkill * 2);
-				else
-					intKarmaCost = (objSkillControl.SkillRating + 1) * _objOptions.KarmaImproveActiveSkill;
+				intKarmaCost = (objSkillControl.SkillRating + 1) * _objOptions.KarmaImproveActiveSkill;
 			}
 
 			// If the character is Uneducated and the Skill is a Technical Active Skill, Uncouth and a Social Active Skill or Infirm and a Physical Active Skill, double its cost.
@@ -4852,7 +4877,7 @@ namespace Chummer
 
 			objSkillControl.KnowledgeSkill = true;
 			objSkillControl.AllowDelete = true;
-			objSkillControl.SkillRatingMaximum = 6;
+			objSkillControl.SkillRatingMaximum = 12;
 			// Set the SkillControl's Location since scrolling the Panel causes it to actually change the child Controls' Locations.
 			objSkillControl.Location = new Point(0, objSkillControl.Height * i + panKnowledgeSkills.AutoScrollPosition.Y);
 			panKnowledgeSkills.Controls.Add(objSkillControl);
@@ -7182,7 +7207,7 @@ namespace Chummer
 					objSkillControl.AddSpec(objXmlWeapon["name"].InnerText);
 			}
 
-			objSkillControl.SkillRatingMaximum = 6;
+			objSkillControl.SkillRatingMaximum = 12;
 			// Set the SkillControl's Location since scrolling the Panel causes it to actually change the child Controls' Locations.
 			objSkillControl.Location = new Point(0, objSkillControl.Height * i + panActiveSkills.AutoScrollPosition.Y);
 			panActiveSkills.Controls.Add(objSkillControl);
@@ -20734,10 +20759,10 @@ namespace Chummer
 
 								objSkillControl.KnowledgeSkill = true;
 								objSkillControl.AllowDelete = true;
-								if (objSkill.Rating > 7)
+								if (objSkill.Rating > 13)
 									objSkillControl.SkillRatingMaximum = objSkill.Rating;
 								else
-									objSkillControl.SkillRatingMaximum = 6;
+									objSkillControl.SkillRatingMaximum = 12;
 								objSkillControl.SkillRating = objSkill.Rating;
 								objSkillControl.SkillCategory = "Professional";
 								// Set the SkillControl's Location since scrolling the Panel causes it to actually change the child Controls' Locations.
@@ -20786,10 +20811,10 @@ namespace Chummer
 
 								objSkillControl.KnowledgeSkill = true;
 								objSkillControl.AllowDelete = true;
-								if (objSkill.Rating > 7)
+								if (objSkill.Rating > 13)
 									objSkillControl.SkillRatingMaximum = objSkill.Rating;
 								else
-									objSkillControl.SkillRatingMaximum = 6;
+									objSkillControl.SkillRatingMaximum = 12;
 								objSkillControl.SkillRating = objSkill.Rating;
 								objSkillControl.SkillCategory = "Professional";
 								// Set the SkillControl's Location since scrolling the Panel causes it to actually change the child Controls' Locations.
@@ -21392,15 +21417,15 @@ namespace Chummer
 
                 // Skill Limits
                 lblPhysical.Text = _objCharacter.LimitPhysical.ToString();
-                string strPhysical = "(STR [" + _objCharacter.STR.TotalValue.ToString() + "] * 2) + BOD [" + _objCharacter.BOD.TotalValue.ToString() + "] + REA [" + _objCharacter.REA.TotalValue.ToString() + "] / 3))";
+                string strPhysical = "(STR [" + _objCharacter.STR.TotalValue.ToString() + "] * 2) + BOD [" + _objCharacter.BOD.TotalValue.ToString() + "] + REA [" + _objCharacter.REA.TotalValue.ToString() + "] / 3";
                 tipTooltip.SetToolTip(lblPhysical, strPhysical);
 
                 lblMental.Text = _objCharacter.LimitMental.ToString();
-                string strMental = "(LOG [" + _objCharacter.LOG.TotalValue.ToString() + "] * 2) + INT [" + _objCharacter.INT.TotalValue.ToString() + "] + WIL [" + _objCharacter.WIL.TotalValue.ToString() + "] / 3))";
+                string strMental = "(LOG [" + _objCharacter.LOG.TotalValue.ToString() + "] * 2) + INT [" + _objCharacter.INT.TotalValue.ToString() + "] + WIL [" + _objCharacter.WIL.TotalValue.ToString() + "] / 3";
                 tipTooltip.SetToolTip(lblMental, strMental);
 
                 lblSocial.Text = _objCharacter.LimitSocial.ToString();
-                string strSocial = "(CHA [" + _objCharacter.CHA.TotalValue.ToString() + "] * 2) + WIL [" + _objCharacter.WIL.TotalValue.ToString() + "] + ESS [" + _objCharacter.ESS.TotalValue.ToString() + "] / 3))";
+                string strSocial = "(CHA [" + _objCharacter.CHA.TotalValue.ToString() + "] * 2) + WIL [" + _objCharacter.WIL.TotalValue.ToString() + "] + ESS [" + _objCharacter.Essence.ToString() + "] / 3";
                 tipTooltip.SetToolTip(lblSocial, strSocial);
 
 				// Initiative.
@@ -22422,6 +22447,17 @@ namespace Chummer
 		private bool SaveCharacter()
 		{
 			bool blnSaved = false;
+
+            if (_objCharacter.Created)
+            {
+                foreach (Skill objSkill in _objCharacter.Skills)
+                {
+                    if (objSkill.RatingMaximum == 6)
+                        objSkill.RatingMaximum = 12;
+                    else if (objSkill.RatingMaximum == 7)
+                        objSkill.RatingMaximum = 13;
+                }
+            }
 
 			// If the Character does not have a file name, trigger the Save As menu item instead.
 			if (_objCharacter.FileName == "")
