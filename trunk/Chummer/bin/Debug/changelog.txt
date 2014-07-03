@@ -1,3 +1,7 @@
+Build 5.109 (beta) MILESTONE BUILD
+- Fixed a bug with Kinesics that was causing an error when selected.
+- Updated career mode (post creation character advancement) to handle purchasing additional power points for Mystic Adepts.
+
 Build 5.108 (alpha)
 - Fixed the tooltip for social skill limits to show the correct Essence value.
 - Fixed the Yamaha Growler by using its on road speed within Chummer.
@@ -9,6 +13,8 @@ Build 5.108 (alpha)
 - Fixed an error in the talent priority dropdown that was listing technomancer as an option with a "D" priority.
 - Fixed a bug in which selecting the Additional Power Point metamagic was not adding an additional power point.
 - Updated the skills and skill groups to reduce the maximum rating to 0 for magical skills and skill groups outside of the chosen skill group.  This happens when the priorities are selected and will not update existing characters.
+- Fixed a bug which could cause the karma cost of Magic to be calculated incorrectly when the character has Bioware or Cyberware.
+- Removed the limit of single skill at 6 or two at 5 during character creation.
 
 Build 5.107 (alpha) MILESTONE BUILD
 - Fixed the karma cost for Martial Arts during character advancement.

@@ -334,16 +334,12 @@ namespace Chummer
 			int intCharacterMAG = _objCharacter.MAG.TotalValue;
 			if (_objCharacter.AdeptEnabled && _objCharacter.MagicianEnabled)
 			{
-				nudMysticAdeptMAGMagician.Maximum = _objCharacter.MAG.TotalValue;
-				nudMysticAdeptMAGMagician.Value = _objCharacter.MAGMagician;
 				lblMysticAdeptMAGAdept.Text = _objCharacter.MAGAdept.ToString();
 				intCharacterMAG = _objCharacter.MAGMagician;
 
 				lblMysticAdeptAssignment.Visible = true;
-				lblMysticAdeptAssignmentAdept.Visible = true;
-				lblMysticAdeptAssignmentMagician.Visible = true;
 				lblMysticAdeptMAGAdept.Visible = true;
-				nudMysticAdeptMAGMagician.Visible = true;
+                cmdIncreasePowerPoints.Visible = true;
 			}
 
 			// Load the Skills information.
@@ -1679,19 +1675,14 @@ namespace Chummer
 			if (_objCharacter.AdeptEnabled && _objCharacter.MagicianEnabled)
 			{
 				lblMysticAdeptAssignment.Visible = true;
-				lblMysticAdeptAssignmentAdept.Visible = true;
-				lblMysticAdeptAssignmentMagician.Visible = true;
 				lblMysticAdeptMAGAdept.Visible = true;
-				nudMysticAdeptMAGMagician.Visible = true;
-				nudMysticAdeptMAGMagician.Maximum = _objCharacter.MAG.TotalValue;
+                cmdIncreasePowerPoints.Visible = true;
 			}
 			else
 			{
 				lblMysticAdeptAssignment.Visible = false;
-				lblMysticAdeptAssignmentAdept.Visible = false;
-				lblMysticAdeptAssignmentMagician.Visible = false;
 				lblMysticAdeptMAGAdept.Visible = false;
-				nudMysticAdeptMAGMagician.Visible = false;
+                cmdIncreasePowerPoints.Visible = false;
 			}
 		}
 
@@ -1716,20 +1707,15 @@ namespace Chummer
 			if (_objCharacter.AdeptEnabled && _objCharacter.MagicianEnabled)
 			{
 				lblMysticAdeptAssignment.Visible = true;
-				lblMysticAdeptAssignmentAdept.Visible = true;
-				lblMysticAdeptAssignmentMagician.Visible = true;
 				lblMysticAdeptMAGAdept.Visible = true;
-				nudMysticAdeptMAGMagician.Visible = true;
-				nudMysticAdeptMAGMagician.Maximum = _objCharacter.MAG.TotalValue;
+                cmdIncreasePowerPoints.Visible = true;
 			}
 			else
 			{
 				lblMysticAdeptAssignment.Visible = false;
-				lblMysticAdeptAssignmentAdept.Visible = false;
-				lblMysticAdeptAssignmentMagician.Visible = false;
 				lblMysticAdeptMAGAdept.Visible = false;
-				nudMysticAdeptMAGMagician.Visible = false;
-			}
+                cmdIncreasePowerPoints.Visible = false;
+            }
 		}
 
 		private void objCharacter_TechnomancerTabEnabledChanged(object sender)
@@ -3509,17 +3495,6 @@ namespace Chummer
 		#endregion
 
 		#region Attribute Events
-		private void nudMysticAdeptMAGMagician_ValueChanged(object sender, EventArgs e)
-		{
-			_objCharacter.MAGMagician = Convert.ToInt32(nudMysticAdeptMAGMagician.Value);
-			_objCharacter.MAGAdept = Convert.ToInt32(_objCharacter.MAG.Value - nudMysticAdeptMAGMagician.Value - _objCharacter.EssencePenalty);
-
-			UpdateCharacterInfo();
-
-			_blnIsDirty = true;
-			UpdateWindowTitle();
-		}
-
 		private void cmdBurnEdge_Click(object sender, EventArgs e)
 		{
 			// Edge cannot go below 1.
@@ -3873,7 +3848,6 @@ namespace Chummer
 			objExpense.Undo = objUndo;
 
 			_objCharacter.MAG.Value += 1;
-			nudMysticAdeptMAGMagician.Maximum = _objCharacter.MAG.TotalValue;
 
 			if (_objCharacter.Metatype == "Free Spirit")
 			{
@@ -12903,9 +12877,10 @@ namespace Chummer
 			{
 				case KarmaExpenseType.ImproveAttribute:
 					_objCharacter.GetAttribute(objEntry.Undo.ObjectId).Value -= 1;
-					if (_objCharacter.GetAttribute(objEntry.Undo.ObjectId).Abbrev == "MAG")
-						nudMysticAdeptMAGMagician.Maximum = _objCharacter.MAG.TotalValue;
 					break;
+                case KarmaExpenseType.AddPowerPoint:
+                    _objCharacter.MAGAdept -= 1;
+                    break;
 				case KarmaExpenseType.AddQuality:
 					// Locate the Quality that was added.
 					foreach (Quality objQuality in _objCharacter.Qualities)
@@ -21239,7 +21214,6 @@ namespace Chummer
 				int intCharacterMAG = _objCharacter.MAG.TotalValue;
 				if (_objCharacter.AdeptEnabled && _objCharacter.MagicianEnabled)
 				{
-					_objCharacter.MAGAdept = Convert.ToInt32(_objCharacter.MAG.TotalValue - nudMysticAdeptMAGMagician.Value);
 					lblMysticAdeptMAGAdept.Text = _objCharacter.MAGAdept.ToString();
 					intCharacterMAG = _objCharacter.MAGMagician;
 				}
@@ -26245,6 +26219,43 @@ namespace Chummer
             catch
             {
             }
+        }
+
+        private void cmdIncreasePowerPoints_Click(object sender, EventArgs e)
+        {
+            // Make sure the character has enough Karma to improve the Attribute.
+            int intKarmaCost = 2;
+            if (intKarmaCost > _objCharacter.Karma)
+            {
+                MessageBox.Show(LanguageManager.Instance.GetString("Message_NotEnoughKarma"), LanguageManager.Instance.GetString("MessageTitle_NotEnoughKarma"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (_objCharacter.MAGAdept + 1 > _objCharacter.MAG.TotalValue)
+            {
+                MessageBox.Show(LanguageManager.Instance.GetString("Message_NotEnoughMagic"), LanguageManager.Instance.GetString("MessageTitle_NotEnoughMagic"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (!ConfirmKarmaExpense(LanguageManager.Instance.GetString("Message_ConfirmKarmaExpenseSpend").Replace("{0}", LanguageManager.Instance.GetString("String_PowerPoint")).Replace("{1}", (intKarmaCost).ToString())))
+                return;
+
+            // Create the Karma expense.
+            ExpenseLogEntry objExpense = new ExpenseLogEntry();
+            objExpense.Create(intKarmaCost * -1, LanguageManager.Instance.GetString("String_PowerPoint"), ExpenseType.Karma, DateTime.Now);
+            _objCharacter.ExpenseEntries.Add(objExpense);
+            _objCharacter.Karma -= intKarmaCost;
+
+            ExpenseUndo objUndo = new ExpenseUndo();
+            objUndo.CreateKarma(KarmaExpenseType.AddPowerPoint, "");
+            objExpense.Undo = objUndo;
+
+            _objCharacter.MAGAdept += 1;
+
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
         }
 	}
 }

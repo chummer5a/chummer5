@@ -1786,6 +1786,14 @@
 			<text>Not Enough Karma</text>
 		</string>
 		<string>
+			<key>Message_NotEnoughMagic</key>
+			<text>You do not have enough Magic for this improvement.</text>
+		</string>
+		<string>
+			<key>MessageTitle_NotEnoughMagic</key>
+			<text>Not Enough Magic</text>
+		</string>
+		<string>
 			<key>Message_ConfirmKarmaExpense</key>
 			<text>Are you sure you want to spend Karma on improving {0} to {1} for {2} Karma?</text>
 		</string>
@@ -6181,6 +6189,10 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		<string>
 			<key>Label_SelectPower_PowerPoints</key>
 			<text>Power Points:</text>
+		</string>
+		<string>
+			<key>String_PowerPoint</key>
+			<text>Power Point</text>
 		</string>
 		<string>
 			<key>Message_SelectPower_PowerRequirement</key>

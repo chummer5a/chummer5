@@ -34,6 +34,7 @@ namespace Chummer
 		JoinGroup = 20,
 		LeaveGroup = 21,
 		QuickeningMetamagic = 22,
+        AddPowerPoint = 23,
 	}
 
 	public enum NuyenExpenseType
