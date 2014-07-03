@@ -212,6 +212,7 @@
 		<power>
 			<name>Kinesics</name>
 			<points>.25</points>
+			<levels>yes</levels>
 			<limit>1</limit>
 			<source>SR5</source>
 			<page>310</page>
