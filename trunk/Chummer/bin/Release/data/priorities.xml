@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-500</version>
+  <version>-499</version>
 	<categories>
 		<category>Heritage</category>
 		<category>Talent</category>
@@ -296,6 +296,8 @@
             <quality>Aspected Magician</quality>
           </qualities>
           <magic>2</magic>
+          <skillgroupqty>1</skillgroupqty>
+          <skillgroupval>0</skillgroupval>
         </talent>
       </talents>
     </priority>

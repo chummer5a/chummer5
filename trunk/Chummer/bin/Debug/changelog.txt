@@ -1,3 +1,25 @@
+Build 5.110 (beta)
+- Added the entry for Street Grimoire (SG).
+- Added the Traditions from SG.
+- Added the Mentor Spirits from SG.
+- Added the Spells from SG.
+- Added the Adept Powers from SG.
+- Trimmed the text displayed for Mentor Spirit choices so the text would fit better. You may need to delete and re-add the Mentor Spirit Quality on existing characters.
+- Adjusted the position and size of the Mentor Spirit choice dropdowns to give them more room.
+- Fixed an error on the Wise Warrior Mentor Spirit that would prevent it from offering its choices.
+- Fixed an error where a cyberlimb would apply modifiers to BOD.
+- Fixed a bug which would prevent adding a commlink to an implanted commlink.
+- Fixed a bug which would prevent increasing a skill above 6 during character creation if Ignore Rules was chosen.
+- Fixed an error preventing several of the common allergy negative qualities from being available.
+- Fixed a bug preventing sensors (Sensor Array and Single Sensor) from being available to add to armor.
+- Fixed the calculation for augmented maximum attribute cap.
+- Fixed a bug preventing Focused Concentration from being available to Aspected Magicians and Technomancers.
+- Fixed a bug preventing Cyberdecks from being added to a Cyberware Head Cyberdeck.
+- Fixed a bug with the Horizon Flying Eye so that the variant with the Flash Pak and Smoke Grenade is correctly listed.
+- Fixed a bug granting more Knowledge Skill points than proper. Was figuring on (INT + LOG) x 3 instead of x 2.
+- Fixed the qualities that have ratings (Focused Concentration, High Pain Tolerance, etc...) to be listed in the Select Qualities dialog for each rating value.  Previously it was only allowing you to select the quality once, preventing reaching higher ratings. Unfortunately this means that if you pick Focused Concentration (Rating 2), rating 1 and 3 are still there in the list.  This isn't my optimal fix for this and I'm going to try to find something better. Suggestions are welcome.
+- Updated Electrochromic Clothing to be an allowed mod for armor.
+
 Build 5.109 (beta) MILESTONE BUILD
 - Fixed a bug with Kinesics that was causing an error when selected.
 - Updated career mode (post creation character advancement) to handle purchasing additional power points for Mystic Adepts.

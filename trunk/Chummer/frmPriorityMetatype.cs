@@ -568,6 +568,45 @@ namespace Chummer
                         cboSkill2.Visible = false;
                     }
                 }
+                else if (cboTalent.SelectedValue.ToString() == "D")
+                {
+                    if (cboTalents.SelectedValue.ToString() == "Aspected Magician")
+                    {
+                        strLabel = String.Format(strLabel, LanguageManager.Instance.GetString("String_MetamagicSkillAspectedD"));
+                        lblMetatypeSkillSelection.Text = strLabel;
+
+                        List<ListItem> lstSkills1 = new List<ListItem>();
+
+                        ListItem objItem = new ListItem();
+                        objItem.Value = "Conjuring";
+                        objItem.Name = "Conjuring";
+                        lstSkills1.Add(objItem);
+
+                        objItem = new ListItem();
+                        objItem.Value = "Enchanting";
+                        objItem.Name = "Enchanting";
+                        lstSkills1.Add(objItem);
+
+                        objItem = new ListItem();
+                        objItem.Value = "Sorcery";
+                        objItem.Name = "Sorcery";
+                        lstSkills1.Add(objItem);
+
+                        cboSkill1.ValueMember = "Value";
+                        cboSkill1.DisplayMember = "Name";
+                        cboSkill1.DataSource = lstSkills1;
+
+                        lblMetatypeSkillSelection.Visible = true;
+                        cboSkill1.Visible = true;
+                        cboSkill2.Visible = false;
+                    }
+                    else
+                    {
+                        lblMetatypeSkillSelection.Visible = false;
+                        cboSkill1.Visible = false;
+                        cboSkill2.Visible = false;
+                    }
+                }
                 else
                 {
                     lblMetatypeSkillSelection.Visible = false;
@@ -1559,6 +1598,15 @@ namespace Chummer
                             else
                                 objSkillGroup.RatingMaximum = 6;
                         }
+                    }
+                }
+
+                // Ignore Rules
+                if (_objCharacter.IgnoreRules)
+                {
+                    foreach (Skill objSkill in _objCharacter.Skills)
+                    {
+                        objSkill.RatingMaximum = 12;
                     }
                 }
 

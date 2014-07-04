@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-500</version>
+	<version>-499</version>
 	<mentors>
 		<mentor>
 			<name>Bear</name>
@@ -8,7 +8,7 @@
 			<disadvantage>You might go berserk when you take Physical damage in combat or if someone under your care is badly injured. Make a Simple Charisma + Willpower Test (wound modifiers apply). You go berserk for 3 turns minus 1 turn per hit, so 3 or more hits averts the berserk rage entirely. If you’re already going berserk, increase the duration. When you’re berserk, you go after your attacker(s) without regard for your own safety. If you incapacitate the target(s) before the time is up, the berserk fury dissipates.</disadvantage>
 			<choices>
 				<choice>
-					<name>Magician: +2 dice for Health spells, preparations, and rituals</name>
+					<name>Magician: +2 dice for Health spells</name>
 					<bonus>
 						<spellcategory>
 							<name>Health</name>
@@ -55,7 +55,7 @@
 					</bonus>
 				</choice>
 				<choice set="2">
-					<name>Magician: +2 dice for Illusion spells, preparations, and rituals</name>
+					<name>Magician: +2 dice for Illusion spells</name>
 					<bonus>
 						<spellcategory>
 							<name>Illusion</name>
@@ -89,7 +89,7 @@
 			</bonus>
 			<choices>
 				<choice>
-					<name>Magician: +2 dice for Detection spells, preparations, and rituals</name>
+					<name>Magician: +2 dice for Detection spells</name>
 					<bonus>
 						<spellcategory>
 							<name>Detection</name>
@@ -123,7 +123,7 @@
 			</bonus>
 			<choices>
 				<choice>
-					<name>Magician: +2 dice for Combat spells, preparations, and rituals</name>
+					<name>Magician: +2 dice for Combat spells</name>
 					<bonus>
 						<spellcategory>
 							<name>Detection</name>
@@ -132,7 +132,7 @@
 					</bonus>
 				</choice>
 				<choice>
-					<name>Adept: 1 free level of Enhanced Accuracy (skill) and 1 free level of Danger Sense</name>
+					<name>Adept: 1 free level of Enhanced Accuracy and Danger Sense</name>
 					<bonus>
 						<specificpower>
 							<name>Enhanced Accuracy (skill)</name>
@@ -205,7 +205,7 @@
 					</bonus>
 				</choice>
 				<choice set="2">
-					<name>Magician: +2 dice for spells, preparations, and spell rituals in the Manipulation category</name>
+					<name>Magician: +2 dice for Manipulation spells</name>
 					<bonus>
 						<spellcategory>
 							<name>Manipulation</name>
@@ -239,7 +239,7 @@
 			</bonus>
 			<choices>
 				<choice>
-					<name>Magician: +2 dice for Counterspelling Tests and anchored rituals</name>
+					<name>Magician: +2 dice for Counterspelling and anchored rituals</name>
 					<bonus>
 						<specificskill>
 							<name>Counterspelling</name>
@@ -274,7 +274,7 @@
 			</bonus>
 			<choices>
 				<choice>
-					<name>Magician: +2 dice to Alchemy tests when harvesting reagents, and you may use reagents of any tradition</name>
+					<name>Magician: +2 to Alchemy for harvesting, and you may use any reagents</name>
 				</choice>
 				<choice>
 					<name>Adept: 2 free levels of Natural Immunity</name>
@@ -302,7 +302,7 @@
 			</bonus>
 			<choices>
 				<choice>
-					<name>Magician: +2 dice for spells, preparations, and spell rituals in the Manipulation category</name>
+					<name>Magician: +2 dice for Manipulation spells</name>
 					<bonus>
 						<spellcategory>
 							<name>Manipulation</name>
@@ -368,7 +368,7 @@
 			</bonus>
 			<choices>
 				<choice>
-					<name>Magician: +2 dice for spells, preparations, and spell rituals in the Illusion category</name>
+					<name>Magician: +2 dice for Illusion spells</name>
 					<bonus>
 						<spellcategory>
 							<name>Illusion</name>
@@ -377,7 +377,7 @@
 					</bonus>
 				</choice>
 				<choice>
-					<name>Adept: 1 free level of Improved Ability for a skill in the Acting or Influence skill group</name>
+					<name>Adept: 1 free level of Improved Ability</name>
 					<bonus>
 						<specificpower>
 							<name>Improved Ability (skill)</name>
@@ -402,7 +402,7 @@
 			</bonus>
 			<choices>
 				<choice>
-					<name>Magician: +2 dice for spells, preparations, and spell rituals in the Combat category</name>
+					<name>Magician: +2 dice for Combat spells</name>
 					<bonus>
 						<spellcategory>
 							<name>Combat</name>
@@ -436,7 +436,7 @@
 			</bonus>
 			<choices>
 				<choice>
-					<name>Magician: +2 dice for spells, preparations, and spell rituals in the Detection category</name>
+					<name>Magician: +2 dice for Detection spells</name>
 					<bonus>
 						<spellcategory>
 							<name>Detection</name>
@@ -510,10 +510,8 @@
 						</specificskill>
 					</bonus>
 				</choice>
-			</choices>
-			<choices>
-				<choice>
-					<name>Magician:+2 dice for spells, preparations, and spell rituals in the Combat category</name>
+				<choice set="2">
+					<name>Magician:+2 dice for Combat spells</name>
 					<bonus>
 						<spellcategory>
 							<name>Combat</name>
@@ -521,7 +519,7 @@
 						</spellcategory>
 					</bonus>
 				</choice>
-				<choice>
+				<choice set="2">
 					<name>Adept: 1 free level of Improved Ability on a Combat skill</name>
 					<bonus>
 						<specificpower>
@@ -547,7 +545,7 @@
 			</bonus>
 			<choices>
 				<choice>
-					<name>Magician:+2 dice for spells, preparations, and spell rituals in the Combat category</name>
+					<name>Magician:+2 dice for Combat spells</name>
 					<bonus>
 						<spellcategory>
 							<name>Combat</name>
@@ -567,6 +565,167 @@
 			</choices>
 			<source>SR5</source>
 			<page>324</page>
+		</mentor>
+		<mentor>
+			<name>Berserker</name>
+			<advantage>All: +2 dice pool modifier for Composure Tests</advantage>
+			<disadvantage>Berserker’s followers have very short fuses. Whenever someone strongly disagrees with you (gamemaster’s discretion), you must pass a Charisma + Willpower (3) Test to keep from striking out against the offender. If the test fails, the attack can be in any form you choose (fist, spell, etc.), but it must have the intent to cause damage.</disadvantage>
+			<bonus>
+				<composure>
+					<bonus>2</bonus>
+				</composure>
+			</bonus>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice for Physical-type Combat Spells</name>
+					<bonus />
+				</choice>
+				<choice>
+					<name>Adept: 2 free levels of Mystic Armor</name>
+					<bonus>
+						<specificpower>
+							<name>Mystic Armor</name>
+							<val>2</val>
+						</specificpower>
+					</bonus>
+				</choice>
+				<choice>
+					<name>Adept: 2 free levels of Pain Resistance</name>
+					<bonus>
+						<specificpower>
+							<name>Pain Resistance</name>
+							<val>2</val>
+						</specificpower>
+					</bonus>
+				</choice>
+				<choice>
+					<name>Adept: 1 free level of Mystic Armor and Pain Resistance</name>
+					<bonus>
+						<specificpower>
+							<name>Pain Resistance</name>
+							<val>1</val>
+						</specificpower>
+						<specificpower>
+							<name>Mystic Armor</name>
+							<val>1</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SG</source>
+			<page>199</page>
+		</mentor>
+		<mentor>
+			<name>Chaos</name>
+			<advantage>All: +2 dice pool modifier for Con Tests</advantage>
+			<disadvantage>You are an inveterate gossip trying to stir up trouble, especially between friends, and thus cannot keep damaging secrets to yourself. Also, anytime you encounter a public situation deemed too quiet or stable (gamemaster’s discretion), make a Willpower + Intuition (3) Test. Failure means that you are compelled to stir the pot in any way you desire, be it attacking, telling lies, or throwing a drink on someone nearby.</disadvantage>
+			<bonus>
+				<specificskill>
+					<name>Con</name>
+					<bonus>2</bonus>
+					<applytorating>no</applytorating>
+				</specificskill>
+			</bonus>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice for Illusion Spells</name>
+					<bonus>
+						<spellcategory>
+							<name>Illusion</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice>
+					<name>Adept: 2 free levels of Improved Potential (limit)</name>
+					<bonus>
+						<specificpower>
+							<name>Improved Potential (limit)</name>
+							<val>1</val>
+							<selectlimit>
+								<val>Rating</val>
+							</selectlimit>
+						</specificpower>
+						<specificpower>
+							<name>Improved Potential (limit)</name>
+							<val>1</val>
+							<selectlimit>
+								<val>Rating</val>
+							</selectlimit>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SG</source>
+			<page>200</page>
+		</mentor>
+		<mentor>
+			<name>Peacemaker</name>
+			<advantage>All: +2 dice pool modifier for Negotiation Tests</advantage>
+			<disadvantage>You see even enemies as potential friends and go out of your way to keep from hurting anyone unless the situation truly warrants it. At the very beginning of combat, you must pass a Charisma + Intuition (3) Test; failure means you are unable to take actions that cause Physical damage for the duration of combat. At the beginning of a new Combat Turn, you may choose to retake the test if you failed the first time and you or a member of your team suffered damage in the previous Combat Turn.</disadvantage>
+			<bonus>
+				<specificskill>
+					<name>Negotiation</name>
+					<bonus>2</bonus>
+					<applytorating>no</applytorating>
+				</specificskill>
+			</bonus>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice for Detection Spells</name>
+					<bonus>
+						<spellcategory>
+							<name>IllusDetectionion</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice>
+					<name>Adept: 2 free levels of Enhanced Perception</name>
+					<bonus>
+						<specificpower>
+							<name>Enhanced Perception</name>
+							<val>2</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SG</source>
+			<page>200</page>
+		</mentor>
+		<mentor>
+			<name>Oracle</name>
+			<advantage>All: +2 dice pool modifier for Arcana Tests</advantage>
+			<disadvantage>You hate mysteries with a passion and can disappear for days trying to track down the answer. When confronted by a particularly haunting question (gamemaster’s discretion), you must take a Willpower + Intuition (3) Test. Failure means you must undertake an Intuition + Logic [Mental] (5, 1 hour) Extended Test to try researching the answer. Completion of the Extended Test does not necessarily mean you found the answer, but it at least silences the question in your mind for the time being. When a follower of Oracle becomes a Grade 1 initiate, she must choose Divination for her first metamagic rather than a Power Point or any other benefit.</disadvantage>
+			<bonus>
+				<specificskill>
+					<name>Arcana</name>
+					<bonus>2</bonus>
+					<applytorating>no</applytorating>
+				</specificskill>
+			</bonus>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice for Detection Spells</name>
+					<bonus>
+						<spellcategory>
+							<name>Detection</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice>
+					<name>Adept: Free Astral Perception</name>
+					<bonus>
+						<specificpower>
+							<name>Astral Perception</name>
+							<val>1</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SG</source>
+			<page>200</page>
 		</mentor>
 	</mentors>
 </chummer>

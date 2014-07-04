@@ -1649,7 +1649,7 @@
 	<mods>
 		<mod>
 			<name>Electrochromic Clothing</name>
-			<category>Clothing</category>
+			<category>General</category>
 			<armor>0</armor>
 			<maxrating>1</maxrating>
 			<armorcapacity>[0]</armorcapacity>

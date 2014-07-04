@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-500</version>
+	<version>-499</version>
 	<categories>
 		<category>Bikes</category>
 		<category>Cars</category>
@@ -573,7 +573,7 @@
 			<page>465</page>
 		</vehicle>
 		<vehicle>
-			<name>Horizon Flying Eye (Microdrone)</name>
+			<name>Horizon Flying Eye w/Flash-Pak and Grenade (Microdrone)</name>
 			<category>Drones: Micro</category>
 			<handling>4</handling>
 			<accel>2</accel>
@@ -583,10 +583,10 @@
 			<armor>0</armor>
 			<sensor>3</sensor>
 			<seats>0</seats>
-			<mods>
-				<name>Flash-Pak</name>
-				<name>Smoke Grenade</name>
-			</mods>
+			<gears>
+				<gear>Grenade: Flash-Pak</gear>
+				<gear>Grenade: Smoke</gear>
+			</gears>
 			<avail>8</avail>
 			<cost>2000</cost>
 			<source>SR5</source>

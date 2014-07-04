@@ -842,6 +842,7 @@ namespace Chummer
 		private string _strSelectedValue = "";
 		private string _strForcedValue = "";
 		private readonly List<Improvement> _lstTransaction = new List<Improvement>();
+        private bool _blnAddingLimit = false;
 
 		public ImprovementManager(Character objCharacter)
 		{
@@ -1484,8 +1485,9 @@ namespace Chummer
 				}
 
                 // Select a Limit.
-                if (NodeExists(nodBonus, "selectlimit"))
+                if (NodeExists(nodBonus, "selectlimit") && !_blnAddingLimit)
                 {
+                    _strForcedValue = "";
                     // Display the Select Limit window and record which Limit was selected.
                     frmSelectLimit frmPickLimit = new frmSelectLimit();
                     if (strFriendlyName != "")
@@ -1493,7 +1495,7 @@ namespace Chummer
                     else
                         frmPickLimit.Description = LanguageManager.Instance.GetString("String_Improvement_SelectAttribute");
 
-                    if (nodBonus["selectlimit"].InnerXml.Contains("<attribute>"))
+                    if (nodBonus["selectlimit"].InnerXml.Contains("<limit>"))
                     {
                         List<string> strValue = new List<string>();
                         foreach (XmlNode objXmlAttribute in nodBonus["selectlimit"].SelectNodes("limit"))
@@ -2301,6 +2303,7 @@ namespace Chummer
                     // If the character isn't an adept or mystic adept, skip the rest of this.
                     if (_objCharacter.AdeptEnabled)
                     {
+                        _blnAddingLimit = true;
 
                         XmlNodeList objXmlPowerList = nodBonus.SelectNodes("specificpower");
                         foreach (XmlNode objXmlSpecificPower in objXmlPowerList)
@@ -2317,12 +2320,68 @@ namespace Chummer
                             if (objXmlSpecificPower["free"] != null)
                                 blnFree = (objXmlSpecificPower["free"].InnerText == "yes");
 
+                            if (objXmlSpecificPower["selectlimit"] != null)
+                            {
+                                _strForcedValue = "";
+                                // Display the Select Limit window and record which Limit was selected.
+                                frmSelectLimit frmPickLimit = new frmSelectLimit();
+                                if (strFriendlyName != "")
+                                    frmPickLimit.Description = LanguageManager.Instance.GetString("String_Improvement_SelectAttributeNamed").Replace("{0}", strFriendlyName);
+                                else
+                                    frmPickLimit.Description = LanguageManager.Instance.GetString("String_Improvement_SelectAttribute");
+
+                                if (nodBonus["specificpower"]["selectlimit"].InnerXml.Contains("<limit>"))
+                                {
+                                    List<string> strValue = new List<string>();
+                                    foreach (XmlNode objXmlAttribute in nodBonus["specificpower"]["selectlimit"].SelectNodes("limit"))
+                                        strValue.Add(objXmlAttribute.InnerText);
+                                    frmPickLimit.LimitToList(strValue);
+                                }
+
+                                if (nodBonus["specificpower"]["selectlimit"].InnerXml.Contains("<excludelimit>"))
+                                {
+                                    List<string> strValue = new List<string>();
+                                    foreach (XmlNode objXmlAttribute in nodBonus["specificpower"]["selectlimit"].SelectNodes("excludelimit"))
+                                        strValue.Add(objXmlAttribute.InnerText);
+                                    frmPickLimit.RemoveFromList(strValue);
+                                }
+
+                                // Check to see if there is only one possible selection because of _strLimitSelection.
+                                if (_strForcedValue != "")
+                                    _strLimitSelection = _strForcedValue;
+
+                                if (_strLimitSelection != "")
+                                {
+                                    frmPickLimit.SingleLimit(_strLimitSelection);
+                                    frmPickLimit.Opacity = 0;
+                                }
+
+                                frmPickLimit.ShowDialog();
+
+                                // Make sure the dialogue window was not canceled.
+                                if (frmPickLimit.DialogResult == DialogResult.Cancel)
+                                {
+                                    Rollback();
+                                    blnSuccess = false;
+                                    _strForcedValue = "";
+                                    _strLimitSelection = "";
+                                    return false;
+                                }
+
+                                _strSelectedValue = frmPickLimit.SelectedLimit;
+                                if (blnConcatSelectedValue)
+                                    strSourceName += " (" + _strSelectedValue + ")";
+                            }
+                            string strPowerNameLimit = strPowerName;
+                            if (_strSelectedValue != string.Empty)
+                                strPowerNameLimit += " (" + _strSelectedValue + ")";
+
                             // Check if the character already has this power
                             bool blnHasPower = false;
                             Power objPower = new Power(_objCharacter);
                             foreach (Power power in _objCharacter.Powers)
                             {
-                                if (power.Name == strPowerName)
+                                if (power.Name == strPowerNameLimit)
                                 {
                                     blnHasPower = true;
                                     objPower = power;
@@ -2338,9 +2397,9 @@ namespace Chummer
                                 }
                                 else
                                 {
-                                    objPower.FreeLevels = intLevels;
-                                    if (objPower.Rating < intLevels)
-                                        objPower.Rating = intLevels;
+                                    objPower.FreeLevels += intLevels;
+                                    if (objPower.Rating < objPower.FreeLevels)
+                                        objPower.Rating = objPower.FreeLevels;
                                 }
                             }
                             else
@@ -2357,7 +2416,7 @@ namespace Chummer
                                 if (objXmlPower["levels"] != null)
                                     blnLevels = (objXmlPower["levels"].InnerText == "yes");
                                 objPower.LevelsEnabled = blnLevels;
-                                objPower.Name = objXmlPower["name"].InnerText;
+                                objPower.Name = strPowerNameLimit;
                                 objPower.PointsPerLevel = Convert.ToDecimal(objXmlPower["points"].InnerText);
                                 objPower.Source = objXmlPower["source"].InnerText;
                                 objPower.Page = objXmlPower["page"].InnerText;
@@ -2370,9 +2429,9 @@ namespace Chummer
                                 }
                                 else
                                 {
-                                    objPower.FreeLevels = intLevels;
+                                    objPower.FreeLevels += intLevels;
                                     if (objPower.Rating < intLevels)
-                                        objPower.Rating = intLevels;
+                                        objPower.Rating = objPower.FreeLevels;
                                 }
 
                                 if (objXmlPower.InnerXml.Contains("bonus"))
@@ -2386,6 +2445,7 @@ namespace Chummer
                             }
                         }
                         CreateImprovement("", objImprovementSource, strSourceName, Improvement.ImprovementType.AdeptPower, "");
+                        _blnAddingLimit = false;
                     }
                 }
 

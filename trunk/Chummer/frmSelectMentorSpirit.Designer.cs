@@ -138,7 +138,7 @@
             // lblChoice2
             // 
             this.lblChoice2.AutoSize = true;
-            this.lblChoice2.Location = new System.Drawing.Point(318, 59);
+            this.lblChoice2.Location = new System.Drawing.Point(318, 70);
             this.lblChoice2.Name = "lblChoice2";
             this.lblChoice2.Size = new System.Drawing.Size(69, 13);
             this.lblChoice2.TabIndex = 7;
@@ -150,9 +150,9 @@
             // 
             this.cboChoice1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboChoice1.FormattingEnabled = true;
-            this.cboChoice1.Location = new System.Drawing.Point(403, 29);
+            this.cboChoice1.Location = new System.Drawing.Point(321, 46);
             this.cboChoice1.Name = "cboChoice1";
-            this.cboChoice1.Size = new System.Drawing.Size(267, 21);
+            this.cboChoice1.Size = new System.Drawing.Size(349, 21);
             this.cboChoice1.TabIndex = 6;
             this.cboChoice1.Visible = false;
             // 
@@ -160,9 +160,9 @@
             // 
             this.cboChoice2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboChoice2.FormattingEnabled = true;
-            this.cboChoice2.Location = new System.Drawing.Point(403, 56);
+            this.cboChoice2.Location = new System.Drawing.Point(321, 86);
             this.cboChoice2.Name = "cboChoice2";
-            this.cboChoice2.Size = new System.Drawing.Size(267, 21);
+            this.cboChoice2.Size = new System.Drawing.Size(349, 21);
             this.cboChoice2.TabIndex = 8;
             this.cboChoice2.Visible = false;
             // 

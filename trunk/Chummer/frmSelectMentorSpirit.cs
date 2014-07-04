@@ -140,11 +140,11 @@ namespace Chummer
                     cboChoice2.Visible = false;
                 }
 
-				cboChoice1.Top = lblAdvantage.Top + lblAdvantage.Height + 6;
-				lblChoice1.Top = cboChoice1.Top + 3;
-				cboChoice2.Top = cboChoice1.Top + cboChoice1.Height + 6;
-				lblChoice2.Top = cboChoice2.Top + 3;
-			}
+                lblChoice1.Top = lblAdvantage.Top + lblAdvantage.Height + 6;
+                cboChoice1.Top = lblChoice1.Top + lblChoice1.Height + 3;
+                lblChoice2.Top = cboChoice1.Top + cboChoice1.Height + 6;
+                cboChoice2.Top = lblChoice2.Top + lblChoice2.Height + 3;
+            }
 			else
 			{
 				lblChoice1.Visible = false;
