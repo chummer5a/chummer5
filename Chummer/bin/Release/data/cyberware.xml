@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-500</version>
+	<version>-499</version>
 	<grades>
 		<grade>
 			<name>Standard</name>
@@ -62,7 +62,7 @@
 			<avail>0</avail>
 			<cost>2000</cost>
 			<allowgear>
-				<gearcategory>Commlink</gearcategory>
+				<gearcategory>Commlinks</gearcategory>
 			</allowgear>
 			<source>SR5</source>
 			<page>451</page>
@@ -115,7 +115,7 @@
 			<capacity>[4]</capacity>
 			<avail>5R</avail>
 			<allowgear>
-				<gearcategory>Cyberdeck</gearcategory>
+				<gearcategory>Cyberdecks</gearcategory>
 			</allowgear>
 			<cost>5000</cost>
 			<source>SR5</source>

@@ -414,8 +414,8 @@ namespace Chummer
 						return true;
 				}
 
-				// If this is AGI, BOD, or STR, factor in any Cyberlimbs.
-				if (_strAbbrev == "AGI" || _strAbbrev == "BOD" || _strAbbrev == "STR")
+				// If this is AGI or STR, factor in any Cyberlimbs.
+				if (_strAbbrev == "AGI" || _strAbbrev == "STR")
 				{
 					foreach (Cyberware objCyberware in _objCharacter.Cyberware)
 					{
@@ -494,8 +494,8 @@ namespace Chummer
 				int intMeat = _intValue + AttributeModifiers;
 				int intReturn = intMeat;
 
-				// If this is AGI, BOD, or STR, factor in any Cyberlimbs.
-				if (_strAbbrev == "AGI" || _strAbbrev == "BOD" || _strAbbrev == "STR")
+				// If this is AGI or STR, factor in any Cyberlimbs.
+				if (_strAbbrev == "AGI" || _strAbbrev == "STR")
 				{
 					int intLimbTotal = 0;
 					int intLimbCount = 0;
@@ -506,9 +506,6 @@ namespace Chummer
 							intLimbCount++;
 							switch (_strAbbrev)
 							{
-								case "BOD":
-									intLimbTotal += objCyberware.TotalBody;
-									break;
 								case "STR":
 									intLimbTotal += objCyberware.TotalStrength;
 									break;
@@ -631,7 +628,8 @@ namespace Chummer
 				if (_strAbbrev == "EDG" || _strAbbrev == "MAG" || _strAbbrev == "RES")
 					intReturn = TotalMaximum + AugmentedMaximumModifiers;
 				else
-					intReturn = TotalMaximum + Convert.ToInt32(Math.Floor((Convert.ToDecimal(TotalMaximum, GlobalOptions.Instance.CultureInfo) / 2))) + AugmentedMaximumModifiers;
+					intReturn = TotalMaximum + 4 + AugmentedMaximumModifiers;
+                    // intReturn = TotalMaximum + Convert.ToInt32(Math.Floor((Convert.ToDecimal(TotalMaximum, GlobalOptions.Instance.CultureInfo) / 2))) + AugmentedMaximumModifiers;
 
 				if (intReturn < 0)
 					intReturn = 0;
@@ -807,9 +805,9 @@ namespace Chummer
 				}
 			}
 
-			// If this is AGI, BOD, or STR, factor in any Cyberlimbs.
+			// If this is AGI or STR, factor in any Cyberlimbs.
 			string strCyberlimb = "";
-			if (_strAbbrev == "AGI" || _strAbbrev == "BOD" || _strAbbrev == "STR")
+			if (_strAbbrev == "AGI" || _strAbbrev == "STR")
 			{
 				foreach (Cyberware objCyberware in _objCharacter.Cyberware)
 				{

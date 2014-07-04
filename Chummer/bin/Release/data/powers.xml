@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-500</version>
+	<version>-499</version>
 	<powers>
 		<power>
 			<name>Adrenaline Boost</name>
@@ -304,6 +304,368 @@
 			<limit>1</limit>
 			<source>SR5</source>
 			<page>311</page>
+		</power>
+		<power>
+			<name>Analytics</name>
+			<points>.5</points>
+			<levels>yes</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>169</page>
+		</power>
+		<power>
+			<name>Animal Empathy</name>
+			<points>.25</points>
+			<levels>yes</levels>
+			<bonus>
+				<specificskill>
+					<name>Animal Handling</name>
+					<bonus>Rating</bonus>
+				</specificskill>
+			</bonus>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>169</page>
+		</power>
+		<power>
+			<name>Berserk</name>
+			<points>1</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>169</page>
+		</power>
+		<power>
+			<name>Berserker's Rage</name>
+			<points>1</points>
+			<levels>no</levels>
+			<required>
+				<oneof>
+					<power>Berserk</power>
+				</oneof>
+			</required>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>169</page>
+		</power>
+		<power>
+			<name>Blind Fighting</name>
+			<points>.5</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>169</page>
+		</power>
+		<power>
+			<name>Cloak</name>
+			<points>.25</points>
+			<levels>yes</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>169</page>
+		</power>
+		<power>
+			<name>Cool Resolve</name>
+			<points>1</points>
+			<levels>yes</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>169</page>
+		</power>
+		<power>
+			<name>Commanding Voice</name>
+			<points>.25</points>
+			<levels>3</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>170</page>
+		</power>
+		<power>
+			<name>Counterstrike</name>
+			<points>1</points>
+			<levels>yes</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>170</page>
+		</power>
+		<power>
+			<name>Elemental Body</name>
+			<points>1</points>
+			<levels>no</levels>
+			<limit>100</limit>
+			<source>SG</source>
+			<page>170</page>
+		</power>
+		<power>
+			<name>Elemental Strike</name>
+			<points>.5</points>
+			<levels>no</levels>
+			<limit>100</limit>
+			<source>SG</source>
+			<page>170</page>
+		</power>
+		<power>
+			<name>Elemental Weapon</name>
+			<points>.5</points>
+			<levels>no</levels>
+			<limit>100</limit>
+			<source>SG</source>
+			<page>170</page>
+		</power>
+		<power>
+			<name>Empathic Healing</name>
+			<points>.5</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>171</page>
+		</power>
+		<power>
+			<name>Facial Sclupt</name>
+			<points>.25</points>
+			<levels>yes</levels>
+			<bonus>
+				<specificskill>
+					<name>Disguise</name>
+					<bonus>Rating</bonus>
+				</specificskill>
+			</bonus>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>171</page>
+		</power>
+		<power>
+			<name>Flexibility</name>
+			<points>.25</points>
+			<levels>3</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>171</page>
+		</power>
+		<power>
+			<name>Freefall</name>
+			<points>.25</points>
+			<levels>yes</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>171</page>
+		</power>
+		<power>
+			<name>Hang Time</name>
+			<points>.25</points>
+			<levels>yes</levels>
+			<bonus>
+				<specificskill>
+					<name>Climbing</name>
+					<bonus>Rating</bonus>
+				</specificskill>
+			</bonus>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>171</page>
+		</power>
+		<power>
+			<name>Inertia Strike</name>
+			<points>.5</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>172</page>
+		</power>
+		<power>
+			<name>Kinesics Mastery</name>
+			<points>.5</points>
+			<levels>no</levels>
+			<required>
+				<oneof>
+					<power>Kinesics</power>
+				</oneof>
+			</required>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>172</page>
+		</power>
+		<power>
+			<name>Linguistics</name>
+			<points>.25</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>172</page>
+		</power>
+		<power>
+			<name>Magic Sense</name>
+			<points>.5</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>172</page>
+		</power>
+		<power>
+			<name>Melanin Control</name>
+			<points>.5</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>172</page>
+		</power>
+		<power>
+			<name>Metabolic Control</name>
+			<points>.5</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>172</page>
+		</power>
+		<power>
+			<name>Missile Mastery</name>
+			<points>1</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>172</page>
+		</power>
+		<power>
+			<name>Motion Sense</name>
+			<points>.5</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>172</page>
+		</power>
+		<power>
+			<name>Nerve Strike</name>
+			<points>1</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>173</page>
+		</power>
+		<power>
+			<name>Nimble Fingers</name>
+			<points>.25</points>
+			<levels>no</levels>
+			<bonus>
+				<specificskill>
+					<name>Palming</name>
+					<bonus>1</bonus>
+				</specificskill>
+			</bonus>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>173</page>
+		</power>
+		<power>
+			<name>Pain Relief</name>
+			<points>1</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>173</page>
+		</power>
+		<power>
+			<name>Penetrating Strike</name>
+			<points>.25</points>
+			<levels>4</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>173</page>
+		</power>
+		<power>
+			<name>Plague Cloud</name>
+			<points>.5</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>173</page>
+		</power>
+		<power>
+			<name>Rapid Draw</name>
+			<points>.5</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>173</page>
+		</power>
+		<power>
+			<name>Riposte</name>
+			<points>.5</points>
+			<levels>yes</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>174</page>
+		</power>
+		<power>
+			<name>Skate</name>
+			<points>1</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>174</page>
+		</power>
+		<power>
+			<name>Smashing Blow</name>
+			<points>1</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>174</page>
+		</power>
+		<power>
+			<name>Spirit Claw</name>
+			<points>.25</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>174</page>
+		</power>
+		<power>
+			<name>Spirit Ram</name>
+			<points>.5</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>174</page>
+		</power>
+		<power>
+			<name>Stillness</name>
+			<points>.25</points>
+			<levels>3</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>174</page>
+		</power>
+		<power>
+			<name>Sustenance</name>
+			<points>.25</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>174</page>
+		</power>
+		<power>
+			<name>Temperature Tolerance</name>
+			<points>.25</points>
+			<levels>yes</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>175</page>
+		</power>
+		<power>
+			<name>Three-Dimensional Memory</name>
+			<points>.5</points>
+			<levels>no</levels>
+			<limit>1</limit>
+			<source>SG</source>
+			<page>175</page>
+		</power>
+		<power>
+			<name>Toxic Strike</name>
+			<points>.5</points>
+			<levels>no</levels>
+			<limit>100</limit>
+			<source>SG</source>
+			<page>176</page>
 		</power>
 	</powers>
 </chummer>

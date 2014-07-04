@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-500</version>
+	<version>-499</version>
 	<books>
 		<book>
 			<name>Assassin's Primer</name>
@@ -17,6 +17,10 @@
 		<book>
 			<name>Shadowrun 5th Edition</name>
 			<code>SR5</code>
+		</book>
+		<book>
+			<name>Street Grimoire</name>
+			<code>SG</code>
 		</book>
 	</books>
 </chummer>

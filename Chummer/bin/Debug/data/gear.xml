@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-500</version>
+	<version>-499</version>
 	<categories>
 		<category>Ammunition</category>
 		<category>Armor Enhancements</category>
@@ -1830,6 +1830,7 @@
 			<rating>0</rating>
 			<avail>0</avail>
 			<cost>1</cost>
+			<costfor>10</costfor>
 			<source>SR5</source>
 			<page>440</page>
 		</gear>		
@@ -1840,6 +1841,7 @@
 			<rating>0</rating>
 			<avail>0</avail>
 			<cost>5</cost>
+			<costfor>10</costfor>
 			<source>SR5</source>
 			<page>440</page>
 		</gear>		
@@ -1850,6 +1852,7 @@
 			<rating>0</rating>
 			<avail>3</avail>
 			<cost>5</cost>
+			<costfor>10</costfor>
 			<source>SR5</source>
 			<page>440</page>
 		</gear>		
@@ -1860,6 +1863,7 @@
 			<rating>0</rating>
 			<avail>5</avail>
 			<cost>40</cost>
+			<costfor>10</costfor>
 			<source>SR5</source>
 			<page>440</page>
 		</gear>		
@@ -1870,6 +1874,7 @@
 			<rating>0</rating>
 			<avail>7R</avail>
 			<cost>10</cost>
+			<costfor>10</costfor>
 			<source>SR5</source>
 			<page>440</page>
 		</gear>	
@@ -2427,14 +2432,7 @@
 			<rating>8</rating>
 			<minrating>2</minrating>
 			<capacity>[6]</capacity>
-			<gears>
-				<usegear>
-					<category>Sensor Functions</category>
-					<category>Audio Enhancements</category>
-					<category>Vision Enhancements</category>
-					<capacity>Rating</capacity>
-				</usegear>
-			</gears>
+			<armorcapacity>[6]</armorcapacity>
 			<avail>7</avail>
 			<cost>Rating * 1000</cost>
 			<source>SR5</source>
@@ -2446,14 +2444,7 @@
 			<rating>8</rating>
 			<minrating>2</minrating>
 			<capacity>[1]</capacity>
-			<gears>
-				<usegear>
-					<category>Sensor Functions</category>
-					<category>Audio Enhancements</category>
-					<category>Vision Enhancements</category>
-					<capacity>Rating</capacity>
-				</usegear>
-			</gears>
+			<armorcapacity>[1]</armorcapacity>
 			<avail>5</avail>
 			<cost>Rating * 100</cost>
 			<source>SR5</source>

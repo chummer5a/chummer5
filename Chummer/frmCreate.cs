@@ -15225,10 +15225,10 @@ namespace Chummer
 				if (_objCharacter.Metatype.EndsWith("A.I.") || _objCharacter.MetatypeCategory == "Technocritters" || _objCharacter.MetatypeCategory == "Protosapients")
 					_objCharacter.EDG.MetatypeMaximum = _objCharacter.Rating;
 
-				// Calculate Free Knowledge Skill Points. Free points = (INT + LOG) * 3.
+				// Calculate Free Knowledge Skill Points. Free points = (INT + LOG) * 2.
 				// Characters built using the Karma system do not get free Knowledge Skills.
 				if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority || (_objCharacter.BuildMethod == CharacterBuildMethod.Karma && _objOptions.FreeKarmaKnowledge))
-					_objCharacter.KnowledgeSkillPoints = (int)(nudINT.Value + nudLOG.Value) * 3;
+					_objCharacter.KnowledgeSkillPoints = (int)(nudINT.Value + nudLOG.Value) * 2;
 				else
 					_objCharacter.KnowledgeSkillPoints = 0;
 				lblKnowledgeSkillPoints.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", _objCharacter.KnowledgeSkillPoints.ToString(), _objCharacter.KnowledgeSkillPoints.ToString());

@@ -3149,7 +3149,19 @@ Only one attribute may be at its Maximum value during character creation.</text>
 			<key>Node_Social</key>
 			<text>Social</text>
 		</string>
-
+		<string>
+			<key>String_LimitPhysicalShort</key>
+			<text>Physical</text>
+		</string>
+		<string>
+			<key>String_LimitMentalShort</key>
+			<text>Mental</text>
+		</string>
+		<string>
+			<key>String_LimitSocialShort</key>
+			<text>Social</text>
+		</string>
+		
 		<!-- Critter Tab -->
 		<string>
 			<key>Button_AddCritterPower</key>
@@ -6853,6 +6865,10 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		<string>
 			<key>String_MetamagicSkillAspectedC</key>
 			<text>1 magical skill group to start at rating 2</text>
+		</string>
+		<string>
+			<key>String_MetamagicSkillAspectedD</key>
+			<text>1 magical skill group to start at rating 0</text>
 		</string>
 		<string>
 			<key>Message_Metatype_Duplicate</key>
