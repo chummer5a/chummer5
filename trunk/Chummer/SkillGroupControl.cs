@@ -37,8 +37,8 @@ namespace Chummer
 
 			if (_blnCareer)
 			{
-				if (_objSkillGroup.RatingMaximum < 6)
-					_objSkillGroup.RatingMaximum = 6;
+				if (_objSkillGroup.RatingMaximum < 12)
+					_objSkillGroup.RatingMaximum = 12;
 				nudSkill.Maximum = _objSkillGroup.RatingMaximum;
 				nudSkill.Visible = false;
 				cmdImproveSkill.Visible = true;

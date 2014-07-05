@@ -136,6 +136,10 @@
 					<bonus>
 						<specificpower>
 							<name>Enhanced Accuracy (skill)</name>
+							<selectskill>
+								<val>1</val>
+								<applytorating>no</applytorating>
+							</selectskill>
 							<val>1</val>
 						</specificpower>
 						<specificpower>
@@ -524,6 +528,10 @@
 					<bonus>
 						<specificpower>
 							<name>Improved Ability (skill)</name>
+							<selectskill skillcategory="Combat Active">
+								<val>1</val>
+								<applytorating>no</applytorating>
+							</selectskill>
 							<val>1</val>
 						</specificpower>
 					</bonus>

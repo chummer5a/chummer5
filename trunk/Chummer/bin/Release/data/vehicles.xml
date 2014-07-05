@@ -31,6 +31,9 @@
 			<armor>4</armor>
 			<seats>1</seats>
 			<sensor>1</sensor>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>0</avail>
 			<cost>3000</cost>
 			<source>SR5</source>
@@ -47,6 +50,9 @@
 			<armor>9</armor>
 			<seats>1</seats>
 			<sensor>2</sensor>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>0</avail>
 			<cost>12000</cost>
 			<source>SR5</source>
@@ -63,6 +69,9 @@
 			<armor>5</armor>
 			<seats>1</seats>
 			<sensor>1</sensor>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>0</avail>
 			<cost>0500</cost>
 			<source>SR5</source>
@@ -79,6 +88,9 @@
 			<armor>6</armor>
 			<seats>1</seats>
 			<sensor>2</sensor>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>0</avail>
 			<cost>8500</cost>
 			<source>SR5</source>
@@ -95,6 +107,9 @@
 			<armor>4</armor>
 			<sensor>2</sensor>
 			<seats>2</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>0</avail>
 			<cost>10000</cost>
 			<source>SR5</source>
@@ -111,6 +126,9 @@
 			<armor>8</armor>
 			<sensor>5</sensor>
 			<seats>2</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>13</avail>
 			<cost>110000</cost>
 			<source>SR5</source>
@@ -127,6 +145,9 @@
 			<armor>6</armor>
 			<sensor>2</sensor>
 			<seats>2</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>0</avail>
 			<cost>12000</cost>
 			<source>SR5</source>
@@ -143,6 +164,9 @@
 			<armor>6</armor>
 			<sensor>2</sensor>
 			<seats>4</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>0</avail>
 			<cost>28500</cost>
 			<source>SR5</source>
@@ -159,6 +183,9 @@
 			<armor>15</armor>
 			<sensor>5</sensor>
 			<seats>8</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>16</avail>
 			<cost>320000</cost>
 			<source>SR5</source>
@@ -175,6 +202,9 @@
 			<armor>6</armor>
 			<sensor>2</sensor>
 			<seats>4</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>0</avail>
 			<cost>16000</cost>
 			<source>SR5</source>
@@ -191,6 +221,9 @@
 			<armor>12</armor>
 			<sensor>4</sensor>
 			<seats>4</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>10</avail>
 			<cost>65000</cost>
 			<source>SR5</source>
@@ -207,6 +240,9 @@
 			<armor>12</armor>
 			<sensor>4</sensor>
 			<seats>6</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>10</avail>
 			<cost>68000</cost>
 			<source>SR5</source>
@@ -223,6 +259,9 @@
 			<armor>10</armor>
 			<sensor>2</sensor>
 			<seats>3</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>0</avail>
 			<cost>25000</cost>
 			<source>SR5</source>
@@ -239,6 +278,9 @@
 			<armor>12</armor>
 			<sensor>2</sensor>
 			<seats>6</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>0</avail>
 			<cost>35000</cost>
 			<source>SR5</source>
@@ -255,6 +297,9 @@
 			<armor>18</armor>
 			<sensor>3</sensor>
 			<seats>8</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>4</avail>
 			<cost>52000</cost>
 			<source>SR5</source>
@@ -277,7 +322,7 @@
 				<name>Amenities, Squatter</name>
 			</mods>
 			<gears>
-				<gear>Vehicle Sensor</gear>
+				<gear>Sensor Array</gear>
 			</gears>
 			<source>AR</source>
 			<page>110</page>
@@ -293,6 +338,9 @@
 			<armor>6</armor>
 			<sensor>2</sensor>
 			<seats>8</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>0</avail>
 			<cost>21000</cost>
 			<source>SR5</source>
@@ -309,6 +357,9 @@
 			<armor>6</armor>
 			<sensor>1</sensor>
 			<seats>3</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>8</avail>
 			<cost>37000</cost>
 			<source>SR5</source>
@@ -331,6 +382,9 @@
 				<name>Heavy Weapon Mount, Manual</name>
 				<name>Heavy Weapon Mount, Manual</name>
 			</mods>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<source>SR5</source>
 			<page>454</page>
 		</vehicle>
@@ -352,7 +406,7 @@
 				<name>Drone Rack, Small Landing</name>
 			</mods>
 			<gears>
-				<gear>Vehicle Sensor</gear>
+				<gear>Sensor Array</gear>
 			</gears>
 			<source>AR</source>
 			<page>112</page>
@@ -368,6 +422,9 @@
 			<armor>10</armor>
 			<sensor>4</sensor>
 			<seats>2</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>10</avail>
 			<cost>108000</cost>
 			<source>SR5</source>
@@ -384,6 +441,9 @@
 			<armor>0</armor>
 			<sensor>1</sensor>
 			<seats>1</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>8</avail>
 			<cost>20000</cost>
 			<source>SR5</source>
@@ -400,6 +460,9 @@
 			<armor>4</armor>
 			<sensor>2</sensor>
 			<seats>4</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>8</avail>
 			<cost>146000</cost>
 			<source>SR5</source>
@@ -416,6 +479,9 @@
 			<armor>10</armor>
 			<sensor>3</sensor>
 			<seats>24</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>12</avail>
 			<cost>300000</cost>
 			<source>SR5</source>
@@ -432,6 +498,9 @@
 			<armor>8</armor>
 			<sensor>3</sensor>
 			<seats>18</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>12</avail>
 			<cost>355000</cost>
 			<source>SR5</source>
@@ -454,6 +523,9 @@
 				<name>Weapon Mount</name>
 				<name>Weapon Mount</name>
 			</mods>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<source>SR5</source>
 			<page>464</page>
 		</vehicle>
@@ -473,6 +545,9 @@
 			<mods>
 				<name>Heavy Weapon Mount</name>
 			</mods>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<source>SR5</source>
 			<page>465</page>
 		</vehicle>
@@ -487,6 +562,9 @@
 			<armor>14</armor>
 			<sensor>4</sensor>
 			<seats>6</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>12F</avail>
 			<cost>400000</cost>
 			<source>SR5</source>
@@ -503,6 +581,9 @@
 			<armor>18</armor>
 			<sensor>6</sensor>
 			<seats>12</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>24F</avail>
 			<cost>2500000</cost>
 			<source>SR5</source>
@@ -519,6 +600,9 @@
 			<armor>8</armor>
 			<sensor>3</sensor>
 			<seats>30</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>16</avail>
 			<cost>350000</cost>
 			<source>SR5</source>
@@ -535,6 +619,9 @@
 			<armor>0</armor>
 			<sensor>3</sensor>
 			<seats>0</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>8</avail>
 			<cost>1000</cost>
 			<source>SR5</source>
@@ -551,6 +638,9 @@
 			<armor>0</armor>
 			<sensor>3</sensor>
 			<seats>0</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>6</avail>
 			<cost>1000</cost>
 			<source>SR5</source>
@@ -567,6 +657,9 @@
 			<armor>0</armor>
 			<sensor>3</sensor>
 			<seats>0</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>8</avail>
 			<cost>2000</cost>
 			<source>SR5</source>
@@ -586,6 +679,7 @@
 			<gears>
 				<gear>Grenade: Flash-Pak</gear>
 				<gear>Grenade: Smoke</gear>
+				<gear>Sensor Array</gear>
 			</gears>
 			<avail>8</avail>
 			<cost>2000</cost>
@@ -603,6 +697,9 @@
 			<armor>0</armor>
 			<sensor>3</sensor>
 			<seats>0</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>8</avail>
 			<cost>2000</cost>
 			<source>SR5</source>
@@ -619,6 +716,9 @@
 			<armor>3</armor>
 			<sensor>3</sensor>
 			<seats>0</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>4</avail>
 			<cost>4000</cost>
 			<source>SR5</source>
@@ -635,6 +735,9 @@
 			<armor>2</armor>
 			<sensor>3</sensor>
 			<seats>0</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>10</avail>
 			<cost>21000</cost>
 			<source>SR5</source>
@@ -655,6 +758,9 @@
 				<name>Weapon Mount (Sword)</name>
 				<name>Weapon Mount (Sword)</name>
 			</mods>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>5R</avail>
 			<cost>4500</cost>
 			<source>SR5</source>
@@ -676,6 +782,9 @@
 			<mods>
 				<name>Weapon Mount</name>
 			</mods>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<source>SR5</source>
 			<page>466</page>
 		</vehicle>
@@ -690,6 +799,9 @@
 			<armor>4</armor>
 			<sensor>3</sensor>
 			<seats>0</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>6</avail>
 			<cost>5000</cost>
 			<source>SR5</source>
@@ -706,6 +818,9 @@
 			<armor>5</armor>
 			<sensor>3</sensor>
 			<seats>0</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>6R</avail>
 			<cost>10000</cost>
 			<source>SR5</source>
@@ -722,6 +837,9 @@
 			<armor>12</armor>
 			<sensor>3</sensor>
 			<seats>0</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
 			<avail>10R</avail>
 			<cost>25000</cost>
 			<mods>

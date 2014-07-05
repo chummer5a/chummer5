@@ -366,11 +366,11 @@
 		</string>
 		<string>
 			<key>Label_PriorityHeritage</key>
-			<text>Heritage:</text>
+			<text>Metatype:</text>
 		</string>
 		<string>
 			<key>Label_PriorityTalent</key>
-			<text>Talent:</text>
+			<text>Magic or Resonance:</text>
 		</string>
 		<string>
 			<key>Label_PriorityAttributes</key>
@@ -378,11 +378,11 @@
 		</string>
 		<string>
 			<key>Label_PrioritySkills</key>
-			<text>Skills/Skill Groups:</text>
+			<text>Skills:</text>
 		</string>
 		<string>
 			<key>Label_PriorityResources</key>
-			<text>Resources/Contacts:</text>
+			<text>Resources:</text>
 		</string>
 		<string>
 			<key>Label_ActiveSkill</key>
@@ -5540,7 +5540,7 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		</string>
 		<string>
 			<key>Checkbox_Options_UseRestrictionsToRecoilCompensation</key>
-			<text>Use Restrictions to Recoil Compensation (AR 148)</text>
+			<text>Use Restrictions to Recoil Compensation (RG 53)</text>
 		</string>
 		<string>
 			<key>Checkbox_Options_AutomaticCopyProtection</key>
@@ -5779,7 +5779,7 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		<!-- Select BP Window -->
 		<string>
 			<key>Title_SelectBP</key>
-			<text>Choose BP Amount</text>
+			<text>Select Build Method</text>
 		</string>
 		<string>
 			<key>Label_SelectBP_MaxAvail</key>

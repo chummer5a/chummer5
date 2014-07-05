@@ -72,6 +72,9 @@ namespace Chummer
 			// Populate the Gear Category list.
 			if (_strAllowedCategories != "")
 			{
+                if (_strAllowedCategories.EndsWith(","))
+                    _strAllowedCategories = _strAllowedCategories.Substring(0, _strAllowedCategories.Length - 1);
+
 				if (_strAllowedCategories != "Ammunition")
 					nudGearQty.Enabled = false;
 				string[] strAllowed = _strAllowedCategories.Split(',');

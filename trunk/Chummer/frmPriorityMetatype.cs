@@ -327,7 +327,7 @@ namespace Chummer
             {
                 if (cboTalent.SelectedValue.ToString() == "A")
                 {
-                    if (cboTalents.SelectedValue.ToString() == "Magician")
+                    if (cboTalents.SelectedValue.ToString() == "Magician" || cboTalents.SelectedValue.ToString() == "Mystic Adept")
                     {
                         strLabel = String.Format(strLabel, LanguageManager.Instance.GetString("String_MetamagicSkillMagicianA"));
                         lblMetatypeSkillSelection.Text = strLabel;
@@ -392,7 +392,7 @@ namespace Chummer
                 }
                 else if (cboTalent.SelectedValue.ToString() == "B")
                 {
-                    if (cboTalents.SelectedValue.ToString() == "Magician")
+                    if (cboTalents.SelectedValue.ToString() == "Magician" || cboTalents.SelectedValue.ToString() == "Mystic Adept")
                     {
                         strLabel = String.Format(strLabel, LanguageManager.Instance.GetString("String_MetamagicSkillMagicianB"));
                         lblMetatypeSkillSelection.Text = strLabel;
@@ -767,6 +767,9 @@ namespace Chummer
             LoadMetatypes();
             lstMetatypes.SelectedValue = strMetatype;
             PopulateTalents();
+
+            if (cboTalent.SelectedValue.ToString() == "E")
+                cboTalents.SelectedIndex = 0;
         }
 
         private void cboTalent_SelectedIndexChanged(object sender, EventArgs e)
@@ -853,6 +856,9 @@ namespace Chummer
             LoadMetatypes();
             lstMetatypes.SelectedValue = strMetatype;
             PopulateTalents();
+
+            if (cboTalent.SelectedValue.ToString() == "E")
+                cboTalents.SelectedIndex = 0;
         }
 
         private void cboSkills_SelectedIndexChanged(object sender, EventArgs e)
@@ -894,6 +900,9 @@ namespace Chummer
             LoadMetatypes();
             lstMetatypes.SelectedValue = strMetatype;
             PopulateTalents();
+
+            if (cboTalent.SelectedValue.ToString() == "E")
+                cboTalents.SelectedIndex = 0;
         }
 
         private void cboResources_SelectedIndexChanged(object sender, EventArgs e)
@@ -935,6 +944,9 @@ namespace Chummer
             LoadMetatypes();
             lstMetatypes.SelectedValue = strMetatype;
             PopulateTalents();
+
+            if (cboTalent.SelectedValue.ToString() == "E")
+                cboTalents.SelectedIndex = 0;
         }
         #endregion
 

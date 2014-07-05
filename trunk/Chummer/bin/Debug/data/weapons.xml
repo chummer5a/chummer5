@@ -6004,10 +6004,13 @@
 			<page>433</page>
 		</accessory>
 		<accessory>
-			<name>Spare Clips</name>
+			<name>Spare Clip</name>
 			<mount/>
 			<avail>4</avail>
 			<cost>5</cost>
+			<allowgear>
+				<gearcategory>Ammunition</gearcategory>
+			</allowgear>
 			<source>SR5</source>
 			<page>433</page>
 		</accessory>

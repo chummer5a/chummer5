@@ -14539,8 +14539,8 @@ namespace Chummer
 
             if (nudMysticAdeptMAGMagician.Value > 0)
             {
-                intPointsRemain -= Convert.ToInt32(nudMysticAdeptMAGMagician.Value) * 2;
-                intPointsUsed = Convert.ToInt32(nudMysticAdeptMAGMagician.Value) * 2;
+                intPointsRemain -= Convert.ToInt32(nudMysticAdeptMAGMagician.Value) * 5;
+                intPointsUsed = Convert.ToInt32(nudMysticAdeptMAGMagician.Value) * 5;
             }
 
             // Include the BP used by Martial Arts.
@@ -16337,6 +16337,7 @@ namespace Chummer
 				lblWeaponSlots.Text = "6 (" + objWeapon.SlotsRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 				lblWeaponDicePool.Text = objWeapon.DicePool;
 				tipTooltip.SetToolTip(lblWeaponDicePool, objWeapon.DicePoolTooltip);
+                tipTooltip.SetToolTip(lblWeaponRC, objWeapon.RCToolTip);
 
 				UpdateCharacterInfo();
 			}
@@ -16947,6 +16948,11 @@ namespace Chummer
                             objSkill.RatingMaximum = 12;
                         else if (objSkill.RatingMaximum == 7)
                             objSkill.RatingMaximum = 13;
+                    }
+                    foreach (SkillGroup objSkillGroup in _objCharacter.SkillGroups)
+                    {
+                        if (objSkillGroup.RatingMaximum == 6)
+                            objSkillGroup.RatingMaximum = 12;
                     }
                 }
 

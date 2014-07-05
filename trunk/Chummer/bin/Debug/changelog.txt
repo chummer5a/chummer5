@@ -1,3 +1,37 @@
+Build 5.111 (beta)
+- Added Rigger Control Consoles.
+- Added a tooltip for weapon Recoil Compensation that shows the sources of RC and their values.
+- Fixed Priority D Aspected Magician so that it still requires a skill group selection.
+- Fixed a bug that caused an unhandled exception when adding a skill group that includes a skill given free ranks from a priority selection.
+- Fixed the Negative Quality Incompetent to require selecting a skill group, not a single skill.
+- Fixed the cost of the Positive Quality Strive for Perfection.
+- Changed the name of the Natural Immunity qualities to Natural Immunity (Natural) and Natural Immunity (Synthetic). In addition, these qualities are no longer limited to selecting only one of them once.  Whether these should be restricted as such is a GM call.
+- Fixed qualities available at multiple ratings so that once that quality is selected at whatever rating, all ratings of that quality no longer appear available for selection.
+- Made Resistance to Toxins, Resistance to Pathogens, and Resistance to Pathogens and Toxins mutually exclusive.
+- Corrected Positive Quality Agile Defender's karma cost.
+- Corrected Positive Quality Resistance to Toxins' karma cost.
+- Changed the Positive Qualities Lucky and Exceptional Attribute so that they are no longer compatible.
+- Changed the Positive Qualities Rad-Tolerant and Radiation Sponge so that they are no longer compatible.
+- Fixed Positive Qualities which grant a bonus to a skill so that they grant that bonus even when defaulting.
+- Removed the 4th edition limitation upon skills that limited skill bonuses to half of the skill rating.
+- Fixed the Positive Quality Spirit Affinity to require that the character is an Aspected Magician, Magician, or Mystic Adept.
+- Cleaned up the Priorities dialog and reordered the fields to match the Priority table on page 65.
+- Removed two options from the Options dialog that no longer apply in 5th edition.
+- Fixed a book reference on the Options dialog.
+- Fixed the Critical Strike Power by correcting its price, making it ask for a weapon category, and applying a +1 DV bonus to the selected category.
+- Fixed the spells that were missing the text entry dialog such as Corrode [Ojbect].
+- Fixed the powers that were missing the text entry dialog such as Elemental Strike.
+- Fixed Skill Groups so that they use a maximum rating of 6 during character creation and a maximum rating of 12 during character advancement.
+- Fixed the priority selection dialog so that it shows the correct augmented maximums.
+- Fixed a case where your Magic and Resonance priority could be given an "E" priority and it wasn't auto-selecting Mundane.
+- Fixed an issue preventing spare clips from being added as gear to firearms and preventing adding ammunition to spare clips.
+- Fixed a lot of bugs relating to sensors, vehicle sensors, and sensor functions. I think I've got it right but please feel free to tell me how wrong I am.
+- Fixed skill rating calculation for Mystic Adepts for skills based on Magic.
+- Fixed a bug preventing bonus skill selection from appearing for Mystic Adepts while selecting priorities.
+- Updated Mystic Adept Power Point cost to use the Errata value of 5 karma. I will add this as an option at a later date when I'm able to flesh out the Options dialog.
+- Fixed the Wise Warrior Mentor Spirit so that the Improved Ability (skill) applies correctly.
+- Fixed the Dragonslayer Mentor Spirit so that the Enhanced Accuracy (skill) applies correctly.
+
 Build 5.110 (beta)
 - Added the entry for Street Grimoire (SG).
 - Added the Traditions from SG.

@@ -286,9 +286,12 @@ namespace Chummer
             {
 				if (value > _objSkill.RatingMaximum)
 					value = _objSkill.RatingMaximum;
+                if (value < _objSkill.FreeLevels)
+                    value = _objSkill.FreeLevels;
+
                 nudSkill.Value = value;
-				lblSkillRating.Text = value.ToString();
-				_objSkill.Rating = value;
+                lblSkillRating.Text = value.ToString();
+                _objSkill.Rating = value;
 
 				if (value < _objSkill.RatingMaximum)
 				{
@@ -669,15 +672,15 @@ namespace Chummer
 				strTooltip += " - " + LanguageManager.Instance.GetString("Tip_Skill_Defaulting") + " (1)";
 			if ((!_objSkill.Default && intSkillRating > 0) || _objSkill.Default)
 			{
-				if (_objSkill.Attribute == "MAG" && _objSkill.CharacterObject.AdeptEnabled && _objSkill.CharacterObject.MagicianEnabled)
-				{
-					// The character is a Mystic Adept, so only the MAG invested in Magician counts towards the Skill.
-					strTooltip += " + " + LanguageManager.Instance.GetString("String_Attribute" + _objSkill.Attribute + "Short") + " (" + _objSkill.CharacterObject.MAGMagician.ToString() + ")";
-				}
-				else
-				{
+                //if (_objSkill.Attribute == "MAG" && _objSkill.CharacterObject.AdeptEnabled && _objSkill.CharacterObject.MagicianEnabled)
+                //{
+                //    // The character is a Mystic Adept, so only the MAG invested in Magician counts towards the Skill.
+                //    strTooltip += " + " + LanguageManager.Instance.GetString("String_Attribute" + _objSkill.Attribute + "Short") + " (" + _objSkill.CharacterObject.MAGMagician.ToString() + ")";
+                //}
+                //else
+                //{
 					strTooltip += " + " + LanguageManager.Instance.GetString("String_Attribute" + _objSkill.Attribute + "Short") + " (" + _objSkill.AttributeModifiers.ToString() + ")";
-				}
+                //}
 			}
 
 			// Modifiers only apply when not Defaulting.

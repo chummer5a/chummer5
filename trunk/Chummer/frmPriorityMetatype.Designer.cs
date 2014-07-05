@@ -72,13 +72,13 @@
             this.Label3 = new System.Windows.Forms.Label();
             this.lstMetatypes = new System.Windows.Forms.ListBox();
             this.pnlMetatypes = new System.Windows.Forms.Panel();
+            this.lblMetatypeSkillSelection = new System.Windows.Forms.Label();
+            this.cboSkill1 = new System.Windows.Forms.ComboBox();
+            this.cboSkill2 = new System.Windows.Forms.ComboBox();
             this.cboTalents = new System.Windows.Forms.ComboBox();
             this.lblSpecial = new System.Windows.Forms.Label();
             this.lblSpecialAttributes = new System.Windows.Forms.Label();
             this.tipTooltip = new System.Windows.Forms.ToolTip(this.components);
-            this.cboSkill2 = new System.Windows.Forms.ComboBox();
-            this.cboSkill1 = new System.Windows.Forms.ComboBox();
-            this.lblMetatypeSkillSelection = new System.Windows.Forms.Label();
             this.pnlPriorities.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudForce)).BeginInit();
             this.pnlMetatypes.SuspendLayout();
@@ -116,10 +116,10 @@
             this.lblResourcesLabel.AutoSize = true;
             this.lblResourcesLabel.Location = new System.Drawing.Point(1, 112);
             this.lblResourcesLabel.Name = "lblResourcesLabel";
-            this.lblResourcesLabel.Size = new System.Drawing.Size(108, 13);
+            this.lblResourcesLabel.Size = new System.Drawing.Size(61, 13);
             this.lblResourcesLabel.TabIndex = 110;
             this.lblResourcesLabel.Tag = "Label_PriorityResources";
-            this.lblResourcesLabel.Text = "Resources/Contacts:";
+            this.lblResourcesLabel.Text = "Resources:";
             // 
             // cboSkills
             // 
@@ -136,25 +136,25 @@
             this.lblSkillsLabel.AutoSize = true;
             this.lblSkillsLabel.Location = new System.Drawing.Point(1, 85);
             this.lblSkillsLabel.Name = "lblSkillsLabel";
-            this.lblSkillsLabel.Size = new System.Drawing.Size(95, 13);
+            this.lblSkillsLabel.Size = new System.Drawing.Size(31, 13);
             this.lblSkillsLabel.TabIndex = 108;
             this.lblSkillsLabel.Tag = "Label_PrioritySkills";
-            this.lblSkillsLabel.Text = "Skills/Skill Groups:";
+            this.lblSkillsLabel.Text = "Skills";
             // 
             // cboAttributes
             // 
             this.cboAttributes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAttributes.FormattingEnabled = true;
-            this.cboAttributes.Location = new System.Drawing.Point(182, 55);
+            this.cboAttributes.Location = new System.Drawing.Point(182, 28);
             this.cboAttributes.Name = "cboAttributes";
             this.cboAttributes.Size = new System.Drawing.Size(286, 21);
-            this.cboAttributes.TabIndex = 3;
+            this.cboAttributes.TabIndex = 2;
             this.cboAttributes.SelectedIndexChanged += new System.EventHandler(this.cboAttributes_SelectedIndexChanged);
             // 
             // lblAttributesLabel
             // 
             this.lblAttributesLabel.AutoSize = true;
-            this.lblAttributesLabel.Location = new System.Drawing.Point(1, 58);
+            this.lblAttributesLabel.Location = new System.Drawing.Point(1, 31);
             this.lblAttributesLabel.Name = "lblAttributesLabel";
             this.lblAttributesLabel.Size = new System.Drawing.Size(54, 13);
             this.lblAttributesLabel.TabIndex = 106;
@@ -165,21 +165,21 @@
             // 
             this.cboTalent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTalent.FormattingEnabled = true;
-            this.cboTalent.Location = new System.Drawing.Point(182, 28);
+            this.cboTalent.Location = new System.Drawing.Point(182, 55);
             this.cboTalent.Name = "cboTalent";
             this.cboTalent.Size = new System.Drawing.Size(286, 21);
-            this.cboTalent.TabIndex = 2;
+            this.cboTalent.TabIndex = 3;
             this.cboTalent.SelectedIndexChanged += new System.EventHandler(this.cboTalent_SelectedIndexChanged);
             // 
             // lblTalentLabel
             // 
             this.lblTalentLabel.AutoSize = true;
-            this.lblTalentLabel.Location = new System.Drawing.Point(1, 31);
+            this.lblTalentLabel.Location = new System.Drawing.Point(1, 58);
             this.lblTalentLabel.Name = "lblTalentLabel";
-            this.lblTalentLabel.Size = new System.Drawing.Size(40, 13);
+            this.lblTalentLabel.Size = new System.Drawing.Size(109, 13);
             this.lblTalentLabel.TabIndex = 104;
             this.lblTalentLabel.Tag = "Label_PriorityTalent";
-            this.lblTalentLabel.Text = "Talent:";
+            this.lblTalentLabel.Text = "Magic or Resonance:";
             // 
             // cboHeritage
             // 
@@ -196,10 +196,10 @@
             this.lblHeritageLabel.AutoSize = true;
             this.lblHeritageLabel.Location = new System.Drawing.Point(1, 4);
             this.lblHeritageLabel.Name = "lblHeritageLabel";
-            this.lblHeritageLabel.Size = new System.Drawing.Size(50, 13);
+            this.lblHeritageLabel.Size = new System.Drawing.Size(54, 13);
             this.lblHeritageLabel.TabIndex = 102;
             this.lblHeritageLabel.Tag = "Label_PriorityHeritage";
-            this.lblHeritageLabel.Text = "Heritage:";
+            this.lblHeritageLabel.Text = "Metatype:";
             // 
             // chkBloodSpirit
             // 
@@ -587,6 +587,37 @@
             this.pnlMetatypes.Size = new System.Drawing.Size(472, 354);
             this.pnlMetatypes.TabIndex = 36;
             // 
+            // lblMetatypeSkillSelection
+            // 
+            this.lblMetatypeSkillSelection.Location = new System.Drawing.Point(182, 147);
+            this.lblMetatypeSkillSelection.Name = "lblMetatypeSkillSelection";
+            this.lblMetatypeSkillSelection.Size = new System.Drawing.Size(286, 28);
+            this.lblMetatypeSkillSelection.TabIndex = 75;
+            this.lblMetatypeSkillSelection.Tag = "String_MetamagicSkillBase";
+            this.lblMetatypeSkillSelection.Text = "Based on your talent selection, you may choose 2 magical skills to start at ratin" +
+    "g 5.";
+            this.lblMetatypeSkillSelection.Visible = false;
+            // 
+            // cboSkill1
+            // 
+            this.cboSkill1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSkill1.FormattingEnabled = true;
+            this.cboSkill1.Location = new System.Drawing.Point(182, 178);
+            this.cboSkill1.Name = "cboSkill1";
+            this.cboSkill1.Size = new System.Drawing.Size(286, 21);
+            this.cboSkill1.TabIndex = 9;
+            this.cboSkill1.Visible = false;
+            // 
+            // cboSkill2
+            // 
+            this.cboSkill2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSkill2.FormattingEnabled = true;
+            this.cboSkill2.Location = new System.Drawing.Point(182, 205);
+            this.cboSkill2.Name = "cboSkill2";
+            this.cboSkill2.Size = new System.Drawing.Size(286, 21);
+            this.cboSkill2.TabIndex = 10;
+            this.cboSkill2.Visible = false;
+            // 
             // cboTalents
             // 
             this.cboTalents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -626,37 +657,6 @@
             this.tipTooltip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.tipTooltip.ToolTipTitle = "Chummer Help";
             // 
-            // cboSkill2
-            // 
-            this.cboSkill2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSkill2.FormattingEnabled = true;
-            this.cboSkill2.Location = new System.Drawing.Point(182, 205);
-            this.cboSkill2.Name = "cboSkill2";
-            this.cboSkill2.Size = new System.Drawing.Size(286, 21);
-            this.cboSkill2.TabIndex = 10;
-            this.cboSkill2.Visible = false;
-            // 
-            // cboSkill1
-            // 
-            this.cboSkill1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSkill1.FormattingEnabled = true;
-            this.cboSkill1.Location = new System.Drawing.Point(182, 178);
-            this.cboSkill1.Name = "cboSkill1";
-            this.cboSkill1.Size = new System.Drawing.Size(286, 21);
-            this.cboSkill1.TabIndex = 9;
-            this.cboSkill1.Visible = false;
-            // 
-            // lblMetatypeSkillSelection
-            // 
-            this.lblMetatypeSkillSelection.Location = new System.Drawing.Point(182, 147);
-            this.lblMetatypeSkillSelection.Name = "lblMetatypeSkillSelection";
-            this.lblMetatypeSkillSelection.Size = new System.Drawing.Size(286, 28);
-            this.lblMetatypeSkillSelection.TabIndex = 75;
-            this.lblMetatypeSkillSelection.Tag = "String_MetamagicSkillBase";
-            this.lblMetatypeSkillSelection.Text = "Based on your talent selection, you may choose 2 magical skills to start at ratin" +
-    "g 5.";
-            this.lblMetatypeSkillSelection.Visible = false;
-            // 
             // frmPriorityMetatype
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -668,7 +668,7 @@
             this.Controls.Add(this.pnlMetatypes);
             this.Name = "frmPriorityMetatype";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Select a Metatype";
+            this.Text = "Choose Character Priorities";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPriorityMetatype_FormClosed);
             this.Load += new System.EventHandler(this.frmPriorityMetatype_Load);
             this.pnlPriorities.ResumeLayout(false);
