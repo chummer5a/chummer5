@@ -4210,6 +4210,7 @@ namespace Chummer
 		private bool _blnDiscountCost = false;
 		private bool _blnRequireAmmo = true;
         private string _strAccuracy = "";
+        private string _strRCTip = "";
 
 		private readonly Character _objCharacter;
 
@@ -6281,6 +6282,7 @@ namespace Chummer
 				string strRCBase = "0";
 				string strRCFull = "0";
 				string strRC = "";
+                string strRCTip = "";
 				int intRCBase = 0;
 				int intRCFull = 0;
 				int intRCModifier = 0;
@@ -6290,6 +6292,11 @@ namespace Chummer
 				int intRCGroup3 = 0;
 				int intRCGroup4 = 0;
 				int intRCGroup5 = 0;
+                string strRCGroup1 = "";
+                string strRCGroup2 = "";
+                string strRCGroup3 = "";
+                string strRCGroup4 = "";
+                string strRCGroup5 = "";
 
 				if (_strRC.Contains("("))
 				{
@@ -6312,6 +6319,8 @@ namespace Chummer
 					strRCBase = _strRC;
 					strRCFull = _strRC;
 				}
+
+                strRCTip = "Base (" + strRCBase + ")";
 
 				intRCBase = Convert.ToInt32(strRCBase);
 				intRCFull = Convert.ToInt32(strRCFull.Replace("(", string.Empty).Replace(")", string.Empty));
@@ -6343,6 +6352,8 @@ namespace Chummer
 							{
 								intRCBase += Convert.ToInt32(objGear.WeaponBonus["rc"].InnerText);
 								intRCFull += Convert.ToInt32(objGear.WeaponBonus["rc"].InnerText);
+
+                                strRCTip += " + " + objGear.Name + " (" + objGear.WeaponBonus["rc"].InnerText + ")";
 							}
 						}
 					}
@@ -6370,24 +6381,39 @@ namespace Chummer
 							switch (objAccessory.RCGroup)
 							{
 								case 1:
-									if (intRCGroup1 < intItemRC)
-										intRCGroup1 = intItemRC;
+                                    if (intRCGroup1 < intItemRC)
+                                    {
+                                        intRCGroup1 = intItemRC;
+                                        strRCGroup1 = objAccessory.Name;
+                                    }
 									break;
 								case 2:
 									if (intRCGroup2 < intItemRC)
-										intRCGroup2 = intItemRC;
+                                    {
+                                        intRCGroup2 = intItemRC;
+                                        strRCGroup2 = objAccessory.Name;
+                                    }
 									break;
 								case 3:
 									if (intRCGroup3 < intItemRC)
-										intRCGroup3 = intItemRC;
+                                    {
+                                        intRCGroup3 = intItemRC;
+                                        strRCGroup3 = objAccessory.Name;
+                                    }
 									break;
 								case 4:
 									if (intRCGroup4 < intItemRC)
-										intRCGroup4 = intItemRC;
+                                    {
+                                        intRCGroup4 = intItemRC;
+                                        strRCGroup4 = objAccessory.Name;
+                                    }
 									break;
 								case 5:
 									if (intRCGroup5 < intItemRC)
-										intRCGroup5 = intItemRC;
+                                    {
+                                        intRCGroup5 = intItemRC;
+                                        strRCGroup5 = objAccessory.Name;
+                                    }
 									break;
 							}
 						}
@@ -6410,12 +6436,28 @@ namespace Chummer
 				intRCBase += intRCGroup1 + intRCGroup2 + intRCGroup3 + intRCGroup4 + intRCGroup5;
 				intRCFull += intRCGroup1 + intRCGroup2 + intRCGroup3 + intRCGroup4 + intRCGroup5;
 
-				// If the optional rule for a character's Strength affecting Recoil, factor that in.
+                if (strRCGroup1 != string.Empty)
+                    strRCTip += " + " + strRCGroup1 + " (" + intRCGroup1.ToString() + ")";
+
+                if (strRCGroup2 != string.Empty)
+                    strRCTip += " + " + strRCGroup2 + " (" + intRCGroup2.ToString() + ")";
+
+                if (strRCGroup3 != string.Empty)
+                    strRCTip += " + " + strRCGroup3 + " (" + intRCGroup3.ToString() + ")";
+
+                if (strRCGroup4 != string.Empty)
+                    strRCTip += " + " + strRCGroup4 + " (" + intRCGroup4.ToString() + ")";
+
+                if (strRCGroup5 != string.Empty)
+                    strRCTip += " + " + strRCGroup5 + " (" + intRCGroup5.ToString() + ")";
+
+                // If the optional rule for a character's Strength affecting Recoil, factor that in.
 				if (!_blnVehicleMounted)
 				{
 					intRCBase += (_objCharacter.STR.TotalValue + 2) / 3;
                     intRCFull += (_objCharacter.STR.TotalValue + 2) / 3;
-				}
+                    strRCTip += " + STR [" + _objCharacter.STR.TotalValue.ToString() + "] (" + ((_objCharacter.STR.TotalValue + 2) / 3).ToString() + ")";
+                }
 
 				// If the full RC is not higher than the base, only the base value is shown.
                 if (intRCFull <= intRCBase)
@@ -6423,9 +6465,22 @@ namespace Chummer
                 else
 				strRC = intRCFull.ToString();
 
+                _strRCTip = strRCTip;
+
 				return strRC;
 			}
 		}
+
+        /// <summary>
+        /// The tooltip showing the sources of RC bonuses
+        /// </summary>
+        public string RCToolTip
+        {
+            get
+            {
+                return _strRCTip;
+            }
+        }
 
 		/// <summary>
 		/// The full Reach of the Weapons including the Character's Reach.

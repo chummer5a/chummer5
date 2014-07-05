@@ -27,6 +27,7 @@
 		<category>Magical Supplies</category>
 		<category>PI-Tac</category>
 		<category>RFID Tags</category>
+		<category>Rigger Command Consoles</category>
 		<category>Security Devices</category>
 		<category>Sensors</category>
 		<category>Sensor Functions</category>
@@ -1349,6 +1350,171 @@
 			<page>439</page>
 		</gear>
 		<gear>
+			<name>Scratch-Built Junk</name>
+			<category>Rigger Command Consoles</category>
+			<capacity>0</capacity>
+			<rating>0</rating>
+			<devicerating>1</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>3</dataprocessing>
+			<firewall>2</firewall>
+			<avail>2R</avail>
+			<cost>1400</cost>
+			<source>SR5</source>
+			<page>266</page>
+		</gear>
+		<gear>
+			<name>Radio Shack Remote Controller</name>
+			<category>Rigger Command Consoles</category>
+			<capacity>0</capacity>
+			<rating>0</rating>
+			<devicerating>2</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>3</dataprocessing>
+			<firewall>3</firewall>
+			<avail>6R</avail>
+			<cost>8000</cost>
+			<source>SR5</source>
+			<page>266</page>
+		</gear>
+		<gear>
+			<name>Essy Motors DroneMaster</name>
+			<category>Rigger Command Consoles</category>
+			<capacity>0</capacity>
+			<rating>0</rating>
+			<devicerating>3</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>4</dataprocessing>
+			<firewall>4</firewall>
+			<avail>6R</avail>
+			<cost>16000</cost>
+			<source>SR5</source>
+			<page>266</page>
+		</gear>
+		<gear>
+			<name>CompuForce TaskMaster</name>
+			<category>Rigger Command Consoles</category>
+			<capacity>0</capacity>
+			<rating>0</rating>
+			<devicerating>4</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>5</dataprocessing>
+			<firewall>4</firewall>
+			<avail>8R</avail>
+			<cost>32000</cost>
+			<source>SR5</source>
+			<page>266</page>
+		</gear>
+		<gear>
+			<name>Maersk Spider</name>
+			<category>Rigger Command Consoles</category>
+			<capacity>0</capacity>
+			<rating>0</rating>
+			<devicerating>4</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>4</dataprocessing>
+			<firewall>5</firewall>
+			<avail>8R</avail>
+			<cost>34000</cost>
+			<source>SR5</source>
+			<page>266</page>
+		</gear>
+		<gear>
+			<name>Maser Industrial Electronics</name>
+			<category>Rigger Command Consoles</category>
+			<capacity>0</capacity>
+			<rating>0</rating>
+			<devicerating>5</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>3</dataprocessing>
+			<firewall>4</firewall>
+			<avail>8R</avail>
+			<cost>64000</cost>
+			<source>SR5</source>
+			<page>266</page>
+		</gear>
+		<gear>
+			<name>Vulcan Liegelord</name>
+			<category>Rigger Command Consoles</category>
+			<capacity>0</capacity>
+			<rating>0</rating>
+			<devicerating>5</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>5</dataprocessing>
+			<firewall>6</firewall>
+			<avail>10R</avail>
+			<cost>66000</cost>
+			<source>SR5</source>
+			<page>266</page>
+		</gear>
+		<gear>
+			<name>Proteus Poseidon</name>
+			<category>Rigger Command Consoles</category>
+			<capacity>0</capacity>
+			<rating>0</rating>
+			<devicerating>5</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>5</dataprocessing>
+			<firewall>6</firewall>
+			<avail>12R</avail>
+			<cost>68000</cost>
+			<source>SR5</source>
+			<page>266</page>
+		</gear>
+		<gear>
+			<name>Lone Star Remote Commander</name>
+			<category>Rigger Command Consoles</category>
+			<capacity>0</capacity>
+			<rating>0</rating>
+			<devicerating>6</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>6</dataprocessing>
+			<firewall>5</firewall>
+			<avail>14R</avail>
+			<cost>75000</cost>
+			<source>SR5</source>
+			<page>266</page>
+		</gear>
+		<gear>
+			<name>MCT Drone Web</name>
+			<category>Rigger Command Consoles</category>
+			<capacity>0</capacity>
+			<rating>0</rating>
+			<devicerating>6</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>7</dataprocessing>
+			<firewall>6</firewall>
+			<avail>16R</avail>
+			<cost>95000</cost>
+			<source>SR5</source>
+			<page>266</page>
+		</gear>
+		<gear>
+			<name>Triox UberMensch</name>
+			<category>Rigger Command Consoles</category>
+			<capacity>0</capacity>
+			<rating>0</rating>
+			<devicerating>6</devicerating>
+			<attack>0</attack>
+			<sleaze>0</sleaze>
+			<dataprocessing>8</dataprocessing>
+			<firewall>7</firewall>
+			<avail>18R</avail>
+			<cost>140000</cost>
+			<source>SR5</source>
+			<page>266</page>
+		</gear>
+		<gear>
 			<name>Browse</name>
 			<category>Common Programs</category>
 			<rating>0</rating>
@@ -1860,6 +2026,7 @@
 			<name>Sensor Tags</name>
 			<category>RFID Tags</category>
 			<devicerating>2</devicerating>
+			<capacity>1</capacity>
 			<rating>0</rating>
 			<avail>5</avail>
 			<cost>40</cost>
@@ -2362,7 +2529,7 @@
 			<name>Handheld Housing</name>
 			<category>Sensor Housings</category>
 			<rating>3</rating>
-			<capacity>[Rating]</capacity>
+			<capacity>Rating</capacity>
 			<gears>
 				<usegear>
 					<category>Sensors</category>
@@ -2431,7 +2598,7 @@
 			<category>Sensors</category>
 			<rating>8</rating>
 			<minrating>2</minrating>
-			<capacity>[6]</capacity>
+			<capacity>6/[6]</capacity>
 			<armorcapacity>[6]</armorcapacity>
 			<avail>7</avail>
 			<cost>Rating * 1000</cost>
@@ -2443,7 +2610,7 @@
 			<category>Sensors</category>
 			<rating>8</rating>
 			<minrating>2</minrating>
-			<capacity>[1]</capacity>
+			<capacity>1/[1]</capacity>
 			<armorcapacity>[1]</armorcapacity>
 			<avail>5</avail>
 			<cost>Rating * 100</cost>
@@ -2462,6 +2629,17 @@
 			<page>446</page>
 		</gear>
 		<gear>
+			<name>Camera</name>
+			<category>Sensor Functions</category>
+			<rating>0</rating>
+			<capacity>1/[1]</capacity>
+			<armorcapacity>1/[1]</armorcapacity>
+			<avail>0</avail>
+			<cost>0</cost>
+			<source>SR5</source>
+			<page>446</page>
+		</gear>
+		<gear>
 			<name>Cyberware Scanner</name>
 			<category>Sensor Functions</category>
 			<rating>0</rating>
@@ -2473,11 +2651,33 @@
 			<page>446</page>
 		</gear>
 		<gear>
+			<name>Directional Microphone</name>
+			<category>Sensor Functions</category>
+			<rating>0</rating>
+			<capacity>1/[1]</capacity>
+			<armorcapacity>1/[1]</armorcapacity>
+			<avail>0</avail>
+			<cost>0</cost>
+			<source>SR5</source>
+			<page>446</page>
+		</gear>
+		<gear>
 			<name>Geiger Counter</name>
 			<category>Sensor Functions</category>
 			<rating>0</rating>
 			<capacity>[1]</capacity>
 			<armorcapacity>[1]</armorcapacity>
+			<avail>0</avail>
+			<cost>0</cost>
+			<source>SR5</source>
+			<page>446</page>
+		</gear>
+		<gear>
+			<name>Laser Microphone</name>
+			<category>Sensor Functions</category>
+			<rating>0</rating>
+			<capacity>1/[1]</capacity>
+			<armorcapacity>1/[1]</armorcapacity>
 			<avail>0</avail>
 			<cost>0</cost>
 			<source>SR5</source>
@@ -2522,6 +2722,17 @@
 			<rating>0</rating>
 			<capacity>[1]</capacity>
 			<armorcapacity>[1]</armorcapacity>
+			<avail>0</avail>
+			<cost>0</cost>
+			<source>SR5</source>
+			<page>446</page>
+		</gear>
+		<gear>
+			<name>Omni-directional Microphone</name>
+			<category>Sensor Functions</category>
+			<rating>0</rating>
+			<capacity>1/[1]</capacity>
+			<armorcapacity>1/[1]</armorcapacity>
 			<avail>0</avail>
 			<cost>0</cost>
 			<source>SR5</source>
@@ -4142,7 +4353,7 @@
 			<page>449</page>
 		</gear>
 		<gear>
-			<name>Spare Clips</name>
+			<name>Spare Clip</name>
 			<category>Ammunition</category>
 			<bonus>
 				<selectweapon />

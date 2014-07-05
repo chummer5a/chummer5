@@ -378,8 +378,6 @@ namespace Chummer
 			_objOptions.TechnomancerAllowAutosoft = chkTechnomancerAllowAutosoft.Checked;
 			_objOptions.AllowSkillDiceRolling = chkAllowSkillDiceRolling.Checked;
 			_objOptions.CreateBackupOnCareer = chkCreateBackupOnCareer.Checked;
-			_objOptions.PrintLeadershipAlternates = chkPrintLeadershipAlternates.Checked;
-			_objOptions.PrintArcanaAlternates = chkPrintArcanaAlternates.Checked;
 			_objOptions.PrintNotes = chkPrintNotes.Checked;
 			switch (cboLimbCount.SelectedValue.ToString())
 			{
@@ -1425,7 +1423,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkPrintLeadershipAlternates.Checked = blnPrintLeadershipAlternates;
 
 			bool blnPrintArcanaAlternates = false;
 			try
@@ -1435,7 +1432,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkPrintArcanaAlternates.Checked = blnPrintArcanaAlternates;
 
 			bool blnPrintNotes = false;
 			try

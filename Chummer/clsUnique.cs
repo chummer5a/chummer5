@@ -2305,8 +2305,8 @@ namespace Chummer
 				int intAttribute = _objCharacter.GetAttribute(strAttribute).TotalValue;
 
 				// If the Attribute is MAG and the character is a Mystic Adept, then only the Magician's portion of MAG counts towards the Skill.
-				if (strAttribute == "MAG" && _objCharacter.AdeptEnabled && _objCharacter.MagicianEnabled)
-					intAttribute = _objCharacter.MAGMagician;
+                //if (strAttribute == "MAG" && _objCharacter.AdeptEnabled && _objCharacter.MagicianEnabled)
+                //    intAttribute = _objCharacter.MAGMagician;
 
 				// If defaulting is allowed and the Skill has a Rating of 0, then use the Attribute - 1 as the total.
 				if (Default && intRating == 0)

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-499</version>
+	<version>-498</version>
 	<categories>
 		<category>Positive</category>
 		<category>Negative</category>
@@ -39,6 +39,11 @@
 			<karma>10</karma>
 			<category>Positive</category>
 			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>Astral Beacon</quality>
+				</oneof>
+			</forbidden>
 			<source>SR5</source>
 			<page>71</page>
 		</quality>
@@ -113,8 +118,13 @@
 					<max>1</max>
 				</selectattribute>
 			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>Lucky</quality>
+				</oneof>
+			</forbidden>
 			<source>SR5</source>
-			<page>71</page>
+			<page>72</page>
 		</quality>
 		<quality>
 			<name>First Impression</name>
@@ -137,6 +147,15 @@
 					<quality>Technomancer</quality>
 				</oneof>
 			</required>
+			<forbidden>
+				<oneof>
+					<quality>Focused Concentration (Rating 2)</quality>
+					<quality>Focused Concentration (Rating 3)</quality>
+					<quality>Focused Concentration (Rating 4)</quality>
+					<quality>Focused Concentration (Rating 5)</quality>
+					<quality>Focused Concentration (Rating 6)</quality>
+				</oneof>
+			</forbidden>
 			<source>SR5</source>
 			<page>74</page>
 		</quality>
@@ -153,6 +172,15 @@
 					<quality>Technomancer</quality>
 				</oneof>
 			</required>
+			<forbidden>
+				<oneof>
+					<quality>Focused Concentration (Rating 1)</quality>
+					<quality>Focused Concentration (Rating 3)</quality>
+					<quality>Focused Concentration (Rating 4)</quality>
+					<quality>Focused Concentration (Rating 5)</quality>
+					<quality>Focused Concentration (Rating 6)</quality>
+				</oneof>
+			</forbidden>
 			<source>SR5</source>
 			<page>74</page>
 		</quality>
@@ -169,6 +197,15 @@
 					<quality>Technomancer</quality>
 				</oneof>
 			</required>
+			<forbidden>
+				<oneof>
+					<quality>Focused Concentration (Rating 2)</quality>
+					<quality>Focused Concentration (Rating 1)</quality>
+					<quality>Focused Concentration (Rating 4)</quality>
+					<quality>Focused Concentration (Rating 5)</quality>
+					<quality>Focused Concentration (Rating 6)</quality>
+				</oneof>
+			</forbidden>
 			<source>SR5</source>
 			<page>74</page>
 		</quality>
@@ -185,6 +222,15 @@
 					<quality>Technomancer</quality>
 				</oneof>
 			</required>
+			<forbidden>
+				<oneof>
+					<quality>Focused Concentration (Rating 2)</quality>
+					<quality>Focused Concentration (Rating 3)</quality>
+					<quality>Focused Concentration (Rating 1)</quality>
+					<quality>Focused Concentration (Rating 5)</quality>
+					<quality>Focused Concentration (Rating 6)</quality>
+				</oneof>
+			</forbidden>
 			<source>SR5</source>
 			<page>74</page>
 		</quality>
@@ -201,6 +247,15 @@
 					<quality>Technomancer</quality>
 				</oneof>
 			</required>
+			<forbidden>
+				<oneof>
+					<quality>Focused Concentration (Rating 2)</quality>
+					<quality>Focused Concentration (Rating 3)</quality>
+					<quality>Focused Concentration (Rating 4)</quality>
+					<quality>Focused Concentration (Rating 1)</quality>
+					<quality>Focused Concentration (Rating 6)</quality>
+				</oneof>
+			</forbidden>
 			<source>SR5</source>
 			<page>74</page>
 		</quality>
@@ -217,6 +272,15 @@
 					<quality>Technomancer</quality>
 				</oneof>
 			</required>
+			<forbidden>
+				<oneof>
+					<quality>Focused Concentration (Rating 2)</quality>
+					<quality>Focused Concentration (Rating 3)</quality>
+					<quality>Focused Concentration (Rating 4)</quality>
+					<quality>Focused Concentration (Rating 5)</quality>
+					<quality>Focused Concentration (Rating 1)</quality>
+				</oneof>
+			</forbidden>
 			<source>SR5</source>
 			<page>74</page>
 		</quality>
@@ -246,6 +310,12 @@
 					<thresholdoffset precedence="0">1</thresholdoffset>
 				</conditionmonitor>
 			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>High Pain Tolerance (Rating 2)</quality>
+					<quality>High Pain Tolerance (Rating 3)</quality>
+				</oneof>
+			</forbidden>
 			<source>SR5</source>
 			<page>74</page>
 		</quality>
@@ -259,6 +329,12 @@
 					<thresholdoffset precedence="0">2</thresholdoffset>
 				</conditionmonitor>
 			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>High Pain Tolerance (Rating 1)</quality>
+					<quality>High Pain Tolerance (Rating 3)</quality>
+				</oneof>
+			</forbidden>
 			<source>SR5</source>
 			<page>74</page>
 		</quality>
@@ -272,6 +348,12 @@
 					<thresholdoffset precedence="0">3</thresholdoffset>
 				</conditionmonitor>
 			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>High Pain Tolerance (Rating 2)</quality>
+					<quality>High Pain Tolerance (Rating 1)</quality>
+				</oneof>
+			</forbidden>
 			<source>SR5</source>
 			<page>74</page>
 		</quality>
@@ -303,7 +385,7 @@
 		<quality>
 			<name>Indomitable (Mental)</name>
 			<karma>8</karma>
-			<limit>3</limit>
+			<limit>no</limit>
 			<category>Positive</category>
 			<bonus>
 				<limitmodifier>
@@ -317,7 +399,7 @@
 		<quality>
 			<name>Indomitable (Physical)</name>
 			<karma>8</karma>
-			<limit>3</limit>
+			<limit>no</limit>
 			<category>Positive</category>
 			<bonus>
 				<limitmodifier>
@@ -331,7 +413,7 @@
 		<quality>
 			<name>Indomitable (Social)</name>
 			<karma>8</karma>
-			<limit>3</limit>
+			<limit>no</limit>
 			<category>Positive</category>
 			<bonus>
 				<limitmodifier>
@@ -360,6 +442,11 @@
 					<max>1</max>
 				</specificattribute>
 			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>Exceptional Attribute</quality>
+				</oneof>
+			</forbidden>
 			<source>SR5</source>
 			<page>76</page>
 		</quality>
@@ -374,6 +461,10 @@
 					<quality>Adept</quality>
 					<quality>Magician</quality>
 					<quality>Mystic Adept</quality>
+					<quality>Aspected Magician</quality>
+					<quality>Magic Resistance (Rating 2)</quality>
+					<quality>Magic Resistance (Rating 3)</quality>
+					<quality>Magic Resistance (Rating 4)</quality>
 				</oneof>
 			</forbidden>
 			<source>SR5</source>
@@ -390,6 +481,10 @@
 					<quality>Adept</quality>
 					<quality>Magician</quality>
 					<quality>Mystic Adept</quality>
+					<quality>Aspected Magician</quality>
+					<quality>Magic Resistance (Rating 1)</quality>
+					<quality>Magic Resistance (Rating 3)</quality>
+					<quality>Magic Resistance (Rating 4)</quality>
 				</oneof>
 			</forbidden>
 			<source>SR5</source>
@@ -406,6 +501,10 @@
 					<quality>Adept</quality>
 					<quality>Magician</quality>
 					<quality>Mystic Adept</quality>
+					<quality>Aspected Magician</quality>
+					<quality>Magic Resistance (Rating 2)</quality>
+					<quality>Magic Resistance (Rating 1)</quality>
+					<quality>Magic Resistance (Rating 4)</quality>
 				</oneof>
 			</forbidden>
 			<source>SR5</source>
@@ -422,6 +521,10 @@
 					<quality>Adept</quality>
 					<quality>Magician</quality>
 					<quality>Mystic Adept</quality>
+					<quality>Aspected Magician</quality>
+					<quality>Magic Resistance (Rating 2)</quality>
+					<quality>Magic Resistance (Rating 3)</quality>
+					<quality>Magic Resistance (Rating 1)</quality>
 				</oneof>
 			</forbidden>
 			<source>SR5</source>
@@ -477,28 +580,24 @@
 			<page>76</page>
 		</quality>
 		<quality>
-			<name>Natural Immunity (Basic)</name>
+			<name>Natural Immunity (Natural)</name>
 			<karma>4</karma>
+			<limit>no</limit>
 			<category>Positive</category>
-			<bonus />
-			<forbidden>
-				<oneof>
-					<quality>Natural Immunity (Full)</quality>
-				</oneof>
-			</forbidden>
+			<bonus>
+				<selecttext />
+			</bonus>
 			<source>SR5</source>
 			<page>76</page>
 		</quality>
 		<quality>
-			<name>Natural Immunity (Full)</name>
+			<name>Natural Immunity (Synthetic)</name>
 			<karma>10</karma>
+			<limit>no</limit>
 			<category>Positive</category>
-			<bonus />
-			<forbidden>
-				<oneof>
-					<quality>Natural Immunity (Basic)</quality>
-				</oneof>
-			</forbidden>
+			<bonus>
+				<selecttext />
+			</bonus>
 			<source>SR5</source>
 			<page>76</page>
 		</quality>
@@ -527,6 +626,7 @@
 			<bonus />
 			<forbidden>
 				<oneof>
+					<quality>Resistance to Toxins</quality>
 					<quality>Resistance to Pathogens and Toxins</quality>
 				</oneof>
 			</forbidden>
@@ -535,11 +635,12 @@
 		</quality>
 		<quality>
 			<name>Resistance to Toxins</name>
-			<karma>5</karma>
+			<karma>4</karma>
 			<category>Positive</category>
 			<bonus />
 			<forbidden>
 				<oneof>
+					<quality>Resistance to Pathogens</quality>
 					<quality>Resistance to Pathogens and Toxins</quality>
 				</oneof>
 			</forbidden>
@@ -567,6 +668,13 @@
 			<bonus>
 				<selecttext />
 			</bonus>
+			<required>
+				<oneof>
+					<quality>Magician</quality>
+					<quality>Mystic Adept</quality>
+					<quality>Aspected Magician</quality>
+				</oneof>
+			</required>
 			<source>SR5</source>
 			<page>77</page>
 		</quality>
@@ -590,6 +698,12 @@
 					<overflow>1</overflow>
 				</conditionmonitor>
 			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>Will to Live (Rating 2)</quality>
+					<quality>Will to Live (Rating 3)</quality>
+				</oneof>
+			</forbidden>
 			<source>SR5</source>
 			<page>77</page>
 		</quality>
@@ -603,6 +717,12 @@
 					<overflow>2</overflow>
 				</conditionmonitor>
 			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>Will to Live (Rating 1)</quality>
+					<quality>Will to Live (Rating 3)</quality>
+				</oneof>
+			</forbidden>
 			<source>SR5</source>
 			<page>77</page>
 		</quality>
@@ -616,6 +736,12 @@
 					<overflow>3</overflow>
 				</conditionmonitor>
 			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>Will to Live (Rating 2)</quality>
+					<quality>Will to Live (Rating 1)</quality>
+				</oneof>
+			</forbidden>
 			<source>SR5</source>
 			<page>77</page>
 		</quality>
@@ -645,7 +771,7 @@
 		</quality>
 		<quality>
 			<name>Strive For Perfection</name>
-			<karma>4</karma>
+			<karma>12</karma>
 			<category>Positive</category>
 			<bonus />
 			<source>AP</source>
@@ -661,7 +787,7 @@
 		</quality>
 		<quality>
 			<name>Agile Defender</name>
-			<karma>4</karma>
+			<karma>3</karma>
 			<category>Positive</category>
 			<bonus />
 			<source>RG</source>
@@ -726,6 +852,11 @@
 			<karma>5</karma>
 			<category>Positive</category>
 			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>Rad-Tolerant</quality>
+				</oneof>
+			</forbidden>
 			<source>RG</source>
 			<page>169</page>
 		</quality>
@@ -734,6 +865,11 @@
 			<karma>3</karma>
 			<category>Positive</category>
 			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>Radiation Sponge</quality>
+				</oneof>
+			</forbidden>
 			<source>RG</source>
 			<page>169</page>
 		</quality>
@@ -957,6 +1093,11 @@
 					<quality>Mystic Adept</quality>
 				</oneof>
 			</required>
+			<forbidden>
+				<oneof>
+					<quality>Astral Chameleon</quality>
+				</oneof>
+			</forbidden>
 			<source>SR5</source>
 			<page>78</page>
 		</quality>
@@ -1120,9 +1261,9 @@
 			<karma>-5</karma>
 			<category>Negative</category>
 			<bonus>
-				<selectskill>
-					<max>-6</max>
-				</selectskill>
+				<selectskillgroup>
+					<max>-13</max>
+				</selectskillgroup>
 			</bonus>
 			<source>SR5</source>
 			<page>81</page>

@@ -176,6 +176,19 @@ namespace Chummer
 			string strMetatype = "";
 			string strBook = "";
 			string strPage = "";
+
+            foreach (Skill objSkill in _objCharacter.Skills)
+            {
+                if (objSkill.RatingMaximum == 6)
+                    objSkill.RatingMaximum = 12;
+                else if (objSkill.RatingMaximum == 7)
+                    objSkill.RatingMaximum = 13;
+            }
+            foreach (SkillGroup objSkillGroup in _objCharacter.SkillGroups)
+            {
+                if (objSkillGroup.RatingMaximum == 6)
+                    objSkillGroup.RatingMaximum = 12;
+            }
 			
 			objMetatypeDoc = XmlManager.Instance.Load("metatypes.xml");
 			{
@@ -21830,6 +21843,7 @@ namespace Chummer
 				lblWeaponSlots.Text = "6 (" + objWeapon.SlotsRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 				lblWeaponDicePool.Text = objWeapon.DicePool;
 				tipTooltip.SetToolTip(lblWeaponDicePool, objWeapon.DicePoolTooltip);
+                tipTooltip.SetToolTip(lblWeaponRC, objWeapon.RCToolTip);
 
 				UpdateCharacterInfo();
 			}
@@ -26224,7 +26238,7 @@ namespace Chummer
         private void cmdIncreasePowerPoints_Click(object sender, EventArgs e)
         {
             // Make sure the character has enough Karma to improve the Attribute.
-            int intKarmaCost = 2;
+            int intKarmaCost = 5;
             if (intKarmaCost > _objCharacter.Karma)
             {
                 MessageBox.Show(LanguageManager.Instance.GetString("Message_NotEnoughKarma"), LanguageManager.Instance.GetString("MessageTitle_NotEnoughKarma"), MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -1399,8 +1399,11 @@ namespace Chummer
 
 					_strSelectedValue = frmPickSkillGroup.SelectedSkillGroup;
 
-					CreateImprovement(_strSelectedValue, objImprovementSource, strSourceName, Improvement.ImprovementType.SkillGroup, strUnique, ValueToInt(nodBonus["selectskillgroup"]["bonus"].InnerText, intRating), 1, 0, 0, 0, 0, strExclude, blnAddToRating);
-				}
+                    if (nodBonus["selectskillgroup"].SelectSingleNode("bonus") != null)
+					    CreateImprovement(_strSelectedValue, objImprovementSource, strSourceName, Improvement.ImprovementType.SkillGroup, strUnique, ValueToInt(nodBonus["selectskillgroup"]["bonus"].InnerText, intRating), 1, 0, 0, 0, 0, strExclude, blnAddToRating);
+                    else
+                        CreateImprovement(_strSelectedValue, objImprovementSource, strSourceName, Improvement.ImprovementType.SkillGroup, strUnique, ValueToInt(nodBonus["selectskillgroup"]["max"].InnerText, intRating), 0, 0, 1, 0, 0, strExclude, blnAddToRating);
+                }
 
 				// Select an Attribute.
 				if (NodeExists(nodBonus, "selectattribute"))
@@ -2060,9 +2063,80 @@ namespace Chummer
 				if (NodeExists(nodBonus, "weaponcategorydv"))
 				{
 					XmlNodeList objXmlCategoryList = nodBonus.SelectNodes("weaponcategorydv");
-					// Run through each of the Skill Groups since there may be more than one affected.
-					foreach (XmlNode objXmlCategory in objXmlCategoryList)
-						CreateImprovement(objXmlCategory["name"].InnerText, objImprovementSource, strSourceName, Improvement.ImprovementType.WeaponCategoryDV, strUnique, ValueToInt(objXmlCategory["bonus"].InnerXml, intRating));
+                    XmlNode nodWeapon = nodBonus["weaponcategorydv"];
+
+                    if (NodeExists(nodWeapon, "selectskill"))
+                    {
+                        // Display the Select Skill window and record which Skill was selected.
+                        frmSelectItem frmPickCategory = new frmSelectItem();
+                        List<ListItem> lstGeneralItems = new List<ListItem>();
+
+                        ListItem liBlades = new ListItem();
+                        liBlades.Name = "Blades";
+                        liBlades.Value = "Blades";
+
+                        ListItem liClubs = new ListItem();
+                        liClubs.Name = "Clubs";
+                        liClubs.Value = "Clubs";
+
+                        ListItem liUnarmed = new ListItem();
+                        liUnarmed.Name = "Unarmed";
+                        liUnarmed.Value = "Unarmed";
+                        
+                        ListItem liAstral = new ListItem();
+                        liAstral.Name = "Astral Combat";
+                        liAstral.Value = "Astral Combat";
+
+                        ListItem liExotic = new ListItem();
+                        liExotic.Name = "Exotic Melee Weapons";
+                        liExotic.Value = "Exotic Melee Weapons";
+
+                        lstGeneralItems.Add(liAstral);
+                        lstGeneralItems.Add(liBlades);
+                        lstGeneralItems.Add(liClubs);
+                        lstGeneralItems.Add(liExotic);
+                        lstGeneralItems.Add(liUnarmed);
+                        frmPickCategory.GeneralItems = lstGeneralItems;
+
+                        if (strFriendlyName != "")
+                            frmPickCategory.Description = LanguageManager.Instance.GetString("String_Improvement_SelectSkillNamed").Replace("{0}", strFriendlyName);
+                        else
+                            frmPickCategory.Description = LanguageManager.Instance.GetString("Title_SelectWeaponCategory");
+
+                        if (_strForcedValue != "")
+                        {
+                            frmPickCategory.Opacity = 0;
+                        }
+                        frmPickCategory.ShowDialog();
+
+                        // Make sure the dialogue window was not canceled.
+                        if (frmPickCategory.DialogResult == DialogResult.Cancel)
+                        {
+                            Rollback();
+                            blnSuccess = false;
+                            _strForcedValue = "";
+                            _strLimitSelection = "";
+                            return false;
+                        }
+
+                        string strSelected = frmPickCategory.SelectedItem;
+
+                        foreach (Power objPower in _objCharacter.Powers)
+                        {
+                            if (objPower.InternalId == strSourceName)
+                            {
+                                objPower.Name = objPower.Name + " (" + strSelected + ")";
+                            }
+                        }
+
+                        CreateImprovement(strSelected, objImprovementSource, strSourceName, Improvement.ImprovementType.WeaponCategoryDV, strUnique, ValueToInt(nodWeapon["bonus"].InnerXml, intRating));
+                    }
+                    else
+                    {
+                        // Run through each of the Skill Groups since there may be more than one affected.
+                        foreach (XmlNode objXmlCategory in objXmlCategoryList)
+                            CreateImprovement(objXmlCategory["name"].InnerText, objImprovementSource, strSourceName, Improvement.ImprovementType.WeaponCategoryDV, strUnique, ValueToInt(objXmlCategory["bonus"].InnerXml, intRating));
+                    }
 				}
 
 				// Check for Mentor Spirit bonuses.
@@ -2117,7 +2191,10 @@ namespace Chummer
 					if (frmPickMentorSpirit.Choice2BonusNode != null)
 					{
 						string strForce = _strForcedValue;
-						_strForcedValue = frmPickMentorSpirit.Choice2;
+                        if (!frmPickMentorSpirit.Choice2.StartsWith("Adept:") && !frmPickMentorSpirit.Choice2.StartsWith("Magician:"))
+                            _strForcedValue = frmPickMentorSpirit.Choice2;
+                        else
+                            _strForcedValue = "";
 						blnSuccess = CreateImprovements(objImprovementSource, strSourceName, frmPickMentorSpirit.Choice2BonusNode, blnConcatSelectedValue, intRating, strFriendlyName);
 						if (!blnSuccess)
 						{
@@ -2304,6 +2381,7 @@ namespace Chummer
                     if (_objCharacter.AdeptEnabled)
                     {
                         _blnAddingLimit = true;
+                        string strSelection = "";
 
                         XmlNodeList objXmlPowerList = nodBonus.SelectNodes("specificpower");
                         foreach (XmlNode objXmlSpecificPower in objXmlPowerList)
@@ -2320,6 +2398,7 @@ namespace Chummer
                             if (objXmlSpecificPower["free"] != null)
                                 blnFree = (objXmlSpecificPower["free"].InnerText == "yes");
 
+                            string strPowerNameLimit = strPowerName;
                             if (objXmlSpecificPower["selectlimit"] != null)
                             {
                                 _strForcedValue = "";
@@ -2369,12 +2448,61 @@ namespace Chummer
                                 }
 
                                 _strSelectedValue = frmPickLimit.SelectedLimit;
+                                strSelection = _strSelectedValue;
+
                                 if (blnConcatSelectedValue)
                                     strSourceName += " (" + _strSelectedValue + ")";
+
+                                if (_strSelectedValue != string.Empty)
+                                    strPowerNameLimit += " (" + _strSelectedValue + ")";
                             }
-                            string strPowerNameLimit = strPowerName;
-                            if (_strSelectedValue != string.Empty)
-                                strPowerNameLimit += " (" + _strSelectedValue + ")";
+
+                            if (objXmlSpecificPower["selectskill"] != null)
+                            {
+                                XmlNode nodSkill = nodBonus["specificpower"];
+                                // Display the Select Skill window and record which Skill was selected.
+                                frmSelectSkill frmPickSkill = new frmSelectSkill(_objCharacter);
+                                if (strFriendlyName != "")
+                                    frmPickSkill.Description = LanguageManager.Instance.GetString("String_Improvement_SelectSkillNamed").Replace("{0}", strFriendlyName);
+                                else
+                                    frmPickSkill.Description = LanguageManager.Instance.GetString("String_Improvement_SelectSkill");
+
+                                if (nodSkill.SelectSingleNode("selectskill").OuterXml.Contains("skillgroup"))
+                                    frmPickSkill.OnlySkillGroup = nodSkill.SelectSingleNode("selectskill").Attributes["skillgroup"].InnerText;
+                                else if (nodSkill.SelectSingleNode("selectskill").OuterXml.Contains("skillcategory"))
+                                    frmPickSkill.OnlyCategory = nodSkill.SelectSingleNode("selectskill").Attributes["skillcategory"].InnerText;
+                                else if (nodSkill.SelectSingleNode("selectskill").OuterXml.Contains("excludecategory"))
+                                    frmPickSkill.ExcludeCategory = nodSkill.SelectSingleNode("selectskill").Attributes["excludecategory"].InnerText;
+                                else if (nodSkill.SelectSingleNode("selectskill").OuterXml.Contains("limittoskill"))
+                                    frmPickSkill.LimitToSkill = nodSkill.SelectSingleNode("selectskill").Attributes["limittoskill"].InnerText;
+
+                                if (_strForcedValue.StartsWith("Adept:") || _strForcedValue.StartsWith("Magician:"))
+                                    _strForcedValue = "";
+
+                                if (_strForcedValue != "")
+                                {
+                                    frmPickSkill.OnlySkill = _strForcedValue;
+                                    frmPickSkill.Opacity = 0;
+                                }
+                                frmPickSkill.ShowDialog();
+
+                                // Make sure the dialogue window was not canceled.
+                                if (frmPickSkill.DialogResult == DialogResult.Cancel)
+                                {
+                                    Rollback();
+                                    blnSuccess = false;
+                                    _strForcedValue = "";
+                                    _strLimitSelection = "";
+                                    return false;
+                                }
+
+                                _strSelectedValue = frmPickSkill.SelectedSkill;
+                                _strForcedValue = _strSelectedValue;
+                                strSelection = _strSelectedValue;
+
+                                //if (_strSelectedValue != string.Empty)
+                                //    strPowerNameLimit += " (" + _strSelectedValue + ")";
+                            }
 
                             // Check if the character already has this power
                             bool blnHasPower = false;
@@ -2420,6 +2548,8 @@ namespace Chummer
                                 objPower.PointsPerLevel = Convert.ToDecimal(objXmlPower["points"].InnerText);
                                 objPower.Source = objXmlPower["source"].InnerText;
                                 objPower.Page = objXmlPower["page"].InnerText;
+                                if (strSelection != string.Empty)
+                                    objPower.Extra = strSelection;
                                 if (objXmlPower["doublecost"] != null)
                                     objPower.DoubleCost = false;
 
@@ -2443,6 +2573,9 @@ namespace Chummer
                                     }
                                 }
                             }
+                            _strSelectedValue = "";
+                            _strForcedValue = "";
+                            strSelection = "";
                         }
                         CreateImprovement("", objImprovementSource, strSourceName, Improvement.ImprovementType.AdeptPower, "");
                         _blnAddingLimit = false;

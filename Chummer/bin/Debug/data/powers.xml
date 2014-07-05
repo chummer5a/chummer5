@@ -44,11 +44,15 @@
 		</power>
 		<power>
 			<name>Critical Strike</name>
-			<points>.25</points>
-			<levels>yes</levels>
-			<limit>1</limit>
+			<points>.5</points>
+			<levels>no</levels>
+			<limit>no</limit>
 			<bonus>
-				<unarmeddv>Rating</unarmeddv>
+				<weaponcategorydv>
+					<selectskill skillcategory="Combat Active">
+					</selectskill>
+					<bonus>1</bonus>
+				</weaponcategorydv>
 			</bonus>
 			<source>SR5</source>
 			<page>309</page>
@@ -80,7 +84,7 @@
 			<page>309</page>
 		</power>
 		<power>
-			<name>Enhanced Accuracy</name>
+			<name>Enhanced Accuracy (skill)</name>
 			<points>.25</points>
 			<levels>no</levels>
 			<limit>1</limit>
@@ -393,6 +397,9 @@
 			<points>1</points>
 			<levels>no</levels>
 			<limit>100</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
 			<source>SG</source>
 			<page>170</page>
 		</power>
@@ -401,6 +408,9 @@
 			<points>.5</points>
 			<levels>no</levels>
 			<limit>100</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
 			<source>SG</source>
 			<page>170</page>
 		</power>
@@ -409,6 +419,9 @@
 			<points>.5</points>
 			<levels>no</levels>
 			<limit>100</limit>
+			<bonus>
+				<selecttext />
+			</bonus>
 			<source>SG</source>
 			<page>170</page>
 		</power>

@@ -127,8 +127,6 @@
             this.chkPrintNotes = new System.Windows.Forms.CheckBox();
             this.lblLimbCount = new System.Windows.Forms.Label();
             this.chkAllowSkillDiceRolling = new System.Windows.Forms.CheckBox();
-            this.chkPrintArcanaAlternates = new System.Windows.Forms.CheckBox();
-            this.chkPrintLeadershipAlternates = new System.Windows.Forms.CheckBox();
             this.label36 = new System.Windows.Forms.Label();
             this.nudBP = new System.Windows.Forms.NumericUpDown();
             this.cboBuildMethod = new System.Windows.Forms.ComboBox();
@@ -1252,9 +1250,7 @@
             this.tabPage2.Controls.Add(this.chkPrintNotes);
             this.tabPage2.Controls.Add(this.lblLimbCount);
             this.tabPage2.Controls.Add(this.chkAllowSkillDiceRolling);
-            this.tabPage2.Controls.Add(this.chkPrintArcanaAlternates);
             this.tabPage2.Controls.Add(this.nudNuyenPerBP);
-            this.tabPage2.Controls.Add(this.chkPrintLeadershipAlternates);
             this.tabPage2.Controls.Add(this.lblNuyenPerBP);
             this.tabPage2.Controls.Add(this.label36);
             this.tabPage2.Controls.Add(this.nudBP);
@@ -1275,7 +1271,7 @@
             // chkPrintToFileFirst
             // 
             this.chkPrintToFileFirst.AutoSize = true;
-            this.chkPrintToFileFirst.Location = new System.Drawing.Point(8, 297);
+            this.chkPrintToFileFirst.Location = new System.Drawing.Point(9, 251);
             this.chkPrintToFileFirst.Name = "chkPrintToFileFirst";
             this.chkPrintToFileFirst.Size = new System.Drawing.Size(130, 17);
             this.chkPrintToFileFirst.TabIndex = 18;
@@ -1287,7 +1283,7 @@
             // 
             this.cboEssenceDecimals.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEssenceDecimals.FormattingEnabled = true;
-            this.cboEssenceDecimals.Location = new System.Drawing.Point(242, 333);
+            this.cboEssenceDecimals.Location = new System.Drawing.Point(243, 287);
             this.cboEssenceDecimals.Name = "cboEssenceDecimals";
             this.cboEssenceDecimals.Size = new System.Drawing.Size(61, 21);
             this.cboEssenceDecimals.TabIndex = 17;
@@ -1295,7 +1291,7 @@
             // lblEssenceDecimals
             // 
             this.lblEssenceDecimals.AutoSize = true;
-            this.lblEssenceDecimals.Location = new System.Drawing.Point(6, 336);
+            this.lblEssenceDecimals.Location = new System.Drawing.Point(7, 290);
             this.lblEssenceDecimals.Name = "lblEssenceDecimals";
             this.lblEssenceDecimals.Size = new System.Drawing.Size(230, 13);
             this.lblEssenceDecimals.TabIndex = 16;
@@ -1305,7 +1301,7 @@
             // chkPrintNotes
             // 
             this.chkPrintNotes.AutoSize = true;
-            this.chkPrintNotes.Location = new System.Drawing.Point(9, 274);
+            this.chkPrintNotes.Location = new System.Drawing.Point(9, 228);
             this.chkPrintNotes.Name = "chkPrintNotes";
             this.chkPrintNotes.Size = new System.Drawing.Size(78, 17);
             this.chkPrintNotes.TabIndex = 15;
@@ -1333,28 +1329,6 @@
             this.chkAllowSkillDiceRolling.Tag = "Checkbox_Option_AllowSkillDiceRolling";
             this.chkAllowSkillDiceRolling.Text = "Allow dice rolling for dice pools";
             this.chkAllowSkillDiceRolling.UseVisualStyleBackColor = true;
-            // 
-            // chkPrintArcanaAlternates
-            // 
-            this.chkPrintArcanaAlternates.AutoSize = true;
-            this.chkPrintArcanaAlternates.Location = new System.Drawing.Point(9, 251);
-            this.chkPrintArcanaAlternates.Name = "chkPrintArcanaAlternates";
-            this.chkPrintArcanaAlternates.Size = new System.Drawing.Size(246, 17);
-            this.chkPrintArcanaAlternates.TabIndex = 14;
-            this.chkPrintArcanaAlternates.Tag = "Checkbox_Option_PrintArcanaAlternates";
-            this.chkPrintArcanaAlternates.Text = "Print Arcana variation Skills (from Street Magic)";
-            this.chkPrintArcanaAlternates.UseVisualStyleBackColor = true;
-            // 
-            // chkPrintLeadershipAlternates
-            // 
-            this.chkPrintLeadershipAlternates.AutoSize = true;
-            this.chkPrintLeadershipAlternates.Location = new System.Drawing.Point(9, 228);
-            this.chkPrintLeadershipAlternates.Name = "chkPrintLeadershipAlternates";
-            this.chkPrintLeadershipAlternates.Size = new System.Drawing.Size(227, 17);
-            this.chkPrintLeadershipAlternates.TabIndex = 13;
-            this.chkPrintLeadershipAlternates.Tag = "Checkbox_Option_PrintLeadershipAlternates";
-            this.chkPrintLeadershipAlternates.Text = "Print Leadership variation Skills (from War!)";
-            this.chkPrintLeadershipAlternates.UseVisualStyleBackColor = true;
             // 
             // label36
             // 
@@ -1509,10 +1483,10 @@
             this.chkRestrictRecoil.AutoSize = true;
             this.chkRestrictRecoil.Location = new System.Drawing.Point(6, 91);
             this.chkRestrictRecoil.Name = "chkRestrictRecoil";
-            this.chkRestrictRecoil.Size = new System.Drawing.Size(263, 17);
+            this.chkRestrictRecoil.Size = new System.Drawing.Size(258, 17);
             this.chkRestrictRecoil.TabIndex = 3;
             this.chkRestrictRecoil.Tag = "Checkbox_Options_UseRestrictionsToRecoilCompensation";
-            this.chkRestrictRecoil.Text = "Use Restrictions to Recoil Compensation (AR 148)";
+            this.chkRestrictRecoil.Text = "Use Restrictions to Recoil Compensation (RG 53)";
             this.chkRestrictRecoil.UseVisualStyleBackColor = true;
             // 
             // chkAutomaticCopyProtection
@@ -3093,9 +3067,7 @@
 		private System.Windows.Forms.CheckBox chkSingleDiceRoller;
 		private System.Windows.Forms.CheckBox chkAlternateMetatypeAttributeKarma;
 		private System.Windows.Forms.CheckBox chkAlternateMatrixAttribute;
-		private System.Windows.Forms.CheckBox chkCreateBackupOnCareer;
-		private System.Windows.Forms.CheckBox chkPrintArcanaAlternates;
-		private System.Windows.Forms.CheckBox chkPrintLeadershipAlternates;
+        private System.Windows.Forms.CheckBox chkCreateBackupOnCareer;
 		private System.Windows.Forms.TabControl tabControl2;
 		private System.Windows.Forms.TabPage tabGlobal;
 		private System.Windows.Forms.TabPage tabPage2;

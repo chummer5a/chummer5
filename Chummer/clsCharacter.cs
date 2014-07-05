@@ -2500,11 +2500,8 @@ namespace Chummer
 				XmlNode objXmlGroup = objXmlDocument.SelectSingleNode("/chummer/skillgroups/name[. = \"" + objItem.Value + "\"]");
 				SkillGroup objGroup = new SkillGroup();
 				objGroup.Name = objXmlGroup.InnerText;
-				// If rules are ignored, then Skill Groups can go up to a maximum Rating of 6.
-				if (!_blnIgnoreRules && !_blnCreated)
-					objGroup.RatingMaximum = 4;
-				else
-					objGroup.RatingMaximum = 6;
+                // Maximum Skill Group Rating
+				objGroup.RatingMaximum = 6;
 				_lstSkillGroups.Add(objGroup);
 			}
 		}
