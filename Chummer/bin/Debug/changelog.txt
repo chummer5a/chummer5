@@ -1,3 +1,6 @@
+Build 5.113 (beta)
+- Added a fix to enable backward compatability in reading characters created before 5.112.
+
 Build 5.112 (beta)
 - Added Rituals from Street Grimoire (SG).
 - Added Metamagics from SG.
