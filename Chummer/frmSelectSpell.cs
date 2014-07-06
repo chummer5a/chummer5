@@ -87,25 +87,49 @@ namespace Chummer
             {
                 TreeNode nodSpell = new TreeNode();
                 TreeNode nodParent = new TreeNode();
-				if (objXmlSpell["translate"] != null)
-					nodSpell.Text = objXmlSpell["translate"].InnerText;
-				else
-					nodSpell.Text = objXmlSpell["name"].InnerText;
-				nodSpell.Tag = objXmlSpell["name"].InnerText;
-                // Check to see if there is already a Category node for the Spell's category.
-                foreach (TreeNode nodCategory in treSpells.Nodes)
+                bool blnInclude = false;
+
+                if (_objCharacter.AdeptEnabled && !_objCharacter.MagicianEnabled)
                 {
-                    if (nodCategory.Level == 0 && nodCategory.Tag.ToString() == objXmlSpell["category"].InnerText)
-                    {
-                        nodParent = nodCategory;
-                    }
+                    if (objXmlSpell["category"].InnerText != "Rituals")
+                        blnInclude = false;
+                    else if (objXmlSpell["descriptor"].InnerText.Contains("Spell"))
+                        blnInclude = false;
+                    else
+                        blnInclude = true;
                 }
+                else if (!_objCharacter.AdeptEnabled)
+                {
+                    if (objXmlSpell["descriptor"].InnerText.Contains("Adept"))
+                        blnInclude = false;
+                    else
+                        blnInclude = true;
+                }
+                else
+                    blnInclude = true;
 
-                // Add the Spell to the Category node.
-                nodParent.Nodes.Add(nodSpell);
+                if (blnInclude)
+                {
+                    if (objXmlSpell["translate"] != null)
+                        nodSpell.Text = objXmlSpell["translate"].InnerText;
+                    else
+                        nodSpell.Text = objXmlSpell["name"].InnerText;
+                    nodSpell.Tag = objXmlSpell["name"].InnerText;
+                    // Check to see if there is already a Category node for the Spell's category.
+                    foreach (TreeNode nodCategory in treSpells.Nodes)
+                    {
+                        if (nodCategory.Level == 0 && nodCategory.Tag.ToString() == objXmlSpell["category"].InnerText)
+                        {
+                            nodParent = nodCategory;
+                        }
+                    }
 
-				if (_strLimitCategory != "")
-					nodParent.Expand();
+                    // Add the Spell to the Category node.
+                    nodParent.Nodes.Add(nodSpell);
+
+                    if (_strLimitCategory != "")
+                        nodParent.Expand();
+                }
             }
 
 			if (_strLimitCategory != "")
@@ -128,70 +152,38 @@ namespace Chummer
 				{
 					switch (strDescriptor.Trim())
 					{
-						case "Active":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescActive") + ", ";
+						case "Adept":
+							strDescriptors += LanguageManager.Instance.GetString("String_DescAdept") + ", ";
 							break;
-						case "Area":
-							if (chkExtended.Checked)
-							{
-								// Replace Area with Extended Area if the Extended checkbox is checked.
-								strDescriptors += LanguageManager.Instance.GetString("String_DescExtendedArea") + ", ";
-								blnExtendedFound = true;
-							}
-							else
-								strDescriptors += LanguageManager.Instance.GetString("String_DescArea") + ", ";
+						case "Anchored":
+							strDescriptors += LanguageManager.Instance.GetString("String_DescAnchored") + ", ";
 							break;
-						case "Direct":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescDirect") + ", ";
+						case "Blood":
+							strDescriptors += LanguageManager.Instance.GetString("String_DescBlood") + ", ";
 							break;
-						case "Directional":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescDirectional") + ", ";
+						case "Contractual":
+							strDescriptors += LanguageManager.Instance.GetString("String_DescContractual") + ", ";
 							break;
-						case "Elemental":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescElemental") + ", ";
-							break;
-						case "Environmental":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescEnvironmental") + ", ";
-							break;
-						case "Extended Area":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescExtendedArea") + ", ";
-							blnExtendedFound = true;
-							break;
-						case "Indirect":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescIndirect") + ", ";
+						case "Geomancy":
+							strDescriptors += LanguageManager.Instance.GetString("String_DescGeomancy") + ", ";
 							break;
 						case "Mana":
 							strDescriptors += LanguageManager.Instance.GetString("String_DescMana") + ", ";
 							break;
-						case "Mental":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescMental") + ", ";
+						case "Material Link":
+							strDescriptors += LanguageManager.Instance.GetString("String_DescMaterialLink") + ", ";
 							break;
-						case "Multi-Sense":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescMultiSense") + ", ";
+						case "Minion":
+							strDescriptors += LanguageManager.Instance.GetString("String_DescMinion") + ", ";
 							break;
-						case "Negative":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescNegative") + ", ";
+						case "Organic Link":
+							strDescriptors += LanguageManager.Instance.GetString("String_DescOrganic Link") + ", ";
 							break;
-						case "Obvious":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescObvious") + ", ";
+						case "Spell":
+							strDescriptors += LanguageManager.Instance.GetString("String_DescSpell") + ", ";
 							break;
-						case "Passive":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescPassive") + ", ";
-							break;
-						case "Physical":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescPhysical") + ", ";
-							break;
-						case "Psychic":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescPsychic") + ", ";
-							break;
-						case "Realistic":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescRealistic") + ", ";
-							break;
-						case "Single-Sense":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescSingleSense") + ", ";
-							break;
-						case "Touch":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescTouch") + ", ";
+						case "Spotter":
+							strDescriptors += LanguageManager.Instance.GetString("String_DescSpotter") + ", ";
 							break;
 					}
 				}
@@ -360,27 +352,48 @@ namespace Chummer
 			// Populate the Spell list.
 			objXmlNodeList = _objXmlDocument.SelectNodes(strSearch);
 			treSpells.TreeViewNodeSorter = new SortByName();
-			foreach (XmlNode objXmlSpell in objXmlNodeList)
-			{
-				TreeNode nodSpell = new TreeNode();
-				TreeNode nodParent = new TreeNode();
-				if (objXmlSpell["translate"] != null)
-					nodSpell.Text = objXmlSpell["translate"].InnerText;
-				else
-					nodSpell.Text = objXmlSpell["name"].InnerText;
-				nodSpell.Tag = objXmlSpell["name"].InnerText;
-				// Check to see if there is already a Category node for the Spell's category.
-				foreach (TreeNode nodCategory in treSpells.Nodes)
-				{
-					if (nodCategory.Level == 0 && nodCategory.Tag.ToString() == objXmlSpell["category"].InnerText)
-					{
-						nodParent = nodCategory;
-					}
-				}
 
-				// Add the Spell to the Category node.
-				nodParent.Nodes.Add(nodSpell);
-				nodParent.Expand();
+            foreach (XmlNode objXmlSpell in objXmlNodeList)
+			{
+                bool blnInclude = false;
+
+                if (_objCharacter.AdeptEnabled && !_objCharacter.MagicianEnabled)
+                {
+                    if (objXmlSpell["descriptor"].InnerText.Contains("Adept"))
+                        blnInclude = true;
+                }
+                else if (!_objCharacter.AdeptEnabled)
+                {
+                    if (objXmlSpell["descriptor"].InnerText.Contains("Adept"))
+                        blnInclude = false;
+                    else
+                        blnInclude = true;
+                }
+                else
+                    blnInclude = true;
+
+                if (blnInclude)
+                {
+                    TreeNode nodSpell = new TreeNode();
+                    TreeNode nodParent = new TreeNode();
+                    if (objXmlSpell["translate"] != null)
+                        nodSpell.Text = objXmlSpell["translate"].InnerText;
+                    else
+                        nodSpell.Text = objXmlSpell["name"].InnerText;
+                    nodSpell.Tag = objXmlSpell["name"].InnerText;
+                    // Check to see if there is already a Category node for the Spell's category.
+                    foreach (TreeNode nodCategory in treSpells.Nodes)
+                    {
+                        if (nodCategory.Level == 0 && nodCategory.Tag.ToString() == objXmlSpell["category"].InnerText)
+                        {
+                            nodParent = nodCategory;
+                        }
+                    }
+
+                    // Add the Spell to the Category node.
+                    nodParent.Nodes.Add(nodSpell);
+                    nodParent.Expand();
+                }
 			}
 
 			List<TreeNode> lstRemove = new List<TreeNode>();

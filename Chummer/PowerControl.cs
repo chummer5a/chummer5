@@ -193,6 +193,22 @@ namespace Chummer
         }
 
         /// <summary>
+        /// Power Point discount for an Adept Way.
+        /// </summary>
+        public decimal AdeptWayDiscount
+        {
+            get
+            {
+                return _objPower.AdeptWayDiscount;
+            }
+            set
+            {
+                _objPower.AdeptWayDiscount = value;
+                UpdatePointsPerLevel();
+            }
+        }
+
+        /// <summary>
         /// The Power's total cost in Power Points.
         /// </summary>
         public decimal PowerPoints

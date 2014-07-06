@@ -284,7 +284,27 @@ namespace Chummer
 					}
 				}
 
-				// Echo requirements.
+                // Power requirements.
+                foreach (XmlNode objXmlPower in objXmlCheckMetamagic.SelectNodes("required/allof/power"))
+                {
+                    bool blnFound = false;
+                    foreach (Power objPower in _objCharacter.Powers)
+                    {
+                        if (objPower.Name == objXmlPower.InnerText)
+                        {
+                            blnFound = true;
+                            break;
+                        }
+                    }
+
+                    if (!blnFound)
+                    {
+                        blnRequirementMet = false;
+                        strRequirement += "\n\t" + objXmlPower.InnerText;
+                    }
+                }
+
+                // Echo requirements.
 				foreach (XmlNode objXmlEcho in objXmlCheckMetamagic.SelectNodes("required/allof/echo"))
 				{
 					bool blnFound = false;

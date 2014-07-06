@@ -672,15 +672,7 @@ namespace Chummer
 				strTooltip += " - " + LanguageManager.Instance.GetString("Tip_Skill_Defaulting") + " (1)";
 			if ((!_objSkill.Default && intSkillRating > 0) || _objSkill.Default)
 			{
-                //if (_objSkill.Attribute == "MAG" && _objSkill.CharacterObject.AdeptEnabled && _objSkill.CharacterObject.MagicianEnabled)
-                //{
-                //    // The character is a Mystic Adept, so only the MAG invested in Magician counts towards the Skill.
-                //    strTooltip += " + " + LanguageManager.Instance.GetString("String_Attribute" + _objSkill.Attribute + "Short") + " (" + _objSkill.CharacterObject.MAGMagician.ToString() + ")";
-                //}
-                //else
-                //{
-					strTooltip += " + " + LanguageManager.Instance.GetString("String_Attribute" + _objSkill.Attribute + "Short") + " (" + _objSkill.AttributeModifiers.ToString() + ")";
-                //}
+			    strTooltip += " + " + LanguageManager.Instance.GetString("String_Attribute" + _objSkill.Attribute + "Short") + " (" + _objSkill.AttributeModifiers.ToString() + ")";
 			}
 
 			// Modifiers only apply when not Defaulting.
@@ -707,8 +699,6 @@ namespace Chummer
 						strTooltip += " + " + LanguageManager.Instance.GetString("Tip_Skill_RatingModifiers") + " (" + _objSkill.RatingModifiers.ToString() + ")";
 				}
 				// Dice Pool Modifiers.
-				//if (_objSkill.DicePoolModifiers != 0)
-				//	strTooltip += " + " + LanguageManager.Instance.GetString("Tip_Skill_DicePoolModifiers") + " (" + _objSkill.DicePoolModifiers.ToString() + ")";
 				strTooltip += _objSkill.DicePoolModifiersTooltip;
 			}
 

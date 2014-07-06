@@ -11,6 +11,7 @@ namespace Chummer
         private string _strSelectedPower = "";
         private bool _blnLevels = false;
         private decimal _decPointsPerLevel = 0;
+        private decimal _decAdeptWayDiscount = 0;
 		private int _intMaxLevels = 0;
 
 		private bool _blnAddAgain = false;
@@ -227,7 +228,18 @@ namespace Chummer
             }
         }
 
-		/// <summary>
+        /// <summary>
+        /// Power Point discount for an Adept Way.
+        /// </summary>
+        public decimal AdeptWayDiscount
+        {
+            get
+            {
+                return _decAdeptWayDiscount;
+            }
+        }
+
+        /// <summary>
 		/// Maximum number of levels allowed by the Power. Standard rules apply if this is 0.
 		/// </summary>
 		public int MaxLevels()
@@ -310,6 +322,7 @@ namespace Chummer
 				_blnLevels = false;
 
 			_decPointsPerLevel = Convert.ToDecimal(objXmlPower["points"].InnerText, GlobalOptions.Instance.CultureInfo);
+            _decAdeptWayDiscount = Convert.ToDecimal(objXmlPower["adeptway"].InnerText, GlobalOptions.Instance.CultureInfo);
 
             _strSelectedPower = lstPowers.SelectedValue.ToString();
             this.DialogResult = DialogResult.OK;

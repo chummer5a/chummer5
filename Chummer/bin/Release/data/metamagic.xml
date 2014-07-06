@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-500</version>
+	<version>-499</version>
 	<metamagics>
 		<metamagic>
 			<name>Adept Centering</name>
@@ -70,6 +70,374 @@
 			<magician>yes</magician>
 			<source>SR5</source>
 			<page>326</page>
+		</metamagic>
+		<metamagic>
+			<name>Geomancy</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<source>SG</source>
+			<page>143</page>
+		</metamagic>
+		<metamagic>
+			<name>Necromancy</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<source>SG</source>
+			<page>143</page>
+		</metamagic>
+		<metamagic>
+			<name>Psychometry</name>
+			<adept>yes</adept>
+			<magician>yes</magician>
+			<source>SG</source>
+			<page>144</page>
+		</metamagic>
+		<metamagic>
+			<name>Divination</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<source>SG</source>
+			<page>147</page>
+		</metamagic>
+		<metamagic>
+			<name>Invocation</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<source>SG</source>
+			<page>147</page>
+		</metamagic>
+		<metamagic>
+			<name>Channeling</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<source>SG</source>
+			<page>148</page>
+		</metamagic>
+		<metamagic>
+			<name>Exorcism</name>
+			<adept>yes</adept>
+			<magician>yes</magician>
+			<source>SG</source>
+			<page>148</page>
+		</metamagic>
+		<metamagic>
+			<name>Extended Masking</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<required>
+				<allof>
+					<metamagic>Masking</metamagic>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>149</page>
+		</metamagic>
+		<metamagic>
+			<name>Astral Bluff</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<source>SG</source>
+			<page>150</page>
+		</metamagic>
+		<metamagic>
+			<name>Flux</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<source>SG</source>
+			<page>150</page>
+		</metamagic>
+		<metamagic>
+			<name>Absorbption</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<required>
+				<allof>
+					<metamagic>Shielding</metamagic>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>151</page>
+		</metamagic>
+		<metamagic>
+			<name>Reflection</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<required>
+				<allof>
+					<metamagic>Shielding</metamagic>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>151</page>
+		</metamagic>
+		<metamagic>
+			<name>Anchoring</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<required>
+				<allof>
+					<metamagic>Quickening</metamagic>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>152</page>
+		</metamagic>
+		<metamagic>
+			<name>Advanced Alchemy</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<required>
+				<allof>
+					<metamagic>Fixation</metamagic>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>153</page>
+		</metamagic>
+		<metamagic>
+			<name>Efficient Ritual</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<source>SG</source>
+			<page>153</page>
+		</metamagic>
+		<metamagic>
+			<name>Greater Ritual</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<source>SG</source>
+			<page>153</page>
+		</metamagic>
+		<metamagic>
+			<name>Penetrating Spell</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<source>SG</source>
+			<page>153</page>
+		</metamagic>
+		<metamagic>
+			<name>Cleansing</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<source>SG</source>
+			<page>155</page>
+		</metamagic>
+		<metamagic>
+			<name>Sensing</name>
+			<adept>no</adept>
+			<magician>yes</magician>
+			<source>SG</source>
+			<page>155</page>
+		</metamagic>
+		<metamagic>
+			<name>Infusion</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<required>
+				<allof>
+					<metamagic>Adept Centering</metamagic>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>156</page>
+		</metamagic>
+		<metamagic>
+			<name>Qi Sculpt</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<required>
+				<allof>
+					<metamagic>Adept Centering</metamagic>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>156</page>
+		</metamagic>
+		<metamagic>
+			<name>Air Walking</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<required>
+				<allof>
+					<power>Light Body</power>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>156</page>
+		</metamagic>
+		<metamagic>
+			<name>Supernatural Prowess</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<source>SG</source>
+			<page>156</page>
+		</metamagic>
+		<metamagic>
+			<name>Pied Piper</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<source>SG</source>
+			<page>156</page>
+		</metamagic>
+		<metamagic>
+			<name>Skin Artist</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<required>
+				<allof>
+					<power>Melanin Control</power>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>157</page>
+		</metamagic>
+		<metamagic>
+			<name>Apex Predator</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<source>SG</source>
+			<page>157</page>
+		</metamagic>
+		<metamagic>
+			<name>Claws</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<required>
+				<allof>
+					<power>Keratin Control</power>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>157</page>
+		</metamagic>
+		<metamagic>
+			<name>Totem Form (Animal)</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<required>
+				<allof>
+					<spell>Attune Animal</spell>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>157</page>
+		</metamagic>
+		<metamagic>
+			<name>Hot Qi</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<source>SG</source>
+			<page>157</page>
+		</metamagic>
+		<metamagic>
+			<name>Shadow Touch</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<required>
+				<allof>
+					<power>Traceless Walk</power>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>158</page>
+		</metamagic>
+		<metamagic>
+			<name>Stillness of the Void</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<source>SG</source>
+			<page>158</page>
+		</metamagic>
+		<metamagic>
+			<name>Digital Celerity</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<required>
+				<allof>
+					<power>Nimble Fingers</power>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>158</page>
+		</metamagic>
+		<metamagic>
+			<name>Master of the Nine Chakras</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<required>
+				<allof>
+					<power>Nerve Strike</power>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>158</page>
+		</metamagic>
+		<metamagic>
+			<name>Domain of the Spiritual</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<source>SG</source>
+			<page>158</page>
+		</metamagic>
+		<metamagic>
+			<name>Fae-Touched</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<source>SG</source>
+			<page>158</page>
+		</metamagic>
+		<metamagic>
+			<name>Silver-Tongued Devil</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<required>
+				<allof>
+					<power>Commanding Voice</power>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>159</page>
+		</metamagic>
+		<metamagic>
+			<name>Presence</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<source>SG</source>
+			<page>159</page>
+		</metamagic>
+		<metamagic>
+			<name>Barrage</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<required>
+				<allof>
+					<power>Missile Mastery</power>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>159</page>
+		</metamagic>
+		<metamagic>
+			<name>Domain of the Warrior</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<source>SG</source>
+			<page>159</page>
+		</metamagic>
+		<metamagic>
+			<name>Master of Taijiquan</name>
+			<adept>yes</adept>
+			<magician>no</magician>
+			<required>
+				<allof>
+					<power>Counterstrike</power>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>159</page>
 		</metamagic>
 	</metamagics>
 </chummer>

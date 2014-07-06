@@ -2690,6 +2690,46 @@
 			<text>Mana</text>
 		</string>
 		<string>
+			<key>String_DescAdept</key>
+			<text>Adept</text>
+		</string>
+		<string>
+			<key>String_DescAnchored</key>
+			<text>Anchored</text>
+		</string>
+		<string>
+			<key>String_DescBlood</key>
+			<text>Blood</text>
+		</string>
+		<string>
+			<key>String_DescContractual</key>
+			<text>Contractual</text>
+		</string>
+		<string>
+			<key>String_DescGeomancy</key>
+			<text>Geomancy</text>
+		</string>
+		<string>
+			<key>String_DescMaterialLink</key>
+			<text>Material Link</text>
+		</string>
+		<string>
+			<key>String_DescMinion</key>
+			<text>Minion</text>
+		</string>
+		<string>
+			<key>String_DescOrganicLink</key>
+			<text>Organic Link</text>
+		</string>
+		<string>
+			<key>String_DescSpell</key>
+			<text>Spell</text>
+		</string>
+		<string>
+			<key>String_DescSpotter</key>
+			<text>Spotter</text>
+		</string>
+		<string>
 			<key>String_DescMental</key>
 			<text>Mental</text>
 		</string>

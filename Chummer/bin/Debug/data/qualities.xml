@@ -1583,5 +1583,85 @@
 			<source>SR5</source>
 			<page>87</page>
 		</quality>
+		<quality>
+			<name>The Artisan's Way</name>
+			<karma>20</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SG</source>
+			<page>176</page>
+		</quality>
+		<quality>
+			<name>The Artist's Way</name>
+			<karma>20</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SG</source>
+			<page>176</page>
+		</quality>
+		<quality>
+			<name>The Athlete's Way</name>
+			<karma>20</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SG</source>
+			<page>176</page>
+		</quality>
+		<quality>
+			<name>The Beast's Way</name>
+			<karma>20</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SG</source>
+			<page>176</page>
+		</quality>
+		<quality>
+			<name>The Burnout's Way</name>
+			<karma>15</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SG</source>
+			<page>177</page>
+		</quality>
+		<quality>
+			<name>The Invisible Way</name>
+			<karma>20</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SG</source>
+			<page>177</page>
+		</quality>
+		<quality>
+			<name>The Magician's Way</name>
+			<karma>20</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SG</source>
+			<page>178</page>
+		</quality>
+		<quality>
+			<name>The Speaker's Way</name>
+			<karma>20</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SG</source>
+			<page>178</page>
+		</quality>
+		<quality>
+			<name>The Spiritual Way</name>
+			<karma>20</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SG</source>
+			<page>178</page>
+		</quality>
+		<quality>
+			<name>The Warrior's Way</name>
+			<karma>20</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SG</source>
+			<page>178</page>
+		</quality>
 	</qualities>
 </chummer>

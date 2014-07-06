@@ -1,3 +1,16 @@
+Build 5.112 (beta)
+- Added Rituals from Street Grimoire (SG).
+- Added Metamagics from SG.
+- Added Adept Ways from SG. I've included the discounts but just like Original Chummer, it's up to the player not to take more discounted powers than the 1 per 2 Magic. I will do a 2nd pass on the ways in the near future to restrict the discounts and to take a stab at adding the small bonuses the ways have like the karma discounts that some ways have as well as the cyberware essence discount that the Burnout's Way has and the skill bonus the Beast's Way has. For now, I was happy just getting the discounts working correctly.
+- Fixed the price of the Yamaha Growler.
+- Enabled the Spells and Spirits tab for Adepts. This allows Adepts to see the stats associated with their Mentor Spirit and to purchase Rituals. I'm currently omitting Rituals with the Spell keyword from the list they can purchase but will change this if it is appropriate to do so. I'm also omitting Rituals with the Adept keyword from the list for Magicians and Aspected Magicians.
+- Updated the Add Spell dialog for use by Adepts by restricting selection to Rituals with the Adept keyword.
+- Fixed the Taurus Omni-6 so that it gets the Revolver specialization in addition to Automatics.
+- Fixed the Enhanced Accuracy Adept Power so that it asks which combat skill to enhance.
+- Fixed a bug which allowed characters with more than 25 points in Negative Qualities to validate.
+- Fixed a bug with YNT Softweave Armor which would cause it to show more capacity remaining than it should.
+- Fixed a bug with broken Skill Groups during character creation not loading correctly from a save file.
+
 Build 5.111 (beta)
 - Added Rigger Control Consoles.
 - Added a tooltip for weapon Recoil Compensation that shows the sources of RC and their values.
