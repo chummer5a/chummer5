@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-499</version>
+	<version>-498</version>
 	<categories>
 		<category>Combat</category>
 		<category>Detection</category>
@@ -2584,6 +2584,474 @@
 			<dv>F+1</dv>
 			<source>SG</source>
 			<page>119</page>
+		</spell>
+		<spell>
+			<name>Aspect Mana Line</name>
+			<descriptor>Mana</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>122</page>
+		</spell>
+		<spell>
+			<name>Alarm Ward</name>
+			<descriptor>Anchored</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>122</page>
+		</spell>
+		<spell>
+			<name>Ally Conjuration</name>
+			<descriptor>Minion</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>122</page>
+		</spell>
+		<spell>
+			<name>Astral Doppelganger</name>
+			<descriptor>Spotter, Material Link</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>122</page>
+		</spell>
+		<spell>
+			<name>Atonement</name>
+			<descriptor>Contractual</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>123</page>
+		</spell>
+		<spell>
+			<name>Attune Animal</name>
+			<descriptor>Adept</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>123</page>
+		</spell>
+		<spell>
+			<name>Attune Item</name>
+			<descriptor>Adept</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>124</page>
+		</spell>
+		<spell>
+			<name>Augury and Sortilege</name>
+			<descriptor>Material Link</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>124</page>
+		</spell>
+		<spell>
+			<name>Blood Bond</name>
+			<descriptor>Material Link</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>125</page>
+		</spell>
+		<spell>
+			<name>Blood Rite</name>
+			<descriptor>Blood, Organic Link</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>125</page>
+		</spell>
+		<spell>
+			<name>Blood Sight</name>
+			<descriptor>Organic Link</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>125</page>
+		</spell>
+		<spell>
+			<name>Calling [Spirit Type]</name>
+			<descriptor>Contractual</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>126</page>
+		</spell>
+		<spell>
+			<name>Charged Ward</name>
+			<descriptor>Anchored</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>127</page>
+		</spell>
+		<spell>
+			<name>Circle of Cleansing</name>
+			<descriptor>Anchored, Mana</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>127</page>
+		</spell>
+		<spell>
+			<name>Create Ally Spirit</name>
+			<descriptor>Minion</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>127</page>
+		</spell>
+		<spell>
+			<name>Death Mark</name>
+			<descriptor>Organic Link, Spotter</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>127</page>
+		</spell>
+		<spell>
+			<name>Dispersion Circle</name>
+			<descriptor>Anchored</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>127</page>
+		</spell>
+		<spell>
+			<name>Door Wards</name>
+			<descriptor>Anchored</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>127</page>
+		</spell>
+		<spell>
+			<name>Empower</name>
+			<descriptor>Adept</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>128</page>
+		</spell>
+		<spell>
+			<name>Grave Binding</name>
+			<descriptor>Anchored, Organic Link</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>129</page>
+		</spell>
+		<spell>
+			<name>Group Bond</name>
+			<descriptor>Contractual</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>129</page>
+		</spell>
+		<spell>
+			<name>Imbue Item</name>
+			<descriptor></descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>133</page>
+		</spell>
+		<spell>
+			<name>Kything</name>
+			<descriptor>Anchored</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>133</page>
+		</spell>
+		<spell>
+			<name>Far Sensing</name>
+			<descriptor>Spotter</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>133</page>
+		</spell>
+		<spell>
+			<name>Leeching</name>
+			<descriptor>Mana</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>133</page>
+		</spell>
+		<spell>
+			<name>Ley Sight</name>
+			<descriptor>Mana</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>134</page>
+		</spell>
+		<spell>
+			<name>Light of Dharma</name>
+			<descriptor>Anchored</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>134</page>
+		</spell>
+		<spell>
+			<name>Living Vessel Preparation</name>
+			<descriptor>Organic Link</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>135</page>
+		</spell>
+		<spell>
+			<name>Manifest Sha</name>
+			<descriptor>Anchored, Mana</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>135</page>
+		</spell>
+		<spell>
+			<name>Masking Ward</name>
+			<descriptor>Anchored</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>135</page>
+		</spell>
+		<spell>
+			<name>Obfuscating Ward</name>
+			<descriptor>Anchored</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>135</page>
+		</spell>
+		<spell>
+			<name>Polarized Ward</name>
+			<descriptor>Anchored</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>136</page>
+		</spell>
+		<spell>
+			<name>Recharge Reagents</name>
+			<descriptor>Geomancy</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>136</page>
+		</spell>
+		<spell>
+			<name>Ritual of Change</name>
+			<descriptor>Minion</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>136</page>
+		</spell>
+		<spell>
+			<name>Smudging</name>
+			<descriptor>Mana, Material Link</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>136</page>
+		</spell>
+		<spell>
+			<name>Spirit Pact</name>
+			<descriptor>Contractual</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>136</page>
+		</spell>
+		<spell>
+			<name>Summon Great Form Spirit</name>
+			<descriptor>Minion</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>136</page>
+		</spell>
+		<spell>
+			<name>Trap Ward</name>
+			<descriptor>Anchored</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>137</page>
+		</spell>
+		<spell>
+			<name>Whisper of Bones</name>
+			<descriptor>Organic Link</descriptor>
+			<category>Rituals</category>
+			<type>M</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>137</page>
 		</spell>
 	</spells>
 </chummer>

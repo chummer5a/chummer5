@@ -3764,72 +3764,40 @@ namespace Chummer
 				{
 					switch (strDescriptor.Trim())
 					{
-						case "Active":
-							strReturn += LanguageManager.Instance.GetString("String_DescActive") + ", ";
-							break;
-						case "Area":
-							if (_blnExtended)
-							{
-								// Replace Area with Extended Area if the Extended flag is enabled.
-								strReturn += LanguageManager.Instance.GetString("String_DescExtendedArea") + ", ";
-								blnExtendedFound = true;
-							}
-							else
-								strReturn += LanguageManager.Instance.GetString("String_DescArea") + ", ";
-							break;
-						case "Direct":
-							strReturn += LanguageManager.Instance.GetString("String_DescDirect") + ", ";
-							break;
-						case "Directional":
-							strReturn += LanguageManager.Instance.GetString("String_DescDirectional") + ", ";
-							break;
-						case "Elemental":
-							strReturn += LanguageManager.Instance.GetString("String_DescElemental") + ", ";
-							break;
-						case "Environmental":
-							strReturn += LanguageManager.Instance.GetString("String_DescEnvironmental") + ", ";
-							break;
-						case "Extended Area":
-							strReturn += LanguageManager.Instance.GetString("String_DescExtendedArea") + ", ";
-							blnExtendedFound = true;
-							break;
-						case "Indirect":
-							strReturn += LanguageManager.Instance.GetString("String_DescIndirect") + ", ";
-							break;
-						case "Mana":
-							strReturn += LanguageManager.Instance.GetString("String_DescMana") + ", ";
-							break;
-						case "Mental":
-							strReturn += LanguageManager.Instance.GetString("String_DescMental") + ", ";
-							break;
-						case "Multi-Sense":
-							strReturn += LanguageManager.Instance.GetString("String_DescMultiSense") + ", ";
-							break;
-						case "Negative":
-							strReturn += LanguageManager.Instance.GetString("String_DescNegative") + ", ";
-							break;
-						case "Obvious":
-							strReturn += LanguageManager.Instance.GetString("String_DescObvious") + ", ";
-							break;
-						case "Passive":
-							strReturn += LanguageManager.Instance.GetString("String_DescPassive") + ", ";
-							break;
-						case "Physical":
-							strReturn += LanguageManager.Instance.GetString("String_DescPhysical") + ", ";
-							break;
-						case "Psychic":
-							strReturn += LanguageManager.Instance.GetString("String_DescPsychic") + ", ";
-							break;
-						case "Realistic":
-							strReturn += LanguageManager.Instance.GetString("String_DescRealistic") + ", ";
-							break;
-						case "Single-Sense":
-							strReturn += LanguageManager.Instance.GetString("String_DescSingleSense") + ", ";
-							break;
-						case "Touch":
-							strReturn += LanguageManager.Instance.GetString("String_DescTouch") + ", ";
-							break;
-					}
+                        case "Adept":
+                            strReturn += LanguageManager.Instance.GetString("String_DescAdept") + ", ";
+                            break;
+                        case "Anchored":
+                            strReturn += LanguageManager.Instance.GetString("String_DescAnchored") + ", ";
+                            break;
+                        case "Blood":
+                            strReturn += LanguageManager.Instance.GetString("String_DescBlood") + ", ";
+                            break;
+                        case "Contractual":
+                            strReturn += LanguageManager.Instance.GetString("String_DescContractual") + ", ";
+                            break;
+                        case "Geomancy":
+                            strReturn += LanguageManager.Instance.GetString("String_DescGeomancy") + ", ";
+                            break;
+                        case "Mana":
+                            strReturn += LanguageManager.Instance.GetString("String_DescMana") + ", ";
+                            break;
+                        case "Material Link":
+                            strReturn += LanguageManager.Instance.GetString("String_DescMaterialLink") + ", ";
+                            break;
+                        case "Minion":
+                            strReturn += LanguageManager.Instance.GetString("String_DescMinion") + ", ";
+                            break;
+                        case "Organic Link":
+                            strReturn += LanguageManager.Instance.GetString("String_DescOrganic Link") + ", ";
+                            break;
+                        case "Spell":
+                            strReturn += LanguageManager.Instance.GetString("String_DescSpell") + ", ";
+                            break;
+                        case "Spotter":
+                            strReturn += LanguageManager.Instance.GetString("String_DescSpotter") + ", ";
+                            break;
+                    }
 				}
 
 				// If Extended Area was not found and the Extended flag is enabled, add Extended Area to the list of Descriptors.
@@ -5002,6 +4970,7 @@ namespace Chummer
 		private bool _blnDoubleCost = true;
         private bool _blnFree = false;
         private int _intFreeLevels = 0;
+        private decimal _decAdeptWayDiscount = 0;
 
 		private readonly Character _objCharacter;
 
@@ -5024,7 +4993,8 @@ namespace Chummer
 			objWriter.WriteElementString("name", _strName);
 			objWriter.WriteElementString("extra", _strExtra);
 			objWriter.WriteElementString("pointsperlevel", _decPointsPerLevel.ToString(GlobalOptions.Instance.CultureInfo));
-			objWriter.WriteElementString("rating", _intRating.ToString());
+            objWriter.WriteElementString("adeptway", _decAdeptWayDiscount.ToString(GlobalOptions.Instance.CultureInfo));
+            objWriter.WriteElementString("rating", _intRating.ToString());
 			objWriter.WriteElementString("levels", _blnLevelsEnabled.ToString());
 			objWriter.WriteElementString("maxlevel", _intMaxLevel.ToString());
 			objWriter.WriteElementString("discounted", _blnDiscountedAdeptWay.ToString());
@@ -5052,7 +5022,15 @@ namespace Chummer
 			_strName = objNode["name"].InnerText;
 			_strExtra = objNode["extra"].InnerText;
 			_decPointsPerLevel = Convert.ToDecimal(objNode["pointsperlevel"].InnerText, GlobalOptions.Instance.CultureInfo);
-			_intRating = Convert.ToInt32(objNode["rating"].InnerText);
+            if (objNode["adeptway"] != null)
+                _decAdeptWayDiscount = Convert.ToDecimal(objNode["adeptway"].InnerText, GlobalOptions.Instance.CultureInfo);
+            else
+            {
+                XmlDocument objXmlDocument = XmlManager.Instance.Load("powers.xml");
+                XmlNode objXmlPower = objXmlDocument.SelectSingleNode("/chummer/powers/power[name = \"" + _strName + "\"]");
+                _decAdeptWayDiscount = Convert.ToDecimal(objXmlPower["adeptway"].InnerText, GlobalOptions.Instance.CultureInfo);
+            }
+            _intRating = Convert.ToInt32(objNode["rating"].InnerText);
 			_blnLevelsEnabled = Convert.ToBoolean(objNode["levels"].InnerText);
             _blnFree = Convert.ToBoolean(objNode["free"].InnerText);
             _intFreeLevels = Convert.ToInt32(objNode["freelevels"].InnerText);
@@ -5112,7 +5090,8 @@ namespace Chummer
 			objWriter.WriteElementString("name", DisplayNameShort);
 			objWriter.WriteElementString("extra", LanguageManager.Instance.TranslateExtra(_strExtra));
 			objWriter.WriteElementString("pointsperlevel", _decPointsPerLevel.ToString());
-			if (_blnLevelsEnabled)
+            objWriter.WriteElementString("adeptway", _decAdeptWayDiscount.ToString());
+            if (_blnLevelsEnabled)
 				objWriter.WriteElementString("rating", _intRating.ToString());
 			else
 				objWriter.WriteElementString("rating", "0");
@@ -5245,14 +5224,29 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Power Point discount for an Adept Way.
+        /// </summary>
+        public decimal AdeptWayDiscount
+        {
+            get
+            {
+                return _decAdeptWayDiscount;
+            }
+            set
+            {
+                _decAdeptWayDiscount = value;
+            }
+        }
+
+        /// <summary>
 		/// Calculated Power Point cost per level of the Power (including discounts).
 		/// </summary>
 		public decimal CalculatedPointsPerLevel
 		{
 			get
 			{
-				return _decPointsPerLevel * Discount;
+				return _decPointsPerLevel;
 			}
 		}
 
@@ -5263,17 +5257,10 @@ namespace Chummer
 		{
 			get
 			{
-				if (!_blnDiscountedAdeptWay && !_blnDiscountedGeas)
-					return 1.0m;
-				else
-				{
-					decimal decMultiplier = 1.0m;
-					if (_blnDiscountedAdeptWay)
-						decMultiplier -= 0.25m;
-					if (_blnDiscountedGeas)
-						decMultiplier -= 0.25m;
-					return decMultiplier;
-				}
+                if (_blnDiscountedAdeptWay)
+                    return _decAdeptWayDiscount;
+                else
+                    return 0;
 			}
 		}
 
@@ -5334,7 +5321,7 @@ namespace Chummer
                 else
                 {
                     decimal decReturn = (_intRating - _intFreeLevels) * PointsPerLevel;
-                    decReturn *= Discount;
+                    decReturn -= Discount;
 
                     // Look at the Improvements created by the Power and determine if it has taken an Attribute above its Metatype Maximum.
                     if (_blnDoubleCost)
@@ -5520,7 +5507,7 @@ namespace Chummer
                 else
                 {
                     decimal decReturn = (_intRating - _intFreeLevels) * PointsPerLevel;
-                    decReturn *= Discount;
+                    decReturn -= Discount;
                     int intDoubledPoints = 0;
 
                     // Look at the Improvements created by the Power and determine if it has taken an Attribute above its Metatype Maximum.

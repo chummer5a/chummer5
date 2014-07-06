@@ -131,7 +131,6 @@
             this.chkDiscountedAdeptWay.Tag = "Checkbox_Power_AdeptWay";
             this.chkDiscountedAdeptWay.Text = "Adept Way";
             this.chkDiscountedAdeptWay.UseVisualStyleBackColor = true;
-            this.chkDiscountedAdeptWay.Visible = false;
             this.chkDiscountedAdeptWay.CheckedChanged += new System.EventHandler(this.chkDiscounted_CheckedChanged);
             // 
             // chkDiscountedGeas
@@ -158,7 +157,6 @@
             this.lblDiscountLabel.TabIndex = 5;
             this.lblDiscountLabel.Tag = "Label_Power_DiscountedBy";
             this.lblDiscountLabel.Text = "Discounted by";
-            this.lblDiscountLabel.Visible = false;
             // 
             // imgNotes
             // 

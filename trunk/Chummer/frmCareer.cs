@@ -724,9 +724,12 @@ namespace Chummer
 						treSpells.Nodes[4].Nodes.Add(objNode);
 						treSpells.Nodes[4].Expand();
 						break;
-					case "Geomancy Ritual":
-						treSpells.Nodes[5].Nodes.Add(objNode);
-						treSpells.Nodes[5].Expand();
+					case "Rituals":
+                        int intNode = 5;
+                        if (_objCharacter.AdeptEnabled && !_objCharacter.MagicianEnabled)
+                            intNode = 0;
+                        treSpells.Nodes[intNode].Nodes.Add(objNode);
+                        treSpells.Nodes[intNode].Expand();
 						break;
 				}
 			}
@@ -746,7 +749,8 @@ namespace Chummer
 				objPowerControl.PowerName = objPower.Name;
 				objPowerControl.Extra = objPower.Extra;
 				objPowerControl.PointsPerLevel = objPower.PointsPerLevel;
-				objPowerControl.LevelEnabled = objPower.LevelsEnabled;
+                objPowerControl.AdeptWayDiscount = objPower.AdeptWayDiscount;
+                objPowerControl.LevelEnabled = objPower.LevelsEnabled;
 				if (objPower.MaxLevels > 0)
 					objPowerControl.MaxLevels = objPower.MaxLevels;
 				objPowerControl.RefreshMaximum(_objCharacter.MAG.TotalValue);
@@ -4991,9 +4995,12 @@ namespace Chummer
 					treSpells.Nodes[4].Nodes.Add(objNode);
 					treSpells.Nodes[4].Expand();
 					break;
-				case "Geomancy Ritual":
-					treSpells.Nodes[5].Nodes.Add(objNode);
-					treSpells.Nodes[5].Expand();
+                case "Rituals":
+                    int intNode = 5;
+                    if (_objCharacter.AdeptEnabled && !_objCharacter.MagicianEnabled)
+                        intNode = 0;
+                    treSpells.Nodes[intNode].Nodes.Add(objNode);
+                    treSpells.Nodes[intNode].Expand();
 					break;
 			}
 
@@ -5143,7 +5150,8 @@ namespace Chummer
 
 			objPowerControl.PowerName = frmPickPower.SelectedPower;
 			objPowerControl.PointsPerLevel = frmPickPower.PointsPerLevel;
-			objPowerControl.LevelEnabled = frmPickPower.LevelEnabled;
+            objPowerControl.AdeptWayDiscount = frmPickPower.AdeptWayDiscount;
+            objPowerControl.LevelEnabled = frmPickPower.LevelEnabled;
 			if (frmPickPower.MaxLevels() > 0)
 				objPowerControl.MaxLevels = frmPickPower.MaxLevels();
 
@@ -15523,9 +15531,12 @@ namespace Chummer
 					treSpells.Nodes[4].Nodes.Add(objNode);
 					treSpells.Nodes[4].Expand();
 					break;
-				case "Geomancy Ritual":
-					treSpells.Nodes[5].Nodes.Add(objNode);
-					treSpells.Nodes[5].Expand();
+                case "Rituals":
+                    int intNode = 5;
+                    if (_objCharacter.AdeptEnabled && !_objCharacter.MagicianEnabled)
+                        intNode = 0;
+                    treSpells.Nodes[intNode].Nodes.Add(objNode);
+                    treSpells.Nodes[intNode].Expand();
 					break;
 			}
 

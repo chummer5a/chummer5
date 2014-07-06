@@ -1335,8 +1335,8 @@ namespace Chummer
 				{
 					objGroup.Load(objXmlSkill);
 					// If the character is set to ignore rules or is in Career Mode, Skill Groups should have a maximum Rating of 6 unless they have been given a higher maximum Rating already.
-					if ((_blnIgnoreRules || _blnCreated) && objGroup.RatingMaximum < 6)
-						objGroup.RatingMaximum = 6;
+                    if ((_blnIgnoreRules || _blnCreated) && objGroup.RatingMaximum < 12)
+                        objGroup.RatingMaximum = 12;
 				}
 			}
 

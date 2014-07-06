@@ -131,7 +131,7 @@ namespace Chummer
 			}
 
 			// Remove the Magician, Adept, and Technomancer tabs since they are not in use until the appropriate Quality is selected.
-			if (!_objCharacter.MagicianEnabled)
+            if (!_objCharacter.MagicianEnabled && !_objCharacter.AdeptEnabled)
 				tabCharacterTabs.TabPages.Remove(tabMagician);
 			if (!_objCharacter.AdeptEnabled)
 				tabCharacterTabs.TabPages.Remove(tabAdept);
@@ -139,6 +139,21 @@ namespace Chummer
 				tabCharacterTabs.TabPages.Remove(tabTechnomancer);
 			if (!_objCharacter.CritterEnabled)
 				tabCharacterTabs.TabPages.Remove(tabCritter);
+            if (_objCharacter.AdeptEnabled && !_objCharacter.MagicianEnabled)
+            {
+                // Hide the pieces that only apply to mages or mystic adepts
+                treSpells.Nodes[4].Remove();
+                treSpells.Nodes[3].Remove();
+                treSpells.Nodes[2].Remove();
+                treSpells.Nodes[1].Remove();
+                treSpells.Nodes[0].Remove();
+                lblDrainAttributesLabel.Visible = false;
+                lblDrainAttributes.Visible = false;
+                lblDrainAttributesValue.Visible = false;
+                lblSpirits.Visible = false;
+                cmdAddSpirit.Visible = false;
+                panSpirits.Visible = false;
+            }
 
 			// Set the visibility of the Bioware Suites menu options.
 			mnuSpecialAddBiowareSuite.Visible = _objCharacter.Options.AllowBiowareSuites;
@@ -348,9 +363,6 @@ namespace Chummer
 			// Nuyen can be affected by Qualities, so adjust the total amount available to the character.
             if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
             {
-                //lblNuyen.Visible = false;
-                //lblNuyenTotal.Visible = false;
-                //nudNuyen.Visible = false;
                 nudNuyen.Maximum = 10;
                 nudNuyen.Value = _objCharacter.NuyenBP;
             }
@@ -669,9 +681,12 @@ namespace Chummer
 						treSpells.Nodes[4].Nodes.Add(objNode);
 						treSpells.Nodes[4].Expand();
 						break;
-					case "Geomancy Ritual":
-						treSpells.Nodes[5].Nodes.Add(objNode);
-						treSpells.Nodes[5].Expand();
+                    case "Rituals":
+                        int intNode = 5;
+                        if (_objCharacter.AdeptEnabled && !_objCharacter.MagicianEnabled)
+                            intNode = 0;
+                        treSpells.Nodes[intNode].Nodes.Add(objNode);
+                        treSpells.Nodes[intNode].Expand();
 						break;
 				}
 			}
@@ -691,6 +706,7 @@ namespace Chummer
 				objPowerControl.PowerName = objPower.Name;
 				objPowerControl.Extra = objPower.Extra;
 				objPowerControl.PointsPerLevel = objPower.PointsPerLevel;
+                objPowerControl.AdeptWayDiscount = objPower.AdeptWayDiscount;
 				objPowerControl.LevelEnabled = objPower.LevelsEnabled;
 				if (objPower.MaxLevels > 0)
 					objPowerControl.MaxLevels = objPower.MaxLevels;
@@ -4053,7 +4069,7 @@ namespace Chummer
 				{
 					if (objSkillControl.SkillName == objXmlSkill["name"].InnerText)
 					{
-						if (objGroupControl.GroupRating > 0)
+						if (objGroupControl.GroupRating > 0 && !objGroupControl.SkillGroupObject.Broken)
 						{
 							// Setting a Group's Rating above 0 should place the Skill in the Group and disable the SkillControl.
 							if (objGroupControl.GroupRating > objSkillControl.SkillRatingMaximum)
@@ -4061,7 +4077,7 @@ namespace Chummer
 							objSkillControl.SkillRating = objGroupControl.GroupRating;
 							objSkillControl.IsGrouped = true;
 						}
-						else
+						else if (!objGroupControl.SkillGroupObject.Broken)
 						{
 							// Returning a Group's Rating back to 0 should release the Skill from the Group and re-enable the SkillControl.
 							objSkillControl.SkillRating = 0;
@@ -4890,9 +4906,12 @@ namespace Chummer
                     treSpells.Nodes[4].Nodes.Add(objNode);
                     treSpells.Nodes[4].Expand();
                     break;
-                case "Ritual":
-                    treSpells.Nodes[5].Nodes.Add(objNode);
-                    treSpells.Nodes[5].Expand();
+                case "Rituals":
+                    int intNode = 5;
+                    if (_objCharacter.AdeptEnabled && !_objCharacter.MagicianEnabled)
+                        intNode = 0;
+                    treSpells.Nodes[intNode].Nodes.Add(objNode);
+                    treSpells.Nodes[intNode].Expand();
                     break;
             }
 
@@ -5060,6 +5079,7 @@ namespace Chummer
 
 			objPowerControl.PowerName = frmPickPower.SelectedPower;
 			objPowerControl.PointsPerLevel = frmPickPower.PointsPerLevel;
+            objPowerControl.AdeptWayDiscount = frmPickPower.AdeptWayDiscount;
 			objPowerControl.LevelEnabled = frmPickPower.LevelEnabled;
 			if (frmPickPower.MaxLevels() > 0)
 				objPowerControl.MaxLevels = frmPickPower.MaxLevels();
@@ -10359,9 +10379,12 @@ namespace Chummer
 					treSpells.Nodes[4].Nodes.Add(objNode);
 					treSpells.Nodes[4].Expand();
 					break;
-				case "Geomancy Ritual":
-					treSpells.Nodes[5].Nodes.Add(objNode);
-					treSpells.Nodes[5].Expand();
+                case "Rituals":
+                    int intNode = 5;
+                    if (_objCharacter.AdeptEnabled && !_objCharacter.MagicianEnabled)
+                        intNode = 0;
+                    treSpells.Nodes[intNode].Nodes.Add(objNode);
+                    treSpells.Nodes[intNode].Expand();
 					break;
 			}
 
@@ -14709,34 +14732,32 @@ namespace Chummer
 
                         if (blnApplyModifier)
                         {
-                            // Refund the first X points of Karma cost for the Skill.
-                            if (objSkillControl.SkillRatingMinimum == 0)
-                            {
-                                if (intMin >= 1)
-                                {
-                                    intPointsRemain += _objOptions.KarmaNewActiveSkill;
-                                    intPointsUsed -= _objOptions.KarmaNewActiveSkill;
-                                }
-                                if (intMin > 1)
-                                {
-                                    for (int i = objSkillControl.SkillRatingMinimum + 2; i <= intMin; i++)
-                                    {
-                                        intPointsRemain += i * _objOptions.KarmaImproveActiveSkill;
-                                        intPointsUsed -= i * _objOptions.KarmaImproveActiveSkill;
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                if (intMin > 1)
-                                {
-                                    for (int i = objSkillControl.SkillRatingMinimum + 1; i <= intMin; i++)
-                                    {
-                                        intPointsRemain += i * _objOptions.KarmaImproveActiveSkill;
-                                        intPointsUsed -= i * _objOptions.KarmaImproveActiveSkill;
-                                    }
-                                }
-                            }
+                            intPointsUsed -= (intMin - objSkillControl.SkillRatingMinimum);
+                            //// Refund the first X points of Karma cost for the Skill.
+                            //if (objSkillControl.SkillRatingMinimum == 0)
+                            //{
+                            //    if (intMin >= 1)
+                            //    {
+                            //        intPointsUsed -= _objOptions.KarmaNewActiveSkill;
+                            //    }
+                            //    if (intMin > 1)
+                            //    {
+                            //        for (int i = objSkillControl.SkillRatingMinimum + 2; i <= intMin; i++)
+                            //        {
+                            //            intPointsUsed -= i * _objOptions.KarmaImproveActiveSkill;
+                            //        }
+                            //    }
+                            //}
+                            //else
+                            //{
+                            //    if (intMin > 1)
+                            //    {
+                            //        for (int i = objSkillControl.SkillRatingMinimum + 1; i <= intMin; i++)
+                            //        {
+                            //            intPointsUsed -= i * _objOptions.KarmaImproveActiveSkill;
+                            //        }
+                            //    }
+                            //}
                         }
                     }
                 }
@@ -14757,7 +14778,37 @@ namespace Chummer
                         SkillControl objLowSkill = new SkillControl();
                         foreach (SkillControl objSkill in panActiveSkills.Controls)
                         {
-                            if (objSkill.WorkingRating > objSkill.SkillRatingMinimum && objSkill.WorkingRating < intMin)
+                            bool blnApplyModifier = false;
+                            int intMinGroup = 999;
+                            if (_objOptions.BreakSkillGroupsInCreateMode)
+                            {
+                                // Find the matching Skill Group.
+                                foreach (SkillGroup objGroup in _objCharacter.SkillGroups)
+                                {
+                                    if (objGroup.Broken && objGroup.Name == objSkill.SkillGroup)
+                                    {
+                                        // Determine the lowest Rating amongst the Skills in the Groups.
+                                        foreach (Skill objSkillG in _objCharacter.Skills)
+                                        {
+                                            if (objSkillG.SkillGroup == objGroup.Name)
+                                            {
+                                                if (objSkillG.Rating < intMinGroup)
+                                                {
+                                                    intMinGroup = objSkillG.Rating;
+                                                    blnApplyModifier = true;
+                                                }
+                                            }
+                                        }
+                                        break;
+                                    }
+                                }
+                            }
+
+                            int intSkillMin = objSkill.SkillRatingMinimum;
+                            if (blnApplyModifier)
+                                intSkillMin = Math.Max(intSkillMin, intMinGroup);
+
+                            if (objSkill.WorkingRating > intSkillMin && objSkill.WorkingRating < intMin)
                             {
                                 intMin = objSkill.WorkingRating;
                                 objLowSkill = objSkill;
@@ -14990,8 +15041,8 @@ namespace Chummer
 
 			// Calculate the BP used by Spells.
 			intPointsUsed = 0;
-			if (_objCharacter.MagicianEnabled)
-			{
+            //if (_objCharacter.MagicianEnabled)
+            //{
 				// Count the number of Spells the character currently has and make sure they do not try to select more Spells than they are allowed.
 				// The maximum number of Spells a character can start with is 2 x (highest of Spellcasting or Ritual Spellcasting Skill).
 				int intSpellCount = 0;
@@ -15007,7 +15058,7 @@ namespace Chummer
                 intPointsRemain -= Math.Max(0, intSpellCount - _objCharacter.SpellLimit) * _objOptions.KarmaSpell;
                 intPointsUsed += Math.Max(0, intSpellCount - _objCharacter.SpellLimit) * _objOptions.KarmaSpell;
 				tipTooltip.SetToolTip(lblSpellsBP, intSpellCount.ToString() + " x " + _objOptions.KarmaSpell + " " + LanguageManager.Instance.GetString("String_Karma") + " = " + intPointsUsed.ToString() + " " + LanguageManager.Instance.GetString("String_Karma"));
-			}
+            //}
 			lblSpellsBP.Text = String.Format("{0} " + strPoints, intPointsUsed.ToString());
 			intFreestyleBP += intPointsUsed;
 
@@ -15245,6 +15296,38 @@ namespace Chummer
                     if (objSkillControl.SkillSpec.Trim() != string.Empty && !objSkillControl.SkillObject.ExoticSkill)
                     {
                         intSkills ++;
+                    }
+
+                    if (_objOptions.BreakSkillGroupsInCreateMode)
+                    {
+                        int intMin = 999;
+                        bool blnApplyModifier = false;
+
+                        // Find the matching Skill Group.
+                        foreach (SkillGroup objGroup in _objCharacter.SkillGroups)
+                        {
+                            if (objGroup.Broken && objGroup.Name == objSkillControl.SkillGroup)
+                            {
+                                // Determine the lowest Rating amongst the Skills in the Groups.
+                                foreach (Skill objSkill in _objCharacter.Skills)
+                                {
+                                    if (objSkill.SkillGroup == objGroup.Name)
+                                    {
+                                        if (objSkill.Rating < intMin)
+                                        {
+                                            intMin = objSkill.Rating;
+                                            blnApplyModifier = true;
+                                        }
+                                    }
+                                }
+                                break;
+                            }
+                        }
+
+                        if (blnApplyModifier)
+                        {
+                            intSkills -= (intMin - objSkillControl.SkillRatingMinimum);
+                        }
                     }
                 }
                 _objCharacter.SkillPoints = _objCharacter.SkillPointsMaximum - intSkills;
@@ -16143,6 +16226,7 @@ namespace Chummer
                 objPowerControl.PowerName = objPower.Name;
                 objPowerControl.Extra = objPower.Extra;
                 objPowerControl.PointsPerLevel = objPower.PointsPerLevel;
+                objPowerControl.AdeptWayDiscount = objPower.AdeptWayDiscount;
                 objPowerControl.LevelEnabled = objPower.LevelsEnabled;
                 if (objPower.MaxLevels > 0)
                     objPowerControl.MaxLevels = objPower.MaxLevels;
@@ -18748,53 +18832,6 @@ namespace Chummer
                         strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_InvalidPointExcess").Replace("{0}", ((5 - intTechniques) * -1).ToString() + " " + LanguageManager.Instance.GetString("String_TechniquesCount"));
                 }
 
-                // Check if the character has gone over the limit of attribute points
-                int intAttributes = _objCharacter.Attributes;
-                if (intAttributes < 0)
-                    strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_InvalidPointExcess").Replace("{0}", (intAttributes * -1).ToString() + " " + LanguageManager.Instance.GetString("String_AttributePoints"));
-
-                // Check if the character has gone over the limit of special attribute points
-                int intSpecial = _objCharacter.Special;
-                if (intSpecial < 0)
-                    strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_InvalidPointExcess").Replace("{0}", (intSpecial * -1).ToString() + " " + LanguageManager.Instance.GetString("String_SpecialAttributePoints"));
-
-                // Check if the character has gone over the limit of skill points
-                int intSkills = _objCharacter.SkillPoints;
-                if (intSkills < 0)
-                    strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_InvalidPointExcess").Replace("{0}", (intSkills * -1).ToString() + " " + LanguageManager.Instance.GetString("String_SkillPoints"));
-
-                // Check if the character has gone over the limit of skill group points
-                int intSkillGroups = _objCharacter.SkillGroupPoints;
-                if (intSkillGroups < 0)
-                    strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_InvalidPointExcess").Replace("{0}", (intSkillGroups * -1).ToString() + " " + LanguageManager.Instance.GetString("String_SkillGroupPoints"));
-
-                // Check if the character has gone over the limit of spells
-                int intSpellCount = 0;
-                foreach (TreeNode nodCategory in treSpells.Nodes)
-                {
-                    foreach (TreeNode nodSpell in nodCategory.Nodes)
-                    {
-                        intSpellCount++;
-                    }
-                }
-
-                if (intSpellCount > ((_objCharacter.SpellLimit) + _objImprovementManager.ValueOf(Improvement.ImprovementType.SpellLimit)) && !_objCharacter.IgnoreRules)
-                {
-                    strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_InvalidPointExcess").Replace("{0}", ((_objCharacter.SpellLimit - intSpellCount) * -1).ToString() + " " + LanguageManager.Instance.GetString("String_Spells"));
-                }
-
-                // Check if the character has gone over the limit of cfp's
-                int intCFP = 0;
-                foreach (ComplexForm tp in _objCharacter.ComplexForms)
-                {
-                    intCFP++;
-                }
-
-                if (intCFP > ((_objCharacter.CFPLimit) + _objImprovementManager.ValueOf(Improvement.ImprovementType.ComplexFormLimit)) && !_objCharacter.IgnoreRules)
-                {
-                    strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_InvalidPointExcess").Replace("{0}", ((_objCharacter.CFPLimit - intCFP) * -1).ToString() + " " + LanguageManager.Instance.GetString("String_ComplexForms"));
-                }
-
                 // Check if the character has  positive qualities outnumbering negative qualities
                 // Calculate the BP used by Enemies. These are added to the BP since they are tehnically
                 // a Negative Quality.
@@ -18856,11 +18893,17 @@ namespace Chummer
 
                 // if positive points > 25
                 if (intPositivePointsUsed > 25)
+                {
                     strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_PositiveQualityLimit").Replace("{0}", (25).ToString());
+                    blnValid = false;
+                }
 
                 // if negative points > 25
                 if (intNegativePoints < -25)
+                {
                     strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_NegativeQualityLimit").Replace("{0}", (25).ToString());
+                    blnValid = false;
+                }
 
                 // Check if the character has gone over limits from optional rules
                 int intContactPointsUsed = 0;
@@ -20010,7 +20053,8 @@ namespace Chummer
 
 					objPowerControl.PowerName = objXmlPowerNode["name"].InnerText;
 					objPowerControl.PointsPerLevel = Convert.ToDecimal(objXmlPowerNode["points"].InnerText, GlobalOptions.Instance.CultureInfo);
-					if (objXmlPowerNode["levels"].InnerText == "no")
+                    objPowerControl.AdeptWayDiscount = Convert.ToDecimal(objXmlPowerNode["adeptway"].InnerText, GlobalOptions.Instance.CultureInfo);
+                    if (objXmlPowerNode["levels"].InnerText == "no")
 					{
 						objPowerControl.LevelEnabled = false;
 					}
@@ -20128,9 +20172,12 @@ namespace Chummer
 								treSpells.Nodes[4].Nodes.Add(objNode);
 								treSpells.Nodes[4].Expand();
 								break;
-							case "Geomancy Ritual":
-								treSpells.Nodes[5].Nodes.Add(objNode);
-								treSpells.Nodes[5].Expand();
+                            case "Rituals":
+                                int intNode = 5;
+                                if (_objCharacter.AdeptEnabled && !_objCharacter.MagicianEnabled)
+                                    intNode = 0;
+                                treSpells.Nodes[intNode].Nodes.Add(objNode);
+                                treSpells.Nodes[intNode].Expand();
 								break;
 						}
 

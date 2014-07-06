@@ -1958,19 +1958,22 @@ namespace Chummer
 					// Run through its Armor Mods and deduct the Capacity costs.
 					foreach (ArmorMod objMod in _lstArmorMods)
 					{
-						string strCapacity = objMod.CalculatedCapacity;
-						if (strCapacity.Contains("/["))
-						{
-							// If this is a multiple-capacity item, use only the second half.
-							int intPos = strCapacity.IndexOf("/[");
-							strCapacity = strCapacity.Substring(intPos + 1);
-						}
+                        if (objMod.Name != "YNT Softweave Armor")
+                        {
+                            string strCapacity = objMod.CalculatedCapacity;
+                            if (strCapacity.Contains("/["))
+                            {
+                                // If this is a multiple-capacity item, use only the second half.
+                                int intPos = strCapacity.IndexOf("/[");
+                                strCapacity = strCapacity.Substring(intPos + 1);
+                            }
 
-						if (strCapacity.Contains("["))
-							strCapacity = strCapacity.Substring(1, strCapacity.Length - 2);
-						if (strCapacity == "*")
-							strCapacity = "0";
-						intCapacity -= Convert.ToInt32(strCapacity);
+                            if (strCapacity.Contains("["))
+                                strCapacity = strCapacity.Substring(1, strCapacity.Length - 2);
+                            if (strCapacity == "*")
+                                strCapacity = "0";
+                            intCapacity -= Convert.ToInt32(strCapacity);
+                        }
 					}
 
 					// Run through its Gear and deduct the Armor Capacity costs.
@@ -4318,7 +4321,7 @@ namespace Chummer
 			if (objXmlWeapon["spec"] != null)
 				_strSpec = objXmlWeapon["spec"].InnerText;
 
-			if (objXmlDocument["spec2"] != null)
+            if (objXmlWeapon["spec2"] != null)
 				_strSpec2 = objXmlWeapon["spec2"].InnerText;
 
 			objNode.Text = DisplayName;
@@ -6954,6 +6957,11 @@ namespace Chummer
 				{
 					if (!objCharacterSkill.KnowledgeSkill && objCharacterSkill.Name == strSkill)
 					{
+                        if (_strSpec2 != "" && objCharacterSkill.Specialization == _strSpec2)
+                        {
+                            objSkill = objCharacterSkill;
+                            break;
+                        }
 						if (strSpec == "" || (strSpec != "" && objCharacterSkill.Specialization == strSpec))
 						{
 							objSkill = objCharacterSkill;

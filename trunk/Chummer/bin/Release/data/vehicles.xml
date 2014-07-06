@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-499</version>
+	<version>-498</version>
 	<categories>
 		<category>Bikes</category>
 		<category>Cars</category>
@@ -73,7 +73,7 @@
 				<gear>Sensor Array</gear>
 			</gears>
 			<avail>0</avail>
-			<cost>0500</cost>
+			<cost>5000</cost>
 			<source>SR5</source>
 			<page>462</page>
 		</vehicle>

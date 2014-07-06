@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-499</version>
+	<version>-498</version>
 	<powers>
 		<power>
 			<name>Adrenaline Boost</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<source>SR5</source>
@@ -13,6 +14,7 @@
 		<power>
 			<name>Astral Perception</name>
 			<points>1</points>
+			<adeptway>.5</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SR5</source>
@@ -21,6 +23,7 @@
 		<power>
 			<name>Attribute Boost</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<bonus>
@@ -37,6 +40,7 @@
 		<power>
 			<name>Combat Sense</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<source>SR5</source>
@@ -45,6 +49,7 @@
 		<power>
 			<name>Critical Strike</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>no</limit>
 			<bonus>
@@ -60,6 +65,7 @@
 		<power>
 			<name>Danger Sense</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<source>SR5</source>
@@ -68,6 +74,7 @@
 		<power>
 			<name>Enhanced Perception</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<bonus>
@@ -86,18 +93,22 @@
 		<power>
 			<name>Enhanced Accuracy (skill)</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>no</levels>
-			<limit>1</limit>
-			<selectskill skillcategory="Combat Active">
-				<val>Rating</val>
-				<applytoaccuracy>yes</applytoaccuracy>
-			</selectskill>
+			<limit>100</limit>
+			<bonus>
+				<selectskill skillcategory="Combat Active">
+					<val>1</val>
+					<applytoaccuracy>yes</applytoaccuracy>
+				</selectskill>
+			</bonus>
 			<source>SR5</source>
 			<page>309</page>
 		</power>
 		<power>
 			<name>Improved Ability (skill)</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>yes</levels>
 			<limit>100</limit>
 			<bonus>
@@ -112,6 +123,7 @@
 		<power>
 			<name>Improved Physical Attribute</name>
 			<points>1</points>
+			<adeptway>.5</adeptway>
 			<levels>yes</levels>
 			<limit>12</limit>
 			<bonus>
@@ -130,6 +142,7 @@
 		<power>
 			<name>Improved Potential (limit)</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<bonus>
@@ -146,6 +159,7 @@
 		<power>
 			<name>Improved Reflexes 1</name>
 			<points>1.5</points>
+			<adeptway>.75</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<doublecost>no</doublecost>
@@ -162,6 +176,7 @@
 		<power>
 			<name>Improved Reflexes 2</name>
 			<points>2.5</points>
+			<adeptway>.75</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<doublecost>no</doublecost>
@@ -178,6 +193,7 @@
 		<power>
 			<name>Improved Reflexes 3</name>
 			<points>3.5</points>
+			<adeptway>.75</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<doublecost>no</doublecost>
@@ -194,6 +210,7 @@
 		<power>
 			<name>Improved Sense</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>no</levels>
 			<limit>100</limit>
 			<bonus>
@@ -205,6 +222,7 @@
 		<power>
 			<name>Killing Hands</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<bonus>
@@ -216,6 +234,7 @@
 		<power>
 			<name>Kinesics</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<source>SR5</source>
@@ -224,6 +243,7 @@
 		<power>
 			<name>Light Body</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<source>SR5</source>
@@ -232,6 +252,7 @@
 		<power>
 			<name>Missile Parry</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<source>SR5</source>
@@ -240,6 +261,7 @@
 		<power>
 			<name>Mystic Armor</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<bonus>
@@ -251,6 +273,7 @@
 		<power>
 			<name>Natural Immunity</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<source>SR5</source>
@@ -259,6 +282,7 @@
 		<power>
 			<name>Pain Resistance</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<bonus>
@@ -272,6 +296,7 @@
 		<power>
 			<name>Rapid Healing</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<source>SR5</source>
@@ -280,6 +305,7 @@
 		<power>
 			<name>Spell Resistance</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<source>SR5</source>
@@ -288,6 +314,7 @@
 		<power>
 			<name>Traceless Walk</name>
 			<points>1</points>
+			<adeptway>.5</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SR5</source>
@@ -296,6 +323,7 @@
 		<power>
 			<name>Voice Control</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SR5</source>
@@ -304,6 +332,7 @@
 		<power>
 			<name>Wall Running</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SR5</source>
@@ -312,6 +341,7 @@
 		<power>
 			<name>Analytics</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -320,6 +350,7 @@
 		<power>
 			<name>Animal Empathy</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>yes</levels>
 			<bonus>
 				<specificskill>
@@ -334,6 +365,7 @@
 		<power>
 			<name>Berserk</name>
 			<points>1</points>
+			<adeptway>.5</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -342,6 +374,7 @@
 		<power>
 			<name>Berserker's Rage</name>
 			<points>1</points>
+			<adeptway>.5</adeptway>
 			<levels>no</levels>
 			<required>
 				<oneof>
@@ -355,6 +388,7 @@
 		<power>
 			<name>Blind Fighting</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -363,6 +397,7 @@
 		<power>
 			<name>Cloak</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -371,6 +406,7 @@
 		<power>
 			<name>Cool Resolve</name>
 			<points>1</points>
+			<adeptway>.5</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -379,6 +415,7 @@
 		<power>
 			<name>Commanding Voice</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>3</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -387,6 +424,7 @@
 		<power>
 			<name>Counterstrike</name>
 			<points>1</points>
+			<adeptway>.5</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -395,6 +433,7 @@
 		<power>
 			<name>Elemental Body</name>
 			<points>1</points>
+			<adeptway>.5</adeptway>
 			<levels>no</levels>
 			<limit>100</limit>
 			<bonus>
@@ -406,6 +445,7 @@
 		<power>
 			<name>Elemental Strike</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>100</limit>
 			<bonus>
@@ -417,6 +457,7 @@
 		<power>
 			<name>Elemental Weapon</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>100</limit>
 			<bonus>
@@ -428,6 +469,7 @@
 		<power>
 			<name>Empathic Healing</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -436,6 +478,7 @@
 		<power>
 			<name>Facial Sclupt</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>yes</levels>
 			<bonus>
 				<specificskill>
@@ -450,6 +493,7 @@
 		<power>
 			<name>Flexibility</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>3</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -458,6 +502,7 @@
 		<power>
 			<name>Freefall</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -466,6 +511,7 @@
 		<power>
 			<name>Hang Time</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>yes</levels>
 			<bonus>
 				<specificskill>
@@ -480,6 +526,7 @@
 		<power>
 			<name>Inertia Strike</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -488,6 +535,7 @@
 		<power>
 			<name>Kinesics Mastery</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<required>
 				<oneof>
@@ -501,6 +549,7 @@
 		<power>
 			<name>Linguistics</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -509,6 +558,7 @@
 		<power>
 			<name>Magic Sense</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -517,6 +567,7 @@
 		<power>
 			<name>Melanin Control</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -525,6 +576,7 @@
 		<power>
 			<name>Metabolic Control</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -533,6 +585,7 @@
 		<power>
 			<name>Missile Mastery</name>
 			<points>1</points>
+			<adeptway>.5</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -541,6 +594,7 @@
 		<power>
 			<name>Motion Sense</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -549,6 +603,7 @@
 		<power>
 			<name>Nerve Strike</name>
 			<points>1</points>
+			<adeptway>.5</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -557,6 +612,7 @@
 		<power>
 			<name>Nimble Fingers</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>no</levels>
 			<bonus>
 				<specificskill>
@@ -571,6 +627,7 @@
 		<power>
 			<name>Pain Relief</name>
 			<points>1</points>
+			<adeptway>.5</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -579,6 +636,7 @@
 		<power>
 			<name>Penetrating Strike</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>4</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -587,6 +645,7 @@
 		<power>
 			<name>Plague Cloud</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -595,6 +654,7 @@
 		<power>
 			<name>Rapid Draw</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -603,6 +663,7 @@
 		<power>
 			<name>Riposte</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -611,6 +672,7 @@
 		<power>
 			<name>Skate</name>
 			<points>1</points>
+			<adeptway>.5</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -619,6 +681,7 @@
 		<power>
 			<name>Smashing Blow</name>
 			<points>1</points>
+			<adeptway>.5</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -627,6 +690,7 @@
 		<power>
 			<name>Spirit Claw</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -635,6 +699,7 @@
 		<power>
 			<name>Spirit Ram</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -643,6 +708,7 @@
 		<power>
 			<name>Stillness</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>3</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -651,6 +717,7 @@
 		<power>
 			<name>Sustenance</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -659,6 +726,7 @@
 		<power>
 			<name>Temperature Tolerance</name>
 			<points>.25</points>
+			<adeptway>0</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -667,6 +735,7 @@
 		<power>
 			<name>Three-Dimensional Memory</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
 			<source>SG</source>
@@ -675,6 +744,7 @@
 		<power>
 			<name>Toxic Strike</name>
 			<points>.5</points>
+			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>100</limit>
 			<source>SG</source>
