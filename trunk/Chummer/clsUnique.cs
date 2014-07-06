@@ -5026,8 +5026,11 @@ namespace Chummer
                 _decAdeptWayDiscount = Convert.ToDecimal(objNode["adeptway"].InnerText, GlobalOptions.Instance.CultureInfo);
             else
             {
+                string strPowerName = _strName;
+                if (strPowerName.Contains("("))
+                    strPowerName = strPowerName.Substring(0, strPowerName.IndexOf("(") - 1);
                 XmlDocument objXmlDocument = XmlManager.Instance.Load("powers.xml");
-                XmlNode objXmlPower = objXmlDocument.SelectSingleNode("/chummer/powers/power[name = \"" + _strName + "\"]");
+                XmlNode objXmlPower = objXmlDocument.SelectSingleNode("/chummer/powers/power[starts-with(./name,\"" + strPowerName + "\")]");
                 _decAdeptWayDiscount = Convert.ToDecimal(objXmlPower["adeptway"].InnerText, GlobalOptions.Instance.CultureInfo);
             }
             _intRating = Convert.ToInt32(objNode["rating"].InnerText);
