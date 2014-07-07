@@ -1,5 +1,30 @@
+Build 5.114 (beta)
+- Renamed the character sheets from "Shadowrun 4" to "Shadowrun 5".  If you're just copying the new version into the same directory, you'll want to delete the files in the \sheets subdirectory named "Shadowrun 4" with the .xsl or .xslt extention.
+- Added new book Bullets & Bandages and its contents (BB).
+- Fixed a bug that prevented karma from being charged if points were added to Magic in excess of the character's Special Attribute points.
+- Updated the cost of The Beast's Way and The Spiritual Way to 15 points to reflect the free mentor spirit these qualities grant.
+- Added a discount field below the Bonded Foci listing on the Gear tab that can be used to enter the number of foci qualifying for your Adept Way's foci bonding discount. This was the simplest and most straightforward way to handle the Adept Ways and the foci bonding discounts they might provide.
+- Added a new Standard (Burnout's Way) cyberware/bioware grade that is enabled if you take the Burnout's Way quality. It is always available on the Cyberware and Bioware tab on the grade dropdown to handle cases where an Adept had the Burnout's Way, got cyber/bio, and later dropped the Burnout's Way in favor of another Way.
+- Fixed a bug preventing the Suprathyroid Gland from increasing your lifestyle costs.
+- Fixed Skills and Skill Groups so that if Ignore Rules was selected they cap at 99.
+- Fixed a bug that would cause a crash when selecting the Adept power for the Thunderbird Mentor Spirit.
+- Fixed several bugs causing errors with the Urban Tribe Tomahawk.
+- Fixed an artifact from 4th edition where Chummer was including Martial Arts when calculating the number of points spent on Positve Qualities.
+- Fixed the missing Ingram Valiant.
+- Fixed Unarmed Attack so that it is automatically added.
+- Fixed the price of the SecureTech Vitals Kit.
+- Fixed a bug preventing commlinks, rigger command consoles, and cyberdecks from showing on the character sheet. Unfortunately you will need to remove and re-add the item to have it show correctly.
+- Updated the "Shadowrun 5" character sheets, cleaning up the skills section slightly to reflect numbers needed in 5th Edition.
+- Updated the "Commlinks" character sheet to show Shadowrun 5 specific values. Also now shows Cyberdecks and Rigger Command Consoles.
+- Updated the "Vehicle Block" character sheet to show Shadowrun 5 specific values. Also now shows Seats on vehicles added with 5.114 or later versions and Accuracy on vehicle mounted weapons.
+- Updated the "Game Master Summary" character sheet to show skill limits, the full set of initiatives, weapon accuracy, and single armor ratings.
+- Updated the "Text Only" character sheet to show skill limits, the full set of initiatives, weapon accuracy, and single armor ratings.
+- Fixed a bug that was preventing usable ammunition (Grenades, Minigrenades, Missiles, and Rockets) from appearing on the Weapons list.
+- Added the missing Minigrenade: Flash-Bang.
+- Added the missing Biomonitor to the Urban Explorer Jumpsuit.
+
 Build 5.113 (beta)
-- Added a fix to enable backward compatability in reading characters created before 5.112.
+- Added a fix to enable backward compatibility in reading characters created before 5.112.
 
 Build 5.112 (beta)
 - Added Rituals from Street Grimoire (SG).

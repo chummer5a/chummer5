@@ -154,7 +154,7 @@
 				</positive>
 			</qualities>
 			<bonus>
-				<lifestylecost>120</lifestylecost>
+				<lifestylecost>20</lifestylecost>
 			</bonus>
 			<source>SR5</source>
 			<page>50</page>
@@ -262,7 +262,7 @@
 			<bonus>
 				<armor>1</armor>
 				<reach>1</reach>
-				<lifestylecost>200</lifestylecost>
+				<lifestylecost>100</lifestylecost>
 			</bonus>
 			<source>SR5</source>
 			<page>50</page>

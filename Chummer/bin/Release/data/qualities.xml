@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-498</version>
+	<version>-497</version>
 	<categories>
 		<category>Positive</category>
 		<category>Negative</category>
@@ -1151,7 +1151,7 @@
 			<karma>-3</karma>
 			<category>Negative</category>
 			<bonus>
-				<lifestylecost>110</lifestylecost>
+				<lifestylecost>10</lifestylecost>
 			</bonus>
 			<forbidden>
 				<oneof>
@@ -1167,7 +1167,7 @@
 			<karma>-6</karma>
 			<category>Negative</category>
 			<bonus>
-				<lifestylecost>120</lifestylecost>
+				<lifestylecost>20</lifestylecost>
 			</bonus>
 			<forbidden>
 				<oneof>
@@ -1183,7 +1183,7 @@
 			<karma>-9</karma>
 			<category>Negative</category>
 			<bonus>
-				<lifestylecost>130</lifestylecost>
+				<lifestylecost>30</lifestylecost>
 			</bonus>
 			<forbidden>
 				<oneof>
@@ -1609,7 +1609,7 @@
 		</quality>
 		<quality>
 			<name>The Beast's Way</name>
-			<karma>20</karma>
+			<karma>15</karma>
 			<category>Positive</category>
 			<bonus />
 			<source>SG</source>
@@ -1649,7 +1649,7 @@
 		</quality>
 		<quality>
 			<name>The Spiritual Way</name>
-			<karma>20</karma>
+			<karma>15</karma>
 			<category>Positive</category>
 			<bonus />
 			<source>SG</source>
@@ -1662,6 +1662,168 @@
 			<bonus />
 			<source>SG</source>
 			<page>178</page>
+		</quality>
+		<quality>
+			<name>Gifted Healer</name>
+			<karma>2</karma>
+			<category>Positive</category>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>BB</source>
+			<page>11</page>
+		</quality>
+		<quality>
+			<name>Aged (Rating 1)</name>
+			<karma>-7</karma>
+			<category>Negative</category>
+			<bonus>
+				<specificattribute>
+					<name>BOD</name>
+					<max>-1</max>
+				</specificattribute>
+				<specificattribute>
+					<name>STR</name>
+					<max>-1</max>
+				</specificattribute>
+				<specificattribute>
+					<name>AGI</name>
+					<max>-1</max>
+				</specificattribute>
+				<specificattribute>
+					<name>REA</name>
+					<max>-1</max>
+				</specificattribute>
+				<knowldgeskillpoints>
+					<val>5</val>
+				</knowldgeskillpoints>
+			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>Aged (Rating 2)</quality>
+					<quality>Aged (Rating 3)</quality>
+				</oneof>
+			</forbidden>
+			<source>BB</source>
+			<page>12</page>
+		</quality>
+		<quality>
+			<name>Aged (Rating 2)</name>
+			<karma>-14</karma>
+			<category>Negative</category>
+			<bonus>
+				<specificattribute>
+					<name>BOD</name>
+					<max>-2</max>
+				</specificattribute>
+				<specificattribute>
+					<name>STR</name>
+					<max>-2</max>
+				</specificattribute>
+				<specificattribute>
+					<name>AGI</name>
+					<max>-2</max>
+				</specificattribute>
+				<specificattribute>
+					<name>REA</name>
+					<max>-2</max>
+				</specificattribute>
+				<knowldgeskillpoints>
+					<val>10</val>
+				</knowldgeskillpoints>
+			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>Aged (Rating 1)</quality>
+					<quality>Aged (Rating 3)</quality>
+				</oneof>
+			</forbidden>
+			<source>BB</source>
+			<page>12</page>
+		</quality>
+		<quality>
+			<name>Aged (Rating 3)</name>
+			<karma>-21</karma>
+			<category>Negative</category>
+			<bonus>
+				<specificattribute>
+					<name>BOD</name>
+					<max>-3</max>
+				</specificattribute>
+				<specificattribute>
+					<name>STR</name>
+					<max>-3</max>
+				</specificattribute>
+				<specificattribute>
+					<name>AGI</name>
+					<max>-3</max>
+				</specificattribute>
+				<specificattribute>
+					<name>REA</name>
+					<max>-3</max>
+				</specificattribute>
+				<knowldgeskillpoints>
+					<val>15</val>
+				</knowldgeskillpoints>
+			</bonus>
+			<forbidden>
+				<oneof>
+					<quality>Aged (Rating 2)</quality>
+					<quality>Aged (Rating 1)</quality>
+				</oneof>
+			</forbidden>
+			<source>BB</source>
+			<page>12</page>
+		</quality>
+		<quality>
+			<name>Illness (Rating 1)</name>
+			<karma>-5</karma>
+			<category>Negative</category>
+			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>Illness (Rating 2)</quality>
+					<quality>Illness (Rating 3)</quality>
+				</oneof>
+			</forbidden>
+			<source>BB</source>
+			<page>12</page>
+		</quality>
+		<quality>
+			<name>Illness (Rating 2)</name>
+			<karma>-10</karma>
+			<category>Negative</category>
+			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>Illness (Rating 1)</quality>
+					<quality>Illness (Rating 3)</quality>
+				</oneof>
+			</forbidden>
+			<source>BB</source>
+			<page>12</page>
+		</quality>
+		<quality>
+			<name>Illness (Rating 3)</name>
+			<karma>-15</karma>
+			<category>Negative</category>
+			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>Illness (Rating 2)</quality>
+					<quality>Illness (Rating 1)</quality>
+				</oneof>
+			</forbidden>
+			<source>BB</source>
+			<page>12</page>
+		</quality>
+		<quality>
+			<name>Pregnant</name>
+			<karma>-9</karma>
+			<category>Negative</category>
+			<bonus />
+			<source>BB</source>
+			<page>12</page>
 		</quality>
 	</qualities>
 </chummer>

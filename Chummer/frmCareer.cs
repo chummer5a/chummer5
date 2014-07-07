@@ -10449,9 +10449,11 @@ namespace Chummer
 
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlink":
-				case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Commlinks":
+                case "Commlink Accessories":
+                case "Cyberdecks":
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating, false);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 
@@ -10662,9 +10664,11 @@ namespace Chummer
 
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlink":
-				case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Commlinks":
+                case "Commlink Accessories":
+                case "Cyberdecks":
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating, false);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					objNode.Text = objCommlink.DisplayName;
@@ -15746,9 +15750,11 @@ namespace Chummer
 			Gear objNewGear = new Gear(_objCharacter);
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlink":
-				case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Commlinks":
+                case "Commlink Accessories":
+                case "Cyberdecks":
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					objNode.Text = objCommlink.DisplayName;
@@ -15926,9 +15932,11 @@ namespace Chummer
 
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlink":
-				case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Commlinks":
+                case "Commlink Accessories":
+                case "Cyberdecks":
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					objNode.Text = objCommlink.DisplayName;
@@ -16061,9 +16069,11 @@ namespace Chummer
 			Gear objNewGear = new Gear(_objCharacter);
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlink":
-				case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Commlinks":
+                case "Commlink Accessories":
+                case "Cyberdecks":
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					objNode.Text = objCommlink.DisplayName;
@@ -16223,9 +16233,11 @@ namespace Chummer
 
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlink":
-				case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Commlinks":
+                case "Commlink Accessories":
+                case "Cyberdecks":
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					objNode.Text = objCommlink.DisplayName;
@@ -16494,9 +16506,11 @@ namespace Chummer
 
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlink":
-				case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Commlinks":
+                case "Commlink Accessories":
+                case "Cyberdecks":
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating, false);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					objNode.Text = objCommlink.DisplayName;
@@ -16628,9 +16642,11 @@ namespace Chummer
 			Gear objNewGear = new Gear(_objCharacter);
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlink":
-				case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Commlinks":
+                case "Commlink Accessories":
+                case "Cyberdecks":
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating, false);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					objNode.Text = objCommlink.DisplayName;
@@ -22844,9 +22860,11 @@ namespace Chummer
 
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlink":
-				case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Commlinks":
+                case "Commlink Accessories":
+                case "Cyberdecks":
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					objNode.Text = objCommlink.DisplayName;
@@ -23194,9 +23212,11 @@ namespace Chummer
 
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlink":
-				case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Commlinks":
+                case "Commlink Accessories":
+                case "Cyberdecks":
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 
@@ -23427,7 +23447,7 @@ namespace Chummer
                         if (nodCost != null)
                         {
                             string strCost = nodCost.InnerText;
-                            int intCost = Convert.ToInt32(strCost) - 100;
+                            int intCost = Convert.ToInt32(strCost);
                             if (intCost > 0)
                             {
                                 if (objNode["translate"] != null)
@@ -23453,51 +23473,18 @@ namespace Chummer
                         }
                     }
 
-                    // Add any modifiers from Metatype
-                    XmlDocument objMetatypeDoc = XmlManager.Instance.Load("metatypes.xml");
-                    XmlNode objXmlMetatype = objMetatypeDoc.SelectSingleNode("/chummer/metatypes/metatype[name = \"" + _objCharacter.Metatype + "\"]");
-                    try
+                    foreach (Improvement objImprovement in _objCharacter.Improvements)
                     {
-                        XmlNode objXmlMetatypeCost = objXmlMetatype["bonus"]["lifestylecost"];
-                        if (objXmlMetatypeCost != null)
+                        if (objImprovement.ImproveType == Improvement.ImprovementType.LifestyleCost)
                         {
                             if (strQualities.Length > 0)
                                 strQualities += ", ";
-                            if (Convert.ToDecimal(objXmlMetatypeCost.InnerText) > 0)
-                            {
-                                strQualities += objXmlMetatype["name"].InnerText + " [+" + (Convert.ToDecimal(objXmlMetatypeCost.InnerText) - 100).ToString() + "%]";
-                            }
-                            else
-                            {
-                                strQualities += objXmlMetatype["name"].InnerText + " [" + (Convert.ToDecimal(objXmlMetatypeCost.InnerText) - 100).ToString() + "%]";
-                            }
-                        }
-                    }
-                    catch { }
 
-                    // Add any modifiers from Qualities
-                    XmlDocument objXmlQualityDoc = XmlManager.Instance.Load("qualities.xml");
-                    foreach (Quality objQuality in _objCharacter.Qualities)
-                    {
-                        XmlNode objXmlQuality = objXmlQualityDoc.SelectSingleNode("/chummer/qualities/quality[name = \"" + objQuality.Name + "\"]");
-                        try
-                        {
-                            XmlNode objXmlQualityCost = objXmlQuality["bonus"]["lifestylecost"];
-                            if (objXmlQualityCost != null)
-                            {
-                                if (strQualities.Length > 0)
-                                    strQualities += ", ";
-                                if (Convert.ToDecimal(objXmlQualityCost.InnerText) > 0)
-                                {
-                                    strQualities += objXmlQuality["name"].InnerText + " [+" + (Convert.ToDecimal(objXmlQualityCost.InnerText) - 100).ToString() + "%]";
-                                }
-                                else
-                                {
-                                    strQualities += objXmlQuality["name"].InnerText + " [" + (Convert.ToDecimal(objXmlQualityCost.InnerText) - 100).ToString() + "%]";
-                                }
-                            }
+                            if (objImprovement.Value > 0)
+                                strQualities += objImprovement.ImproveSource + " [+" + objImprovement.Value.ToString() + "%]";
+                            else
+                                strQualities += objImprovement.ImproveSource + " [" + objImprovement.Value.ToString() + "%]";
                         }
-                        catch { }
                     }
 
                     lblLifestyleComforts.Text = strBaseLifestyle;

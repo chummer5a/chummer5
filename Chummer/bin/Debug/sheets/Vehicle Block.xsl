@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Vehicle sheet based on the Shadowrun 4th Edition Character Sheet -->
 <!-- Created by KeyMasterOfGozer -->
-<!-- Version -993 -->
+<!-- Version -500 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 	<xsl:include href="ConditionMonitor.xslt"/>
 	<xsl:template match="/characters/character">
@@ -257,87 +257,59 @@
               <tr>
                 <td class="AttribName">Vehicle</td>
                 <td class="AttribValue"><xsl:value-of select="name" /></td>
-                <td class="AttribName">System</td>
-                <td class="AttribValue"><xsl:value-of select="system" /></td>
               </tr>
               <tr>
                 <td class="AttribName">Name</td>
                 <td class="AttribValue"><xsl:value-of select="vehiclename" /></td>
-                <td class="AttribName">Firewall</td>
-                <td class="AttribValue"><xsl:value-of select="firewall" /></td>
               </tr>
               <tr>
                 <td class="AttribName">Category</td>
                 <td class="AttribValue"><xsl:value-of select="category" /></td>
-                <td class="AttribName">Response</td>
-                <td class="AttribValue"><xsl:value-of select="response" /></td>
               </tr>
               <tr>
                 <td class="AttribName">Source</td>
                 <td class="AttribValue"><xsl:value-of select="source" /> <xsl:value-of select="page" /></td>
-                <td class="AttribName">Signal</td>
-                <td class="AttribValue"><xsl:value-of select="signal" /></td>
               </tr>
               <tr><td colspan="4" class="hseparator"></td></tr>
               <tr>
                 <td class="AttribName">Body</td>
                 <td class="AttribValue"><xsl:value-of select="body" /></td>
-                <td class="AttribName">Clearsight</td>
-                <td class="AttribValue"><xsl:call-template name="GetProgramRating"><xsl:with-param name="ProgramName">Clearsight</xsl:with-param></xsl:call-template></td>
               </tr>
               <tr>
                 <td class="AttribName">Armor</td>
                 <td class="AttribValue"><xsl:value-of select="armor" /></td>
-                <td class="AttribName">Defense</td>
-                <td class="AttribValue"><xsl:call-template name="GetProgramRating"><xsl:with-param name="ProgramName">Defense</xsl:with-param></xsl:call-template></td>
+              </tr>
+              <tr>
+                <td class="AttribName">Seats</td>
+                <td class="AttribValue"><xsl:value-of select="seats" /></td>
               </tr>
               <tr>
                 <td class="AttribName">Pilot</td>
                 <td class="AttribValue"><xsl:value-of select="pilot" /></td>
-                <td class="AttribName">Electronic Warfare</td>
-                <td class="AttribValue"><xsl:call-template name="GetProgramRating"><xsl:with-param name="ProgramName">Electronic Warfare</xsl:with-param></xsl:call-template></td>
               </tr>
               <tr>
                 <td class="AttribName">Sensor</td>
                 <td class="AttribValue"><xsl:value-of select="sensor" /></td>
-                <td class="AttribName">Maneuver</td>
-                <td class="AttribValue"><xsl:call-template name="GetProgramRating"><xsl:with-param name="ProgramName">Maneuver</xsl:with-param></xsl:call-template></td>
-              </tr>
-              <tr>
-                <td class="AttribName">Sensor Signal</td>
-                <td class="AttribValue"><xsl:value-of select="sensorsignal" /></td>
-                <td class="AttribName">Targeting</td>
-                <td class="AttribValue"><xsl:call-template name="GetProgramRating"><xsl:with-param name="ProgramName">Targeting</xsl:with-param></xsl:call-template></td>
               </tr>
               <tr>
                 <td class="AttribName">Device Rating</td>
                 <td class="AttribValue"><xsl:value-of select="devicerating" /></td>
-                <td class="AttribName">Analyze</td>
-                <td class="AttribValue"><xsl:call-template name="GetProgramRating"><xsl:with-param name="ProgramName">Analyze</xsl:with-param></xsl:call-template></td>
               </tr>
               <tr>
                 <td class="AttribName">Acceleration</td>
                 <td class="AttribValue"><xsl:value-of select="accel" /></td>
-                <td class="AttribName">Encrypt</td>
-                <td class="AttribValue"><xsl:call-template name="GetProgramRating"><xsl:with-param name="ProgramName">Encrypt</xsl:with-param></xsl:call-template></td>
               </tr>
               <tr>
                 <td class="AttribName">Speed</td>
                 <td class="AttribValue"><xsl:value-of select="speed" /></td>
-                <td class="AttribName">Scan</td>
-                <td class="AttribValue"><xsl:call-template name="GetProgramRating"><xsl:with-param name="ProgramName">Scan</xsl:with-param></xsl:call-template></td>
               </tr>
               <tr>
                 <td class="AttribName">Handling</td>
                 <td class="AttribValue"><xsl:value-of select="handling" /></td>
-                <td class="AttribName">Armor</td>
-                <td class="AttribValue"><xsl:call-template name="GetProgramRating"><xsl:with-param name="ProgramName">Armor</xsl:with-param></xsl:call-template></td>
               </tr>
               <tr>
                 <td class="AttribName">Vehicle Worth</td>
                 <td class="AttribValue"><xsl:value-of select="cost" /></td>
-                <td class="AttribName">ECCM</td>
-                <td class="AttribValue"><xsl:call-template name="GetProgramRating"><xsl:with-param name="ProgramName">ECCM</xsl:with-param></xsl:call-template></td>
               </tr>
             </table>
           </td>
@@ -445,29 +417,36 @@
       <xsl:if test="mods/mod/weapons/weapon[type = 'Ranged'] or weapons/weapon[type = 'Ranged']">
         <tr>
           <td>
-										<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tableborder">
-											<tr>
-												<td width="20%">
-													<strong>WEAPON</strong>
-												</td>
-												<td width="15%" style="text-align:center;">
-													<strong>DAMAGE</strong>
-												</td>
-												<td width="12%" style="text-align:center;">
-													<strong>AP</strong>
-												</td>
-												<td width="13%" style="text-align:center;">
-													<strong>MODE</strong>
-												</td>
-												<td width="12%" style="text-align:center;">
-													<strong>RC</strong>
-												</td>
-												<td width="15%" style="text-align:center;">
-													<strong>AMMO</strong>
-												</td>
-												<td width="13%" style="text-align:center;">
-												</td>
-											</tr>
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tableborder">
+							<tr>
+							  <td width="15%">
+							    <strong>WEAPON</strong>
+							  </td>
+							  <td width="8%" style="text-align:center;">
+							    <strong>POOL</strong>
+							  </td>
+							  <td width="11%" style="text-align:center;">
+							    <strong>ACCURACY</strong>
+							  </td>
+							  <td width="13%" style="text-align:center;">
+							    <strong>DAMAGE</strong>
+							  </td>
+							  <td width="8%" style="text-align:center;">
+							    <strong>AP</strong>
+							  </td>
+							  <td width="8%" style="text-align:center;">
+							    <strong>MODE</strong>
+							  </td>
+							  <td width="8%" style="text-align:center;">
+							    <strong>RC</strong>
+							  </td>
+							  <td width="8%" style="text-align:center;">
+							    <strong>AMMO</strong>
+							  </td>
+							  <td width="11%" style="text-align:center;">
+							   <strong>SOURCE</strong>
+							  </td>
+							</tr>
 						<xsl:for-each select="mods/mod/weapons/weapon[type = 'Ranged']">
 							<xsl:sort select="name" />
 							<xsl:call-template name="rangedweapons">
@@ -481,7 +460,7 @@
 							</xsl:call-template>
 						</xsl:for-each>
 											<tr>
-												<td class="rowsummary" colspan="7">
+												<td class="rowsummary" colspan="9">
 													RANGED WEAPONS
 												</td>
 											</tr>
@@ -546,37 +525,43 @@
 												<xsl:if test="position() mod 2 != 1">
 													<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 												</xsl:if>
-												<td width="20%" valign="top">
-													<xsl:value-of select="name" />
-													<xsl:if test="weaponname != ''">
-														("<xsl:value-of select="weaponname" />")
-													</xsl:if>
-												</td>
-												<td width="15%" style="text-align:center;" valign="top">
-													<xsl:value-of select="damage" />
-												</td>
-												<td width="12%" style="text-align:center;" valign="top">
-													<xsl:value-of select="ap" />
-												</td>
-												<td width="13%" style="text-align:center;" valign="top">
-													<xsl:value-of select="mode" />
-												</td>
-												<td width="12%" style="text-align:center;" valign="top">
-													<xsl:value-of select="rc" />
-												</td>
-												<td width="15%" style="text-align:center;" valign="top">
-													<xsl:value-of select="ammo" />
-												</td>
-												<td width="13%" style="text-align:center;" valign="top">
-													<xsl:value-of select="source" /><xsl:text> </xsl:text><xsl:value-of select="page" />
-												</td>
+											  <td width="15%" valign="top">
+											    <xsl:value-of select="name"/>
+											    <xsl:if test="weaponname != ''"> ("<xsl:value-of select="weaponname"/>") </xsl:if>
+											  </td>
+											  <td width="8%" style="text-align:center;" valign="top">
+											    <xsl:value-of select="dicepool"/>
+											  </td>
+											  <td width="11%" style="text-align:center;" valign="top">
+											    <xsl:value-of select="accuracy"/>
+											  </td>
+											  <td width="13%" style="text-align:center;" valign="top">
+											    <xsl:value-of select="damage"/>
+											  </td>
+											  <td width="8%" style="text-align:center;" valign="top">
+											    <xsl:value-of select="ap"/>
+											  </td>
+											  <td width="8%" style="text-align:center;" valign="top">
+											    <xsl:value-of select="mode"/>
+											  </td>
+											  <td width="8%" style="text-align:center;" valign="top">
+											    <xsl:value-of select="rc"/>
+											  </td>
+											  <td width="8%" style="text-align:center;" valign="top">
+											    <xsl:value-of select="ammo"/>
+											  </td>
+											  <td width="11%" style="text-align:center;" valign="top">
+											    <xsl:value-of select="source"/>
+											    <xsl:text> </xsl:text>
+											    <xsl:value-of select="page"/>
+											  </td>
 											</tr>
 				<xsl:if test="accessories/accessory or mods/weaponmod">
 								<tr>
 									<xsl:if test="position() mod 2 != 1">
 										<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 									</xsl:if>
-									<td colspan="7" class="indent">
+									<td colspan="9" class="indent">
 					<xsl:for-each select="accessories/accessory">
 						<xsl:sort select="name" />
 										<xsl:value-of select="name" />
@@ -613,37 +598,43 @@
 												<xsl:if test="position() mod 2 != 1">
 													<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 												</xsl:if>
-												<td width="20%" valign="top">
-													Und. <xsl:value-of select="underbarrel/weapon/name" />
-													<xsl:if test="underbarrel/weapon/weaponname != ''">
-														("<xsl:value-of select="underbarrel/weapon/weaponname" />")
-													</xsl:if>
-												</td>
-												<td width="15%" style="text-align:center;" valign="top">
-													<xsl:value-of select="underbarrel/weapon/damage" />
-												</td>
-												<td width="12%" style="text-align:center;" valign="top">
-													<xsl:value-of select="underbarrel/weapon/ap" />
-												</td>
-												<td width="13%" style="text-align:center;" valign="top">
-													<xsl:value-of select="underbarrel/weapon/mode" />
-												</td>
-												<td width="12%" style="text-align:center;" valign="top">
-													<xsl:value-of select="underbarrel/weapon/rc" />
-												</td>
-												<td width="15%" style="text-align:center;" valign="top">
-													<xsl:value-of select="underbarrel/weapon/ammo" />
-												</td>
-												<td width="13%" style="text-align:center;" valign="top">
-													<xsl:value-of select="underbarrel/weapon/source" /><xsl:text> </xsl:text><xsl:value-of select="underbarrel/weapon/page" />
-												</td>
+											  <td width="15%" valign="top">
+											    <xsl:value-of select="underbarrel/weapon/name"/>
+											    <xsl:if test="underbarrel/weapon/weaponname != ''"> ("<xsl:value-of select="underbarrel/weapon/weaponname"/>") </xsl:if>
+											  </td>
+											  <td width="8%" style="text-align:center;" valign="top">
+											    <xsl:value-of select="underbarrel/weapon/dicepool"/>
+											  </td>
+											  <td width="11%" style="text-align:center;" valign="top">
+											    <xsl:value-of select="underbarrel/weapon/accuracy"/>
+											  </td>
+											  <td width="13%" style="text-align:center;" valign="top">
+											    <xsl:value-of select="underbarrel/weapon/damage"/>
+											  </td>
+											  <td width="8%" style="text-align:center;" valign="top">
+											    <xsl:value-of select="underbarrel/weapon/ap"/>
+											  </td>
+											  <td width="8%" style="text-align:center;" valign="top">
+											    <xsl:value-of select="underbarrel/weapon/mode"/>
+											  </td>
+											  <td width="8%" style="text-align:center;" valign="top">
+											    <xsl:value-of select="underbarrel/weapon/rc"/>
+											  </td>
+											  <td width="8%" style="text-align:center;" valign="top">
+											    <xsl:value-of select="underbarrel/weapon/ammo"/>
+											  </td>
+											  <td width="11%" style="text-align:center;" valign="top">
+											    <xsl:value-of select="underbarrel/weapon/source"/>
+											    <xsl:text> </xsl:text>
+											    <xsl:value-of select="underbarrel/weapon/page"/>
+											  </td>
 											</tr>
 				<xsl:if test="underbarrel/weapon/accessories/accessory">
 								<tr>
 									<xsl:if test="position() mod 2 != 1">
 										<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 									</xsl:if>
-									<td colspan="7" class="indent">
+									<td colspan="9" class="indent">
 					<xsl:for-each select="underbarrel/weapon/accessories/accessory">
 						<xsl:sort select="name" />
 										<xsl:value-of select="name" />

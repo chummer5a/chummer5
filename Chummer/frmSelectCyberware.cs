@@ -983,7 +983,14 @@ namespace Chummer
 				ListItem objItem = new ListItem();
 				objItem.Value = objGrade.Name;
 				objItem.Name = objGrade.DisplayName;
-				
+
+                if (objGrade.Burnout && _objCharacter.BurnoutEnabled)
+                    blnAddItem = true;
+                else if (objGrade.Burnout)
+                    blnAddItem = false;
+
+                if (objGrade.DisplayName == "Standard" && _objCharacter.BurnoutEnabled)
+                    blnAddItem = false;
 				if (blnIgnoreSecondHand && objGrade.SecondHand)
 					blnAddItem = false;
 				if (!_objCharacter.AdapsinEnabled && objGrade.Adapsin)

@@ -101,6 +101,7 @@ namespace Chummer
         private decimal _decNuyenMaximumBP = 50m;
 		private decimal _decNuyenBP = 0m;
 		private int _intBuildKarma = 0;
+        private int _intAdeptWayDiscount = 0;
 		private CharacterBuildMethod _objBuildMethod = CharacterBuildMethod.Karma;
 
 		// Metatype Information.
@@ -358,6 +359,8 @@ namespace Chummer
 			objWriter.WriteElementString("nuyen", _intNuyen.ToString());
             // <nuyen />
             objWriter.WriteElementString("startingnuyen", _intStartingNuyen.ToString());
+            // <adeptwaydiscount />
+            objWriter.WriteElementString("adeptwaydiscount", _intAdeptWayDiscount.ToString());
 
 			// <buildpoints />
 			objWriter.WriteElementString("bp", _intBuildPoints.ToString());
@@ -1090,6 +1093,13 @@ namespace Chummer
             catch
             {
             }
+            try
+            {
+                _intAdeptWayDiscount= Convert.ToInt32(objXmlCharacter["adeptwaydiscount"].InnerText);
+            }
+            catch
+            {
+            }
 
 			// Build Points/Karma.
 			_intBuildPoints = Convert.ToInt32(objXmlCharacter["bp"].InnerText);
@@ -1494,9 +1504,11 @@ namespace Chummer
 			{
 				switch (objXmlGear["category"].InnerText)
 				{
-					case "Commlink":
-					case "Commlink Upgrade":
-						Commlink objCommlink = new Commlink(this);
+					case "Commlinks":
+					case "Commlink Accessories":
+                    case "Cyberdecks":
+                    case "Rigger Command Consoles":
+                        Commlink objCommlink = new Commlink(this);
 						objCommlink.Load(objXmlGear);
 						_lstGear.Add(objCommlink);
 						break;
@@ -1589,6 +1601,32 @@ namespace Chummer
 				objWeek.Load(objXmlWeek);
 				_lstCalendar.Add(objWeek);
 			}
+
+            // Look for the unarmed attack
+            bool blnFoundUnarmed = false;
+            foreach (Weapon objWeapon in _lstWeapons)
+            {
+                if (objWeapon.Name == "Unarmed Attack")
+                    blnFoundUnarmed = true;
+            }
+
+            if (!blnFoundUnarmed)
+            {
+                // Add the Unarmed Attack Weapon to the character.
+                try
+                {
+                    XmlDocument objXmlWeaponDoc = XmlManager.Instance.Load("weapons.xml");
+                    XmlNode objXmlWeapon = objXmlWeaponDoc.SelectSingleNode("/chummer/weapons/weapon[name = \"Unarmed Attack\"]");
+                    TreeNode objGearWeaponNode = new TreeNode();
+                    Weapon objWeapon = new Weapon(this);
+                    objWeapon.Create(objXmlWeapon, this, objGearWeaponNode, null, null, null);
+                    objGearWeaponNode.ForeColor = SystemColors.GrayText;
+                    _lstWeapons.Add(objWeapon);
+                }
+                catch
+                {
+                }
+            }
 
 			// If the character had old Qualities that were converted, immediately save the file so they are in the new format.
 			if (blnHasOldQualities)
@@ -1770,6 +1808,8 @@ namespace Chummer
 			objWriter.WriteElementString("created", _blnCreated.ToString());
 			// <nuyen />
 			objWriter.WriteElementString("nuyen", _intNuyen.ToString());
+            // <adeptwaydiscount />
+            objWriter.WriteElementString("adeptwaydiscount", _intAdeptWayDiscount.ToString());
 
 			// <adept />
 			objWriter.WriteElementString("adept", _blnAdeptEnabled.ToString());
@@ -2214,7 +2254,8 @@ namespace Chummer
 			foreach (Gear objGear in _lstGear)
 			{
 				// Use the Gear's SubClass if applicable.
-				if (objGear.GetType() == typeof(Commlink))
+				// if (objGear.GetType() == typeof(Commlink))
+                if (objGear.Category == "Commlinks" || objGear.Category == "Rigger Command Consoles" || objGear.Category == "Cyberdecks" || objGear.GetType() == typeof(Commlink))
 				{
 					Commlink objCommlink = new Commlink(this);
 					objCommlink = (Commlink)objGear;
@@ -5205,7 +5246,22 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Number of Bonded Foci discounted by an Adept Way.
+        /// </summary>
+        public int AdeptWayDiscount
+        {
+            get
+            {
+                return _intAdeptWayDiscount;
+            }
+            set
+            {
+                _intAdeptWayDiscount = value;
+            }
+        }
+
+        /// <summary>
 		/// Maximum number of Build Points that can be spent on Nuyen.
 		/// </summary>
 		public decimal NuyenMaximumBP
@@ -5994,7 +6050,28 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Whether or not Burnout's Way is enabled.
+        /// </summary>
+        public bool BurnoutEnabled
+        {
+            get
+            {
+                bool blnReturn = false;
+                foreach (Quality objQuality in _lstQualities)
+                {
+                    if (objQuality.Name == "The Burnout's Way")
+                    {
+                        blnReturn = true;
+                        break;
+                    }
+                }
+
+                return blnReturn;
+            }
+        }
+
+        /// <summary>
 		/// Whether or not the character has access to Knowsofts and Linguasofts.
 		/// </summary>
 		public bool SkillsoftAccess

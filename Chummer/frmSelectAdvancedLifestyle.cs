@@ -70,7 +70,7 @@ namespace Chummer
                 if (nodCost != null)
                 {
                     string strCost = nodCost.InnerText;
-                    int intCost = Convert.ToInt32(strCost) - 100;
+                    int intCost = Convert.ToInt32(strCost);
                     if (intCost > 0)
                     {
                         nodOption.Tag = objXmlOption["name"].InnerText + " [+" + intCost.ToString() + "%]";
@@ -289,44 +289,25 @@ namespace Chummer
                 }
             }
 
-            // Add the modifiers from qualities
             decimal decMod = 0;
-            foreach (TreeNode objNode in treQualities.Nodes)
+            if (blnIncludePercentage)
             {
-                if (objNode.Checked)
+                // Add the modifiers from qualities
+                foreach (TreeNode objNode in treQualities.Nodes)
                 {
-                    objXmlAspect = _objXmlDocument.SelectSingleNode("/chummer/qualities/quality[name = \"" + GetQualityName(objNode.Tag.ToString()) + "\"]");
-                    if (objXmlAspect["lifestylecost"] != null)
-                        decMod += (Convert.ToDecimal(objXmlAspect["lifestylecost"].InnerText) - 100);
+                    if (objNode.Checked)
+                    {
+                        objXmlAspect = _objXmlDocument.SelectSingleNode("/chummer/qualities/quality[name = \"" + GetQualityName(objNode.Tag.ToString()) + "\"]");
+                        if (objXmlAspect["lifestylecost"] != null)
+                            decMod += (Convert.ToDecimal(objXmlAspect["lifestylecost"].InnerText) / 100);
+                    }
                 }
-            }
 
-            // Add any modifiers from Metatype
-            XmlDocument objMetatypeDoc = XmlManager.Instance.Load("metatypes.xml");
-            XmlNode objXmlMetatype = objMetatypeDoc.SelectSingleNode("/chummer/metatypes/metatype[name = \"" + _objCharacter.Metatype + "\"]");
-            try
-            {
-                XmlNode objXmlMetatypeCost = objXmlMetatype["bonus"]["lifestylecost"];
-                if (objXmlMetatypeCost != null)
-                    decMod += (Convert.ToDecimal(objXmlMetatypeCost.InnerText) - 100);
+                // Check for modifiers in the improvements
+                ImprovementManager objImprovementManager = new ImprovementManager(_objCharacter);
+                decimal decModifier = Convert.ToDecimal(objImprovementManager.ValueOf(Improvement.ImprovementType.LifestyleCost), GlobalOptions.Instance.CultureInfo);
+                decMod += Convert.ToDecimal(decModifier / 100, GlobalOptions.Instance.CultureInfo);
             }
-            catch { }
-
-            // Check qualities for modifiers to lifestyle costs
-            XmlDocument objXmlQualityDoc = XmlManager.Instance.Load("qualities.xml");
-            foreach (Quality objQuality in _objCharacter.Qualities)
-            {
-                XmlNode objXmlQuality = objXmlQualityDoc.SelectSingleNode("/chummer/qualities/quality[name = \"" + objQuality.Name + "\"]");
-                try
-                {
-                    XmlNode objXmlQualityCost = objXmlQuality["bonus"]["lifestylecost"];
-                    if (objXmlQualityCost != null)
-                        decMod += (Convert.ToDecimal(objXmlQualityCost.InnerText) - 100);
-                }
-                catch { }
-            }
-
-            decMod = decMod / 100;
 
             intNuyen = Convert.ToInt32(decCost + (decCost * decMod));
 			lblCost.Text = String.Format("{0:###,###,##0¥}", intNuyen);

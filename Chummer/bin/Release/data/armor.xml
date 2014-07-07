@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-500</version>
+	<version>-499</version>
 	<categories>
 		<category>Armor</category>
 		<category>Clothing</category>
@@ -123,6 +123,9 @@
 			<category>Armor</category>
 			<armor>9</armor>
 			<armorcapacity>9</armorcapacity>
+			<gears>
+				<usegear>Biomonitor</usegear>
+			</gears>
 			<avail>8</avail>
 			<cost>650</cost>
 			<source>SR5</source>
@@ -799,6 +802,16 @@
 			<page>65</page>
 		</armor>		
 		<armor>
+			<name>Pneumatic Anti-Shock Garments</name>
+			<category>Specialty Armor</category>
+			<armor>3</armor>
+			<armorcapacity>4</armorcapacity>
+			<avail>6</avail>
+			<cost>500</cost>
+			<source>BB</source>
+			<page>23</page>
+		</armor>		
+		<armor>
 			<name>Hardened Mil-Spec Battle Armor: Light</name>
 			<category>Specialty Armor</category>
 			<armor>15</armor>
@@ -1101,7 +1114,7 @@
 			<armor>+1</armor>
 			<armorcapacity>1</armorcapacity>
 			<avail>6</avail>
-			<cost>300</cost>
+			<cost>350</cost>
 			<bonus>
 				<limitmodifier>
 					<limit>Social</limit>
@@ -2159,6 +2172,28 @@
 			<cost>2500</cost>
 			<source>RG</source>
 			<page>85</page>
+		</mod>		
+		<mod>
+			<name>Pneumatic Anti-Shock Garment</name>
+			<category>General</category>
+			<armor>0</armor>
+			<maxrating>1</maxrating>
+			<armorcapacity>[6]</armorcapacity>
+			<avail>6</avail>
+			<cost>500</cost>
+			<source>BB</source>
+			<page>23</page>
+		</mod>		
+		<mod>
+			<name>Drag Handle</name>
+			<category>General</category>
+			<armor>0</armor>
+			<maxrating>1</maxrating>
+			<armorcapacity>[1]</armorcapacity>
+			<avail>0</avail>
+			<cost>50</cost>
+			<source>BB</source>
+			<page>23</page>
 		</mod>		
 	</mods>
 </chummer>

@@ -1584,7 +1584,12 @@ namespace Chummer
                                 if (objSkill.SkillGroup != cboSkill1.SelectedValue.ToString())
                                     objSkill.RatingMaximum = 0;
                                 else
-                                    objSkill.RatingMaximum = 6;
+                                {
+                                    if (_objCharacter.IgnoreRules)
+                                        objSkill.RatingMaximum = 12;
+                                    else
+                                        objSkill.RatingMaximum = 6;
+                                }
                             }
                         }
                     }
@@ -1608,7 +1613,12 @@ namespace Chummer
                             if (objSkillGroup.Name != cboSkill1.SelectedValue.ToString())
                                 objSkillGroup.RatingMaximum = 0;
                             else
-                                objSkillGroup.RatingMaximum = 6;
+                            {
+                                if (_objCharacter.IgnoreRules)
+                                    objSkillGroup.RatingMaximum = 12;
+                                else
+                                    objSkillGroup.RatingMaximum = 6;
+                            }
                         }
                     }
                 }
@@ -1618,7 +1628,11 @@ namespace Chummer
                 {
                     foreach (Skill objSkill in _objCharacter.Skills)
                     {
-                        objSkill.RatingMaximum = 12;
+                        objSkill.RatingMaximum = 99;
+                    }
+                    foreach (SkillGroup objSkillGroup in _objCharacter.SkillGroups)
+                    {
+                        objSkillGroup.RatingMaximum = 99;
                     }
                 }
 

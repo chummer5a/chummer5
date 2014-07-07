@@ -1886,7 +1886,7 @@ namespace Chummer
 				objWriter.WriteElementString("attributemod", _objCharacter.MAGMagician.ToString());
 			else
 				objWriter.WriteElementString("attributemod", _objCharacter.GetAttribute(Attribute).TotalValue.ToString());
-			objWriter.WriteElementString("ratingmod", RatingModifiers.ToString());
+			objWriter.WriteElementString("ratingmod", (RatingModifiers + DicePoolModifiers).ToString());
 			objWriter.WriteElementString("poolmod", DicePoolModifiers.ToString());
 			objWriter.WriteElementString("islanguage", (_strSkillCategory == "Language").ToString());
 			objWriter.WriteElementString("bp", CalculatedBP().ToString());

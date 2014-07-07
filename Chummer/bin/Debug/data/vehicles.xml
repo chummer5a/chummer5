@@ -848,6 +848,44 @@
 			<source>SR5</source>
 			<page>466</page>
 		</vehicle>
+		<vehicle>
+			<name>Aeroquip M.E.D.-1 "Dustoff" Medical Evacuation Drone (Large)</name>
+			<category>Drones: Large</category>
+			<handling>3</handling>
+			<accel>4</accel>
+			<speed>4</speed>
+			<pilot>4</pilot>
+			<body>4</body>
+			<armor>5</armor>
+			<sensor>3</sensor>
+			<seats>0</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
+			<avail>10R</avail>
+			<cost>12000</cost>
+			<source>BB</source>
+			<page>23</page>
+		</vehicle>
+		<vehicle>
+			<name>Shiawase Caduceus "CAD" 7 (Medium)</name>
+			<category>Drones: Medium</category>
+			<handling>4</handling>
+			<accel>1</accel>
+			<speed>2</speed>
+			<pilot>2</pilot>
+			<body>5</body>
+			<armor>3</armor>
+			<sensor>1</sensor>
+			<seats>0</seats>
+			<gears>
+				<gear>Sensor Array</gear>
+			</gears>
+			<avail>12R</avail>
+			<cost>16500</cost>
+			<source>BB</source>
+			<page>23</page>
+		</vehicle>
 	</vehicles>
 	<mods>
 		<mod>

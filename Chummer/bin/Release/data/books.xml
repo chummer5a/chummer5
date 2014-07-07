@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-499</version>
+	<version>-498</version>
 	<books>
 		<book>
 			<name>Assassin's Primer</name>
@@ -21,6 +21,10 @@
 		<book>
 			<name>Street Grimoire</name>
 			<code>SG</code>
+		</book>
+		<book>
+			<name>Bullets &amp; Bandages</name>
+			<code>BB</code>
 		</book>
 	</books>
 </chummer>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-499</version>
+	<version>-497</version>
 	<categories>
 		<category>Blades</category>
 		<category>Clubs</category>
@@ -1870,7 +1870,7 @@
 			<page>24</page>
 		</weapon>
 		<weapon>
-			<name>Cavalier Arms Urban Tribe Tomahawk</name>
+			<name>Urban Tribe Tomahawk</name>
 			<category>Gear</category>
 			<type>Ranged</type>
 			<conceal>-2</conceal>
@@ -1894,6 +1894,7 @@
 			<category>Gear</category>
 			<type>Ranged</type>
 			<conceal>0</conceal>
+			<accuracy>Physical</accuracy>
 			<reach>0</reach>
 			<damage>10S (10m Radius)</damage>
 			<ap>-4</ap>
@@ -1913,6 +1914,7 @@
 			<category>Gear</category>
 			<type>Ranged</type>
 			<conceal>0</conceal>
+			<accuracy>Physical</accuracy>
 			<reach>0</reach>
 			<damage>Special</damage>
 			<ap>-</ap>
@@ -1932,6 +1934,7 @@
 			<category>Gear</category>
 			<type>Ranged</type>
 			<conceal>0</conceal>
+			<accuracy>Physical</accuracy>
 			<reach>0</reach>
 			<damage>18P(f) (-1/m)</damage>
 			<ap>+5</ap>
@@ -1950,6 +1953,7 @@
 			<name>Grenade: Gas</name>
 			<category>Gear</category>
 			<type>Ranged</type>
+			<accuracy>Physical</accuracy>
 			<conceal>0</conceal>
 			<reach>0</reach>
 			<damage>Chemical (10m Radius)</damage>
@@ -1970,6 +1974,7 @@
 			<category>Gear</category>
 			<type>Ranged</type>
 			<conceal>0</conceal>
+			<accuracy>Physical</accuracy>
 			<reach>0</reach>
 			<damage>16P (-2/m)</damage>
 			<ap>-2</ap>
@@ -1989,6 +1994,7 @@
 			<category>Gear</category>
 			<type>Ranged</type>
 			<conceal>0</conceal>
+			<accuracy>Physical</accuracy>
 			<reach>0</reach>
 			<damage>(10m Radius)</damage>
 			<ap>-</ap>
@@ -2008,6 +2014,7 @@
 			<category>Gear</category>
 			<type>Ranged</type>
 			<conceal>0</conceal>
+			<accuracy>Physical</accuracy>
 			<reach>0</reach>
 			<damage>(10m Radius)</damage>
 			<ap>-</ap>
@@ -2027,6 +2034,7 @@
 			<category>Gear</category>
 			<type>Ranged</type>
 			<conceal>0</conceal>
+			<accuracy>Physical</accuracy>
 			<reach>0</reach>
 			<damage>(10m Radius)</damage>
 			<ap>-</ap>
@@ -2082,9 +2090,31 @@
 			<page>24</page>
 		</weapon>
 		<weapon>
+			<name>Minigrenade: Flash-Bang</name>
+			<category>Gear</category>
+			<type>Ranged</type>
+			<accuracy>0</accuracy>
+			<conceal>-2</conceal>
+			<reach>0</reach>
+			<damage>10S (10m Radius)</damage>
+			<ap>-4</ap>
+			<mode>0</mode>
+			<rc>0</rc>
+			<ammo>0</ammo>
+			<avail>6R</avail>
+			<cost>100</cost>
+			<allowaccessory>false</allowaccessory>
+			<useskill>Heavy Weapons</useskill>
+			<spec>Grenade Launcher</spec>
+			<range>Grenade Launcher</range>
+			<source>SR5</source>
+			<page>435</page>
+		</weapon>
+		<weapon>
 			<name>Minigrenade: Flash-Pak</name>
 			<category>Gear</category>
 			<type>Ranged</type>
+			<accuracy>0</accuracy>
 			<conceal>-2</conceal>
 			<reach>0</reach>
 			<damage>Special</damage>
@@ -2104,6 +2134,7 @@
 		<weapon>
 			<name>Minigrenade: Fragmentation</name>
 			<category>Gear</category>
+			<accuracy>0</accuracy>
 			<type>Ranged</type>
 			<conceal>-2</conceal>
 			<reach>0</reach>
@@ -2126,6 +2157,7 @@
 			<category>Gear</category>
 			<type>Ranged</type>
 			<conceal>-2</conceal>
+			<accuracy>0</accuracy>
 			<reach>0</reach>
 			<damage>Chemical (10m Radius)</damage>
 			<ap>-</ap>
@@ -2146,6 +2178,7 @@
 			<category>Gear</category>
 			<type>Ranged</type>
 			<conceal>-2</conceal>
+			<accuracy>0</accuracy>
 			<reach>0</reach>
 			<damage>16P (-2/m)</damage>
 			<ap>-2</ap>
@@ -2166,6 +2199,7 @@
 			<category>Gear</category>
 			<type>Ranged</type>
 			<conceal>-2</conceal>
+			<accuracy>0</accuracy>
 			<reach>0</reach>
 			<damage>(10m Radius)</damage>
 			<ap>-</ap>
@@ -2186,6 +2220,7 @@
 			<category>Gear</category>
 			<type>Ranged</type>
 			<conceal>-2</conceal>
+			<accuracy>0</accuracy>
 			<reach>0</reach>
 			<damage>(10m Radius)</damage>
 			<ap>-</ap>
@@ -2205,6 +2240,7 @@
 			<name>Missile: Anti-Vehicle</name>
 			<category>Gear</category>
 			<type>Ranged</type>
+			<accuracy>0</accuracy>
 			<conceal>10</conceal>
 			<reach>0</reach>
 			<damage>24P (-4/m)</damage>
@@ -2223,13 +2259,13 @@
 			<category>Gear</category>
 			<type>Ranged</type>
 			<conceal>10</conceal>
+			<accuracy>0</accuracy>
 			<reach>0</reach>
 			<damage>23P(f) (-1/m)</damage>
 			<ap>+5</ap>
 			<mode>0</mode>
 			<rc>0</rc>
 			<ammo>0</ammo>
-
 			<avail>12F</avail>
 			<cost>2000</cost>
 			<allowaccessory>false</allowaccessory>
@@ -2240,6 +2276,7 @@
 			<name>Missile: High Explosive</name>
 			<category>Gear</category>
 			<type>Ranged</type>
+			<accuracy>0</accuracy>
 			<conceal>10</conceal>
 			<reach>0</reach>
 			<damage>21P (-2/m)</damage>
@@ -2277,6 +2314,7 @@
 			<name>Rocket: Anti-Vehicle</name>
 			<category>Gear</category>
 			<type>Ranged</type>
+			<accuracy>0</accuracy>
 			<conceal>10</conceal>
 			<reach>0</reach>
 			<damage>24P (-4/m)</damage>
@@ -2295,6 +2333,7 @@
 			<category>Gear</category>
 			<type>Ranged</type>
 			<conceal>10</conceal>
+			<accuracy>0</accuracy>
 			<reach>0</reach>
 			<damage>23P(f) (-1/m)</damage>
 			<ap>+5</ap>
@@ -2312,6 +2351,7 @@
 			<category>Gear</category>
 			<type>Ranged</type>
 			<conceal>10</conceal>
+			<accuracy>0</accuracy>
 			<reach>0</reach>
 			<damage>21P (-2/m)</damage>
 			<ap>-2</ap>
@@ -3243,8 +3283,8 @@
 				<accessory>Shock Pad</accessory>
 				<accessory>Laser Sight</accessory>
 			</accessories>
-			<source>SR4</source>
-			<page>320</page>
+			<source>SR5</source>
+			<page>430</page>
 		</weapon>
 		<weapon>
 			<name>Krime Wave</name>
@@ -5682,6 +5722,7 @@
 			<category>Unarmed</category>
 			<type>Melee</type>
 			<conceal>0</conceal>
+			<accuracy>Physical</accuracy>
 			<reach>0</reach>
 			<damage>(STR/2)S</damage>
 			<ap>-</ap>
@@ -5691,8 +5732,8 @@
 			<avail>0</avail>
 			<cost>0</cost>
 			<allowaccessory>false</allowaccessory>
-			<source>SR4</source>
-			<page>159</page>
+			<source>SR5</source>
+			<page>132</page>
 		</weapon>
 		<weapon>
 			<name>AK-98 Grenade Launcher</name>
