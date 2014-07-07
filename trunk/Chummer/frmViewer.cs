@@ -12,13 +12,15 @@ namespace Chummer
 	{
 		private List<Character> _lstCharacters = new List<Character>();
 		private XmlDocument _objCharacterXML = new XmlDocument();
-		private string _strSelectedSheet = "Shadowrun 4";
+		private string _strSelectedSheet = "Shadowrun 5";
 		private bool _blnLoading = false;
 		
 		#region Control Events
 		public frmViewer()
 		{
 			_strSelectedSheet = GlobalOptions.Instance.DefaultCharacterSheet;
+            if (_strSelectedSheet.StartsWith("Shadowrun 4"))
+                _strSelectedSheet = "Shadowrun 5";
 
 			InitializeComponent();
 			LanguageManager.Instance.Load(GlobalOptions.Instance.Language, this);
@@ -96,9 +98,9 @@ namespace Chummer
 			cboXSLT.DataSource = lstFiles;
 
 			cboXSLT.SelectedValue = _strSelectedSheet;
-			// If the desired sheet was not found, fall back to the Shadowrun 4 sheet.
+			// If the desired sheet was not found, fall back to the Shadowrun 5 sheet.
 			if (cboXSLT.Text == "")
-				cboXSLT.SelectedValue = "Shadowrun 4";
+				cboXSLT.SelectedValue = "Shadowrun 5";
 			GenerateOutput();
 			_blnLoading = false;
 		}

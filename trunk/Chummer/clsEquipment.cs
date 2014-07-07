@@ -1265,9 +1265,11 @@ namespace Chummer
 				{
 					switch (nodGear["category"].InnerText)
 					{
-						case "Commlink":
-						case "Commlink Upgrade":
-							Commlink objCommlink = new Commlink(_objCharacter);
+						case "Commlinks":
+                        case "Commlink Accessories":
+                        case "Cyberdecks":
+                        case "Rigger Command Consoles":
+                            Commlink objCommlink = new Commlink(_objCharacter);
 							objCommlink.Load(nodGear, blnCopy);
 							_lstGear.Add(objCommlink);
 							break;
@@ -2203,7 +2205,18 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Whether or not the Grade is for the Burnout's Way.
+        /// </summary>
+        public bool Burnout
+        {
+            get
+            {
+                return _strName.Contains("(Burnout's Way)");
+            }
+        }
+
+        /// <summary>
 		/// Whether or not this is a Second-Hand Grade.
 		/// </summary>
 		public bool SecondHand
@@ -2799,9 +2812,11 @@ namespace Chummer
 				{
 					switch (nodChild["category"].InnerText)
 					{
-						case "Commlink":
-						case "Commlink Upgrade":
-							Commlink objCommlink = new Commlink(_objCharacter);
+                        case "Commlinks":
+                        case "Commlink Accessories":
+                        case "Cyberdecks":
+                        case "Rigger Command Consoles":
+                            Commlink objCommlink = new Commlink(_objCharacter);
 							objCommlink.Load(nodChild, blnCopy);
 							_lstGear.Add(objCommlink);
 							break;
@@ -6517,9 +6532,23 @@ namespace Chummer
             {
                 string strAccuracy = _strAccuracy;
 
-                if (strAccuracy == "Physical" || strAccuracy == "Missile")
+                if (strAccuracy.StartsWith("Physical"))
                 {
-                    return strAccuracy;
+                    strAccuracy = strAccuracy.Replace("Physical", _objCharacter.LimitPhysical.ToString());
+
+                    XmlDocument objXmlDocument = new XmlDocument();
+                    XPathNavigator nav = objXmlDocument.CreateNavigator();
+                    XPathExpression xprAccuracy = nav.Compile(strAccuracy);
+                    return nav.Evaluate(xprAccuracy).ToString();
+                }
+                else if (strAccuracy.StartsWith("Missile"))
+                {
+                    strAccuracy = strAccuracy.Replace("Missile", _objCharacter.LimitPhysical.ToString());
+
+                    XmlDocument objXmlDocument = new XmlDocument();
+                    XPathNavigator nav = objXmlDocument.CreateNavigator();
+                    XPathExpression xprAccuracy = nav.Compile(strAccuracy);
+                    return nav.Evaluate(xprAccuracy).ToString();
                 }
                 else
                 {
@@ -7355,9 +7384,11 @@ namespace Chummer
 				{
 					switch (nodChild["category"].InnerText)
 					{
-						case "Commlink":
-						case "Commlink Upgrade":
-							Commlink objCommlink = new Commlink(_objCharacter);
+                        case "Commlinks":
+                        case "Commlink Accessories":
+                        case "Cyberdecks":
+                        case "Rigger Command Consoles":
+                            Commlink objCommlink = new Commlink(_objCharacter);
 							objCommlink.Load(nodChild, blnCopy);
 							_lstGear.Add(objCommlink);
 							break;
@@ -9001,7 +9032,7 @@ namespace Chummer
                     if (nodCost != null)
                     {
                         string strCost = nodCost.InnerText;
-                        int intCost = Convert.ToInt32(strCost) - 100;
+                        int intCost = Convert.ToInt32(strCost);
                         if (intCost > 0)
                         {
                             strThisQuality += " [+" + intCost.ToString() + "%]";
@@ -9339,10 +9370,30 @@ namespace Chummer
 				if (_objType == LifestyleType.Standard)
 					dblModifier += Convert.ToDouble(objImprovementManager.ValueOf(Improvement.ImprovementType.BasicLifestyleCost), GlobalOptions.Instance.CultureInfo);
 				double dblRoommates = 1.0 + (0.1 * _intRoommates);
-				// dblMultiplier = 1.0 + Convert.ToDouble(dblModifier / 100, GlobalOptions.Instance.CultureInfo);
-				double dblPercentage = Convert.ToDouble(_intPercentage, GlobalOptions.Instance.CultureInfo) / 100.0;
 
-				return Convert.ToInt32((Convert.ToDouble(_intCost, GlobalOptions.Instance.CultureInfo) * dblMultiplier) * dblRoommates * dblPercentage);
+                int intCost = _intCost;
+                foreach (string strQuality in _lstQualities)
+                {
+                    if (strQuality.Contains("%"))
+                    {
+                        string strPercent = strQuality.Substring(strQuality.IndexOf("[") + 1);
+                        strPercent = strPercent.Substring(0, strPercent.IndexOf("%"));
+                        double dblPercent = Convert.ToDouble(strPercent);
+                        dblModifier += dblPercent;
+                    }
+                    else
+                    {
+                        string strFlat = strQuality.Substring(strQuality.IndexOf("[") + 1);
+                        strFlat = strFlat.Substring(0, strFlat.IndexOf("¥"));
+                        intCost += Convert.ToInt32(strFlat);
+                    }
+                }
+
+                dblMultiplier = 1.0 + Convert.ToDouble(dblModifier / 100, GlobalOptions.Instance.CultureInfo);
+                double dblPercentage = Convert.ToDouble(_intPercentage, GlobalOptions.Instance.CultureInfo) / 100.0;
+
+                int intReturn = Convert.ToInt32((Convert.ToDouble(_intCost, GlobalOptions.Instance.CultureInfo) * dblMultiplier) * dblRoommates * dblPercentage);
+                return intReturn;
 			}
 		}
 		#endregion
@@ -10126,9 +10177,11 @@ namespace Chummer
 				{
 					switch (nodChild["category"].InnerText)
 					{
-						case "Commlink":
-						case "Commlink Upgrade":
-							Commlink objCommlink = new Commlink(_objCharacter);
+                        case "Commlinks":
+                        case "Commlink Accessories":
+                        case "Cyberdecks":
+                        case "Rigger Command Consoles":
+                            Commlink objCommlink = new Commlink(_objCharacter);
 							objCommlink.Load(nodChild, blnCopy);
 							objCommlink.Parent = this;
 							_objChildren.Add(objCommlink);
@@ -12136,9 +12189,11 @@ namespace Chummer
 				{
 					switch (nodChild["category"].InnerText)
 					{
-						case "Commlink":
-						case "Commlink Upgrade":
-							Commlink objCommlink = new Commlink(_objCharacter);
+                        case "Commlinks":
+                        case "Commlink Accessories":
+                        case "Cyberdecks":
+                        case "Rigger Command Consoles":
+                            Commlink objCommlink = new Commlink(_objCharacter);
 							objCommlink.Load(nodChild, blnCopy);
 							objCommlink.Parent = this;
 							_objChildren.Add(objCommlink);
@@ -12227,8 +12282,11 @@ namespace Chummer
 			objWriter.WriteStartElement("gear");
 			objWriter.WriteElementString("name", DisplayNameShort);
 			objWriter.WriteElementString("name_english", _strName);
-			objWriter.WriteElementString("category", DisplayCategory);
-			objWriter.WriteElementString("category_english", _strCategory);
+            if (DisplayCategory.EndsWith("s"))
+			    objWriter.WriteElementString("category", DisplayCategory.Substring(0,DisplayCategory.Length -1));
+            else
+                objWriter.WriteElementString("category", DisplayCategory);
+            objWriter.WriteElementString("category_english", _strCategory);
 			objWriter.WriteElementString("iscommlink", true.ToString());
 			objWriter.WriteElementString("ispersona", IsLivingPersona.ToString());
 			objWriter.WriteElementString("isnexus", (_strCategory == "Nexus").ToString());
@@ -13508,6 +13566,7 @@ namespace Chummer
 		private int _intBody = 0;
 		private int _intArmor = 0;
 		private int _intSensor = 0;
+        private string _strSeats = "";
 		private string _strAvail = "";
 		private string _strCost = "";
 		private string _strSource = "";
@@ -13566,7 +13625,14 @@ namespace Chummer
 			catch
 			{
 			}
-			_strAvail = objXmlVehicle["avail"].InnerText;
+            try
+            {
+                _strSeats = objXmlVehicle["seats"].InnerText;
+            }
+            catch
+            {
+            }
+            _strAvail = objXmlVehicle["avail"].InnerText;
 			_strCost = objXmlVehicle["cost"].InnerText;
 			_strSource = objXmlVehicle["source"].InnerText;
 			_strPage = objXmlVehicle["page"].InnerText;
@@ -13793,7 +13859,8 @@ namespace Chummer
 			objWriter.WriteElementString("speed", _intSpeed.ToString());
 			objWriter.WriteElementString("pilot", _intPilot.ToString());
 			objWriter.WriteElementString("body", _intBody.ToString());
-			objWriter.WriteElementString("armor", _intArmor.ToString());
+            objWriter.WriteElementString("seats", _strSeats);
+            objWriter.WriteElementString("armor", _intArmor.ToString());
 			objWriter.WriteElementString("sensor", _intSensor.ToString());
 			objWriter.WriteElementString("devicerating", _intDeviceRating.ToString());
 			objWriter.WriteElementString("avail", _strAvail);
@@ -13854,8 +13921,13 @@ namespace Chummer
 			_strName = objNode["name"].InnerText;
 			_strCategory = objNode["category"].InnerText;
 			_strHandling = objNode["handling"].InnerText;
-			_strAccel = objNode["accel"].InnerText;
-			_intSpeed = Convert.ToInt32(objNode["speed"].InnerText);
+            _strAccel = objNode["accel"].InnerText;
+            try
+            {
+                _strSeats = objNode["seats"].InnerText;
+            }
+            catch { }
+            _intSpeed = Convert.ToInt32(objNode["speed"].InnerText);
 			_intPilot = Convert.ToInt32(objNode["pilot"].InnerText);
 			_intBody = Convert.ToInt32(objNode["body"].InnerText);
 			_intArmor = Convert.ToInt32(objNode["armor"].InnerText);
@@ -13944,9 +14016,11 @@ namespace Chummer
 				{
 					switch (nodChild["category"].InnerText)
 					{
-						case "Commlink":
-						case "Commlink Upgrade":
-							Commlink objCommlink = new Commlink(_objCharacter);
+                        case "Commlinks":
+                        case "Commlink Accessories":
+                        case "Cyberdecks":
+                        case "Rigger Command Consoles":
+                            Commlink objCommlink = new Commlink(_objCharacter);
 							objCommlink.Load(nodChild, blnCopy);
 							_lstGear.Add(objCommlink);
 							break;
@@ -14023,7 +14097,8 @@ namespace Chummer
 			objWriter.WriteElementString("pilot", Pilot.ToString());
 			objWriter.WriteElementString("body", TotalBody.ToString());
 			objWriter.WriteElementString("armor", TotalArmor.ToString());
-			if (_objCharacter.Options.UseCalculatedVehicleSensorRatings)
+            objWriter.WriteElementString("seats", _strSeats);
+            if (_objCharacter.Options.UseCalculatedVehicleSensorRatings)
 				objWriter.WriteElementString("sensor", CalculatedSensor.ToString());
 			else
 				objWriter.WriteElementString("sensor", _intSensor.ToString());

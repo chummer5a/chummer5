@@ -3196,10 +3196,11 @@ namespace Chummer
 					{
 						switch (objXmlNode["category"].InnerText)
 						{
-							case "Commlinks":
+                            case "Commlinks":
+                            case "Commlink Accessories":
                             case "Cyberdecks":
-							case "Commlink Upgrade":
-								Commlink objCommlink = new Commlink(_objCharacter);
+                            case "Rigger Command Consoles":
+                                Commlink objCommlink = new Commlink(_objCharacter);
 								objCommlink.Load(objXmlNode, true);
 								objGear = objCommlink;
 								break;
@@ -3255,10 +3256,11 @@ namespace Chummer
 					{
 						switch (objXmlNode["category"].InnerText)
 						{
-							case "Commlinks":
+                            case "Commlinks":
+                            case "Commlink Accessories":
                             case "Cyberdecks":
-                            case "Commlink Upgrade":
-								Commlink objCommlink = new Commlink(_objCharacter);
+                            case "Rigger Command Consoles":
+                                Commlink objCommlink = new Commlink(_objCharacter);
 								objCommlink.Load(objXmlNode, true);
 								objGear = objCommlink;
 								break;
@@ -3345,10 +3347,11 @@ namespace Chummer
 					{
 						switch (objXmlNode["category"].InnerText)
 						{
-							case "Commlinks":
+                            case "Commlinks":
+                            case "Commlink Accessories":
                             case "Cyberdecks":
-                            case "Commlink Upgrade":
-								Commlink objCommlink = new Commlink(_objCharacter);
+                            case "Rigger Command Consoles":
+                                Commlink objCommlink = new Commlink(_objCharacter);
 								objCommlink.Load(objXmlNode, true);
 								_objCharacter.Gear.Add(objCommlink);
 								objGear = objCommlink;
@@ -3438,10 +3441,11 @@ namespace Chummer
 				{
 					switch (objXmlNode["category"].InnerText)
 					{
-						case "Commlinks":
+                        case "Commlinks":
+                        case "Commlink Accessories":
                         case "Cyberdecks":
-                        case "Commlink Upgrade":
-							Commlink objCommlink = new Commlink(_objCharacter);
+                        case "Rigger Command Consoles":
+                            Commlink objCommlink = new Commlink(_objCharacter);
 							objCommlink.Load(objXmlNode, true);
 							objGear = objCommlink;
 							break;
@@ -8575,10 +8579,11 @@ namespace Chummer
 
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlinks":
+                case "Commlinks":
+                case "Commlink Accessories":
                 case "Cyberdecks":
-                case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating, false);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 
@@ -8758,10 +8763,11 @@ namespace Chummer
 
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlinks":
+                case "Commlinks":
+                case "Commlink Accessories":
                 case "Cyberdecks":
-                case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating, false);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					objNode.Text = objCommlink.DisplayName;
@@ -10493,10 +10499,11 @@ namespace Chummer
 			Gear objNewGear = new Gear(_objCharacter);
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlinks":
+                case "Commlinks":
+                case "Commlink Accessories":
                 case "Cyberdecks":
-                case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					try
@@ -10660,10 +10667,11 @@ namespace Chummer
 
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlinks":
+                case "Commlinks":
+                case "Commlink Accessories":
                 case "Cyberdecks":
-                case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					objNode.Text = objCommlink.DisplayName;
@@ -10799,10 +10807,11 @@ namespace Chummer
 
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlinks":
+                case "Commlinks":
+                case "Commlink Accessories":
                 case "Cyberdecks":
-                case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					objNode.Text = objCommlink.DisplayName;
@@ -10906,10 +10915,11 @@ namespace Chummer
 			Gear objNewGear = new Gear(_objCharacter);
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlinks":
+                case "Commlinks":
+                case "Commlink Accessories":
                 case "Cyberdecks":
-                case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					try
@@ -11055,10 +11065,11 @@ namespace Chummer
 
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlinks":
+                case "Commlinks":
+                case "Commlink Accessories":
                 case "Cyberdecks":
-                case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					objNode.Text = objCommlink.DisplayName;
@@ -11293,10 +11304,11 @@ namespace Chummer
 
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlinks":
+                case "Commlinks":
+                case "Commlink Accessories":
                 case "Cyberdecks":
-                case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating, false);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					objNode.Text = objCommlink.DisplayName;
@@ -11394,10 +11406,11 @@ namespace Chummer
 			Gear objNewGear = new Gear(_objCharacter);
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlinks":
+                case "Commlinks":
+                case "Commlink Accessories":
                 case "Cyberdecks":
-                case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating, false);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					try
@@ -14299,7 +14312,7 @@ namespace Chummer
                         }
                         if (intMAG < intLowest && intMAG > _objCharacter.MAG.TotalMinimum)
                         {
-                            strLowest = "";
+                            strLowest = "MAG";
                             intLowest = intMAG;
                         }
                         if (intRES < intLowest && intRES > _objCharacter.RES.TotalMinimum)
@@ -14959,8 +14972,19 @@ namespace Chummer
             if (_objCharacter.BuildMethod == CharacterBuildMethod.Karma && _objOptions.FreeKarmaKnowledge)
                 intPointsInKnowledgeSkills -= (intSpecCount * _objOptions.KarmaSpecialization);
 
+            int intKnowledgeSkillPoints = _objCharacter.KnowledgeSkillPoints;
+            foreach (Quality objQuality in _objCharacter.Qualities)
+            {
+                if (objQuality.Name == "Aged (Rating 1)")
+                    intKnowledgeSkillPoints += 5;
+                if (objQuality.Name == "Aged (Rating 2)")
+                    intKnowledgeSkillPoints += 10;
+                if (objQuality.Name == "Aged (Rating 3)")
+                    intKnowledgeSkillPoints += 15;
+            }
+
             // If the number of points in Knowledge Skills exceeds the free amount, the remaining amount is deducted from BP.
-            if (intPointsInKnowledgeSkills > _objCharacter.KnowledgeSkillPoints)
+            if (intPointsInKnowledgeSkills > intKnowledgeSkillPoints)
             {
                 // Working with Karma is different. Go through all of the Knowledge Skills and calculate their costs individually.
                 foreach (SkillControl objSkillControl in panKnowledgeSkills.Controls)
@@ -14992,8 +15016,8 @@ namespace Chummer
                 {
                     // Working with Karma and free Knowledge Skills.
                     int intKnowledgePointsUsed = intPointsInKnowledgeSkills;
-                    if (intKnowledgePointsUsed > _objCharacter.KnowledgeSkillPoints)
-                        intKnowledgePointsUsed = _objCharacter.KnowledgeSkillPoints;
+                    if (intKnowledgePointsUsed > intKnowledgeSkillPoints)
+                        intKnowledgePointsUsed = intKnowledgeSkillPoints;
 
                     // Go back through the controls and start adjusting costs for free points.
                     int intRating = 0;
@@ -15021,15 +15045,16 @@ namespace Chummer
                         }
                     } while (intKnowledgePointsUsed > 0);
                 }
+
                 // Update the label that displays the number of free Knowledge Skill points remaining.
-                lblKnowledgeSkillPoints.Text = String.Format("0 " + LanguageManager.Instance.GetString("String_Of") + " {0}", _objCharacter.KnowledgeSkillPoints.ToString());
-                lblPBuildKnowledgeSkills.Text = String.Format("0 " + LanguageManager.Instance.GetString("String_Of") + " {0}", _objCharacter.KnowledgeSkillPoints.ToString());
+                lblKnowledgeSkillPoints.Text = String.Format("0 " + LanguageManager.Instance.GetString("String_Of") + " {0}", intKnowledgeSkillPoints.ToString());
+                lblPBuildKnowledgeSkills.Text = String.Format("0 " + LanguageManager.Instance.GetString("String_Of") + " {0}", intKnowledgeSkillPoints.ToString());
             }
             else
             {
                 // Update the label that displays the number of free Knowledge Skill points remaining.
-                lblKnowledgeSkillPoints.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.KnowledgeSkillPoints - intPointsInKnowledgeSkills).ToString(), _objCharacter.KnowledgeSkillPoints.ToString());
-                lblPBuildKnowledgeSkills.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.KnowledgeSkillPoints - intPointsInKnowledgeSkills).ToString(), _objCharacter.KnowledgeSkillPoints.ToString());
+                lblKnowledgeSkillPoints.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (intKnowledgeSkillPoints - intPointsInKnowledgeSkills).ToString(), intKnowledgeSkillPoints.ToString());
+                lblPBuildKnowledgeSkills.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (intKnowledgeSkillPoints - intPointsInKnowledgeSkills).ToString(), intKnowledgeSkillPoints.ToString());
             }
             lblKnowledgeSkillsBP.Text = String.Format("{0} " + strPoints, intPointsUsed.ToString());
             intFreestyleBP += intPointsUsed;
@@ -15038,6 +15063,9 @@ namespace Chummer
 			intPointsRemain -= (int)nudNuyen.Value;
 			lblNuyenBP.Text = nudNuyen.Value.ToString() + " " + strPoints;
 			intFreestyleBP += (int)nudNuyen.Value;
+
+            // Calculate the BP discounted by Adept Way for Bonded Foci
+            intPointsRemain += (int)nudAdeptWayDiscount.Value * 2;
 
 			// Calculate the BP used by Spells.
 			intPointsUsed = 0;
@@ -15278,12 +15306,24 @@ namespace Chummer
 
 				// Calculate Free Knowledge Skill Points. Free points = (INT + LOG) * 2.
 				// Characters built using the Karma system do not get free Knowledge Skills.
-				if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority || (_objCharacter.BuildMethod == CharacterBuildMethod.Karma && _objOptions.FreeKarmaKnowledge))
+                if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority || (_objCharacter.BuildMethod == CharacterBuildMethod.Karma && _objOptions.FreeKarmaKnowledge))
 					_objCharacter.KnowledgeSkillPoints = (int)(nudINT.Value + nudLOG.Value) * 2;
 				else
 					_objCharacter.KnowledgeSkillPoints = 0;
-				lblKnowledgeSkillPoints.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", _objCharacter.KnowledgeSkillPoints.ToString(), _objCharacter.KnowledgeSkillPoints.ToString());
-                lblPBuildKnowledgeSkills.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", _objCharacter.KnowledgeSkillPoints.ToString(), _objCharacter.KnowledgeSkillPoints.ToString());
+
+                int intKnowledgeSkillPoints = _objCharacter.KnowledgeSkillPoints;
+                foreach (Quality objQuality in _objCharacter.Qualities)
+                {
+                    if (objQuality.Name == "Aged (Rating 1)")
+                        intKnowledgeSkillPoints += 5;
+                    if (objQuality.Name == "Aged (Rating 2)")
+                        intKnowledgeSkillPoints += 10;
+                    if (objQuality.Name == "Aged (Rating 3)")
+                        intKnowledgeSkillPoints += 15;
+                }
+
+                lblKnowledgeSkillPoints.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", intKnowledgeSkillPoints.ToString(), intKnowledgeSkillPoints.ToString());
+                lblPBuildKnowledgeSkills.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", intKnowledgeSkillPoints.ToString(), intKnowledgeSkillPoints.ToString());
 
 				// Update the character's Skill information.
                 int intSkills = 0;
@@ -15344,10 +15384,22 @@ namespace Chummer
 					objSkillControl.SkillRatingMaximum = objSkillControl.SkillObject.RatingMaximum;
 					objSkillControl.RefreshControl();
 				}
-                if (_objCharacter.KnowledgeSkillPoints - intSkills < 0)
-                    lblPBuildKnowledgeSkills.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (0).ToString(), _objCharacter.KnowledgeSkillPoints.ToString());
+
+                intKnowledgeSkillPoints = _objCharacter.KnowledgeSkillPoints;
+                foreach (Quality objQuality in _objCharacter.Qualities)
+                {
+                    if (objQuality.Name == "Aged (Rating 1)")
+                        intKnowledgeSkillPoints += 5;
+                    if (objQuality.Name == "Aged (Rating 2)")
+                        intKnowledgeSkillPoints += 10;
+                    if (objQuality.Name == "Aged (Rating 3)")
+                        intKnowledgeSkillPoints += 15;
+                }
+
+                if (intKnowledgeSkillPoints - intSkills < 0)
+                    lblPBuildKnowledgeSkills.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (0).ToString(), intKnowledgeSkillPoints.ToString());
                 else
-                    lblPBuildKnowledgeSkills.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.KnowledgeSkillPoints - intSkills).ToString(), _objCharacter.KnowledgeSkillPoints.ToString());
+                    lblPBuildKnowledgeSkills.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (intKnowledgeSkillPoints - intSkills).ToString(), intKnowledgeSkillPoints.ToString());
 
                 // Update the character's skill group information.
                 int intSkillGroups = 0;
@@ -17426,10 +17478,11 @@ namespace Chummer
 			Gear objNewGear = new Gear(_objCharacter);
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlinks":
+                case "Commlinks":
+                case "Commlink Accessories":
                 case "Cyberdecks":
-                case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					try
@@ -17653,10 +17706,11 @@ namespace Chummer
 			Gear objNewGear = new Gear(_objCharacter);
 			switch (frmPickGear.SelectedCategory)
 			{
-				case "Commlinks":
+                case "Commlinks":
+                case "Commlink Accessories":
                 case "Cyberdecks":
-                case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGear, _objCharacter, objNode, frmPickGear.SelectedRating);
 					objCommlink.Quantity = frmPickGear.SelectedQty;
 					try
@@ -17856,7 +17910,7 @@ namespace Chummer
                         if (nodCost != null)
                         {
                             string strCost = nodCost.InnerText;
-                            int intCost = Convert.ToInt32(strCost) - 100;
+                            int intCost = Convert.ToInt32(strCost);
                             if (intCost > 0)
                             {
                                 if (objNode["translate"] != null)
@@ -17882,51 +17936,18 @@ namespace Chummer
                         }
 					}
 
-                    // Add any modifiers from Metatype
-                    XmlDocument objMetatypeDoc = XmlManager.Instance.Load("metatypes.xml");
-                    XmlNode objXmlMetatype = objMetatypeDoc.SelectSingleNode("/chummer/metatypes/metatype[name = \"" + _objCharacter.Metatype + "\"]");
-                    try
+                    foreach (Improvement objImprovement in _objCharacter.Improvements)
                     {
-                        XmlNode objXmlMetatypeCost = objXmlMetatype["bonus"]["lifestylecost"];
-                        if (objXmlMetatypeCost != null)
+                        if (objImprovement.ImproveType == Improvement.ImprovementType.LifestyleCost)
                         {
                             if (strQualities.Length > 0)
                                 strQualities += ", ";
-                            if (Convert.ToDecimal(objXmlMetatypeCost.InnerText) > 0)
-                            {
-                                strQualities += objXmlMetatype["name"].InnerText + " [+" + (Convert.ToDecimal(objXmlMetatypeCost.InnerText) - 100).ToString() + "%]";
-                            }
-                            else
-                            {
-                                strQualities += objXmlMetatype["name"].InnerText + " [" + (Convert.ToDecimal(objXmlMetatypeCost.InnerText) - 100).ToString() + "%]";
-                            }
-                        }
-                    }
-                    catch { }
 
-                    // Add any modifiers from Qualities
-                    XmlDocument objXmlQualityDoc = XmlManager.Instance.Load("qualities.xml");
-                    foreach (Quality objQuality in _objCharacter.Qualities)
-                    {
-                        XmlNode objXmlQuality = objXmlQualityDoc.SelectSingleNode("/chummer/qualities/quality[name = \"" + objQuality.Name + "\"]");
-                        try
-                        {
-                            XmlNode objXmlQualityCost = objXmlQuality["bonus"]["lifestylecost"];
-                            if (objXmlQualityCost != null)
-                            {
-                                if (strQualities.Length > 0)
-                                    strQualities += ", ";
-                                if (Convert.ToDecimal(objXmlQualityCost.InnerText) > 0)
-                                {
-                                    strQualities += objXmlQuality["name"].InnerText + " [+" + (Convert.ToDecimal(objXmlQualityCost.InnerText) - 100).ToString() + "%]";
-                                }
-                                else
-                                {
-                                    strQualities += objXmlQuality["name"].InnerText + " [" + (Convert.ToDecimal(objXmlQualityCost.InnerText) - 100).ToString() + "%]";
-                                }
-                            }
+                            if (objImprovement.Value > 0)
+                                strQualities += objImprovement.ImproveSource + " [+" + objImprovement.Value.ToString() + "%]";
+                            else
+                                strQualities += objImprovement.ImproveSource + " [" + objImprovement.Value.ToString() + "%]";
                         }
-                        catch { }
                     }
 
                     lblLifestyleComforts.Text = strBaseLifestyle;
@@ -18860,11 +18881,11 @@ namespace Chummer
                 // Deduct the amount for free Qualities.
                 intPointsUsed -= _objImprovementManager.ValueOf(Improvement.ImprovementType.FreePositiveQualities);
 
-                // Include the BP used by Martial Arts. Each Rating costs 5 BP.
-                foreach (MartialArt objMartialArt in _objCharacter.MartialArts)
-                {
-                    intPointsUsed += objMartialArt.Rating * _objOptions.BPMartialArt;
-                }
+                //// Include the BP used by Martial Arts. Each Rating costs 5 BP.
+                //foreach (MartialArt objMartialArt in _objCharacter.MartialArts)
+                //{
+                //    intPointsUsed += objMartialArt.Rating * _objOptions.BPMartialArt;
+                //}
                 int intPositivePointsUsed = intPointsUsed;
 
                 // Calculate the BP used for Negative Qualities.
@@ -21849,10 +21870,11 @@ namespace Chummer
 						{
 							switch (objXmlNode["category"].InnerText)
 							{
-								case "Commlinks":
+                                case "Commlinks":
+                                case "Commlink Accessories":
                                 case "Cyberdecks":
-                                case "Commlink Upgrade":
-									Commlink objCommlink = new Commlink(_objCharacter);
+                                case "Rigger Command Consoles":
+                                    Commlink objCommlink = new Commlink(_objCharacter);
 									objCommlink.Load(objXmlNode, true);
 									objGear = objCommlink;
 									break;
@@ -22136,10 +22158,11 @@ namespace Chummer
 			Gear objNewGear = new Gear(_objCharacter);
 			switch (objXmlGearNode["category"].InnerText)
 			{
-				case "Commlinks":
+                case "Commlinks":
+                case "Commlink Accessories":
                 case "Cyberdecks":
-                case "Commlink Upgrade":
-					Commlink objCommlink = new Commlink(_objCharacter);
+                case "Rigger Command Consoles":
+                    Commlink objCommlink = new Commlink(_objCharacter);
 					objCommlink.Create(objXmlGearNode, _objCharacter, objNode, intRating, true, blnCreateChildren);
 					objCommlink.Quantity = intQty;
 					objNewGear = objCommlink;
@@ -22366,5 +22389,31 @@ namespace Chummer
 			}
 		}
 		#endregion
+
+        private void nudAdeptWayDiscount_ValueChanged(object sender, EventArgs e)
+        {
+            // Don't attempt to do anything while the data is still being populated.
+            if (_blnLoading)
+                return;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (nudAdeptWayDiscount.Value > _objCharacter.Foci.Count)
+            {
+                try
+                {
+                    nudAdeptWayDiscount.Value = _objCharacter.Foci.Count;
+                }
+                catch
+                {
+                    nudAdeptWayDiscount.Value = nudAdeptWayDiscount.Minimum;
+                }
+            }
+
+            _objCharacter.AdeptWayDiscount = Convert.ToInt32(nudAdeptWayDiscount.Value);
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
 	}
 }

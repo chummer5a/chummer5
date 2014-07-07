@@ -88,7 +88,7 @@ namespace Chummer
 		private static bool _blnStartupFullscreen = false;
 		private static bool _blnSingleDiceRoller = true;
 		private static string _strLanguage = "en-us";
-		private static string _strDefaultCharacterSheet = "Shadowrun 4";
+		private static string _strDefaultCharacterSheet = "Shadowrun 5";
 		private static bool _blnDatesIncludeTime = true;
 		private static bool _blnPrintToFileFirst = false;
 
@@ -1970,7 +1970,7 @@ namespace Chummer
 			catch
 			{
 				// We were unable to get the Registry key which means the book options have not been saved yet, so create the default values.
-				strBookList = "Shadowrun 4th Edition";
+				strBookList = "Shadowrun 5th Edition";
 				RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer5");
 				objRegistry.SetValue("books", strBookList);
 			}

@@ -2103,6 +2103,9 @@ namespace Chummer
                         else
                             frmPickCategory.Description = LanguageManager.Instance.GetString("Title_SelectWeaponCategory");
 
+                        if (_strForcedValue.StartsWith("Adept:") || _strForcedValue.StartsWith("Magician:"))
+                            _strForcedValue = "";
+
                         if (_strForcedValue != "")
                         {
                             frmPickCategory.Opacity = 0;

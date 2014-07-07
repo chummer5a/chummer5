@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Character sheet for Commlinks based on the ones created by ChinaGreenElvis -->
 <!-- Created by Keith Rudolph, krudolph@gmail.com -->
-<!-- Version -997 -->
+<!-- Version -500 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 	<xsl:include href="ConditionMonitor.xslt"/>
 	<xsl:template match="/characters/character">
@@ -16,6 +16,12 @@
 						font-family: segoe condensed, tahoma, trebuchet ms, arial;
 						font-size: 8pt;
 						text-align: left;
+					}
+					.commlinkcategory
+					{
+					font-family: segoe condensed, tahoma, trebuchet ms, arial;
+					font-size: 8pt;
+					text-align: right;
 					}
 					.tableborder
 					{
@@ -168,10 +174,23 @@
 						<table width="650px" cellspacing="0" cellpadding="0" border="0">
 							<tr>
 								<td width="100%" class="tableborder" colspan="4">
-									<strong>
-									<xsl:value-of select="name" />
-									<xsl:if test="extra != ''"> (<xsl:value-of select="extra" />)</xsl:if>
-									</strong>
+									<table width="100%" border="0">
+										<tr>
+											<td width="50%">
+												<strong>
+												<xsl:value-of select="name" />
+												<xsl:if test="extra != ''"> (<xsl:value-of select="extra" />)</xsl:if>
+												</strong>
+											</td>
+											<td width="50%" align="right" text-align="right">
+												<div align="right" text-align="right" class="commlinkcategory">
+													<strong>
+														<xsl:value-of select="category" />
+													</strong>
+												</div>
+											</td>
+										</tr>
+									</table>
 								</td>
 							</tr>
 							<tr>
@@ -193,15 +212,7 @@
 							</tr>
 							<tr>
 								<td width="25%" class="tableborder">
-									<strong>OS</strong>
-								</td>
-								<td width="75%" class="tableborder" colspan="3">
-									<xsl:value-of select="children/gear[isos = 'True']/name" />&#160;
-								</td>
-							</tr>
-							<tr>
-								<td width="25%" class="tableborder">
-									<strong>Response</strong>
+									<strong>Attack</strong>
 								</td>
 								<td width="25%" class="tableborder">
 									<xsl:choose>
@@ -209,7 +220,7 @@
 											<xsl:value-of select="children/gear[contains(name, 'Response')]/name" />
 										</xsl:when>
 										<xsl:otherwise>
-											<xsl:value-of select="response" />
+											<xsl:value-of select="attack" />
 										</xsl:otherwise>
 									</xsl:choose>
 								</td>
@@ -265,7 +276,7 @@
 							</tr>
 							<tr>
 								<td width="25%" class="tableborder">
-									<strong>System</strong>
+									<strong>Sleaze</strong>
 								</td>
 								<td width="25%" class="tableborder">
 									<xsl:choose>
@@ -273,14 +284,14 @@
 											<xsl:value-of select="children/gear[contains(name, 'System')]/name" />
 										</xsl:when>
 										<xsl:otherwise>
-											<xsl:value-of select="system" />
+											<xsl:value-of select="sleaze" />
 										</xsl:otherwise>
 									</xsl:choose>
 								</td>
 							</tr>
 							<tr>
 								<td width="25%" class="tableborder">
-									<strong>Signal</strong>
+									<strong>Data Processing</strong>
 								</td>
 								<td width="25%" class="tableborder">
 									<xsl:choose>
@@ -288,7 +299,7 @@
 											<xsl:value-of select="children/gear[contains(name, 'Signal')]/name" />
 										</xsl:when>
 										<xsl:otherwise>
-											<xsl:value-of select="signal" />
+											<xsl:value-of select="dataprocessing" />
 										</xsl:otherwise>
 									</xsl:choose>
 								</td>
@@ -337,7 +348,7 @@
 							</tr>
 							<tr>
 								<td colspan="4" class="tableborder">
-									<xsl:for-each select="children/gear[isprogram = 'True']">
+									<xsl:for-each select="children/gear">
 										<xsl:sort select="name" />
 										<xsl:value-of select="name" />
 										<xsl:if test="rating &gt; 0"><xsl:text> </xsl:text><xsl:value-of select="rating" /></xsl:if>

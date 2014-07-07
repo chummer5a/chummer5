@@ -480,7 +480,7 @@
 					<name>Adept: 1 free level of Critical Strike (skill)</name>
 					<bonus>
 						<specificpower>
-							<name>Critical Strike (skill)</name>
+							<name>Critical Strike</name>
 							<val>1</val>
 						</specificpower>
 					</bonus>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-498</version>
+	<version>-497</version>
 	<categories>
 		<category>Combat</category>
 		<category>Detection</category>
@@ -3052,6 +3052,30 @@
 			<dv>Special</dv>
 			<source>SG</source>
 			<page>137</page>
+		</spell>
+		<spell>
+			<name>Death Replay</name>
+			<descriptor>Active, Directional</descriptor>
+			<category>Detection</category>
+			<type>M</type>
+			<range>T</range>
+			<damage>0</damage>
+			<duration>S</duration>
+			<dv>F-3</dv>
+			<source>BB</source>
+			<page>21</page>
+		</spell>
+		<spell>
+			<name>Incision</name>
+			<descriptor>Physical</descriptor>
+			<category>Manipulation</category>
+			<type>P</type>
+			<range>T</range>
+			<damage>0</damage>
+			<duration>S</duration>
+			<dv>F-2</dv>
+			<source>BB</source>
+			<page>21</page>
 		</spell>
 	</spells>
 </chummer>

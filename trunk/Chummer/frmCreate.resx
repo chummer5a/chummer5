@@ -129,9 +129,6 @@
   <data name="lblKnowledgeSkills.ToolTip" xml:space="preserve">
     <value>Characters receive (INT + LOG) x 3 free points to spend on general Knowledge Skills including Languages. Additional Knowledge Skill points cost 2 BP each. A Language with a Rating of 0 is considered to be your Native Language.</value>
   </data>
-  <data name="lblArmorLabel.ToolTip" xml:space="preserve">
-    <value>Only the highest single Armor value is used to determine your Armor Rating.</value>
-  </data>
   <metadata name="cmsMartialArts.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1312, 15</value>
   </metadata>

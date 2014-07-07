@@ -80,25 +80,25 @@
 		</quality>
 		<quality>
 			<name>Extra Secure</name>
-			<lifestylecost>120</lifestylecost>
+			<lifestylecost>20</lifestylecost>
 			<source>SR5</source>
 			<page>374</page>
 		</quality>
 		<quality>
 			<name>Obscure/Difficult to Find</name>
-			<lifestylecost>110</lifestylecost>
+			<lifestylecost>10</lifestylecost>
 			<source>SR5</source>
 			<page>374</page>
 		</quality>
 		<quality>
 			<name>Cramped</name>
-			<lifestylecost>90</lifestylecost>
+			<lifestylecost>-10</lifestylecost>
 			<source>SR5</source>
 			<page>374</page>
 		</quality>
 		<quality>
 			<name>Dangerous Area</name>
-			<lifestylecost>80</lifestylecost>
+			<lifestylecost>-20</lifestylecost>
 			<source>SR5</source>
 			<page>374</page>
 		</quality>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-500</version>
+	<version>-499</version>
 	<name>English (US)</name>
 	<strings>
 		<!-- Common Strings -->
@@ -3536,6 +3536,10 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		<string>
 			<key>Label_BondedFoci</key>
 			<text>Bonded Foci</text>
+		</string>
+		<string>
+			<key>Label_AdeptWayDiscount</key>
+			<text>Bonded Foci Qualifying for Adept Way Discount:</text>
 		</string>
 		<!-- Vehicles Tab -->
 		<string>

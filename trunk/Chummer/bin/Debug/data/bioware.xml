@@ -11,6 +11,14 @@
 			<page>451</page>
 		</grade>
 		<grade>
+			<name>Standard (Burnout's Way)</name>
+			<ess>0.8</ess>
+			<cost>1</cost>
+			<avail>0</avail>
+			<source>SG</source>
+			<page>177</page>
+		</grade>
+		<grade>
 			<name>Used</name>
 			<ess>1.25</ess>
 			<cost>0.75</cost>
@@ -307,7 +315,7 @@
 					<name>STR</name>
 					<val>1</val>
 				</specificattribute>
-				<lifestylecost>125</lifestylecost>
+				<lifestylecost>25</lifestylecost>
 			</bonus>
 			<source>SR5</source>
 			<page>459</page>

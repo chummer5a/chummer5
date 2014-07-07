@@ -648,7 +648,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>6R</avail>
-			<addgear>Grenade: Flash-Bang</addgear>
+			<addweapon>Grenade: Flash-Bang</addweapon>
 			<costfor>1</costfor>
 			<cost>100</cost>
 			<source>SR5</source>
@@ -659,7 +659,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>4</avail>
-			<addgear>Grenade: Flash-Pak</addgear>
+			<addweapon>Grenade: Flash-Pak</addweapon>
 			<cost>125</cost>
 			<source>SR5</source>
 			<page>435</page>
@@ -669,7 +669,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>11F</avail>
-			<addgear>Grenade: Fragmentation</addgear>
+			<addweapon>Grenade: Fragmentation</addweapon>
 			<cost>100</cost>
 			<source>SR5</source>
 			<page>435</page>
@@ -679,7 +679,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>11F</avail>
-			<addgear>Grenade: High Explosive</addgear>
+			<addweapon>Grenade: High Explosive</addweapon>
 			<cost>100</cost>
 			<source>SR5</source>
 			<page>435</page>
@@ -689,7 +689,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>4R</avail>
-			<addgear>Grenade: Gas</addgear>
+			<addweapon>Grenade: Gas</addweapon>
 			<addoncategory>Chemtech</addoncategory>
 			<addoncategory>Toxins</addoncategory>
 			<cost>40</cost>
@@ -701,7 +701,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>4R</avail>
-			<addgear>Grenade: Smoke</addgear>
+			<addweapon>Grenade: Smoke</addweapon>
 			<cost>40</cost>
 			<source>SR5</source>
 			<page>435</page>
@@ -710,9 +710,19 @@
 			<name>Grenade: Thermal Smoke</name>
 			<category>Ammunition</category>
 			<rating>0</rating>
-			<addgear>Grenade: Thermal Smoke</addgear>
+			<addweapon>Grenade: Thermal Smoke</addweapon>
 			<avail>6R</avail>
 			<cost>60</cost>
+			<source>SR5</source>
+			<page>435</page>
+		</gear>
+		<gear>
+			<name>Minigrenade: Flash-Bang</name>
+			<category>Ammunition</category>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<addweapon>Minigrenade: Flash-Bang</addweapon>
+			<cost>100</cost>
 			<source>SR5</source>
 			<page>435</page>
 		</gear>
@@ -721,7 +731,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>4</avail>
-			<addgear>Minigrenade: Flash-Pak</addgear>
+			<addweapon>Minigrenade: Flash-Pak</addweapon>
 			<cost>125</cost>
 			<source>SR5</source>
 			<page>435</page>
@@ -731,7 +741,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>11F</avail>
-			<addgear>Minigrenade: Fragmentation</addgear>
+			<addweapon>Minigrenade: Fragmentation</addweapon>
 			<cost>100</cost>
 			<source>SR5</source>
 			<page>435</page>
@@ -741,7 +751,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>11F</avail>
-			<addgear>Minigrenade: High Explosive</addgear>
+			<addweapon>Minigrenade: High Explosive</addweapon>
 			<cost>100</cost>
 			<source>SR5</source>
 			<page>435</page>
@@ -751,7 +761,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>4R</avail>
-			<addgear>Minigrenade: Gas</addgear>
+			<addweapon>Minigrenade: Gas</addweapon>
 			<addoncategory>Chemtech</addoncategory>
 			<addoncategory>Toxins</addoncategory>
 			<cost>40</cost>
@@ -763,7 +773,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>4R</avail>
-			<addgear>Minigrenade: Smoke</addgear>
+			<addweapon>Minigrenade: Smoke</addweapon>
 			<cost>40</cost>
 			<source>SR5</source>
 			<page>435</page>
@@ -773,7 +783,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>6R</avail>
-			<addgear>Minigrenade: Thermal Smoke</addgear>
+			<addweapon>Minigrenade: Thermal Smoke</addweapon>
 			<cost>60</cost>
 			<source>SR5</source>
 			<page>435</page>
@@ -783,7 +793,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>18F</avail>
-			<addgear>Rocket: Anti-Vehicle</addgear>
+			<addweapon>Rocket: Anti-Vehicle</addweapon>
 			<cost>2800</cost>
 			<source>SR5</source>
 			<page>436</page>
@@ -793,7 +803,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>12F</avail>
-			<addgear>Rocket: Fragmentation</addgear>
+			<addweapon>Rocket: Fragmentation</addweapon>
 			<cost>2000</cost>
 			<source>SR5</source>
 			<page>436</page>
@@ -803,7 +813,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>18F</avail>
-			<addgear>Rocket: High Explosive</addgear>
+			<addweapon>Rocket: High Explosive</addweapon>
 			<cost>2100</cost>
 			<source>SR5</source>
 			<page>436</page>
@@ -813,7 +823,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>18F</avail>
-			<addgear>Missile: Anti-Vehicle</addgear>
+			<addweapon>Missile: Anti-Vehicle</addweapon>
 			<cost>2800</cost>
 			<source>SR5</source>
 			<page>436</page>
@@ -823,7 +833,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>12F</avail>
-			<addgear>Missile: Fragmentation</addgear>
+			<addweapon>Missile: Fragmentation</addweapon>
 			<cost>2000</cost>
 			<source>SR5</source>
 			<page>436</page>
@@ -833,7 +843,7 @@
 			<category>Ammunition</category>
 			<rating>0</rating>
 			<avail>18F</avail>
-			<addgear>Missile: High Explosive</addgear>
+			<addweapon>Missile: High Explosive</addweapon>
 			<cost>2100</cost>
 			<source>SR5</source>
 			<page>436</page>
@@ -3198,6 +3208,51 @@
 			<page>450</page>
 		</gear>			
 		<gear>
+			<name>Vasotech MD-9 Autoinjection Gun</name>
+			<category>Biotech</category>
+			<rating>0</rating>
+			<avail>4</avail>
+			<cost>1000</cost>
+			<source>BB</source>
+			<page>22</page>
+		</gear>			
+		<gear>
+			<name>Vasotech MD-3X Autoinjection Gun</name>
+			<category>Biotech</category>
+			<rating>0</rating>
+			<avail>6</avail>
+			<cost>1500</cost>
+			<source>BB</source>
+			<page>22</page>
+		</gear>			
+		<gear>
+			<name>Rapid Infuser</name>
+			<category>Biotech</category>
+			<rating>0</rating>
+			<avail>4</avail>
+			<cost>1000</cost>
+			<source>BB</source>
+			<page>22</page>
+		</gear>			
+		<gear>
+			<name>HemostatiX Dressing</name>
+			<category>Biotech</category>
+			<rating>0</rating>
+			<avail>6</avail>
+			<cost>500</cost>
+			<source>BB</source>
+			<page>22</page>
+		</gear>			
+		<gear>
+			<name>STATscan</name>
+			<category>Biotech</category>
+			<rating>0</rating>
+			<avail>8</avail>
+			<cost>2500</cost>
+			<source>BB</source>
+			<page>22</page>
+		</gear>			
+		<gear>
 			<name>Medkit</name>
 			<category>Biotech</category>
 			<armorcapacity>[5]</armorcapacity>
@@ -4186,6 +4241,51 @@
 			<page>410</page>
 		</gear>
 		<gear>
+			<name>Dread</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>12R</avail>
+			<cost>1000</cost>
+			<source>BB</source>
+			<page>20</page>
+		</gear>
+		<gear>
+			<name>Picrotoxin</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>8R</avail>
+			<cost>250</cost>
+			<source>BB</source>
+			<page>20</page>
+		</gear>
+		<gear>
+			<name>Retro</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>10F</avail>
+			<cost>500</cost>
+			<source>BB</source>
+			<page>20</page>
+		</gear>
+		<gear>
+			<name>Rocuronium</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<cost>50</cost>
+			<source>BB</source>
+			<page>20</page>
+		</gear>
+		<gear>
+			<name>Cypher</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>16R</avail>
+			<cost>5000</cost>
+			<source>BB</source>
+			<page>21</page>
+		</gear>
+		<gear>
 			<name>Bliss</name>
 			<category>Drugs</category>
 			<rating>0</rating>
@@ -4274,6 +4374,69 @@
 			<cost>5</cost>
 			<source>SR5</source>
 			<page>412</page>
+		</gear>
+		<gear>
+			<name>Crash</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>3</avail>
+			<cost>800</cost>
+			<source>BB</source>
+			<page>19</page>
+		</gear>
+		<gear>
+			<name>Cryo</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>8R</avail>
+			<cost>1000</cost>
+			<source>BB</source>
+			<page>19</page>
+		</gear>
+		<gear>
+			<name>HemoSynth</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>4</avail>
+			<cost>2000</cost>
+			<source>BB</source>
+			<page>19</page>
+		</gear>
+		<gear>
+			<name>NanoScan</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>5</avail>
+			<cost>500</cost>
+			<source>BB</source>
+			<page>19</page>
+		</gear>
+		<gear>
+			<name>Neostigmine</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>2</avail>
+			<cost>100</cost>
+			<source>BB</source>
+			<page>19</page>
+		</gear>
+		<gear>
+			<name>Ondanstron</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>2</avail>
+			<cost>50</cost>
+			<source>BB</source>
+			<page>19</page>
+		</gear>
+		<gear>
+			<name>Sugammadex</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>6</avail>
+			<cost>100</cost>
+			<source>BB</source>
+			<page>19</page>
 		</gear>
 		<gear>
 			<name>Dreamchip</name>

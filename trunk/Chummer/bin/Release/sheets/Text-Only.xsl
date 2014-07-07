@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Text-Only Character Sheet -->
 <!-- Created by Keith Rudolph, krudolph@gmail.com -->
-<!-- Version -912 -->
+<!-- Version -500 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	
 	<xsl:template match="/characters/character">
@@ -115,25 +115,18 @@
 							<xsl:value-of select="25" />
 						</xsl:with-param>
 					</xsl:call-template>
-					<xsl:value-of select="init/base" />
-					<xsl:if test="init/total != init/base">
-						(<xsl:value-of select="init/total" />)
-					</xsl:if>
-				<br />IP:
+					<xsl:value-of select="init" />
+				<br />Rigger Initiative:
 					<xsl:call-template name="for.loop">
 						<xsl:with-param name="i">
-							<xsl:value-of select="string-length('IP:')" />
+							<xsl:value-of select="string-length('Rigger Initiative:')" />
 						</xsl:with-param>
 						<xsl:with-param name="count">
 							<xsl:value-of select="25" />
 						</xsl:with-param>
 					</xsl:call-template>
-					<xsl:value-of select="ip/base" />
-					<xsl:if test="ip/total != ip/base">
-						(<xsl:value-of select="ip/total" />)
-					</xsl:if>
-				<xsl:if test="astralip/base">
-					<br />Astral Initiative:
+					<xsl:value-of select="riggerinit" />
+				<br />Astral Initiative:
 					<xsl:call-template name="for.loop">
 						<xsl:with-param name="i">
 							<xsl:value-of select="string-length('Astral Initiative:')" />
@@ -142,40 +135,37 @@
 							<xsl:value-of select="25" />
 						</xsl:with-param>
 					</xsl:call-template>
-					<xsl:value-of select="astralinit/base" />
-					<br />Astral IP:
+					<xsl:value-of select="astralinit" />
+				<br />Matrix AR Initiative:
 					<xsl:call-template name="for.loop">
 						<xsl:with-param name="i">
-							<xsl:value-of select="string-length('Astral IP:')" />
+							<xsl:value-of select="string-length('Matrix AR Initiative:')" />
 						</xsl:with-param>
 						<xsl:with-param name="count">
 							<xsl:value-of select="25" />
 						</xsl:with-param>
 					</xsl:call-template>
-					<xsl:value-of select="astralip/base" />
-				</xsl:if>
-				<xsl:if test="matrixip/base">
-					<br />Matrix Initiative:
-					<xsl:call-template name="for.loop">
-						<xsl:with-param name="i">
-							<xsl:value-of select="string-length('Matrix Initiative:')" />
-						</xsl:with-param>
-						<xsl:with-param name="count">
-							<xsl:value-of select="25" />
-						</xsl:with-param>
-					</xsl:call-template>
-					<xsl:value-of select="matrixinit/base" />
-					<br />Matrix IP:
-					<xsl:call-template name="for.loop">
-						<xsl:with-param name="i">
-							<xsl:value-of select="string-length('Matrix IP:')" />
-						</xsl:with-param>
-						<xsl:with-param name="count">
-							<xsl:value-of select="25" />
-						</xsl:with-param>
-					</xsl:call-template>
-					<xsl:value-of select="matrixip/base" />
-				</xsl:if>
+				<xsl:value-of select="matrixarinit" />
+				<br />Matrix Cold Initiative:
+				<xsl:call-template name="for.loop">
+					<xsl:with-param name="i">
+						<xsl:value-of select="string-length('Matrix Cold Initiative:')" />
+					</xsl:with-param>
+					<xsl:with-param name="count">
+						<xsl:value-of select="25" />
+					</xsl:with-param>
+				</xsl:call-template>
+				<xsl:value-of select="matrixcoldinit" />
+				<br />Matrix Hot Initiative:
+				<xsl:call-template name="for.loop">
+					<xsl:with-param name="i">
+						<xsl:value-of select="string-length('Matrix Hot Initiative:')" />
+					</xsl:with-param>
+					<xsl:with-param name="count">
+						<xsl:value-of select="25" />
+					</xsl:with-param>
+				</xsl:call-template>
+				<xsl:value-of select="matrixhotinit" />
 				<br />Physical Damage Track:
 					<xsl:call-template name="for.loop">
 						<xsl:with-param name="i">
@@ -196,6 +186,42 @@
 						</xsl:with-param>
 					</xsl:call-template>
 					<xsl:value-of select="stuncm" />
+
+				<br />
+				<br />== Limits ==
+				<br />Physical:
+				<xsl:call-template name="for.loop">
+					<xsl:with-param name="i">
+						<xsl:value-of select="string-length('Physical:')" />
+					</xsl:with-param>
+					<xsl:with-param name="count">
+						<xsl:value-of select="25" />
+					</xsl:with-param>
+				</xsl:call-template>
+				<xsl:value-of select="limitphysical" />
+				<xsl:call-template name="limitmodifiersphys"/>
+				<br />Mental:
+				<xsl:call-template name="for.loop">
+					<xsl:with-param name="i">
+						<xsl:value-of select="string-length('Mental:')" />
+					</xsl:with-param>
+					<xsl:with-param name="count">
+						<xsl:value-of select="25" />
+					</xsl:with-param>
+				</xsl:call-template>
+				<xsl:value-of select="limitmental" />
+				<xsl:call-template name="limitmodifiersment"/>
+				<br />Social:
+				<xsl:call-template name="for.loop">
+					<xsl:with-param name="i">
+						<xsl:value-of select="string-length('Social:')" />
+					</xsl:with-param>
+					<xsl:with-param name="count">
+						<xsl:value-of select="25" />
+					</xsl:with-param>
+				</xsl:call-template>
+				<xsl:value-of select="limitsocial" />
+				<xsl:call-template name="limitmodifierssoc"/>
 				
 				<br />
 				<br />== Active Skills ==
@@ -834,7 +860,7 @@
 					<br />&#160;&#160;&#160;+<xsl:value-of select="name" />
 				</xsl:for-each>
 			</xsl:if>
-			<br />&#160;&#160;&#160;Pool: <xsl:value-of select="dicepool" />&#160;&#160;&#160;DV: <xsl:value-of select="damage" />&#160;&#160;&#160;AP: <xsl:value-of select="ap" />&#160;&#160;&#160;RC: <xsl:value-of select="rc" />
+			<br />&#160;&#160;&#160;Pool: <xsl:value-of select="dicepool" />&#160;&#160;&#160;Accuracy: <xsl:value-of select="accuracy" />&#160;&#160;&#160;DV: <xsl:value-of select="damage" />&#160;&#160;&#160;AP: <xsl:value-of select="ap" />&#160;&#160;&#160;RC: <xsl:value-of select="rc" />
 		</xsl:for-each>
 	</xsl:template>
 	
@@ -850,10 +876,10 @@
 					<xsl:value-of select="string-length(name)" />
 				</xsl:with-param>
 				<xsl:with-param name="count">
-					<xsl:value-of select="25" />
+					<xsl:value-of select="35" />
 				</xsl:with-param>
 			</xsl:call-template>
-			<xsl:value-of select="b" />/<xsl:value-of select="i" />
+			<xsl:value-of select="armor" />
 			<xsl:if test="armormods/armormod">
 				<xsl:for-each select="armormods/armormod">
 					<xsl:sort select="name" />
@@ -1021,6 +1047,30 @@
 				</xsl:with-param>
 			</xsl:call-template>
 			<xsl:value-of select="reason" />
+		</xsl:for-each>
+	</xsl:template>
+
+	<xsl:template name="limitmodifiersphys">
+		<xsl:for-each select="limitmodifiersphys/limitmodifier">
+			<xsl:sort select="name"/>
+			<br />&#160;&#160;&#160;<xsl:value-of select="name"/>
+			<xsl:if test="extra != ''"> (<xsl:value-of select="extra"/>)</xsl:if>
+		</xsl:for-each>
+	</xsl:template>
+	
+	<xsl:template name="limitmodifiersment">
+		<xsl:for-each select="limitmodifiersment/limitmodifier">
+			<xsl:sort select="name"/>
+			<br />&#160;&#160;&#160;<xsl:value-of select="name"/>
+			<xsl:if test="extra != ''"> (<xsl:value-of select="extra"/>)</xsl:if>
+		</xsl:for-each>
+	</xsl:template>
+	
+	<xsl:template name="limitmodifierssoc">
+		<xsl:for-each select="limitmodifierssoc/limitmodifier">
+			<xsl:sort select="name"/>
+			<br />&#160;&#160;&#160;<xsl:value-of select="name"/>
+			<xsl:if test="extra != ''"> (<xsl:value-of select="extra"/>)</xsl:if>
 		</xsl:for-each>
 	</xsl:template>
 	
