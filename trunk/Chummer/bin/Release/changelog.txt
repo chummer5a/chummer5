@@ -1,3 +1,24 @@
+Build 5.115 (beta)
+- Added all of the remaining Street Grimoire content including Toxic Mentor Spirits, Blood Rituals, Insect Shaman tradition, Spirit Champion and Spirit Pariah Qualities, and Magical Items and Compounds.  If you find something that is missing, please let me know.
+- Fixed Mentor Spirits with the Improved Ability adept power bonus which were causing a crash.
+- Fixed a string bug that would cause a crash on Rituals using an Organic Link descriptor.
+- Fixed the Ares Alpha by making its Smartgun System Internal rather than External.
+- Fixed the various Cyber Implanted Guns by making their Smartgun System Internal rather than External.
+- Fixed an error in the Select an Armor Mod dialog where some items allowed selecting a zero rating.
+- Fixed an error in the Select an Armor Mod dialog where some items would cause a crash because they could be given a zero rating.
+- Fixed Handheld Housing, Wall-Mounted Housing, Grenade-Cam, and Periscope Cam so that they can be purchased. Once purchased, you should be able to add a single sensor or sensor array (if you have enough capacity) and then populate the single sensor or sensor array with sensor functions. As best as I understand pages 445 and 446, this looks like how this is intended to function.
+- Fixed an issue with vehicle sensors. Again, going by pages 445 and 446 and specifically the line "Most vehicles and drones come factory-equipped with a sensor array (at a rating listed with their stats)." I've set the rating of the Sensor Arrays for each vehicle equal to their sensor rating (or 2 if the vehicle/drone has a sensor rating of 1). If I got this wrong, please explain where I went wrong so I can correct it.
+- Fixed the calculation for Unarmed Combat damage. Existing characters should delete and re-add their Unarmed Attack on the weapons list.
+- Updated the license dialog to suggest more useful options. If you prefer the old method, you can turn it back on in the Options dialog on the Miscellaneous tab.  Either way, you can enter your own values by typing into the dropdown box.  For the XML inclined, you can add your own entries in licenses.xml. If you have suggestions for licenses to be included in the dropdown, send them to me.
+- Updated Cool Resolve to provide its bonus to each of the Social skills.
+- Fixed several bugs with the Enhanced Accuracy (skill) Adept Power. It was adding to the dice pool in error and not adding to the accuracy of weapons tied to that skill. Both of these issues have been resolved.
+- Fixed a bug which would cause a weapon to not benefit from the correct skill.
+- Cleaned up the tooltip for Initiative on the Other Information tab.
+- Fixed the Matrix Initiative (Cold) calculated value.
+- Fixed Limited spells so that they calculate the Drain Value correctly.
+- Added 5th Edition Initiative values to the Other Info tab when in Career Mode.
+- Removing the One Trick Pony quality will also remove the Martial Art. Removing the One Trick Pony Martial Art will also remove the Quality.
+
 Build 5.114 (beta)
 - Renamed the character sheets from "Shadowrun 4" to "Shadowrun 5".  If you're just copying the new version into the same directory, you'll want to delete the files in the \sheets subdirectory named "Shadowrun 4" with the .xsl or .xslt extention.
 - Added new book Bullets & Bandages and its contents (BB).

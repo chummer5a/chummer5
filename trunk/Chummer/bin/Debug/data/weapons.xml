@@ -255,7 +255,7 @@
 				<mount>Under</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>428</page>
@@ -2469,7 +2469,7 @@
 			<cost>0</cost>
 			<allowaccessory>false</allowaccessory>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>458</page>
@@ -2725,7 +2725,7 @@
 			<cost>0</cost>
 			<allowaccessory>false</allowaccessory>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>458</page>
@@ -2870,7 +2870,7 @@
 			<cost>0</cost>
 			<allowaccessory>false</allowaccessory>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>458</page>
@@ -3554,7 +3554,7 @@
 			<cost>0</cost>
 			<allowaccessory>false</allowaccessory>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>458</page>
@@ -3731,7 +3731,7 @@
 			<cost>0</cost>
 			<allowaccessory>false</allowaccessory>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>458</page>
@@ -4112,7 +4112,7 @@
 			<cost>0</cost>
 			<allowaccessory>false</allowaccessory>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>458</page>
@@ -5382,7 +5382,7 @@
 			<cost>0</cost>
 			<allowaccessory>false</allowaccessory>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>458</page>
@@ -5724,7 +5724,7 @@
 			<conceal>0</conceal>
 			<accuracy>Physical</accuracy>
 			<reach>0</reach>
-			<damage>(STR/2)S</damage>
+			<damage>(STR)S</damage>
 			<ap>-</ap>
 			<mode>0</mode>
 			<rc>0</rc>

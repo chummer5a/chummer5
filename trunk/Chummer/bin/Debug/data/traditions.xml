@@ -249,5 +249,18 @@
 			<source>SG</source>
 			<page>52</page>
 		</tradition>
+		<tradition>
+			<name>Insect Shaman</name>
+			<drain>WIL + INT</drain>
+			<spirits>
+				<spirit>Soldier</spirit>
+				<spirit>Scout</spirit>
+				<spirit>Caretaker</spirit>
+				<spirit>Nymph</spirit>
+				<spirit>Worker</spirit>
+			</spirits>
+			<source>SG</source>
+			<page>94</page>
+		</tradition>
 	</traditions>
 </chummer>

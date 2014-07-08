@@ -4021,7 +4021,7 @@ namespace Chummer
                 //if (_attINT.Value + _attREA.Value != intINI)
                 //    strReturn = (_attINT.Value + _attREA.Value).ToString() + " (" + intINI.ToString() + ")";
                 //else
-					strReturn = (_attINT.Value + _attREA.Value).ToString();
+                strReturn = (intINI).ToString();
 
                 int intExtraIP = 1 + Convert.ToInt32(_objImprovementManager.ValueOf(Improvement.ImprovementType.InitiativePass)) + Convert.ToInt32(_objImprovementManager.ValueOf(Improvement.ImprovementType.InitiativePassAdd));
                 strReturn += " + " + intExtraIP.ToString() + "d6";
@@ -4039,12 +4039,11 @@ namespace Chummer
 			{
 				string strReturn = "";
 
-				const int intIP = 1;
 				int intExtraIP = 1 + Convert.ToInt32(_objImprovementManager.ValueOf(Improvement.ImprovementType.InitiativePass)) + Convert.ToInt32(_objImprovementManager.ValueOf(Improvement.ImprovementType.InitiativePassAdd));
-				if (intIP != intExtraIP)
-					strReturn = "1 (" + intExtraIP.ToString() + ")";
-				else
-					strReturn = intIP.ToString();
+                //if (intIP != intExtraIP)
+                //    strReturn = "1 (" + intExtraIP.ToString() + ")";
+                //else
+                strReturn = intExtraIP.ToString();
 
 				return strReturn;
 			}
@@ -4187,13 +4186,13 @@ namespace Chummer
             {
                 string strReturn = "";
 
-                int intINI = (_attINT.TotalValue + _attREA.TotalValue) + WoundModifiers;
+                int intINI = (_attINT.TotalValue) + WoundModifiers;
                 if (intINI < 0)
                     intINI = 0;
-                strReturn = (_attINT.TotalValue + _attREA.TotalValue).ToString();
+                strReturn = (_attINT.TotalValue).ToString();
 
                 int intExtraIP = 3;
-                strReturn += "+DP + " + intExtraIP.ToString() + "d6";
+                strReturn += " +DP + " + intExtraIP.ToString() + "d6";
 
                 return strReturn;
             }
@@ -4214,7 +4213,7 @@ namespace Chummer
                 strReturn = (_attINT.TotalValue).ToString();
 
                 int intExtraIP = 4;
-                strReturn += "+DP + " + intExtraIP.ToString() + "d6";
+                strReturn += " +DP + " + intExtraIP.ToString() + "d6";
 
                 return strReturn;
             }

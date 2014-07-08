@@ -178,6 +178,8 @@ namespace Chummer
 			}
 			chkPrintToFileFirst.Checked = blnPrintToFileFirst;
 
+            chkLicenseEachRestrictedItem.Checked = _objOptions.LicenseRestricted;
+
 			txtPDFAppPath.Text = GlobalOptions.Instance.PDFAppPath;
 
 			// Populate the Language List.
@@ -314,13 +316,14 @@ namespace Chummer
 				}
 			}
 
-			// If the SR4 book was somehow missed, add it back.
+			// If the SR5 book was somehow missed, add it back.
 			if (!blnSR5Included)
 				_objOptions.Books.Add("SR5");
 
 			_objOptions.ConfirmDelete = chkConfirmDelete.Checked;
 			_objOptions.ConfirmKarmaExpense = chkConfirmKarmaExpense.Checked;
 			_objOptions.PrintSkillsWithZeroRating = chkPrintSkillsWithZeroRating.Checked;
+            _objOptions.LicenseRestricted = chkLicenseEachRestrictedItem.Checked;
 			_objOptions.MoreLethalGameplay = chkMoreLethalGameplay.Checked;
 			_objOptions.SpiritForceBasedOnTotalMAG = chkSpiritForceBasedOnTotalMAG.Checked;
 			_objOptions.SkillDefaultingIncludesModifiers = chkSkillDefaultingIncludesModifiers.Checked;

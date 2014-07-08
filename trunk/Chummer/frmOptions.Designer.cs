@@ -247,6 +247,7 @@
             this.lblSetting = new System.Windows.Forms.Label();
             this.lblSettingName = new System.Windows.Forms.Label();
             this.txtSettingName = new System.Windows.Forms.TextBox();
+            this.chkLicenseEachRestrictedItem = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaComplexFormOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaMetamagic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaInitiation)).BeginInit();
@@ -1401,6 +1402,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.chkLicenseEachRestrictedItem);
             this.tabPage1.Controls.Add(this.chkSpecialKarmaCost);
             this.tabPage1.Controls.Add(this.chkErgonomicProgramLimit);
             this.tabPage1.Controls.Add(this.chkConfirmDelete);
@@ -1422,7 +1424,7 @@
             // chkSpecialKarmaCost
             // 
             this.chkSpecialKarmaCost.AutoSize = true;
-            this.chkSpecialKarmaCost.Location = new System.Drawing.Point(6, 160);
+            this.chkSpecialKarmaCost.Location = new System.Drawing.Point(6, 196);
             this.chkSpecialKarmaCost.Name = "chkSpecialKarmaCost";
             this.chkSpecialKarmaCost.Size = new System.Drawing.Size(373, 17);
             this.chkSpecialKarmaCost.TabIndex = 17;
@@ -1434,7 +1436,7 @@
             // chkErgonomicProgramLimit
             // 
             this.chkErgonomicProgramLimit.AutoSize = true;
-            this.chkErgonomicProgramLimit.Location = new System.Drawing.Point(6, 262);
+            this.chkErgonomicProgramLimit.Location = new System.Drawing.Point(6, 288);
             this.chkErgonomicProgramLimit.Name = "chkErgonomicProgramLimit";
             this.chkErgonomicProgramLimit.Size = new System.Drawing.Size(391, 17);
             this.chkErgonomicProgramLimit.TabIndex = 16;
@@ -1446,7 +1448,7 @@
             // chkCalculateCommlinkResponse
             // 
             this.chkCalculateCommlinkResponse.AutoSize = true;
-            this.chkCalculateCommlinkResponse.Location = new System.Drawing.Point(6, 239);
+            this.chkCalculateCommlinkResponse.Location = new System.Drawing.Point(6, 265);
             this.chkCalculateCommlinkResponse.Name = "chkCalculateCommlinkResponse";
             this.chkCalculateCommlinkResponse.Size = new System.Drawing.Size(350, 17);
             this.chkCalculateCommlinkResponse.TabIndex = 8;
@@ -1469,7 +1471,7 @@
             // chkAutomaticRegistration
             // 
             this.chkAutomaticRegistration.AutoSize = true;
-            this.chkAutomaticRegistration.Location = new System.Drawing.Point(6, 216);
+            this.chkAutomaticRegistration.Location = new System.Drawing.Point(6, 242);
             this.chkAutomaticRegistration.Name = "chkAutomaticRegistration";
             this.chkAutomaticRegistration.Size = new System.Drawing.Size(377, 17);
             this.chkAutomaticRegistration.TabIndex = 7;
@@ -1492,7 +1494,7 @@
             // chkAutomaticCopyProtection
             // 
             this.chkAutomaticCopyProtection.AutoSize = true;
-            this.chkAutomaticCopyProtection.Location = new System.Drawing.Point(6, 193);
+            this.chkAutomaticCopyProtection.Location = new System.Drawing.Point(6, 219);
             this.chkAutomaticCopyProtection.Name = "chkAutomaticCopyProtection";
             this.chkAutomaticCopyProtection.Size = new System.Drawing.Size(396, 17);
             this.chkAutomaticCopyProtection.TabIndex = 6;
@@ -2790,6 +2792,17 @@
             this.txtSettingName.Size = new System.Drawing.Size(190, 20);
             this.txtSettingName.TabIndex = 3;
             // 
+            // chkLicenseEachRestrictedItem
+            // 
+            this.chkLicenseEachRestrictedItem.AutoSize = true;
+            this.chkLicenseEachRestrictedItem.Location = new System.Drawing.Point(6, 160);
+            this.chkLicenseEachRestrictedItem.Name = "chkLicenseEachRestrictedItem";
+            this.chkLicenseEachRestrictedItem.Size = new System.Drawing.Size(163, 17);
+            this.chkLicenseEachRestrictedItem.TabIndex = 18;
+            this.chkLicenseEachRestrictedItem.Tag = "Checkbox_Options_LicenseRestricted";
+            this.chkLicenseEachRestrictedItem.Text = "License each Restricted item";
+            this.chkLicenseEachRestrictedItem.UseVisualStyleBackColor = true;
+            // 
             // frmOptions
             // 
             this.AcceptButton = this.cmdOK;
@@ -3101,5 +3114,6 @@
 		private System.Windows.Forms.CheckBox chkSpecialKarmaCost;
         private System.Windows.Forms.CheckBox chkContactPoints;
         private System.Windows.Forms.CheckBox chkMayBuyQualities;
+        private System.Windows.Forms.CheckBox chkLicenseEachRestrictedItem;
 	}
 }

@@ -6531,6 +6531,7 @@ namespace Chummer
             get
             {
                 string strAccuracy = _strAccuracy;
+                int intAccuracy = 0;
 
                 if (strAccuracy.StartsWith("Physical"))
                 {
@@ -6539,7 +6540,7 @@ namespace Chummer
                     XmlDocument objXmlDocument = new XmlDocument();
                     XPathNavigator nav = objXmlDocument.CreateNavigator();
                     XPathExpression xprAccuracy = nav.Compile(strAccuracy);
-                    return nav.Evaluate(xprAccuracy).ToString();
+                    intAccuracy = Convert.ToInt32(nav.Evaluate(xprAccuracy));
                 }
                 else if (strAccuracy.StartsWith("Missile"))
                 {
@@ -6548,11 +6549,11 @@ namespace Chummer
                     XmlDocument objXmlDocument = new XmlDocument();
                     XPathNavigator nav = objXmlDocument.CreateNavigator();
                     XPathExpression xprAccuracy = nav.Compile(strAccuracy);
-                    return nav.Evaluate(xprAccuracy).ToString();
+                    intAccuracy = Convert.ToInt32(nav.Evaluate(xprAccuracy));
                 }
                 else
                 {
-                    int intAccuracy = Convert.ToInt32(strAccuracy);
+                    intAccuracy = Convert.ToInt32(strAccuracy);
                     foreach (WeaponAccessory wa in _lstAccessories)
                     {
                         if (wa.Name == "Laser Sight")
@@ -6570,9 +6571,94 @@ namespace Chummer
                         else
                             intAccuracy += wa.Accuracy;
                     }
-
-                    return intAccuracy.ToString();
                 }
+
+                // Look for Powers that increase accuracy
+                foreach (Power objPower in _objCharacter.Powers)
+                {
+                    if (objPower.Name.StartsWith("Enhanced Accuracy (skill)"))
+                    {
+                        string strPowerSkill = objPower.FullName.Substring(("Enhanced Accuracy (skill) (").Length);
+                        strPowerSkill = strPowerSkill.Substring(0, strPowerSkill.Length - 1);
+
+                        string strSkill = "";
+                        string strSpec = "";
+                        // Exotic Skills require a matching Specialization.
+                        switch (_strCategory)
+                        {
+                            case "Bows":
+                            case "Crossbows":
+                                strSkill = "Archery";
+                                break;
+                            case "Assault Rifles":
+                            case "Machine Pistols":
+                            case "Submachine Guns":
+                                strSkill = "Automatics";
+                                break;
+                            case "Blades":
+                                strSkill = "Blades";
+                                break;
+                            case "Clubs":
+                            case "Improvised Weapons":
+                                strSkill = "Clubs";
+                                break;
+                            case "Exotic Melee Weapons":
+                                strSkill = "Exotic Melee Weapon";
+                                strSpec = DisplayNameShort;
+                                break;
+                            case "Exotic Ranged Weapons":
+                            case "Special Weapons":
+                                strSkill = "Exotic Ranged Weapon";
+                                strSpec = DisplayNameShort;
+                                break;
+                            case "Flamethrowers":
+                                strSkill = "Exotic Ranged Weapon";
+                                strSpec = "Flamethrowers";
+                                break;
+                            case "Laser Weapons":
+                                strSkill = "Exotic Ranged Weapon";
+                                strSpec = "Laser Weapons";
+                                break;
+                            case "Assault Cannons":
+                            case "Grenade Launchers":
+                            case "Missile Launchers":
+                            case "Light Machine Guns":
+                            case "Medium Machine Guns":
+                            case "Heavy Machine Guns":
+                                strSkill = "Heavy Weapons";
+                                break;
+                            case "Shotguns":
+                            case "Sniper Rifles":
+                            case "Sporting Rifles":
+                                strSkill = "Longarms";
+                                break;
+                            case "Throwing Weapons":
+                                strSkill = "Throwing Weapons";
+                                break;
+                            case "Unarmed":
+                                strSkill = "Unarmed Combat";
+                                break;
+                            default:
+                                strSkill = "Pistols";
+                                break;
+                        }
+
+                        // Use the Skill defined by the Weapon if one is present.
+                        if (_strUseSkill != string.Empty)
+                        {
+                            strSkill = _strUseSkill;
+                            strSpec = "";
+
+                            if (_strUseSkill.Contains("Exotic"))
+                                strSpec = DisplayNameShort;
+                        }
+
+                        if (strPowerSkill == strSkill)
+                            intAccuracy += 1;
+                    }
+                }
+
+                return intAccuracy.ToString();
             }
         }
 
@@ -6899,76 +6985,62 @@ namespace Chummer
 				// Exotic Skills require a matching Specialization.
 				switch (strCategory)
 				{
-					case "Bows":
-					case "Crossbows":
-						strSkill = "Archery";
-						break;
-					case "Assault Rifles":
-					case "Machine Pistols":
-					case "Submachine Guns":
-					case "Battle Rifles":
-						strSkill = "Automatics";
-						break;
-					case "Blades":
-					case "Cyberware Blades":
-						strSkill = "Blades";
-						break;
-					case "Clubs":
-						strSkill = "Clubs";
-						break;
-					case "Exotic Melee Weapons":
-					case "Cyberware Exotic Melee Weapons":
-						strSkill = "Exotic Melee Weapon";
-						strSpec = DisplayNameShort;
-						break;
-					case "Exotic Ranged Weapons":
-					case "Cyberware Exotic Ranged Weapons":
-					case "Cyberware Hold-Outs":
-					case "Cyberware Light Pistols":
-					case "Cyberware Machine Pistols":
-					case "Cyberware Heavy Pistols":
-					case "Cyberware Submachine Guns":
-					case "Cyberware Shotguns":
-					case "Cyberware Grenade Launchers":
-					case "Cyberware Tasers":
-						strSkill = "Exotic Ranged Weapon";
-						strSpec = DisplayNameShort;
-						break;
-					case "Flamethrowers":
-						strSkill = "Exotic Ranged Weapon";
-						strSpec = "Flamethrowers";
-						break;
-					case "Laser Weapons":
-						strSkill = "Exotic Ranged Weapon";
-						strSpec = "Laser Weapons";
-						break;
-					case "Assault Cannons":
-					case "Grenade Launchers":
-					case "Missile Launchers":
-					case "Mortar Launchers":
-					case "Light Machine Guns":
-					case "Medium Machine Guns":
-					case "Heavy Machine Guns":
-						strSkill = "Heavy Weapons";
-						break;
-					case "Shotguns":
-					case "Sniper Rifles":
-					case "Sports Rifles":
-						strSkill = "Longarms";
-						break;
-					case "Throwing Weapons":
-					case "Cyberware Throwing Weapons":
-						strSkill = "Throwing Weapons";
-						break;
-					case "Unarmed":
-					case "Cyberware Clubs":
-					case "Cyberware":
-						strSkill = "Unarmed Combat";
-						break;
-					default:
-						strSkill = "Pistols";
-						break;
-				}
+                    case "Bows":
+                    case "Crossbows":
+                        strSkill = "Archery";
+                        break;
+                    case "Assault Rifles":
+                    case "Machine Pistols":
+                    case "Submachine Guns":
+                        strSkill = "Automatics";
+                        break;
+                    case "Blades":
+                        strSkill = "Blades";
+                        break;
+                    case "Clubs":
+                    case "Improvised Weapons":
+                        strSkill = "Clubs";
+                        break;
+                    case "Exotic Melee Weapons":
+                        strSkill = "Exotic Melee Weapon";
+                        strSpec = DisplayNameShort;
+                        break;
+                    case "Exotic Ranged Weapons":
+                    case "Special Weapons":
+                        strSkill = "Exotic Ranged Weapon";
+                        strSpec = DisplayNameShort;
+                        break;
+                    case "Flamethrowers":
+                        strSkill = "Exotic Ranged Weapon";
+                        strSpec = "Flamethrowers";
+                        break;
+                    case "Laser Weapons":
+                        strSkill = "Exotic Ranged Weapon";
+                        strSpec = "Laser Weapons";
+                        break;
+                    case "Assault Cannons":
+                    case "Grenade Launchers":
+                    case "Missile Launchers":
+                    case "Light Machine Guns":
+                    case "Medium Machine Guns":
+                    case "Heavy Machine Guns":
+                        strSkill = "Heavy Weapons";
+                        break;
+                    case "Shotguns":
+                    case "Sniper Rifles":
+                    case "Sporting Rifles":
+                        strSkill = "Longarms";
+                        break;
+                    case "Throwing Weapons":
+                        strSkill = "Throwing Weapons";
+                        break;
+                    case "Unarmed":
+                        strSkill = "Unarmed Combat";
+                        break;
+                    default:
+                        strSkill = "Pistols";
+                        break;
+                }
 
 				// Use the Skill defined by the Weapon if one is present.
 				if (_strUseSkill != string.Empty)
@@ -7047,76 +7119,62 @@ namespace Chummer
 				// Exotic Skills require a matching Specialization.
 				switch (strCategory)
 				{
-					case "Bows":
-					case "Crossbows":
-						strSkill = "Archery";
-						break;
-					case "Assault Rifles":
-					case "Machine Pistols":
-					case "Submachine Guns":
-					case "Battle Rifles":
-						strSkill = "Automatics";
-						break;
-					case "Blades":
-					case "Cyberware Blades":
-						strSkill = "Blades";
-						break;
-					case "Clubs":
-						strSkill = "Clubs";
-						break;
-					case "Exotic Melee Weapons":
-					case "Cyberware Exotic Melee Weapons":
-						strSkill = "Exotic Melee Weapon";
-						strSpec = DisplayNameShort;
-						break;
-					case "Exotic Ranged Weapons":
-					case "Cyberware Exotic Ranged Weapons":
-					case "Cyberware Hold-Outs":
-					case "Cyberware Light Pistols":
-					case "Cyberware Machine Pistols":
-					case "Cyberware Heavy Pistols":
-					case "Cyberware Submachine Guns":
-					case "Cyberware Shotguns":
-					case "Cyberware Grenade Launchers":
-					case "Cyberware Tasers":
-						strSkill = "Exotic Ranged Weapon";
-						strSpec = DisplayNameShort;
-						break;
-					case "Flamethrowers":
-						strSkill = "Exotic Ranged Weapon";
-						strSpec = "Flamethrowers";
-						break;
-					case "Laser Weapons":
-						strSkill = "Exotic Ranged Weapon";
-						strSpec = "Laser Weapons";
-						break;
-					case "Assault Cannons":
-					case "Grenade Launchers":
-					case "Missile Launchers":
-					case "Mortar Launchers":
-					case "Light Machine Guns":
-					case "Medium Machine Guns":
-					case "Heavy Machine Guns":
-						strSkill = "Heavy Weapons";
-						break;
-					case "Shotguns":
-					case "Sniper Rifles":
-					case "Sports Rifles":
-						strSkill = "Longarms";
-						break;
-					case "Throwing Weapons":
-					case "Cyberware Throwing Weapons":
-						strSkill = "Throwing Weapons";
-						break;
-					case "Unarmed":
-					case "Cyberware Clubs":
-					case "Cyberware":
-						strSkill = "Unarmed Combat";
-						break;
-					default:
-						strSkill = "Pistols";
-						break;
-				}
+                    case "Bows":
+                    case "Crossbows":
+                        strSkill = "Archery";
+                        break;
+                    case "Assault Rifles":
+                    case "Machine Pistols":
+                    case "Submachine Guns":
+                        strSkill = "Automatics";
+                        break;
+                    case "Blades":
+                        strSkill = "Blades";
+                        break;
+                    case "Clubs":
+                    case "Improvised Weapons":
+                        strSkill = "Clubs";
+                        break;
+                    case "Exotic Melee Weapons":
+                        strSkill = "Exotic Melee Weapon";
+                        strSpec = DisplayNameShort;
+                        break;
+                    case "Exotic Ranged Weapons":
+                    case "Special Weapons":
+                        strSkill = "Exotic Ranged Weapon";
+                        strSpec = DisplayNameShort;
+                        break;
+                    case "Flamethrowers":
+                        strSkill = "Exotic Ranged Weapon";
+                        strSpec = "Flamethrowers";
+                        break;
+                    case "Laser Weapons":
+                        strSkill = "Exotic Ranged Weapon";
+                        strSpec = "Laser Weapons";
+                        break;
+                    case "Assault Cannons":
+                    case "Grenade Launchers":
+                    case "Missile Launchers":
+                    case "Light Machine Guns":
+                    case "Medium Machine Guns":
+                    case "Heavy Machine Guns":
+                        strSkill = "Heavy Weapons";
+                        break;
+                    case "Shotguns":
+                    case "Sniper Rifles":
+                    case "Sporting Rifles":
+                        strSkill = "Longarms";
+                        break;
+                    case "Throwing Weapons":
+                        strSkill = "Throwing Weapons";
+                        break;
+                    case "Unarmed":
+                        strSkill = "Unarmed Combat";
+                        break;
+                    default:
+                        strSkill = "Pistols";
+                        break;
+                }
 
 				// Use the Skill defined by the Weapon if one is present.
 				if (_strUseSkill != string.Empty)

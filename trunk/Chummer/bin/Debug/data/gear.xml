@@ -24,6 +24,7 @@
 		<category>Grapple Gun</category>
 		<category>Hacking Programs</category>
 		<category>ID/Credsticks</category>
+		<category>Magical Compounds</category>
 		<category>Magical Supplies</category>
 		<category>PI-Tac</category>
 		<category>RFID Tags</category>
@@ -2540,12 +2541,6 @@
 			<category>Sensor Housings</category>
 			<rating>3</rating>
 			<capacity>Rating</capacity>
-			<gears>
-				<usegear>
-					<category>Sensors</category>
-					<capacity>Rating</capacity>
-				</usegear>
-			</gears>
 			<avail>0</avail>
 			<cost>Rating * 100</cost>
 			<source>SR5</source>
@@ -2556,12 +2551,6 @@
 			<category>Sensor Housings</category>
 			<rating>6</rating>
 			<capacity>Rating</capacity>
-			<gears>
-				<usegear>
-					<category>Sensors</category>
-					<capacity>Rating</capacity>
-				</usegear>
-			</gears>
 			<avail>0</avail>
 			<cost>Rating * 250</cost>
 			<source>SR5</source>
@@ -2572,14 +2561,6 @@
 			<category>Tools of the Trade</category>
 			<rating>5</rating>
 			<capacity>Rating</capacity>
-			<gears>
-				<usegear>
-					<category>Sensor Functions</category>
-					<category>Audio Enhancements</category>
-					<category>Vision Enhancements</category>
-					<capacity>Rating</capacity>
-				</usegear>
-			</gears>
 			<avail>16R</avail>
 			<cost>Rating * 1500</cost>
 			<source>RG</source>
@@ -2590,14 +2571,6 @@
 			<category>Tools of the Trade</category>
 			<rating>3</rating>
 			<capacity>Rating</capacity>
-			<gears>
-				<usegear>
-					<category>Sensor Functions</category>
-					<category>Audio Enhancements</category>
-					<category>Vision Enhancements</category>
-					<capacity>Rating</capacity>
-				</usegear>
-			</gears>
 			<avail>10R</avail>
 			<cost>Rating * 600</cost>
 			<source>RG</source>
@@ -2608,7 +2581,7 @@
 			<category>Sensors</category>
 			<rating>8</rating>
 			<minrating>2</minrating>
-			<capacity>6/[6]</capacity>
+			<capacity>8/[6]</capacity>
 			<armorcapacity>[6]</armorcapacity>
 			<avail>7</avail>
 			<cost>Rating * 1000</cost>
@@ -4070,6 +4043,216 @@
 			<cost>20</cost>
 			<source>SR5</source>
 			<page>316</page>
+		</gear>	
+		<gear>
+			<name>Aqua Fictus</name>
+			<category>Magical Supplies</category>
+			<rating>0</rating>
+			<avail>8</avail>
+			<cost>1000</cost>
+			<source>SG</source>
+			<page>211</page>
+		</gear>	
+		<gear>
+			<name>Aqua Fortis</name>
+			<category>Magical Supplies</category>
+			<rating>0</rating>
+			<avail>4</avail>
+			<cost>50</cost>
+			<source>SG</source>
+			<page>211</page>
+		</gear>	
+		<gear>
+			<name>Aqua Regia</name>
+			<category>Magical Supplies</category>
+			<rating>0</rating>
+			<avail>5</avail>
+			<cost>100</cost>
+			<source>SG</source>
+			<page>211</page>
+		</gear>	
+		<gear>
+			<name>Aqua Vitae</name>
+			<category>Magical Supplies</category>
+			<rating>0</rating>
+			<avail>1</avail>
+			<cost>15</cost>
+			<source>SG</source>
+			<page>211</page>
+		</gear>	
+		<gear>
+			<name>Astral Powder</name>
+			<category>Magical Supplies</category>
+			<rating>0</rating>
+			<avail>4</avail>
+			<cost>120</cost>
+			<source>SG</source>
+			<page>212</page>
+		</gear>	
+		<gear>
+			<name>Astral Powder</name>
+			<category>Magical Supplies</category>
+			<rating>0</rating>
+			<avail>4</avail>
+			<cost>120</cost>
+			<source>SG</source>
+			<page>212</page>
+		</gear>	
+		<gear>
+			<name>Govi</name>
+			<category>Magical Supplies</category>
+			<rating>20</rating>
+			<avail>Rating</avail>
+			<cost>Rating * 50</cost>
+			<source>SG</source>
+			<page>212</page>
+		</gear>	
+		<gear>
+			<name>Hand of Glory</name>
+			<category>Magical Supplies</category>
+			<rating>20</rating>
+			<avail>Rating * Rating</avail>
+			<cost>Rating * 1500</cost>
+			<source>SG</source>
+			<page>213</page>
+		</gear>	
+		<gear>
+			<name>Mana-Sensitive Film Plate</name>
+			<category>Magical Supplies</category>
+			<rating>0</rating>
+			<avail>4</avail>
+			<cost>25</cost>
+			<source>SG</source>
+			<page>214</page>
+		</gear>	
+		<gear>
+			<name>Mortis Optigram</name>
+			<category>Magical Supplies</category>
+			<rating>0</rating>
+			<avail>6</avail>
+			<cost>3000</cost>
+			<source>SG</source>
+			<page>214</page>
+		</gear>	
+		<gear>
+			<name>Mystic Cuff</name>
+			<category>Magical Supplies</category>
+			<rating>8</rating>
+			<avail>(Rating)R</avail>
+			<cost>Rating * 200</cost>
+			<source>SG</source>
+			<page>214</page>
+		</gear>	
+		<gear>
+			<name>Mystic Jacket</name>
+			<category>Magical Supplies</category>
+			<rating>18</rating>
+			<avail>(Rating)R</avail>
+			<cost>Rating * 500</cost>
+			<source>SG</source>
+			<page>214</page>
+		</gear>	
+		<gear>
+			<name>Mystic Mask</name>
+			<category>Magical Supplies</category>
+			<rating>12</rating>
+			<avail>(Rating)R</avail>
+			<cost>Rating * 400</cost>
+			<source>SG</source>
+			<page>214</page>
+		</gear>	
+		<gear>
+			<name>Quicksilver Camera</name>
+			<category>Magical Supplies</category>
+			<rating>0</rating>
+			<avail>4</avail>
+			<cost>2500</cost>
+			<source>SG</source>
+			<page>215</page>
+		</gear>	
+		<gear>
+			<name>Shofar</name>
+			<category>Magical Supplies</category>
+			<rating>12</rating>
+			<avail>Rating</avail>
+			<cost>Rating * 800</cost>
+			<source>SG</source>
+			<page>216</page>
+		</gear>	
+		<gear>
+			<name>Symbolic Link</name>
+			<category>Magical Supplies</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>0</cost>
+			<bonus>
+				<selecttext />
+			</bonus>
+			<source>SG</source>
+			<page>216</page>
+		</gear>	
+		<gear>
+			<name>Tool Cleanser (15 Uses)</name>
+			<category>Magical Supplies</category>
+			<rating>0</rating>
+			<avail>10</avail>
+			<cost>50</cost>
+			<source>SG</source>
+			<page>230</page>
+		</gear>	
+		<gear>
+			<name>AgHexHex</name>
+			<category>Magical Compounds</category>
+			<rating>20</rating>
+			<avail>8</avail>
+			<cost>Rating * 500</cost>
+			<source>SG</source>
+			<page>219</page>
+		</gear>	
+		<gear>
+			<name>BDNB</name>
+			<category>Magical Compounds</category>
+			<rating>20</rating>
+			<avail>8</avail>
+			<cost>Rating * 500</cost>
+			<source>SG</source>
+			<page>220</page>
+		</gear>	
+		<gear>
+			<name>Lot's Curse</name>
+			<category>Magical Compounds</category>
+			<rating>20</rating>
+			<avail>14F</avail>
+			<cost>Rating * 1000</cost>
+			<source>SG</source>
+			<page>220</page>
+		</gear>	
+		<gear>
+			<name>Sage</name>
+			<category>Magical Compounds</category>
+			<rating>20</rating>
+			<avail>(Rating * 6)R</avail>
+			<cost>Rating * 800</cost>
+			<source>SG</source>
+			<page>220</page>
+		</gear>	
+		<gear>
+			<name>Spirit Strength</name>
+			<category>Magical Compounds</category>
+			<rating>20</rating>
+			<avail>(Rating * 6)R</avail>
+			<cost>Rating * 3000</cost>
+			<source>SG</source>
+			<page>220</page>
+		</gear>	
+		<gear>
+			<name>Witch's Moss</name>
+			<category>Magical Compounds</category>
+			<rating>20</rating>
+			<avail>(Rating * 6)R</avail>
+			<cost>Rating * 1600</cost>
+			<source>SG</source>
+			<page>220</page>
 		</gear>	
 		<gear>
 			<name>Paint Grenade</name>

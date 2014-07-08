@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-497</version>
+	<version>-496</version>
 	<categories>
 		<category>Combat</category>
 		<category>Detection</category>
@@ -3076,6 +3076,18 @@
 			<dv>F-2</dv>
 			<source>BB</source>
 			<page>21</page>
+		</spell>
+		<spell>
+			<name>Hemorrhage</name>
+			<descriptor></descriptor>
+			<category>Ritual</category>
+			<type>P</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>I</duration>
+			<dv>Special</dv>
+			<source>SG</source>
+			<page>91</page>
 		</spell>
 	</spells>
 </chummer>
