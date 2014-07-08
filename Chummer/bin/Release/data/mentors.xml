@@ -222,6 +222,11 @@
 					<bonus>
 						<specificpower>
 							<name>Improved Ability (skill)</name>
+							<name>Improved Ability (skill)</name>
+							<selectskill excludecategory="Combat Active">
+								<val>1</val>
+								<applytorating>no</applytorating>
+							</selectskill>
 							<val>1</val>
 						</specificpower>
 					</bonus>
@@ -351,6 +356,10 @@
 					<bonus>
 						<specificpower>
 							<name>Improved Ability (skill)</name>
+							<selectskill skillcategory="Physical Active">
+								<val>1</val>
+								<applytorating>no</applytorating>
+							</selectskill>
 							<val>1</val>
 						</specificpower>
 					</bonus>
@@ -385,6 +394,10 @@
 					<bonus>
 						<specificpower>
 							<name>Improved Ability (skill)</name>
+							<selectskill>
+								<val>1</val>
+								<applytorating>no</applytorating>
+							</selectskill>
 							<val>1</val>
 						</specificpower>
 					</bonus>
@@ -734,6 +747,130 @@
 			</choices>
 			<source>SG</source>
 			<page>200</page>
+		</mentor>
+		<mentor>
+			<name>Doom</name>
+			<advantage>All: +2 to Demolitions or a single Combat Skill</advantage>
+			<disadvantage>Followers of Doom must succeed in a Willpower + Charisma (3) Test to avoid a fight once it has begun, or to not enact a plan to do violence. If they fail, they must engage in combat until all opponents are defeated or flee.</disadvantage>
+			<choices>
+				<choice>
+					<name>+2 to Demolitions</name>
+					<bonus>
+						<spellcategory>
+							<name>Detection</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice>
+					<name>+2 to a Combat Skill</name>
+					<bonus>
+						<selectskill excludecategory="Combat Active">
+							<val>2</val>
+							<applytorating>no</applytorating>
+						</selectskill>
+					</bonus>
+				</choice>
+				<choice set="2">
+					<name>Magician: +2 dice for Combat spells</name>
+					<bonus>
+						<spellcategory>
+							<name>Combat</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice set="2">
+					<name>Adept: free Killing Hands</name>
+					<bonus>
+						<specificpower>
+							<name>Killing Hands</name>
+							<free>yes</free>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SG</source>
+			<page>86</page>
+		</mentor>
+		<mentor>
+			<name>Disease</name>
+			<advantage>All: +2 to resist all pathogens and toxins</advantage>
+			<disadvantage>Followers of Disease must make a Charisma + Willpower (3) Test to not flee or seek cover whenever in a combat situation, unless they outnumber their opponents. If they begin a fight with greater numbers but then their side is reduced so that they no longer outnumber their opponents, they must make a test to avoid fleeing.</disadvantage>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice for summoning or binding plague spirits</name>
+					<bonus />
+				</choice>
+				<choice>
+					<name>Adept: Free Plague Cloud</name>
+					<bonus>
+						<specificpower>
+							<name>Plague Cloud</name>
+							<free>yes</free>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SG</source>
+			<page>86</page>
+		</mentor>
+		<mentor>
+			<name>Mutation</name>
+			<advantage>All: +2 dice to a Physical skill</advantage>
+			<disadvantage>If a follower of Mutation finds themselves inferior to an opponent, they suffer a –1 penalty on all actions until they defeat their rival in that area, or overcome or compensate for the weakness in another way (such as acquiring a new power, spell, or augmentation).</disadvantage>
+			<bonus>
+				<selectskill skillcategory="Physical Active">
+					<val>2</val>
+					<applytorating>no</applytorating>
+				</selectskill>
+			</bonus>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice for Health Spells</name>
+					<bonus>
+						<spellcategory>
+							<name>Health</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice>
+					<name>Adept: 2 free levels of Attribute Boost</name>
+					<bonus>
+						<specificpower>
+							<name>Attribute Boost</name>
+							<val>2</val>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SG</source>
+			<page>86</page>
+		</mentor>
+		<mentor>
+			<name>Pollution</name>
+			<advantage>All: +2 for Chemistry Tests when dealing with pollutants</advantage>
+			<disadvantage>If they are in an area cleaner than their normal habitation, followers of Pollution must make a Willpower + Charisma (3) Test every day. If they fail, they must spend at least eight hours that day actively despoiling the land, regardless of any other plans they had for that time.</disadvantage>
+			<choices>
+				<choice>
+					<name>Magician: +2 dice for summoning or binding toxic spirits</name>
+					<bonus>
+						<selecttext />
+					</bonus>
+				</choice>
+				<choice>
+					<name>Adept: Free Toxic Strike</name>
+					<bonus>
+						<specificpower>
+							<name>Toxic Strike</name>
+							<free>yes</free>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SG</source>
+			<page>86</page>
 		</mentor>
 	</mentors>
 </chummer>

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.XPath;
 
 namespace Chummer
 {
@@ -85,271 +87,288 @@ namespace Chummer
 			{
 				cboAmmo.DropDownStyle = ComboBoxStyle.DropDown;
 
-				// Cyberware/Bioware.
-				foreach (Cyberware objCyberware in _objCharacter.Cyberware)
-				{
-					if (objCyberware.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
-					{
-						ListItem objItem = new ListItem();
-						objItem.Value = objCyberware.DisplayNameShort;
-						objItem.Name = objCyberware.DisplayNameShort;
-						lstItems.Add(objItem);
-					}
-					foreach (Cyberware objChild in objCyberware.Children)
-					{
-						if (objChild.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
-						{
-							ListItem objItem = new ListItem();
-							objItem.Value = objChild.DisplayNameShort;
-							objItem.Name = objChild.DisplayNameShort;
-							lstItems.Add(objItem);
-						}
-					}
-				}
+                if (!_objCharacter.Options.LicenseRestricted)
+                {
+                    XmlDocument objXmlDocument = new XmlDocument();
+                    objXmlDocument = XmlManager.Instance.Load("licenses.xml");
+                    XmlNodeList objXmlList = objXmlDocument.SelectNodes("/chummer/licenses/license");
 
-				// Armor.
-				foreach (Armor objArmor in _objCharacter.Armor)
-				{
-					if (objArmor.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
-					{
-						ListItem objItem = new ListItem();
-						objItem.Value = objArmor.DisplayNameShort;
-						objItem.Name = objArmor.DisplayNameShort;
-						lstItems.Add(objItem);
-					}
-					foreach (ArmorMod objMod in objArmor.ArmorMods)
-					{
-						if (objMod.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
-						{
-							ListItem objItem = new ListItem();
-							objItem.Value = objMod.DisplayNameShort;
-							objItem.Name = objMod.DisplayNameShort;
-							lstItems.Add(objItem);
-						}
-					}
-					foreach (Gear objGear in objArmor.Gear)
-					{
-						if (objGear.TotalAvail().EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
-						{
-							ListItem objItem = new ListItem();
-							objItem.Value = objGear.DisplayNameShort;
-							objItem.Name = objGear.DisplayNameShort;
-							lstItems.Add(objItem);
-						}
-					}
-				}
+                    foreach (XmlNode objNode in objXmlList)
+                    {
+                        ListItem objItem = new ListItem();
+                        objItem.Value = objNode.InnerText;
+                        objItem.Name = objNode.InnerText;
+                        lstItems.Add(objItem);
+                    }
+                }
+                else
+                {
+                    // Cyberware/Bioware.
+                    foreach (Cyberware objCyberware in _objCharacter.Cyberware)
+                    {
+                        if (objCyberware.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
+                        {
+                            ListItem objItem = new ListItem();
+                            objItem.Value = objCyberware.DisplayNameShort;
+                            objItem.Name = objCyberware.DisplayNameShort;
+                            lstItems.Add(objItem);
+                        }
+                        foreach (Cyberware objChild in objCyberware.Children)
+                        {
+                            if (objChild.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
+                            {
+                                ListItem objItem = new ListItem();
+                                objItem.Value = objChild.DisplayNameShort;
+                                objItem.Name = objChild.DisplayNameShort;
+                                lstItems.Add(objItem);
+                            }
+                        }
+                    }
 
-				// Weapons.
-				foreach (Weapon objWeapon in _objCharacter.Weapons)
-				{
-					if (objWeapon.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
-					{
-						ListItem objItem = new ListItem();
-						objItem.Value = objWeapon.DisplayNameShort;
-						objItem.Name = objWeapon.DisplayNameShort;
-						lstItems.Add(objItem);
-					}
-					foreach (WeaponAccessory objAccessory in objWeapon.WeaponAccessories)
-					{
-						if (objAccessory.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objAccessory.IncludedInWeapon)
-						{
-							ListItem objItem = new ListItem();
-							objItem.Value = objAccessory.DisplayNameShort;
-							objItem.Name = objAccessory.DisplayNameShort;
-							lstItems.Add(objItem);
-						}
-					}
-					foreach (WeaponMod objMod in objWeapon.WeaponMods)
-					{
-						if (objMod.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objMod.IncludedInWeapon)
-						{
-							ListItem objItem = new ListItem();
-							objItem.Value = objMod.DisplayNameShort;
-							objItem.Name = objMod.DisplayNameShort;
-							lstItems.Add(objItem);
-						}
-					}
-					if (objWeapon.UnderbarrelWeapons.Count > 0)
-					{
-						foreach (Weapon objUnderbarrelWeapon in objWeapon.UnderbarrelWeapons)
-						{
-							if (objUnderbarrelWeapon.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
-							{
-								ListItem objItem = new ListItem();
-								objItem.Value = objUnderbarrelWeapon.DisplayNameShort;
-								objItem.Name = objUnderbarrelWeapon.DisplayNameShort;
-								lstItems.Add(objItem);
-							}
-							foreach (WeaponAccessory objAccessory in objUnderbarrelWeapon.WeaponAccessories)
-							{
-								if (objAccessory.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objAccessory.IncludedInWeapon)
-								{
-									ListItem objItem = new ListItem();
-									objItem.Value = objAccessory.DisplayNameShort;
-									objItem.Name = objAccessory.DisplayNameShort;
-									lstItems.Add(objItem);
-								}
-							}
-							foreach (WeaponMod objMod in objUnderbarrelWeapon.WeaponMods)
-							{
-								if (objMod.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objMod.IncludedInWeapon)
-								{
-									ListItem objItem = new ListItem();
-									objItem.Value = objMod.DisplayNameShort;
-									objItem.Name = objMod.DisplayNameShort;
-									lstItems.Add(objItem);
-								}
-							}
-						}
-					}
-				}
+                    // Armor.
+                    foreach (Armor objArmor in _objCharacter.Armor)
+                    {
+                        if (objArmor.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
+                        {
+                            ListItem objItem = new ListItem();
+                            objItem.Value = objArmor.DisplayNameShort;
+                            objItem.Name = objArmor.DisplayNameShort;
+                            lstItems.Add(objItem);
+                        }
+                        foreach (ArmorMod objMod in objArmor.ArmorMods)
+                        {
+                            if (objMod.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
+                            {
+                                ListItem objItem = new ListItem();
+                                objItem.Value = objMod.DisplayNameShort;
+                                objItem.Name = objMod.DisplayNameShort;
+                                lstItems.Add(objItem);
+                            }
+                        }
+                        foreach (Gear objGear in objArmor.Gear)
+                        {
+                            if (objGear.TotalAvail().EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
+                            {
+                                ListItem objItem = new ListItem();
+                                objItem.Value = objGear.DisplayNameShort;
+                                objItem.Name = objGear.DisplayNameShort;
+                                lstItems.Add(objItem);
+                            }
+                        }
+                    }
 
-				// Gear.
-				foreach (Gear objGear in _objCharacter.Gear)
-				{
-					if (objGear.TotalAvail().EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
-					{
-						ListItem objItem = new ListItem();
-						objItem.Value = objGear.DisplayNameShort;
-						objItem.Name = objGear.DisplayNameShort;
-						lstItems.Add(objItem);
-					}
-					foreach (Gear objChild in objGear.Children)
-					{
-						if (objChild.TotalAvail().EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
-						{
-							ListItem objItem = new ListItem();
-							objItem.Value = objChild.DisplayNameShort;
-							objItem.Name = objChild.DisplayNameShort;
-							lstItems.Add(objItem);
-						}
-						foreach (Gear objSubChild in objChild.Children)
-						{
-							if (objSubChild.TotalAvail().EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
-							{
-								ListItem objItem = new ListItem();
-								objItem.Value = objSubChild.DisplayNameShort;
-								objItem.Name = objSubChild.DisplayNameShort;
-								lstItems.Add(objItem);
-							}
-						}
-					}
-				}
+                    // Weapons.
+                    foreach (Weapon objWeapon in _objCharacter.Weapons)
+                    {
+                        if (objWeapon.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
+                        {
+                            ListItem objItem = new ListItem();
+                            objItem.Value = objWeapon.DisplayNameShort;
+                            objItem.Name = objWeapon.DisplayNameShort;
+                            lstItems.Add(objItem);
+                        }
+                        foreach (WeaponAccessory objAccessory in objWeapon.WeaponAccessories)
+                        {
+                            if (objAccessory.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objAccessory.IncludedInWeapon)
+                            {
+                                ListItem objItem = new ListItem();
+                                objItem.Value = objAccessory.DisplayNameShort;
+                                objItem.Name = objAccessory.DisplayNameShort;
+                                lstItems.Add(objItem);
+                            }
+                        }
+                        foreach (WeaponMod objMod in objWeapon.WeaponMods)
+                        {
+                            if (objMod.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objMod.IncludedInWeapon)
+                            {
+                                ListItem objItem = new ListItem();
+                                objItem.Value = objMod.DisplayNameShort;
+                                objItem.Name = objMod.DisplayNameShort;
+                                lstItems.Add(objItem);
+                            }
+                        }
+                        if (objWeapon.UnderbarrelWeapons.Count > 0)
+                        {
+                            foreach (Weapon objUnderbarrelWeapon in objWeapon.UnderbarrelWeapons)
+                            {
+                                if (objUnderbarrelWeapon.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
+                                {
+                                    ListItem objItem = new ListItem();
+                                    objItem.Value = objUnderbarrelWeapon.DisplayNameShort;
+                                    objItem.Name = objUnderbarrelWeapon.DisplayNameShort;
+                                    lstItems.Add(objItem);
+                                }
+                                foreach (WeaponAccessory objAccessory in objUnderbarrelWeapon.WeaponAccessories)
+                                {
+                                    if (objAccessory.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objAccessory.IncludedInWeapon)
+                                    {
+                                        ListItem objItem = new ListItem();
+                                        objItem.Value = objAccessory.DisplayNameShort;
+                                        objItem.Name = objAccessory.DisplayNameShort;
+                                        lstItems.Add(objItem);
+                                    }
+                                }
+                                foreach (WeaponMod objMod in objUnderbarrelWeapon.WeaponMods)
+                                {
+                                    if (objMod.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objMod.IncludedInWeapon)
+                                    {
+                                        ListItem objItem = new ListItem();
+                                        objItem.Value = objMod.DisplayNameShort;
+                                        objItem.Name = objMod.DisplayNameShort;
+                                        lstItems.Add(objItem);
+                                    }
+                                }
+                            }
+                        }
+                    }
 
-				// Vehicles.
-				foreach (Vehicle objVehicle in _objCharacter.Vehicles)
-				{
-					if (objVehicle.CalculatedAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
-					{
-						ListItem objItem = new ListItem();
-						objItem.Value = objVehicle.DisplayNameShort;
-						objItem.Name = objVehicle.DisplayNameShort;
-						lstItems.Add(objItem);
-					}
-					foreach (VehicleMod objMod in objVehicle.Mods)
-					{
-						if (objMod.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objMod.IncludedInVehicle)
-						{
-							ListItem objItem = new ListItem();
-							objItem.Value = objMod.DisplayNameShort;
-							objItem.Name = objMod.DisplayNameShort;
-							lstItems.Add(objItem);
-						}
-						foreach (Weapon objWeapon in objMod.Weapons)
-						{
-							if (objWeapon.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
-							{
-								ListItem objItem = new ListItem();
-								objItem.Value = objWeapon.DisplayNameShort;
-								objItem.Name = objWeapon.DisplayNameShort;
-								lstItems.Add(objItem);
-							}
-							foreach (WeaponAccessory objAccessory in objWeapon.WeaponAccessories)
-							{
-								if (objAccessory.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objAccessory.IncludedInWeapon)
-								{
-									ListItem objItem = new ListItem();
-									objItem.Value = objAccessory.DisplayNameShort;
-									objItem.Name = objAccessory.DisplayNameShort;
-									lstItems.Add(objItem);
-								}
-							}
-							foreach (WeaponMod objWeaponMod in objWeapon.WeaponMods)
-							{
-								if (objWeaponMod.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objWeaponMod.IncludedInWeapon)
-								{
-									ListItem objItem = new ListItem();
-									objItem.Value = objWeaponMod.DisplayNameShort;
-									objItem.Name = objWeaponMod.DisplayNameShort;
-									lstItems.Add(objItem);
-								}
-							}
-							if (objWeapon.UnderbarrelWeapons.Count > 0)
-							{
-								foreach (Weapon objUnderbarrelWeapon in objWeapon.UnderbarrelWeapons)
-								{
-									if (objUnderbarrelWeapon.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
-									{
-										ListItem objItem = new ListItem();
-										objItem.Value = objUnderbarrelWeapon.DisplayNameShort;
-										objItem.Name = objUnderbarrelWeapon.DisplayNameShort;
-										lstItems.Add(objItem);
-									}
-									foreach (WeaponAccessory objAccessory in objUnderbarrelWeapon.WeaponAccessories)
-									{
-										if (objAccessory.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objAccessory.IncludedInWeapon)
-										{
-											ListItem objItem = new ListItem();
-											objItem.Value = objAccessory.DisplayNameShort;
-											objItem.Name = objAccessory.DisplayNameShort;
-											lstItems.Add(objItem);
-										}
-									}
-									foreach (WeaponMod objWeaponMod in objUnderbarrelWeapon.WeaponMods)
-									{
-										if (objWeaponMod.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objWeaponMod.IncludedInWeapon)
-										{
-											ListItem objItem = new ListItem();
-											objItem.Value = objWeaponMod.DisplayNameShort;
-											objItem.Name = objWeaponMod.DisplayNameShort;
-											lstItems.Add(objItem);
-										}
-									}
-								}
-							}
-						}
-					}
-					foreach (Gear objGear in objVehicle.Gear)
-					{
-						if (objGear.TotalAvail().EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
-						{
-							ListItem objItem = new ListItem();
-							objItem.Value = objGear.DisplayNameShort;
-							objItem.Name = objGear.DisplayNameShort;
-							lstItems.Add(objItem);
-						}
-						foreach (Gear objChild in objGear.Children)
-						{
-							if (objChild.TotalAvail().EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
-							{
-								ListItem objItem = new ListItem();
-								objItem.Value = objChild.DisplayNameShort;
-								objItem.Name = objChild.DisplayNameShort;
-								lstItems.Add(objItem);
-							}
-							foreach (Gear objSubChild in objChild.Children)
-							{
-								if (objSubChild.TotalAvail().EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
-								{
-									ListItem objItem = new ListItem();
-									objItem.Value = objSubChild.DisplayNameShort;
-									objItem.Name = objSubChild.DisplayNameShort;
-									lstItems.Add(objItem);
-								}
-							}
-						}
-					}
-				}
+                    // Gear.
+                    foreach (Gear objGear in _objCharacter.Gear)
+                    {
+                        if (objGear.TotalAvail().EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
+                        {
+                            ListItem objItem = new ListItem();
+                            objItem.Value = objGear.DisplayNameShort;
+                            objItem.Name = objGear.DisplayNameShort;
+                            lstItems.Add(objItem);
+                        }
+                        foreach (Gear objChild in objGear.Children)
+                        {
+                            if (objChild.TotalAvail().EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
+                            {
+                                ListItem objItem = new ListItem();
+                                objItem.Value = objChild.DisplayNameShort;
+                                objItem.Name = objChild.DisplayNameShort;
+                                lstItems.Add(objItem);
+                            }
+                            foreach (Gear objSubChild in objChild.Children)
+                            {
+                                if (objSubChild.TotalAvail().EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
+                                {
+                                    ListItem objItem = new ListItem();
+                                    objItem.Value = objSubChild.DisplayNameShort;
+                                    objItem.Name = objSubChild.DisplayNameShort;
+                                    lstItems.Add(objItem);
+                                }
+                            }
+                        }
+                    }
+
+                    // Vehicles.
+                    foreach (Vehicle objVehicle in _objCharacter.Vehicles)
+                    {
+                        if (objVehicle.CalculatedAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
+                        {
+                            ListItem objItem = new ListItem();
+                            objItem.Value = objVehicle.DisplayNameShort;
+                            objItem.Name = objVehicle.DisplayNameShort;
+                            lstItems.Add(objItem);
+                        }
+                        foreach (VehicleMod objMod in objVehicle.Mods)
+                        {
+                            if (objMod.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objMod.IncludedInVehicle)
+                            {
+                                ListItem objItem = new ListItem();
+                                objItem.Value = objMod.DisplayNameShort;
+                                objItem.Name = objMod.DisplayNameShort;
+                                lstItems.Add(objItem);
+                            }
+                            foreach (Weapon objWeapon in objMod.Weapons)
+                            {
+                                if (objWeapon.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
+                                {
+                                    ListItem objItem = new ListItem();
+                                    objItem.Value = objWeapon.DisplayNameShort;
+                                    objItem.Name = objWeapon.DisplayNameShort;
+                                    lstItems.Add(objItem);
+                                }
+                                foreach (WeaponAccessory objAccessory in objWeapon.WeaponAccessories)
+                                {
+                                    if (objAccessory.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objAccessory.IncludedInWeapon)
+                                    {
+                                        ListItem objItem = new ListItem();
+                                        objItem.Value = objAccessory.DisplayNameShort;
+                                        objItem.Name = objAccessory.DisplayNameShort;
+                                        lstItems.Add(objItem);
+                                    }
+                                }
+                                foreach (WeaponMod objWeaponMod in objWeapon.WeaponMods)
+                                {
+                                    if (objWeaponMod.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objWeaponMod.IncludedInWeapon)
+                                    {
+                                        ListItem objItem = new ListItem();
+                                        objItem.Value = objWeaponMod.DisplayNameShort;
+                                        objItem.Name = objWeaponMod.DisplayNameShort;
+                                        lstItems.Add(objItem);
+                                    }
+                                }
+                                if (objWeapon.UnderbarrelWeapons.Count > 0)
+                                {
+                                    foreach (Weapon objUnderbarrelWeapon in objWeapon.UnderbarrelWeapons)
+                                    {
+                                        if (objUnderbarrelWeapon.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
+                                        {
+                                            ListItem objItem = new ListItem();
+                                            objItem.Value = objUnderbarrelWeapon.DisplayNameShort;
+                                            objItem.Name = objUnderbarrelWeapon.DisplayNameShort;
+                                            lstItems.Add(objItem);
+                                        }
+                                        foreach (WeaponAccessory objAccessory in objUnderbarrelWeapon.WeaponAccessories)
+                                        {
+                                            if (objAccessory.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objAccessory.IncludedInWeapon)
+                                            {
+                                                ListItem objItem = new ListItem();
+                                                objItem.Value = objAccessory.DisplayNameShort;
+                                                objItem.Name = objAccessory.DisplayNameShort;
+                                                lstItems.Add(objItem);
+                                            }
+                                        }
+                                        foreach (WeaponMod objWeaponMod in objUnderbarrelWeapon.WeaponMods)
+                                        {
+                                            if (objWeaponMod.TotalAvail.EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")) && !objWeaponMod.IncludedInWeapon)
+                                            {
+                                                ListItem objItem = new ListItem();
+                                                objItem.Value = objWeaponMod.DisplayNameShort;
+                                                objItem.Name = objWeaponMod.DisplayNameShort;
+                                                lstItems.Add(objItem);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        foreach (Gear objGear in objVehicle.Gear)
+                        {
+                            if (objGear.TotalAvail().EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
+                            {
+                                ListItem objItem = new ListItem();
+                                objItem.Value = objGear.DisplayNameShort;
+                                objItem.Name = objGear.DisplayNameShort;
+                                lstItems.Add(objItem);
+                            }
+                            foreach (Gear objChild in objGear.Children)
+                            {
+                                if (objChild.TotalAvail().EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
+                                {
+                                    ListItem objItem = new ListItem();
+                                    objItem.Value = objChild.DisplayNameShort;
+                                    objItem.Name = objChild.DisplayNameShort;
+                                    lstItems.Add(objItem);
+                                }
+                                foreach (Gear objSubChild in objChild.Children)
+                                {
+                                    if (objSubChild.TotalAvail().EndsWith(LanguageManager.Instance.GetString("String_AvailRestricted")))
+                                    {
+                                        ListItem objItem = new ListItem();
+                                        objItem.Value = objSubChild.DisplayNameShort;
+                                        objItem.Name = objSubChild.DisplayNameShort;
+                                        lstItems.Add(objItem);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
 			}
 
 			// Populate the lists.

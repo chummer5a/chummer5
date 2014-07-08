@@ -232,10 +232,17 @@ namespace Chummer
 			lblA.Text = objXmlMod["armor"].InnerText;
 
 			nudRating.Maximum = Convert.ToDecimal(objXmlMod["maxrating"].InnerText, GlobalOptions.Instance.CultureInfo);
-			if (nudRating.Maximum == 1)
-				nudRating.Enabled = false;
-			else
-				nudRating.Enabled = true;
+            if (nudRating.Maximum <= 1)
+                nudRating.Enabled = false;
+            else
+            {
+                nudRating.Enabled = true;
+                if (nudRating.Minimum == 0)
+                {
+                    nudRating.Value = 1;
+                    nudRating.Minimum = 1;
+                }
+            }
 
 			string strAvail = "";
 			string strAvailExpr = "";

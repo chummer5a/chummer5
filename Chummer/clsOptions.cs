@@ -122,7 +122,7 @@ namespace Chummer
 			{
 			}
 
-			// Whether or not the app should only download localised files in the user's selected language.
+            // Whether or not the app should only download localised files in the user's selected language.
 			try
 			{
 				_blnLocalisedUpdatesOnly = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("localisedupdatesonly").ToString());
@@ -274,7 +274,7 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
 		/// Whether or not the app should only download localised files in the user's selected language.
 		/// </summary>
 		public bool LocalisedUpdatesOnly
@@ -761,6 +761,7 @@ namespace Chummer
 		private bool _blnFreeSpiritPowerPointsMAG = false;
 		private bool _blnSpecialAttributeKarmaLimit = false;
 		private bool _blnTechnomancerAllowAutosoft = false;
+        private bool _blnLicenseRestrictedItems = false;
 		private string _strBookXPath = "";
 		private int _intNuyenPerBP = 5000;
 		private int _intFreeContactsMultiplier = 2;
@@ -887,7 +888,9 @@ namespace Chummer
 			objWriter.WriteElementString("name", _strName);
 			// <confirmdelete />
 			objWriter.WriteElementString("confirmdelete", _blnConfirmDelete.ToString());
-			// <confirmkarmaexpense />
+            // <licenserestricted />
+            objWriter.WriteElementString("licenserestricted", _blnLicenseRestrictedItems.ToString());
+            // <confirmkarmaexpense />
 			objWriter.WriteElementString("confirmkarmaexpense", _blnConfirmKarmaExpense.ToString());
 			// <printzeroratingskills />
 			objWriter.WriteElementString("printzeroratingskills", _blnPrintSkillsWithZeroRating.ToString());
@@ -1202,7 +1205,14 @@ namespace Chummer
 
 			// Confirm delete.
 			_blnConfirmDelete = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/confirmdelete").InnerText);
-			// Confirm Karama Expense.
+            // License Restricted items.
+            try
+            {
+                _blnLicenseRestrictedItems = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/licenserestricted").InnerText);
+            }
+            catch
+            { }
+            // Confirm Karama Expense.
 			_blnConfirmKarmaExpense = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/confirmkarmaexpense").InnerText);
 			// Print all Active Skills with a total value greater than 0 (as opposed to only printing those with a Rating higher than 0).
 			_blnPrintSkillsWithZeroRating = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/printzeroratingskills").InnerText);
@@ -2152,7 +2162,22 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Whether or not to require licensing restricted items.
+        /// </summary>
+        public bool LicenseRestricted
+        {
+            get
+            {
+                return _blnLicenseRestrictedItems;
+            }
+            set
+            {
+                _blnLicenseRestrictedItems = value;
+            }
+        }
+
+        /// <summary>
 		/// Whether or not a Spirit's Maximum Force is based on the character's total MAG.
 		/// </summary>
 		public bool SpiritForceBasedOnTotalMAG

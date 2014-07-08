@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chummer>
+    <version>-500</version>
+    <licenses>
+        <license>Adept License</license>
+        <license>Bodyguard License</license>
+        <license>Bounty Hunter's License</license>
+        <license>Concealed Carry Permit</license>
+        <license>Driver's License</license>
+        <license>Drone License</license>
+        <license>Firearms License</license>
+        <license>Hunting License</license>
+        <license>Mage License</license>
+        <license>Marine License</license>
+        <license>Pet License</license>
+        <license>Pilot License</license>
+        <license>Private Investigator License</license>
+        <license>Restricted Bioware License</license>
+        <license>Restricted Cyberware License</license>
+        <license>Summoner License</license>
+        <license>Talismonger License</license>
+        <license>Weapon License</license>
+    </licenses>
+</chummer>
+            

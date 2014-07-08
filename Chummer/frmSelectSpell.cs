@@ -177,7 +177,7 @@ namespace Chummer
 							strDescriptors += LanguageManager.Instance.GetString("String_DescMinion") + ", ";
 							break;
 						case "Organic Link":
-							strDescriptors += LanguageManager.Instance.GetString("String_DescOrganic Link") + ", ";
+							strDescriptors += LanguageManager.Instance.GetString("String_DescOrganicLink") + ", ";
 							break;
 						case "Spell":
 							strDescriptors += LanguageManager.Instance.GetString("String_DescSpell") + ", ";
@@ -279,6 +279,36 @@ namespace Chummer
 					}
 					strDV += strAfter;
 				}
+
+                if (chkLimited.Checked)
+                {
+                    int intPos = 0;
+                    if (strDV.Contains("-"))
+                    {
+                        intPos = strDV.IndexOf("-") + 1;
+                        string strAfter = strDV.Substring(intPos, strDV.Length - intPos);
+                        strDV = strDV.Substring(0, intPos);
+                        int intAfter = Convert.ToInt32(strAfter);
+                        intAfter += 2;
+                        strDV += intAfter.ToString();
+                    }
+                    else if (strDV.Contains("+"))
+                    {
+                        intPos = strDV.IndexOf("-");
+                        string strAfter = strDV.Substring(intPos, strDV.Length - intPos);
+                        strDV = strDV.Substring(0, intPos);
+                        int intAfter = Convert.ToInt32(strAfter);
+                        intAfter -= 2;
+                        if (intAfter > 0)
+                            strDV += "+" + intAfter.ToString();
+                        else if (intAfter < 0)
+                            strDV += intAfter.ToString();
+                    }
+                    else
+                    {
+                        strDV += "-2";
+                    }
+                }
 
 				lblDV.Text = strDV;
 
@@ -557,5 +587,52 @@ namespace Chummer
 			lblSearchLabel.Left = txtSearch.Left - 6 - lblSearchLabel.Width;
 		}
 		#endregion
+
+        private void chkLimited_CheckedChanged(object sender, EventArgs e)
+        {
+            if (treSpells.SelectedNode.Level > 0)
+            {
+                // Display the Spell information.
+                XmlNode objXmlSpell = _objXmlDocument.SelectSingleNode("/chummer/spells/spell[name = \"" + treSpells.SelectedNode.Tag + "\"]");
+                string strDV = objXmlSpell["dv"].InnerText.Replace("/", "÷").Replace("F", LanguageManager.Instance.GetString("String_SpellForce"));
+                strDV = strDV.Replace("Overflow damage", LanguageManager.Instance.GetString("String_SpellOverflowDamage"));
+                strDV = strDV.Replace("Damage Value", LanguageManager.Instance.GetString("String_SpellDamageValue"));
+                strDV = strDV.Replace("Toxin DV", LanguageManager.Instance.GetString("String_SpellToxinDV"));
+                strDV = strDV.Replace("Disease DV", LanguageManager.Instance.GetString("String_SpellDiseaseDV"));
+                strDV = strDV.Replace("Radiation Power", LanguageManager.Instance.GetString("String_SpellRadiationPower"));
+
+                if (chkLimited.Checked && strDV.StartsWith("F"))
+                {
+                    int intPos = 0;
+                    if (strDV.Contains("-"))
+                    {
+                        intPos = strDV.IndexOf("-") + 1;
+                        string strAfter = strDV.Substring(intPos, strDV.Length - intPos);
+                        strDV = strDV.Substring(0, intPos);
+                        int intAfter = Convert.ToInt32(strAfter);
+                        intAfter += 2;
+                        strDV += intAfter.ToString();
+                    }
+                    else if (strDV.Contains("+"))
+                    {
+                        intPos = strDV.IndexOf("-");
+                        string strAfter = strDV.Substring(intPos, strDV.Length - intPos);
+                        strDV = strDV.Substring(0, intPos);
+                        int intAfter = Convert.ToInt32(strAfter);
+                        intAfter -= 2;
+                        if (intAfter > 0)
+                            strDV += "+" + intAfter.ToString();
+                        else if (intAfter < 0)
+                            strDV += intAfter.ToString();
+                    }
+                    else
+                    {
+                        strDV += "-2";
+                    }
+                }
+
+                lblDV.Text = strDV;
+            }
+        }
 	}
 }

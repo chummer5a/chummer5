@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-497</version>
+	<version>-496</version>
 	<categories>
 		<category>Positive</category>
 		<category>Negative</category>
@@ -1824,6 +1824,22 @@
 			<bonus />
 			<source>BB</source>
 			<page>12</page>
+		</quality>
+		<quality>
+			<name>Spirit Champion</name>
+			<karma>14</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SG</source>
+			<page>199</page>
+		</quality>
+		<quality>
+			<name>Spirit Pariah</name>
+			<karma>-14</karma>
+			<category>Negative</category>
+			<bonus />
+			<source>SG</source>
+			<page>199</page>
 		</quality>
 	</qualities>
 </chummer>

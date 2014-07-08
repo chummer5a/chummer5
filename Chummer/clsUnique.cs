@@ -3538,6 +3538,38 @@ namespace Chummer
 			_strSource = objXmlSpellNode["source"].InnerText;
 			_strPage = objXmlSpellNode["page"].InnerText;
 
+            string strDV = _strDV;
+            if (_blnLimited && _strDV.StartsWith("F"))
+            {
+                int intPos = 0;
+                if (strDV.Contains("-"))
+                {
+                    intPos = strDV.IndexOf("-") + 1;
+                    string strAfter = strDV.Substring(intPos, strDV.Length - intPos);
+                    strDV = strDV.Substring(0, intPos);
+                    int intAfter = Convert.ToInt32(strAfter);
+                    intAfter += 2;
+                    strDV += intAfter.ToString();
+                }
+                else if (strDV.Contains("+"))
+                {
+                    intPos = strDV.IndexOf("-");
+                    string strAfter = strDV.Substring(intPos, strDV.Length - intPos);
+                    strDV = strDV.Substring(0, intPos);
+                    int intAfter = Convert.ToInt32(strAfter);
+                    intAfter -= 2;
+                    if (intAfter > 0)
+                        strDV += "+" + intAfter.ToString();
+                    else if (intAfter < 0)
+                        strDV += intAfter.ToString();
+                }
+                else
+                {
+                    strDV += "-2";
+                }
+            }
+            _strDV = strDV;
+
 			ImprovementManager objImprovementManager = new ImprovementManager(objCharacter);
 			objImprovementManager.ForcedValue = strForcedValue;
 

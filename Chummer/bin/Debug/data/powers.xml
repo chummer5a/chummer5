@@ -98,7 +98,7 @@
 			<limit>100</limit>
 			<bonus>
 				<selectskill skillcategory="Combat Active">
-					<val>1</val>
+					<val>0</val>
 					<applytoaccuracy>yes</applytoaccuracy>
 				</selectskill>
 			</bonus>
@@ -409,6 +409,40 @@
 			<adeptway>.5</adeptway>
 			<levels>yes</levels>
 			<limit>1</limit>
+			<bonus>
+				<specificskill>
+					<name>Con</name>
+					<bonus>Rating</bonus>
+				</specificskill>
+				<specificskill>
+					<name>Etiquette</name>
+					<bonus>Rating</bonus>
+				</specificskill>
+				<specificskill>
+					<name>Impersonation</name>
+					<bonus>Rating</bonus>
+				</specificskill>
+				<specificskill>
+					<name>Instruction</name>
+					<bonus>Rating</bonus>
+				</specificskill>
+				<specificskill>
+					<name>Intimidation</name>
+					<bonus>Rating</bonus>
+				</specificskill>
+				<specificskill>
+					<name>Leadership</name>
+					<bonus>Rating</bonus>
+				</specificskill>
+				<specificskill>
+					<name>Negotiation</name>
+					<bonus>Rating</bonus>
+				</specificskill>
+				<specificskill>
+					<name>Performance</name>
+					<bonus>Rating</bonus>
+				</specificskill>
+			</bonus>
 			<source>SG</source>
 			<page>169</page>
 		</power>

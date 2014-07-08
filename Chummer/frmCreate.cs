@@ -6355,39 +6355,34 @@ namespace Chummer
 
 				if (treMartialArts.SelectedNode.Level == 1)
 				{
-					if (treMartialArts.SelectedNode.Parent == treMartialArts.Nodes[0])
+					// Delete the selected Martial Art.
+					MartialArt objMartialArt = _objFunctions.FindMartialArt(treMartialArts.SelectedNode.Tag.ToString(), _objCharacter.MartialArts);
+
+                    if (objMartialArt.Name == "One Trick Pony")
+                    {
+                        foreach (Quality objQuality in _objCharacter.Qualities)
+                        {
+                            if (objQuality.Name == "One Trick Pony")
+                            {
+                                _objCharacter.Qualities.Remove(objQuality);
+                                foreach (TreeNode nodQuality in treQualities.Nodes[0].Nodes)
+                                {
+                                    if (nodQuality.Text.ToString() == "One Trick Pony")
+                                        nodQuality.Remove();
+                                }
+                                break;
+                            }
+                        }
+                    }
+
+					// Remove the Improvements for any Advantages for the Martial Art that is being removed.
+					foreach (MartialArtAdvantage objAdvantage in objMartialArt.Advantages)
 					{
-						// Characters may only have 2 Maneuvers per Martial Art Rating (start at -2 since we're potentially removing one).
-						int intTotalRating = -2;
-						foreach (MartialArt objCharacterMartialArt in _objCharacter.MartialArts)
-							intTotalRating += objCharacterMartialArt.Rating * 2;
-
-						if (treMartialArts.Nodes[1].Nodes.Count > intTotalRating && !_objCharacter.IgnoreRules)
-						{
-							MessageBox.Show(LanguageManager.Instance.GetString("Message_MartialArtManeuverLimit"), LanguageManager.Instance.GetString("MessageTitle_MartialArtManeuverLimit"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-							return;
-						}
-
-						// Delete the selected Martial Art.
-						MartialArt objMartialArt = _objFunctions.FindMartialArt(treMartialArts.SelectedNode.Tag.ToString(), _objCharacter.MartialArts);
-
-						// Remove the Improvements for any Advantages for the Martial Art that is being removed.
-						foreach (MartialArtAdvantage objAdvantage in objMartialArt.Advantages)
-						{
-							_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.MartialArtAdvantage, objAdvantage.InternalId);
-						}
-
-						_objCharacter.MartialArts.Remove(objMartialArt);
-						treMartialArts.SelectedNode.Remove();
+						_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.MartialArtAdvantage, objAdvantage.InternalId);
 					}
-					else
-					{
-						// Delete the selected Martial Art Maenuver.
-						MartialArtManeuver objManeuver = _objFunctions.FindMartialArtManeuver(treMartialArts.SelectedNode.Tag.ToString(), _objCharacter.MartialArtManeuvers);
 
-						_objCharacter.MartialArtManeuvers.Remove(objManeuver);
-						treMartialArts.SelectedNode.Remove();
-					}
+					_objCharacter.MartialArts.Remove(objMartialArt);
+					treMartialArts.SelectedNode.Remove();
 
 					CalculateBP();
 					UpdateCharacterInfo();
@@ -7171,6 +7166,22 @@ namespace Chummer
 
 			// Remove the Improvements that were created by the Quality.
 			_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Quality, objQuality.InternalId);
+
+            if (objQuality.Name == "One Trick Pony")
+            {
+                if (treMartialArts.Nodes[1].Nodes.Count > 0)
+                {
+                    foreach (MartialArt objMartialArt in _objCharacter.MartialArts)
+                    {
+                        if (objMartialArt.Name == "One Trick Pony")
+                        {
+                            _objCharacter.MartialArts.Remove(objMartialArt);
+                            treMartialArts.Nodes[1].Nodes[0].Remove();
+                            break;
+                        }
+                    }
+                }
+            }
 
 			XmlNode objXmlDeleteQuality = objXmlDocument.SelectSingleNode("/chummer/qualities/quality[name = \"" + objQuality.Name + "\"]");
 			
@@ -15861,33 +15872,54 @@ namespace Chummer
 
 				// Initiative.
 				lblINI.Text = _objCharacter.Initiative;
-				string strInit = "REA (" + _objCharacter.REA.Value.ToString() + ") + INT (" + _objCharacter.INT.Value.ToString() + ") + (" + _objCharacter.InitiativePasses.ToString() + "d6)";
+				string strInit = "REA (" + _objCharacter.REA.Value.ToString() + ") + INT (" + _objCharacter.INT.Value.ToString() + ")";
 				if (_objCharacter.INI.AttributeModifiers > 0 || _objImprovementManager.ValueOf(Improvement.ImprovementType.Initiative) > 0 || _objCharacter.INT.AttributeModifiers > 0 || _objCharacter.REA.AttributeModifiers > 0)
 					strInit += " + " + LanguageManager.Instance.GetString("Tip_Modifiers") + " (" + (_objCharacter.INI.AttributeModifiers + _objImprovementManager.ValueOf(Improvement.ImprovementType.Initiative) + _objCharacter.INT.AttributeModifiers + _objCharacter.REA.AttributeModifiers).ToString() + ")";
+                strInit +=  " + (" + _objCharacter.InitiativePasses.ToString() + "d6)";
 				tipTooltip.SetToolTip(lblINI, strInit);
 
 				// Astral Initiative.
 				if (_objCharacter.MAGEnabled)
 				{
 					lblAstralINI.Text = _objCharacter.AstralInitiative;
-					tipTooltip.SetToolTip(lblAstralINI, "INT (" + _objCharacter.INT.TotalValue.ToString() + ") x 2");
+                    strInit = "INT (" + _objCharacter.INT.TotalValue.ToString() + ") x 2";
+                    if (_objCharacter.INT.AttributeModifiers > 0)
+    					strInit += " + " + LanguageManager.Instance.GetString("Tip_Modifiers") + " (" + (_objCharacter.INT.AttributeModifiers).ToString() + ")";
+                    strInit += " + 2d6";
+					tipTooltip.SetToolTip(lblAstralINI, strInit);
 				}
 
                 // Matrix Initiative (AR).
                 lblMatrixINI.Text = _objCharacter.MatrixInitiative;
-                tipTooltip.SetToolTip(lblMatrixINI, "INT (" + _objCharacter.INT.TotalValue.ToString() + ") x 2");
+                strInit = "REA (" + _objCharacter.REA.Value.ToString() + ") + INT (" + _objCharacter.INT.Value.ToString() + ")";
+                if (_objCharacter.INT.AttributeModifiers > 0 || _objCharacter.REA.AttributeModifiers > 0)
+                    strInit += " + " + LanguageManager.Instance.GetString("Tip_Modifiers") + " (" + (_objCharacter.REA.AttributeModifiers + _objCharacter.INT.AttributeModifiers).ToString() + ")";
+                strInit += " + 1d6";
+                tipTooltip.SetToolTip(lblMatrixINI, strInit);
 
                 // Matrix Initiative (Cold).
                 lblMatrixINICold.Text = _objCharacter.MatrixInitiativeCold;
-                tipTooltip.SetToolTip(lblMatrixINICold, "INT (" + _objCharacter.INT.TotalValue.ToString() + ") x 2");
+                strInit = "Data Processing + INT (" + _objCharacter.INT.TotalValue.ToString() + ")";
+                if (_objCharacter.INT.AttributeModifiers > 0)
+                    strInit += " + " + LanguageManager.Instance.GetString("Tip_Modifiers") + " (" + (_objCharacter.INT.AttributeModifiers).ToString() + ")";
+                strInit += " + 3d6";
+                tipTooltip.SetToolTip(lblMatrixINICold, strInit);
 
                 // Matrix Initiative (Hot).
                 lblMatrixINIHot.Text = _objCharacter.MatrixInitiativeHot;
-                tipTooltip.SetToolTip(lblMatrixINIHot, "INT (" + _objCharacter.INT.TotalValue.ToString() + ") x 2");
+                strInit = "Data Processing + INT (" + _objCharacter.INT.TotalValue.ToString() + ")";
+                if (_objCharacter.INT.AttributeModifiers > 0)
+                    strInit += " + " + LanguageManager.Instance.GetString("Tip_Modifiers") + " (" + (_objCharacter.INT.AttributeModifiers).ToString() + ")";
+                strInit += " + 4d6";
+                tipTooltip.SetToolTip(lblMatrixINIHot, strInit);
 
                 // Rigger Initiative.
                 lblRiggingINI.Text = _objCharacter.RiggerInitiative;
-                tipTooltip.SetToolTip(lblRiggingINI, "INT (" + _objCharacter.INT.TotalValue.ToString() + ") x 2");
+                strInit = "REA (" + _objCharacter.REA.Value.ToString() + ") + INT (" + _objCharacter.INT.Value.ToString() + ")";
+                if (_objCharacter.INT.AttributeModifiers > 0 || _objCharacter.REA.AttributeModifiers > 0)
+                    strInit += " + " + LanguageManager.Instance.GetString("Tip_Modifiers") + " (" + (_objCharacter.REA.AttributeModifiers + _objCharacter.INT.AttributeModifiers).ToString() + ")";
+                strInit += " + 1d6";
+                tipTooltip.SetToolTip(lblRiggingINI, strInit);
 
                 //// Matrix Initiative.
                 //int intCommlinkResponse = 0;

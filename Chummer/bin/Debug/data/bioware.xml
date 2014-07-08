@@ -375,10 +375,7 @@
 			<avail>(Rating * 4)R</avail>
 			<cost>Rating * 31000</cost>
 			<bonus>
-				<skillcategory>
-					<name>Social Active</name>
-					<bonus>Rating</bonus>
-				</skillcategory>
+				<sociallimit>Rating</sociallimit>
 			</bonus>
 			<source>SR5</source>
 			<page>460</page>
