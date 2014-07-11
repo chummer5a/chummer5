@@ -471,7 +471,6 @@ namespace Chummer
             tabWeapons.Columns["Accuracy"].DataType = typeof(Int32);
             tabWeapons.Columns.Add("Damage");
             tabWeapons.Columns.Add("AP");
-            tabWeapons.Columns["AP"].DataType = typeof(Int32);
             tabWeapons.Columns.Add("RC");
             tabWeapons.Columns["RC"].DataType = typeof(Int32);
             tabWeapons.Columns.Add("Ammo");
@@ -509,7 +508,6 @@ namespace Chummer
                 string strAP = objWeapon.TotalAP;
                 if (strAP == "-")
                     strAP = "0";
-                int intAP = Convert.ToInt32(strAP);
                 int intRC = Convert.ToInt32(objWeapon.TotalRC);
                 string strAmmo = objWeapon.Ammo;
                 string strMode = objWeapon.Mode;
@@ -525,7 +523,7 @@ namespace Chummer
                 string strSource = objWeapon.Source + " " + objWeapon.Page;
                 int intCost = objWeapon.Cost;
 
-                tabWeapons.Rows.Add(strWeaponName, intDice, intAccuracy, strDamage, intAP, intRC, strAmmo, strMode, strReach, strAccessories, strAvail, strSource, intCost);
+                tabWeapons.Rows.Add(strWeaponName, intDice, intAccuracy, strDamage, strAP, intRC, strAmmo, strMode, strReach, strAccessories, strAvail, strSource, intCost);
             }
 
             DataSet set = new DataSet("weapons");
@@ -578,7 +576,6 @@ namespace Chummer
                 tabWeapons.Columns["Accuracy"].DataType = typeof(Int32);
                 tabWeapons.Columns.Add("Damage");
                 tabWeapons.Columns.Add("AP");
-                tabWeapons.Columns["AP"].DataType = typeof(Int32);
                 tabWeapons.Columns.Add("RC");
                 tabWeapons.Columns["RC"].DataType = typeof(Int32);
                 tabWeapons.Columns.Add("Ammo");
@@ -604,7 +601,6 @@ namespace Chummer
                     string strAP = objWeapon.TotalAP;
                     if (strAP == "-")
                         strAP = "0";
-                    int intAP = Convert.ToInt32(strAP);
                     int intRC = Convert.ToInt32(objWeapon.TotalRC);
                     string strAmmo = objWeapon.Ammo;
                     string strMode = objWeapon.Mode;
@@ -630,7 +626,7 @@ namespace Chummer
                         strReach = "";
                     }
 
-                    tabWeapons.Rows.Add(strWeaponName, intDice, intAccuracy, strDamage, intAP, intRC, strAmmo, strMode, strReach, strAccessories, strAvail, strSource, intCost);
+                    tabWeapons.Rows.Add(strWeaponName, intDice, intAccuracy, strDamage, strAP, intRC, strAmmo, strMode, strReach, strAccessories, strAvail, strSource, intCost);
                 }
 
                 DataSet set = new DataSet("weapons");
