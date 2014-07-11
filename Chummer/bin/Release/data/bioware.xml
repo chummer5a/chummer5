@@ -375,7 +375,10 @@
 			<avail>(Rating * 4)R</avail>
 			<cost>Rating * 31000</cost>
 			<bonus>
-				<sociallimit>Rating</sociallimit>
+				<limitmodifier>
+					<limit>Social</limit>
+					<value>Rating</value>
+				</limitmodifier>
 			</bonus>
 			<source>SR5</source>
 			<page>460</page>

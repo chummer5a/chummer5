@@ -101,12 +101,19 @@ namespace Chummer
             // Load the Priority information.
             XmlDocument objXmlDocumentPriority = XmlManager.Instance.Load(_strPrioritiesXmlFile);
 
+            if (_objCharacter.GameplayOption == "")
+                _objCharacter.GameplayOption = "Standard";
+
             // Populate the Priority Category list.
             _blnInitializing = true;
             XmlNodeList objXmlPriorityCategoryList = objXmlDocumentPriority.SelectNodes("/chummer/categories/category");
             foreach (XmlNode objXmlPriorityCategory in objXmlPriorityCategoryList)
             {
-                string strXPath = "/chummer/priorities/priority[category = \"" + objXmlPriorityCategory.InnerText + "\"]";
+                string strXPath = "";
+                if (objXmlPriorityCategory.InnerText == "Resources")
+                    strXPath = "/chummer/priorities/priority[category = \"" + objXmlPriorityCategory.InnerText + "\" and gameplayoption = \"" + _objCharacter.GameplayOption + "\"]";
+                else
+                    strXPath = "/chummer/priorities/priority[category = \"" + objXmlPriorityCategory.InnerText + "\"]";
                 XmlNodeList objItems = objXmlDocumentPriority.SelectNodes(strXPath);
                 if (objItems.Count > 0)
                 {
@@ -1462,8 +1469,15 @@ namespace Chummer
                 // Load the Priority information.
                 XmlDocument objXmlDocumentPriority = XmlManager.Instance.Load(_strPrioritiesXmlFile);
 
+                // Set the character priority selections
+                _objCharacter.MetatypePriority = cboHeritage.Text.ToString();
+                _objCharacter.AttributesPriority = cboAttributes.Text.ToString();
+                _objCharacter.SpecialPriority = cboTalent.Text.ToString();
+                _objCharacter.SkillsPriority = cboSkills.Text.ToString();
+                _objCharacter.ResourcesPriority = cboResources.Text.ToString();
+
                 // Set starting nuyen
-                XmlNodeList objXmResourceList = objXmlDocumentPriority.SelectNodes("/chummer/priorities/priority[category = \"Resources\" and value = \"" + cboResources.SelectedValue + "\"]");
+                XmlNodeList objXmResourceList = objXmlDocumentPriority.SelectNodes("/chummer/priorities/priority[category = \"Resources\" and gameplayoption = \"" + _objCharacter.GameplayOption + "\" and value = \"" + cboResources.SelectedValue + "\"]");
                 if (objXmResourceList.Count > 0)
                 {
                     _objCharacter.Nuyen = Convert.ToInt32(objXmResourceList[0]["resources"].InnerText.ToString());
@@ -1658,11 +1672,20 @@ namespace Chummer
                     _objCharacter.SkillGroupPointsMaximum = _objCharacter.SkillGroupPoints;
                 }
 
+                // Load the Priority information.
+                XmlNode objXmlGameplayOption = objXmlDocumentPriority.SelectSingleNode("/chummer/gameplayoptions/gameplayoption[name = \"" + _objCharacter.GameplayOption + "\"]");
+                string strKarma = objXmlGameplayOption["karma"].InnerText;
+                string strNuyen = objXmlGameplayOption["maxnuyen"].InnerText;
+                string strContactMultiplier = objXmlGameplayOption["contactmultiplier"].InnerText;
+                _objCharacter.MaxKarma = Convert.ToInt32(strKarma);
+                _objCharacter.MaxNuyen = Convert.ToInt32(strNuyen);
+                _objCharacter.ContactMultiplier = Convert.ToInt32(strContactMultiplier);
+
                 // Set free contact points
-                _objCharacter.ContactPoints = _objCharacter.CHA.Value * 3;
+                _objCharacter.ContactPoints = _objCharacter.CHA.Value * _objCharacter.ContactMultiplier;
 
                 // Set starting karma
-                _objCharacter.BuildKarma = 25;
+                _objCharacter.BuildKarma = _objCharacter.MaxKarma;
 
                 // Set starting movement rate
                 _objCharacter.Movement = (_objCharacter.AGI.Augmented * 2).ToString() + "/" + (_objCharacter.AGI.Augmented * 4).ToString();

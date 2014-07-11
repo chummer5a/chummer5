@@ -1490,7 +1490,6 @@ namespace Chummer
                 // Select a Limit.
                 if (NodeExists(nodBonus, "selectlimit") && !_blnAddingLimit)
                 {
-                    _strForcedValue = "";
                     // Display the Select Limit window and record which Limit was selected.
                     frmSelectLimit frmPickLimit = new frmSelectLimit();
                     if (strFriendlyName != "")
@@ -1567,23 +1566,7 @@ namespace Chummer
                     string strName = strFriendlyName;
                     TreeNode nodTemp = new TreeNode();
                     
-                    bool blnFound = false;
-                    foreach (LimitModifier lm in _objCharacter.LimitModifiers)
-                    {
-                        if (lm.Name == strName)
-                        {
-                            blnFound = true;
-                            lm.Bonus = intBonus;
-                        }
-                    }
-
-                    if (!blnFound)
-                    {
-                        objLimitMod.Create(strName, intBonus, strLimit, _objCharacter, nodTemp);
-                        _objCharacter.LimitModifiers.Add(objLimitMod);
-                    }
-
-                    // CreateImprovement(strLimit, objImprovementSource, strSourceName, Improvement.ImprovementType.LimitModifier, strUnique, 0, 1, intMin, intMax, intAug, intAugMax);
+                    CreateImprovement(strLimit, objImprovementSource, strSourceName, Improvement.ImprovementType.LimitModifier, strFriendlyName, intBonus, 0, intMin, intMax, intAug, intAugMax);
                 }
 
                 // Select an Attribute.
@@ -1848,8 +1831,10 @@ namespace Chummer
                         intBonus = Convert.ToInt32(strBonus);
                     string strName = strFriendlyName;
                     TreeNode nodTemp = new TreeNode();
-                    objLimitMod.Create(strName, intBonus, strLimit, _objCharacter, nodTemp);
-                    _objCharacter.LimitModifiers.Add(objLimitMod);
+                    //objLimitMod.Create(strName, intBonus, strLimit, _objCharacter, nodTemp);
+                    //_objCharacter.LimitModifiers.Add(objLimitMod);
+                    CreateImprovement(strLimit, objImprovementSource, strSourceName, Improvement.ImprovementType.LimitModifier, strFriendlyName, intBonus, 0, 0, 0, 0, 0);
+
                 }
 
 				// The Improvement adjusts a Skill Category.

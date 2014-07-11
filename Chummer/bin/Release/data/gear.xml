@@ -14,11 +14,14 @@
 		<category>Commlink Accessories</category>
 		<category>Common Programs</category>
 		<category>Communications and Countermeasures</category>
+		<category>Custom</category>
 		<category>Cyberdecks</category>
+		<category>Disguises</category>
 		<category>DocWagon Contract</category>
 		<category>Drugs</category>
 		<category>Electronics Accessories</category>
 		<category>Explosives</category>
+		<category>Extraction Devices</category>
 		<category>Foci</category>
 		<category>Formulae</category>
 		<category>Grapple Gun</category>
@@ -1074,6 +1077,78 @@
 			<cost>Rating * 500</cost>
 			<source>RG</source>
 			<page>197</page>
+		</gear>
+		<gear>
+			<name>Houdini Machine I</name>
+			<category>Extraction Devices</category>
+			<rating>0</rating>
+			<avail>12F</avail>
+			<cost>8500</cost>
+			<source>SS</source>
+			<page>172</page>
+		</gear>
+		<gear>
+			<name>Houdini Machine II</name>
+			<category>Extraction Devices</category>
+			<rating>0</rating>
+			<avail>12F</avail>
+			<cost>12000</cost>
+			<source>SS</source>
+			<page>172</page>
+		</gear>
+		<gear>
+			<name>Ambulance Gurney</name>
+			<category>Extraction Devices</category>
+			<rating>0</rating>
+			<avail>8</avail>
+			<cost>2000</cost>
+			<source>SS</source>
+			<page>173</page>
+		</gear>
+		<gear>
+			<name>Body Bag</name>
+			<category>Extraction Devices</category>
+			<rating>0</rating>
+			<avail>6</avail>
+			<cost>50</cost>
+			<source>SS</source>
+			<page>173</page>
+		</gear>
+		<gear>
+			<name>Fake DocWagon Wrist Band</name>
+			<category>Extraction Devices</category>
+			<rating>0</rating>
+			<avail>10F</avail>
+			<cost>100</cost>
+			<source>SS</source>
+			<page>173</page>
+		</gear>
+		<gear>
+			<name>Stimtouch Hosiery</name>
+			<category>Extraction Devices</category>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<cost>250</cost>
+			<source>SS</source>
+			<page>178</page>
+		</gear>
+		<gear>
+			<name>Laced Lipstick</name>
+			<category>Extraction Devices</category>
+			<rating>0</rating>
+			<avail>10F</avail>
+			<cost>50</cost>
+			<source>SS</source>
+			<page>178</page>
+		</gear>
+		<gear>
+			<name>Uniforms</name>
+			<category>Disguises</category>
+			<rating>0</rating>
+			<avail>16F</avail>
+			<cost>>Variable(2000-15000)</cost>
+			<source>SS</source>
+			<page>178</page>
 		</gear>
 		<gear>
 			<name>Meta Link</name>
@@ -4036,13 +4111,19 @@
 			<name>Reagents, per dram</name>
 			<category>Magical Supplies</category>
 			<rating>0</rating>
-			<bonus>
-				<selecttext />
-			</bonus>
 			<avail>0</avail>
 			<cost>20</cost>
 			<source>SR5</source>
 			<page>316</page>
+		</gear>	
+		<gear>
+			<name>Fetish</name>
+			<category>Magical Supplies</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>0</cost>
+			<source>SG</source>
+			<page>212</page>
 		</gear>	
 		<gear>
 			<name>Aqua Fictus</name>
@@ -4622,6 +4703,114 @@
 			<page>19</page>
 		</gear>
 		<gear>
+			<name>Caldwell Lily Extract</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>10R</avail>
+			<cost>600</cost>
+			<source>SS</source>
+			<page>188</page>
+		</gear>
+		<gear>
+			<name>Caldwell Lily Extract, Concentrated</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>12R</avail>
+			<cost>1000</cost>
+			<source>SS</source>
+			<page>188</page>
+		</gear>
+		<gear>
+			<name>Chloral Hydrate</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>6R</avail>
+			<cost>50</cost>
+			<source>SS</source>
+			<page>188</page>
+		</gear>
+		<gear>
+			<name>Chloroform</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>75</cost>
+			<source>SS</source>
+			<page>188</page>
+		</gear>
+		<gear>
+			<name>DMSO</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>5R</avail>
+			<cost>50</cost>
+			<source>SS</source>
+			<page>188</page>
+		</gear>
+		<gear>
+			<name>Gamma-Scolopolamine</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>14F</avail>
+			<cost>200</cost>
+			<source>SS</source>
+			<page>188</page>
+		</gear>
+		<gear>
+			<name>Laés</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>12F</avail>
+			<cost>750</cost>
+			<source>SS</source>
+			<page>188</page>
+		</gear>
+		<gear>
+			<name>Leäl</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>10F</avail>
+			<cost>400</cost>
+			<source>SS</source>
+			<page>188</page>
+		</gear>
+		<gear>
+			<name>Liquid Nutrients</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>4R</avail>
+			<cost>75</cost>
+			<source>SS</source>
+			<page>189</page>
+		</gear>
+		<gear>
+			<name>Narcoject</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>8R</avail>
+			<cost>50</cost>
+			<source>SS</source>
+			<page>189</page>
+		</gear>
+		<gear>
+			<name>Normal Saline</name>
+			<category>Drugs</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>30</cost>
+			<source>SS</source>
+			<page>189</page>
+		</gear>
+		<gear>
+			<name>Slab</name>
+			<category>Toxins</category>
+			<rating>0</rating>
+			<avail>8R</avail>
+			<cost>250</cost>
+			<source>SS</source>
+			<page>189</page>
+		</gear>
+		<gear>
 			<name>Dreamchip</name>
 			<category>BTLs</category>
 			<rating>0</rating>
@@ -4733,6 +4922,15 @@
 			<cost>25</cost>
 			<source>SR5</source>
 			<page>433</page>
+		</gear>
+		<gear>
+			<name>Custom Item</name>
+			<category>Custom</category>
+			<rating>0</rating>
+			<avail>0</avail>
+			<cost>Variable(0-1000000)</cost>
+			<source>SR5</source>
+			<page>1</page>
 		</gear>
 	</gears>
 </chummer>

@@ -723,7 +723,19 @@ namespace Chummer
 					if (objXmlCyberware["avail"].InnerText.StartsWith("FixedValues"))
 					{
 						string[] strValues = objXmlCyberware["avail"].InnerText.Replace("FixedValues(", string.Empty).Replace(")", string.Empty).Split(',');
-						lblAvail.Text = strValues[Convert.ToInt32(nudRating.Value) - 1];
+                        strAvail = strValues[Convert.ToInt32(nudRating.Value) - 1];
+                        if (strAvail.EndsWith("F") || strAvail.EndsWith("R"))
+                        {
+                            string strAvailSuffix = strAvail.Substring(strAvail.Length - 1, 1);
+                            strAvail = strAvail.Substring(0, strAvail.Length - 1);
+                            int intAvail = Convert.ToInt32(strAvail) + _intAvailModifier;
+                            lblAvail.Text = intAvail.ToString() + strAvailSuffix;
+                        }
+                        else
+                        {
+                            int intAvail = Convert.ToInt32(strAvail) + _intAvailModifier;
+                            lblAvail.Text = intAvail.ToString();
+                        }
 					}
 					else
 					{

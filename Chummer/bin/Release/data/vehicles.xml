@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-498</version>
+	<version>-497</version>
 	<categories>
 		<category>Bikes</category>
 		<category>Cars</category>
@@ -116,6 +116,25 @@
 			<page>462</page>
 		</vehicle>
 		<vehicle>
+			<name>Chrysler-Nissan Journey (Car)</name>
+			<category>Cars</category>
+			<handling>4/3</handling>
+			<accel>3</accel>
+			<speed>3</speed>
+			<pilot>1</pilot>
+			<body>9</body>
+			<armor>5</armor>
+			<sensor>1</sensor>
+			<seats>4</seats>
+			<gears>
+				<gear rating="2">Sensor Array</gear>
+			</gears>
+			<avail>0</avail>
+			<cost>17000</cost>
+			<source>SS</source>
+			<page>186</page>
+		</vehicle>
+		<vehicle>
 			<name>Eurocar Westwind 3000 (Luxury Sports Car)</name>
 			<category>Cars</category>
 			<handling>6/4</handling>
@@ -154,6 +173,44 @@
 			<page>463</page>
 		</vehicle>
 		<vehicle>
+			<name>Honda Artemis (Car)</name>
+			<category>Cars</category>
+			<handling>4/2</handling>
+			<accel>3</accel>
+			<speed>3</speed>
+			<pilot>1</pilot>
+			<body>9</body>
+			<armor>6</armor>
+			<sensor>1</sensor>
+			<seats>4</seats>
+			<gears>
+				<gear rating="2">Sensor Array</gear>
+			</gears>
+			<avail>0</avail>
+			<cost>17000</cost>
+			<source>SS</source>
+			<page>186</page>
+		</vehicle>
+		<vehicle>
+			<name>Saeder-Krupp LT-21 (Delivery Van)</name>
+			<category>Trucks</category>
+			<handling>2/1</handling>
+			<accel>1</accel>
+			<speed>2</speed>
+			<pilot>2</pilot>
+			<body>15</body>
+			<armor>7</armor>
+			<sensor>2</sensor>
+			<seats>2</seats>
+			<gears>
+				<gear rating="2">Sensor Array</gear>
+			</gears>
+			<avail>0</avail>
+			<cost>31000</cost>
+			<source>SS</source>
+			<page>186</page>
+		</vehicle>
+		<vehicle>
 			<name>Hyundai Shin-Hyung (Sport Sedan)</name>
 			<category>Cars</category>
 			<handling>5/4</handling>
@@ -171,6 +228,63 @@
 			<cost>28500</cost>
 			<source>SR5</source>
 			<page>463</page>
+		</vehicle>
+		<vehicle>
+			<name>Dodge Ram Industrial (Large) (Garbage Truck)</name>
+			<category>Trucks</category>
+			<handling>2/1</handling>
+			<accel>1</accel>
+			<speed>1</speed>
+			<pilot>2</pilot>
+			<body>16</body>
+			<armor>8</armor>
+			<sensor>4</sensor>
+			<seats>4</seats>
+			<gears>
+				<gear rating="2">Sensor Array</gear>
+			</gears>
+			<avail>0</avail>
+			<cost>51000</cost>
+			<source>SS</source>
+			<page>186</page>
+		</vehicle>
+		<vehicle>
+			<name>Dodge Ram Industrial (Narrow) (Garbage Truck)</name>
+			<category>Trucks</category>
+			<handling>3/1</handling>
+			<accel>1</accel>
+			<speed>1</speed>
+			<pilot>2</pilot>
+			<body>16</body>
+			<armor>8</armor>
+			<sensor>4</sensor>
+			<seats>4</seats>
+			<gears>
+				<gear rating="2">Sensor Array</gear>
+			</gears>
+			<avail>0</avail>
+			<cost>49000</cost>
+			<source>SS</source>
+			<page>186</page>
+		</vehicle>
+		<vehicle>
+			<name>Esprit Industries Watcher (SUV)</name>
+			<category>Trucks</category>
+			<handling>3/3</handling>
+			<accel>3</accel>
+			<speed>3</speed>
+			<pilot>1</pilot>
+			<body>9</body>
+			<armor>8</armor>
+			<sensor>3</sensor>
+			<seats>5</seats>
+			<gears>
+				<gear rating="2">Sensor Array</gear>
+			</gears>
+			<avail>0</avail>
+			<cost>40000</cost>
+			<source>SS</source>
+			<page>186</page>
 		</vehicle>
 		<vehicle>
 			<name>Mitsubishi Nightsky (Limousine)</name>
@@ -287,6 +401,44 @@
 			<page>463</page>
 		</vehicle>
 		<vehicle>
+			<name>GMC Endurance (Van)</name>
+			<category>Trucks</category>
+			<handling>3/3</handling>
+			<accel>3</accel>
+			<speed>4</speed>
+			<pilot>1</pilot>
+			<body>14</body>
+			<armor>6</armor>
+			<sensor>2</sensor>
+			<seats>8</seats>
+			<gears>
+				<gear rating="2">Sensor Array</gear>
+			</gears>
+			<avail>0</avail>
+			<cost>35000</cost>
+			<source>SS</source>
+			<page>186</page>
+		</vehicle>
+		<vehicle>
+			<name>GMC Sidewinder (SUV)</name>
+			<category>Trucks</category>
+			<handling>4/3</handling>
+			<accel>2</accel>
+			<speed>4</speed>
+			<pilot>2</pilot>
+			<body>10</body>
+			<armor>6</armor>
+			<sensor>2</sensor>
+			<seats>6</seats>
+			<gears>
+				<gear rating="2">Sensor Array</gear>
+			</gears>
+			<avail>0</avail>
+			<cost>33000</cost>
+			<source>SS</source>
+			<page>186</page>
+		</vehicle>
+		<vehicle>
 			<name>Ares Roadmaster (Armored Transport)</name>
 			<category>Trucks</category>
 			<handling>3/3</handling>
@@ -326,6 +478,44 @@
 			</gears>
 			<source>AR</source>
 			<page>110</page>
+		</vehicle>
+		<vehicle>
+			<name>Conestoga Trailblazer (Moving Truck)</name>
+			<category>Trucks</category>
+			<handling>2/1</handling>
+			<accel>1</accel>
+			<speed>2</speed>
+			<pilot>2</pilot>
+			<body>14</body>
+			<armor>6</armor>
+			<sensor>1</sensor>
+			<seats>2</seats>
+			<gears>
+				<gear rating="2">Sensor Array</gear>
+			</gears>
+			<avail>4</avail>
+			<cost>75000</cost>
+			<source>SS</source>
+			<page>186</page>
+		</vehicle>
+		<vehicle>
+			<name>Conestoga Trailblazer w/Trailer (Moving Truck)</name>
+			<category>Trucks</category>
+			<handling>1/1</handling>
+			<accel>1</accel>
+			<speed>2</speed>
+			<pilot>2</pilot>
+			<body>20</body>
+			<armor>6</armor>
+			<sensor>1</sensor>
+			<seats>2</seats>
+			<gears>
+				<gear rating="2">Sensor Array</gear>
+			</gears>
+			<avail>4</avail>
+			<cost>95000</cost>
+			<source>SS</source>
+			<page>186</page>
 		</vehicle>
 		<vehicle>
 			<name>Samuvani Criscraft Otter (Sport Cruiser)</name>
@@ -744,6 +934,25 @@
 			<page>466</page>
 		</vehicle>
 		<vehicle>
+			<name>Cyberspace Designs Dragonfly (Small)</name>
+			<category>Drones: Small</category>
+			<handling>4</handling>
+			<accel>2</accel>
+			<speed>3</speed>
+			<pilot>3</pilot>
+			<body>1</body>
+			<armor>1</armor>
+			<sensor>2</sensor>
+			<seats>0</seats>
+			<gears>
+				<gear rating="2">Sensor Array</gear>
+			</gears>
+			<avail>12R</avail>
+			<cost>2500</cost>
+			<source>SS</source>
+			<page>179</page>
+		</vehicle>
+		<vehicle>
 			<name>Ares Duelist (Medium)</name>
 			<category>Drones: Medium</category>
 			<handling>3</handling>
@@ -765,6 +974,44 @@
 			<cost>4500</cost>
 			<source>SR5</source>
 			<page>466</page>
+		</vehicle>
+		<vehicle>
+			<name>Bust-A-Move (2nd Generation) (Medium)</name>
+			<category>Drones: Medium</category>
+			<handling>4</handling>
+			<accel>1</accel>
+			<speed>3</speed>
+			<pilot>2</pilot>
+			<body>2</body>
+			<armor>1</armor>
+			<sensor>2</sensor>
+			<seats>0</seats>
+			<gears>
+				<gear rating="2">Sensor Array</gear>
+			</gears>
+			<avail>50</avail>
+			<cost>Variable(700-1500)</cost>
+			<source>SS</source>
+			<page>178</page>
+		</vehicle>
+		<vehicle>
+			<name>Transys Office Maid (Medium)</name>
+			<category>Drones: Medium</category>
+			<handling>3</handling>
+			<accel>2</accel>
+			<speed>3</speed>
+			<pilot>4</pilot>
+			<body>3</body>
+			<armor>0</armor>
+			<sensor>3</sensor>
+			<seats>0</seats>
+			<gears>
+				<gear rating="2">Sensor Array</gear>
+			</gears>
+			<avail>4</avail>
+			<cost>8000</cost>
+			<source>SS</source>
+			<page>179</page>
 		</vehicle>
 		<vehicle>
 			<name>GM-Nissan Doberman (Medium)</name>
@@ -827,6 +1074,63 @@
 			<page>466</page>
 		</vehicle>
 		<vehicle>
+			<name>GMC Snatch'n'Grab (Large)</name>
+			<category>Drones: Large</category>
+			<handling>3</handling>
+			<accel>2</accel>
+			<speed>4</speed>
+			<pilot>3</pilot>
+			<body>2</body>
+			<armor>4</armor>
+			<sensor>3</sensor>
+			<seats>0</seats>
+			<gears>
+				<gear rating="2">Sensor Array</gear>
+			</gears>
+			<avail>12F</avail>
+			<cost>8000</cost>
+			<source>SS</source>
+			<page>179</page>
+		</vehicle>
+		<vehicle>
+			<name>Modified Dassault Janatorial Drone (Large)</name>
+			<category>Drones: Large</category>
+			<handling>2</handling>
+			<accel>2</accel>
+			<speed>2</speed>
+			<pilot>2</pilot>
+			<body>10</body>
+			<armor>2</armor>
+			<sensor>2</sensor>
+			<seats>0</seats>
+			<gears>
+				<gear rating="2">Sensor Array</gear>
+			</gears>
+			<avail>8</avail>
+			<cost>10000</cost>
+			<source>SS</source>
+			<page>179</page>
+		</vehicle>
+		<vehicle>
+			<name>Modified Renraku Manservant-3 (Large)</name>
+			<category>Drones: Large</category>
+			<handling>2</handling>
+			<accel>2</accel>
+			<speed>2</speed>
+			<pilot>3</pilot>
+			<body>3</body>
+			<armor>5</armor>
+			<sensor>3</sensor>
+			<seats>0</seats>
+			<gears>
+				<gear rating="2">Sensor Array</gear>
+			</gears>
+			<avail>14F</avail>
+			<cost>9000</cost>
+			<source>SS</source>
+			<page>180</page>
+		</vehicle>
+		<vehicle>
 			<name>Steel Lynx Combat Drone (Large)</name>
 			<category>Drones: Large</category>
 			<handling>5</handling>
@@ -849,7 +1153,7 @@
 			<page>466</page>
 		</vehicle>
 		<vehicle>
-			<name>Aeroquip M.E.D.-1 "Dustoff" Medical Evacuation Drone (Large)</name>
+			<name>Aeroquip M.E.D.-1 'Dustoff' Medical Evacuation Drone (Large)</name>
 			<category>Drones: Large</category>
 			<handling>3</handling>
 			<accel>4</accel>
@@ -868,7 +1172,7 @@
 			<page>23</page>
 		</vehicle>
 		<vehicle>
-			<name>Shiawase Caduceus "CAD" 7 (Medium)</name>
+			<name>Shiawase Caduceus 'CAD' 7 (Medium)</name>
 			<category>Drones: Medium</category>
 			<handling>4</handling>
 			<accel>1</accel>
@@ -937,6 +1241,86 @@
 			<cost>5500</cost>
 			<source>SR5</source>
 			<page>461</page>
+		</mod>
+		<mod>
+			<name>Chameleon Coating</name>
+			<category>All</category>
+			<rating>0</rating>
+			<slots>0</slots>
+			<avail>12R</avail>
+			<cost>Body * 2000</cost>
+			<source>SS</source>
+			<page>174</page>
+		</mod>
+		<mod>
+			<name>Dash Light Bar</name>
+			<category>All</category>
+			<rating>0</rating>
+			<slots>0</slots>
+			<avail>15F</avail>
+			<cost>3500</cost>
+			<source>SS</source>
+			<page>176</page>
+		</mod>
+		<mod>
+			<name>Emergency Light Bar</name>
+			<category>All</category>
+			<rating>0</rating>
+			<slots>0</slots>
+			<avail>15F</avail>
+			<cost>5000</cost>
+			<source>SS</source>
+			<page>176</page>
+		</mod>
+		<mod>
+			<name>Morphing License Plate</name>
+			<category>All</category>
+			<rating>0</rating>
+			<slots>0</slots>
+			<avail>8F</avail>
+			<cost>1000</cost>
+			<source>SS</source>
+			<page>177</page>
+		</mod>
+		<mod>
+			<name>Siren</name>
+			<category>All</category>
+			<rating>0</rating>
+			<slots>0</slots>
+			<avail>15F</avail>
+			<cost>1400</cost>
+			<source>SS</source>
+			<page>176</page>
+		</mod>
+		<mod>
+			<name>Smuggling Compartment (Dwarf, Human, Elf, or Ork)</name>
+			<category>All</category>
+			<rating>0</rating>
+			<slots>0</slots>
+			<avail>12F</avail>
+			<cost>3500</cost>
+			<source>SS</source>
+			<page>177</page>
+		</mod>
+		<mod>
+			<name>Smuggling Compartment (Troll)</name>
+			<category>All</category>
+			<rating>0</rating>
+			<slots>0</slots>
+			<avail>12F</avail>
+			<cost>7000</cost>
+			<source>SS</source>
+			<page>177</page>
+		</mod>
+		<mod>
+			<name>Spoof Chips</name>
+			<category>All</category>
+			<rating>0</rating>
+			<slots>0</slots>
+			<avail>8F</avail>
+			<cost>500</cost>
+			<source>SS</source>
+			<page>177</page>
 		</mod>
 	</mods>
 </chummer>

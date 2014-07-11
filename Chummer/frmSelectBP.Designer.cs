@@ -38,13 +38,14 @@
             this.cboBuildMethod = new System.Windows.Forms.ComboBox();
             this.lblMaxAvail = new System.Windows.Forms.Label();
             this.nudMaxAvail = new System.Windows.Forms.NumericUpDown();
+            this.cboGamePlay = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudBP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxAvail)).BeginInit();
             this.SuspendLayout();
             // 
             // nudBP
             // 
-            this.nudBP.Location = new System.Drawing.Point(82, 58);
+            this.nudBP.Location = new System.Drawing.Point(127, 56);
             this.nudBP.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -61,7 +62,7 @@
             // 
             // cmdOK
             // 
-            this.cmdOK.Location = new System.Drawing.Point(191, 107);
+            this.cmdOK.Location = new System.Drawing.Point(185, 151);
             this.cmdOK.Name = "cmdOK";
             this.cmdOK.Size = new System.Drawing.Size(75, 23);
             this.cmdOK.TabIndex = 6;
@@ -83,7 +84,7 @@
             // chkIgnoreRules
             // 
             this.chkIgnoreRules.AutoSize = true;
-            this.chkIgnoreRules.Location = new System.Drawing.Point(47, 84);
+            this.chkIgnoreRules.Location = new System.Drawing.Point(46, 119);
             this.chkIgnoreRules.Name = "chkIgnoreRules";
             this.chkIgnoreRules.Size = new System.Drawing.Size(177, 17);
             this.chkIgnoreRules.TabIndex = 5;
@@ -105,7 +106,7 @@
             // cmdCancel
             // 
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdCancel.Location = new System.Drawing.Point(110, 107);
+            this.cmdCancel.Location = new System.Drawing.Point(104, 151);
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(75, 23);
             this.cmdCancel.TabIndex = 7;
@@ -118,7 +119,7 @@
             // 
             this.cboBuildMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBuildMethod.FormattingEnabled = true;
-            this.cboBuildMethod.Location = new System.Drawing.Point(15, 58);
+            this.cboBuildMethod.Location = new System.Drawing.Point(60, 56);
             this.cboBuildMethod.Name = "cboBuildMethod";
             this.cboBuildMethod.Size = new System.Drawing.Size(61, 21);
             this.cboBuildMethod.TabIndex = 1;
@@ -127,7 +128,7 @@
             // lblMaxAvail
             // 
             this.lblMaxAvail.AutoSize = true;
-            this.lblMaxAvail.Location = new System.Drawing.Point(153, 62);
+            this.lblMaxAvail.Location = new System.Drawing.Point(76, 96);
             this.lblMaxAvail.Name = "lblMaxAvail";
             this.lblMaxAvail.Size = new System.Drawing.Size(59, 13);
             this.lblMaxAvail.TabIndex = 3;
@@ -136,7 +137,7 @@
             // 
             // nudMaxAvail
             // 
-            this.nudMaxAvail.Location = new System.Drawing.Point(218, 59);
+            this.nudMaxAvail.Location = new System.Drawing.Point(141, 93);
             this.nudMaxAvail.Name = "nudMaxAvail";
             this.nudMaxAvail.Size = new System.Drawing.Size(42, 20);
             this.nudMaxAvail.TabIndex = 4;
@@ -146,14 +147,26 @@
             0,
             0});
             // 
+            // cboGamePlay
+            // 
+            this.cboGamePlay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGamePlay.FormattingEnabled = true;
+            this.cboGamePlay.Location = new System.Drawing.Point(127, 56);
+            this.cboGamePlay.Name = "cboGamePlay";
+            this.cboGamePlay.Size = new System.Drawing.Size(107, 21);
+            this.cboGamePlay.TabIndex = 8;
+            this.cboGamePlay.Visible = false;
+            this.cboGamePlay.SelectedIndexChanged += new System.EventHandler(this.cboGamePlay_SelectedIndexChanged);
+            // 
             // frmSelectBP
             // 
             this.AcceptButton = this.cmdOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdCancel;
-            this.ClientSize = new System.Drawing.Size(278, 136);
+            this.ClientSize = new System.Drawing.Size(272, 182);
             this.ControlBox = false;
+            this.Controls.Add(this.cboGamePlay);
             this.Controls.Add(this.nudMaxAvail);
             this.Controls.Add(this.lblMaxAvail);
             this.Controls.Add(this.cboBuildMethod);
@@ -165,6 +178,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(0, 220);
             this.Name = "frmSelectBP";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -189,5 +203,6 @@
 		private System.Windows.Forms.ComboBox cboBuildMethod;
 		private System.Windows.Forms.Label lblMaxAvail;
 		private System.Windows.Forms.NumericUpDown nudMaxAvail;
+        private System.Windows.Forms.ComboBox cboGamePlay;
     }
 }

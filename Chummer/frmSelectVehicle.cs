@@ -360,20 +360,28 @@ namespace Chummer
 			lblVehicleAvail.Text = lblVehicleAvail.Text.Replace("R", LanguageManager.Instance.GetString("String_AvailRestricted")).Replace("F", LanguageManager.Instance.GetString("String_AvailForbidden"));
 
 			// Apply the cost multiplier to the Vehicle (will be 1 unless Used Vehicle is selected)
-			int intCost = Convert.ToInt32(objXmlVehicle["cost"].InnerText);
-			intCost = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(intCost, GlobalOptions.Instance.CultureInfo) * dblCostModifier));
+            if (objXmlVehicle["cost"].InnerText.StartsWith("Variable"))
+            {
+                lblVehicleCost.Text = objXmlVehicle["cost"].InnerText;
+                lblTest.Text = "";
+            }
+            else
+            {
+                int intCost = Convert.ToInt32(objXmlVehicle["cost"].InnerText);
+                intCost = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(intCost, GlobalOptions.Instance.CultureInfo) * dblCostModifier));
 
-			// Apply the markup if applicable.
-			double dblCost = Convert.ToDouble(intCost, GlobalOptions.Instance.CultureInfo);
-			dblCost *= 1 + (Convert.ToDouble(nudMarkup.Value, GlobalOptions.Instance.CultureInfo) / 100.0);
-			intCost = Convert.ToInt32(dblCost);
+                // Apply the markup if applicable.
+                double dblCost = Convert.ToDouble(intCost, GlobalOptions.Instance.CultureInfo);
+                dblCost *= 1 + (Convert.ToDouble(nudMarkup.Value, GlobalOptions.Instance.CultureInfo) / 100.0);
+                intCost = Convert.ToInt32(dblCost);
 
-			if (chkFreeItem.Checked)
-				intCost = 0;
+                if (chkFreeItem.Checked)
+                    intCost = 0;
 
-			lblVehicleCost.Text = String.Format("{0:###,###,##0¥}", intCost);
+                lblVehicleCost.Text = String.Format("{0:###,###,##0¥}", intCost);
+                lblTest.Text = _objCharacter.AvailTest(intCost, lblVehicleAvail.Text);
+            }
 
-			lblTest.Text = _objCharacter.AvailTest(intCost, lblVehicleAvail.Text);
 
 			string strBook = _objCharacter.Options.LanguageBookShort(objXmlVehicle["source"].InnerText);
 			string strPage = objXmlVehicle["page"].InnerText;

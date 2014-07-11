@@ -756,10 +756,11 @@
 				<choice>
 					<name>+2 to Demolitions</name>
 					<bonus>
-						<spellcategory>
-							<name>Detection</name>
-							<val>2</val>
-						</spellcategory>
+						<specificskill>
+							<name>Demolitions</name>
+							<bonus>2</bonus>
+							<applytorating>no</applytorating>
+						</specificskill>
 					</bonus>
 				</choice>
 				<choice>
@@ -865,6 +866,53 @@
 						<specificpower>
 							<name>Toxic Strike</name>
 							<free>yes</free>
+						</specificpower>
+					</bonus>
+				</choice>
+			</choices>
+			<source>SG</source>
+			<page>86</page>
+		</mentor>
+		<mentor>
+			<name>Great Mother</name>
+			<advantage>All: +2 to First Aid or Medicine Tests</advantage>
+			<disadvantage>Followers of the Great Mother are lovers and healers, not fighters. As a result, they suffer a –1 dice pool modifier for any combat-related actions (using a combat skill, or casting a spell from the Combat category).</disadvantage>
+			<choices>
+				<choice>
+					<name>+2 to First Aid</name>
+					<bonus>
+						<specificskill>
+							<name>First Aid</name>
+							<bonus>2</bonus>
+							<applytorating>no</applytorating>
+						</specificskill>
+					</bonus>
+				</choice>
+				<choice>
+					<name>+2 to Medicine</name>
+					<bonus>
+						<specificskill>
+							<name>Medicine</name>
+							<bonus>2</bonus>
+							<applytorating>no</applytorating>
+						</specificskill>
+					</bonus>
+				</choice>
+				<choice set="2">
+					<name>Magician: +2 dice for Health spells</name>
+					<bonus>
+						<spellcategory>
+							<name>Health</name>
+							<val>2</val>
+						</spellcategory>
+					</bonus>
+				</choice>
+				<choice set="2">
+					<name>Adept: 1 free level of Rapid Healing</name>
+					<bonus>
+						<specificpower>
+							<name>Rapid Healing</name>
+							<val>1</val>
 						</specificpower>
 					</bonus>
 				</choice>

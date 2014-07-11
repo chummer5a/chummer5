@@ -42,7 +42,17 @@
 				<br />Lift/Carry: <xsl:value-of select="liftandcarry" /> (<xsl:value-of select="liftweight" /> kg/<xsl:value-of select="carryweight" /> kg)
 				<br />Memory: <xsl:value-of select="memory" />
 				<br />Nuyen: <xsl:value-of select="nuyen" />
-				
+
+				<xsl:if test="prioritymetatype != ''">
+					<br />
+					<br />== Priorities ==
+					<br />Metatype: <xsl:value-of select="prioritymetatype" />
+					<br />Attributes: <xsl:value-of select="priorityattributes" />
+					<br />Special: <xsl:value-of select="priorityspecial" />
+					<br />Skills: <xsl:value-of select="priorityskills" />
+					<br />Resources: <xsl:value-of select="priorityresources" />
+				</xsl:if>
+					
 				<br />
 				<br />== Attributes ==
 				<br />BOD: <xsl:value-of select="attributes/attribute[name = 'BOD']/base" />
@@ -418,7 +428,7 @@
 					</xsl:otherwise>
 				</xsl:choose>
 				Pool: <xsl:value-of select="total" />
-				<xsl:if test="spec != '' and exotic = 'False'"> (<xsl:value-of select="total + 2" />)</xsl:if>
+			<xsl:if test="spec != '' and exotic = 'False'"> (<xsl:value-of select="specializedrating" />)</xsl:if>
 		</xsl:for-each>
 	</xsl:template>
 	
@@ -476,7 +486,7 @@
 				</xsl:otherwise>
 				</xsl:choose>
 				Pool: <xsl:value-of select="total" />
-				<xsl:if test="spec != '' and exotic = 'False'"> (<xsl:value-of select="total + 2" />)</xsl:if>
+			<xsl:if test="spec != '' and exotic = 'False'"> (<xsl:value-of select="specializedrating" />)</xsl:if>
 		</xsl:for-each>
 	</xsl:template>
 	
