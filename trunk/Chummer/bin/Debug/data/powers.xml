@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-497</version>
+	<version>-496</version>
 	<powers>
 		<power>
 			<name>Adrenaline Boost</name>
@@ -326,6 +326,12 @@
 			<adeptway>.25</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
+			<bonus>
+				<limitmodifier>
+					<limit>Social</limit>
+					<value>1</value>
+				</limitmodifier>
+			</bonus>
 			<source>SR5</source>
 			<page>311</page>
 		</power>
@@ -810,6 +816,24 @@
 			<limit>1</limit>
 			<source>BB</source>
 			<page>22</page>
+		</power>
+		<power>
+			<name>Light Touch</name>
+			<points>.25</points>
+			<adeptway>0</adeptway>
+			<levels>yes</levels>
+			<limit>100</limit>
+			<source>SS</source>
+			<page>191</page>
+		</power>
+		<power>
+			<name>Mimic</name>
+			<points>.25</points>
+			<adeptway>0</adeptway>
+			<levels>yes</levels>
+			<limit>6</limit>
+			<source>SS</source>
+			<page>191</page>
 		</power>
 	</powers>
 </chummer>

@@ -1187,7 +1187,7 @@ namespace Chummer
 			TreeNode objNode = new TreeNode();
 			objNode.Text = objWeapon.DisplayName;
 			objNode.Tag = objWeapon.InternalId;
-			if (objWeapon.Category.StartsWith("Cyberware") || objWeapon.Category == "Gear" || objWeapon.Category.StartsWith("Quality"))
+			if (objWeapon.Cyberware || objWeapon.Category == "Gear" || objWeapon.Category.StartsWith("Quality"))
 				objNode.ForeColor = SystemColors.GrayText;
 			if (objWeapon.Notes != string.Empty)
 				objNode.ForeColor = Color.SaddleBrown;

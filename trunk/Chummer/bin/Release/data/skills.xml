@@ -260,7 +260,7 @@
 			<attribute>LOG</attribute>
 			<category>Technical Active</category>
 			<default>No</default>
-			<skillgroup/>
+			<skillgroup>Biotech</skillgroup>
 			<specs>
 				<spec>Bioinformatics</spec>
 				<spec>Bioware</spec>
@@ -578,7 +578,7 @@
 		</skill>
 		<skill>
 			<name>Forgery</name>
-			<attribute>AGI</attribute>
+			<attribute>LOG</attribute>
 			<category>Technical Active</category>
 			<default>Yes</default>
 			<skillgroup/>

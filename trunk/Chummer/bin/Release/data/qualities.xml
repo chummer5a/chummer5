@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-496</version>
+	<version>-495</version>
 	<categories>
 		<category>Positive</category>
 		<category>Negative</category>
@@ -113,8 +113,6 @@
 			<bonus>
 				<selectattribute>
 					<excludeattribute>EDG</excludeattribute>
-					<excludeattribute>MAG</excludeattribute>
-					<excludeattribute>RES</excludeattribute>
 					<max>1</max>
 				</selectattribute>
 			</bonus>
@@ -1588,6 +1586,19 @@
 			<karma>20</karma>
 			<category>Positive</category>
 			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>The Artist's Way</quality>
+					<quality>The Athlete's Way</quality>
+					<quality>The Beast's Way</quality>
+					<quality>The Burnout's Way</quality>
+					<quality>The Invisible Way</quality>
+					<quality>The Magician's Way</quality>
+					<quality>The Speaker's Way</quality>
+					<quality>The Spiritual Way</quality>
+					<quality>The Warrior's Way</quality>
+				</oneof>
+			</forbidden>
 			<source>SG</source>
 			<page>176</page>
 		</quality>
@@ -1596,6 +1607,19 @@
 			<karma>20</karma>
 			<category>Positive</category>
 			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>The Artisan's Way</quality>
+					<quality>The Athlete's Way</quality>
+					<quality>The Beast's Way</quality>
+					<quality>The Burnout's Way</quality>
+					<quality>The Invisible Way</quality>
+					<quality>The Magician's Way</quality>
+					<quality>The Speaker's Way</quality>
+					<quality>The Spiritual Way</quality>
+					<quality>The Warrior's Way</quality>
+				</oneof>
+			</forbidden>
 			<source>SG</source>
 			<page>176</page>
 		</quality>
@@ -1604,14 +1628,40 @@
 			<karma>20</karma>
 			<category>Positive</category>
 			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>The Artisan's Way</quality>
+					<quality>The Artisan's Way</quality>
+					<quality>The Beast's Way</quality>
+					<quality>The Burnout's Way</quality>
+					<quality>The Invisible Way</quality>
+					<quality>The Magician's Way</quality>
+					<quality>The Speaker's Way</quality>
+					<quality>The Spiritual Way</quality>
+					<quality>The Warrior's Way</quality>
+				</oneof>
+			</forbidden>
 			<source>SG</source>
 			<page>176</page>
 		</quality>
 		<quality>
 			<name>The Beast's Way</name>
-			<karma>15</karma>
+			<karma>20</karma>
 			<category>Positive</category>
 			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>The Artisan's Way</quality>
+					<quality>The Athlete's Way</quality>
+					<quality>The Artisan's Way</quality>
+					<quality>The Burnout's Way</quality>
+					<quality>The Invisible Way</quality>
+					<quality>The Magician's Way</quality>
+					<quality>The Speaker's Way</quality>
+					<quality>The Spiritual Way</quality>
+					<quality>The Warrior's Way</quality>
+				</oneof>
+			</forbidden>
 			<source>SG</source>
 			<page>176</page>
 		</quality>
@@ -1620,6 +1670,19 @@
 			<karma>15</karma>
 			<category>Positive</category>
 			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>The Artisan's Way</quality>
+					<quality>The Athlete's Way</quality>
+					<quality>The Beast's Way</quality>
+					<quality>The Artisan's Way</quality>
+					<quality>The Invisible Way</quality>
+					<quality>The Magician's Way</quality>
+					<quality>The Speaker's Way</quality>
+					<quality>The Spiritual Way</quality>
+					<quality>The Warrior's Way</quality>
+				</oneof>
+			</forbidden>
 			<source>SG</source>
 			<page>177</page>
 		</quality>
@@ -1628,6 +1691,19 @@
 			<karma>20</karma>
 			<category>Positive</category>
 			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>The Artisan's Way</quality>
+					<quality>The Athlete's Way</quality>
+					<quality>The Beast's Way</quality>
+					<quality>The Burnout's Way</quality>
+					<quality>The Artisan's Way</quality>
+					<quality>The Magician's Way</quality>
+					<quality>The Speaker's Way</quality>
+					<quality>The Spiritual Way</quality>
+					<quality>The Warrior's Way</quality>
+				</oneof>
+			</forbidden>
 			<source>SG</source>
 			<page>177</page>
 		</quality>
@@ -1636,6 +1712,19 @@
 			<karma>20</karma>
 			<category>Positive</category>
 			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>The Artisan's Way</quality>
+					<quality>The Athlete's Way</quality>
+					<quality>The Beast's Way</quality>
+					<quality>The Burnout's Way</quality>
+					<quality>The Invisible Way</quality>
+					<quality>The Artisan's Way</quality>
+					<quality>The Speaker's Way</quality>
+					<quality>The Spiritual Way</quality>
+					<quality>The Warrior's Way</quality>
+				</oneof>
+			</forbidden>
 			<source>SG</source>
 			<page>178</page>
 		</quality>
@@ -1644,14 +1733,40 @@
 			<karma>20</karma>
 			<category>Positive</category>
 			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>The Artisan's Way</quality>
+					<quality>The Athlete's Way</quality>
+					<quality>The Beast's Way</quality>
+					<quality>The Burnout's Way</quality>
+					<quality>The Invisible Way</quality>
+					<quality>The Magician's Way</quality>
+					<quality>The Artisan's Way</quality>
+					<quality>The Spiritual Way</quality>
+					<quality>The Warrior's Way</quality>
+				</oneof>
+			</forbidden>
 			<source>SG</source>
 			<page>178</page>
 		</quality>
 		<quality>
 			<name>The Spiritual Way</name>
-			<karma>15</karma>
+			<karma>20</karma>
 			<category>Positive</category>
 			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>The Artisan's Way</quality>
+					<quality>The Athlete's Way</quality>
+					<quality>The Beast's Way</quality>
+					<quality>The Burnout's Way</quality>
+					<quality>The Invisible Way</quality>
+					<quality>The Magician's Way</quality>
+					<quality>The Speaker's Way</quality>
+					<quality>The Artisan's Way</quality>
+					<quality>The Warrior's Way</quality>
+				</oneof>
+			</forbidden>
 			<source>SG</source>
 			<page>178</page>
 		</quality>
@@ -1660,6 +1775,19 @@
 			<karma>20</karma>
 			<category>Positive</category>
 			<bonus />
+			<forbidden>
+				<oneof>
+					<quality>The Artisan's Way</quality>
+					<quality>The Athlete's Way</quality>
+					<quality>The Beast's Way</quality>
+					<quality>The Burnout's Way</quality>
+					<quality>The Invisible Way</quality>
+					<quality>The Magician's Way</quality>
+					<quality>The Speaker's Way</quality>
+					<quality>The Spiritual Way</quality>
+					<quality>The Artisan's Way</quality>
+				</oneof>
+			</forbidden>
 			<source>SG</source>
 			<page>178</page>
 		</quality>
@@ -1840,6 +1968,27 @@
 			<bonus />
 			<source>SG</source>
 			<page>199</page>
+		</quality>
+		<quality>
+			<name>College Education</name>
+			<karma>2</karma>
+			<category>Positive</category>
+			<bonus>
+				<limitmodifier>
+					<limit>Mental</limit>
+					<value>1</value>
+				</limitmodifier>
+			</bonus>
+			<source>SASS</source>
+			<page>31</page>
+		</quality>
+		<quality>
+			<name>Inspired</name>
+			<karma>4</karma>
+			<category>Positive</category>
+			<bonus />
+			<source>SASS</source>
+			<page>31</page>
 		</quality>
 	</qualities>
 </chummer>

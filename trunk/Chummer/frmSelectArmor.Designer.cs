@@ -29,6 +29,10 @@
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lstArmor = new System.Windows.Forms.ListBox();
             this.cmdOK = new System.Windows.Forms.Button();
             this.cmdCancel = new System.Windows.Forms.Button();
@@ -56,7 +60,18 @@
             this.tipTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.lblArmorValue = new System.Windows.Forms.Label();
             this.lblArmorValueLabel = new System.Windows.Forms.Label();
+            this.dgvArmor = new System.Windows.Forms.DataGridView();
+            this.ArmorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Armor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Special = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Avail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Source = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chkBrowse = new System.Windows.Forms.CheckBox();
+            this.tmrSearch = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudMarkup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArmor)).BeginInit();
             this.SuspendLayout();
             // 
             // lstArmor
@@ -71,6 +86,7 @@
             // 
             // cmdOK
             // 
+            this.cmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdOK.Location = new System.Drawing.Point(497, 343);
             this.cmdOK.Name = "cmdOK";
             this.cmdOK.Size = new System.Drawing.Size(75, 23);
@@ -82,6 +98,7 @@
             // 
             // cmdCancel
             // 
+            this.cmdCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancel.Location = new System.Drawing.Point(416, 342);
             this.cmdCancel.Name = "cmdCancel";
@@ -165,12 +182,13 @@
             this.cboCategory.FormattingEnabled = true;
             this.cboCategory.Location = new System.Drawing.Point(67, 6);
             this.cboCategory.Name = "cboCategory";
-            this.cboCategory.Size = new System.Drawing.Size(251, 21);
+            this.cboCategory.Size = new System.Drawing.Size(205, 21);
             this.cboCategory.TabIndex = 21;
             this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
             // 
             // cmdOKAdd
             // 
+            this.cmdOKAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdOKAdd.Location = new System.Drawing.Point(497, 314);
             this.cmdOKAdd.Name = "cmdOKAdd";
             this.cmdOKAdd.Size = new System.Drawing.Size(75, 23);
@@ -201,9 +219,11 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(390, 6);
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearch.Location = new System.Drawing.Point(338, 6);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(182, 20);
+            this.txtSearch.Size = new System.Drawing.Size(176, 20);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
@@ -212,7 +232,7 @@
             // lblSearchLabel
             // 
             this.lblSearchLabel.AutoSize = true;
-            this.lblSearchLabel.Location = new System.Drawing.Point(340, 9);
+            this.lblSearchLabel.Location = new System.Drawing.Point(288, 9);
             this.lblSearchLabel.Name = "lblSearchLabel";
             this.lblSearchLabel.Size = new System.Drawing.Size(44, 13);
             this.lblSearchLabel.TabIndex = 0;
@@ -335,6 +355,131 @@
             this.lblArmorValueLabel.Tag = "Label_ArmorValueShort";
             this.lblArmorValueLabel.Text = "Armor:";
             // 
+            // dgvArmor
+            // 
+            this.dgvArmor.AllowUserToAddRows = false;
+            this.dgvArmor.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvArmor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvArmor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvArmor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvArmor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ArmorName,
+            this.Armor,
+            this.Capacity,
+            this.Special,
+            this.Avail,
+            this.Source,
+            this.Cost});
+            this.dgvArmor.Location = new System.Drawing.Point(12, 33);
+            this.dgvArmor.MultiSelect = false;
+            this.dgvArmor.Name = "dgvArmor";
+            this.dgvArmor.ReadOnly = true;
+            this.dgvArmor.RowHeadersVisible = false;
+            this.dgvArmor.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.dgvArmor.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvArmor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvArmor.Size = new System.Drawing.Size(560, 275);
+            this.dgvArmor.TabIndex = 37;
+            this.dgvArmor.Visible = false;
+            this.dgvArmor.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.dgvArmor_SortCompare);
+            this.dgvArmor.DoubleClick += new System.EventHandler(this.dgvArmor_DoubleClick);
+            // 
+            // ArmorName
+            // 
+            this.ArmorName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ArmorName.DataPropertyName = "ArmorName";
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ArmorName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ArmorName.HeaderText = "Name";
+            this.ArmorName.Name = "ArmorName";
+            this.ArmorName.ReadOnly = true;
+            this.ArmorName.Width = 60;
+            // 
+            // Armor
+            // 
+            this.Armor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Armor.DataPropertyName = "Armor";
+            this.Armor.FillWeight = 50F;
+            this.Armor.HeaderText = "Armor";
+            this.Armor.Name = "Armor";
+            this.Armor.ReadOnly = true;
+            this.Armor.Width = 59;
+            // 
+            // Capacity
+            // 
+            this.Capacity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Capacity.DataPropertyName = "Capacity";
+            this.Capacity.FillWeight = 50F;
+            this.Capacity.HeaderText = "Capacity";
+            this.Capacity.Name = "Capacity";
+            this.Capacity.ReadOnly = true;
+            this.Capacity.Width = 73;
+            // 
+            // Special
+            // 
+            this.Special.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Special.DataPropertyName = "Special";
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Special.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Special.HeaderText = "Special";
+            this.Special.Name = "Special";
+            this.Special.ReadOnly = true;
+            this.Special.Width = 67;
+            // 
+            // Avail
+            // 
+            this.Avail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Avail.DataPropertyName = "Avail";
+            this.Avail.FillWeight = 30F;
+            this.Avail.HeaderText = "Avail";
+            this.Avail.Name = "Avail";
+            this.Avail.ReadOnly = true;
+            this.Avail.Width = 55;
+            // 
+            // Source
+            // 
+            this.Source.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Source.DataPropertyName = "Source";
+            this.Source.HeaderText = "Source";
+            this.Source.Name = "Source";
+            this.Source.ReadOnly = true;
+            this.Source.Width = 66;
+            // 
+            // Cost
+            // 
+            this.Cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Cost.DataPropertyName = "Cost";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle4.Format = "#,###,##0¥";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Cost.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Cost.FillWeight = 60F;
+            this.Cost.HeaderText = "Cost";
+            this.Cost.Name = "Cost";
+            this.Cost.ReadOnly = true;
+            this.Cost.Width = 53;
+            // 
+            // chkBrowse
+            // 
+            this.chkBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkBrowse.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkBrowse.AutoSize = true;
+            this.chkBrowse.Location = new System.Drawing.Point(520, 4);
+            this.chkBrowse.Name = "chkBrowse";
+            this.chkBrowse.Size = new System.Drawing.Size(52, 23);
+            this.chkBrowse.TabIndex = 38;
+            this.chkBrowse.Text = "Browse";
+            this.chkBrowse.UseVisualStyleBackColor = true;
+            this.chkBrowse.CheckedChanged += new System.EventHandler(this.chkBrowse_CheckedChanged);
+            // 
+            // tmrSearch
+            // 
+            this.tmrSearch.Interval = 250;
+            this.tmrSearch.Tick += new System.EventHandler(this.tmrSearch_Tick);
+            // 
             // frmSelectArmor
             // 
             this.AcceptButton = this.cmdOK;
@@ -342,6 +487,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdCancel;
             this.ClientSize = new System.Drawing.Size(584, 378);
+            this.Controls.Add(this.chkBrowse);
+            this.Controls.Add(this.dgvArmor);
             this.Controls.Add(this.lblArmorValue);
             this.Controls.Add(this.lblArmorValueLabel);
             this.Controls.Add(this.lblTest);
@@ -368,7 +515,6 @@
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdOK);
             this.Controls.Add(this.lstArmor);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSelectArmor";
@@ -378,6 +524,7 @@
             this.Text = "Select Armor";
             this.Load += new System.EventHandler(this.frmSelectArmor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudMarkup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArmor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -412,5 +559,15 @@
 		private System.Windows.Forms.ToolTip tipTooltip;
         private System.Windows.Forms.Label lblArmorValue;
         private System.Windows.Forms.Label lblArmorValueLabel;
+        private System.Windows.Forms.DataGridView dgvArmor;
+        private System.Windows.Forms.CheckBox chkBrowse;
+        private System.Windows.Forms.Timer tmrSearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ArmorName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Armor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Capacity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Special;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Avail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Source;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
 	}
 }

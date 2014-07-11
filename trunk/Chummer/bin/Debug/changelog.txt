@@ -1,3 +1,31 @@
+Build 5.116 (beta)
+- Updated how Limit Modifiers work. In short, there are now two kinds. First, there's those provided by a specific source... for example the Indomitable quality. When you add the quality to or remove the quality from your character, it will automatically add or remove the limit modifier for you. Second, there's custom modifiers. These you add and remove yourself from the Limits tab.  I'm leaving this in place because there's always going to be some limit modifier I've left off and this gives one handy place to view and adjust your modifiers.  Unfortunately this does mean that limit modifiers on existing characters are going to be a problem.  You can however delete the existing limit modifiers, and then remove and re-add the items, qualities, powers, and so on that provide limit modifiers and this will add them back in correctly.
+- Added a new Browse feature to the select Weapons and Armor dialogs. In the upper right corner of the dialog, there's a button marked "Browse". If you click it, you'll be shown a grid showing the items belonging to the selected category. You can sort the grid by clicking on the column headers. Otherwise it works the same as the list and you can switch back and forth as you like.
+- Added a new Custom Item in Gear under the Custom category.  This item will ask you for a name and a price. You will be charged the amount you specify and the item will take on the name you give it, showing in your inventory as that name.  This should allow for any odd custom or table/campaign specifc item you may need.
+- Added the content from Sail Away, Sweet Sister (SASS).
+- Added the content from Stolen Souls (SS).
+- Added the option to create Prime Runner and Street Level characters.
+- Fixed the Demolitions bonus to the Doom mentor spirit.
+- Updated the Exceptional Attribute quality to allow selection of Magic and Resonance.
+- Fixed the availability calculation for Alpha/Beta/Deltaware for certain pieces of cyber and bioware.
+- Removed the Throwing Weapons category from the Select Weapon dialog because these are all purchased as Gear.
+- Added priority selection to the Text-Only character sheet.  This information will only appear for new characters created with version 5.116 or later.
+- Fixed my own fix for limited spells. When I enabled limited spells to modify the DV of the spell, I accidentally broke the spells with drain greater than their force, for example Element Aura with its F+1 DV. This is now fixed properly.
+- Removed the text entry when purchasing reagents.
+- In light of the Personalized Grip, various holsters, and Spare Clips, I've updated all weapons to allow accessories. I may in the future add some more specialized handling of weapon accessories to be more specific to the weapon in question but for now this will at least allow usage of standard accessories.  In the end, while it's good if Chummer helps you follow the rules, it shouldn't prevent you from doing something that is legal within the rules.
+- Fixed Social Modifiers for Voice Control (power), Tailored Pheromones (bioware), and Sleeping Tiger (armor).
+- Fixed the karma costs of Foci during character advancement.
+- Removed the Special menu item that would allow you to change your BP as it doesn't really make sense in 5th Edition.
+- Reverted The Beast's Way and The Spiritual Way back to costing 20 karma AND added code so that if you have either of these qualities, you will not be charged to add a Mentor Spirit.  In Creation mode, you will be refunded the cost of your Mentor Spirit if you already have one. In Career mode you won't (you've already spent that karma).
+- Updated the adept way qualities so that you may only pick one.
+- During Career mode and as a Mystic Adept, taking Essence loss sufficient that it reduces your Magic score will also reduce your points allocated to Adept if they exceed your new Magic score.
+- Fixed a bug which prevented a cyber weapon from using the Strength of the cyberlimb it is implanted within.
+- Added Biotechnology to the Biotech skill group per the errata.
+- Fixed Forgery by making it use Logic instead of Agility.
+- Updated the character validator to not include the availability of Armor mods marked as "included in base armor" when determining the acceptability of the availability of the character's gear.
+- Added Fetishes to Gear in the Magical Supplies category. They have no cost (and per the rules your character must create them) but this addition will enable you to show them in your inventory.
+- Fixed a bug causing a character in Creation mode to show their starting nuyen instead of available nuyen on their character sheet.
+
 Build 5.115 (beta)
 - Added all of the remaining Street Grimoire content including Toxic Mentor Spirits, Blood Rituals, Insect Shaman tradition, Spirit Champion and Spirit Pariah Qualities, and Magical Items and Compounds.  If you find something that is missing, please let me know.
 - Fixed Mentor Spirits with the Improved Ability adept power bonus which were causing a crash.

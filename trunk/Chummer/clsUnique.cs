@@ -1415,10 +1415,23 @@ namespace Chummer
 			{
 				bool blnReturn;
 
-				if (_objQualitySource == QualitySource.Metatype || _objQualitySource == QualitySource.MetatypeRemovable)
-					blnReturn = false;
-				else
-					blnReturn = true;
+                if (_objQualitySource == QualitySource.Metatype || _objQualitySource == QualitySource.MetatypeRemovable)
+                    blnReturn = false;
+                else
+                {
+                    if (_strName == "Mentor Spirit")
+                    {
+                        bool blnContribute = true;
+                        foreach (Quality objQuality in _objCharacter.Qualities)
+                        {
+                            if (objQuality.Name == "The Beast's Way" || objQuality.Name == "The Spiritual Way")
+                                blnContribute = false;
+                        }
+                        blnReturn = blnContribute;
+                    }
+                    else
+                        blnReturn = true;
+                }
 
 				return blnReturn;
 			}
@@ -1875,7 +1888,8 @@ namespace Chummer
 			objWriter.WriteElementString("default", Default.ToString());
 			objWriter.WriteElementString("rating", CalculatedRating.ToString());
 			objWriter.WriteElementString("ratingmax", RatingMaximum.ToString());
-			objWriter.WriteElementString("total", TotalRating.ToString());
+            objWriter.WriteElementString("specializedrating", SpecializedRating.ToString());
+            objWriter.WriteElementString("total", TotalRating.ToString());
 			objWriter.WriteElementString("knowledge", _blnKnowledgeSkill.ToString());
 			objWriter.WriteElementString("exotic", _blnExoticSkill.ToString());
 			objWriter.WriteElementString("spec", _strSkillSpec);
@@ -1962,6 +1976,38 @@ namespace Chummer
 				_intRating = value;
 			}
 		}
+
+        /// <summary>
+        /// Skill's current rating.
+        /// </summary>
+        public int SpecializedRating
+        {
+            get
+            {
+                int intRating = TotalRating;
+                if (this.Specialization != "" && !this.ExoticSkill)
+                {
+                    if (this.Name == "Artisan")
+                    {
+                        bool blnFound = false;
+                        foreach (Quality objQuality in _objCharacter.Qualities)
+                        {
+                            if (objQuality.Name == "Inspired")
+                                blnFound = true;
+                        }
+                        if (blnFound)
+                            intRating += 3;
+                        else
+                            intRating += 2;
+                    }
+                    else
+                    {
+                        intRating += 2;
+                    }
+                }
+                return intRating;
+            }
+        }
 
         /// <summary>
         /// Skill's free levels.

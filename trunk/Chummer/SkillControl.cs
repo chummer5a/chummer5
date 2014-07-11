@@ -656,8 +656,27 @@ namespace Chummer
             else
                 nudSkill.Minimum = 0;
 
-			if (cboSpec.Text != "" && !_objSkill.ExoticSkill)
-				lblModifiedRating.Text += " (" + (intRating + 2).ToString() + ")";
+            if (cboSpec.Text != "" && !_objSkill.ExoticSkill)
+            {
+                bool blnFound = false;
+                if (this.SkillName == "Artisan")
+                {
+                    // Look for the Inspired quality to see if we get a free specialization
+                    foreach (Quality objQuality in _objSkill.CharacterObject.Qualities)
+                    {
+                        if (objQuality.Name == "Inspired")
+                            blnFound = true;
+                    }
+                }
+                if (!blnFound)
+                {
+                    lblModifiedRating.Text += " (" + (intRating + 2).ToString() + ")";
+                }
+                else
+                {
+                    lblModifiedRating.Text += " (" + (intRating + 3).ToString() + ")";
+                }
+            }
 
 			lblAttribute.Text = _objSkill.DisplayAttribute;
 

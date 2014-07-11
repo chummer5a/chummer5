@@ -189,6 +189,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmdIncreasePowerPoints = new System.Windows.Forms.Button();
+            this.lblRiggingINILabel = new System.Windows.Forms.Label();
+            this.lblMatrixINIHotLabel = new System.Windows.Forms.Label();
+            this.lblMatrixINIColdLabel = new System.Windows.Forms.Label();
+            this.lblAstralINILabel = new System.Windows.Forms.Label();
+            this.lblMatrixINILabel = new System.Windows.Forms.Label();
+            this.lblINILabel = new System.Windows.Forms.Label();
             this.lblMovementLabel = new System.Windows.Forms.Label();
             this.chkGearEquipped = new System.Windows.Forms.CheckBox();
             this.lblEnemies = new System.Windows.Forms.Label();
@@ -833,6 +839,12 @@
             this.chkPhysicalCM1 = new System.Windows.Forms.CheckBox();
             this.tabInfo = new System.Windows.Forms.TabControl();
             this.tabOtherInfo = new System.Windows.Forms.TabPage();
+            this.lblRiggingINI = new System.Windows.Forms.Label();
+            this.lblMatrixINIHot = new System.Windows.Forms.Label();
+            this.lblMatrixINICold = new System.Windows.Forms.Label();
+            this.lblAstralINI = new System.Windows.Forms.Label();
+            this.lblMatrixINI = new System.Windows.Forms.Label();
+            this.lblINI = new System.Windows.Forms.Label();
             this.lblCareerNuyen = new System.Windows.Forms.Label();
             this.lblFly = new System.Windows.Forms.Label();
             this.lblFlyLabel = new System.Windows.Forms.Label();
@@ -957,18 +969,6 @@
             this.tsWeaponRenameLocation = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsLimitModifier = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tssLimitModifierNotes = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblRiggingINI = new System.Windows.Forms.Label();
-            this.lblRiggingINILabel = new System.Windows.Forms.Label();
-            this.lblMatrixINIHot = new System.Windows.Forms.Label();
-            this.lblMatrixINIHotLabel = new System.Windows.Forms.Label();
-            this.lblMatrixINICold = new System.Windows.Forms.Label();
-            this.lblMatrixINIColdLabel = new System.Windows.Forms.Label();
-            this.lblAstralINI = new System.Windows.Forms.Label();
-            this.lblMatrixINI = new System.Windows.Forms.Label();
-            this.lblINI = new System.Windows.Forms.Label();
-            this.lblAstralINILabel = new System.Windows.Forms.Label();
-            this.lblMatrixINILabel = new System.Windows.Forms.Label();
-            this.lblINILabel = new System.Windows.Forms.Label();
             this.StatusStrip.SuspendLayout();
             this.panAttributes.SuspendLayout();
             this.tabCharacterTabs.SuspendLayout();
@@ -2484,6 +2484,72 @@
             this.cmdIncreasePowerPoints.UseVisualStyleBackColor = true;
             this.cmdIncreasePowerPoints.Click += new System.EventHandler(this.cmdIncreasePowerPoints_Click);
             // 
+            // lblRiggingINILabel
+            // 
+            this.lblRiggingINILabel.AutoSize = true;
+            this.lblRiggingINILabel.Location = new System.Drawing.Point(6, 166);
+            this.lblRiggingINILabel.Name = "lblRiggingINILabel";
+            this.lblRiggingINILabel.Size = new System.Drawing.Size(112, 13);
+            this.lblRiggingINILabel.TabIndex = 87;
+            this.lblRiggingINILabel.Tag = "Label_OtherRiggingInit";
+            this.lblRiggingINILabel.Text = "Rigging Initiative (AR):";
+            this.tipTooltip.SetToolTip(this.lblRiggingINILabel, "Matrix Initiative is calculated as Commlink Response + INT.");
+            // 
+            // lblMatrixINIHotLabel
+            // 
+            this.lblMatrixINIHotLabel.AutoSize = true;
+            this.lblMatrixINIHotLabel.Location = new System.Drawing.Point(6, 143);
+            this.lblMatrixINIHotLabel.Name = "lblMatrixINIHotLabel";
+            this.lblMatrixINIHotLabel.Size = new System.Drawing.Size(106, 13);
+            this.lblMatrixINIHotLabel.TabIndex = 85;
+            this.lblMatrixINIHotLabel.Tag = "Label_OtherMatrixInitVRHot";
+            this.lblMatrixINIHotLabel.Text = "Matrix Initiative (Hot):";
+            this.tipTooltip.SetToolTip(this.lblMatrixINIHotLabel, "Matrix Initiative is calculated as Commlink Response + INT.");
+            // 
+            // lblMatrixINIColdLabel
+            // 
+            this.lblMatrixINIColdLabel.AutoSize = true;
+            this.lblMatrixINIColdLabel.Location = new System.Drawing.Point(6, 120);
+            this.lblMatrixINIColdLabel.Name = "lblMatrixINIColdLabel";
+            this.lblMatrixINIColdLabel.Size = new System.Drawing.Size(110, 13);
+            this.lblMatrixINIColdLabel.TabIndex = 83;
+            this.lblMatrixINIColdLabel.Tag = "Label_OtherMatrixInitVRCold";
+            this.lblMatrixINIColdLabel.Text = "Matrix Initiative (Cold):";
+            this.tipTooltip.SetToolTip(this.lblMatrixINIColdLabel, "Matrix Initiative is calculated as Commlink Response + INT.");
+            // 
+            // lblAstralINILabel
+            // 
+            this.lblAstralINILabel.AutoSize = true;
+            this.lblAstralINILabel.Location = new System.Drawing.Point(6, 74);
+            this.lblAstralINILabel.Name = "lblAstralINILabel";
+            this.lblAstralINILabel.Size = new System.Drawing.Size(78, 13);
+            this.lblAstralINILabel.TabIndex = 79;
+            this.lblAstralINILabel.Tag = "Label_OtherAstralInit";
+            this.lblAstralINILabel.Text = "Astral Initiative:";
+            this.tipTooltip.SetToolTip(this.lblAstralINILabel, "Astral Initiative is calculated as INT x 2.");
+            // 
+            // lblMatrixINILabel
+            // 
+            this.lblMatrixINILabel.AutoSize = true;
+            this.lblMatrixINILabel.Location = new System.Drawing.Point(6, 97);
+            this.lblMatrixINILabel.Name = "lblMatrixINILabel";
+            this.lblMatrixINILabel.Size = new System.Drawing.Size(104, 13);
+            this.lblMatrixINILabel.TabIndex = 78;
+            this.lblMatrixINILabel.Tag = "Label_OtherMatrixInit";
+            this.lblMatrixINILabel.Text = "Matrix Initiative (AR):";
+            this.tipTooltip.SetToolTip(this.lblMatrixINILabel, "Matrix Initiative is calculated as Commlink Response + INT.");
+            // 
+            // lblINILabel
+            // 
+            this.lblINILabel.AutoSize = true;
+            this.lblINILabel.Location = new System.Drawing.Point(6, 52);
+            this.lblINILabel.Name = "lblINILabel";
+            this.lblINILabel.Size = new System.Drawing.Size(49, 13);
+            this.lblINILabel.TabIndex = 77;
+            this.lblINILabel.Tag = "Label_OtherInit";
+            this.lblINILabel.Text = "Initiative:";
+            this.tipTooltip.SetToolTip(this.lblINILabel, "Initiative is calculated as REA + INT.");
+            // 
             // lblMovementLabel
             // 
             this.lblMovementLabel.AutoSize = true;
@@ -3150,6 +3216,7 @@
             this.treLimit.ShowRootLines = false;
             this.treLimit.Size = new System.Drawing.Size(299, 573);
             this.treLimit.TabIndex = 79;
+            this.treLimit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.treLimit_KeyDown);
             // 
             // cmdDeleteLimitModifier
             // 
@@ -10060,6 +10127,60 @@
             this.tabOtherInfo.Tag = "Tab_OtherInfo";
             this.tabOtherInfo.Text = "Other Info";
             // 
+            // lblRiggingINI
+            // 
+            this.lblRiggingINI.AutoSize = true;
+            this.lblRiggingINI.Location = new System.Drawing.Point(139, 166);
+            this.lblRiggingINI.Name = "lblRiggingINI";
+            this.lblRiggingINI.Size = new System.Drawing.Size(13, 13);
+            this.lblRiggingINI.TabIndex = 88;
+            this.lblRiggingINI.Text = "0";
+            // 
+            // lblMatrixINIHot
+            // 
+            this.lblMatrixINIHot.AutoSize = true;
+            this.lblMatrixINIHot.Location = new System.Drawing.Point(139, 143);
+            this.lblMatrixINIHot.Name = "lblMatrixINIHot";
+            this.lblMatrixINIHot.Size = new System.Drawing.Size(13, 13);
+            this.lblMatrixINIHot.TabIndex = 86;
+            this.lblMatrixINIHot.Text = "0";
+            // 
+            // lblMatrixINICold
+            // 
+            this.lblMatrixINICold.AutoSize = true;
+            this.lblMatrixINICold.Location = new System.Drawing.Point(139, 120);
+            this.lblMatrixINICold.Name = "lblMatrixINICold";
+            this.lblMatrixINICold.Size = new System.Drawing.Size(13, 13);
+            this.lblMatrixINICold.TabIndex = 84;
+            this.lblMatrixINICold.Text = "0";
+            // 
+            // lblAstralINI
+            // 
+            this.lblAstralINI.AutoSize = true;
+            this.lblAstralINI.Location = new System.Drawing.Point(139, 74);
+            this.lblAstralINI.Name = "lblAstralINI";
+            this.lblAstralINI.Size = new System.Drawing.Size(13, 13);
+            this.lblAstralINI.TabIndex = 82;
+            this.lblAstralINI.Text = "0";
+            // 
+            // lblMatrixINI
+            // 
+            this.lblMatrixINI.AutoSize = true;
+            this.lblMatrixINI.Location = new System.Drawing.Point(139, 97);
+            this.lblMatrixINI.Name = "lblMatrixINI";
+            this.lblMatrixINI.Size = new System.Drawing.Size(13, 13);
+            this.lblMatrixINI.TabIndex = 81;
+            this.lblMatrixINI.Text = "0";
+            // 
+            // lblINI
+            // 
+            this.lblINI.AutoSize = true;
+            this.lblINI.Location = new System.Drawing.Point(139, 52);
+            this.lblINI.Name = "lblINI";
+            this.lblINI.Size = new System.Drawing.Size(13, 13);
+            this.lblINI.TabIndex = 80;
+            this.lblINI.Text = "0";
+            // 
             // lblCareerNuyen
             // 
             this.lblCareerNuyen.AutoSize = true;
@@ -11227,126 +11348,6 @@
             this.tssLimitModifierNotes.Tag = "Menu_Notes";
             this.tssLimitModifierNotes.Text = "&Notes";
             this.tssLimitModifierNotes.Click += new System.EventHandler(this.tssLimitModifierNotes_Click);
-            // 
-            // lblRiggingINI
-            // 
-            this.lblRiggingINI.AutoSize = true;
-            this.lblRiggingINI.Location = new System.Drawing.Point(139, 166);
-            this.lblRiggingINI.Name = "lblRiggingINI";
-            this.lblRiggingINI.Size = new System.Drawing.Size(13, 13);
-            this.lblRiggingINI.TabIndex = 88;
-            this.lblRiggingINI.Text = "0";
-            // 
-            // lblRiggingINILabel
-            // 
-            this.lblRiggingINILabel.AutoSize = true;
-            this.lblRiggingINILabel.Location = new System.Drawing.Point(6, 166);
-            this.lblRiggingINILabel.Name = "lblRiggingINILabel";
-            this.lblRiggingINILabel.Size = new System.Drawing.Size(112, 13);
-            this.lblRiggingINILabel.TabIndex = 87;
-            this.lblRiggingINILabel.Tag = "Label_OtherRiggingInit";
-            this.lblRiggingINILabel.Text = "Rigging Initiative (AR):";
-            this.tipTooltip.SetToolTip(this.lblRiggingINILabel, "Matrix Initiative is calculated as Commlink Response + INT.");
-            // 
-            // lblMatrixINIHot
-            // 
-            this.lblMatrixINIHot.AutoSize = true;
-            this.lblMatrixINIHot.Location = new System.Drawing.Point(139, 143);
-            this.lblMatrixINIHot.Name = "lblMatrixINIHot";
-            this.lblMatrixINIHot.Size = new System.Drawing.Size(13, 13);
-            this.lblMatrixINIHot.TabIndex = 86;
-            this.lblMatrixINIHot.Text = "0";
-            // 
-            // lblMatrixINIHotLabel
-            // 
-            this.lblMatrixINIHotLabel.AutoSize = true;
-            this.lblMatrixINIHotLabel.Location = new System.Drawing.Point(6, 143);
-            this.lblMatrixINIHotLabel.Name = "lblMatrixINIHotLabel";
-            this.lblMatrixINIHotLabel.Size = new System.Drawing.Size(106, 13);
-            this.lblMatrixINIHotLabel.TabIndex = 85;
-            this.lblMatrixINIHotLabel.Tag = "Label_OtherMatrixInitVRHot";
-            this.lblMatrixINIHotLabel.Text = "Matrix Initiative (Hot):";
-            this.tipTooltip.SetToolTip(this.lblMatrixINIHotLabel, "Matrix Initiative is calculated as Commlink Response + INT.");
-            // 
-            // lblMatrixINICold
-            // 
-            this.lblMatrixINICold.AutoSize = true;
-            this.lblMatrixINICold.Location = new System.Drawing.Point(139, 120);
-            this.lblMatrixINICold.Name = "lblMatrixINICold";
-            this.lblMatrixINICold.Size = new System.Drawing.Size(13, 13);
-            this.lblMatrixINICold.TabIndex = 84;
-            this.lblMatrixINICold.Text = "0";
-            // 
-            // lblMatrixINIColdLabel
-            // 
-            this.lblMatrixINIColdLabel.AutoSize = true;
-            this.lblMatrixINIColdLabel.Location = new System.Drawing.Point(6, 120);
-            this.lblMatrixINIColdLabel.Name = "lblMatrixINIColdLabel";
-            this.lblMatrixINIColdLabel.Size = new System.Drawing.Size(110, 13);
-            this.lblMatrixINIColdLabel.TabIndex = 83;
-            this.lblMatrixINIColdLabel.Tag = "Label_OtherMatrixInitVRCold";
-            this.lblMatrixINIColdLabel.Text = "Matrix Initiative (Cold):";
-            this.tipTooltip.SetToolTip(this.lblMatrixINIColdLabel, "Matrix Initiative is calculated as Commlink Response + INT.");
-            // 
-            // lblAstralINI
-            // 
-            this.lblAstralINI.AutoSize = true;
-            this.lblAstralINI.Location = new System.Drawing.Point(139, 74);
-            this.lblAstralINI.Name = "lblAstralINI";
-            this.lblAstralINI.Size = new System.Drawing.Size(13, 13);
-            this.lblAstralINI.TabIndex = 82;
-            this.lblAstralINI.Text = "0";
-            // 
-            // lblMatrixINI
-            // 
-            this.lblMatrixINI.AutoSize = true;
-            this.lblMatrixINI.Location = new System.Drawing.Point(139, 97);
-            this.lblMatrixINI.Name = "lblMatrixINI";
-            this.lblMatrixINI.Size = new System.Drawing.Size(13, 13);
-            this.lblMatrixINI.TabIndex = 81;
-            this.lblMatrixINI.Text = "0";
-            // 
-            // lblINI
-            // 
-            this.lblINI.AutoSize = true;
-            this.lblINI.Location = new System.Drawing.Point(139, 52);
-            this.lblINI.Name = "lblINI";
-            this.lblINI.Size = new System.Drawing.Size(13, 13);
-            this.lblINI.TabIndex = 80;
-            this.lblINI.Text = "0";
-            // 
-            // lblAstralINILabel
-            // 
-            this.lblAstralINILabel.AutoSize = true;
-            this.lblAstralINILabel.Location = new System.Drawing.Point(6, 74);
-            this.lblAstralINILabel.Name = "lblAstralINILabel";
-            this.lblAstralINILabel.Size = new System.Drawing.Size(78, 13);
-            this.lblAstralINILabel.TabIndex = 79;
-            this.lblAstralINILabel.Tag = "Label_OtherAstralInit";
-            this.lblAstralINILabel.Text = "Astral Initiative:";
-            this.tipTooltip.SetToolTip(this.lblAstralINILabel, "Astral Initiative is calculated as INT x 2.");
-            // 
-            // lblMatrixINILabel
-            // 
-            this.lblMatrixINILabel.AutoSize = true;
-            this.lblMatrixINILabel.Location = new System.Drawing.Point(6, 97);
-            this.lblMatrixINILabel.Name = "lblMatrixINILabel";
-            this.lblMatrixINILabel.Size = new System.Drawing.Size(104, 13);
-            this.lblMatrixINILabel.TabIndex = 78;
-            this.lblMatrixINILabel.Tag = "Label_OtherMatrixInit";
-            this.lblMatrixINILabel.Text = "Matrix Initiative (AR):";
-            this.tipTooltip.SetToolTip(this.lblMatrixINILabel, "Matrix Initiative is calculated as Commlink Response + INT.");
-            // 
-            // lblINILabel
-            // 
-            this.lblINILabel.AutoSize = true;
-            this.lblINILabel.Location = new System.Drawing.Point(6, 52);
-            this.lblINILabel.Name = "lblINILabel";
-            this.lblINILabel.Size = new System.Drawing.Size(49, 13);
-            this.lblINILabel.TabIndex = 77;
-            this.lblINILabel.Tag = "Label_OtherInit";
-            this.lblINILabel.Text = "Initiative:";
-            this.tipTooltip.SetToolTip(this.lblINILabel, "Initiative is calculated as REA + INT.");
             // 
             // frmCareer
             // 

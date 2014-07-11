@@ -3118,7 +3118,7 @@ namespace Chummer
 						if (objCopyWeapon != null)
 						{
 							// Do not let the user copy Gear or Cyberware Weapons.
-							if (objCopyWeapon.Category == "Gear" || objCopyWeapon.Category.StartsWith("Cyberware"))
+							if (objCopyWeapon.Category == "Gear" || objCopyWeapon.Cyberware)
 								return;
 
 							MemoryStream objStream = new MemoryStream();
@@ -3415,7 +3415,7 @@ namespace Chummer
 								if (objCopyWeapon != null)
 								{
 									// Do not let the user copy Gear or Cyberware Weapons.
-									if (objCopyWeapon.Category == "Gear" || objCopyWeapon.Category.StartsWith("Cyberware"))
+									if (objCopyWeapon.Category == "Gear" || objCopyWeapon.Cyberware)
 										return;
 
 									MemoryStream objStream = new MemoryStream();
@@ -4879,7 +4879,15 @@ namespace Chummer
 			UpdateWindowTitle();
 		}
 
-		private void cmdAddContact_Click(object sender, EventArgs e)
+        private void treLimit_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                cmdDeleteLimitModifier_Click(sender, e);
+            }
+        }
+
+        private void cmdAddContact_Click(object sender, EventArgs e)
 		{
 			Contact objContact = new Contact(_objCharacter);
 			_objCharacter.Contacts.Add(objContact);
@@ -5772,7 +5780,7 @@ namespace Chummer
 						Weapon objWeapon = _objFunctions.FindWeapon(treWeapons.SelectedNode.Tag.ToString(), _objCharacter.Weapons);
 
 						// Cyberweapons cannot be removed through here and must be done by removing the piece of Cyberware.
-						if (objWeapon.Category.StartsWith("Cyberware"))
+						if (objWeapon.Cyberware)
 						{
 							MessageBox.Show(LanguageManager.Instance.GetString("Message_CannotRemoveCyberweapon"), LanguageManager.Instance.GetString("MessageTitle_CannotRemoveCyberweapon"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 							return;
@@ -8009,13 +8017,13 @@ namespace Chummer
 					blnAddItem = false;
 				}
 
-				if (blnAddItem && !frmPickQuality.FreeCost)
+				if (blnAddItem && !frmPickQuality.FreeCost && objQuality.ContributeToBP)
 				{
 					if (!ConfirmKarmaExpense(LanguageManager.Instance.GetString("Message_ConfirmKarmaExpenseSpend").Replace("{0}", objQuality.DisplayNameShort).Replace("{1}", intKarmaCost.ToString())))
 						blnAddItem = false;
 				}
 
-				if (blnAddItem)
+                if (blnAddItem && objQuality.ContributeToBP)
 				{
 					// Create the Karma expense.
 					ExpenseLogEntry objExpense = new ExpenseLogEntry();
@@ -9370,7 +9378,7 @@ namespace Chummer
 			Weapon objWeapon = _objFunctions.FindWeapon(treWeapons.SelectedNode.Tag.ToString(), _objCharacter.Weapons);
 
 			// Accessories cannot be added to Cyberweapons.
-			if (objWeapon.Category.StartsWith("Cyberware"))
+			if (objWeapon.Cyberware)
 			{
 				MessageBox.Show(LanguageManager.Instance.GetString("Message_CyberweaponNoAccessory"), LanguageManager.Instance.GetString("MessageTitle_CyberweaponNoAccessory"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return;
@@ -11723,7 +11731,7 @@ namespace Chummer
 					}
 
 					// Cyberweapons cannot be removed through here and must be done by removing the piece of Cyberware.
-					if (objWeapon.Category.StartsWith("Cyberware"))
+					if (objWeapon.Cyberware)
 					{
 						MessageBox.Show(LanguageManager.Instance.GetString("Message_CannotRemoveCyberweapon"), LanguageManager.Instance.GetString("MessageTitle_CannotRemoveCyberweapon"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 						return;
@@ -12624,7 +12632,7 @@ namespace Chummer
 				{
 					if (objCharacterWeapon.InternalId == treWeapons.SelectedNode.Tag.ToString())
 					{
-						if (objCharacterWeapon.Category.StartsWith("Cyberware"))
+						if (objCharacterWeapon.Cyberware)
 						{
 							MessageBox.Show(LanguageManager.Instance.GetString("Message_CyberwareUnderbarrel"), LanguageManager.Instance.GetString("MessageTitle_WeaponUnderbarrel"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 							return;
@@ -14570,7 +14578,7 @@ namespace Chummer
 						treWeapons.SelectedNode.ForeColor = Color.SaddleBrown;
 					else
 					{
-						if (objWeapon.Category.StartsWith("Cyberware") || objWeapon.Category == "Gear")
+						if (objWeapon.Cyberware || objWeapon.Category == "Gear")
 							treWeapons.SelectedNode.ForeColor = SystemColors.GrayText;
 						else
 							treWeapons.SelectedNode.ForeColor = SystemColors.WindowText;
@@ -15176,7 +15184,7 @@ namespace Chummer
 					treVehicles.SelectedNode.ForeColor = Color.SaddleBrown;
 				else
 				{
-					if (objWeapon.Category.StartsWith("Cyberware") || objWeapon.Category == "Gear")
+					if (objWeapon.Cyberware || objWeapon.Category == "Gear")
 						treVehicles.SelectedNode.ForeColor = SystemColors.GrayText;
 					else
 						treVehicles.SelectedNode.ForeColor = SystemColors.WindowText;
@@ -18755,61 +18763,60 @@ namespace Chummer
 				if (intPosition > -1)
 					strFocusName = strFocusName.Substring(0, intPosition - 1);
 				int intKarmaMultiplier = 0;
-				switch (strFocusName)
-				{
-					case "Alchemical Focus":
-                        intKarmaMultiplier = _objOptions.KarmaAlchemicalFocus;
-						break;
-					case "Sustaining Focus":
-						intKarmaMultiplier = _objOptions.KarmaSustainingFocus;
-						break;
-					case "Counterspelling Focus":
-						intKarmaMultiplier = _objOptions.KarmaCounterspellingFocus;
-						break;
-					case "Banishing Focus":
-						intKarmaMultiplier = _objOptions.KarmaBanishingFocus;
-						break;
-					case "Binding Focus":
-						intKarmaMultiplier = _objOptions.KarmaBindingFocus;
-						break;
-					case "Weapon Focus":
-						intKarmaMultiplier = _objOptions.KarmaWeaponFocus;
-						break;
-					case "Ritual Spellcasting Focus":
-						intKarmaMultiplier = _objOptions.KarmaRitualSpellcastingFocus;
-						break;
+                switch (strFocusName)
+                {
+                    case "Qi Focus":
+                        intKarmaMultiplier = _objOptions.KarmaQiFocus;
+                        break;
+                    case "Sustaining Focus":
+                        intKarmaMultiplier = _objOptions.KarmaSustainingFocus;
+                        break;
+                    case "Counterspelling Focus":
+                        intKarmaMultiplier = _objOptions.KarmaCounterspellingFocus;
+                        break;
+                    case "Banishing Focus":
+                        intKarmaMultiplier = _objOptions.KarmaBanishingFocus;
+                        break;
+                    case "Binding Focus":
+                        intKarmaMultiplier = _objOptions.KarmaBindingFocus;
+                        break;
+                    case "Weapon Focus":
+                        intKarmaMultiplier = _objOptions.KarmaWeaponFocus;
+                        break;
                     case "Spellcasting Focus":
                         intKarmaMultiplier = _objOptions.KarmaSpellcastingFocus;
+                        break;
+                    case "Ritual Spellcasting Focus":
+                        intKarmaMultiplier = _objOptions.KarmaRitualSpellcastingFocus;
                         break;
                     case "Spell Shaping Focus":
                         intKarmaMultiplier = _objOptions.KarmaSpellShapingFocus;
                         break;
                     case "Summoning Focus":
-						intKarmaMultiplier = _objOptions.KarmaSummoningFocus;
-						break;
-					case "Disenchanting Focus":
+                        intKarmaMultiplier = _objOptions.KarmaSummoningFocus;
+                        break;
+                    case "Alchemical Focus":
+                        intKarmaMultiplier = _objOptions.KarmaAlchemicalFocus;
+                        break;
+                    case "Centering Focus":
+                        intKarmaMultiplier = _objOptions.KarmaCenteringFocus;
+                        break;
+                    case "Masking Focus":
+                        intKarmaMultiplier = _objOptions.KarmaMaskingFocus;
+                        break;
+                    case "Disenchanting Focus":
                         intKarmaMultiplier = _objOptions.KarmaDisenchantingFocus;
-						break;
-					case "Centering Focus":
-						intKarmaMultiplier = _objOptions.KarmaCenteringFocus;
-						break;
-					case "Masking Focus":
-						intKarmaMultiplier = _objOptions.KarmaMaskingFocus;
-						break;
-					case "Flexible Signature Focus":
-						intKarmaMultiplier = _objOptions.KarmaFlexibleSignatureFocus;
-						break;
-					case "Power Focus":
-						intKarmaMultiplier = _objOptions.KarmaPowerFocus;
-						break;
-					case "Qi Focus":
-                        intKarmaMultiplier = _objOptions.KarmaQiFocus;
-						break;
-					default:
-						intKarmaMultiplier = 1;
-						break;
-				}
-
+                        break;
+                    case "Power Focus":
+                        intKarmaMultiplier = _objOptions.KarmaPowerFocus;
+                        break;
+                    case "Flexible Signature Focus":
+                        intKarmaMultiplier = _objOptions.KarmaFlexibleSignatureFocus;
+                        break;
+                    default:
+                        intKarmaMultiplier = 1;
+                        break;
+                }
 				int intKarmaExpense = objFocus.Rating * intKarmaMultiplier;
 				if (intKarmaExpense > _objCharacter.Karma)
 				{
@@ -20858,6 +20865,9 @@ namespace Chummer
 					_objCharacter.TechnomancerEnabled = false;
 				}
 
+                if (_objCharacter.MAGAdept > _objCharacter.MAG.TotalValue)
+                    _objCharacter.MAGAdept = _objCharacter.MAG.TotalValue;
+
 				// If the character is an A.I., set the Edge MetatypeMaximum to their Rating.
 				if (_objCharacter.Metatype.EndsWith("A.I.") || _objCharacter.MetatypeCategory == "Technocritters" || _objCharacter.MetatypeCategory == "Protosapients")
 					_objCharacter.EDG.MetatypeMaximum = _objCharacter.Rating;
@@ -21595,6 +21605,7 @@ namespace Chummer
 
 				cmdQuickenSpell.Visible = _objCharacter.HasImprovement(Improvement.ImprovementType.QuickeningMetamagic, true);
 			}
+            RefreshLimitModifiers();
 			RefreshImprovements();
 			UpdateReputation();
 		}
@@ -21677,7 +21688,80 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        public void RefreshLimitModifiers()
+        {
+            treLimit.Nodes[0].Nodes.Clear();
+            treLimit.Nodes[1].Nodes.Clear();
+            treLimit.Nodes[2].Nodes.Clear();
+
+            // Populate Limit Modifiers.
+            foreach (LimitModifier objLimitModifier in _objCharacter.LimitModifiers)
+            {
+                TreeNode objLimitModifierNode = new TreeNode();
+                objLimitModifierNode.Text = objLimitModifier.DisplayName;
+                objLimitModifierNode.Tag = objLimitModifier.InternalId;
+                objLimitModifierNode.ContextMenuStrip = cmsMartialArts;
+                if (objLimitModifier.Notes != string.Empty)
+                    objLimitModifierNode.ForeColor = Color.SaddleBrown;
+                objLimitModifierNode.ToolTipText = objLimitModifier.Notes;
+                objLimitModifierNode.ContextMenuStrip = cmsLimitModifier;
+
+                switch (objLimitModifier.Limit)
+                {
+                    case "Physical":
+                        treLimit.Nodes[0].Nodes.Add(objLimitModifierNode);
+                        treLimit.Nodes[0].Expand();
+                        break;
+                    case "Mental":
+                        treLimit.Nodes[1].Nodes.Add(objLimitModifierNode);
+                        treLimit.Nodes[1].Expand();
+                        break;
+                    case "Social":
+                        treLimit.Nodes[2].Nodes.Add(objLimitModifierNode);
+                        treLimit.Nodes[2].Expand();
+                        break;
+                }
+            }
+
+            // Populate Limit Modifiers from Improvements
+            foreach (Improvement objImprovement in _objCharacter.Improvements)
+            {
+                if (objImprovement.ImproveType == Improvement.ImprovementType.LimitModifier)
+                {
+                    TreeNode objLimitModifierNode = new TreeNode();
+                    string strName = objImprovement.UniqueName;
+                    if (objImprovement.Value > 0)
+                        strName += " [+" + objImprovement.Value.ToString() + "]";
+                    else
+                        strName += " [" + objImprovement.Value.ToString() + "]";
+                    objLimitModifierNode.Text = strName;
+                    objLimitModifierNode.Tag = objImprovement.SourceName;
+                    objLimitModifierNode.ContextMenuStrip = cmsMartialArts;
+                    if (objImprovement.Notes != string.Empty)
+                        objLimitModifierNode.ForeColor = Color.SaddleBrown;
+                    objLimitModifierNode.ToolTipText = objImprovement.Notes;
+                    objLimitModifierNode.ContextMenuStrip = cmsLimitModifier;
+
+                    switch (objImprovement.ImprovedName)
+                    {
+                        case "Physical":
+                            treLimit.Nodes[0].Nodes.Add(objLimitModifierNode);
+                            treLimit.Nodes[0].Expand();
+                            break;
+                        case "Mental":
+                            treLimit.Nodes[1].Nodes.Add(objLimitModifierNode);
+                            treLimit.Nodes[1].Expand();
+                            break;
+                        case "Social":
+                            treLimit.Nodes[2].Nodes.Add(objLimitModifierNode);
+                            treLimit.Nodes[2].Expand();
+                            break;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
 		/// Refresh the information for the currently displayed Weapon.
 		/// </summary>
 		public void RefreshSelectedWeapon()
@@ -21750,7 +21834,7 @@ namespace Chummer
 				chkIncludedInWeapon.Checked = false;
 
 				// Do not allow Cyberware of Gear Weapons to be moved.
-				if (!objWeapon.Category.StartsWith("Cyberware") && objWeapon.Category != "Gear")
+				if (!objWeapon.Cyberware && objWeapon.Category != "Gear")
 				{
 					if (_objCharacter.Vehicles.Count > 0)
 						cmdWeaponMoveToVehicle.Enabled = true;
@@ -21839,7 +21923,7 @@ namespace Chummer
 
 				// If this is a Cyberweapon, grab the STR of the limb.
 				int intUseSTR = 0;
-				if (objWeapon.Category.StartsWith("Cyberware"))
+				if (objWeapon.Cyberware)
 				{
 					foreach (Cyberware objCyberware in _objCharacter.Cyberware)
 					{
@@ -26178,6 +26262,13 @@ namespace Chummer
                 if (treLimit.SelectedNode.Level == 0)
                     return;
 
+                LimitModifier objLimit = _objFunctions.FindLimitModifier(treLimit.SelectedNode.Tag.ToString(), _objCharacter.LimitModifiers);
+                if (objLimit == null)
+                {
+                    MessageBox.Show(LanguageManager.Instance.GetString("Message_CannotDeleteLimitModifier"), LanguageManager.Instance.GetString("MessageTitle_CannotDeleteLimitModifier"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
                 if (!_objFunctions.ConfirmDelete(LanguageManager.Instance.GetString("Message_DeleteLimitModifier")))
                     return;
 
@@ -26201,12 +26292,8 @@ namespace Chummer
         {
             try
             {
-                bool blnFound = false;
                 LimitModifier obLimitModifier = _objFunctions.FindLimitModifier(treLimit.SelectedNode.Tag.ToString(), _objCharacter.LimitModifiers);
                 if (obLimitModifier != null)
-                    blnFound = true;
-
-                if (blnFound)
                 {
                     frmNotes frmItemNotes = new frmNotes();
                     frmItemNotes.Notes = obLimitModifier.Notes;
@@ -26228,6 +26315,36 @@ namespace Chummer
                     else
                         treLimit.SelectedNode.ForeColor = SystemColors.WindowText;
                     treLimit.SelectedNode.ToolTipText = obLimitModifier.Notes;
+                }
+                else
+                {
+                    // the limit modifier has a source
+                    foreach (Improvement objImprovement in _objCharacter.Improvements)
+                    {
+                        if (objImprovement.ImproveType == Improvement.ImprovementType.LimitModifier && objImprovement.SourceName == treLimit.SelectedNode.Tag.ToString())
+                        {
+                            frmNotes frmItemNotes = new frmNotes();
+                            frmItemNotes.Notes = objImprovement.Notes;
+                            string strOldValue = objImprovement.Notes;
+                            frmItemNotes.ShowDialog(this);
+
+                            if (frmItemNotes.DialogResult == DialogResult.OK)
+                            {
+                                objImprovement.Notes = frmItemNotes.Notes;
+                                if (objImprovement.Notes != strOldValue)
+                                {
+                                    _blnIsDirty = true;
+                                    UpdateWindowTitle();
+                                }
+                            }
+
+                            if (objImprovement.Notes != string.Empty)
+                                treLimit.SelectedNode.ForeColor = Color.SaddleBrown;
+                            else
+                                treLimit.SelectedNode.ForeColor = SystemColors.WindowText;
+                            treLimit.SelectedNode.ToolTipText = objImprovement.Notes;
+                        }
+                    }
                 }
             }
             catch

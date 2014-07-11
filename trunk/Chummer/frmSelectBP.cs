@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.XPath;
 
 namespace Chummer
 {
@@ -39,6 +41,26 @@ namespace Chummer
 			nudBP.Value = _objOptions.BuildPoints;
 			nudMaxAvail.Value = _objOptions.Availability;
 
+            // Load the Priority information.
+            XmlDocument objXmlDocumentPriority = XmlManager.Instance.Load("priorities.xml");
+
+            // Populate the Gameplay Options list.
+            string strDefault = "";
+            XmlNodeList objXmlGameplayOptionList = objXmlDocumentPriority.SelectNodes("/chummer/gameplayoptions/gameplayoption");
+            foreach (XmlNode objXmlGameplayOption in objXmlGameplayOptionList)
+            {
+                string strName = objXmlGameplayOption["name"].InnerText;
+                try
+                {
+                    if (objXmlGameplayOption["default"].InnerText == "yes")
+                        strDefault = strName;
+                }
+                catch { }
+                ListItem lstGameplay = new ListItem();
+                cboGamePlay.Items.Add(strName);
+            }
+            cboGamePlay.Text = strDefault;
+
 			toolTip1.SetToolTip(chkIgnoreRules, LanguageManager.Instance.GetString("Tip_SelectBP_IgnoreRules"));
 
 			if (blnUseCurrentValues)
@@ -67,6 +89,7 @@ namespace Chummer
                 _objCharacter.BuildKarma = Convert.ToInt32(nudBP.Value);
                 _objCharacter.NuyenMaximumBP = 10;
                 _objCharacter.BuildMethod = CharacterBuildMethod.Priority;
+                _objCharacter.GameplayOption = cboGamePlay.Text;
             }
             _objCharacter.IgnoreRules = chkIgnoreRules.Checked;
 			_objCharacter.MaximumAvailability = Convert.ToInt32(nudMaxAvail.Value);
@@ -103,11 +126,13 @@ namespace Chummer
                             nudBP.Value = 750;
                     }
                     nudBP.Visible = true;
+                    cboGamePlay.Visible = false;
                 }
                 else if (cboBuildMethod.SelectedValue.ToString() == "Priority")
                 {
                     lblDescription.Text = LanguageManager.Instance.GetString("String_SelectBP_PrioritySummary");
                     nudBP.Visible = false;
+                    cboGamePlay.Visible = true;
                 }
             }
         }
@@ -118,5 +143,15 @@ namespace Chummer
 			cboBuildMethod_SelectedIndexChanged(this, e);
 		}
 		#endregion
+
+        private void cboGamePlay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Load the Priority information.
+            XmlDocument objXmlDocumentPriority = XmlManager.Instance.Load("priorities.xml");
+
+            XmlNode objXmlGameplayOption = objXmlDocumentPriority.SelectSingleNode("/chummer/gameplayoptions/gameplayoption[name = \"" + cboGamePlay.Text + "\"]");
+            string strAvail = objXmlGameplayOption["maxavailability"].InnerText;
+            nudMaxAvail.Value = Convert.ToInt32(strAvail);
+        }
 	}
 }

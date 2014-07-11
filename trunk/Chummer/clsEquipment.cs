@@ -678,7 +678,7 @@ namespace Chummer
 		{
 			get
 			{
-				// If the Avail contains "+", return the base string and don't try to calculate anything since we're looking at a child component.
+                // If the Avail contains "+", return the base string and don't try to calculate anything since we're looking at a child component.
 				if (_strAvail.Contains("+"))
 					return _strAvail;
 
@@ -3453,9 +3453,21 @@ namespace Chummer
 				{
 					if (_strAvail.StartsWith("FixedValues"))
 					{
-						string[] strValues = _strAvail.Replace("FixedValues(", string.Empty).Replace(")", string.Empty).Split(',');
-						strCalculated = strValues[_intRating - 1];
-					}
+                        string[] strValues = _strAvail.Replace("FixedValues(", string.Empty).Replace(")", string.Empty).Split(',');
+                        string strAvail = strValues[Convert.ToInt32(_intRating) - 1];
+                        if (strAvail.EndsWith("F") || strAvail.EndsWith("R"))
+                        {
+                            string strAvailSuffix = strAvail.Substring(strAvail.Length - 1, 1);
+                            strAvail = strAvail.Substring(0, strAvail.Length - 1);
+                            int intAvailFix = Convert.ToInt32(strAvail) + intAvailModifier;
+                            strCalculated = intAvailFix.ToString() + strAvailSuffix;
+                        }
+                        else
+                        {
+                            int intAvailFix = Convert.ToInt32(strAvail) + intAvailModifier;
+                            strCalculated = intAvailFix.ToString();
+                        }
+                    }
 					else
 					{
 						// Just a straight cost, so return the value.
@@ -4229,6 +4241,7 @@ namespace Chummer
 		private bool _blnRequireAmmo = true;
         private string _strAccuracy = "";
         private string _strRCTip = "";
+        private bool _blnCyberware = false;
 
 		private readonly Character _objCharacter;
 
@@ -4280,7 +4293,13 @@ namespace Chummer
                 _intCost = Convert.ToInt32(objXmlWeapon["cost"].InnerText);
             }
             catch { }
-			_strSource = objXmlWeapon["source"].InnerText;
+            try
+            {
+                if (objXmlWeapon["cyberware"].InnerText == "yes")
+                    _blnCyberware = true;
+            }
+            catch { }
+            _strSource = objXmlWeapon["source"].InnerText;
 			_strPage = objXmlWeapon["page"].InnerText;
 
 			XmlDocument objXmlDocument = XmlManager.Instance.Load("weapons.xml");
@@ -5071,7 +5090,18 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Is this weapon cyberware?
+        /// </summary>
+        public bool Cyberware
+        {
+            get
+            {
+                return _blnCyberware;
+            }
+        }
+
+        /// <summary>
 		/// Reach.
 		/// </summary>
 		public int Reach
@@ -5190,10 +5220,7 @@ namespace Chummer
 					return _strAmmoCategory;
 				else
 				{
-					if (_strCategory.StartsWith("Cyberware"))
-						return _strCategory.Replace("Cyberware", string.Empty).Trim();
-					else
-						return _strCategory;
+					return _strCategory;
 				}
 			}
 		}
@@ -5613,7 +5640,7 @@ namespace Chummer
 			{
 				ImprovementManager objImprovementManager = new ImprovementManager(_objCharacter);
 
-				if (_strCategory.StartsWith("Cyberware"))
+				if (_blnCyberware)
 				{
 					int intSTR = _objCharacter.STR.TotalValue;
 					// Look to see if this is attached to a Cyberlimb and use its STR instead.
@@ -6138,7 +6165,7 @@ namespace Chummer
 				}
 
 				// If this is a Cyberware or Gear Weapon, remove the Weapon Cost from this since it has already been paid for through the parent item (but is needed to calculate Mod price).
-				if (_strCategory.StartsWith("Cyberware") || _strCategory == "Gear")
+				if (_blnCyberware || _strCategory == "Gear")
 					intReturn -= intWeaponCost;
 
 				// Include the cost of any Underbarrel Weapon.
@@ -6178,7 +6205,7 @@ namespace Chummer
 				intReturn *= intWeaponCostMultiplier;
 
 				// If this is a Cyberware or Gear Weapon, remove the Weapon Cost from this since it has already been paid for through the parent item (but is needed to calculate Mod price).
-				if (_strCategory.StartsWith("Cyberware") || _strCategory == "Gear")
+				if (_blnCyberware || _strCategory == "Gear")
 					intReturn -= intWeaponCost;
 
 				return intReturn;
@@ -9666,7 +9693,21 @@ namespace Chummer
 					_strAltCategory = _strAltCategory.Replace("Stacked Focus", LanguageManager.Instance.GetString("String_StackedFocus"));
 			}
 
-			// Check for a Variable Cost.
+            // Check for a Custom name
+            if (objXmlGear["name"].InnerText == "Custom Item")
+            {
+                frmSelectText frmPickText = new frmSelectText();
+                frmPickText.Description = LanguageManager.Instance.GetString("String_CustomItem_SelectText");
+                frmPickText.ShowDialog();
+
+                // Make sure the dialogue window was not canceled.
+                if (frmPickText.DialogResult != DialogResult.Cancel)
+                {
+                    _strName = frmPickText.SelectedValue;
+                }
+            }
+            
+            // Check for a Variable Cost.
 			if (objXmlGear["cost"] != null)
 			{
 				if (objXmlGear["cost"].InnerText.StartsWith("Variable"))
@@ -13692,6 +13733,34 @@ namespace Chummer
             }
             _strAvail = objXmlVehicle["avail"].InnerText;
 			_strCost = objXmlVehicle["cost"].InnerText;
+            // Check for a Variable Cost.
+            if (objXmlVehicle["cost"].InnerText.StartsWith("Variable"))
+            {
+                int intMin = 0;
+                int intMax = 0;
+                string strCost = objXmlVehicle["cost"].InnerText.Replace("Variable(", string.Empty).Replace(")", string.Empty);
+                if (strCost.Contains("-"))
+                {
+                    string[] strValues = strCost.Split('-');
+                    intMin = Convert.ToInt32(strValues[0]);
+                    intMax = Convert.ToInt32(strValues[1]);
+                }
+                else
+                    intMin = Convert.ToInt32(strCost.Replace("+", string.Empty));
+
+                if (intMin != 0 || intMax != 0)
+                {
+                    frmSelectNumber frmPickNumber = new frmSelectNumber();
+                    if (intMax == 0)
+                        intMax = 1000000;
+                    frmPickNumber.Minimum = intMin;
+                    frmPickNumber.Maximum = intMax;
+                    frmPickNumber.Description = LanguageManager.Instance.GetString("String_SelectVariableCost").Replace("{0}", DisplayNameShort);
+                    frmPickNumber.AllowCancel = false;
+                    frmPickNumber.ShowDialog();
+                    _strCost = frmPickNumber.SelectedValue.ToString();
+                }
+            }
 			_strSource = objXmlVehicle["source"].InnerText;
 			_strPage = objXmlVehicle["page"].InnerText;
 

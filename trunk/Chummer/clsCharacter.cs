@@ -166,7 +166,18 @@ namespace Chummer
 		// Condition Monitor Progress.
 		private int _intPhysicalCMFilled = 0;
 		private int _intStunCMFilled = 0;
-		
+
+        // Priority Selections.
+        private string _strGameplayOption = "";
+        private string _strPriorityMetatype = "";
+        private string _strPriorityAttributes = "";
+        private string _strPrioritySpecial = "";
+        private string _strPrioritySkills = "";
+        private string _strPriorityResources = "";
+        private int _intMaxNuyen = 0;
+        private int _intMaxKarma = 0;
+        private int _intContactMultiplier = 0;
+
 		// Lists.
 		private List<Improvement> _lstImprovements = new List<Improvement>();
 		private List<Skill> _lstSkills = new List<Skill>();
@@ -948,6 +959,70 @@ namespace Chummer
 			{
 			}
 
+            try
+            {
+                _strGameplayOption = objXmlCharacter["gameplayoption"].InnerText;
+            }
+            catch
+            {
+            }
+            try
+            {
+                _intMaxNuyen = Convert.ToInt32(objXmlCharacter["maxnuyen"].InnerText);
+            }
+            catch
+            {
+            }
+            try
+            {
+                _intContactMultiplier = Convert.ToInt32(objXmlCharacter["contactmultiplier"].InnerText);
+            }
+            catch
+            {
+            }
+            try
+            {
+                _intMaxKarma = Convert.ToInt32(objXmlCharacter["maxkarma"].InnerText);
+            }
+            catch
+            {
+            }
+            try
+            {
+                _strPriorityMetatype = objXmlCharacter["prioritymetatype"].InnerText;
+            }
+            catch
+            {
+            }
+            try
+            {
+                _strPriorityAttributes = objXmlCharacter["priorityattributes"].InnerText;
+            }
+            catch
+            {
+            }
+            try
+            {
+                _strPrioritySpecial = objXmlCharacter["priorityspecial"].InnerText;
+            }
+            catch
+            {
+            }
+            try
+            {
+                _strPrioritySkills = objXmlCharacter["priorityskills"].InnerText;
+            }
+            catch
+            {
+            }
+            try
+            {
+                _strPriorityResources = objXmlCharacter["priorityresources"].InnerText;
+            }
+            catch
+            {
+            }
+
 			try
 			{
 				_blnIsCritter = Convert.ToBoolean(objXmlCharacter["iscritter"].InnerText);
@@ -1704,6 +1779,25 @@ namespace Chummer
 			// <movementfly />
 			objWriter.WriteElementString("movementfly", Fly);
 
+            // <gameplayoption />
+            objWriter.WriteElementString("gameplayoption", _strGameplayOption);
+            // <maxkarma />
+            objWriter.WriteElementString("maxkarma", _intMaxKarma.ToString());
+            // <maxnuyen />
+            objWriter.WriteElementString("maxnuyen", _intMaxKarma.ToString());
+            // <contactmultiplier />
+            objWriter.WriteElementString("contactmultiplier", _intContactMultiplier.ToString());
+            // <prioritymetatype />
+            objWriter.WriteElementString("prioritymetatype", _strPriorityMetatype);
+            // <priorityattributes />
+            objWriter.WriteElementString("priorityattributes", _strPriorityAttributes);
+            // <priorityspecial />
+            objWriter.WriteElementString("priorityspecial", _strPrioritySpecial);
+            // <priorityskills />
+            objWriter.WriteElementString("priorityskills", _strPrioritySkills);
+            // <priorityresources />
+            objWriter.WriteElementString("priorityresources", _strPriorityResources);
+
 			// If the character does not have a name, call them Unnamed Character. This prevents a transformed document from having a self-terminated title tag which causes browser to not rendering anything.
 			// <name />
 			if (_strName != "")
@@ -1810,7 +1904,7 @@ namespace Chummer
 			objWriter.WriteElementString("nuyen", _intNuyen.ToString());
             // <adeptwaydiscount />
             objWriter.WriteElementString("adeptwaydiscount", _intAdeptWayDiscount.ToString());
-
+            int i = this._intNuyen;
 			// <adept />
 			objWriter.WriteElementString("adept", _blnAdeptEnabled.ToString());
 			// <magician />
@@ -2124,7 +2218,28 @@ namespace Chummer
                 if (objLimitModifier.Limit == "Physical")
                     objLimitModifier.Print(objWriter);
             }
-            // </limitmodifiers>
+            // Populate Limit Modifiers from Improvements
+            foreach (Improvement objImprovement in _lstImprovements)
+            {
+                if (objImprovement.ImproveType == Improvement.ImprovementType.LimitModifier)
+                {
+                    if (objImprovement.ImprovedName == "Physical")
+                    {
+                        string strName = objImprovement.UniqueName;
+                        if (objImprovement.Value > 0)
+                            strName += " [+" + objImprovement.Value.ToString() + "]";
+                        else
+                            strName += " [" + objImprovement.Value.ToString() + "]";
+
+                        objWriter.WriteStartElement("limitmodifier");
+                        objWriter.WriteElementString("name", strName);
+                        if (this.Options.PrintNotes)
+                            objWriter.WriteElementString("notes", objImprovement.Notes);
+                        objWriter.WriteEndElement();
+                    }
+                }
+            }
+            // </limitmodifiersphys>
             objWriter.WriteEndElement();
 
             // <limitmodifiersment>
@@ -2134,7 +2249,28 @@ namespace Chummer
                 if (objLimitModifier.Limit == "Mental")
                     objLimitModifier.Print(objWriter);
             }
-            // </limitmodifiers>
+            // Populate Limit Modifiers from Improvements
+            foreach (Improvement objImprovement in _lstImprovements)
+            {
+                if (objImprovement.ImproveType == Improvement.ImprovementType.LimitModifier)
+                {
+                    if (objImprovement.ImprovedName == "Mental")
+                    {
+                        string strName = objImprovement.UniqueName;
+                        if (objImprovement.Value > 0)
+                            strName += " [+" + objImprovement.Value.ToString() + "]";
+                        else
+                            strName += " [" + objImprovement.Value.ToString() + "]";
+
+                        objWriter.WriteStartElement("limitmodifier");
+                        objWriter.WriteElementString("name", strName);
+                        if (this.Options.PrintNotes)
+                            objWriter.WriteElementString("notes", objImprovement.Notes);
+                        objWriter.WriteEndElement();
+                    }
+                }
+            }
+            // </limitmodifiersment>
             objWriter.WriteEndElement();
 
             // <limitmodifierssoc>
@@ -2144,7 +2280,28 @@ namespace Chummer
                 if (objLimitModifier.Limit == "Social")
                     objLimitModifier.Print(objWriter);
             }
-            // </limitmodifiers>
+            // Populate Limit Modifiers from Improvements
+            foreach (Improvement objImprovement in _lstImprovements)
+            {
+                if (objImprovement.ImproveType == Improvement.ImprovementType.LimitModifier)
+                {
+                    if (objImprovement.ImprovedName == "Social")
+                    {
+                        string strName = objImprovement.UniqueName;
+                        if (objImprovement.Value > 0)
+                            strName += " [+" + objImprovement.Value.ToString() + "]";
+                        else
+                            strName += " [" + objImprovement.Value.ToString() + "]";
+
+                        objWriter.WriteStartElement("limitmodifier");
+                        objWriter.WriteElementString("name", strName);
+                        if (this.Options.PrintNotes)
+                            objWriter.WriteElementString("notes", objImprovement.Notes);
+                        objWriter.WriteEndElement();
+                    }
+                }
+            }
+            // </limitmodifierssoc>
             objWriter.WriteEndElement();
 
             // <spells>
@@ -2895,7 +3052,142 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Character's Gameplay Option.
+        /// </summary>
+        public string GameplayOption
+        {
+            get
+            {
+                return _strGameplayOption;
+            }
+            set
+            {
+                _strGameplayOption = value;
+            }
+        }
+
+        /// <summary>
+        /// Character's maximum karma at character creation.
+        /// </summary>
+        public int MaxKarma
+        {
+            get
+            {
+                return _intMaxKarma;
+            }
+            set
+            {
+                _intMaxKarma = value;
+            }
+        }
+
+        /// <summary>
+        /// Character's maximum nuyen at character creation.
+        /// </summary>
+        public int MaxNuyen
+        {
+            get
+            {
+                return _intMaxNuyen;
+            }
+            set
+            {
+                _intMaxNuyen = value;
+            }
+        }
+
+        /// <summary>
+        /// Character's contact point multiplier.
+        /// </summary>
+        public int ContactMultiplier
+        {
+            get
+            {
+                return _intContactMultiplier;
+            }
+            set
+            {
+                _intContactMultiplier = value;
+            }
+        }
+
+        /// <summary>
+        /// Character's Metatype Priority.
+        /// </summary>
+        public string MetatypePriority
+        {
+            get
+            {
+                return _strPriorityMetatype;
+            }
+            set
+            {
+                _strPriorityMetatype = value;
+            }
+        }
+
+        /// <summary>
+        /// Character's Attributes Priority.
+        /// </summary>
+        public string AttributesPriority
+        {
+            get
+            {
+                return _strPriorityAttributes;
+            }
+            set
+            {
+                _strPriorityAttributes = value;
+            }
+        }
+
+        /// <summary>
+        /// Character's Special Priority.
+        /// </summary>
+        public string SpecialPriority
+        {
+            get
+            {
+                return _strPrioritySpecial;
+            }
+            set
+            {
+                _strPrioritySpecial = value;
+            }
+        }
+
+        /// <summary>
+        /// Character's Skills Priority.
+        /// </summary>
+        public string SkillsPriority
+        {
+            get
+            {
+                return _strPrioritySkills;
+            }
+            set
+            {
+                _strPrioritySkills = value;
+            }
+        }
+
+        /// <summary>
+        /// Character's Resources Priority.
+        /// </summary>
+        public string ResourcesPriority
+        {
+            get
+            {
+                return _strPriorityResources;
+            }
+            set
+            {
+                _strPriorityResources = value;
+            }
+        }
+
+        /// <summary>
 		/// Character's sex.
 		/// </summary>
 		public string Sex

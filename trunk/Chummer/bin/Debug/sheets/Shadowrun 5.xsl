@@ -19,7 +19,7 @@
 												</td>
 												<td width="15%" style="text-align:center;" valign="top">
 													<xsl:value-of select="total" />
-													<xsl:if test="spec != '' and exotic = 'False'"> (<xsl:value-of select="total + 2" />)</xsl:if>
+													<xsl:if test="spec != '' and exotic = 'False'"> (<xsl:value-of select="specializedrating" />)</xsl:if>
 												</td>
 												<td width="10%" style="text-align:center;" valign="top">
 													<xsl:value-of select="rating" />
@@ -49,7 +49,7 @@
 												</td>
 												<td width="15%" style="text-align:center;" valign="top">
 													<xsl:value-of select="total" />
-													<xsl:if test="spec != '' and exotic = 'False'"> (<xsl:value-of select="total + 2" />)</xsl:if>
+													<xsl:if test="spec != '' and exotic = 'False'"> (<xsl:value-of select="specializedrating" />)</xsl:if>
 												</td>
 												<td width="10%" style="text-align:center;" valign="top">
 													<xsl:value-of select="rating" />
@@ -83,7 +83,7 @@
 														</xsl:when>
 														<xsl:otherwise>
 															<xsl:value-of select="total" />
-															<xsl:if test="spec != ''"> (<xsl:value-of select="total + 2" />)</xsl:if>
+															<xsl:if test="spec != ''"> (<xsl:value-of select="specializedrating" />)</xsl:if>
 														</xsl:otherwise>
 													</xsl:choose>
 												</td>
@@ -137,7 +137,7 @@
 														</xsl:when>
 														<xsl:otherwise>
 															<xsl:value-of select="total" />
-															<xsl:if test="spec != ''"> (<xsl:value-of select="total + 2" />)</xsl:if>
+															<xsl:if test="spec != ''"> (<xsl:value-of select="specializedrating" />)</xsl:if>
 														</xsl:otherwise>
 													</xsl:choose>
 												</td>

@@ -775,7 +775,7 @@
 		</string>
 		<string>
 			<key>Menu_SpecialChangeMetatype</key>
-			<text>Change &amp;Metatype</text>
+			<text>Change Priority Selection</text>
 		</string>
 		<string>
 			<key>Menu_SpecialConvertToMutantCritter</key>
@@ -1252,6 +1252,14 @@
 		<string>
 			<key>MessageTitle_PowerLevel</key>
 			<text>Power Level</text>
+		</string>
+		<string>
+			<key>Message_CannotDeleteLimitModifier</key>
+			<text>You must delete the source of this modifier to delete this item.</text>
+		</string>
+		<string>
+			<key>MessageTitle_CannotDeleteLimitModifier</key>
+			<text>Cannot Delete</text>
 		</string>
 		<string>
 			<key>Message_MartialArtAdvantageLimit</key>
@@ -6376,7 +6384,7 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		</string>
 		<string>
 			<key>Tip_SelectSpell_LimitedSpell</key>
-			<text>Limited Spells require a Fetish to cast but add +2 dice to the Drain Resistance Test after casting this Spell.</text>
+			<text>Limited Spells require a Fetish to cast but reduce the Drain Value of the spell by 2.</text>
 		</string>
 		<string>
 			<key>Checkbox_SelectSpell_ExtendedSpell</key>
@@ -6843,6 +6851,10 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		<string>
 			<key>String_Improvement_SelectText</key>
 			<text>Enter a value for {0}.</text>
+		</string>
+		<string>
+			<key>String_CustomItem_SelectText</key>
+			<text>Enter a name for this custom item.</text>
 		</string>
 		<!-- CharacterOptions Messages -->
 		<string>

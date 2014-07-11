@@ -230,7 +230,7 @@
 									<xsl:value-of select="name" />
 									<xsl:if test="spec != ''"> (<xsl:value-of select="spec" />)</xsl:if>
 									<xsl:text> </xsl:text><xsl:value-of select="total" />
-									<xsl:if test="spec != '' and exotic = 'False'"> (<xsl:value-of select="total + 2" />)</xsl:if>
+									<xsl:if test="spec != '' and exotic = 'False'"> (<xsl:value-of select="specializedrating" />)</xsl:if>
 									<xsl:if test="position() != last()">, </xsl:if>
 								</xsl:for-each></p>
 								
@@ -242,7 +242,7 @@
 										<xsl:if test="spec != ''"> (<xsl:value-of select="spec" />)</xsl:if>
 										<xsl:if test="rating = 0"><xsl:text> </xsl:text>N</xsl:if>
 										<xsl:if test="rating &gt; 0"><xsl:text> </xsl:text><xsl:value-of select="total" /></xsl:if>
-										<xsl:if test="spec != ''"> (<xsl:value-of select="total + 2" />)</xsl:if>
+										<xsl:if test="spec != ''"> (<xsl:value-of select="specializedrating" />)</xsl:if>
 										<xsl:if test="position() != last()">, </xsl:if>
 									</xsl:for-each></p>
 								</xsl:if>

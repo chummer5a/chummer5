@@ -105,6 +105,21 @@ namespace Chummer
             // Initialize elements if we're using Priority to build.
             if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
             {
+                // Load the Priority information.
+                if (_objCharacter.GameplayOption == "")
+                {
+                    _objCharacter.GameplayOption = "Standard";
+
+                    XmlDocument objXmlDocumentPriority = XmlManager.Instance.Load("priorities.xml");
+                    XmlNode objXmlGameplayOption = objXmlDocumentPriority.SelectSingleNode("/chummer/gameplayoptions/gameplayoption[name = \"" + _objCharacter.GameplayOption + "\"]");
+                    string strKarma = objXmlGameplayOption["karma"].InnerText;
+                    string strNuyen = objXmlGameplayOption["maxnuyen"].InnerText;
+                    string strContactMultiplier = objXmlGameplayOption["contactmultiplier"].InnerText;
+                    _objCharacter.MaxKarma = Convert.ToInt32(strKarma);
+                    _objCharacter.MaxNuyen = Convert.ToInt32(strNuyen);
+                    _objCharacter.ContactMultiplier = Convert.ToInt32(strContactMultiplier);
+                }
+
                 lblPBuildSpecial.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.Special).ToString(), _objCharacter.TotalSpecial.ToString());
                 lblPBuildAttributes.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.Attributes).ToString(), _objCharacter.TotalAttributes.ToString());
                 lblPBuildSpells.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.SpellLimit).ToString(), _objCharacter.SpellLimit.ToString());
@@ -363,13 +378,13 @@ namespace Chummer
 			// Nuyen can be affected by Qualities, so adjust the total amount available to the character.
             if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
             {
-                nudNuyen.Maximum = 10;
+                nudNuyen.Maximum = _objCharacter.MaxNuyen;
                 nudNuyen.Value = _objCharacter.NuyenBP;
             }
             else 
             { 
 			    if (!_objCharacter.IgnoreRules)
-				    nudNuyen.Maximum = _objCharacter.NuyenMaximumBP;
+                    nudNuyen.Maximum = _objCharacter.MaxNuyen;
 			    else
 				    nudNuyen.Maximum = 100000;
 
@@ -1429,7 +1444,7 @@ namespace Chummer
 
             cmdDeleteLimitModifier.Left = cmdAddLimitModifier.Left + cmdAddLimitModifier.Width + 15;
 		}
-		#endregion
+        #endregion
 
 		#region Character Events
 		private void objCharacter_MAGEnabledChanged(object sender)
@@ -2781,7 +2796,7 @@ namespace Chummer
 						if (objCopyWeapon != null)
 						{
 							// Do not let the user copy Gear or Cyberware Weapons.
-							if (objCopyWeapon.Category == "Gear" || objCopyWeapon.Category.StartsWith("Cyberware"))
+							if (objCopyWeapon.Category == "Gear" || objCopyWeapon.Cyberware)
 								return;
 
 							MemoryStream objStream = new MemoryStream();
@@ -3078,7 +3093,7 @@ namespace Chummer
 								if (objCopyWeapon != null)
 								{
 									// Do not let the user copy Gear or Cyberware Weapons.
-									if (objCopyWeapon.Category == "Gear" || objCopyWeapon.Category.StartsWith("Cyberware"))
+									if (objCopyWeapon.Category == "Gear" || objCopyWeapon.Cyberware)
 										return;
 
 									MemoryStream objStream = new MemoryStream();
@@ -3724,7 +3739,7 @@ namespace Chummer
 			_objCharacter.CHA.Value = Convert.ToInt32(nudCHA.Value);
 
             // Calculate the BP used by Contacts.
-            _objCharacter.ContactPoints = _objCharacter.CHA.Value * 3;
+            _objCharacter.ContactPoints = _objCharacter.CHA.Value * _objCharacter.ContactMultiplier;
             int intContactPointsUsed = 0;
             foreach (ContactControl objContactControl in panContacts.Controls)
             {
@@ -4052,6 +4067,8 @@ namespace Chummer
 					{
 						objActiveSkilll.IsGrouped = false;
 						objActiveSkilll.SkillRating = intRating;
+                        if (objSkillGroup.FreeLevels > 0)
+                            objActiveSkilll.SkillObject.FreeLevels = intRating;
 					}
 				}
 			}
@@ -4730,7 +4747,41 @@ namespace Chummer
 			UpdateWindowTitle();
 		}
 
-		private void cmdAddContact_Click(object sender, EventArgs e)
+        private void nudAdeptWayDiscount_ValueChanged(object sender, EventArgs e)
+        {
+            // Don't attempt to do anything while the data is still being populated.
+            if (_blnLoading)
+                return;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (nudAdeptWayDiscount.Value > _objCharacter.Foci.Count)
+            {
+                try
+                {
+                    nudAdeptWayDiscount.Value = _objCharacter.Foci.Count;
+                }
+                catch
+                {
+                    nudAdeptWayDiscount.Value = nudAdeptWayDiscount.Minimum;
+                }
+            }
+
+            _objCharacter.AdeptWayDiscount = Convert.ToInt32(nudAdeptWayDiscount.Value);
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void treLimit_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                cmdDeleteLimitModifier_Click(sender, e);
+            }
+        }
+        
+        private void cmdAddContact_Click(object sender, EventArgs e)
 		{
 			Contact objContact = new Contact(_objCharacter);
 			_objCharacter.Contacts.Add(objContact);
@@ -5583,7 +5634,7 @@ namespace Chummer
 						Weapon objWeapon = _objFunctions.FindWeapon(treWeapons.SelectedNode.Tag.ToString(), _objCharacter.Weapons);
 
 						// Cyberweapons cannot be removed through here and must be done by removing the piece of Cyberware.
-						if (objWeapon.Category.StartsWith("Cyberware"))
+						if (objWeapon.Cyberware)
 						{
 							MessageBox.Show(LanguageManager.Instance.GetString("Message_CannotRemoveCyberweapon"), LanguageManager.Instance.GetString("MessageTitle_CannotRemoveCyberweapon"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 							return;
@@ -6323,6 +6374,13 @@ namespace Chummer
             {
                 if (treLimit.SelectedNode.Level == 0)
                     return;
+
+                LimitModifier objLimit = _objFunctions.FindLimitModifier(treLimit.SelectedNode.Tag.ToString(), _objCharacter.LimitModifiers);
+                if (objLimit == null)
+                {
+                    MessageBox.Show(LanguageManager.Instance.GetString("Message_CannotDeleteLimitModifier"), LanguageManager.Instance.GetString("MessageTitle_CannotDeleteLimitModifier"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
                 if (!_objFunctions.ConfirmDelete(LanguageManager.Instance.GetString("Message_DeleteLimitModifier")))
                     return;
@@ -7910,7 +7968,7 @@ namespace Chummer
 			Weapon objWeapon = _objFunctions.FindWeapon(treWeapons.SelectedNode.Tag.ToString(), _objCharacter.Weapons);
 
 			// Accessories cannot be added to Cyberweapons.
-			if (objWeapon.Category.StartsWith("Cyberware"))
+			if (objWeapon.Cyberware)
 			{
 				MessageBox.Show(LanguageManager.Instance.GetString("Message_CyberweaponNoAccessory"), LanguageManager.Instance.GetString("MessageTitle_CyberweaponNoAccessory"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return;
@@ -9078,7 +9136,7 @@ namespace Chummer
 				{
 					if (objCharacterWeapon.InternalId == treWeapons.SelectedNode.Tag.ToString())
 					{
-						if (objCharacterWeapon.Category.StartsWith("Cyberware"))
+						if (objCharacterWeapon.Cyberware)
 						{
 							MessageBox.Show(LanguageManager.Instance.GetString("Message_CyberwareUnderbarrel"), LanguageManager.Instance.GetString("MessageTitle_WeaponUnderbarrel"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 							return;
@@ -9354,12 +9412,8 @@ namespace Chummer
         {
             try
             {
-                bool blnFound = false;
                 LimitModifier obLimitModifier = _objFunctions.FindLimitModifier(treLimit.SelectedNode.Tag.ToString(), _objCharacter.LimitModifiers);
                 if (obLimitModifier != null)
-                    blnFound = true;
-
-                if (blnFound)
                 {
                     frmNotes frmItemNotes = new frmNotes();
                     frmItemNotes.Notes = obLimitModifier.Notes;
@@ -9381,6 +9435,36 @@ namespace Chummer
                     else
                         treLimit.SelectedNode.ForeColor = SystemColors.WindowText;
                     treLimit.SelectedNode.ToolTipText = obLimitModifier.Notes;
+                }
+                else
+                {
+                    // the limit modifier has a source
+                    foreach (Improvement objImprovement in _objCharacter.Improvements)
+                    {
+                        if (objImprovement.ImproveType == Improvement.ImprovementType.LimitModifier && objImprovement.SourceName == treLimit.SelectedNode.Tag.ToString())
+                        {
+                            frmNotes frmItemNotes = new frmNotes();
+                            frmItemNotes.Notes = objImprovement.Notes;
+                            string strOldValue = objImprovement.Notes;
+                            frmItemNotes.ShowDialog(this);
+
+                            if (frmItemNotes.DialogResult == DialogResult.OK)
+                            {
+                                objImprovement.Notes = frmItemNotes.Notes;
+                                if (objImprovement.Notes != strOldValue)
+                                {
+                                    _blnIsDirty = true;
+                                    UpdateWindowTitle();
+                                }
+                            }
+
+                            if (objImprovement.Notes != string.Empty)
+                                treLimit.SelectedNode.ForeColor = Color.SaddleBrown;
+                            else
+                                treLimit.SelectedNode.ForeColor = SystemColors.WindowText;
+                            treLimit.SelectedNode.ToolTipText = objImprovement.Notes;
+                        }
+                    }
                 }
             }
             catch
@@ -9457,7 +9541,7 @@ namespace Chummer
 						treWeapons.SelectedNode.ForeColor = Color.SaddleBrown;
 					else
 					{
-						if (objWeapon.Category.StartsWith("Cyberware") || objWeapon.Category == "Gear")
+						if (objWeapon.Cyberware || objWeapon.Category == "Gear")
 							treWeapons.SelectedNode.ForeColor = SystemColors.GrayText;
 						else
 							treWeapons.SelectedNode.ForeColor = SystemColors.WindowText;
@@ -10063,7 +10147,7 @@ namespace Chummer
 					treVehicles.SelectedNode.ForeColor = Color.SaddleBrown;
 				else
 				{
-					if (objWeapon.Category.StartsWith("Cyberware") || objWeapon.Category == "Gear")
+					if (objWeapon.Cyberware || objWeapon.Category == "Gear")
 						treVehicles.SelectedNode.ForeColor = SystemColors.GrayText;
 					else
 						treVehicles.SelectedNode.ForeColor = SystemColors.WindowText;
@@ -14623,7 +14707,8 @@ namespace Chummer
                                     intMin = objSkill.Rating;
                             }
                         }
-                        intPointsUsed += intMin;
+                        if (intMin >= objGroupControl.GroupRatingMinimum)
+                            intPointsUsed += (intMin - objGroupControl.GroupRatingMinimum);
                     }
                     else
                     {
@@ -14725,7 +14810,19 @@ namespace Chummer
                     {
                         // Each Specialization costs KarmaSpecialization.
                         // intPointsRemain -= _objOptions.KarmaSpecialization;
-                        intPointsUsed += 1;
+                        bool blnFound = false;
+                        if (objSkillControl.SkillName == "Artisan")
+                        {
+                            // Look for the Inspired quality to see if we get a free specialization
+                            foreach (Quality objQuality in _objCharacter.Qualities)
+                            {
+                                if (objQuality.Name == "Inspired")
+                                    blnFound = true;
+                            }
+
+                        }
+                        if (!blnFound)
+                            intPointsUsed += 1;
                     }
 
                     if (_objOptions.BreakSkillGroupsInCreateMode)
@@ -14757,31 +14854,6 @@ namespace Chummer
                         if (blnApplyModifier)
                         {
                             intPointsUsed -= (intMin - objSkillControl.SkillRatingMinimum);
-                            //// Refund the first X points of Karma cost for the Skill.
-                            //if (objSkillControl.SkillRatingMinimum == 0)
-                            //{
-                            //    if (intMin >= 1)
-                            //    {
-                            //        intPointsUsed -= _objOptions.KarmaNewActiveSkill;
-                            //    }
-                            //    if (intMin > 1)
-                            //    {
-                            //        for (int i = objSkillControl.SkillRatingMinimum + 2; i <= intMin; i++)
-                            //        {
-                            //            intPointsUsed -= i * _objOptions.KarmaImproveActiveSkill;
-                            //        }
-                            //    }
-                            //}
-                            //else
-                            //{
-                            //    if (intMin > 1)
-                            //    {
-                            //        for (int i = objSkillControl.SkillRatingMinimum + 1; i <= intMin; i++)
-                            //        {
-                            //            intPointsUsed -= i * _objOptions.KarmaImproveActiveSkill;
-                            //        }
-                            //    }
-                            //}
                         }
                     }
                 }
@@ -14943,9 +15015,23 @@ namespace Chummer
                     // Specialization Cost (Exotic skills do not count since their "Spec" is actually what the Skill is being used for and cannot be Specialized).
                     if (objSkillControl.SkillSpec.Trim() != string.Empty && !objSkillControl.SkillObject.ExoticSkill)
                     {
-                        // Each Specialization costs KarmaSpecialization.
-                        intPointsRemain -= _objOptions.KarmaSpecialization;
-                        intPointsUsed += _objOptions.KarmaSpecialization;
+                        bool blnFound = false;
+                        if (objSkillControl.SkillName == "Artisan")
+                        {
+                            // Look for the Inspired quality to see if we get a free specialization
+                            foreach (Quality objQuality in _objCharacter.Qualities)
+                            {
+                                if (objQuality.Name == "Inspired")
+                                    blnFound = true;
+                            }
+
+                        }
+                        if (!blnFound)
+                        {
+                            // Each Specialization costs KarmaSpecialization.
+                            intPointsRemain -= _objOptions.KarmaSpecialization;
+                            intPointsUsed += _objOptions.KarmaSpecialization;
+                        }
                     }
                 }
             
@@ -14972,7 +15058,21 @@ namespace Chummer
                 if (objSkillControl.SkillSpec.Trim() != string.Empty)
                 {
                     if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
-                        intPointsInKnowledgeSkills++;
+                    {
+                        bool blnFound = false;
+                        if (objSkillControl.SkillName == "Artisan")
+                        {
+                            // Look for the Inspired quality to see if we get a free specialization
+                            foreach (Quality objQuality in _objCharacter.Qualities)
+                            {
+                                if (objQuality.Name == "Inspired")
+                                    blnFound = true;
+                            }
+
+                        }
+                        if (!blnFound)
+                            intPointsInKnowledgeSkills++;
+                    }
                     else
                         intPointsInKnowledgeSkills += _objOptions.KarmaSpecialization;
                     intSpecCount++;
@@ -15346,7 +15446,21 @@ namespace Chummer
                         intSkills += objSkillControl.SkillRating - objSkillControl.SkillRatingMinimum;
                     if (objSkillControl.SkillSpec.Trim() != string.Empty && !objSkillControl.SkillObject.ExoticSkill)
                     {
-                        intSkills ++;
+                        bool blnFound = false;
+                        if (objSkillControl.SkillName == "Artisan")
+                        {
+                            // Look for the Inspired quality to see if we get a free specialization
+                            foreach (Quality objQuality in _objCharacter.Qualities)
+                            {
+                                if (objQuality.Name == "Inspired")
+                                    blnFound = true;
+                            }
+
+                        }
+                        if (!blnFound)
+                        {
+                            intSkills++;
+                        }
                     }
 
                     if (_objOptions.BreakSkillGroupsInCreateMode)
@@ -15466,7 +15580,7 @@ namespace Chummer
 
 				// Nuyen can be affected by Qualities, so adjust the total amount available to the character.
 				if (!_objCharacter.IgnoreRules)
-					nudNuyen.Maximum = _objCharacter.NuyenMaximumBP;
+                    nudNuyen.Maximum = _objCharacter.MaxNuyen;
 				else
 					nudNuyen.Maximum = 100000;
 
@@ -16132,7 +16246,8 @@ namespace Chummer
 			// Vehicle cost.
 			foreach (Vehicle objVehcile in _objCharacter.Vehicles)
 				intDeductions += objVehcile.TotalCost;
-			
+
+            _objCharacter.Nuyen = intNuyen - intDeductions;
 			lblRemainingNuyen.Text = String.Format("{0:###,###,##0¥}", intNuyen - intDeductions);
 			tssNuyenRemaining.Text = String.Format("{0:###,###,##0¥}", intNuyen - intDeductions);
             lblPBuildNuyen.Text = String.Format("{0:###,###,##0¥}", intNuyen - intDeductions);
@@ -16401,6 +16516,43 @@ namespace Chummer
                         break;
                 }
             }
+
+            // Populate Limit Modifiers from Improvements
+            foreach (Improvement objImprovement in _objCharacter.Improvements)
+            {
+                if (objImprovement.ImproveType == Improvement.ImprovementType.LimitModifier)
+                {
+                    TreeNode objLimitModifierNode = new TreeNode();
+                    string strName = objImprovement.UniqueName;
+                    if (objImprovement.Value > 0)
+                        strName += " [+" + objImprovement.Value.ToString() + "]";
+                    else
+                        strName += " [" + objImprovement.Value.ToString() + "]";
+                    objLimitModifierNode.Text = strName;
+                    objLimitModifierNode.Tag = objImprovement.SourceName;
+                    objLimitModifierNode.ContextMenuStrip = cmsMartialArts;
+                    if (objImprovement.Notes != string.Empty)
+                        objLimitModifierNode.ForeColor = Color.SaddleBrown;
+                    objLimitModifierNode.ToolTipText = objImprovement.Notes;
+                    objLimitModifierNode.ContextMenuStrip = cmsLimitModifier;
+
+                    switch (objImprovement.ImprovedName)
+                    {
+                        case "Physical":
+                            treLimit.Nodes[0].Nodes.Add(objLimitModifierNode);
+                            treLimit.Nodes[0].Expand();
+                            break;
+                        case "Mental":
+                            treLimit.Nodes[1].Nodes.Add(objLimitModifierNode);
+                            treLimit.Nodes[1].Expand();
+                            break;
+                        case "Social":
+                            treLimit.Nodes[2].Nodes.Add(objLimitModifierNode);
+                            treLimit.Nodes[2].Expand();
+                            break;
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -16458,7 +16610,7 @@ namespace Chummer
 
 				// If this is a Cyberweapon, grab the STR of the limb.
 				int intUseSTR = 0;
-				if (objWeapon.Category.StartsWith("Cyberware"))
+                if (objWeapon.Cyberware)
 				{
 					foreach (Cyberware objCyberware in _objCharacter.Cyberware)
 					{
@@ -18912,12 +19064,6 @@ namespace Chummer
 
                 // Deduct the amount for free Qualities.
                 intPointsUsed -= _objImprovementManager.ValueOf(Improvement.ImprovementType.FreePositiveQualities);
-
-                //// Include the BP used by Martial Arts. Each Rating costs 5 BP.
-                //foreach (MartialArt objMartialArt in _objCharacter.MartialArts)
-                //{
-                //    intPointsUsed += objMartialArt.Rating * _objOptions.BPMartialArt;
-                //}
                 int intPositivePointsUsed = intPointsUsed;
 
                 // Calculate the BP used for Negative Qualities.
@@ -18938,21 +19084,21 @@ namespace Chummer
                 // If the character is only allowed to gain 25 Karma from Negative Qualities but allowed to take as many as they'd like, limit their refunded points.
                 if (_objOptions.ExceedNegativeQualitiesLimit)
                 {
-                    if (intNegativePoints < -25)
+                    if (intNegativePoints < (_objCharacter.MaxKarma * -1))
                     {
-                        intNegativePoints += 25;
+                        intNegativePoints += _objCharacter.MaxKarma;
                     }
                 }
 
                 // if positive points > 25
-                if (intPositivePointsUsed > 25)
+                if (intPositivePointsUsed > _objCharacter.MaxKarma)
                 {
                     strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_PositiveQualityLimit").Replace("{0}", (25).ToString());
                     blnValid = false;
                 }
 
                 // if negative points > 25
-                if (intNegativePoints < -25)
+                if (intNegativePoints < (_objCharacter.MaxKarma * -1))
                 {
                     strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_NegativeQualityLimit").Replace("{0}", (25).ToString());
                     blnValid = false;
@@ -19172,7 +19318,7 @@ namespace Chummer
 				}
 				foreach (ArmorMod objMod in objArmor.ArmorMods)
 				{
-					if (!objMod.TotalAvail.StartsWith("+"))
+					if (!objMod.TotalAvail.StartsWith("+") && !objMod.IncludedInArmor)
 					{
 						if (GetAvailInt(objMod.TotalAvail) > _objCharacter.MaximumAvailability)
 						{
@@ -22421,31 +22567,5 @@ namespace Chummer
 			}
 		}
 		#endregion
-
-        private void nudAdeptWayDiscount_ValueChanged(object sender, EventArgs e)
-        {
-            // Don't attempt to do anything while the data is still being populated.
-            if (_blnLoading)
-                return;
-
-            // Verify that the Attribute can be improved within the rules.
-            if (nudAdeptWayDiscount.Value > _objCharacter.Foci.Count)
-            {
-                try
-                {
-                    nudAdeptWayDiscount.Value = _objCharacter.Foci.Count;
-                }
-                catch
-                {
-                    nudAdeptWayDiscount.Value = nudAdeptWayDiscount.Minimum;
-                }
-            }
-
-            _objCharacter.AdeptWayDiscount = Convert.ToInt32(nudAdeptWayDiscount.Value);
-            UpdateCharacterInfo();
-
-            _blnIsDirty = true;
-            UpdateWindowTitle();
-        }
 	}
 }
