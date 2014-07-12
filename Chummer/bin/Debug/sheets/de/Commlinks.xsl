@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Character sheet for Commlinks based on the ones created by ChinaGreenElvis -->
 <!-- Created by Keith Rudolph, krudolph@gmail.com -->
-<!-- Version -997 -->
+<!-- Version -500 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 	<xsl:include href="ConditionMonitor.xslt"/>
 	<xsl:template match="/characters/character">

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- Character sheet based on the Shadowrun 4th Edition Character Sheet -->
+<!-- Character sheet based on the Shadowrun 5th Edition Character Sheet -->
 <!-- Created by Keith Rudolph, krudolph@gmail.com -->
-<!-- Version -910 -->
+<!-- Version -500 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
-	<xsl:include href="Shadowrun 4 Base.xslt"/>
+	<xsl:include href="Shadowrun 5 Base.xslt"/>
 	<xsl:template name="skills1">
   	<xsl:variable name="skillcut" select="round(count(skills/skill[knowledge = 'False' and (rating &gt; 0 or total &gt; 0)]) div 2)"/>
     <xsl:variable name="sortedskills">
       <xsl:for-each select="skills/skill[knowledge = 'False' and (rating &gt; 0 or total &gt; 0)]">
 			  <xsl:sort select="skillcategory" />
-			  <xsl:sort select="rating" order="descending" />
+			  <xsl:sort select="name" order="ascending" />
         <xsl:if test="position() &lt;= $skillcut">
           <xsl:copy-of select="current()"/>
         </xsl:if>
@@ -61,7 +61,7 @@
     <xsl:variable name="sortedskills">
       <xsl:for-each select="skills/skill[knowledge = 'False' and (rating &gt; 0 or total &gt; 0)]">
 			  <xsl:sort select="skillcategory" />
-			  <xsl:sort select="rating" order="descending" />
+			  <xsl:sort select="name" order="ascending" />
         <xsl:if test="position() &gt; $skillcut">
           <xsl:copy-of select="current()"/>
         </xsl:if>

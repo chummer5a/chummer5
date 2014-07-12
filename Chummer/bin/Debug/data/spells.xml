@@ -473,7 +473,7 @@
 			<duration>S</duration>
 			<dv>(F/2)-4</dv>
 			<source>SG</source>
-			<page>169</page>
+			<page>109</page>
 		</spell>
 		<spell>
 			<name>Cure Disease</name>
@@ -1757,18 +1757,6 @@
 			<bonus>
 				<selecttext />
 			</bonus>
-			<source>SG</source>
-			<page>109</page>
-		</spell>
-		<spell>
-			<name>Awaken</name>
-			<descriptor>Essence</descriptor>
-			<category>Health</category>
-			<type>M</type>
-			<range>T</range>
-			<damage>0</damage>
-			<duration>S</duration>
-			<dv>F-3</dv>
 			<source>SG</source>
 			<page>109</page>
 		</spell>

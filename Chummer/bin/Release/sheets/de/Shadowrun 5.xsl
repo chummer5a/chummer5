@@ -1,33 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- Character sheet based on the Shadowrun 4th Edition Character Sheet -->
+<!-- Character sheet based on the Shadowrun 5th Edition Character Sheet -->
 <!-- Created by Keith Rudolph, krudolph@gmail.com -->
-<!-- Version -910 -->
+<!-- Version -500 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
-	<xsl:include href="Shadowrun 4 Base.xslt"/>
+	<xsl:include href="Shadowrun 5 Base.xslt"/>
 	<xsl:template name="skills1">
-  	<xsl:variable name="skillcut" select="round(count(skills/skill[knowledge = 'False' and (rating &gt; 0 or total &gt; 0)]) div 2)"/>
-    <xsl:variable name="sortedskills">
-      <xsl:for-each select="skills/skill[knowledge = 'False' and (rating &gt; 0 or total &gt; 0)]">
-			  <xsl:sort select="skillcategory" />
-			  <xsl:sort select="name" order="ascending" />
-        <xsl:if test="position() &lt;= $skillcut">
-          <xsl:copy-of select="current()"/>
-        </xsl:if>
-      </xsl:for-each>
-    </xsl:variable>
-		<xsl:for-each select="msxsl:node-set($sortedskills)/skill">
-                <xsl:choose>
-									<xsl:when test="position() = 1">
-										<tr><td colspan="6" style="border-bottom:solid black 1px;"><strong><xsl:value-of select="skillcategory" /></strong></td></tr>
-									</xsl:when>
-                  <xsl:otherwise>
-                    <xsl:choose>
-                      <xsl:when test="skillcategory != preceding-sibling::skill[1]/skillcategory">
-                        <tr><td colspan="6" style="border-bottom:solid black 1px;"><strong><xsl:value-of select="skillcategory" /></strong></td></tr>
-                      </xsl:when>
-                    </xsl:choose>
-                  </xsl:otherwise>
-                </xsl:choose>
+		<xsl:variable name="items" select="skills/skill[knowledge = 'False' and (rating &gt; 0 or total &gt; 0)]"/>
+		<xsl:variable name="halfcut" select="round(count($items) div 2)"/>
+		<xsl:for-each select="$items[position() &lt;= $halfcut]">
+			<xsl:sort select="name" />
 											<tr>
 												<xsl:if test="position() mod 2 != 1">
 													<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
@@ -57,29 +38,10 @@
 	</xsl:template>
 	
 	<xsl:template name="skills2">
-  	<xsl:variable name="skillcut" select="round(count(skills/skill[knowledge = 'False' and (rating &gt; 0 or total &gt; 0)]) div 2)"/>
-    <xsl:variable name="sortedskills">
-      <xsl:for-each select="skills/skill[knowledge = 'False' and (rating &gt; 0 or total &gt; 0)]">
-			  <xsl:sort select="skillcategory" />
-			  <xsl:sort select="name" order="ascending" />
-        <xsl:if test="position() &gt; $skillcut">
-          <xsl:copy-of select="current()"/>
-        </xsl:if>
-      </xsl:for-each>
-    </xsl:variable>
-		<xsl:for-each select="msxsl:node-set($sortedskills)/skill">
-                <xsl:choose>
-									<xsl:when test="position() = 1">
-										<tr><td colspan="6" style="border-bottom:solid black 1px;"><strong><xsl:value-of select="skillcategory" /></strong></td></tr>
-									</xsl:when>
-                  <xsl:otherwise>
-                    <xsl:choose>
-                      <xsl:when test="skillcategory != preceding-sibling::skill[1]/skillcategory">
-                        <tr><td colspan="6" style="border-bottom:solid black 1px;"><strong><xsl:value-of select="skillcategory" /></strong></td></tr>
-                      </xsl:when>
-                    </xsl:choose>
-                  </xsl:otherwise>
-                </xsl:choose>
+		<xsl:variable name="items" select="skills/skill[knowledge = 'False' and (rating &gt; 0 or total &gt; 0)]"/>
+		<xsl:variable name="halfcut" select="round(count($items) div 2)"/>
+		<xsl:for-each select="$items[position() &gt; $halfcut]">
+			<xsl:sort select="name" />
 											<tr>
 												<xsl:if test="position() mod 2 != 1">
 													<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
@@ -107,7 +69,6 @@
 											</tr>
 		</xsl:for-each>
 	</xsl:template>
-
 	
 	<xsl:template name="skills3">
 		<xsl:for-each select="skills/skill[knowledge = 'True' and islanguage = 'True']">
@@ -181,7 +142,7 @@
 													<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 												</xsl:if>
 												<td width="50%" valign="top">
-													<xsl:if test="islanguage = 'True'">Sprache: </xsl:if>
+													<xsl:if test="islanguage = 'islanguage'">Sprache: </xsl:if>
 													<xsl:value-of select="name" />
 													<xsl:if test="spec != ''"> (<xsl:value-of select="spec" />)</xsl:if>
 												</td>

@@ -1,3 +1,15 @@
+Build 5.118 (beta)
+- Auto-update is back! For builds after 5.118 you'll be able to use the auto-update and check for update functionality to get new builds.
+- Really fixed the Awaken spell so that it only appears once and has the correct book and page. Honestly, I got it this time!
+- Removed the alternate Leadership and Arcana skills from 4th Edition.
+- Fixed the weapon mounts on the Ares Duelist drone.
+- Resolved the error on the Options dialog by setting the Shadowrun 5 sheet as the default if one isn't present.
+- Adept powers will now sort by name when you load the character.
+- Updated vehicles to allow adding any gear. This resolves several issues... First, being able to replace the standard sensors. Second, until we have vehicle capacity rules, there's really no programmatic means to say what does and does not belong in a car.
+
+Build 5.117 (beta)
+- Fixed a bug that could cause a bug while browsing weapons.
+
 Build 5.116 (beta)
 - Updated how Limit Modifiers work. In short, there are now two kinds. First, there's those provided by a specific source... for example the Indomitable quality. When you add the quality to or remove the quality from your character, it will automatically add or remove the limit modifier for you. Second, there's custom modifiers. These you add and remove yourself from the Limits tab.  I'm leaving this in place because there's always going to be some limit modifier I've left off and this gives one handy place to view and adjust your modifiers.  Unfortunately this does mean that limit modifiers on existing characters are going to be a problem.  You can however delete the existing limit modifiers, and then remove and re-add the items, qualities, powers, and so on that provide limit modifiers and this will add them back in correctly.
 - Added a new Browse feature to the select Weapons and Armor dialogs. In the upper right corner of the dialog, there's a button marked "Browse". If you click it, you'll be shown a grid showing the items belonging to the selected category. You can sort the grid by clicking on the column headers. Otherwise it works the same as the list and you can switch back and forth as you like.

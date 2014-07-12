@@ -8630,7 +8630,7 @@ namespace Chummer
 			Vehicle objSelectedVehicle = _objFunctions.FindVehicle(treVehicles.SelectedNode.Tag.ToString(), _objCharacter.Vehicles);
 
 			frmSelectGear frmPickGear = new frmSelectGear(_objCharacter);
-			frmPickGear.ShowPositiveCapacityOnly = true;
+			//frmPickGear.ShowPositiveCapacityOnly = true;
 			frmPickGear.ShowDialog(this);
 
 			if (frmPickGear.DialogResult == DialogResult.Cancel)
@@ -8710,13 +8710,13 @@ namespace Chummer
 			}
 
 			// Change the cost of the Sensor itself to 0.
-			if (frmPickGear.SelectedCategory == "Sensors")
-			{
-				objGear.Cost = "0";
-				objGear.Cost3 = "0";
-				objGear.Cost6 = "0";
-				objGear.Cost10 = "0";
-			}
+            //if (frmPickGear.SelectedCategory == "Sensors")
+            //{
+            //    objGear.Cost = "0";
+            //    objGear.Cost3 = "0";
+            //    objGear.Cost6 = "0";
+            //    objGear.Cost10 = "0";
+            //}
 
 			objNode.ContextMenuStrip = cmsVehicleGear;
 

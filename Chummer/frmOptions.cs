@@ -284,6 +284,8 @@ namespace Chummer
 			cboXSLT.DisplayMember = "Name";
 			cboXSLT.DataSource = lstFiles;
 
+            if (GlobalOptions.Instance.DefaultCharacterSheet == "")
+                GlobalOptions.Instance.DefaultCharacterSheet = "Shadowrun 5";
 			cboXSLT.SelectedValue = GlobalOptions.Instance.DefaultCharacterSheet;
 		}
 		#endregion

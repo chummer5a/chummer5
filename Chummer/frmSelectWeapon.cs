@@ -466,7 +466,6 @@ namespace Chummer
             DataTable tabWeapons = new DataTable("weapons");
             tabWeapons.Columns.Add("WeaponName");
             tabWeapons.Columns.Add("Dice");
-            tabWeapons.Columns["Dice"].DataType = typeof(Int32);
             tabWeapons.Columns.Add("Accuracy");
             tabWeapons.Columns["Accuracy"].DataType = typeof(Int32);
             tabWeapons.Columns.Add("Damage");
@@ -502,7 +501,7 @@ namespace Chummer
                 objWeapon.Create(objXmlWeapon, _objCharacter, objNode, null, null, null);
 
                 string strWeaponName = objWeapon.Name;
-                int intDice = Convert.ToInt32(objWeapon.DicePool);
+                string strDice = objWeapon.DicePool;
                 int intAccuracy = Convert.ToInt32(objWeapon.TotalAccuracy);
                 string strDamage = objWeapon.CalculatedDamage(_objCharacter.STR.Augmented);
                 string strAP = objWeapon.TotalAP;
@@ -523,7 +522,7 @@ namespace Chummer
                 string strSource = objWeapon.Source + " " + objWeapon.Page;
                 int intCost = objWeapon.Cost;
 
-                tabWeapons.Rows.Add(strWeaponName, intDice, intAccuracy, strDamage, strAP, intRC, strAmmo, strMode, strReach, strAccessories, strAvail, strSource, intCost);
+                tabWeapons.Rows.Add(strWeaponName, strDice, intAccuracy, strDamage, strAP, intRC, strAmmo, strMode, strReach, strAccessories, strAvail, strSource, intCost);
             }
 
             DataSet set = new DataSet("weapons");
@@ -571,7 +570,6 @@ namespace Chummer
                 DataTable tabWeapons = new DataTable("weapons");
                 tabWeapons.Columns.Add("WeaponName");
                 tabWeapons.Columns.Add("Dice");
-                tabWeapons.Columns["Dice"].DataType = typeof(Int32);
                 tabWeapons.Columns.Add("Accuracy");
                 tabWeapons.Columns["Accuracy"].DataType = typeof(Int32);
                 tabWeapons.Columns.Add("Damage");
@@ -595,7 +593,7 @@ namespace Chummer
                     objWeapon.Create(objXmlWeapon, _objCharacter, objNode, null, null, null);
 
                     string strWeaponName = objWeapon.Name;
-                    int intDice = Convert.ToInt32(objWeapon.DicePool);
+                    string strDice = objWeapon.DicePool;
                     int intAccuracy = Convert.ToInt32(objWeapon.TotalAccuracy);
                     string strDamage = objWeapon.CalculatedDamage();
                     string strAP = objWeapon.TotalAP;
@@ -626,7 +624,7 @@ namespace Chummer
                         strReach = "";
                     }
 
-                    tabWeapons.Rows.Add(strWeaponName, intDice, intAccuracy, strDamage, strAP, intRC, strAmmo, strMode, strReach, strAccessories, strAvail, strSource, intCost);
+                    tabWeapons.Rows.Add(strWeaponName, strDice, intAccuracy, strDamage, strAP, intRC, strAmmo, strMode, strReach, strAccessories, strAvail, strSource, intCost);
                 }
 
                 DataSet set = new DataSet("weapons");

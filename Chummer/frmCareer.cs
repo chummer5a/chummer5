@@ -10522,13 +10522,13 @@ namespace Chummer
 			objNode.Text = objGear.DisplayName;
 
 			// Change the cost of the Sensor itself to 0.
-			if (frmPickGear.SelectedCategory == "Sensors")
-			{
-				objGear.Cost = "0";
-				objGear.Cost3 = "0";
-				objGear.Cost6 = "0";
-				objGear.Cost10 = "0";
-			}
+            //if (frmPickGear.SelectedCategory == "Sensors")
+            //{
+            //    objGear.Cost = "0";
+            //    objGear.Cost3 = "0";
+            //    objGear.Cost6 = "0";
+            //    objGear.Cost10 = "0";
+            //}
 
 			int intCost = objGear.TotalCost;
 
