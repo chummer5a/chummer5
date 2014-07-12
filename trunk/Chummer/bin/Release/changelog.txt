@@ -1,3 +1,14 @@
+Build 5.119 (beta)
+- Added Alchemical Preparations.
+- Fixed a bug causing a crash when using Weapon Commlinks and Commlink Accessories.
+- Fixed a bug that would improperly load adept powers if the character has more than one instance of that power.
+- Fixed a bug with the Wolf Mentor Spirit that would cause a crash when selecting the Adept power.
+- Fixed the capacity cost of Trodes.
+- Fixed a bug that would excessively reduce the attribute minimum for Magic or Resonance when taking on an Essence reduction. This would cause Chummer to attempt to raise the attribute back to where it was by spending karma if need be.
+- Fixed a bug that prevented Hand Blades from being available for purchase.
+- Added a few more license options (based on Third Edition SR with the help of SpellBinder).
+- Fixed a bug with audio enhancements (specifically the Audio Enhancement and Select Sound Filter) that weren't consuming capacity.
+
 Build 5.118 (beta)
 - Auto-update is back! For builds after 5.118 you'll be able to use the auto-update and check for update functionality to get new builds.
 - Really fixed the Awaken spell so that it only appears once and has the correct book and page. Honestly, I got it this time!

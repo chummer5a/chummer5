@@ -4971,7 +4971,7 @@ namespace Chummer
 
 			Spell objSpell = new Spell(_objCharacter);
 			TreeNode objNode = new TreeNode();
-			objSpell.Create(objXmlSpell, _objCharacter, objNode, "", frmPickSpell.Limited, frmPickSpell.Extended);
+			objSpell.Create(objXmlSpell, _objCharacter, objNode, "", frmPickSpell.Limited, frmPickSpell.Extended, frmPickSpell.Alchemical);
 			objNode.ContextMenuStrip = cmsSpell;
 			if (objSpell.InternalId == Guid.Empty.ToString())
 				return;
@@ -10469,7 +10469,6 @@ namespace Chummer
 			switch (frmPickGear.SelectedCategory)
 			{
                 case "Commlinks":
-                case "Commlink Accessories":
                 case "Cyberdecks":
                 case "Rigger Command Consoles":
                     Commlink objCommlink = new Commlink(_objCharacter);
@@ -10684,7 +10683,6 @@ namespace Chummer
 			switch (frmPickGear.SelectedCategory)
 			{
                 case "Commlinks":
-                case "Commlink Accessories":
                 case "Cyberdecks":
                 case "Rigger Command Consoles":
                     Commlink objCommlink = new Commlink(_objCharacter);
@@ -15770,7 +15768,6 @@ namespace Chummer
 			switch (frmPickGear.SelectedCategory)
 			{
                 case "Commlinks":
-                case "Commlink Accessories":
                 case "Cyberdecks":
                 case "Rigger Command Consoles":
                     Commlink objCommlink = new Commlink(_objCharacter);
@@ -15952,7 +15949,6 @@ namespace Chummer
 			switch (frmPickGear.SelectedCategory)
 			{
                 case "Commlinks":
-                case "Commlink Accessories":
                 case "Cyberdecks":
                 case "Rigger Command Consoles":
                     Commlink objCommlink = new Commlink(_objCharacter);
@@ -16089,7 +16085,6 @@ namespace Chummer
 			switch (frmPickGear.SelectedCategory)
 			{
                 case "Commlinks":
-                case "Commlink Accessories":
                 case "Cyberdecks":
                 case "Rigger Command Consoles":
                     Commlink objCommlink = new Commlink(_objCharacter);
@@ -16253,7 +16248,6 @@ namespace Chummer
 			switch (frmPickGear.SelectedCategory)
 			{
                 case "Commlinks":
-                case "Commlink Accessories":
                 case "Cyberdecks":
                 case "Rigger Command Consoles":
                     Commlink objCommlink = new Commlink(_objCharacter);
@@ -16526,7 +16520,6 @@ namespace Chummer
 			switch (frmPickGear.SelectedCategory)
 			{
                 case "Commlinks":
-                case "Commlink Accessories":
                 case "Cyberdecks":
                 case "Rigger Command Consoles":
                     Commlink objCommlink = new Commlink(_objCharacter);
@@ -16662,7 +16655,6 @@ namespace Chummer
 			switch (frmPickGear.SelectedCategory)
 			{
                 case "Commlinks":
-                case "Commlink Accessories":
                 case "Cyberdecks":
                 case "Rigger Command Consoles":
                     Commlink objCommlink = new Commlink(_objCharacter);
@@ -22950,7 +22942,6 @@ namespace Chummer
 			switch (frmPickGear.SelectedCategory)
 			{
                 case "Commlinks":
-                case "Commlink Accessories":
                 case "Cyberdecks":
                 case "Rigger Command Consoles":
                     Commlink objCommlink = new Commlink(_objCharacter);
@@ -23302,7 +23293,6 @@ namespace Chummer
 			switch (frmPickGear.SelectedCategory)
 			{
                 case "Commlinks":
-                case "Commlink Accessories":
                 case "Cyberdecks":
                 case "Rigger Command Consoles":
                     Commlink objCommlink = new Commlink(_objCharacter);

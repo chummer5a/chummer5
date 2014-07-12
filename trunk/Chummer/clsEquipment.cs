@@ -1266,7 +1266,6 @@ namespace Chummer
 					switch (nodGear["category"].InnerText)
 					{
 						case "Commlinks":
-                        case "Commlink Accessories":
                         case "Cyberdecks":
                         case "Rigger Command Consoles":
                             Commlink objCommlink = new Commlink(_objCharacter);
@@ -2813,7 +2812,6 @@ namespace Chummer
 					switch (nodChild["category"].InnerText)
 					{
                         case "Commlinks":
-                        case "Commlink Accessories":
                         case "Cyberdecks":
                         case "Rigger Command Consoles":
                             Commlink objCommlink = new Commlink(_objCharacter);
@@ -7470,7 +7468,6 @@ namespace Chummer
 					switch (nodChild["category"].InnerText)
 					{
                         case "Commlinks":
-                        case "Commlink Accessories":
                         case "Cyberdecks":
                         case "Rigger Command Consoles":
                             Commlink objCommlink = new Commlink(_objCharacter);
@@ -10277,7 +10274,6 @@ namespace Chummer
 					switch (nodChild["category"].InnerText)
 					{
                         case "Commlinks":
-                        case "Commlink Accessories":
                         case "Cyberdecks":
                         case "Rigger Command Consoles":
                             Commlink objCommlink = new Commlink(_objCharacter);
@@ -12289,7 +12285,6 @@ namespace Chummer
 					switch (nodChild["category"].InnerText)
 					{
                         case "Commlinks":
-                        case "Commlink Accessories":
                         case "Cyberdecks":
                         case "Rigger Command Consoles":
                             Commlink objCommlink = new Commlink(_objCharacter);
@@ -14148,7 +14143,6 @@ namespace Chummer
 					switch (nodChild["category"].InnerText)
 					{
                         case "Commlinks":
-                        case "Commlink Accessories":
                         case "Cyberdecks":
                         case "Rigger Command Consoles":
                             Commlink objCommlink = new Commlink(_objCharacter);

@@ -586,7 +586,7 @@ namespace Chummer
 							intReturn = 1;
 					}
 					else
-						intReturn = 0;
+						intReturn = Math.Max(_intMetatypeMin - _objCharacter.EssencePenalty, 0);
 				}
 
 				// If we're looking at MAG and the character is a Cyberzombie, MAG is always 1, regardless of ESS penalties and bonuses.
@@ -3553,6 +3553,7 @@ namespace Chummer
 		private string _strAltName = "";
 		private string _strAltCategory = "";
 		private string _strAltPage = "";
+        private bool _blnAlchemical = false;
 
 		#region Constructor, Create, Save, Load, and Print Methods
 		public Spell(Character objCharacter)
@@ -3569,7 +3570,7 @@ namespace Chummer
 		/// <param name="strForcedValue">Value to forcefully select for any ImprovementManager prompts.</param>
 		/// <param name="blnLimited">Whether or not the Spell should be marked as Limited.</param>
 		/// <param name="blnExtended">Whether or not the Spell should be marked as Extended.</param>
-		public void Create(XmlNode objXmlSpellNode, Character objCharacter, TreeNode objNode, string strForcedValue = "", bool blnLimited = false, bool blnExtended = false)
+		public void Create(XmlNode objXmlSpellNode, Character objCharacter, TreeNode objNode, string strForcedValue = "", bool blnLimited = false, bool blnExtended = false, bool blnAlchemical = false)
 		{
 			_strName = objXmlSpellNode["name"].InnerText;
 			_strDescriptors = objXmlSpellNode["descriptor"].InnerText;
@@ -3581,7 +3582,8 @@ namespace Chummer
 			_strDV = objXmlSpellNode["dv"].InnerText;
 			_blnLimited = blnLimited;
 			_blnExtended = blnExtended;
-			_strSource = objXmlSpellNode["source"].InnerText;
+            _blnAlchemical = blnAlchemical;
+            _strSource = objXmlSpellNode["source"].InnerText;
 			_strPage = objXmlSpellNode["page"].InnerText;
 
             string strDV = _strDV;
@@ -3677,7 +3679,8 @@ namespace Chummer
 			objWriter.WriteElementString("dv", _strDV);
 			objWriter.WriteElementString("limited", _blnLimited.ToString());
 			objWriter.WriteElementString("extended", _blnExtended.ToString());
-			objWriter.WriteElementString("source", _strSource);
+            objWriter.WriteElementString("alchemical", _blnAlchemical.ToString());
+            objWriter.WriteElementString("source", _strSource);
 			objWriter.WriteElementString("page", _strPage);
 			objWriter.WriteElementString("extra", _strExtra);
 			objWriter.WriteElementString("notes", _strNotes);
@@ -3713,7 +3716,14 @@ namespace Chummer
 			catch
 			{
 			}
-			_strSource = objNode["source"].InnerText;
+            try
+            {
+                _blnAlchemical = Convert.ToBoolean(objNode["alchemical"].InnerText);
+            }
+            catch
+            {
+            }
+            _strSource = objNode["source"].InnerText;
 			try
 			{
 				_strPage = objNode["page"].InnerText;
@@ -3767,7 +3777,9 @@ namespace Chummer
 			objWriter.WriteStartElement("spell");
 			if (_blnLimited)
 				objWriter.WriteElementString("name", DisplayNameShort + " (" + LanguageManager.Instance.GetString("String_SpellLimited") + ")");
-			else
+			else if (_blnAlchemical)
+                objWriter.WriteElementString("name", DisplayNameShort + " (" + LanguageManager.Instance.GetString("String_SpellAlchemical") + ")");
+            else
 				objWriter.WriteElementString("name", DisplayNameShort);
 			objWriter.WriteElementString("descriptors", DisplayDescriptors);
 			objWriter.WriteElementString("category", DisplayCategory);
@@ -4254,7 +4266,22 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Whether or not the Spell is Alchemical.
+        /// </summary>
+        public bool Alchemical
+        {
+            get
+            {
+                return _blnAlchemical;
+            }
+            set
+            {
+                _blnAlchemical = value;
+            }
+        }
+
+        /// <summary>
 		/// Notes.
 		/// </summary>
 		public string Notes
@@ -4300,7 +4327,9 @@ namespace Chummer
 
 				if (_blnLimited)
 					strReturn += " (" + LanguageManager.Instance.GetString("String_SpellLimited") + ")";
-				if (_strExtra != "")
+                if (_blnAlchemical)
+                    strReturn += " (" + LanguageManager.Instance.GetString("String_SpellAlchemical") + ")";
+                if (_strExtra != "")
 				{
 					// Attempt to retrieve the Attribute name.
 					try

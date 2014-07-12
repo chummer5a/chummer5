@@ -52,6 +52,7 @@
             this.chkLimited = new System.Windows.Forms.CheckBox();
             this.tipTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.chkExtended = new System.Windows.Forms.CheckBox();
+            this.chkAlchemical = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // treSpells
@@ -236,7 +237,7 @@
             // lblSource
             // 
             this.lblSource.AutoSize = true;
-            this.lblSource.Location = new System.Drawing.Point(333, 255);
+            this.lblSource.Location = new System.Drawing.Point(333, 252);
             this.lblSource.Name = "lblSource";
             this.lblSource.Size = new System.Drawing.Size(47, 13);
             this.lblSource.TabIndex = 16;
@@ -245,7 +246,7 @@
             // lblSourceLabel
             // 
             this.lblSourceLabel.AutoSize = true;
-            this.lblSourceLabel.Location = new System.Drawing.Point(282, 255);
+            this.lblSourceLabel.Location = new System.Drawing.Point(282, 252);
             this.lblSourceLabel.Name = "lblSourceLabel";
             this.lblSourceLabel.Size = new System.Drawing.Size(44, 13);
             this.lblSourceLabel.TabIndex = 15;
@@ -279,7 +280,7 @@
             // 
             this.chkExtended.AutoSize = true;
             this.chkExtended.Enabled = false;
-            this.chkExtended.Location = new System.Drawing.Point(282, 221);
+            this.chkExtended.Location = new System.Drawing.Point(282, 309);
             this.chkExtended.Name = "chkExtended";
             this.chkExtended.Size = new System.Drawing.Size(97, 17);
             this.chkExtended.TabIndex = 21;
@@ -291,6 +292,19 @@
             this.chkExtended.Visible = false;
             this.chkExtended.CheckedChanged += new System.EventHandler(this.chkExtended_CheckedChanged);
             // 
+            // chkAlchemical
+            // 
+            this.chkAlchemical.AutoSize = true;
+            this.chkAlchemical.Location = new System.Drawing.Point(282, 221);
+            this.chkAlchemical.Name = "chkAlchemical";
+            this.chkAlchemical.Size = new System.Drawing.Size(134, 17);
+            this.chkAlchemical.TabIndex = 15;
+            this.chkAlchemical.Tag = "Checkbox_SelectSpell_Alchemical";
+            this.chkAlchemical.Text = "Alchemical Preparation";
+            this.tipTooltip.SetToolTip(this.chkAlchemical, "Extended range Spells have a range of (Force x MAG x 10) meters but have their DV" +
+        " increased by +2.");
+            this.chkAlchemical.UseVisualStyleBackColor = true;
+            // 
             // frmSelectSpell
             // 
             this.AcceptButton = this.cmdOK;
@@ -298,6 +312,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdCancel;
             this.ClientSize = new System.Drawing.Size(548, 560);
+            this.Controls.Add(this.chkAlchemical);
             this.Controls.Add(this.chkExtended);
             this.Controls.Add(this.chkLimited);
             this.Controls.Add(this.lblSource);
@@ -359,5 +374,6 @@
 		private System.Windows.Forms.CheckBox chkLimited;
 		private System.Windows.Forms.ToolTip tipTooltip;
 		private System.Windows.Forms.CheckBox chkExtended;
+        private System.Windows.Forms.CheckBox chkAlchemical;
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-499</version>
+	<version>-498</version>
 	<grades>
 		<grade>
 			<name>Standard</name>
@@ -1093,7 +1093,7 @@
 		</cyberware>
 		<cyberware>
 			<name>Hand Blade</name>
-			<category>Cyberweapon</category>
+			<category>Cyber Implant Weapon</category>
 			<ess>0.25</ess>
 			<capacity>[2]</capacity>
 			<avail>10F</avail>
