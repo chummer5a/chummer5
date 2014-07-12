@@ -2492,6 +2492,11 @@ namespace Chummer
                                 //    strPowerNameLimit += " (" + _strSelectedValue + ")";
                             }
 
+                            if (objXmlSpecificPower["specificattribute"] != null)
+                            {
+                                strSelection = objXmlSpecificPower["specificattribute"]["name"].InnerText.ToString();
+                            }
+
                             // Check if the character already has this power
                             bool blnHasPower = false;
                             Power objPower = new Power(_objCharacter);
@@ -2499,8 +2504,16 @@ namespace Chummer
                             {
                                 if (power.Name == strPowerNameLimit)
                                 {
-                                    blnHasPower = true;
-                                    objPower = power;
+                                    if (power.Extra != "" && power.Extra == strSelection)
+                                    {
+                                        blnHasPower = true;
+                                        objPower = power;
+                                    }
+                                    else if (power.Extra == "")
+                                    {
+                                        blnHasPower = true;
+                                        objPower = power;
+                                    }
                                 }
                             }
 

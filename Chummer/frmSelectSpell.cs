@@ -192,7 +192,10 @@ namespace Chummer
 				if (chkExtended.Checked && !blnExtendedFound)
 					strDescriptors += LanguageManager.Instance.GetString("String_DescExtendedArea") + ", ";
 
-				// Remove the trailing comma.
+                if (chkAlchemical.Checked && !blnExtendedFound)
+                    strDescriptors += LanguageManager.Instance.GetString("String_DescAlchemicalPreparation") + ", ";
+
+                // Remove the trailing comma.
 				if (strDescriptors != string.Empty)
 					strDescriptors = strDescriptors.Substring(0, strDescriptors.Length - 2);
 				lblDescriptors.Text = strDescriptors;
@@ -522,7 +525,18 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Whether or not a Alchemical version of the Spell was selected.
+        /// </summary>
+        public bool Alchemical
+        {
+            get
+            {
+                return chkAlchemical.Checked;
+            }
+        }
+
+        /// <summary>
 		/// Limit the Spell list to a particular Category.
 		/// </summary>
 		public string LimitCategory

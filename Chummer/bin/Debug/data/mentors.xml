@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-499</version>
+	<version>-498</version>
 	<mentors>
 		<mentor>
 			<name>Bear</name>
@@ -578,8 +578,11 @@
 					<name>Adept: 2 free levels of Attribute Boost (Agility)</name>
 					<bonus>
 						<specificpower>
-							<name>Attribute Boost (Agility)</name>
+							<name>Attribute Boost</name>
 							<val>2</val>
+							<specificattribute>
+								<name>AGI</name>
+							</specificattribute>
 						</specificpower>
 					</bonus>
 				</choice>

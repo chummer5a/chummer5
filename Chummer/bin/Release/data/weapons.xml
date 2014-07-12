@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-497</version>
+	<version>-496</version>
 	<categories>
 		<category>Blades</category>
 		<category>Clubs</category>
@@ -6446,8 +6446,11 @@
 		<accessory>
 			<name>Weapon Commlink</name>
 			<mount/>
-			<avail>As Commlink</avail>
-			<cost>200 + Commlink</cost>
+			<allowgear>
+				<gearcategory>Commlinks</gearcategory>
+			</allowgear>
+			<avail>0</avail>
+			<cost>200</cost>
 			<source>RG</source>
 			<page>53</page>
 		</accessory>

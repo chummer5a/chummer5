@@ -1517,8 +1517,9 @@ namespace Chummer
             foreach (XmlNode objXmlPower in objXmlNodeList)
             {
                 ListItem objGroup = new ListItem();
-                objGroup.Value = objXmlPower["name"].InnerText;
+                objGroup.Value = objXmlPower["extra"].InnerText;
                 objGroup.Name = objXmlPower["name"].InnerText;
+                
                 lstPowerOrder.Add(objGroup);
             }
             objSort = new SortListItem();
@@ -1527,7 +1528,7 @@ namespace Chummer
             foreach (ListItem objItem in lstPowerOrder)
             {
                 Power objPower = new Power(this);
-                XmlNode objNode = objXmlDocument.SelectSingleNode("/character/powers/power[name = " + CleanXPath(objItem.Value) + "]");
+                XmlNode objNode = objXmlDocument.SelectSingleNode("/character/powers/power[name = " + CleanXPath(objItem.Name) + " and extra = " + CleanXPath(objItem.Value) + "]");
                 objPower.Load(objNode);
                 _lstPowers.Add(objPower);
             }
@@ -1593,7 +1594,6 @@ namespace Chummer
 				switch (objXmlGear["category"].InnerText)
 				{
 					case "Commlinks":
-					case "Commlink Accessories":
                     case "Cyberdecks":
                     case "Rigger Command Consoles":
                         Commlink objCommlink = new Commlink(this);

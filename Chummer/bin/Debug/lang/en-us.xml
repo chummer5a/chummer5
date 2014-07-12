@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-499</version>
+	<version>-498</version>
 	<name>English (US)</name>
 	<strings>
 		<!-- Common Strings -->
@@ -2062,6 +2062,10 @@
 			<text>Extended</text>
 		</string>
 		<string>
+			<key>String_SpellAlchemical</key>
+			<text>Alchemical</text>
+		</string>
+		<string>
 			<key>String_AttributePilot</key>
 			<text>Pilot</text>
 		</string>
@@ -2688,6 +2692,10 @@
 		<string>
 			<key>String_DescExtendedArea</key>
 			<text>Extended Area</text>
+		</string>
+		<string>
+			<key>String_DescAlchemicalPreparation</key>
+			<text>Alchemical Preparation</text>
 		</string>
 		<string>
 			<key>String_DescIndirect</key>
@@ -6389,6 +6397,10 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		<string>
 			<key>Checkbox_SelectSpell_ExtendedSpell</key>
 			<text>Extended Spell</text>
+		</string>
+		<string>
+			<key>Checkbox_SelectSpell_Alchemical</key>
+			<text>Alchemical Preparation</text>
 		</string>
 		<string>
 			<key>Tip_SelectSpell_ExtendedSpell</key>

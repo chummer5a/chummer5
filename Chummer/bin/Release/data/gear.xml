@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-499</version>
+	<version>-498</version>
 	<categories>
 		<category>Ammunition</category>
 		<category>Armor Enhancements</category>
@@ -1267,6 +1267,7 @@
 			<category>Commlink Accessories</category>
 			<armorcapacity>[2]</armorcapacity>
 			<rating>0</rating>
+			<devicerating>0</devicerating>
 			<avail>0</avail>
 			<cost>100</cost>
 			<source>SR5</source>
@@ -1277,6 +1278,7 @@
 			<category>Commlink Accessories</category>
 			<armorcapacity>[2]</armorcapacity>
 			<rating>0</rating>
+			<devicerating>0</devicerating>
 			<avail>4F</avail>
 			<cost>250</cost>
 			<source>SR5</source>
@@ -2067,7 +2069,7 @@
 		<gear>
 			<name>Trodes</name>
 			<category>Electronics Accessories</category>
-			<armorcapacity>[1]</armorcapacity>
+			<armorcapacity>[2]</armorcapacity>
 			<devicerating>3</devicerating>
 			<rating>0</rating>
 			<avail>0</avail>
@@ -2582,7 +2584,7 @@
 			<name>Audio Enhancement</name>
 			<category>Audio Enhancements</category>
 			<rating>3</rating>
-			<capacity>Rating</capacity>
+			<capacity>[Rating]</capacity>
 			<armorcapacity>[Rating]</armorcapacity>
 			<avail>+(Rating *2)</avail>
 			<cost>Rating * 500</cost>
@@ -2593,7 +2595,7 @@
 			<name>Select Sound Filter</name>
 			<category>Audio Enhancements</category>
 			<rating>3</rating>
-			<capacity>Rating</capacity>
+			<capacity>[Rating]</capacity>
 			<armorcapacity>[Rating]</armorcapacity>
 			<avail>+(Rating * 3)</avail>
 			<cost>Rating * 250</cost>
