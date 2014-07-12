@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-497</version>
+	<version>-496</version>
 	<categories>
 		<category>Bikes</category>
 		<category>Cars</category>
@@ -964,9 +964,17 @@
 			<sensor>3</sensor>
 			<seats>0</seats>
 			<mods>
-				<name>Weapon Mount (Sword)</name>
-				<name>Weapon Mount (Sword)</name>
+				<name>Weapon Mount</name>
+				<name>Weapon Mount</name>
 			</mods>
+			<weapons>
+				<weapon>
+					<name>Sword</name>
+				</weapon>
+				<weapon>
+					<name>Sword</name>
+				</weapon>
+			</weapons>
 			<gears>
 				 <gear rating="3">Sensor Array</gear>
 			</gears>

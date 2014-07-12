@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- Vehicle sheet based on the Shadowrun 4th Edition Character Sheet -->
+<!-- Vehicle sheet based on the Shadowrun 5th Edition Character Sheet -->
 <!-- Created by KeyMasterOfGozer -->
-<!-- Version -992 -->
+<!-- Version -500 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 	<xsl:include href="ConditionMonitor.xslt"/>
 	<xsl:template match="/characters/character">

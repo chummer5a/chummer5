@@ -18,6 +18,7 @@ namespace Chummer
 		private bool _blnSkip = false;
 		private int _intFileCount = 0;
 		private int _intDoneCount = 0;
+        private XmlDocument _objXmlDocument;
 
 		#region Control Methods
 		public frmUpdate()
@@ -106,13 +107,13 @@ namespace Chummer
 				nodNode.Checked = nodClicked.Checked;
 			}
 
-			// chummer.exe and lang/en-us.xml must always match.
+			// chummer5.exe and lang/en-us.xml must always match.
 			if (!_blnSkip)
 			{
 				_blnSkip = true;
 				if (nodClicked.Tag != null)
 				{
-					if (nodClicked.Tag.ToString() == "chummer.exe")
+					if (nodClicked.Tag.ToString() == "chummer5.exe")
 					{
 						foreach (TreeNode objNode in treeUpdate.Nodes)
 						{
@@ -132,7 +133,7 @@ namespace Chummer
 						{
 							foreach (TreeNode objChild in objNode.Nodes)
 							{
-								if (objChild.Tag.ToString() == "chummer.exe")
+								if (objChild.Tag.ToString() == "chummer5.exe")
 								{
 									objChild.Checked = nodClicked.Checked;
 									break;
@@ -197,7 +198,7 @@ namespace Chummer
 
 			// Download the manifestdata.xml file which describes all of the files available for download and extract its nodes.
 			// Timeout set to 30 seconds.
-			HttpWebRequest objRequest = (HttpWebRequest)WebRequest.Create("http://www.chummergen.com/dev/chummer/manifestdata.xml");
+            HttpWebRequest objRequest = (HttpWebRequest)WebRequest.Create("https://docs.google.com/uc?export=download&id=0B1j5wMS6KHqMQzRxYmlJWEVzQVE");
 			//HttpWebRequest objRequest = (HttpWebRequest)WebRequest.Create("http://localhost/manifestdata.xml");
 			objRequest.Timeout = 30000;
 			HttpWebResponse objResponse;
@@ -224,7 +225,7 @@ namespace Chummer
 			objXmlDocument.Load(objReader);
 
 			// Download the manifestlang.xml file which describes the language content available for download.
-			objRequest = (HttpWebRequest)WebRequest.Create("http://www.chummergen.com/dev/chummer/manifestlang.xml");
+            objRequest = (HttpWebRequest)WebRequest.Create("https://docs.google.com/uc?export=download&id=0B1j5wMS6KHqMUFFTTWo2dC01S0k");
 			// objRequest = (HttpWebRequest)WebRequest.Create("http://localhost/manifestlang.xml");
 			try
 			{
@@ -253,6 +254,7 @@ namespace Chummer
 			XmlNodeList objXmlNodeList = objXmlDocument.SelectNodes("/manifest/file");
 
 			TreeNode nodRoot = new TreeNode();
+            _objXmlDocument = objXmlDocument;
 
 			foreach (XmlNode objXmlNode in objXmlNodeList)
 			{
@@ -417,7 +419,7 @@ namespace Chummer
 			cmdSelectAll.Enabled = false;
 
 			// Determine the temporary location for the new executable if it is downloaded.
-			string strNewPath = Path.Combine(Path.GetTempPath(), "chummer.exe");
+			string strNewPath = Path.Combine(Path.GetTempPath(), "chummer5.exe");
 			string strFilePath = Application.StartupPath + Path.DirectorySeparatorChar;
 
 			WebClient wc = new WebClient();
@@ -477,10 +479,9 @@ namespace Chummer
 							// Downloading an XML or XSL file.
 							wc.Encoding = Encoding.UTF8;
 							wc.DownloadFileCompleted += wc_DownloadFileCompleted;
-							if (nodNode.Tag.ToString().Contains("lang/"))
-								wc.DownloadFileAsync(new Uri("http://www.chummergen.com/dev/chummer/" + nodNode.Tag.ToString()), strFilePath + nodNode.Tag.ToString().Replace('/', Path.DirectorySeparatorChar));
-							else
-								wc.DownloadFileAsync(new Uri("http://www.chummergen.com/dev/chummer/" + nodNode.Tag.ToString().Replace(".xml", ".zip")), strFilePath + nodNode.Tag.ToString().Replace('/', Path.DirectorySeparatorChar).Replace(".xml", ".zip"));
+                            XmlNode objNode = _objXmlDocument.SelectSingleNode("/manifest/file[name=\"" + nodNode.Tag.ToString() + "\"]/url");
+                            string strFile = objNode.InnerText;
+                            wc.DownloadFileAsync(new Uri(strFile), strFilePath + nodNode.Tag.ToString().Replace('/', Path.DirectorySeparatorChar));
 						}
 						else
 						{
@@ -490,7 +491,7 @@ namespace Chummer
 								try
 								{
 									wc.Encoding = Encoding.UTF8;
-									wc.DownloadFile("http://www.chummergen.com/dev/chummer/changelog.txt", Path.Combine(Application.StartupPath, "changelog.txt"));
+                                    wc.DownloadFile("https://docs.google.com/uc?export=download&id=0B1j5wMS6KHqMODljM1JXdHcxRjg", Path.Combine(Application.StartupPath, "changelog.txt"));
 									webNotes.DocumentText = "<font size=\"-1\" face=\"Courier New,Serif\">" + File.ReadAllText(Path.Combine(Application.StartupPath, "changelog.txt")).Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;").Replace("\n", "<br />") + "</font>";
 								}
 								catch
@@ -504,7 +505,9 @@ namespace Chummer
 									wc.Encoding = Encoding.Default;
 									wc.DownloadFileCompleted += wc_DownloadExeFileCompleted;
 									wc.DownloadFileCompleted += wc_DownloadFileCompleted;
-									wc.DownloadFileAsync(new Uri("http://www.chummergen.com/dev/chummer/" + nodNode.Tag), strNewPath);
+                                    XmlNode objNode = _objXmlDocument.SelectSingleNode("/manifest/file[name=\"" + nodNode.Tag.ToString() + "\"]/url");
+                                    string strFile = objNode.InnerText;
+                                    wc.DownloadFileAsync(new Uri(strFile), strNewPath);
 								}
 								catch
 								{
@@ -553,7 +556,7 @@ namespace Chummer
 
 			try
 			{
-				string strVersion = FileVersionInfo.GetVersionInfo(Path.Combine(Path.GetTempPath(), "chummer.exe")).ProductVersion;
+				string strVersion = FileVersionInfo.GetVersionInfo(Path.Combine(Path.GetTempPath(), "chummer5.exe")).ProductVersion;
 			}
 			catch
 			{
@@ -592,7 +595,7 @@ namespace Chummer
 		{
 			string strAppPath = Application.ExecutablePath;
 			string strArchive = strAppPath + ".old";
-			string strNewPath = Path.Combine(Path.GetTempPath(), "chummer.exe");
+			string strNewPath = Path.Combine(Path.GetTempPath(), "chummer5.exe");
 
 			if (ValidateExecutable())
 			{
@@ -616,7 +619,7 @@ namespace Chummer
 				// If the executable did not validate, delete the downloaded copy and set the download success flag to false so it can be attempted again.
 				_blnExeDownloaded = false;
 				_blnExeDownloadSuccess = false;
-				File.Delete(Path.Combine(Path.GetTempPath(), "chummer.exe"));
+				File.Delete(Path.Combine(Path.GetTempPath(), "chummer5.exe"));
 				File.Move(strArchive, strNewPath);
 			}
 		}

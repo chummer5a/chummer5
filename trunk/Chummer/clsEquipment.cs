@@ -13804,7 +13804,7 @@ namespace Chummer
 					if (objXmlVehicleMod.Attributes["rating"] != null)
 						intRating = Convert.ToInt32(objXmlVehicleMod.Attributes["rating"].InnerText);
 
-					if (objXmlVehicleMod.Attributes["select"] != null)
+                    if (objXmlVehicleMod.Attributes["select"] != null)
 						objMod.Extra = objXmlVehicleMod.Attributes["select"].InnerText;
 
 					objMod.Create(objXmlMod, objModNode, intRating);
@@ -13839,7 +13839,11 @@ namespace Chummer
 					if (objXmlVehicleGear.Attributes["rating"] != null)
 						intRating = Convert.ToInt32(objXmlVehicleGear.Attributes["rating"].InnerText);
 
-					if (objXmlVehicleGear.Attributes["qty"] != null)
+                    int intMaxRating = intRating;
+                    if (objXmlVehicleGear.Attributes["maxrating"] != null)
+                        intMaxRating = Convert.ToInt32(objXmlVehicleGear.Attributes["maxrating"].InnerText);
+
+                    if (objXmlVehicleGear.Attributes["qty"] != null)
 						intQty = Convert.ToInt32(objXmlVehicleGear.Attributes["qty"].InnerText);
 
 					if (objXmlVehicleGear.Attributes["select"] != null)
@@ -13852,7 +13856,7 @@ namespace Chummer
 					objGear.Create(objXmlGaer, _objCharacter, objGearNode, intRating, objWeapons, objWeaponNodes, strForceValue);
 					objGear.Cost = "0";
 					objGear.Quantity = intQty;
-					objGear.MaxRating = objGear.Rating;
+                    objGear.MaxRating = intMaxRating;
 					objGearNode.Text = objGear.DisplayName;
 					objGearNode.ContextMenuStrip = cmsVehicleGear;
 

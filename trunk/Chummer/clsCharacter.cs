@@ -1511,13 +1511,26 @@ namespace Chummer
 			}
 
 			// Powers.
-			objXmlNodeList = objXmlDocument.SelectNodes("/character/powers/power");
-			foreach (XmlNode objXmlPower in objXmlNodeList)
-			{
-				Power objPower = new Power(this);
-				objPower.Load(objXmlPower);
-				_lstPowers.Add(objPower);
-			}
+            List<ListItem> lstPowerOrder = new List<ListItem>();
+            objXmlNodeList = objXmlDocument.SelectNodes("/character/powers/power");
+            // Sort the Powers in alphabetical order.
+            foreach (XmlNode objXmlPower in objXmlNodeList)
+            {
+                ListItem objGroup = new ListItem();
+                objGroup.Value = objXmlPower["name"].InnerText;
+                objGroup.Name = objXmlPower["name"].InnerText;
+                lstPowerOrder.Add(objGroup);
+            }
+            objSort = new SortListItem();
+            lstPowerOrder.Sort(objSort.Compare);
+
+            foreach (ListItem objItem in lstPowerOrder)
+            {
+                Power objPower = new Power(this);
+                XmlNode objNode = objXmlDocument.SelectSingleNode("/character/powers/power[name = " + CleanXPath(objItem.Value) + "]");
+                objPower.Load(objNode);
+                _lstPowers.Add(objPower);
+            }
 
 			// Spirits/Sprites.
 			objXmlNodeList = objXmlDocument.SelectNodes("/character/spirits/spirit");
@@ -2081,103 +2094,6 @@ namespace Chummer
 			// <carryweight />
 			objWriter.WriteElementString("carryweight", (_attSTR.TotalValue * 10).ToString());
 
-			// Staple on the alternate Leadership Skills.
-			Skill objLeadership = new Skill(this);
-			Skill objLeadershipCommand = new Skill(this);
-			Skill objLeadershipDirect = new Skill(this);
-
-			if (_objOptions.PrintLeadershipAlternates)
-			{
-				foreach (Skill objSkill in _lstSkills)
-				{
-					if (objSkill.Name == "Leadership")
-					{
-						objLeadership = objSkill;
-						break;
-					}
-				}
-
-				// Leadership, Command.
-				objLeadershipCommand.Name = objLeadership.DisplayName + ", " + LanguageManager.Instance.GetString("String_SkillCommand");
-				objLeadershipCommand.SkillGroup = objLeadership.SkillGroup;
-				objLeadershipCommand.SkillCategory = objLeadership.SkillCategory;
-				objLeadershipCommand.IsGrouped = objLeadership.IsGrouped;
-				objLeadershipCommand.Default = objLeadership.Default;
-				objLeadershipCommand.Rating = objLeadership.Rating;
-				objLeadershipCommand.RatingMaximum = objLeadership.RatingMaximum;
-				objLeadershipCommand.KnowledgeSkill = objLeadership.KnowledgeSkill;
-				objLeadershipCommand.ExoticSkill = objLeadership.ExoticSkill;
-				objLeadershipCommand.Specialization = objLeadership.Specialization;
-				objLeadershipCommand.Attribute = "LOG";
-				objLeadershipCommand.Source = objLeadership.Source;
-				objLeadershipCommand.Page = objLeadership.Page;
-				_lstSkills.Add(objLeadershipCommand);
-
-				// Leadership, Direct Fire
-				objLeadershipDirect.Name = objLeadership.DisplayName + ", " + LanguageManager.Instance.GetString("String_SkillDirectFire");
-				objLeadershipDirect.SkillGroup = objLeadership.SkillGroup;
-				objLeadershipDirect.SkillCategory = objLeadership.SkillCategory;
-				objLeadershipDirect.IsGrouped = objLeadership.IsGrouped;
-				objLeadershipDirect.Default = objLeadership.Default;
-				objLeadershipDirect.Rating = objLeadership.Rating;
-				objLeadershipDirect.RatingMaximum = objLeadership.RatingMaximum;
-				objLeadershipDirect.KnowledgeSkill = objLeadership.KnowledgeSkill;
-				objLeadershipDirect.ExoticSkill = objLeadership.ExoticSkill;
-				objLeadershipDirect.Specialization = objLeadership.Specialization;
-				objLeadershipDirect.Attribute = "INT";
-				objLeadershipDirect.Source = objLeadership.Source;
-				objLeadershipDirect.Page = objLeadership.Page;
-				_lstSkills.Add(objLeadershipDirect);
-			}
-
-			// Staple on the alternate Arcana Skills.
-			Skill objArcana = new Skill(this);
-			Skill objArcanaMetamagic = new Skill(this);
-			Skill objArcanaArtificing = new Skill(this);
-
-			if (_objOptions.PrintArcanaAlternates)
-			{
-				foreach (Skill objSkill in _lstSkills)
-				{
-					if (objSkill.Name == "Arcana")
-					{
-						objArcana = objSkill;
-						break;
-					}
-				}
-				// Arcana, Metamagic.
-				objArcanaMetamagic.Name = objArcana.DisplayName + ", " + LanguageManager.Instance.GetString("String_SkillMetamagic");
-				objArcanaMetamagic.SkillGroup = objArcana.SkillGroup;
-				objArcanaMetamagic.SkillCategory = objArcana.SkillCategory;
-				objArcanaMetamagic.IsGrouped = objArcana.IsGrouped;
-				objArcanaMetamagic.Default = objArcana.Default;
-				objArcanaMetamagic.Rating = objArcana.Rating;
-				objArcanaMetamagic.RatingMaximum = objArcana.RatingMaximum;
-				objArcanaMetamagic.KnowledgeSkill = objArcana.KnowledgeSkill;
-				objArcanaMetamagic.ExoticSkill = objArcana.ExoticSkill;
-				objArcanaMetamagic.Specialization = objArcana.Specialization;
-				objArcanaMetamagic.Attribute = "INT";
-				objArcanaMetamagic.Source = objArcana.Source;
-				objArcanaMetamagic.Page = objArcana.Page;
-				_lstSkills.Add(objArcanaMetamagic);
-
-				// Arcana, Artificing
-				objArcanaArtificing.Name = objArcana.DisplayName + ", " + LanguageManager.Instance.GetString("String_SkillArtificing");
-				objArcanaArtificing.SkillGroup = objArcana.SkillGroup;
-				objArcanaArtificing.SkillCategory = objArcana.SkillCategory;
-				objArcanaArtificing.IsGrouped = objArcana.IsGrouped;
-				objArcanaArtificing.Default = objArcana.Default;
-				objArcanaArtificing.Rating = objArcana.Rating;
-				objArcanaArtificing.RatingMaximum = objArcana.RatingMaximum;
-				objArcanaArtificing.KnowledgeSkill = objArcana.KnowledgeSkill;
-				objArcanaArtificing.ExoticSkill = objArcana.ExoticSkill;
-				objArcanaArtificing.Specialization = objArcana.Specialization;
-				objArcanaArtificing.Attribute = "MAG";
-				objArcanaArtificing.Source = objArcana.Source;
-				objArcanaArtificing.Page = objArcana.Page;
-				_lstSkills.Add(objArcanaArtificing);
-			}
-
 			// <skills>
 			objWriter.WriteStartElement("skills");
 			foreach (Skill objSkill in _lstSkills)
@@ -2187,20 +2103,6 @@ namespace Chummer
 			}
 			// </skills>
 			objWriter.WriteEndElement();
-
-			// Remove the stapled on Leadership Skills now that we're done with them.
-			if (_objOptions.PrintLeadershipAlternates)
-			{
-				_lstSkills.Remove(objLeadershipCommand);
-				_lstSkills.Remove(objLeadershipDirect);
-			}
-
-			// Remove the stapled on Arcana Skills now that we're done with them.
-			if (_objOptions.PrintArcanaAlternates)
-			{
-				_lstSkills.Remove(objArcanaMetamagic);
-				_lstSkills.Remove(objArcanaArtificing);
-			}
 
 			// <contacts>
 			objWriter.WriteStartElement("contacts");
