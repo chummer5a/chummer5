@@ -3,7 +3,7 @@
   <file>
     <name>Chummer5.exe</name>
     <type>Application</type>
-    <version>0.0.5.119</version>
+    <version>0.0.5.120</version>
     <description>Chummer</description>
     <notes>- Chummer Application</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMeU9jcjNKNldfdkU</url>
@@ -243,7 +243,7 @@
   <file>
     <name>data/gear.xml</name>
     <type>Data Files</type>
-    <version>-498</version>
+    <version>-497</version>
     <description>Gear</description>
     <notes>- Gear data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMRkI2b2hUQ1JlOHM</url>

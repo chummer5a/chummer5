@@ -294,7 +294,7 @@ namespace Chummer
 						else
 							blnCreateNode = false;
 					}
-					catch
+					catch (Exception)
 					{
 						blnCreateNode = true;
 					}
@@ -535,12 +535,26 @@ namespace Chummer
 				// Loop through each of the child nodes.
 				foreach (TreeNode nodNode in nodRoot.Nodes)
 				{
-					if (nodNode.Checked)
-					{
-						FileInfo objInfo = new FileInfo(strFilePath + nodNode.Tag.ToString().Replace('/', Path.DirectorySeparatorChar));
-						if (objInfo.Length == 0)
-							blnReturn = false;
-					}
+                    if (nodNode.Checked)
+                    {
+                        try
+                        {
+                            FileInfo objInfo = new FileInfo(strFilePath + nodNode.Tag.ToString().Replace('/', Path.DirectorySeparatorChar));
+                            if (objInfo.Length == 0)
+                            {
+                                blnReturn = false;
+                                break;
+                            }
+
+                            XmlDocument objXmlFileDocument = new XmlDocument();
+                            objXmlFileDocument.Load(strFilePath + nodNode.Tag.ToString().Replace('/', Path.DirectorySeparatorChar));
+                            blnReturn = true;
+                        }
+                        catch (Exception)
+                        {
+                            blnReturn = false;
+                        }
+                    }
 				}
 			}
 

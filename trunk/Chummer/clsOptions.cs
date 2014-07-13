@@ -762,6 +762,7 @@ namespace Chummer
 		private bool _blnSpecialAttributeKarmaLimit = false;
 		private bool _blnTechnomancerAllowAutosoft = false;
         private bool _blnLicenseRestrictedItems = false;
+        private bool _blnKnucksUseUnarmed = false;
 		private string _strBookXPath = "";
 		private int _intNuyenPerBP = 5000;
 		private int _intFreeContactsMultiplier = 2;
@@ -908,8 +909,8 @@ namespace Chummer
 			objWriter.WriteElementString("printexpenses", _blnPrintExpenses.ToString());
 			// <nuyenperbp />
 			objWriter.WriteElementString("nuyenperbp", _intNuyenPerBP.ToString());
-			// <freekarmacontacts />
-			objWriter.WriteElementString("freekarmacontacts", _blnFreeContacts.ToString());
+			// <knucksuseunarmed />
+            objWriter.WriteElementString("knucksuseunarmed", _blnKnucksUseUnarmed.ToString());
 			// <freekarmacontactsmultiplier />
 			objWriter.WriteElementString("freekarmacontactsmultiplier", _intFreeContactsMultiplier.ToString());
 			// <freecontactsflat />
@@ -1230,9 +1231,14 @@ namespace Chummer
 			_blnPrintExpenses = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/printexpenses").InnerText);
 			// Nuyen per Build Point
 			_intNuyenPerBP = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/nuyenperbp").InnerText);
-			// Free Contacts
-			_blnFreeContacts = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/freekarmacontacts").InnerText);
-			// Free Contacts Multiplier
+            // Knucks use Unarmed
+            try
+            {
+            _blnKnucksUseUnarmed = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/knucksuseunarmed").InnerText);
+            }
+            catch
+            { }
+            // Free Contacts Multiplier
 			_intFreeContactsMultiplier = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/freekarmacontactsmultiplier").InnerText);
 			// Free Contacts Flat
 			_blnFreeContactsFlat = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/freecontactsflat").InnerText);
@@ -2270,15 +2276,15 @@ namespace Chummer
 		/// <summary>
 		/// Whether or not characters in Karma build mode receive free Contacts equal to CHA * 2.
 		/// </summary>
-		public bool FreeContacts
+		public bool KnucksUseUnarmed
 		{
 			get
 			{
-				return _blnFreeContacts;
+                return _blnKnucksUseUnarmed;
 			}
 			set
 			{
-				_blnFreeContacts = value;
+                _blnKnucksUseUnarmed = value;
 			}
 		}
 
