@@ -243,7 +243,7 @@
   <file>
     <name>data/gear.xml</name>
     <type>Data Files</type>
-    <version>-497</version>
+    <version>-496</version>
     <description>Gear</description>
     <notes>- Gear data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMRkI2b2hUQ1JlOHM</url>
@@ -259,7 +259,7 @@
   <file>
     <name>data/licenses.xml</name>
     <type>Data Files</type>
-    <version>-500</version>
+    <version>-499</version>
     <description>Licenses</description>
     <notes>- Licenses data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMVTdfSmNzSUpLMG8</url>
@@ -411,7 +411,7 @@
   <file>
     <name>data/weapons.xml</name>
     <type>Data Files</type>
-    <version>-496</version>
+    <version>-495</version>
     <description>Weapons</description>
     <notes>- Weapons data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMTlNLTm1xa3EtTzQ</url>
