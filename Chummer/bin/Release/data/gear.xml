@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-498</version>
+	<version>-497</version>
 	<categories>
 		<category>Ammunition</category>
 		<category>Armor Enhancements</category>
@@ -1065,9 +1065,9 @@
 			<category>Explosives</category>
 			<rating>0</rating>
 			<avail>6R</avail>
-			<cost>50-500</cost>
+			<cost>Variable(50-500)</cost>
 			<source>RG</source>
-			<page>197</page>
+			<page>194</page>
 		</gear>
 		<gear>
 			<name>Nanoprint Scanners</name>
@@ -1076,7 +1076,7 @@
 			<avail>16F</avail>
 			<cost>Rating * 500</cost>
 			<source>RG</source>
-			<page>197</page>
+			<page>187</page>
 		</gear>
 		<gear>
 			<name>Houdini Machine I</name>

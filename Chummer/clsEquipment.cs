@@ -5778,6 +5778,16 @@ namespace Chummer
 				}
 			}
 
+            // This should also add any UnarmedDV bonus to Unarmed physical weapons if the option is enabled.
+            if ((_strName == "Knucks") && _objCharacter.Options.KnucksUseUnarmed)
+            {
+                foreach (Improvement objImprovement in _objCharacter.Improvements)
+                {
+                    if (objImprovement.ImproveType == Improvement.ImprovementType.UnarmedDV && objImprovement.Enabled)
+                        intImprove += objImprovement.Value;
+                }
+            }
+
 			// Add in the DV bonus from any Weapon Mods.
 			foreach (WeaponMod objMod in _lstWeaponMods)
 			{

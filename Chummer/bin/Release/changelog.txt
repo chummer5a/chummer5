@@ -1,3 +1,11 @@
+Build 5.120 (beta)
+- Updated the counters on the Build Summary tab to go into negative values if you use karma to overspend.  So if you have 3 contact points and add a 2/2 contact, it'll show "-1 of 3".
+- Replaced the karma calculation for over-spending on Knowledge Skills. In short, the old mechanism was what was built in original Chummer and made you pay for the most expensive Knowledge Skill point from any of your Knowledge Skills when you went over. The new mechanism works just as the Active Skills (and Attributes) does meaning it looks for the cheapest possible option.  So if you had four points of Knowledge skills available and put 4 in skill A and 1 in skill B, the old method would charge you for raising skill A from 3 to 4 while the new method charges you to raise skill B to 1 (figuring out that the cheapest method is to put those four free points in skill A and pay karma for B).  This means that if you have an existing character still in character creation mode that spent karma on Knowledge Skills, you'll likely get some karma back.
+- Fixed a bug that was incorrectly calculating your spent contact points.
+- Fixing an issue with auto-update. I think this will stabilize auto-update and handle broken downloads better but I won't know for sure until we try.
+- Fixed the price of the Redundant Power Supply.
+- Changed Ares Predator V from External to Internal Smartgun System. This change will only apply on newly purchased Predators.
+
 Build 5.119 (beta)
 - Added Alchemical Preparations.
 - Fixed a bug causing a crash when using Weapon Commlinks and Commlink Accessories.

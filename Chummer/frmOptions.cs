@@ -111,7 +111,7 @@ namespace Chummer
 
             tabControl1.TabPages.RemoveAt(1);
             tabControl1.TabPages.RemoveAt(1);
-            tabControl1.TabPages.RemoveAt(1);
+            // tabControl1.TabPages.RemoveAt(1);
 
 			// Attempt to make default.xml the default one. If it could not be found in the list, select the first item instead.
 			cboSetting.SelectedIndex = cboSetting.FindStringExact("Default Settings");
@@ -327,24 +327,12 @@ namespace Chummer
 			_objOptions.PrintSkillsWithZeroRating = chkPrintSkillsWithZeroRating.Checked;
             _objOptions.LicenseRestricted = chkLicenseEachRestrictedItem.Checked;
 			_objOptions.MoreLethalGameplay = chkMoreLethalGameplay.Checked;
-			_objOptions.SpiritForceBasedOnTotalMAG = chkSpiritForceBasedOnTotalMAG.Checked;
-			_objOptions.SkillDefaultingIncludesModifiers = chkSkillDefaultingIncludesModifiers.Checked;
-			_objOptions.EnforceMaximumSkillRatingModifier = chkEnforceSkillMaximumModifiedRating.Checked;
-			_objOptions.SpecialKarmaCostBasedOnShownValue = chkSpecialKarmaCost.Checked;
 			_objOptions.CapSkillRating = chkCapSkillRating.Checked;
 			_objOptions.PrintExpenses = chkPrintExpenses.Checked;
-			_objOptions.FreeContacts = chkFreeKarmaContacts.Checked;
-			_objOptions.FreeContactsMultiplier = Convert.ToInt32(nudFreeKarmaContactsMultiplier.Value);
-			_objOptions.FreeContactsFlat = chkFreeContactsFlat.Checked;
-			_objOptions.FreeContactsFlatNumber = Convert.ToInt32(nudFreeContactsFlatNumber.Value);
-			_objOptions.FreeKarmaKnowledge = chkFreeKarmaKnowledge.Checked;
+			_objOptions.KnucksUseUnarmed = chkKnucks.Checked;
 			_objOptions.NuyenPerBP = Convert.ToInt32(nudNuyenPerBP.Value);
 			_objOptions.EssenceDecimals = Convert.ToInt32(cboEssenceDecimals.SelectedValue);
 			_objOptions.NoSingleArmorEncumbrance = chkNoSingleArmorEncumbrance.Checked;
-			_objOptions.IgnoreArmorEncumbrance = chkIgnoreArmorEncumbrance.Checked;
-			_objOptions.AlternateArmorEncumbrance = chkAlternateArmorEncumbrance.Checked;
-			_objOptions.AllowCyberwareESSDiscounts = chkAllowCyberwareESSDiscounts.Checked;
-			_objOptions.ESSLossReducesMaximumOnly = chkESSLossReducesMaximumOnly.Checked;
 			_objOptions.AllowSkillRegrouping = chkAllowSkillRegrouping.Checked;
 			_objOptions.MetatypeCostsKarma = chkMetatypeCostsKarma.Checked;
 			_objOptions.MetatypeCostsKarmaMultiplier = Convert.ToInt32(nudMetatypeCostsKarmaMultiplier.Value);
@@ -355,9 +343,6 @@ namespace Chummer
 			_objOptions.AutomaticCopyProtection = chkAutomaticCopyProtection.Checked;
 			_objOptions.AutomaticRegistration = chkAutomaticRegistration.Checked;
 			_objOptions.EnforceCapacity = chkEnforceCapacity.Checked;
-			_objOptions.ExceedNegativeQualities = chkExceedNegativeQualities.Checked;
-			_objOptions.ExceedNegativeQualitiesLimit = chkExceedNegativeQualitiesLimit.Checked;
-			_objOptions.ExceedPositiveQualities = chkExceedPositiveQualities.Checked;
 			_objOptions.UseCalculatedVehicleSensorRatings = chkUseCalculatedVehicleSensorRatings.Checked;
 			_objOptions.AlternateMatrixAttribute = chkAlternateMatrixAttribute.Checked;
 			_objOptions.AlternateComplexFormCost = chkAlternateComplexFormCost.Checked;
@@ -365,22 +350,8 @@ namespace Chummer
 			_objOptions.BreakSkillGroupsInCreateMode = chkBreakSkillGroupsInCreateMode.Checked;
 			_objOptions.ExtendAnyDetectionSpell = chkExtendAnyDetectionSpell.Checked;
 			_objOptions.RestrictRecoil = chkRestrictRecoil.Checked;
-			_objOptions.MultiplyRestrictedCost = chkMultiplyRestrictedCost.Checked;
-			_objOptions.MultiplyForbiddenCost = chkMultiplyForbiddenCost.Checked;
-			_objOptions.RestrictedCostMultiplier = Convert.ToInt32(nudRestrictedCostMultiplier.Value);
-			_objOptions.ForbiddenCostMultiplier = Convert.ToInt32(nudForbiddenCostMultiplier.Value);
-			_objOptions.AllowExceedAttributeBP = chkAllowExceedAttributeBP.Checked;
-			_objOptions.UnrestrictedNuyen = chkUnrestrictedNuyen.Checked;
 			_objOptions.CalculateCommlinkResponse = chkCalculateCommlinkResponse.Checked;
 			_objOptions.ErgonomicProgramLimit = chkErgonomicProgramLimit.Checked;
-			_objOptions.AllowHigherStackedFoci = chkAllowHigherStackedFoci.Checked;
-			_objOptions.AllowEditPartOfBaseWeapon = chkAllowEditPartOfBaseWeapon.Checked;
-			_objOptions.AlternateMetatypeAttributeKarma = chkAlternateMetatypeAttributeKarma.Checked;
-			_objOptions.AllowObsolescentUpgrade = chkAllowObsolescentUpgrade.Checked;
-			_objOptions.AllowBiowareSuites = chkAllowBiowareSuites.Checked;
-			_objOptions.FreeSpiritPowerPointsMAG = chkFreeSpiritsPowerPointsMAG.Checked;
-			_objOptions.SpecialAttributeKarmaLimit = chkSpecialAttributeKarmaLimit.Checked;
-			_objOptions.TechnomancerAllowAutosoft = chkTechnomancerAllowAutosoft.Checked;
 			_objOptions.AllowSkillDiceRolling = chkAllowSkillDiceRolling.Checked;
 			_objOptions.CreateBackupOnCareer = chkCreateBackupOnCareer.Checked;
 			_objOptions.PrintNotes = chkPrintNotes.Checked;
@@ -523,13 +494,6 @@ namespace Chummer
 			string strFilePath = Path.Combine(Application.StartupPath, "lang");
 			strFilePath = Path.Combine(strFilePath, "results_" + cboLanguage.SelectedValue + ".xml");
 			MessageBox.Show("Results were written to " + strFilePath, "Validation Results", MessageBoxButtons.OK, MessageBoxIcon.Information);
-		}
-
-		private void chkExceedNegativeQualities_CheckedChanged(object sender, EventArgs e)
-		{
-			chkExceedNegativeQualitiesLimit.Enabled = chkExceedNegativeQualities.Checked;
-			if (!chkExceedNegativeQualitiesLimit.Enabled)
-				chkExceedNegativeQualitiesLimit.Checked = false;
 		}
 
 		private void cmdRestoreDefaultsBP_Click(object sender, EventArgs e)
@@ -714,10 +678,6 @@ namespace Chummer
 			nudNuyenPerBP.Left = lblNuyenPerBP.Left + lblNuyenPerBP.Width + 6;
 			lblMetatypeCostsKarma.Left = chkMetatypeCostsKarma.Left + chkMetatypeCostsKarma.Width;
 			nudMetatypeCostsKarmaMultiplier.Left = lblMetatypeCostsKarma.Left + lblMetatypeCostsKarma.Width;
-			nudFreeKarmaContactsMultiplier.Left = chkFreeKarmaContacts.Left + chkFreeKarmaContacts.Width;
-			nudFreeContactsFlatNumber.Left = chkFreeContactsFlat.Left + chkFreeContactsFlat.Width;
-			nudRestrictedCostMultiplier.Left = chkMultiplyRestrictedCost.Left + chkMultiplyRestrictedCost.Width;
-			nudForbiddenCostMultiplier.Left = chkMultiplyForbiddenCost.Left + chkMultiplyForbiddenCost.Width;
 			cboEssenceDecimals.Left = lblEssenceDecimals.Left + lblEssenceDecimals.Width + 6;
 
 			txtPDFAppPath.Left = lblPDFAppPath.Left + lblPDFAppPath.Width + 6;
@@ -923,7 +883,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkSpiritForceBasedOnTotalMAG.Checked = blnSpiritForceBasedOnTotalMAG;
 
 			bool blnSkillDefaultingIncludesModifiers = false;
 			try
@@ -933,7 +892,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkSkillDefaultingIncludesModifiers.Checked = blnSkillDefaultingIncludesModifiers;
 
 			bool blnEnforceSkillMaximumModifiedRating = true;
 			try
@@ -975,15 +933,15 @@ namespace Chummer
 			}
 			chkPrintExpenses.Checked = blnPrintExpenses;
 
-			bool blnFreeKarmaContacts = false;
-			try
-			{
-				blnFreeKarmaContacts = _objOptions.FreeContacts;
-			}
-			catch
-			{
-			}
-			chkFreeKarmaContacts.Checked = blnFreeKarmaContacts;
+			bool blnKnucksUseUnarmed = false;
+            try
+            {
+                blnKnucksUseUnarmed = _objOptions.KnucksUseUnarmed;
+            }
+            catch
+            {
+            }
+            chkKnucks.Checked = blnKnucksUseUnarmed;
 
 			int intFreeKarmaContactsMultiplier = 2;
 			try
@@ -993,7 +951,6 @@ namespace Chummer
 			catch
 			{
 			}
-			nudFreeKarmaContactsMultiplier.Value = intFreeKarmaContactsMultiplier;
 
 			bool blnFreeContactsFlat = false;
 			try
@@ -1003,7 +960,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkFreeContactsFlat.Checked = blnFreeContactsFlat;
 
 			int intFreeContactsFlatNumber = 0;
 			try
@@ -1013,7 +969,6 @@ namespace Chummer
 			catch
 			{
 			}
-			nudFreeContactsFlatNumber.Value = intFreeContactsFlatNumber;
 
 			bool blnFreeKarmaKnowledge = false;
 			try
@@ -1023,7 +978,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkFreeKarmaKnowledge.Checked = blnFreeKarmaKnowledge;
 
 			int intNuyenPerBP = 5000;
 			try
@@ -1065,7 +1019,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkIgnoreArmorEncumbrance.Checked = blnIgnoreArmorEncumbrance;
 
 			bool blnAlternateArmorEncumbrance = false;
 			try
@@ -1075,7 +1028,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkAlternateArmorEncumbrance.Checked = blnAlternateArmorEncumbrance;
 
 			bool blnAllowCyberwareESSDiscounts = false;
 			try
@@ -1085,7 +1037,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkAllowCyberwareESSDiscounts.Checked = blnAllowCyberwareESSDiscounts;
 
 			bool blnESSLossReducesMaximumOnly = false;
 			try
@@ -1095,7 +1046,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkESSLossReducesMaximumOnly.Checked = blnESSLossReducesMaximumOnly;
 
 			bool blnAllowSkillRegrouping = false;
 			try
@@ -1195,10 +1145,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkExceedNegativeQualities.Checked = blnExceedNegativeQualities;
-
-			if (chkExceedPositiveQualities.Checked)
-				chkExceedNegativeQualitiesLimit.Enabled = true;
 
 			bool blnExceedNegativeQualitiesLimit = false;
 			try
@@ -1208,7 +1154,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkExceedNegativeQualitiesLimit.Checked = blnExceedNegativeQualitiesLimit;
 
 			bool blnExceedPositiveQualities = false;
 			try
@@ -1218,7 +1163,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkExceedPositiveQualities.Checked = blnExceedPositiveQualities;
 
 			bool blnUseCalculatedVehicleSensorRatings = false;
 			try
@@ -1298,7 +1242,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkMultiplyRestrictedCost.Checked = blnMultiplyRestrictedCost;
 
 			bool blnMultiplyForbiddenCost = false;
 			try
@@ -1308,7 +1251,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkMultiplyForbiddenCost.Checked = blnMultiplyForbiddenCost;
 
 			int intRestrictedCostMultiplier = 1;
 			try
@@ -1318,7 +1260,6 @@ namespace Chummer
 			catch
 			{
 			}
-			nudRestrictedCostMultiplier.Value = intRestrictedCostMultiplier;
 
 			int intForbiddenCostMultiplier = 1;
 			try
@@ -1328,7 +1269,6 @@ namespace Chummer
 			catch
 			{
 			}
-			nudForbiddenCostMultiplier.Value = intForbiddenCostMultiplier;
 
 			bool blnEnforceCapacity = true;
 			try
@@ -1348,7 +1288,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkAllowExceedAttributeBP.Checked = blnAllowExceedAttributeBP;
 
 			bool blnUnrestrictedNueyn = false;
 			try
@@ -1358,7 +1297,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkUnrestrictedNuyen.Checked = blnUnrestrictedNueyn;
 
 			bool blnCalculateCommlinkResponse = true;
 			try
@@ -1456,7 +1394,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkAllowHigherStackedFoci.Checked = blnAllowHigherStackedFoci;
 
 			bool blnAllowEditPartOfBaseWeapon = false;
 			try
@@ -1466,7 +1403,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkAllowEditPartOfBaseWeapon.Checked = blnAllowEditPartOfBaseWeapon;
 
 			bool blnAlternateMetatypeAttributeKarma = false;
 			try
@@ -1476,7 +1412,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkAlternateMetatypeAttributeKarma.Checked = blnAlternateMetatypeAttributeKarma;
 
 			bool blnAllowObsolescentUpgrade = false;
 			try
@@ -1486,7 +1421,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkAllowObsolescentUpgrade.Checked = blnAllowObsolescentUpgrade;
 
 			bool blnAllowBiowareSuites = false;
 			try
@@ -1496,7 +1430,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkAllowBiowareSuites.Checked = blnAllowBiowareSuites;
 
 			bool blnFreeSpiritPowerPointsMAG = false;
 			try
@@ -1506,7 +1439,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkFreeSpiritsPowerPointsMAG.Checked = blnFreeSpiritPowerPointsMAG;
 
 			bool blnSpecialAttributeKarmaLimit = false;
 			try
@@ -1516,7 +1448,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkSpecialAttributeKarmaLimit.Checked = blnSpecialAttributeKarmaLimit;
 
 			bool blnTechnomancerAllowAutosoft = false;
 			try
@@ -1526,7 +1457,6 @@ namespace Chummer
 			catch
 			{
 			}
-			chkTechnomancerAllowAutosoft.Checked = blnTechnomancerAllowAutosoft;
 
 			if (_objOptions.LimbCount == 6)
 				cboLimbCount.SelectedValue = "all";
