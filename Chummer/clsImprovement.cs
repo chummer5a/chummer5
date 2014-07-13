@@ -1283,6 +1283,9 @@ namespace Chummer
 				// Select a Skill.
 				if (NodeExists(nodBonus, "selectskill"))
 				{
+                    if (_strForcedValue == "+2 to a Combat Skill")
+                        _strForcedValue = "";
+
 					// Display the Select Skill window and record which Skill was selected.
 					frmSelectSkill frmPickSkill = new frmSelectSkill(_objCharacter);
 					if (strFriendlyName != "")
@@ -2438,11 +2441,8 @@ namespace Chummer
                                 _strSelectedValue = frmPickLimit.SelectedLimit;
                                 strSelection = _strSelectedValue;
 
-                                if (blnConcatSelectedValue)
-                                    strSourceName += " (" + _strSelectedValue + ")";
-
-                                if (_strSelectedValue != string.Empty)
-                                    strPowerNameLimit += " (" + _strSelectedValue + ")";
+                                //if (_strSelectedValue != string.Empty)
+                                //    strPowerNameLimit += " (" + _strSelectedValue + ")";
                             }
 
                             if (objXmlSpecificPower["selectskill"] != null)
@@ -2492,9 +2492,100 @@ namespace Chummer
                                 //    strPowerNameLimit += " (" + _strSelectedValue + ")";
                             }
 
+                            if (objXmlSpecificPower["selecttext"] != null)
+                            {
+                                frmSelectText frmPickText = new frmSelectText();
+                                frmPickText.Description = LanguageManager.Instance.GetString("String_Improvement_SelectText").Replace("{0}", strFriendlyName);
+
+                                if (_strLimitSelection != "")
+                                {
+                                    frmPickText.SelectedValue = _strLimitSelection;
+                                    frmPickText.Opacity = 0;
+                                }
+
+                                frmPickText.ShowDialog();
+
+                                // Make sure the dialogue window was not canceled.
+                                if (frmPickText.DialogResult == DialogResult.Cancel)
+                                {
+                                    Rollback();
+                                    blnSuccess = false;
+                                    _strForcedValue = "";
+                                    _strLimitSelection = "";
+                                    return false;
+                                }
+
+                                strSelection = frmPickText.SelectedValue;
+                                _strLimitSelection = strSelection;
+                            }
+
                             if (objXmlSpecificPower["specificattribute"] != null)
                             {
                                 strSelection = objXmlSpecificPower["specificattribute"]["name"].InnerText.ToString();
+                            }
+
+                            if (objXmlSpecificPower["selectattribute"] != null)
+                            {
+                                XmlNode nodSkill = nodBonus["specificpower"];
+                                if (_strForcedValue.StartsWith("Adept"))
+                                    _strForcedValue = "";
+
+                                // Display the Select Attribute window and record which Skill was selected.
+                                frmSelectAttribute frmPickAttribute = new frmSelectAttribute();
+                                if (strFriendlyName != "")
+                                    frmPickAttribute.Description = LanguageManager.Instance.GetString("String_Improvement_SelectAttributeNamed").Replace("{0}", strFriendlyName);
+                                else
+                                    frmPickAttribute.Description = LanguageManager.Instance.GetString("String_Improvement_SelectAttribute");
+
+                                // Add MAG and/or RES to the list of Attributes if they are enabled on the form.
+                                if (_objCharacter.MAGEnabled)
+                                    frmPickAttribute.AddMAG();
+                                if (_objCharacter.RESEnabled)
+                                    frmPickAttribute.AddRES();
+
+                                if (nodSkill["selectattribute"].InnerXml.Contains("<attribute>"))
+                                {
+                                    List<string> strValue = new List<string>();
+                                    foreach (XmlNode objXmlAttribute in nodSkill["selectattribute"].SelectNodes("attribute"))
+                                        strValue.Add(objXmlAttribute.InnerText);
+                                    frmPickAttribute.LimitToList(strValue);
+                                }
+
+                                if (nodSkill["selectattribute"].InnerXml.Contains("<excludeattribute>"))
+                                {
+                                    List<string> strValue = new List<string>();
+                                    foreach (XmlNode objXmlAttribute in nodSkill["selectattribute"].SelectNodes("excludeattribute"))
+                                        strValue.Add(objXmlAttribute.InnerText);
+                                    frmPickAttribute.RemoveFromList(strValue);
+                                }
+
+                                // Check to see if there is only one possible selection because of _strLimitSelection.
+                                if (_strForcedValue != "")
+                                    _strLimitSelection = _strForcedValue;
+
+                                if (_strLimitSelection != "")
+                                {
+                                    frmPickAttribute.SingleAttribute(_strLimitSelection);
+                                    frmPickAttribute.Opacity = 0;
+                                }
+
+                                frmPickAttribute.ShowDialog();
+
+                                // Make sure the dialogue window was not canceled.
+                                if (frmPickAttribute.DialogResult == DialogResult.Cancel)
+                                {
+                                    Rollback();
+                                    blnSuccess = false;
+                                    _strForcedValue = "";
+                                    _strLimitSelection = "";
+                                    return false;
+                                }
+
+                                _strSelectedValue = frmPickAttribute.SelectedAttribute;
+                                if (blnConcatSelectedValue)
+                                    strSourceName += " (" + _strSelectedValue + ")";
+                                strSelection = _strSelectedValue;
+                                _strForcedValue = _strSelectedValue;
                             }
 
                             // Check if the character already has this power
