@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-497</version>
+	<version>-496</version>
 	<categories>
 		<category>Ammunition</category>
 		<category>Armor Enhancements</category>
@@ -2334,7 +2334,7 @@
 			<gears>
 				<usegear>
 					<name>Vision Magnification</name>
-					<category>Vision Devices</category>
+					<category>Vision Enhancements</category>
 					<capacity>0</capacity>
 				</usegear>
 			</gears>
@@ -2351,7 +2351,7 @@
 			<gears>
 				<usegear>
 					<name>Vision Magnification</name>
-					<category>Vision Devices</category>
+					<category>Vision Enhancements</category>
 					<capacity>0</capacity>
 				</usegear>
 			</gears>

@@ -6588,7 +6588,7 @@ namespace Chummer
                 }
                 else
                 {
-                    intAccuracy = Convert.ToInt32(strAccuracy);
+                    intAccuracy = Convert.ToInt32("0" + strAccuracy);
                     foreach (WeaponAccessory wa in _lstAccessories)
                     {
                         if (wa.Name == "Laser Sight")

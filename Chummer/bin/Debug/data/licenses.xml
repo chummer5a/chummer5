@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <chummer>
-    <version>-500</version>
+    <version>-499</version>
     <licenses>
         <license>Adept License</license>
         <license>Automatic Weapons License</license>
@@ -19,6 +19,7 @@
         <license>Mage License</license>
         <license>Marine License</license>
         <license>Matrix Software License</license>
+        <license>Medical License</license>
         <license>Military Ammunition License</license>
         <license>Military Armor License</license>
         <license>Military Weapons License</license>
