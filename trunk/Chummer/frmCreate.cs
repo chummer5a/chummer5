@@ -7117,11 +7117,16 @@ namespace Chummer
                         List<Weapon> objMentorWeapons = new List<Weapon>();
                         List<TreeNode> objMentorWeaponNodes = new List<TreeNode>();
                         Quality objSpiritQuality = new Quality(_objCharacter);
+                        string strExtra = "";
+                        if (objXmlAddQuality.Attributes["select"].InnerText.ToString().Length > 0)
+                        {
+                            strExtra = objXmlAddQuality.Attributes["select"].InnerText.ToString();
+                            objSpiritQuality.Create(objXmlMentorQuality, _objCharacter, QualitySource.Selected, objMentorNode, objMentorWeapons, objMentorWeaponNodes, strExtra);
+                        }
+                        else
+                            objSpiritQuality.Create(objXmlMentorQuality, _objCharacter, QualitySource.Selected, objMentorNode, objMentorWeapons, objMentorWeaponNodes);
 
-                        objSpiritQuality.Create(objXmlMentorQuality, _objCharacter, QualitySource.Selected, objMentorNode, objMentorWeapons, objMentorWeaponNodes);
                         objSpiritQuality.BP = 0;
-                        if (objXmlAddQuality.Attributes["select"].ToString().Length > 0)
-                            objSpiritQuality.Extra = objXmlAddQuality.Attributes["select"].ToString();
 
                         // Add the quality to the character
                         if (objSpiritQuality.Type == QualityType.Positive)

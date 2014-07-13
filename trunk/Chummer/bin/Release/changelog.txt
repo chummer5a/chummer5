@@ -1,3 +1,12 @@
+Build 5.122 (beta)
+- Fixed a number of bugs relating to Mentor Spirits and as best as I can tell, they're all working as intended. If you find otherwise, please email me a copy of your character sheet with a brief explanation of what's going wrong.
+- Mountain Mentor Spirit now provides its bonus to Counterspelling
+- Doom Mentor Spirit now correctly provides a +2 to the combat skill of your choice if you choose that option.
+- Mutation Mentor Spirit now correctly asks for which ability to apply Attribute Boost.
+- Eagle Mentor Spirit now automatically applies "Polutants" as the trigger of your Allergy.
+- Dog Mentor Spirit now asks which senses are being improved.
+- Moved the Smartgun System on the Savalette Guardian to be Internal.
+
 Build 5.121 (beta)
 - Fixed a bug that was preventing purchase of Binoculars (both digital and optical).
 - Fixed a bug that was causing a soft crash when clicking on a weapon accessory.

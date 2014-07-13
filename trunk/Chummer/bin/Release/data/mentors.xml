@@ -102,7 +102,13 @@
 					<bonus>
 						<specificpower>
 							<name>Improved Sense</name>
-							<val>2</val>
+							<val>1</val>
+							<selecttext />
+						</specificpower>
+						<specificpower>
+							<name>Improved Sense</name>
+							<val>1</val>
+							<selecttext />
 						</specificpower>
 					</bonus>
 				</choice>
@@ -252,7 +258,7 @@
 					<bonus>
 						<specificskill>
 							<name>Counterspelling</name>
-							<val>2</val>
+							<bonus>2</bonus>
 							<applytorating>no</applytorating>
 						</specificskill>
 					</bonus>
@@ -394,7 +400,7 @@
 					<bonus>
 						<specificpower>
 							<name>Improved Ability (skill)</name>
-							<selectskill>
+							<selectskill includecategory="Influence">
 								<val>1</val>
 								<applytorating>no</applytorating>
 							</selectskill>
@@ -699,7 +705,7 @@
 					<name>Magician: +2 dice for Detection Spells</name>
 					<bonus>
 						<spellcategory>
-							<name>IllusDetectionion</name>
+							<name>Detection</name>
 							<val>2</val>
 						</spellcategory>
 					</bonus>
@@ -769,7 +775,7 @@
 				<choice>
 					<name>+2 to a Combat Skill</name>
 					<bonus>
-						<selectskill excludecategory="Combat Active">
+						<selectskill skillcategory="Combat Active">
 							<val>2</val>
 							<applytorating>no</applytorating>
 						</selectskill>
@@ -845,6 +851,12 @@
 						<specificpower>
 							<name>Attribute Boost</name>
 							<val>2</val>
+							<selectattribute>
+								<attribute>AGI</attribute>
+								<attribute>BOD</attribute>
+								<attribute>REA</attribute>
+								<attribute>STR</attribute>
+							</selectattribute>
 						</specificpower>
 					</bonus>
 				</choice>

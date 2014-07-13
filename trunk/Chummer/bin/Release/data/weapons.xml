@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-495</version>
+	<version>-494</version>
 	<categories>
 		<category>Blades</category>
 		<category>Clubs</category>
@@ -2852,7 +2852,7 @@
 				<mount>Top</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>RG</source>
 			<page>33</page>
