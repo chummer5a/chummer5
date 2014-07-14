@@ -3033,7 +3033,7 @@ namespace Chummer
                                         blnLevels = (objXmlPower["levels"].InnerText == "yes");
                                     objPower.LevelsEnabled = blnLevels;
                                     objPower.Name = strPowerNameLimit;
-                                    objPower.PointsPerLevel = Convert.ToDecimal(objXmlPower["points"].InnerText);
+                                    objPower.PointsPerLevel = Convert.ToDecimal(objXmlPower["points"].InnerText, GlobalOptions.Instance.CultureInfo);
                                     objPower.Source = objXmlPower["source"].InnerText;
                                     objPower.Page = objXmlPower["page"].InnerText;
                                     if (strSelection != string.Empty)
