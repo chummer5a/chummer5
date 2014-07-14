@@ -221,6 +221,7 @@
             this.lblSetting = new System.Windows.Forms.Label();
             this.lblSettingName = new System.Windows.Forms.Label();
             this.txtSettingName = new System.Windows.Forms.TextBox();
+            this.chkUseLogging = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaComplexFormOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaMetamagic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaInitiation)).BeginInit();
@@ -811,7 +812,7 @@
             this.chkAutomaticUpdate.Location = new System.Drawing.Point(9, 107);
             this.chkAutomaticUpdate.Name = "chkAutomaticUpdate";
             this.chkAutomaticUpdate.Size = new System.Drawing.Size(116, 17);
-            this.chkAutomaticUpdate.TabIndex = 4;
+            this.chkAutomaticUpdate.TabIndex = 5;
             this.chkAutomaticUpdate.Tag = "Checkbox_Options_AutomaticUpdates";
             this.chkAutomaticUpdate.Text = "Automatic Updates";
             this.chkAutomaticUpdate.UseVisualStyleBackColor = true;
@@ -929,6 +930,7 @@
             // tabGlobal
             // 
             this.tabGlobal.BackColor = System.Drawing.SystemColors.Control;
+            this.tabGlobal.Controls.Add(this.chkUseLogging);
             this.tabGlobal.Controls.Add(this.chkLocalisedUpdatesOnly);
             this.tabGlobal.Controls.Add(this.chkDatesIncludeTime);
             this.tabGlobal.Controls.Add(this.cmdPDFTest);
@@ -963,7 +965,7 @@
             this.chkLocalisedUpdatesOnly.Location = new System.Drawing.Point(9, 130);
             this.chkLocalisedUpdatesOnly.Name = "chkLocalisedUpdatesOnly";
             this.chkLocalisedUpdatesOnly.Size = new System.Drawing.Size(254, 17);
-            this.chkLocalisedUpdatesOnly.TabIndex = 19;
+            this.chkLocalisedUpdatesOnly.TabIndex = 6;
             this.chkLocalisedUpdatesOnly.Tag = "Checkbox_Options_LocalisedUpdatesOnly";
             this.chkLocalisedUpdatesOnly.Text = "Only download updates in my selected language";
             this.chkLocalisedUpdatesOnly.UseVisualStyleBackColor = true;
@@ -974,7 +976,7 @@
             this.chkDatesIncludeTime.Location = new System.Drawing.Point(9, 199);
             this.chkDatesIncludeTime.Name = "chkDatesIncludeTime";
             this.chkDatesIncludeTime.Size = new System.Drawing.Size(189, 17);
-            this.chkDatesIncludeTime.TabIndex = 18;
+            this.chkDatesIncludeTime.TabIndex = 9;
             this.chkDatesIncludeTime.Tag = "Checkbox_Options_DatesIncludeTime";
             this.chkDatesIncludeTime.Text = "Expense dates should include time";
             this.chkDatesIncludeTime.UseVisualStyleBackColor = true;
@@ -1140,7 +1142,7 @@
             this.chkSingleDiceRoller.Location = new System.Drawing.Point(9, 176);
             this.chkSingleDiceRoller.Name = "chkSingleDiceRoller";
             this.chkSingleDiceRoller.Size = new System.Drawing.Size(251, 17);
-            this.chkSingleDiceRoller.TabIndex = 6;
+            this.chkSingleDiceRoller.TabIndex = 8;
             this.chkSingleDiceRoller.Tag = "Checkbox_Options_SingleDiceRoller";
             this.chkSingleDiceRoller.Text = "Use a single instance of the Dice Roller window";
             this.chkSingleDiceRoller.UseVisualStyleBackColor = true;
@@ -1151,7 +1153,7 @@
             this.chkStartupFullscreen.Location = new System.Drawing.Point(9, 153);
             this.chkStartupFullscreen.Name = "chkStartupFullscreen";
             this.chkStartupFullscreen.Size = new System.Drawing.Size(154, 17);
-            this.chkStartupFullscreen.TabIndex = 5;
+            this.chkStartupFullscreen.TabIndex = 7;
             this.chkStartupFullscreen.Tag = "Checkbox_Options_StartupFullscreen";
             this.chkStartupFullscreen.Text = "Start Chummer in fullscreen";
             this.chkStartupFullscreen.UseVisualStyleBackColor = true;
@@ -2411,6 +2413,17 @@
             this.txtSettingName.Size = new System.Drawing.Size(190, 20);
             this.txtSettingName.TabIndex = 3;
             // 
+            // chkUseLogging
+            // 
+            this.chkUseLogging.AutoSize = true;
+            this.chkUseLogging.Location = new System.Drawing.Point(9, 84);
+            this.chkUseLogging.Name = "chkUseLogging";
+            this.chkUseLogging.Size = new System.Drawing.Size(121, 17);
+            this.chkUseLogging.TabIndex = 4;
+            this.chkUseLogging.Tag = "Checkbox_Options_UseLogging";
+            this.chkUseLogging.Text = "Use Debug Logging";
+            this.chkUseLogging.UseVisualStyleBackColor = true;
+            // 
             // frmOptions
             // 
             this.AcceptButton = this.cmdOK;
@@ -2692,5 +2705,6 @@
         private System.Windows.Forms.CheckBox chkContactPoints;
         private System.Windows.Forms.CheckBox chkMayBuyQualities;
         private System.Windows.Forms.CheckBox chkLicenseEachRestrictedItem;
+        private System.Windows.Forms.CheckBox chkUseLogging;
 	}
 }

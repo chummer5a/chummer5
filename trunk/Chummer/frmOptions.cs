@@ -128,6 +128,16 @@ namespace Chummer
 			}
 			chkAutomaticUpdate.Checked = blnAutomaticUpdates;
 
+            bool blnUseLogging = false;
+            try
+            {
+                blnUseLogging = GlobalOptions.Instance.UseLogging;
+            }
+            catch
+            {
+            }
+            chkUseLogging.Checked = blnUseLogging;
+
 			bool blnLocalisedUpdatesOnly = false;
 			try
 			{
@@ -1527,9 +1537,17 @@ namespace Chummer
 		/// </summary>
 		private void SaveRegistrySettings()
 		{
+            // If we're just now enabling logging, flush the log
+            if (!GlobalOptions.Instance.UseLogging && chkUseLogging.Checked)
+            {
+                CommonFunctions objFunctions = new CommonFunctions();
+                objFunctions.LogFlush();
+            }
+
 			// Set Registry values.
 			GlobalOptions.Instance.AutomaticUpdate = chkAutomaticUpdate.Checked;
 			GlobalOptions.Instance.LocalisedUpdatesOnly = chkLocalisedUpdatesOnly.Checked;
+            GlobalOptions.Instance.UseLogging = chkUseLogging.Checked;
 			GlobalOptions.Instance.Language = cboLanguage.SelectedValue.ToString();
 			GlobalOptions.Instance.StartupFullscreen = chkStartupFullscreen.Checked;
 			GlobalOptions.Instance.SingleDiceRoller = chkSingleDiceRoller.Checked;
@@ -1540,7 +1558,8 @@ namespace Chummer
 			RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer5");
 			objRegistry.SetValue("autoupdate", chkAutomaticUpdate.Checked.ToString());
 			objRegistry.SetValue("localisedupdatesonly", chkLocalisedUpdatesOnly.Checked.ToString());
-			objRegistry.SetValue("language", cboLanguage.SelectedValue.ToString());
+            objRegistry.SetValue("uselogging", chkUseLogging.Checked.ToString());
+            objRegistry.SetValue("language", cboLanguage.SelectedValue.ToString());
 			objRegistry.SetValue("startupfullscreen", chkStartupFullscreen.Checked.ToString());
 			objRegistry.SetValue("singlediceroller", chkSingleDiceRoller.Checked.ToString());
 			objRegistry.SetValue("defaultsheet", cboXSLT.SelectedValue.ToString());

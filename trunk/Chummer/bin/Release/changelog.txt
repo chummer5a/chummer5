@@ -1,3 +1,7 @@
+Build 5.123 (beta)
+- Fixed Security Armor: Heavy's armor rating.
+- Added debug logging. By default this is turned off for performance reasons but if you encounter a significant error, I may ask you to turn it on so that the error can be captured and logged which will make my fixing the problem much easier.  If you do need to turn it on, you'll find it on the Options dialog listed as "Use Debug Logging".  For space reasons, if the log is turned on it will automatically clear itself each time you start Chummer.  At this time, only a small portion of Chummer's code is set up for debug logging but I'll be expanding this as I can.
+
 Build 5.122 (beta)
 - Fixed a number of bugs relating to Mentor Spirits and as best as I can tell, they're all working as intended. If you find otherwise, please email me a copy of your character sheet with a brief explanation of what's going wrong.
 - Mountain Mentor Spirit now provides its bonus to Counterspelling

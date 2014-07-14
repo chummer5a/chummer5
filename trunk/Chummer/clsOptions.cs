@@ -107,6 +107,8 @@ namespace Chummer
 		public static string _strPDFAppPath = "";
 		public static List<SourcebookInfo> _lstSourcebookInfo = new List<SourcebookInfo>();
 
+        public static bool _blnUseLogging = false;
+
 		#region Constructor and Instance
 		static GlobalOptions()
 		{
@@ -130,8 +132,17 @@ namespace Chummer
 			catch
 			{
 			}
-			
-			// Whether or not dates should include the time.
+
+            // Whether or not the app should use logging.
+            try
+            {
+                _blnUseLogging = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("uselogging").ToString());
+            }
+            catch
+            {
+            }
+
+            // Whether or not dates should include the time.
 			try
 			{
 				_blnDatesIncludeTime = Convert.ToBoolean(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("datesincludetime").ToString());
@@ -289,7 +300,22 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Whether or not the app should use logging.
+        /// </summary>
+        public bool UseLogging
+        {
+            get
+            {
+                return _blnUseLogging;
+            }
+            set
+            {
+                _blnUseLogging = value;
+            }
+        }
+
+        /// <summary>
 		/// Whether or not dates should include the time.
 		/// </summary>
 		public bool DatesIncludeTime

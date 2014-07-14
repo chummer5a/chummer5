@@ -16,14 +16,24 @@ namespace Chummer
 		#region Constructor and Instance
 		private Character _objCharacter;
 
-		public CommonFunctions(Character objCharacter)
+        public CommonFunctions()
+        {
+        }
+        
+        public CommonFunctions(Character objCharacter)
 		{
 			_objCharacter = objCharacter;
 		}
 
-		CommonFunctions()
-		{
-		}
+        public enum LogType
+        {
+            Message = 0,
+            Alert = 1,
+            Error = 2,
+            Content = 3,
+            Entering = 4,
+            Exiting = 5,
+        }
 		#endregion
 
 		#region Find Functions
@@ -1329,36 +1339,70 @@ namespace Chummer
 		#endregion
 
         #region Logging Functions
-        public void Logger(string lines)
+        public void LogWrite(LogType logType, string strClass, string strLine)
         {
+            // Exit if we're not doing logging
+            if (!GlobalOptions.Instance.UseLogging)
+                return;
 
             // Write the string to a file.append mode is enabled so that the log
             // lines get appended to  test.txt than wiping content and writing the log
+            string strWriteLine = "";
+            switch (logType)
+            {
+                case LogType.Message:
+                    strWriteLine += ("Message").PadRight(10);
+                    break;
+                case LogType.Alert:
+                    strWriteLine += ("Alert").PadRight(10);
+                    break;
+                case LogType.Error:
+                    strWriteLine += ("Error").PadRight(10);
+                    break;
+                case LogType.Entering:
+                    strWriteLine += ("Entering").PadRight(10);
+                    break;
+                case LogType.Exiting:
+                    strWriteLine += ("Exiting").PadRight(10);
+                    break;
+                case LogType.Content:
+                    strWriteLine += "   ";
+                    break;
+                default:
+                    strWriteLine += ("").PadRight(10);
+                    break;
+            }
 
-            System.IO.StreamWriter file = new System.IO.StreamWriter("e:\\test.txt", true);
-            file.WriteLine(lines);
+            if (logType != LogType.Content)
+            {
+                if (strClass.Length > 35)
+                    strWriteLine += strClass.Substring(0, 35).PadRight(40);
+                else
+                    strWriteLine += strClass.PadRight(40);
+            }
+
+            strWriteLine += strLine;
+
+            string strFile = Application.StartupPath + Path.DirectorySeparatorChar + "chummerlog.txt";
+
+            System.IO.StreamWriter file = new System.IO.StreamWriter(strFile, true);
+            file.WriteLine(strWriteLine);
             file.Close();
-
-            //// Create the source, if it does not already exist.
-            //if (!EventLog.SourceExists("Chummer5"))
-            //{
-            //    //An event log source should not be created and immediately used.
-            //    //There is a latency time to enable the source, it should be created
-            //    //prior to executing the application that uses the source.
-            //    //Execute this sample a second time to use the new source.
-            //    EventLog.CreateEventSource("Chummer5", "MyNewLog");
-            //    // The source is created.  Exit the application to allow it to be registered.
-            //    return;
-            //}
-
-            //// Create an EventLog instance and assign its source.
-            //EventLog myLog = new EventLog();
-            //myLog.Source = "Chummer5";
-
-            //// Write an informational entry to the event log.    
-            //myLog.WriteEntry(lines);
         }
+
+        public void LogFlush()
+        {
+            // Exit if we're not doing logging
+            if (!GlobalOptions.Instance.UseLogging)
+                return;
+
+            string strFile = Application.StartupPath + Path.DirectorySeparatorChar + "chummerlog.txt";
+            File.WriteAllText(strFile, string.Empty);
+
+            LogWrite(LogType.Message, "Chummer5", Application.ProductVersion);
+        } 
         #endregion
+
         /// <summary>
 		/// Verify that the user wants to delete an item.
 		/// </summary>
