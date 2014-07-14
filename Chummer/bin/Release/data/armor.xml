@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-499</version>
+	<version>-498</version>
 	<categories>
 		<category>Armor</category>
 		<category>Clothing</category>
@@ -935,7 +935,7 @@
 		<armor>
 			<name>Security Armor: Heavy</name>
 			<category>Specialty Armor</category>
-			<armor>28</armor>
+			<armor>20</armor>
 			<armorcapacity>16</armorcapacity>
 			<avail>18R</avail>
 			<cost>20000</cost>

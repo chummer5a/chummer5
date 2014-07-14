@@ -436,6 +436,11 @@ namespace Chummer
 		{
 			if (GlobalOptions.Instance.StartupFullscreen)
 				this.WindowState = FormWindowState.Maximized;
+            if (GlobalOptions.Instance.UseLogging)
+            {
+				CommonFunctions objFunctions = new CommonFunctions();
+                objFunctions.LogFlush();
+            }
 		}
 
 		private void frmMain_DragDrop(object sender, DragEventArgs e)
