@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-498</version>
+	<version>-497</version>
 	<mentors>
 		<mentor>
 			<name>Bear</name>
@@ -123,7 +123,7 @@
 			<disadvantage>If you break a promise, whether by choice or by accident, you take a –1 dice pool modifier to all actions until you make good on your promise.</disadvantage>
 			<bonus>
 				<selectskill skillcategory="Social Active">
-					<bonus>2</bonus>
+					<val>2</val>
 					<applytorating>no</applytorating>
 				</selectskill>
 			</bonus>

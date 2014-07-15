@@ -5686,7 +5686,7 @@ namespace Chummer
                             string strRun = objXmlDocument.SelectSingleNode("/chummer/metatypes/metatype[name = \"" + _strMetatype + "\"]")["run"].InnerText;
                             string strSprint = objXmlDocument.SelectSingleNode("/chummer/metatypes/metatype[name = \"" + _strMetatype + "\"]")["sprint"].InnerText;
 
-                            _strMovement = String.Format("{0}/{1}", (_attAGI.Augmented * 2), (_attAGI.Augmented * 4));
+                            _strMovement = String.Format("{0}/{1}", (_attAGI.TotalValue * 2), (_attAGI.TotalValue * 4));
                         }
                         catch
                         { }

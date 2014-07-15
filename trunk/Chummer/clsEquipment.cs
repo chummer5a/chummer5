@@ -7248,8 +7248,40 @@ namespace Chummer
 		{
 			get
 			{
-				string strReturn = _strAvail;
+                string strAvail = "";
+                string strAvailExpr = "";
+                int intAvail = 0;
 
+                if (_strAvail.Substring(_strAvail.Length - 1, 1) == "F" || _strAvail.Substring(_strAvail.Length - 1, 1) == "R")
+                {
+                    strAvail = _strAvail.Substring(_strAvail.Length - 1, 1);
+                    // Remove the trailing character if it is "F" or "R".
+                    strAvailExpr = _strAvail.Substring(0, _strAvail.Length - 1);
+                    intAvail = Convert.ToInt32(strAvailExpr);
+                }
+
+                // Run through the Accessories and add in their availability.
+                foreach (WeaponAccessory objAccessory in _lstAccessories)
+                {
+                    string strAccAvail = "";
+                    int intAccAvail = 0;
+
+                    if (!objAccessory.IncludedInWeapon)
+                    {
+                        if (strAccAvail.StartsWith("+") || strAccAvail.StartsWith("-"))
+                        {
+                            strAccAvail += objAccessory.TotalAvail;
+                            if (strAccAvail.EndsWith("F"))
+                                strAvail = "F";
+                            if (strAccAvail.EndsWith("F") || strAccAvail.EndsWith("R"))
+                                strAccAvail = strAccAvail.Substring(0, strAccAvail.Length - 1);
+                            intAccAvail = Convert.ToInt32(strAccAvail);
+                            intAvail += intAccAvail;
+                        }
+                    }
+                }
+
+                string strReturn = intAvail.ToString() + strAvail;
 				// Translate the Avail string.
 				strReturn = strReturn.Replace("R", LanguageManager.Instance.GetString("String_AvailRestricted"));
 				strReturn = strReturn.Replace("F", LanguageManager.Instance.GetString("String_AvailForbidden"));

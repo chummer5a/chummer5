@@ -243,7 +243,7 @@
   <file>
     <name>data/gear.xml</name>
     <type>Data Files</type>
-    <version>-496</version>
+    <version>-495</version>
     <description>Gear</description>
     <notes>- Gear data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMRkI2b2hUQ1JlOHM</url>
@@ -283,7 +283,7 @@
   <file>
     <name>data/mentors.xml</name>
     <type>Data Files</type>
-    <version>-498</version>
+    <version>-497</version>
     <description>Mentor Spirits</description>
     <notes>- Mentor Spirits data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMQk1lODNHaU5ia1E</url>

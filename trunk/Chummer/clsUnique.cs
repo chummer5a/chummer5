@@ -5434,25 +5434,25 @@ namespace Chummer
                     decReturn -= Discount;
 
                     // Look at the Improvements created by the Power and determine if it has taken an Attribute above its Metatype Maximum.
-                    if (_blnDoubleCost)
-                    {
-                        foreach (Improvement objImprovement in _objCharacter.Improvements)
-                        {
-                            if (objImprovement.SourceName == InternalId && objImprovement.ImproveType == Improvement.ImprovementType.Attribute && objImprovement.Enabled)
-                            {
-                                Attribute objAttribute = _objCharacter.GetAttribute(objImprovement.ImprovedName);
-                                if (objAttribute.Value + objAttribute.AttributeValueModifiers > objAttribute.MetatypeMaximum + objAttribute.MaximumModifiers)
-                                {
-                                    // Use the lower of the difference between Augmented Maximum and the Power's Rating.
-                                    int intDiff = (objAttribute.Value + objAttribute.AttributeValueModifiers) - (objAttribute.MetatypeMaximum + objAttribute.MaximumModifiers);
-                                    intDiff = Math.Min(intDiff, Convert.ToInt32(_intRating));
+                    //if (_blnDoubleCost)
+                    //{
+                    //    foreach (Improvement objImprovement in _objCharacter.Improvements)
+                    //    {
+                    //        if (objImprovement.SourceName == InternalId && objImprovement.ImproveType == Improvement.ImprovementType.Attribute && objImprovement.Enabled)
+                    //        {
+                    //            Attribute objAttribute = _objCharacter.GetAttribute(objImprovement.ImprovedName);
+                    //            if (objAttribute.Value + objAttribute.AttributeValueModifiers > objAttribute.MetatypeMaximum + objAttribute.MaximumModifiers)
+                    //            {
+                    //                // Use the lower of the difference between Augmented Maximum and the Power's Rating.
+                    //                int intDiff = (objAttribute.Value + objAttribute.AttributeValueModifiers) - (objAttribute.MetatypeMaximum + objAttribute.MaximumModifiers);
+                    //                intDiff = Math.Min(intDiff, Convert.ToInt32(_intRating));
 
-                                    // Double the number of Power Points used to make up this difference.
-                                    decReturn += CalculatedPointsPerLevel * intDiff;
-                                }
-                            }
-                        }
-                    }
+                    //                // Double the number of Power Points used to make up this difference.
+                    //                decReturn += CalculatedPointsPerLevel * intDiff;
+                    //            }
+                    //        }
+                    //    }
+                    //}
 
                     return decReturn;
                 }

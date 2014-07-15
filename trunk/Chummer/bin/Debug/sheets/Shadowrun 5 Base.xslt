@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Character sheet based on the Shadowrun 5th Edition Character Sheet -->
 <!-- Created by Keith Rudolph, krudolph@gmail.com -->
-<!-- Version -500 -->
+<!-- Version -499 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 	<xsl:include href="ConditionMonitor.xslt"/>
@@ -2252,6 +2252,7 @@
 							<xsl:if test="children/gear"> [<xsl:call-template name="gearplugin">
 									<xsl:with-param name="gear" select="."/>
 								</xsl:call-template>] </xsl:if>
+							<xsl:if test="position() != last()">; </xsl:if>
 						</xsl:for-each>
 					</td>
 				</tr>

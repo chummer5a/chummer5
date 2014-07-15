@@ -1,3 +1,12 @@
+Build 5.125 (beta)
+- Fixed Damage and AP value for EXplosive Ammo
+- Fixed a bug which would prevent the Dragonslayer Mentor Spirit from getting the bonus to a social skill.
+- Added a separator between gear items attached to armor on the "Shadowrun 5" character sheets.
+- Fixed a bug preventing refunding of Complex Form points when deleting a Complex Form.
+- Weapons will now correctly inherit availability modifiers from accessories which should increase the weapon's availability.
+- Removed 4th Edition artifact where Improved Physical Attribute was charging double for attributes raised above metatype max.
+- Fixed a bug which could cause the movement formula to give incorrect values (it wasn't using the total value including augmentations).
+
 Build 5.124 (beta)
 - Fixed the crash non-US users were having when adding a Mentor Spirit.
 
