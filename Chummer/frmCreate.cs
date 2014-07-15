@@ -3651,7 +3651,7 @@ namespace Chummer
 			UpdateCharacterInfo();
 
             // Calculate the character's move.
-            _objCharacter.Movement = (_objCharacter.AGI.Augmented * 2).ToString() + "/" + (_objCharacter.AGI.Augmented * 4).ToString();
+            _objCharacter.Movement = (_objCharacter.AGI.TotalValue * 2).ToString() + "/" + (_objCharacter.AGI.TotalValue * 4).ToString();
             lblMovement.Text = _objCharacter.Movement;
 
 			_blnIsDirty = true;
@@ -6867,6 +6867,14 @@ namespace Chummer
                     _objCharacter.ComplexForms.Remove(objProgram);
 					treComplexForms.SelectedNode.Remove();
 				}
+
+                int intComplexForms = 0;
+                foreach (ComplexForm tp in _objCharacter.ComplexForms)
+                {
+                    intComplexForms++;
+                }
+                lblPBuildComplexForms.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.CFPLimit - intComplexForms).ToString(), _objCharacter.CFPLimit.ToString());
+
 				UpdateCharacterInfo();
 
 				_blnIsDirty = true;
@@ -19172,8 +19180,8 @@ namespace Chummer
                         intContactPointsUsed = 0;
                     }
                 }
-                if (intContactPointsUsed > _objCharacter.ContactPoints)
-                    strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_InvalidPointExcess").Replace("{0}", ((_objCharacter.ContactPoints - intContactPointsUsed) * -1).ToString() + " " + LanguageManager.Instance.GetString("String_Contacts"));
+                //if (intContactPointsUsed > _objCharacter.ContactPoints)
+                //    strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_InvalidPointExcess").Replace("{0}", ((_objCharacter.ContactPoints - intContactPointsUsed) * -1).ToString() + " " + LanguageManager.Instance.GetString("String_Contacts"));
             }
 
 			// Check if the character has gone over the Build Point total.

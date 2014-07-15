@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-496</version>
+	<version>-495</version>
 	<categories>
 		<category>Ammunition</category>
 		<category>Armor Enhancements</category>
@@ -78,7 +78,7 @@
 			<cost>80</cost>
 			<weaponbonus>
 				<damage>1</damage>
-				<ap>+1</ap>
+				<ap>-1</ap>
 			</weaponbonus>
 			<source>SR5</source>
 			<page>434</page>
@@ -219,7 +219,7 @@
 			<costfor>1</costfor>
 			<cost>20</cost>
 			<weaponbonus>
-				<ap>2</ap>
+				<ap>+2</ap>
 				<damage>-2</damage>
 			</weaponbonus>
 			<source>RG</source>
