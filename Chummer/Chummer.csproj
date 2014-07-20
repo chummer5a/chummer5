@@ -88,12 +88,6 @@
       <DependentUpon>ContactControl.cs</DependentUpon>
     </Compile>
     <Compile Include="controllers\clsMainController.cs" />
-    <Compile Include="frmAdam.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAdam.Designer.cs">
-      <DependentUpon>frmAdam.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmCareer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +243,12 @@
     </Compile>
     <Compile Include="frmSelectArmorMod.Designer.cs">
       <DependentUpon>frmSelectArmorMod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectArt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectArt.Designer.cs">
+      <DependentUpon>frmSelectArt.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSelectCalendarStart.cs">
       <SubType>Form</SubType>
@@ -587,9 +587,6 @@
     <EmbeddedResource Include="ContactControl.resx">
       <DependentUpon>ContactControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAdam.resx">
-      <DependentUpon>frmAdam.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmCareer.resx">
       <DependentUpon>frmCareer.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -668,6 +665,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSelectArmorMod.resx">
       <DependentUpon>frmSelectArmorMod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectArt.resx">
+      <DependentUpon>frmSelectArt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSelectCalendarStart.resx">
       <DependentUpon>frmSelectCalendarStart.cs</DependentUpon>

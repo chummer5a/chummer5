@@ -74,7 +74,8 @@ namespace Chummer
 			if (cboCategory.SelectedIndex == -1)
 				cboCategory.SelectedIndex = 0;
 
-            LoadGrid();
+            if (chkBrowse.Checked)
+                LoadGrid();
 		}
 
 		private void cmdOK_Click(object sender, EventArgs e)
@@ -184,7 +185,8 @@ namespace Chummer
 			lstArmor.DisplayMember = "Name";
 			lstArmor.DataSource = lstArmors;
 
-            LoadGrid();
+            if (chkBrowse.Checked)
+                LoadGrid();
 		}
 
 		private void cmdOKAdd_Click(object sender, EventArgs e)
@@ -447,6 +449,9 @@ namespace Chummer
             {
                 tmrSearch_Tick(this, null);
             }
+
+            if (chkBrowse.Checked)
+                LoadGrid();
         }
 
         private void dgvArmor_DoubleClick(object sender, EventArgs e)
@@ -627,5 +632,11 @@ namespace Chummer
         }
         
         #endregion
+
+        private void lblSource_Click(object sender, EventArgs e)
+        {
+            CommonFunctions objCommon = new CommonFunctions(_objCharacter);
+            objCommon.OpenPDF(lblSource.Text);
+        }
 	}
 }

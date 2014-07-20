@@ -200,7 +200,9 @@ namespace Chummer
 		private List<Gear> _lstGear = new List<Gear>();
 		private List<Vehicle> _lstVehicles = new List<Vehicle>();
 		private List<Metamagic> _lstMetamagics = new List<Metamagic>();
-		private List<ExpenseLogEntry> _lstExpenseLog = new List<ExpenseLogEntry>();
+        private List<Art> _lstArts = new List<Art>();
+        private List<Enhancement> _lstEnhancements = new List<Enhancement>();
+        private List<ExpenseLogEntry> _lstExpenseLog = new List<ExpenseLogEntry>();
 		private List<CritterPower> _lstCritterPowers = new List<CritterPower>();
 		private List<InitiationGrade> _lstInitiationGrades = new List<InitiationGrade>();
 		private List<string> _lstOldQualities = new List<string>();
@@ -667,7 +669,25 @@ namespace Chummer
 			// </metamagics>
 			objWriter.WriteEndElement();
 
-			// <critterpowers>
+            // <arts>
+            objWriter.WriteStartElement("arts");
+            foreach (Art objArt in _lstArts)
+            {
+                objArt.Save(objWriter);
+            }
+            // </arts>
+            objWriter.WriteEndElement();
+
+            // <enhancements>
+            objWriter.WriteStartElement("enhancements");
+            foreach (Enhancement objEnhancement in _lstEnhancements)
+            {
+                objEnhancement.Save(objWriter);
+            }
+            // </enhancements>
+            objWriter.WriteEndElement();
+
+            // <critterpowers>
 			objWriter.WriteStartElement("critterpowers");
 			foreach (CritterPower objPower in _lstCritterPowers)
 			{
@@ -1626,7 +1646,25 @@ namespace Chummer
 				_lstMetamagics.Add(objMetamagic);
 			}
 
-			// Critter Powers.
+            // Arts
+            objXmlNodeList = objXmlDocument.SelectNodes("/character/arts/art");
+            foreach (XmlNode objXmlArt in objXmlNodeList)
+            {
+                Art objArt = new Art(this);
+                objArt.Load(objXmlArt);
+                _lstArts.Add(objArt);
+            }
+
+            // Enhancements
+            objXmlNodeList = objXmlDocument.SelectNodes("/character/enhancements/enhancement");
+            foreach (XmlNode objXmlEnhancement in objXmlNodeList)
+            {
+                Enhancement objEnhancement = new Enhancement(this);
+                objEnhancement.Load(objXmlEnhancement);
+                _lstEnhancements.Add(objEnhancement);
+            }
+
+            // Critter Powers.
 			objXmlNodeList = objXmlDocument.SelectNodes("/character/critterpowers/critterpower");
 			foreach (XmlNode objXmlPower in objXmlNodeList)
 			{
@@ -2374,7 +2412,25 @@ namespace Chummer
 			// </metamagics>
 			objWriter.WriteEndElement();
 
-			// <critterpowers>
+            // <arts>
+            objWriter.WriteStartElement("arts");
+            foreach (Art objArt in _lstArts)
+            {
+                objArt.Print(objWriter);
+            }
+            // </arts>
+            objWriter.WriteEndElement();
+
+            // <enhancements>
+            objWriter.WriteStartElement("enhancements");
+            foreach (Enhancement objEnhancement in _lstEnhancements)
+            {
+                objEnhancement.Print(objWriter);
+            }
+            // </enhancements>
+            objWriter.WriteEndElement();
+
+            // <critterpowers>
 			objWriter.WriteStartElement("critterpowers");
 			foreach (CritterPower objPower in _lstCritterPowers)
 			{
@@ -2552,7 +2608,9 @@ namespace Chummer
 			_lstArmor = new List<Armor>();
 			_lstCyberware = new List<Cyberware>();
 			_lstMetamagics = new List<Metamagic>();
-			_lstWeapons = new List<Weapon>();
+            _lstArts = new List<Art>();
+            _lstEnhancements = new List<Enhancement>();
+            _lstWeapons = new List<Weapon>();
 			_lstLifestyles = new List<Lifestyle>();
 			_lstGear = new List<Gear>();
 			_lstVehicles = new List<Vehicle>();
@@ -2746,7 +2804,27 @@ namespace Chummer
 						}
 					}
 					break;
-				case Improvement.ImprovementSource.Armor:
+                case Improvement.ImprovementSource.Art:
+                    foreach (Art objArt in _lstArts)
+                    {
+                        if (objArt.InternalId == objImprovement.SourceName)
+                        {
+                            strReturn = objArt.DisplayNameShort;
+                            break;
+                        }
+                    }
+                    break;
+                case Improvement.ImprovementSource.Enhancement:
+                    foreach (Enhancement objEnhancement in _lstEnhancements)
+                    {
+                        if (objEnhancement.InternalId == objImprovement.SourceName)
+                        {
+                            strReturn = objEnhancement.DisplayNameShort;
+                            break;
+                        }
+                    }
+                    break;
+                case Improvement.ImprovementSource.Armor:
 					foreach (Armor objArmor in _lstArmor)
 					{
 						if (objArmor.InternalId == objImprovement.SourceName)
@@ -4959,7 +5037,29 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Enhancements.
+        /// </summary>
+        public List<Enhancement> Enhancements
+        {
+            get
+            {
+                return _lstEnhancements;
+            }
+        }
+
+        /// <summary>
+        /// Arts.
+        /// </summary>
+        public List<Art> Arts
+        {
+            get
+            {
+                return _lstArts;
+            }
+        }
+
+        /// <summary>
 		/// Critter Powers.
 		/// </summary>
 		public List<CritterPower> CritterPowers

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-496</version>
+	<version>-495</version>
 	<categories>
 		<category>Combat</category>
 		<category>Detection</category>
 		<category>Health</category>
 		<category>Illusion</category>
 		<category>Manipulation</category>
+		<category>Enchantments</category>
 		<category>Rituals</category>
 	</categories>
 	<spells>
@@ -2582,6 +2583,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Geomancy</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>122</page>
 		</spell>
@@ -2606,6 +2612,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Invocation</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>122</page>
 		</spell>
@@ -2666,6 +2677,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Divination</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>124</page>
 		</spell>
@@ -2702,6 +2718,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Necromancy</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>125</page>
 		</spell>
@@ -2726,6 +2747,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Apotropaic Magic</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>127</page>
 		</spell>
@@ -2738,6 +2764,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Centering</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>127</page>
 		</spell>
@@ -2762,6 +2793,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Necromancy</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>127</page>
 		</spell>
@@ -2774,6 +2810,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Advanced Alchemy</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>127</page>
 		</spell>
@@ -2786,6 +2827,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Apotropaic Magic</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>127</page>
 		</spell>
@@ -2810,6 +2856,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Necromancy</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>129</page>
 		</spell>
@@ -2834,6 +2885,13 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<anyof>
+					<art>Advanced Ritual</art>
+					<quality>Adept</quality>
+					<quality>Mystic Adept</quality>
+				</anyof>
+			</required>
 			<source>SG</source>
 			<page>133</page>
 		</spell>
@@ -2846,6 +2904,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Sensing</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>133</page>
 		</spell>
@@ -2858,6 +2921,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Sensing</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>133</page>
 		</spell>
@@ -2882,6 +2950,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Geomancy</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>134</page>
 		</spell>
@@ -2894,6 +2967,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Centering</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>134</page>
 		</spell>
@@ -2906,8 +2984,30 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Channeling</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>135</page>
+		</spell>
+		<spell>
+			<name>Inanimate Vessel Preparation</name>
+			<descriptor>Organic Link</descriptor>
+			<category>Enchantments</category>
+			<type>P</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Channeling</art>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>214</page>
 		</spell>
 		<spell>
 			<name>Manifest Sha</name>
@@ -2918,6 +3018,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Geomancy</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>135</page>
 		</spell>
@@ -2930,6 +3035,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Masking</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>135</page>
 		</spell>
@@ -2942,6 +3052,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Masking</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>135</page>
 		</spell>
@@ -2960,14 +3075,36 @@
 		<spell>
 			<name>Recharge Reagents</name>
 			<descriptor>Geomancy</descriptor>
-			<category>Rituals</category>
-			<type>M</type>
+			<category>Enchantments</category>
+			<type>P</type>
 			<range>Special</range>
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Geomancy</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>136</page>
+		</spell>
+		<spell>
+			<name>Shofar</name>
+			<descriptor></descriptor>
+			<category>Enchantments</category>
+			<type>P</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Exorcism</art>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>216</page>
 		</spell>
 		<spell>
 			<name>Ritual of Change</name>
@@ -2990,6 +3127,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Centering</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>136</page>
 		</spell>
@@ -3014,6 +3156,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Invocation</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>136</page>
 		</spell>
@@ -3026,6 +3173,11 @@
 			<damage>0</damage>
 			<duration>Special</duration>
 			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Quickening</art>
+				</allof>
+			</required>
 			<source>SG</source>
 			<page>137</page>
 		</spell>
@@ -3076,6 +3228,125 @@
 			<dv>Special</dv>
 			<source>SG</source>
 			<page>91</page>
+		</spell>
+		<spell>
+			<name>Hand of Glory</name>
+			<descriptor></descriptor>
+			<category>Enchantments</category>
+			<type>P</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Necromancy</art>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>213</page>
+		</spell>
+		<spell>
+			<name>Mortis Optigram</name>
+			<descriptor></descriptor>
+			<category>Enchantments</category>
+			<type>P</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Necromancy</art>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>214</page>
+		</spell>
+		<spell>
+			<name>Symbolic Link</name>
+			<descriptor></descriptor>
+			<category>Enchantments</category>
+			<type>P</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Psychometry</art>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>216</page>
+		</spell>
+		<spell>
+			<name>Mystic Restraints</name>
+			<descriptor></descriptor>
+			<category>Enchantments</category>
+			<type>P</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Psychometry</art>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>214</page>
+		</spell>
+		<spell>
+			<name>Paper Lotus</name>
+			<descriptor></descriptor>
+			<category>Enchantments</category>
+			<type>P</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Masking</art>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>215</page>
+		</spell>
+		<spell>
+			<name>Govi</name>
+			<descriptor></descriptor>
+			<category>Enchantments</category>
+			<type>P</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Invocation</art>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>212</page>
+		</spell>
+		<spell>
+			<name>Astral Powder</name>
+			<descriptor></descriptor>
+			<category>Enchantments</category>
+			<type>P</type>
+			<range>Special</range>
+			<damage>0</damage>
+			<duration>Special</duration>
+			<dv>Special</dv>
+			<required>
+				<allof>
+					<art>Sensing</art>
+				</allof>
+			</required>
+			<source>SG</source>
+			<page>212</page>
 		</spell>
 		<spell>
 			<name>Convince</name>

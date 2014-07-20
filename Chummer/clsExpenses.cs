@@ -59,6 +59,7 @@ namespace Chummer
 		AddVehicleModCyberware = 17,
 		AddCyberwareGear = 18,
 		AddWeaponGear = 19,
+        ImproveInitiateGrade = 20,
 	}
 
 	/// <summary>

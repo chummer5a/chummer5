@@ -789,6 +789,7 @@ namespace Chummer
 		private bool _blnTechnomancerAllowAutosoft = false;
         private bool _blnLicenseRestrictedItems = false;
         private bool _blnKnucksUseUnarmed = false;
+        private bool _blnIgnoreArt = false;
 		private string _strBookXPath = "";
 		private int _intNuyenPerBP = 5000;
 		private int _intFreeContactsMultiplier = 2;
@@ -828,6 +829,7 @@ namespace Chummer
 		private int _intKarmaImproveActiveSkill = 2;
 		private int _intKarmaImproveSkillGroup = 5;
 		private int _intKarmaSpell = 5;
+        private int _intKarmaEnhancement = 2;
 		private int _intKarmaNewComplexForm = 2;
 		private int _intKarmaImproveComplexForm = 1;
 		private int _intKarmaComplexFormOption = 2;
@@ -937,7 +939,9 @@ namespace Chummer
 			objWriter.WriteElementString("nuyenperbp", _intNuyenPerBP.ToString());
 			// <knucksuseunarmed />
             objWriter.WriteElementString("knucksuseunarmed", _blnKnucksUseUnarmed.ToString());
-			// <freekarmacontactsmultiplier />
+            // <ignoreart />
+            objWriter.WriteElementString("ignoreart", _blnIgnoreArt.ToString());
+            // <freekarmacontactsmultiplier />
 			objWriter.WriteElementString("freekarmacontactsmultiplier", _intFreeContactsMultiplier.ToString());
 			// <freecontactsflat />
 			objWriter.WriteElementString("freecontactsflat", _blnFreeContactsFlat.ToString());
@@ -1105,7 +1109,9 @@ namespace Chummer
 			objWriter.WriteElementString("karmaimproveskillgroup", _intKarmaImproveSkillGroup.ToString());
 			// <karmaspell />
 			objWriter.WriteElementString("karmaspell", _intKarmaSpell.ToString());
-			// <karmanewcomplexform />
+            // <karmaenhancement />
+            objWriter.WriteElementString("karmaenhancement", _intKarmaEnhancement.ToString());
+            // <karmanewcomplexform />
 			objWriter.WriteElementString("karmanewcomplexform", _intKarmaNewComplexForm.ToString());
 			// <karmaimprovecomplexform />
 			objWriter.WriteElementString("karmaimprovecomplexform", _intKarmaImproveComplexForm.ToString());
@@ -1261,6 +1267,13 @@ namespace Chummer
             try
             {
             _blnKnucksUseUnarmed = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/knucksuseunarmed").InnerText);
+            }
+            catch
+            { }
+            // Ignore Art Requirements from Street Grimoire
+            try
+            {
+                _blnIgnoreArt = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/ignoreart").InnerText);
             }
             catch
             { }
@@ -1729,6 +1742,13 @@ namespace Chummer
 			catch
 			{
 			}
+            try
+            {
+                _intKarmaEnhancement = Convert.ToInt32(objXmlDocument.SelectSingleNode("/settings/karmacost/karmaenhancement").InnerText);
+            }
+            catch
+            {
+            }
 
 			try
 			{
@@ -1967,7 +1987,8 @@ namespace Chummer
 				_intKarmaImproveActiveSkill = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmaimproveactiveskill").ToString());
 				_intKarmaImproveSkillGroup = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmaimproveskillgroup").ToString());
 				_intKarmaSpell = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmaspell").ToString());
-				_intKarmaNewComplexForm = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmanewcomplexform").ToString());
+                _intKarmaEnhancement = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmaenhancement").ToString());
+                _intKarmaNewComplexForm = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmanewcomplexform").ToString());
 				_intKarmaImproveComplexForm = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmaimprovecomplexform").ToString());
 				_intKarmaNuyenPer = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmanuyenper").ToString());
 				_intKarmaContact = Convert.ToInt32(Registry.CurrentUser.CreateSubKey("Software\\Chummer5").GetValue("karmacontact").ToString());
@@ -2314,7 +2335,22 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Whether or not to ignore the art requirements from street grimoire.
+        /// </summary>
+        public bool IgnoreArt
+        {
+            get
+            {
+                return _blnIgnoreArt;
+            }
+            set
+            {
+                _blnIgnoreArt = value;
+            }
+        }
+
+        /// <summary>
 		/// The CHA multiplier to be used with the Free Contacts Option.
 		/// </summary>
 		public int FreeContactsMultiplier
@@ -3575,7 +3611,22 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Karma cost for each Enhancement = this value.
+        /// </summary>
+        public int KarmaEnhancement
+        {
+            get
+            {
+                return _intKarmaEnhancement;
+            }
+            set
+            {
+                _intKarmaEnhancement = value;
+            }
+        }
+
+        /// <summary>
 		/// Karma cost for a new Complex Form = this value.
 		/// </summary>
 		public int KarmaNewComplexForm

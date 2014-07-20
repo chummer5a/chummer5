@@ -3554,6 +3554,8 @@ namespace Chummer
 		private string _strAltCategory = "";
 		private string _strAltPage = "";
         private bool _blnAlchemical = false;
+        private int _intGrade = 0;
+        private Improvement.ImprovementSource _objImprovementSource = Improvement.ImprovementSource.Spell;
 
 		#region Constructor, Create, Save, Load, and Print Methods
 		public Spell(Character objCharacter)
@@ -3570,7 +3572,7 @@ namespace Chummer
 		/// <param name="strForcedValue">Value to forcefully select for any ImprovementManager prompts.</param>
 		/// <param name="blnLimited">Whether or not the Spell should be marked as Limited.</param>
 		/// <param name="blnExtended">Whether or not the Spell should be marked as Extended.</param>
-		public void Create(XmlNode objXmlSpellNode, Character objCharacter, TreeNode objNode, string strForcedValue = "", bool blnLimited = false, bool blnExtended = false, bool blnAlchemical = false)
+        public void Create(XmlNode objXmlSpellNode, Character objCharacter, TreeNode objNode, string strForcedValue = "", bool blnLimited = false, bool blnExtended = false, bool blnAlchemical = false, Improvement.ImprovementSource objSource = Improvement.ImprovementSource.Spell)
 		{
 			_strName = objXmlSpellNode["name"].InnerText;
 			_strDescriptors = objXmlSpellNode["descriptor"].InnerText;
@@ -3585,6 +3587,7 @@ namespace Chummer
             _blnAlchemical = blnAlchemical;
             _strSource = objXmlSpellNode["source"].InnerText;
 			_strPage = objXmlSpellNode["page"].InnerText;
+            _objImprovementSource = objSource;
 
             string strDV = _strDV;
             if (_blnLimited && _strDV.StartsWith("F"))
@@ -3601,7 +3604,7 @@ namespace Chummer
                 }
                 else if (strDV.Contains("+"))
                 {
-                    intPos = strDV.IndexOf("-");
+                    intPos = strDV.IndexOf("+");
                     string strAfter = strDV.Substring(intPos, strDV.Length - intPos);
                     strDV = strDV.Substring(0, intPos);
                     int intAfter = Convert.ToInt32(strAfter);
@@ -3684,7 +3687,9 @@ namespace Chummer
 			objWriter.WriteElementString("page", _strPage);
 			objWriter.WriteElementString("extra", _strExtra);
 			objWriter.WriteElementString("notes", _strNotes);
-			objWriter.WriteEndElement();
+            objWriter.WriteElementString("improvementsource", _objImprovementSource.ToString());
+            objWriter.WriteElementString("grade", _intGrade.ToString());
+            objWriter.WriteEndElement();
 		}
 
 		/// <summary>
@@ -3693,7 +3698,8 @@ namespace Chummer
 		/// <param name="objNode">XmlNode to load.</param>
 		public void Load(XmlNode objNode)
 		{
-			_guiID = Guid.Parse(objNode["guid"].InnerText);
+            Improvement objImprovement = new Improvement();
+            _guiID = Guid.Parse(objNode["guid"].InnerText);
 			_strName = objNode["name"].InnerText;
 			_strDescriptors = objNode["descriptors"].InnerText;
 			_strCategory = objNode["category"].InnerText;
@@ -3701,7 +3707,17 @@ namespace Chummer
 			_strRange = objNode["range"].InnerText;
 			_strDamage = objNode["damage"].InnerText;
 			_strDuration = objNode["duration"].InnerText;
-			_strDV = objNode["dv"].InnerText;
+            try
+            {
+                _objImprovementSource = objImprovement.ConvertToImprovementSource(objNode["improvementsource"].InnerText);
+            }
+            catch { }
+            try
+            {
+                _intGrade = Convert.ToInt32(objNode["grade"].InnerText);
+            }
+            catch { }
+            _strDV = objNode["dv"].InnerText;
 			try
 			{
 				_blnLimited = Convert.ToBoolean(objNode["limited"].InnerText);
@@ -3824,7 +3840,22 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Spell's grade.
+        /// </summary>
+        public int Grade
+        {
+            get
+            {
+                return _intGrade;
+            }
+            set
+            {
+                _intGrade = value;
+            }
+        }
+
+        /// <summary>
 		/// Spell's descriptors.
 		/// </summary>
 		public string Descriptors
@@ -3879,7 +3910,7 @@ namespace Chummer
                             strReturn += LanguageManager.Instance.GetString("String_DescMinion") + ", ";
                             break;
                         case "Organic Link":
-                            strReturn += LanguageManager.Instance.GetString("String_DescOrganic Link") + ", ";
+                            strReturn += LanguageManager.Instance.GetString("String_DescOrganicLink") + ", ";
                             break;
                         case "Spell":
                             strReturn += LanguageManager.Instance.GetString("String_DescSpell") + ", ";
@@ -4745,6 +4776,7 @@ namespace Chummer
 		private string _strSource = "";
 		private string _strPage = "";
 		private bool _blnPaidWithKarma = false;
+        private int _intGrade = 0;
 		private XmlNode _nodBonus;
 		private Improvement.ImprovementSource _objImprovementSource = Improvement.ImprovementSource.Metamagic;
 		private string _strNotes = "";
@@ -4770,6 +4802,11 @@ namespace Chummer
 			_strSource = objXmlMetamagicNode["source"].InnerText;
 			_strPage = objXmlMetamagicNode["page"].InnerText;
 			_objImprovementSource = objSource;
+            try
+            {
+                _intGrade = Convert.ToInt32(objXmlMetamagicNode["grade"].InnerText);
+            }
+            catch { }
 			if (objXmlMetamagicNode.InnerXml.Contains("<bonus>"))
 			{
 				_nodBonus = objXmlMetamagicNode["bonus"];
@@ -4790,8 +4827,13 @@ namespace Chummer
 					_strName += " (" + objImprovementManager.SelectedValue + ")";
 			}
 
-			objNode.Text = DisplayName;
-			objNode.Tag = _guiID.ToString();
+            LanguageManager.Instance.Load(GlobalOptions.Instance.Language, null);
+
+            if (_objCharacter.SubmersionGrade > 0)
+                objNode.Text = LanguageManager.Instance.GetString("Label_Echo") + " " + DisplayName;
+            else
+                objNode.Text = LanguageManager.Instance.GetString("Label_Metamagic") + " " + DisplayName;
+            objNode.Tag = _guiID.ToString();
 		}
 
 		/// <summary>
@@ -4806,6 +4848,7 @@ namespace Chummer
 			objWriter.WriteElementString("source", _strSource);
 			objWriter.WriteElementString("paidwithkarma", _blnPaidWithKarma.ToString());
 			objWriter.WriteElementString("page", _strPage);
+            objWriter.WriteElementString("grade", _intGrade.ToString());
 			if (_nodBonus != null)
 				objWriter.WriteRaw(_nodBonus.OuterXml);
 			else
@@ -4833,6 +4876,13 @@ namespace Chummer
 			catch
 			{
 			}
+            try
+            {
+                _intGrade = Convert.ToInt32(objNode["grade"].InnerText);
+            }
+            catch
+            {
+            }
 
 			_nodBonus = objNode["bonus"];
 			_objImprovementSource = objImprovement.ConvertToImprovementSource(objNode["improvementsource"].InnerText);
@@ -4856,7 +4906,8 @@ namespace Chummer
 			objWriter.WriteElementString("name", DisplayNameShort);
 			objWriter.WriteElementString("source", _objCharacter.Options.LanguageBookShort(_strSource));
 			objWriter.WriteElementString("page", Page);
-			objWriter.WriteElementString("improvementsource", _objImprovementSource.ToString());
+            objWriter.WriteElementString("grade", _intGrade.ToString());
+            objWriter.WriteElementString("improvementsource", _objImprovementSource.ToString());
 			if (_objCharacter.Options.PrintNotes)
 				objWriter.WriteElementString("notes", _strNotes);
 			objWriter.WriteEndElement();
@@ -4969,7 +5020,22 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Grade.
+        /// </summary>
+        public Int32 Grade
+        {
+            get
+            {
+                return _intGrade;
+            }
+            set
+            {
+                _intGrade = value;
+            }
+        }
+
+        /// <summary>
 		/// Sourcebook.
 		/// </summary>
 		public string Source
@@ -5056,7 +5122,621 @@ namespace Chummer
 		#endregion
 	}
 
-	/// <summary>
+    /// <summary>
+    /// An Art.
+    /// </summary>
+    public class Art
+    {
+        private Guid _guiID = new Guid();
+        private string _strName = "";
+        private string _strSource = "";
+        private string _strPage = "";
+        private XmlNode _nodBonus;
+        private int _intGrade = 0;
+        private Improvement.ImprovementSource _objImprovementSource = Improvement.ImprovementSource.Art;
+        private string _strNotes = "";
+
+        private readonly Character _objCharacter;
+
+        #region Constructor, Create, Save, Load, and Print Methods
+        public Art(Character objCharacter)
+        {
+            // Create the GUID for the new art.
+            _guiID = Guid.NewGuid();
+            _objCharacter = objCharacter;
+        }
+
+        /// Create an Art from an XmlNode and return the TreeNodes for it.
+        /// <param name="objXmlArtNode">XmlNode to create the object from.</param>
+        /// <param name="objCharacter">Character the Gear is being added to.</param>
+        /// <param name="objNode">TreeNode to populate a TreeView.</param>
+        /// <param name="objSource">Source of the Improvement.</param>
+        public void Create(XmlNode objXmlArtNode, Character objCharacter, TreeNode objNode, Improvement.ImprovementSource objSource)
+        {
+            _strName = objXmlArtNode["name"].InnerText;
+            _strSource = objXmlArtNode["source"].InnerText;
+            _strPage = objXmlArtNode["page"].InnerText;
+            _objImprovementSource = objSource;
+            try
+            {
+                _intGrade = Convert.ToInt32(objXmlArtNode["grade"].InnerText);
+            }
+            catch { }
+            if (objXmlArtNode.InnerXml.Contains("<bonus>"))
+            {
+                _nodBonus = objXmlArtNode["bonus"];
+
+                ImprovementManager objImprovementManager = new ImprovementManager(objCharacter);
+                if (!objImprovementManager.CreateImprovements(objSource, _guiID.ToString(), _nodBonus, true, 1, DisplayNameShort))
+                {
+                    _guiID = Guid.Empty;
+                    return;
+                }
+                if (objImprovementManager.SelectedValue != "")
+                    _strName += " (" + objImprovementManager.SelectedValue + ")";
+            }
+
+            objNode.Text = LanguageManager.Instance.GetString("Label_Art") + " " + DisplayName;
+            objNode.Tag = _guiID.ToString();
+        }
+
+        /// <summary>
+        /// Save the object's XML to the XmlWriter.
+        /// </summary>
+        /// <param name="objWriter">XmlTextWriter to write with.</param>
+        public void Save(XmlTextWriter objWriter)
+        {
+            objWriter.WriteStartElement("art");
+            objWriter.WriteElementString("guid", _guiID.ToString());
+            objWriter.WriteElementString("name", _strName);
+            objWriter.WriteElementString("source", _strSource);
+            objWriter.WriteElementString("page", _strPage);
+            objWriter.WriteElementString("grade", _intGrade.ToString());
+            if (_nodBonus != null)
+                objWriter.WriteRaw(_nodBonus.OuterXml);
+            else
+                objWriter.WriteElementString("bonus", "");
+            objWriter.WriteElementString("improvementsource", _objImprovementSource.ToString());
+            objWriter.WriteElementString("notes", _strNotes);
+            objWriter.WriteEndElement();
+        }
+
+        /// <summary>
+        /// Load the Metamagic from the XmlNode.
+        /// </summary>
+        /// <param name="objNode">XmlNode to load.</param>
+        public void Load(XmlNode objNode)
+        {
+            Improvement objImprovement = new Improvement();
+            _guiID = Guid.Parse(objNode["guid"].InnerText);
+            _strName = objNode["name"].InnerText;
+            _strSource = objNode["source"].InnerText;
+            _strPage = objNode["page"].InnerText;
+            _nodBonus = objNode["bonus"];
+            _objImprovementSource = objImprovement.ConvertToImprovementSource(objNode["improvementsource"].InnerText);
+
+            try
+            {
+                _intGrade = Convert.ToInt32(objNode["grade"].InnerText);
+            }
+            catch
+            {
+            }
+            try
+            {
+                _strNotes = objNode["notes"].InnerText;
+            }
+            catch
+            {
+            }
+        }
+
+        /// <summary>
+        /// Print the object's XML to the XmlWriter.
+        /// </summary>
+        /// <param name="objWriter">XmlTextWriter to write with.</param>
+        public void Print(XmlTextWriter objWriter)
+        {
+            objWriter.WriteStartElement("art");
+            objWriter.WriteElementString("name", DisplayNameShort);
+            objWriter.WriteElementString("source", _objCharacter.Options.LanguageBookShort(_strSource));
+            objWriter.WriteElementString("page", Page);
+            objWriter.WriteElementString("improvementsource", _objImprovementSource.ToString());
+            if (_objCharacter.Options.PrintNotes)
+                objWriter.WriteElementString("notes", _strNotes);
+            objWriter.WriteEndElement();
+        }
+        #endregion
+
+        #region Properties
+        /// <summary>
+        /// Internal identifier which will be used to identify this Metamagic in the Improvement system.
+        /// </summary>
+        public string InternalId
+        {
+            get
+            {
+                return _guiID.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Bonus node from the XML file.
+        /// </summary>
+        public XmlNode Bonus
+        {
+            get
+            {
+                return _nodBonus;
+            }
+            set
+            {
+                _nodBonus = value;
+            }
+        }
+
+        /// <summary>
+        /// ImprovementSource Type.
+        /// </summary>
+        public Improvement.ImprovementSource SourceType
+        {
+            get
+            {
+                return _objImprovementSource;
+            }
+            set
+            {
+                _objImprovementSource = value;
+            }
+        }
+
+        /// <summary>
+        /// Metamagic name.
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return _strName;
+            }
+            set
+            {
+                _strName = value;
+            }
+        }
+
+        /// <summary>
+        /// The name of the object as it should be displayed on printouts (translated name only).
+        /// </summary>
+        public string DisplayNameShort
+        {
+            get
+            {
+                string strReturn = _strName;
+                // Get the translated name if applicable.
+                if (GlobalOptions.Instance.Language != "en-us")
+                {
+                    string strXmlFile = "metamagic.xml";
+                    string strXPath = "/chummer/arts/art";
+                    XmlDocument objXmlDocument = XmlManager.Instance.Load(strXmlFile);
+                    XmlNode objNode = objXmlDocument.SelectSingleNode(strXPath + "[name = \"" + _strName + "\"]");
+                    if (objNode != null)
+                    {
+                        if (objNode["translate"] != null)
+                            strReturn = objNode["translate"].InnerText;
+                    }
+                }
+
+                return strReturn;
+            }
+        }
+
+        /// <summary>
+        /// The name of the object as it should be displayed in lists. Name (Extra).
+        /// </summary>
+        public string DisplayName
+        {
+            get
+            {
+                string strReturn = DisplayNameShort;
+
+                return strReturn;
+            }
+        }
+
+        /// <summary>
+        /// The initiate grade where the art was learned.
+        /// </summary>
+        public int Grade
+        {
+            get
+            {
+                return _intGrade;
+            }
+            set
+            {
+                _intGrade = value;
+            }
+        }
+
+        /// <summary>
+        /// Sourcebook.
+        /// </summary>
+        public string Source
+        {
+            get
+            {
+                return _strSource;
+            }
+            set
+            {
+                _strSource = value;
+            }
+        }
+
+        /// <summary>
+        /// Sourcebook Page Number.
+        /// </summary>
+        public string Page
+        {
+            get
+            {
+                string strReturn = _strPage;
+                // Get the translated name if applicable.
+                if (GlobalOptions.Instance.Language != "en-us")
+                {
+                    string strXmlFile = "metamagic.xml";
+                    string strXPath = "/chummer/metamagics/metamagic";
+                    XmlDocument objXmlDocument = XmlManager.Instance.Load(strXmlFile);
+                    XmlNode objNode = objXmlDocument.SelectSingleNode(strXPath + "[name = \"" + _strName + "\"]");
+                    if (objNode != null)
+                    {
+                        if (objNode["altpage"] != null)
+                            strReturn = objNode["altpage"].InnerText;
+                    }
+                }
+
+                return strReturn;
+            }
+            set
+            {
+                _strPage = value;
+            }
+        }
+
+        /// <summary>
+        /// Notes.
+        /// </summary>
+        public string Notes
+        {
+            get
+            {
+                return _strNotes;
+            }
+            set
+            {
+                _strNotes = value;
+            }
+        }
+        #endregion
+    }
+
+    /// <summary>
+    /// An Enhancement.
+    /// </summary>
+    public class Enhancement
+    {
+        private Guid _guiID = new Guid();
+        private string _strName = "";
+        private string _strSource = "";
+        private string _strPage = "";
+        private XmlNode _nodBonus;
+        private int _intGrade = 0;
+        private Improvement.ImprovementSource _objImprovementSource = Improvement.ImprovementSource.Enhancement;
+        private string _strNotes = "";
+        private Power _objParent;
+
+        private readonly Character _objCharacter;
+
+        #region Constructor, Create, Save, Load, and Print Methods
+        public Enhancement(Character objCharacter)
+        {
+            // Create the GUID for the new art.
+            _guiID = Guid.NewGuid();
+            _objCharacter = objCharacter;
+        }
+
+        /// Create an Enhancement from an XmlNode and return the TreeNodes for it.
+        /// <param name="objXmlEnhancementNode">XmlNode to create the object from.</param>
+        /// <param name="objCharacter">Character the Enhancement is being added to.</param>
+        /// <param name="objNode">TreeNode to populate a TreeView.</param>
+        /// <param name="objSource">Source of the Improvement.</param>
+        public void Create(XmlNode objXmlArtNode, Character objCharacter, TreeNode objNode, Improvement.ImprovementSource objSource)
+        {
+            _strName = objXmlArtNode["name"].InnerText;
+            _strSource = objXmlArtNode["source"].InnerText;
+            _strPage = objXmlArtNode["page"].InnerText;
+            _objImprovementSource = objSource;
+            try
+            {
+                _intGrade = Convert.ToInt32(objXmlArtNode["grade"].InnerText);
+            }
+            catch { }
+            if (objXmlArtNode.InnerXml.Contains("<bonus>"))
+            {
+                _nodBonus = objXmlArtNode["bonus"];
+
+                ImprovementManager objImprovementManager = new ImprovementManager(objCharacter);
+                if (!objImprovementManager.CreateImprovements(objSource, _guiID.ToString(), _nodBonus, true, 1, DisplayNameShort))
+                {
+                    _guiID = Guid.Empty;
+                    return;
+                }
+                if (objImprovementManager.SelectedValue != "")
+                    _strName += " (" + objImprovementManager.SelectedValue + ")";
+            }
+
+            objNode.Text = LanguageManager.Instance.GetString("Label_Enhancement") + " " + DisplayName;
+            objNode.Tag = _guiID.ToString();
+        }
+
+        /// <summary>
+        /// Save the object's XML to the XmlWriter.
+        /// </summary>
+        /// <param name="objWriter">XmlTextWriter to write with.</param>
+        public void Save(XmlTextWriter objWriter)
+        {
+            objWriter.WriteStartElement("enhancement");
+            objWriter.WriteElementString("guid", _guiID.ToString());
+            objWriter.WriteElementString("name", _strName);
+            objWriter.WriteElementString("source", _strSource);
+            objWriter.WriteElementString("page", _strPage);
+            objWriter.WriteElementString("grade", _intGrade.ToString());
+            if (_nodBonus != null)
+                objWriter.WriteRaw(_nodBonus.OuterXml);
+            else
+                objWriter.WriteElementString("bonus", "");
+            objWriter.WriteElementString("improvementsource", _objImprovementSource.ToString());
+            objWriter.WriteElementString("notes", _strNotes);
+            objWriter.WriteEndElement();
+        }
+
+        /// <summary>
+        /// Load the Enhancement from the XmlNode.
+        /// </summary>
+        /// <param name="objNode">XmlNode to load.</param>
+        public void Load(XmlNode objNode)
+        {
+            Improvement objImprovement = new Improvement();
+            _guiID = Guid.Parse(objNode["guid"].InnerText);
+            _strName = objNode["name"].InnerText;
+            _strSource = objNode["source"].InnerText;
+            _strPage = objNode["page"].InnerText;
+            _nodBonus = objNode["bonus"];
+            _objImprovementSource = objImprovement.ConvertToImprovementSource(objNode["improvementsource"].InnerText);
+
+            try
+            {
+                _intGrade = Convert.ToInt32(objNode["grade"].InnerText);
+            }
+            catch
+            {
+            }
+            try
+            {
+                _strNotes = objNode["notes"].InnerText;
+            }
+            catch
+            {
+            }
+        }
+
+        /// <summary>
+        /// Print the object's XML to the XmlWriter.
+        /// </summary>
+        /// <param name="objWriter">XmlTextWriter to write with.</param>
+        public void Print(XmlTextWriter objWriter)
+        {
+            objWriter.WriteStartElement("enhancement");
+            objWriter.WriteElementString("name", DisplayNameShort);
+            objWriter.WriteElementString("source", _objCharacter.Options.LanguageBookShort(_strSource));
+            objWriter.WriteElementString("page", Page);
+            objWriter.WriteElementString("improvementsource", _objImprovementSource.ToString());
+            if (_objCharacter.Options.PrintNotes)
+                objWriter.WriteElementString("notes", _strNotes);
+            objWriter.WriteEndElement();
+        }
+        #endregion
+
+        #region Properties
+        /// <summary>
+        /// Internal identifier which will be used to identify this Metamagic in the Improvement system.
+        /// </summary>
+        public string InternalId
+        {
+            get
+            {
+                return _guiID.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Bonus node from the XML file.
+        /// </summary>
+        public XmlNode Bonus
+        {
+            get
+            {
+                return _nodBonus;
+            }
+            set
+            {
+                _nodBonus = value;
+            }
+        }
+
+        /// <summary>
+        /// ImprovementSource Type.
+        /// </summary>
+        public Improvement.ImprovementSource SourceType
+        {
+            get
+            {
+                return _objImprovementSource;
+            }
+            set
+            {
+                _objImprovementSource = value;
+            }
+        }
+
+        /// <summary>
+        /// Metamagic name.
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return _strName;
+            }
+            set
+            {
+                _strName = value;
+            }
+        }
+
+        /// <summary>
+        /// The name of the object as it should be displayed on printouts (translated name only).
+        /// </summary>
+        public string DisplayNameShort
+        {
+            get
+            {
+                string strReturn = _strName;
+                // Get the translated name if applicable.
+                if (GlobalOptions.Instance.Language != "en-us")
+                {
+                    string strXmlFile = "powers.xml";
+                    string strXPath = "/chummer/enhancements/enhancement";
+                    XmlDocument objXmlDocument = XmlManager.Instance.Load(strXmlFile);
+                    XmlNode objNode = objXmlDocument.SelectSingleNode(strXPath + "[name = \"" + _strName + "\"]");
+                    if (objNode != null)
+                    {
+                        if (objNode["translate"] != null)
+                            strReturn = objNode["translate"].InnerText;
+                    }
+                }
+
+                return strReturn;
+            }
+        }
+
+        /// <summary>
+        /// The name of the object as it should be displayed in lists. Name (Extra).
+        /// </summary>
+        public string DisplayName
+        {
+            get
+            {
+                string strReturn = DisplayNameShort;
+
+                return strReturn;
+            }
+        }
+
+        /// <summary>
+        /// The initiate grade where the enhancement was learned.
+        /// </summary>
+        public int Grade
+        {
+            get
+            {
+                return _intGrade;
+            }
+            set
+            {
+                _intGrade = value;
+            }
+        }
+
+        /// <summary>
+        /// Sourcebook.
+        /// </summary>
+        public string Source
+        {
+            get
+            {
+                return _strSource;
+            }
+            set
+            {
+                _strSource = value;
+            }
+        }
+
+        /// <summary>
+        /// Sourcebook Page Number.
+        /// </summary>
+        public string Page
+        {
+            get
+            {
+                string strReturn = _strPage;
+                // Get the translated name if applicable.
+                if (GlobalOptions.Instance.Language != "en-us")
+                {
+                    string strXmlFile = "metamagic.xml";
+                    string strXPath = "/chummer/metamagics/metamagic";
+                    XmlDocument objXmlDocument = XmlManager.Instance.Load(strXmlFile);
+                    XmlNode objNode = objXmlDocument.SelectSingleNode(strXPath + "[name = \"" + _strName + "\"]");
+                    if (objNode != null)
+                    {
+                        if (objNode["altpage"] != null)
+                            strReturn = objNode["altpage"].InnerText;
+                    }
+                }
+
+                return strReturn;
+            }
+            set
+            {
+                _strPage = value;
+            }
+        }
+
+        /// <summary>
+        /// Notes.
+        /// </summary>
+        public string Notes
+        {
+            get
+            {
+                return _strNotes;
+            }
+            set
+            {
+                _strNotes = value;
+            }
+        }
+
+        /// <summary>
+        /// Parent Power.
+        /// </summary>
+        public Power Parent
+        {
+            get
+            {
+                return _objParent;
+            }
+            set
+            {
+                _objParent = value;
+            }
+        }
+        #endregion
+    }
+
+    /// <summary>
 	/// An Adept Power.
 	/// </summary>
 	public class Power
@@ -5078,6 +5758,7 @@ namespace Chummer
         private bool _blnFree = false;
         private int _intFreeLevels = 0;
         private decimal _decAdeptWayDiscount = 0;
+        private List<Enhancement> _lstEnhancements = new List<Enhancement>();
 
 		private readonly Character _objCharacter;
 
@@ -5115,7 +5796,13 @@ namespace Chummer
 				objWriter.WriteRaw("<bonus>" + _nodBonus.InnerXml + "</bonus>");
 			else
 				objWriter.WriteElementString("bonus", "");
-			objWriter.WriteElementString("notes", _strNotes);
+            objWriter.WriteStartElement("enhancements");
+            foreach (Enhancement objEnhancement in _lstEnhancements)
+            {
+                objEnhancement.Save(objWriter);
+            }
+            objWriter.WriteEndElement();
+            objWriter.WriteElementString("notes", _strNotes);
 			objWriter.WriteEndElement();
 		}
 
@@ -5188,7 +5875,18 @@ namespace Chummer
 			catch
 			{
 			}
-		}
+            if (objNode.InnerXml.Contains("enhancements"))
+            {
+                XmlNodeList nodEnhancements = objNode.SelectNodes("enhancements/enhancement");
+                foreach (XmlNode nodEnhancement in nodEnhancements)
+                {
+                    Enhancement objEnhancement = new Enhancement(_objCharacter);
+                    objEnhancement.Load(nodEnhancement);
+                    objEnhancement.Parent = this;
+                    _lstEnhancements.Add(objEnhancement);
+                }
+            }
+        }
 
 		/// <summary>
 		/// Print the object's XML to the XmlWriter.
@@ -5210,7 +5908,13 @@ namespace Chummer
 			objWriter.WriteElementString("page", Page);
 			if (_objCharacter.Options.PrintNotes)
 				objWriter.WriteElementString("notes", _strNotes);
-			objWriter.WriteEndElement();
+            objWriter.WriteStartElement("enhancements");
+            foreach (Enhancement objEnhancement in _lstEnhancements)
+            {
+                objEnhancement.Print(objWriter);
+            }
+            objWriter.WriteEndElement();
+            objWriter.WriteEndElement();
 		}
 		#endregion
 
@@ -5267,7 +5971,18 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// The Enhancements currently applied to the Power.
+        /// </summary>
+        public List<Enhancement> Enhancements
+        {
+            get
+            {
+                return _lstEnhancements;
+            }
+        }
+
+        /// <summary>
 		/// The name of the object as it should be displayed on printouts (translated name only).
 		/// </summary>
 		public string DisplayNameShort

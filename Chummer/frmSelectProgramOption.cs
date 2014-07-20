@@ -183,5 +183,11 @@ namespace Chummer
 			lblSource.Left = lblSourceLabel.Left + lblSourceLabel.Width + 6;
 		}
 		#endregion
+
+        private void lblSource_Click(object sender, EventArgs e)
+        {
+            CommonFunctions objCommon = new CommonFunctions(_objCharacter);
+            objCommon.OpenPDF(lblSource.Text);
+        }
 	}
 }

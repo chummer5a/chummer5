@@ -8026,6 +8026,35 @@ namespace Chummer
 			WeaponAccessory objAccessory = new WeaponAccessory(_objCharacter);
 			objAccessory.Create(objXmlWeapon, objNode, frmPickWeaponAccessory.SelectedMount);
 			objAccessory.Parent = objWeapon;
+
+            if (objAccessory.Cost.StartsWith("Variable"))
+            {
+                int intMin = 0;
+                int intMax = 0;
+                string strCost = objAccessory.Cost.Replace("Variable(", string.Empty).Replace(")", string.Empty);
+                if (strCost.Contains("-"))
+                {
+                    string[] strValues = strCost.Split('-');
+                    intMin = Convert.ToInt32(strValues[0]);
+                    intMax = Convert.ToInt32(strValues[1]);
+                }
+                else
+                    intMin = Convert.ToInt32(strCost.Replace("+", string.Empty));
+
+                if (intMin != 0 || intMax != 0)
+                {
+                    frmSelectNumber frmPickNumber = new frmSelectNumber();
+                    if (intMax == 0)
+                        intMax = 1000000;
+                    frmPickNumber.Minimum = intMin;
+                    frmPickNumber.Maximum = intMax;
+                    frmPickNumber.Description = LanguageManager.Instance.GetString("String_SelectVariableCost").Replace("{0}", objAccessory.DisplayNameShort);
+                    frmPickNumber.AllowCancel = false;
+                    frmPickNumber.ShowDialog();
+                    objAccessory.Cost = frmPickNumber.SelectedValue.ToString();
+                }
+            }
+
 			objWeapon.WeaponAccessories.Add(objAccessory);
 
 			objNode.ContextMenuStrip = cmsWeaponAccessory;
@@ -14893,6 +14922,11 @@ namespace Chummer
                                             }
                                         }
                                         break;
+                                    }
+                                    else if (objGroup.Name == objSkill.SkillGroup)
+                                    {
+                                        intMinGroup = objGroup.Rating;
+                                        blnApplyModifier = true;
                                     }
                                 }
                             }

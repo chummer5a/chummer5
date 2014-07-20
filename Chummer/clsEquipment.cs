@@ -824,6 +824,7 @@ namespace Chummer
                     XPathExpression xprCapacity = nav.Compile(strCapacity.Replace("Capacity", this._objParent.ArmorCapacity ));
 
                     string strReturn = nav.Evaluate(xprCapacity).ToString();
+                    strReturn = Math.Floor(Convert.ToDecimal(strReturn)).ToString();
                     if (blnSquareBrackets)
                         strReturn = "[" + strReturn + "]";
 
@@ -1930,7 +1931,7 @@ namespace Chummer
                 foreach (ArmorMod am in this.ArmorMods)
                 {
                     if (am.Name == "YNT Softweave Armor")
-                        strReturn = (Convert.ToInt32(_strArmorCapacity) * 1.5).ToString();
+                        strReturn = (Math.Ceiling(Convert.ToInt32(_strArmorCapacity) * 1.5)).ToString();
                 }
 
 				return strReturn;

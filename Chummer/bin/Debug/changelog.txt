@@ -1,3 +1,22 @@
+Build 5.126 (beta)
+- Completely replaced the Initiation tab. It now should correctly handle Initiation (with discounts), Arts, Enchantments, Enhancements, Metamagics, and Rituals. Add an Initiation grade and then right click on the grade to add Arts, Enchantments, Enhancements, Metamagics, and Rituals.  In case you're not using Street Grimoire or choose not to use the Arts system, there is a new item on the House Rules tab of the Options dialog that you can use to ignore the Art requirements for metamagics and the like.
+- Fixing the above item led to two powers referenced in Street Grimoire that haven't previously been published.  These have only been provided via a forum post by one of the designers.  So that post is now a source (SFP1) that can be enabled in order to provide those powers (Keratin Control and Living Focus).
+- Updated all "Source" labels on all dialogs to open the linked PDF to that page if you have linked the book to the PDF in the Options dialog.  Also linked the names of skills and powers as they don't show a "Source" label in their listings.  And finally, the above mentioned forum post will open in your default browser if a Source pointing to it is clicked.
+- Added the Small Unit Tactics Knowledge Skill from Run and Gun.
+- Fixed a bug allowing the Seducer's Adept ability to allow any skill. It now restricts to the correct list. Thank you Ariketh for the solution!
+- Fixed the Voice Control Adept power to allow for multiple levels.
+- Fixed a bug that would cause a crash when using YNT Softweave on an armor with an odd armor value.
+- Added a variable price to Personalized Grip to reflect that it probably should cost something.
+- Removed cyber-weapons from the Select a Weapon dialog. These can only be purchased now on the Select Cyberware dialog.
+- Fixed a bug preventing the Respirator from being available to add to armor.
+- Fixed a bug causing newly added Knowledge Skills to cap at 6 in career mode.
+- Fixed a bug that would cause the tooltip on the button to increase your skill level to show the wrong value when in career mode and at rating 6.
+- Fixed a bug that prevented adding Sensor Arrays (and quite a few other things) to vehicles while in Career mode.
+- Adjusted the Select Weapon and Select Armor dialogs so that they'll have better performance.
+- Fixed the price of the Monofilament Chainsaw.
+- Fixed a multitude of bugs with the Complex Forms and Sprites tab in Career mode for Technomancers.
+- Fixed a bug that was causing the wrong cost to be calculated for binding Counterspelling, Ritual Spellcasting, Spellcasting, or Sustaining Foci in Career mode.
+
 Build 5.125 (beta)
 - Fixed Damage and AP value for EXplosive Ammo
 - Fixed a bug which would prevent the Dragonslayer Mentor Spirit from getting the bonus to a social skill.
