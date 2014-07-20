@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-494</version>
+	<version>-493</version>
 	<categories>
 		<category>Blades</category>
 		<category>Clubs</category>
@@ -43,7 +43,7 @@
 			<mode>SA</mode>
 			<rc>0</rc>
 			<ammo>10(c) + energy</ammo>
-			<avail>12F</avail>
+			<avail>24F</avail>
 			<cost>26000</cost>
 			<allowaccessory>true</allowaccessory>
 			<accessorymounts>
@@ -6475,7 +6475,7 @@
 			<mount/>
 			<accuracy>1</accuracy>
 			<avail>0</avail>
-			<cost>0</cost>
+			<cost>Variable(0-1000)</cost>
 			<source>SASS</source>
 			<page>31</page>
 		</accessory>

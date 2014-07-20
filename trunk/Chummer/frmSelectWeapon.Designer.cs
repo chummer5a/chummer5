@@ -71,8 +71,6 @@
             this.lblWeaponAccuracy = new System.Windows.Forms.Label();
             this.lblWeaponAccuracyLabel = new System.Windows.Forms.Label();
             this.dgvWeapons = new System.Windows.Forms.DataGridView();
-            this.chkBrowse = new System.Windows.Forms.CheckBox();
-            this.tmrSearch = new System.Windows.Forms.Timer(this.components);
             this.WeaponName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Accuracy = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,6 +84,8 @@
             this.Avail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Source = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chkBrowse = new System.Windows.Forms.CheckBox();
+            this.tmrSearch = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudMarkup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWeapons)).BeginInit();
             this.SuspendLayout();
@@ -360,6 +360,7 @@
             this.lblSource.Size = new System.Drawing.Size(47, 13);
             this.lblSource.TabIndex = 27;
             this.lblSource.Text = "[Source]";
+            this.lblSource.Click += new System.EventHandler(this.lblSource_Click);
             // 
             // lblSourceLabel
             // 
@@ -505,24 +506,6 @@
             this.dgvWeapons.Visible = false;
             this.dgvWeapons.DoubleClick += new System.EventHandler(this.dgvWeapons_DoubleClick);
             // 
-            // chkBrowse
-            // 
-            this.chkBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkBrowse.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkBrowse.AutoSize = true;
-            this.chkBrowse.Location = new System.Drawing.Point(512, 4);
-            this.chkBrowse.Name = "chkBrowse";
-            this.chkBrowse.Size = new System.Drawing.Size(52, 23);
-            this.chkBrowse.TabIndex = 37;
-            this.chkBrowse.Text = "Browse";
-            this.chkBrowse.UseVisualStyleBackColor = true;
-            this.chkBrowse.CheckedChanged += new System.EventHandler(this.chkBrowse_CheckedChanged);
-            // 
-            // tmrSearch
-            // 
-            this.tmrSearch.Interval = 250;
-            this.tmrSearch.Tick += new System.EventHandler(this.tmrSearch_Tick);
-            // 
             // WeaponName
             // 
             this.WeaponName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -658,6 +641,24 @@
             this.Cost.Name = "Cost";
             this.Cost.ReadOnly = true;
             this.Cost.Width = 53;
+            // 
+            // chkBrowse
+            // 
+            this.chkBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkBrowse.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkBrowse.AutoSize = true;
+            this.chkBrowse.Location = new System.Drawing.Point(512, 4);
+            this.chkBrowse.Name = "chkBrowse";
+            this.chkBrowse.Size = new System.Drawing.Size(52, 23);
+            this.chkBrowse.TabIndex = 37;
+            this.chkBrowse.Text = "Browse";
+            this.chkBrowse.UseVisualStyleBackColor = true;
+            this.chkBrowse.CheckedChanged += new System.EventHandler(this.chkBrowse_CheckedChanged);
+            // 
+            // tmrSearch
+            // 
+            this.tmrSearch.Interval = 250;
+            this.tmrSearch.Tick += new System.EventHandler(this.tmrSearch_Tick);
             // 
             // frmSelectWeapon
             // 

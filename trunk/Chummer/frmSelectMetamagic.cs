@@ -86,12 +86,6 @@ namespace Chummer
 			this.DialogResult = DialogResult.Cancel;
 		}
 
-		private void cmdOKAdd_Click(object sender, EventArgs e)
-		{
-			_blnAddAgain = true;
-			cmdOK_Click(sender, e);
-		}
-
 		private void lstMetamagic_DoubleClick(object sender, EventArgs e)
 		{
 			if (lstMetamagic.Text != "")
@@ -191,13 +185,25 @@ namespace Chummer
 			{
 				if (!chkLimitList.Checked || (chkLimitList.Checked && RequirementMet(objXmlMetamagic, false)))
 				{
-					ListItem objItem = new ListItem();
-					objItem.Value = objXmlMetamagic["name"].InnerText;
-					if (objXmlMetamagic["translate"] != null)
-						objItem.Name = objXmlMetamagic["translate"].InnerText;
-					else
-						objItem.Name = objXmlMetamagic["name"].InnerText;
-					lstMetamagics.Add(objItem);
+                    bool blnNew = true;
+                    foreach (Metamagic objMetamagic in _objCharacter.Metamagics)
+                    {
+                        if (objMetamagic.Name == objXmlMetamagic["name"].InnerText)
+                        {
+                            blnNew = false;
+                        }
+                    }
+
+                    if (blnNew)
+                    {
+					    ListItem objItem = new ListItem();
+					    objItem.Value = objXmlMetamagic["name"].InnerText;
+					    if (objXmlMetamagic["translate"] != null)
+						    objItem.Name = objXmlMetamagic["translate"].InnerText;
+					    else
+						    objItem.Name = objXmlMetamagic["name"].InnerText;
+					    lstMetamagics.Add(objItem);
+                    }
 				}
 			}
 			SortListItem objSort = new SortListItem();
@@ -257,8 +263,12 @@ namespace Chummer
 
 			if (objXmlCheckMetamagic.InnerXml.Contains("<required>"))
 			{
-				string strRequirement = "\n" + LanguageManager.Instance.GetString("Message_SelectQuality_AllOf");
-				bool blnRequirementMet = true;
+                bool blnRequirementMet = true;
+                string strRequirement = "";
+                if (objXmlCheckMetamagic.InnerXml.Contains("<allof>"))
+                {
+                    strRequirement = "\n" + LanguageManager.Instance.GetString("Message_SelectQuality_AllOf");
+                }
 
 				// Metamagic requirements.
 				foreach (XmlNode objXmlMetamagic in objXmlCheckMetamagic.SelectNodes("required/allof/metamagic"))
@@ -301,6 +311,30 @@ namespace Chummer
                     {
                         blnRequirementMet = false;
                         strRequirement += "\n\t" + objXmlPower.InnerText;
+                    }
+                }
+
+                // Art requirements.
+                bool blnStreetGrimoire = (_objCharacter.Options.Books.Contains("SG"));
+                if (blnStreetGrimoire && !_objCharacter.Options.IgnoreArt)
+                {
+                    foreach (XmlNode objXmlArt in objXmlCheckMetamagic.SelectNodes("required/allof/art"))
+                    {
+                        bool blnFound = false;
+                        foreach (Art objArt in _objCharacter.Arts)
+                        {
+                            if (objArt.Name == objXmlArt.InnerText)
+                            {
+                                blnFound = true;
+                                break;
+                            }
+                        }
+
+                        if (!blnFound)
+                        {
+                            blnRequirementMet = false;
+                            strRequirement += "\n\t" + objXmlArt.InnerText;
+                        }
                     }
                 }
 
@@ -392,6 +426,58 @@ namespace Chummer
 					}
 				}
 
+                // Check OneOf requirements
+                string strOneOfRequirement = "\n" + LanguageManager.Instance.GetString("Message_SelectQuality_OneOf");
+                bool blnOneOfRequirementMet = false;
+
+                if (!objXmlCheckMetamagic.InnerXml.Contains("<oneof>"))
+                {
+                    blnOneOfRequirementMet = true;
+                }
+
+                foreach (XmlNode objXmlQuality in objXmlCheckMetamagic.SelectNodes("required/oneof/quality"))
+                {
+                    foreach (Quality objQuality in _objCharacter.Qualities)
+                    {
+                        if (objQuality.Name == objXmlQuality.InnerText)
+                        {
+                            blnOneOfRequirementMet = true;
+                            break;
+                        }
+                    }
+
+                    if (!blnOneOfRequirementMet)
+                        strOneOfRequirement += "\n\t" + objXmlQuality.InnerText;
+                    else
+                        break;
+                }
+
+                if (blnStreetGrimoire && !_objCharacter.Options.IgnoreArt)
+                {
+                    foreach (XmlNode objXmlArt in objXmlCheckMetamagic.SelectNodes("required/oneof/art"))
+                    {
+                        foreach (Art objArt in _objCharacter.Arts)
+                        {
+                            if (objArt.Name == objXmlArt.InnerText)
+                            {
+                                blnOneOfRequirementMet = true;
+                                break;
+                            }
+                        }
+
+                        if (!blnOneOfRequirementMet)
+                            strOneOfRequirement += "\n\t" + objXmlArt.InnerText;
+                        else
+                            break;
+                    }
+                }
+
+                if (!blnOneOfRequirementMet)
+                {
+                    blnRequirementMet = false;
+                    strRequirement += strOneOfRequirement;
+                }
+
 				if (!blnRequirementMet)
 				{
 					string strMessage = "";
@@ -418,5 +504,11 @@ namespace Chummer
 			return true;
 		}
 		#endregion
+
+        private void lblSource_Click(object sender, EventArgs e)
+        {
+            CommonFunctions objCommon = new CommonFunctions(_objCharacter);
+            objCommon.OpenPDF(lblSource.Text);
+        }
 	}
 }

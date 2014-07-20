@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-500</version>
+	<version>-499</version>
 	<name>Français</name>
 	<strings>
 		<!-- Common Strings -->
@@ -3012,11 +3012,11 @@ Un saul attribut peut atteindre sa valeur maximum durant la création de personn
 		</string>
 		<string>
 			<key>Checkbox_GroupInitiation</key>
-			<text>Initiation de Groupe (-20%)</text>
+			<text>Initiation de Groupe (-10%)</text>
 		</string>
 		<string>
 			<key>Checkbox_InitiationOrdeal</key>
-			<text>Epreuve initiatique (-20%)</text>
+			<text>Epreuve initiatique (-10%)</text>
 		</string>
 		<string>
 			<key>Checkbox_NetworkSubmersion</key>
@@ -6564,5 +6564,473 @@ Un saul attribut peut atteindre sa valeur maximum durant la création de personn
 			<key>String_SkillMetamagic</key>
 			<text>Métamagie</text>
 		</string>
+		<string>
+	      <key>String_Priority</key>
+	      <text>Priorité</text>
+	    </string>
+	    <string>
+	      <key>String_Special</key>
+	      <text>Attributs Spéciaux</text>
+	    </string>
+	    <string>
+	      <key>String_SpecialAttributePoints</key>
+	      <text>Points d'Attributs spéciaux</text>
+	    </string>
+	    <string>
+	      <key>String_AttributePoints</key>
+	      <text>Points d'Attributs</text>
+	    </string>
+	    <string>
+	      <key>String_MartialArtsCount</key>
+	      <text>Arts Martiaux</text>
+	    </string>
+	    <string>
+	      <key>String_TechniquesCount</key>
+	      <text>Techniques</text>
+	    </string>
+	    <string>
+	      <key>String_SkillPoints</key>
+	      <text>Points de Compétences</text>
+	    </string>
+	    <string>
+	      <key>String_SkillGroupPoints</key>
+	      <text>Points de Groupe de Compétences</text>
+	    </string>
+	    <string>
+	      <key>String_Spells</key>
+	      <text>Sorts</text>
+	    </string>
+	    <string>
+	      <key>String_ComplexForms</key>
+	      <text>Forme Complexe</text>
+	    </string>
+	    <string>
+	      <key>Label_Bonus</key>
+	      <text>Bonus:</text>
+	    </string>
+	    <string>
+	      <key>Label_Accuracy</key>
+	      <text>Précision:</text>
+	    </string>
+	    <string>
+	      <key>Label_DeviceRating</key>
+	      <text>Indice:</text>
+	    </string>
+	    <string>
+	      <key>Label_Attack</key>
+	      <text>Attaque:</text>
+	    </string>
+	    <string>
+	      <key>String_Break</key>
+	      <text>Casser</text>
+	    </string>
+	    <string>
+	      <key>Label_Sleaze</key>
+	      <text>Corruption:</text>
+	    </string>
+	    <string>
+	      <key>Label_DataProcessing</key>
+	      <text>Traitement de données:</text>
+	    </string>
+	    <string>
+	      <key>Label_ArmorShort</key>
+	      <text>Nom:</text>
+	    </string>
+	    <string>
+	      <key>Label_ArmorValueShort</key>
+	      <text>Armure:</text>
+	    </string>
+	    <string>
+	      <key>Label_ArmorLong</key>
+	      <text>Armure:</text>
+	    </string>
+	    <string>
+	      <key>Label_PriorityHeritage</key>
+	      <text>Métatype:</text>
+	    </string>
+	    <string>
+	      <key>Label_PriorityTalent</key>
+	      <text>Magie ou Résonance:</text>
+	    </string>
+	    <string>
+	      <key>Label_PriorityAttributes</key>
+	      <text>Attributs:</text>
+	    </string>
+	    <string>
+	      <key>Label_PrioritySkills</key>
+	      <text>Compétences:</text>
+	    </string>
+	    <string>
+	      <key>Label_PriorityResources</key>
+	      <text>Ressources:</text>
+	    </string>
+	    <string>
+	      <key>String_Contacts</key>
+	      <text>Contacts</text>
+	    </string>
+	    <string>
+	      <key>String_ArmorEncumbrance</key>
+	      <text>Armure Encombrement</text>
+	    </string>
+	    <string>
+	      <key>Menu_Main_DumpshockThread</key>
+	      <text>&amp;Fil Dumpshock</text>
+	    </string>
+	    <string>
+	      <key>Menu_SpecialConvertToFreeSprite</key>
+	      <text>Convertir en Esprit Libre</text>
+	    </string>
+	    <string>
+	      <key>Message_DeleteLimitModifier</key>
+	      <text>Etes-vous sûr de vouloir supprimer cette limite Modifiée?</text>
+	    </string>
+	    <string>
+	      <key>Message_CannotDeleteLimitModifier</key>
+	      <text>Vous devez supprimer la source de ce modificateur pour supprimer cet objet.</text>
+	    </string>
+	    <string>
+	      <key>MessageTitle_CannotDeleteLimitModifier</key>
+	      <text>Impossible de supprimer</text>
+	    </string>
+	    <string>
+	      <key>Message_SelectLimitModifier</key>
+	      <text>Vous devez sélectionner une limite pour ajouter un modificateur</text>
+	    </string>
+	    <string>
+	      <key>MessageTitle_SelectLimitModifier</key>
+	      <text>Sélectionnez une Limite modifiée</text>
+	    </string>
+	    <string>
+	      <key>Message_PositiveQualityMoreThanNegativeQuality</key>
+	      <text>Vous ne pouvez pas dépenser plus en Avantages qu'en Défauts.</text>
+	    </string>
+	    <string>
+	      <key>Message_PrioritySpellLimit</key>
+	      <text>Vous ne pouvez pas avoir plus de sorts que ceux permis par votre priorité magique.</text>
+	    </string>
+	    <string>
+	      <key>Message_PriorityComplexFormLimit</key>
+	      <text>Votre nombre de formes complexes ne peut pas dépasser le nombre défini par votre priorité de Résonance.</text>
+	    </string>
+	    <string>
+	      <key>Message_NotEnoughMagic</key>
+	      <text>Vous n'avez pas assez en magie pour cette amélioration.</text>
+	    </string>
+	    <string>
+	      <key>MessageTitle_NotEnoughMagic</key>
+	      <text>Pas assez en magie</text>
+	    </string>
+	    <string>
+	      <key>String_SpellExtended</key>
+	      <text>Etendu</text>
+	    </string>
+	    <string>
+	      <key>String_SpellAlchemical</key>
+	      <text>Alchimique</text>
+	    </string>
+	    <string>
+	      <key>String_DescAlchemicalPreparation</key>
+	      <text>Préparations alchimiques</text>
+	    </string>
+	    <string>
+	      <key>String_DescAdept</key>
+	      <text>Adepte</text>
+	    </string>
+	    <string>
+	      <key>String_ExpenseLearnTechnique</key>
+	      <text>Technique appris</text>
+	    </string>
+	    <string>
+	      <key>String_DescBlood</key>
+	      <text>Sang</text>
+	    </string>
+	    <string>
+	      <key>String_DescGeomancy</key>
+	      <text>Géomancie</text>
+	    </string>
+	    <string>
+	      <key>String_DescSpell</key>
+	      <text>Sort</text>
+	    </string>
+	    <string>
+	      <key>Label_FreeSkills</key>
+	      <text>Points de compétence gratuites restantes:</text>
+	    </string>
+	    <string>
+	      <key>Label_FreeSkillGroups</key>
+	      <text>Points de Groupes de compétences gratuites restant:</text>
+	    </string>
+	    <string>
+	      <key>Node_Physical</key>
+	      <text>Physique</text>
+	    </string>
+	    <string>
+	      <key>Node_Mental</key>
+	      <text>Mentale</text>
+	    </string>
+	    <string>
+	      <key>Node_Social</key>
+	      <text>Sociale</text>
+	    </string>
+	    <string>
+	      <key>String_LimitPhysicalShort</key>
+	      <text>Physique</text>
+	    </string>
+	    <string>
+	      <key>String_LimitMentalShort</key>
+	      <text>Mentale</text>
+	    </string>
+	    <string>
+	      <key>String_LimitSocialShort</key>
+	      <text>Sociale</text>
+	    </string>
+	    <string>
+	      <key>Label_SummaryEssence</key>
+	      <text>Essence</text>
+	    </string>
+	    <string>
+	      <key>Tab_Limits</key>
+	      <text>Limites</text>
+	    </string>
+	    <string>
+	      <key>Label_OtherMatrixInitVRCold</key>
+	      <text>Initiative matricielle (Cold):</text>
+	    </string>
+	    <string>
+	      <key>Label_OtherMatrixInitVRHot</key>
+	      <text>Initiative matricielle (Hot):</text>
+	    </string>
+	    <string>
+	      <key>Node_SelectedGeomancyRituals</key>
+	      <text>Rituels sélectionnés</text>
+	    </string>
+	    <string>
+	      <key>Label_OtherArmor</key>
+	      <text>Armure:</text>
+	    </string>
+	    <string>
+	      <key>String_MetamagicSkillBase</key>
+	      <text>Sur la base de votre sélection de talent, vous pouvez choisir {0}.</text>
+	    </string>
+	    <string>
+	      <key>String_MetamagicSkillMagicianA</key>
+	      <text>2 compétences magiques indice 5</text>
+	    </string>
+	    <string>
+	      <key>String_MetamagicSkillTechnomancerA</key>
+	      <text>2 compétences de Résonance indice 5</text>
+	    </string>
+	    <string>
+	      <key>String_MetamagicSkillMagicianB</key>
+	      <text>2 compétences magiques indice 4</text>
+	    </string>
+	    <string>
+	      <key>String_MetamagicSkillTechnomancerB</key>
+	      <text>2 compétences de Résonance indice 4</text>
+	    </string>
+	    <string>
+	      <key>String_MetamagicSkillAdeptB</key>
+	      <text>1 compétence active d'indice 4</text>
+	    </string>
+	    <string>
+	      <key>String_MetamagicSkillAspectedB</key>
+	      <text>1 groupe de compétences magiques d'indice 4</text>
+	    </string>
+	    <string>
+	      <key>String_MetamagicSkillAdeptC</key>
+	      <text>1 compétence active d'indice 2</text>
+	    </string>
+	    <string>
+	      <key>String_MetamagicSkillAspectedC</key>
+	      <text>1 groupe de compétences magiques d'indice 2</text>
+	    </string>
+	    <string>
+	      <key>String_MetamagicSkillAspectedD</key>
+	      <text>1 groupe de compétences magiques d'indice 0</text>
+	    </string>
+	    <string>
+	      <key>Message_Metatype_Duplicate</key>
+	      <text>Vous ne pouvez pas selectionner une même compétence deux fois.</text>
+	    </string>
+	    <string>
+	      <key>Tip_SelectSpell_ExtendedSpell</key>
+	      <text>Les sorts à portée étendue ont pour rayon (Puissnace x MAG x 10) metres mais ont leur drain augmenté de +2.</text>
+	    </string>
+	    <string>
+	      <key>String_CustomItem_SelectText</key>
+	      <text>Entrez un nom pour cet objet personnalisé.</text>
+	    </string>
+	    <string>
+	      <key>MessageTitle_Metatype_SelectTalent</key>
+	      <text>Selectionner un Talent</text>
+	    </string>
+	    <string>
+	      <key>Tip_OtherArmor</key>
+	      <text>Seule la valeur la plus élevée d'armure est utilisé pour déterminer votre indice d'armure.</text>
+	    </string>
+	    <string>
+	      <key>Label_CMArmor</key>
+	      <text>Armure:</text>
+	    </string>
+	    <string>
+	      <key>Message_Metatype_SelectTalent</key>
+	      <text>Vous devez sélectionner un talent avant de poursuivre.</text>
+	    </string>
+	    <string>
+	      <key>Message_Metatype_SelectSkill</key>
+	      <text>Vous devez sélectionner un groupe de compétences / compétence avant de poursuivre.</text>
+	    </string>
+	    <string>
+	      <key>Checkbox_Options_UseLogging</key>
+	      <text>Utilisez l'enregistrement de débogage</text>
+	    </string>
+	    <string>
+	      <key>MessageTitle_Metatype_SelectSkill</key>
+	      <text>Sélectionner un groupe de compétences/compétence</text>
+	    </string>
+	    <string>
+	      <key>Label_SelectAdvancedLifestyle_Lifestyle</key>
+	      <text>Niveau de vie:</text>
+	    </string>
+	    <string>
+	      <key>String_SelectBP_PrioritySummary</key>
+	      <text>Saisissez la disponibilité maximum autorisée lors de la création de votre personnage.</text>
+	    </string>
+	    <string>
+	      <key>String_PowerPoint</key>
+	      <text>Point de pouvoir</text>
+	    </string>
+	    <string>
+	      <key>Label_SelectProgram_Target</key>
+	      <text>Cible:</text>
+	    </string>
+	    <string>
+	      <key>Label_SelectProgram_Duration</key>
+	      <text>Durée:</text>
+	    </string>
+	    <string>
+	      <key>Checkbox_Options_LocalisedUpdatesOnly</key>
+	      <text>Télécharger les mises à jour uniquement pour ma langue sélectionnée</text>
+	    </string>
+	    <string>
+	      <key>Checkbox_Options_LicenseRestricted</key>
+	      <text>Acquérir une licence chaque objet restreinte</text>
+	    </string>
+	    <string>
+	      <key>MessageTitle_Metatype_Duplicate</key>
+	      <text>Sélection Dupliquée</text>
+	    </string>
+	    <string>
+	      <key>Label_OtherRiggingInit</key>
+	      <text>Initiative d'Interfacé (RA):</text>
+	    </string>
+	    <string>
+	      <key>Checkbox_Options_MayBuyQualities</key>
+	      <text>Peut Acheter des traits (RC 40)</text>
+	    </string>
+	    <string>
+	      <key>Checkbox_Options_ContactPoints</key>
+	      <text>Point de Contact au lieu de Contacts fixes (RC 40)</text>
+	    </string>
+	    <string>
+	      <key>String_AddLimitModifier</key>
+	      <text>Ajouter un modificateur de limite</text>
+	    </string>
+	    <string>
+	      <key>String_EnterLimitModifier</key>
+	      <text>Entrer le modificateur</text>
+	    </string>
+	    <string>
+	      <key>Checkbox_Option_PrintToFileFirst</key>
+	      <text>Appliquer le correctif d'impression Linux</text>
+	    </string>
+	    <string>
+	      <key>Label_SelectProgram_FV</key>
+	      <text>VT:</text>
+	    </string>
+	    <string>
+	      <key>Checkbox_Options_SpecialKarmaCost</key>
+	      <text>Coût en Karma de l'augmentation Attributs spéciaux est réduite avec la perte d'essence</text>
+	    </string>
+	    <string>
+	      <key>Label_SelectAdvancedLifestyle_Qualities</key>
+	      <text>Qualité</text>
+	    </string>
+	    <string>
+	      <key>Tip_ArmorDegradationPlus</key>
+	      <text>Réparer la protection de l'armure.</text>
+	    </string>
+	    <string>
+	      <key>Tip_ArmorDegradationMinus</key>
+	      <text>Dégrader la protection de l'armure.</text>
+	    </string>
+	    <string>
+	      <key>Checkbox_SelectSpell_ExtendedSpell</key>
+	      <text>Sort étendu</text>
+	    </string>
+	    <string>
+	      <key>Checkbox_SelectSpell_Alchemical</key>
+	      <text>Préparation Alchimique</text>
+	    </string>
+	    <string>
+	      <key>Checkbox_Options_Knucks</key>
+	      <text>Les Poings américains bénéficient des bonus d'attaque à mains nues</text>
+	    </string>
+	    <string>
+	      <key>Checkbox_Options_BreakSkillGroupsInCreateMode</key>
+	      <text>Permettre de casser les groupes de compétences lors de la création de personnage (SR4 68)</text>
+	    </string>
+	    <string>
+	      <key>Checkbox_Options_ErgonomicProgramLimit</key>
+	      <text>Les Programmes d'ergonomie n'affectent pas la réponse d'un commlink (UN 114)</text>
+	    </string>
+	    <string>
+	      <key>Label_AdeptWayDiscount</key>
+	      <text>Focus admissibles pour la Réduction de liaison apportée par La Voie d'Adepte:</text>
+	    </string>
+	    <string>
+	      <key>Checkbox_Options_ExtendAnyDetectionSpell</key>
+	      <text>Permettre à n'importe quel sort de détection d'être pris en version avec portée étendue(SM 165)</text>
+	    </string>
+	    <string>
+	      <key>String_DescMaterialLink</key>
+	      <text>Lien matériel</text>
+	    </string>
+	    <string>
+	      <key>String_DescMinion</key>
+	      <text>Serviteur</text>
+	    </string>
+	    <string>
+	      <key>String_DescOrganicLink</key>
+	      <text>Lien Organique</text>
+	    </string>
+	    <string>
+	      <key>String_DescSpotter</key>
+	      <text>Éclaireur</text>
+	    </string>
+	    <string>
+	      <key>String_DescAnchored</key>
+	      <text>Ancré</text>
+	    </string>
+	    <string>
+	      <key>String_SpellRangeLineOfInfluence</key>
+	      <text>CDI</text>
+	    </string>
+	    <string>
+	      <key>String_DescContractual</key>
+	      <text>Contrat</text>
+	    </string>
+	    <string>
+	      <key>String_MountSide</key>
+	      <text>Latéral</text>
+	    </string>
+	    <string>
+	      <key>String_MountInternal</key>
+	      <text>Interne</text>
+	    </string>
+	    <string>
+	      <key>String_MountStock</key>
+	      <text>Réserve</text>
+	    </string>
 	</strings>
 </chummer>

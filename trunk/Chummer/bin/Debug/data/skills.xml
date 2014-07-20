@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-500</version>
+	<version>-499</version>
 	<skillgroups>
 		<name>Acting</name>
 		<name>Athletics</name>
@@ -2409,6 +2409,21 @@
 				<spec>Speak</spec>
 				<spec>Dialect</spec>
 				<spec>Lingo</spec>
+			</specs>
+		</skill>
+		<skill>
+			<name>Small Unit Tactics</name>
+			<attribute>INT</attribute>
+			<category>Interest</category>
+			<default>No</default>
+			<skillgroup/>
+			<specs>
+				<spec>Desert</spec>
+				<spec>Distance</spec>
+				<spec>Sprinting</spec>
+				<spec>Urban</spec>
+				<spec>Wilderness</spec>
+				<spec>[Terrain]</spec>
 			</specs>
 		</skill>
 		<skill>

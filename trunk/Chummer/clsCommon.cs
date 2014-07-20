@@ -630,6 +630,61 @@ namespace Chummer
 		}
 
         /// <summary>
+        /// Locate a InitiationGrade within the character's InitiationGrades.
+        /// </summary>
+        /// <param name="strGuid">InternalId of the InitiationGrade to find.</param>
+        /// <param name="lstInitiationGrades">List of InitiationGrades to search.</param>
+        public InitiationGrade FindInitiationGrade(string strGuid, List<InitiationGrade> lstInitiationGrades)
+        {
+            foreach (InitiationGrade objInitiationGrade in lstInitiationGrades)
+            {
+                if (objInitiationGrade.InternalId == strGuid)
+                    return objInitiationGrade;
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Locate a Art within the character's Arts.
+        /// </summary>
+        /// <param name="strGuid">InternalId of the Art to find.</param>
+        /// <param name="lstArts">List of Arts to search.</param>
+        public Art FindArt(string strGuid, List<Art> lstArts)
+        {
+            foreach (Art objArt in lstArts)
+            {
+                if (objArt.InternalId == strGuid)
+                    return objArt;
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Locate an Enhancement within the character's Enhancements.
+        /// </summary>
+        /// <param name="strGuid">InternalId of the Art to find.</param>
+        /// <param name="objCharacter">The character to search.</param>
+        public Enhancement FindEnhancement(string strGuid, Character objCharacter)
+        {
+            foreach (Enhancement objEnhancement in objCharacter.Enhancements)
+            {
+                if (objEnhancement.InternalId == strGuid)
+                    return objEnhancement;
+            }
+            foreach (Power objPower in objCharacter.Powers)
+            {
+                foreach (Enhancement objEnhancement in objPower.Enhancements)
+                {
+                    if (objEnhancement.InternalId == strGuid)
+                        return objEnhancement;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Locate a LimitModifier within the character's Limit Modifiers.
         /// </summary>
         /// <param name="strGuid">InternalId of the Metamagic to find.</param>
@@ -1282,10 +1337,6 @@ namespace Chummer
 		/// <param name="strSource">Book coode and page number to open.</param>
 		public void OpenPDF(string strSource)
 		{
-			// The user must have specified the path of their PDF application in order to use this functionality.
-			if (GlobalOptions.Instance.PDFAppPath == string.Empty)
-				return;
-
 			string[] strTemp = strSource.Split(' ');
 			string strBook = "";
 			string strPage = "";
@@ -1311,6 +1362,17 @@ namespace Chummer
 			if (_objCharacter != null)
 				strBook = _objCharacter.Options.BookFromAltCode(strBook);
 
+            XmlDocument objXmlBookDoc = XmlManager.Instance.Load("books.xml");
+            XmlNode objXmlBook = objXmlBookDoc.SelectSingleNode("/chummer/books/book[code = \"" + strBook + "\"]");
+            string strURL = "";
+            try
+            {
+                strURL = objXmlBook["url"].InnerText;
+            }
+            catch
+            {
+            }
+
 			// Retrieve the sourcebook information including page offset and PDF application name.
 			bool blnFound = false;
 			foreach (SourcebookInfo objInfo in GlobalOptions.Instance.SourcebookInfo)
@@ -1326,15 +1388,27 @@ namespace Chummer
 				}
 			}
 
-			// If the sourcebook was not found, we can't open anything.
-			if (!blnFound)
-				return;
+            if (strURL.Length > 0)
+            {
+                Process.Start(strURL);
+            }
+            else
+            {
+                // The user must have specified the path of their PDF application in order to use this functionality.
+                if (GlobalOptions.Instance.PDFAppPath == string.Empty)
+                    return;
 
-			// Open the PDF.
-			// acrord32 /A "page=123" "D:\foo\bar.pdf"
-			//string strFilePath = "C:\\Gaming\\Shadowrun\\Books\\Shadowrun 4th ed Anniverary.pdf";
-			string strParams = " /n /A \"page=" + intPage.ToString() +"\" \"" + strPath + "\"";
-			Process.Start(GlobalOptions.Instance.PDFAppPath, strParams);
+                // If the sourcebook was not found, we can't open anything.
+                if (!blnFound)
+                    return;
+
+                // Open the PDF.
+                // acrord32 /A "page=123" "D:\foo\bar.pdf"
+                //string strFilePath = "C:\\Gaming\\Shadowrun\\Books\\Shadowrun 4th ed Anniverary.pdf";
+                string strParams = " /n /A \"page=" + intPage.ToString() + "\" \"" + strPath + "\"";
+
+                Process.Start(GlobalOptions.Instance.PDFAppPath, strParams);
+            }
 		}
 		#endregion
 

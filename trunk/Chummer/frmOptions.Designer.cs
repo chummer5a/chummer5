@@ -97,6 +97,7 @@
             this.tabGeneral = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabGlobal = new System.Windows.Forms.TabPage();
+            this.chkUseLogging = new System.Windows.Forms.CheckBox();
             this.chkLocalisedUpdatesOnly = new System.Windows.Forms.CheckBox();
             this.chkDatesIncludeTime = new System.Windows.Forms.CheckBox();
             this.cmdPDFTest = new System.Windows.Forms.Button();
@@ -221,7 +222,7 @@
             this.lblSetting = new System.Windows.Forms.Label();
             this.lblSettingName = new System.Windows.Forms.Label();
             this.txtSettingName = new System.Windows.Forms.TextBox();
-            this.chkUseLogging = new System.Windows.Forms.CheckBox();
+            this.chkIgnoreArt = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaComplexFormOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaMetamagic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaInitiation)).BeginInit();
@@ -880,7 +881,7 @@
             // chkKnucks
             // 
             this.chkKnucks.AutoSize = true;
-            this.chkKnucks.Location = new System.Drawing.Point(8, 6);
+            this.chkKnucks.Location = new System.Drawing.Point(8, 26);
             this.chkKnucks.Name = "chkKnucks";
             this.chkKnucks.Size = new System.Drawing.Size(245, 17);
             this.chkKnucks.TabIndex = 0;
@@ -958,6 +959,17 @@
             this.tabGlobal.TabIndex = 0;
             this.tabGlobal.Tag = "Tab_Options_Global";
             this.tabGlobal.Text = "Global";
+            // 
+            // chkUseLogging
+            // 
+            this.chkUseLogging.AutoSize = true;
+            this.chkUseLogging.Location = new System.Drawing.Point(9, 84);
+            this.chkUseLogging.Name = "chkUseLogging";
+            this.chkUseLogging.Size = new System.Drawing.Size(121, 17);
+            this.chkUseLogging.TabIndex = 4;
+            this.chkUseLogging.Tag = "Checkbox_Options_UseLogging";
+            this.chkUseLogging.Text = "Use Debug Logging";
+            this.chkUseLogging.UseVisualStyleBackColor = true;
             // 
             // chkLocalisedUpdatesOnly
             // 
@@ -2368,6 +2380,7 @@
             // tabHouseRules
             // 
             this.tabHouseRules.BackColor = System.Drawing.SystemColors.Control;
+            this.tabHouseRules.Controls.Add(this.chkIgnoreArt);
             this.tabHouseRules.Controls.Add(this.chkKnucks);
             this.tabHouseRules.Location = new System.Drawing.Point(4, 22);
             this.tabHouseRules.Name = "tabHouseRules";
@@ -2413,16 +2426,16 @@
             this.txtSettingName.Size = new System.Drawing.Size(190, 20);
             this.txtSettingName.TabIndex = 3;
             // 
-            // chkUseLogging
+            // chkIgnoreArt
             // 
-            this.chkUseLogging.AutoSize = true;
-            this.chkUseLogging.Location = new System.Drawing.Point(9, 84);
-            this.chkUseLogging.Name = "chkUseLogging";
-            this.chkUseLogging.Size = new System.Drawing.Size(121, 17);
-            this.chkUseLogging.TabIndex = 4;
-            this.chkUseLogging.Tag = "Checkbox_Options_UseLogging";
-            this.chkUseLogging.Text = "Use Debug Logging";
-            this.chkUseLogging.UseVisualStyleBackColor = true;
+            this.chkIgnoreArt.AutoSize = true;
+            this.chkIgnoreArt.Location = new System.Drawing.Point(8, 3);
+            this.chkIgnoreArt.Name = "chkIgnoreArt";
+            this.chkIgnoreArt.Size = new System.Drawing.Size(235, 17);
+            this.chkIgnoreArt.TabIndex = 1;
+            this.chkIgnoreArt.Tag = "Checkbox_Options_IgnoreArt";
+            this.chkIgnoreArt.Text = "Ignore Art Requirements from Street Grimoire";
+            this.chkIgnoreArt.UseVisualStyleBackColor = true;
             // 
             // frmOptions
             // 
@@ -2706,5 +2719,6 @@
         private System.Windows.Forms.CheckBox chkMayBuyQualities;
         private System.Windows.Forms.CheckBox chkLicenseEachRestrictedItem;
         private System.Windows.Forms.CheckBox chkUseLogging;
+        private System.Windows.Forms.CheckBox chkIgnoreArt;
 	}
 }

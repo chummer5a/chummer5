@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-496</version>
+	<version>-495</version>
 	<name>English (US)</name>
 	<strings>
 		<!-- Common Strings -->
@@ -27,6 +27,54 @@
 		<string>
 			<key>String_AttributePoints</key>
 			<text>Attribute Points</text>
+		</string>
+		<string>
+			<key>String_Metamagic</key>
+			<text>Metamagic</text>
+		</string>
+		<string>
+			<key>String_Echo</key>
+			<text>Echo</text>
+		</string>
+		<string>
+			<key>String_Art</key>
+			<text>Art</text>
+		</string>
+		<string>
+			<key>String_Ritual</key>
+			<text>Ritual</text>
+		</string>
+		<string>
+			<key>String_Enchantment</key>
+			<text>Enchantment</text>
+		</string>
+		<string>
+			<key>String_Enhancement</key>
+			<text>Enhancement</text>
+		</string>
+		<string>
+			<key>Label_Metamagic</key>
+			<text>Metamagic:</text>
+		</string>
+		<string>
+			<key>Label_Echo</key>
+			<text>Echo:</text>
+		</string>
+		<string>
+			<key>Label_Art</key>
+			<text>Art:</text>
+		</string>
+		<string>
+			<key>Label_Ritual</key>
+			<text>Ritual:</text>
+		</string>
+		<string>
+			<key>Label_Enchantment</key>
+			<text>Enchantment:</text>
+		</string>
+		<string>
+			<key>Label_Enhancement</key>
+			<text>Enhancement:</text>
 		</string>
 		<string>
 			<key>String_MartialArtsCount</key>
@@ -1358,6 +1406,14 @@
 			<text>Cannot Remove Cyberware</text>
 		</string>
 		<string>
+			<key>Message_CannotRemoveSpell</key>
+			<text>This item cannot be removed because it was acquired as an initiation bonus.</text>
+		</string>
+		<string>
+			<key>MessageTitle_CannotRemoveSpell</key>
+			<text>Cannot Remove Spell</text>
+		</string>
+		<string>
 			<key>Message_ComplexFormLimit</key>
 			<text>Your number of Complex Forms cannot exceed twice your LOG score.</text>
 		</string>
@@ -1806,6 +1862,10 @@
 			<text>Are you sure you want to spend Karma on improving {0} to {1} for {2} Karma?</text>
 		</string>
 		<string>
+			<key>Message_ConfirmKarmaandNuyenExpense</key>
+			<text>Are you sure you want to spend Karma and Nuyen on improving {0} to {1} for {2} Karma and {3} Nuyen?</text>
+		</string>
+		<string>
 			<key>Message_ConfirmKarmaExpenseSpecialization</key>
 			<text>Are you sure you want to spend Karma on changing your Specialization to {0} for {1} Karma?</text>
 		</string>
@@ -1928,6 +1988,14 @@
 		<string>
 			<key>MessageTitle_NoUndoHistory</key>
 			<text>No Undo History</text>
+		</string>
+		<string>
+			<key>Message_UndoNotHighestGrade</key>
+			<text>You must undo the the entries for initiate grades above this one first.</text>
+		</string>
+		<string>
+			<key>MessageTitle_NotHighestGrade</key>
+			<text>Cannot Undo This Entry</text>
 		</string>
 		<string>
 			<key>Message_UndoExpense</key>
@@ -3067,6 +3135,10 @@ Only one attribute may be at its Maximum value during character creation.</text>
 			<text>Selected Rituals</text>
 		</string>
 		<string>
+			<key>Node_SelectedEnchantments</key>
+			<text>Selected Enchantments</text>
+		</string>
+		<string>
 			<key>Tip_SpellsSelectedSpells</key>
 			<text>Each Spell costs {0} BP.</text>
 		</string>
@@ -3258,11 +3330,15 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		</string>
 		<string>
 			<key>Checkbox_GroupInitiation</key>
-			<text>Group Initiation (-20%)</text>
+			<text>Group Initiation (-10%)</text>
 		</string>
 		<string>
 			<key>Checkbox_InitiationOrdeal</key>
-			<text>Initiation Ordeal (-20%)</text>
+			<text>Initiation Ordeal (-10%)</text>
+		</string>
+		<string>
+			<key>Checkbox_InitiationSchooling</key>
+			<text>Schooling (-10%)</text>
 		</string>
 		<string>
 			<key>Checkbox_NetworkSubmersion</key>
@@ -3279,6 +3355,14 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		<string>
 			<key>Checkbox_JoinedNetwork</key>
 			<text>Joined Network</text>
+		</string>
+		<string>
+			<key>Button_AddInitiateGrade</key>
+			<text>Add Initiate Grade</text>
+		</string>
+		<string>
+			<key>Button_AddSubmersionGrade</key>
+			<text>Add Submersion Grade</text>
 		</string>
 		<string>
 			<key>Button_AddMetamagic</key>
@@ -5507,6 +5591,10 @@ Only one attribute may be at its Maximum value during character creation.</text>
 			<text>Knucks Benefit from Unarmed Attack Bonuses</text>
 		</string>
 		<string>
+			<key>Checkbox_Options_IgnoreArt</key>
+			<text>Ignore Art Requirements from Street Grimoire</text>
+		</string>
+		<string>
 			<key>Checkbox_Options_SingleArmorEncumbrance</key>
 			<text>No Armor Encumbrance when wearing only one piece of Armor (AR 44)</text>
 		</string>
@@ -6115,6 +6203,22 @@ Only one attribute may be at its Maximum value during character creation.</text>
 			<text>Select an Echo</text>
 		</string>
 		<string>
+			<key>Title_SelectArt</key>
+			<text>Select an Art</text>
+		</string>
+		<string>
+			<key>Title_SelectEnhancement</key>
+			<text>Select an Enhancement</text>
+		</string>
+		<string>
+			<key>Title_SelectEnchantment</key>
+			<text>Select an Enchantment</text>
+		</string>
+		<string>
+			<key>Title_SelectRitual</key>
+			<text>Select an Ritual</text>
+		</string>
+		<string>
 			<key>Message_SelectMetamagic_MetamagicRequirement</key>
 			<text>You do not meet the requirements for this Metamagic. You must meet all of the following criteria:</text>
 		</string>
@@ -6131,12 +6235,60 @@ Only one attribute may be at its Maximum value during character creation.</text>
 			<text>Echo Requirement</text>
 		</string>
 		<string>
+			<key>Message_SelectArt_ArtRequirement</key>
+			<text>You do not meet the requirements for this Art. You must meet all of the following criteria:</text>
+		</string>
+		<string>
+			<key>MessageTitle_SelectArt_ArtRequirement</key>
+			<text>Art Requirement</text>
+		</string>
+		<string>
+			<key>Message_SelectArt_EnchantmentRequirement</key>
+			<text>You do not meet the requirements for this Enchantment. You must meet all of the following criteria:</text>
+		</string>
+		<string>
+			<key>MessageTitle_SelectArt_EnchantmentRequirement</key>
+			<text>Enchantment Requirement</text>
+		</string>
+		<string>
+			<key>Message_SelectArt_EnhancementRequirement</key>
+			<text>You do not meet the requirements for this Enhancement. You must meet all of the following criteria:</text>
+		</string>
+		<string>
+			<key>MessageTitle_SelectArt_EnhancementRequirement</key>
+			<text>Enhancement Requirement</text>
+		</string>
+		<string>
+			<key>Message_SelectArt_RitualRequirement</key>
+			<text>You do not meet the requirements for this Ritual. You must meet all of the following criteria:</text>
+		</string>
+		<string>
+			<key>MessageTitle_SelectArt_RitualRequirement</key>
+			<text>Ritual Requirement</text>
+		</string>
+		<string>
 			<key>Checkbox_SelectMetamagic_LimitList</key>
 			<text>Show only Metamagics I can take</text>
 		</string>
 		<string>
 			<key>Checkbox_SelectEcho_LimitList</key>
 			<text>Show only Echoes I can take</text>
+		</string>
+		<string>
+			<key>Checkbox_SelectArt_LimitList</key>
+			<text>Show only Arts I can take</text>
+		</string>
+		<string>
+			<key>Checkbox_SelectEnhancement_LimitList</key>
+			<text>Show only Enhancements I can take</text>
+		</string>
+		<string>
+			<key>Checkbox_SelectEnchantment_LimitList</key>
+			<text>Show only Enchantments I can take</text>
+		</string>
+		<string>
+			<key>Checkbox_SelectRitual_LimitList</key>
+			<text>Show only Rituals I can take</text>
 		</string>
 		<!-- Select Nexus Window -->
 		<string>

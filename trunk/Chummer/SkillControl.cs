@@ -63,11 +63,7 @@ namespace Chummer
 							intKarmaCost = _objSkill.CharacterObject.Options.KarmaNewActiveSkill;
 						else
 						{
-							if (_objSkill.Rating == 6)
-								// The cost for raising an Active Skill from 6 to 7 (thanks to Aptitude) is doubled.
-								intKarmaCost = ((_objSkill.Rating + 1) * _objSkill.CharacterObject.Options.KarmaImproveActiveSkill) * 2;
-							else
-								intKarmaCost = (_objSkill.Rating + 1) * _objSkill.CharacterObject.Options.KarmaImproveActiveSkill;
+							intKarmaCost = (_objSkill.Rating + 1) * _objSkill.CharacterObject.Options.KarmaImproveActiveSkill;
 						}
 					}
 					else
@@ -170,7 +166,10 @@ namespace Chummer
 
 		private void lblSkillName_Click(object sender, EventArgs e)
 		{
-			nudSkill.Focus();
+            string strBook = _objSkill.Source + " " + _objSkill.Page;
+            CommonFunctions objCommon = new CommonFunctions();
+            objCommon.OpenPDF(strBook);
+            nudSkill.Focus();
 		}
 
 		private void cboSkillName_SelectedIndexChanged(object sender, EventArgs e)
@@ -305,11 +304,7 @@ namespace Chummer
 							intKarmaCost = _objSkill.CharacterObject.Options.KarmaNewActiveSkill;
 						else
 						{
-							if (value == 6)
-								// The cost for raising an Active Skill from 6 to 7 (thanks to Aptitude) is doubled.
-								intKarmaCost = ((value + 1) * _objSkill.CharacterObject.Options.KarmaImproveActiveSkill) * 2;
-							else
-								intKarmaCost = (value + 1) * _objSkill.CharacterObject.Options.KarmaImproveActiveSkill;
+							intKarmaCost = (value + 1) * _objSkill.CharacterObject.Options.KarmaImproveActiveSkill;
 						}
 					}
 					else

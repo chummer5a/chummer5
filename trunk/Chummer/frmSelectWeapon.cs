@@ -74,7 +74,8 @@ namespace Chummer
 			if (cboCategory.SelectedIndex == -1)
 				cboCategory.SelectedIndex = 0;
 
-            LoadGrid();
+            if (chkBrowse.Checked)
+                LoadGrid();
         }
 
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,13 +86,25 @@ namespace Chummer
 			XmlNodeList objXmlWeaponList = _objXmlDocument.SelectNodes("/chummer/weapons/weapon[category = \"" + cboCategory.SelectedValue + "\" and (" + _objCharacter.Options.BookXPath() + ")]");
 			foreach (XmlNode objXmlWeapon in objXmlWeaponList)
 			{
-				ListItem objItem = new ListItem();
-				objItem.Value = objXmlWeapon["name"].InnerText;
-				if (objXmlWeapon["translate"] != null)
-					objItem.Name = objXmlWeapon["translate"].InnerText;
-				else
-					objItem.Name = objXmlWeapon["name"].InnerText;
-				lstWeapons.Add(objItem);
+                bool blnCyberware = false;
+                try 
+                {
+                    if (objXmlWeapon["cyberware"].InnerText == "yes")
+                        blnCyberware = true;
+                }
+                catch
+                { }
+
+                if (!blnCyberware)
+                {
+                    ListItem objItem = new ListItem();
+                    objItem.Value = objXmlWeapon["name"].InnerText;
+                    if (objXmlWeapon["translate"] != null)
+                        objItem.Name = objXmlWeapon["translate"].InnerText;
+                    else
+                        objItem.Name = objXmlWeapon["name"].InnerText;
+                    lstWeapons.Add(objItem);
+                }
 			}
 			SortListItem objSort = new SortListItem();
 			lstWeapons.Sort(objSort.Compare);
@@ -100,7 +113,8 @@ namespace Chummer
 			lstWeapon.DisplayMember = "Name";
 			lstWeapon.DataSource = lstWeapons;
 
-            LoadGrid();
+            if (chkBrowse.Checked)
+                LoadGrid();
         }
 
         private void lstWeapon_SelectedIndexChanged(object sender, EventArgs e)
@@ -459,6 +473,9 @@ namespace Chummer
             {
                 tmrSearch_Tick(this, null);
             }
+
+            if (chkBrowse.Checked)
+                LoadGrid();
         }
 
         private void LoadGrid()
@@ -496,33 +513,45 @@ namespace Chummer
 
             foreach (XmlNode objXmlWeapon in objXmlWeaponList)
             {
-                TreeNode objNode = new TreeNode();
-                Weapon objWeapon = new Weapon(_objCharacter);
-                objWeapon.Create(objXmlWeapon, _objCharacter, objNode, null, null, null);
-
-                string strWeaponName = objWeapon.Name;
-                string strDice = objWeapon.DicePool;
-                int intAccuracy = Convert.ToInt32(objWeapon.TotalAccuracy);
-                string strDamage = objWeapon.CalculatedDamage(_objCharacter.STR.Augmented);
-                string strAP = objWeapon.TotalAP;
-                if (strAP == "-")
-                    strAP = "0";
-                int intRC = Convert.ToInt32(objWeapon.TotalRC);
-                string strAmmo = objWeapon.Ammo;
-                string strMode = objWeapon.Mode;
-                string strReach = objWeapon.TotalReach.ToString();
-                string strAccessories = "";
-                foreach (WeaponAccessory objAccessory in objWeapon.WeaponAccessories)
+                bool blnCyberware = false;
+                try 
                 {
-                    if (strAccessories.Length > 0)
-                        strAccessories += "\n";
-                    strAccessories += objAccessory.Name;
+                    if (objXmlWeapon["cyberware"].InnerText == "yes")
+                        blnCyberware = true;
                 }
-                string strAvail = objWeapon.Avail.ToString();
-                string strSource = objWeapon.Source + " " + objWeapon.Page;
-                int intCost = objWeapon.Cost;
+                catch
+                { }
 
-                tabWeapons.Rows.Add(strWeaponName, strDice, intAccuracy, strDamage, strAP, intRC, strAmmo, strMode, strReach, strAccessories, strAvail, strSource, intCost);
+                if (!blnCyberware)
+                {
+                    TreeNode objNode = new TreeNode();
+                    Weapon objWeapon = new Weapon(_objCharacter);
+                    objWeapon.Create(objXmlWeapon, _objCharacter, objNode, null, null, null);
+
+                    string strWeaponName = objWeapon.Name;
+                    string strDice = objWeapon.DicePool;
+                    int intAccuracy = Convert.ToInt32(objWeapon.TotalAccuracy);
+                    string strDamage = objWeapon.CalculatedDamage(_objCharacter.STR.Augmented);
+                    string strAP = objWeapon.TotalAP;
+                    if (strAP == "-")
+                        strAP = "0";
+                    int intRC = Convert.ToInt32(objWeapon.TotalRC);
+                    string strAmmo = objWeapon.Ammo;
+                    string strMode = objWeapon.Mode;
+                    string strReach = objWeapon.TotalReach.ToString();
+                    string strAccessories = "";
+                    foreach (WeaponAccessory objAccessory in objWeapon.WeaponAccessories)
+                    {
+                        if (strAccessories.Length > 0)
+                            strAccessories += "\n";
+                        strAccessories += objAccessory.Name;
+                    }
+                    string strAvail = objWeapon.Avail.ToString();
+                    string strSource = objWeapon.Source + " " + objWeapon.Page;
+                    int intCost = objWeapon.Cost;
+
+                    tabWeapons.Rows.Add(strWeaponName, strDice, intAccuracy, strDamage, strAP, intRC, strAmmo, strMode, strReach, strAccessories, strAvail, strSource, intCost);
+                }
             }
 
             DataSet set = new DataSet("weapons");
@@ -674,6 +703,12 @@ namespace Chummer
         {
             if (lstWeapon.Text != "" || dgvWeapons.Visible)
                 AcceptForm();
+        }
+
+        private void lblSource_Click(object sender, EventArgs e)
+        {
+            CommonFunctions objCommon = new CommonFunctions(_objCharacter);
+            objCommon.OpenPDF(lblSource.Text);
         }
     }
 }

@@ -216,6 +216,7 @@
             this.lblSource.Size = new System.Drawing.Size(47, 13);
             this.lblSource.TabIndex = 19;
             this.lblSource.Text = "[Source]";
+            this.lblSource.Click += new System.EventHandler(this.lblSource_Click);
             // 
             // txtSearch
             // 
@@ -488,7 +489,6 @@
             this.CancelButton = this.cmdCancel;
             this.ClientSize = new System.Drawing.Size(584, 378);
             this.Controls.Add(this.chkBrowse);
-            this.Controls.Add(this.dgvArmor);
             this.Controls.Add(this.lblArmorValue);
             this.Controls.Add(this.lblArmorValueLabel);
             this.Controls.Add(this.lblTest);
@@ -515,6 +515,7 @@
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdOK);
             this.Controls.Add(this.lstArmor);
+            this.Controls.Add(this.dgvArmor);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSelectArmor";

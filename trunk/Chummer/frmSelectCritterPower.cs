@@ -552,5 +552,11 @@ namespace Chummer
 			}
 		}
 		#endregion
+
+        private void lblCritterPowerSource_Click(object sender, EventArgs e)
+        {
+            CommonFunctions objCommon = new CommonFunctions(_objCharacter);
+            objCommon.OpenPDF(lblCritterPowerSource.Text);
+        }
 	}
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-495</version>
+	<version>-494</version>
 	<categories>
 		<category>Ammunition</category>
 		<category>Armor Enhancements</category>
@@ -3010,7 +3010,7 @@
 			<category>Breaking and Entering Gear</category>
 			<rating>0</rating>
 			<avail>8</avail>
-			<cost>80</cost>
+			<cost>500</cost>
 			<addweapon>Monofilament Chainsaw</addweapon>
 			<source>SR5</source>
 			<page>448</page>
@@ -3167,6 +3167,7 @@
 		<gear>
 			<name>Respirator</name>
 			<category>Survival Gear</category>
+			<armorcapacity>[2]</armorcapacity>
 			<rating>6</rating>
 			<avail>0</avail>
 			<cost>Rating * 50</cost>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-497</version>
+	<version>-496</version>
 	<mentors>
 		<mentor>
 			<name>Bear</name>
@@ -400,7 +400,7 @@
 					<bonus>
 						<specificpower>
 							<name>Improved Ability (skill)</name>
-							<selectskill includecategory="Influence">
+							<selectskill limittoskill="Con,Impersonation,Performance,Etiquette,Leadership,Negotiation">
 								<val>1</val>
 								<applytorating>no</applytorating>
 							</selectskill>

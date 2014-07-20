@@ -52,6 +52,7 @@
             this.lblPowerName.Size = new System.Drawing.Size(67, 13);
             this.lblPowerName.TabIndex = 0;
             this.lblPowerName.Text = "Power Name";
+            this.lblPowerName.Click += new System.EventHandler(this.lblPowerName_Click);
             // 
             // cmdDelete
             // 

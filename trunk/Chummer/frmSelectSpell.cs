@@ -108,6 +108,25 @@ namespace Chummer
                 else
                     blnInclude = true;
 
+                // Art requirements.
+                bool blnStreetGrimoire = (_objCharacter.Options.Books.Contains("SG"));
+                if (blnStreetGrimoire && !_objCharacter.Options.IgnoreArt)
+                {
+                    foreach (XmlNode objXmlArt in objXmlSpell.SelectNodes("required/allof/art"))
+                    {
+                        bool blnFound = false;
+                        foreach (Art objArt in _objCharacter.Arts)
+                        {
+                            if (objArt.Name == objXmlArt.InnerText)
+                            {
+                                blnFound = true;
+                                break;
+                            }
+                        }
+                        blnInclude = blnInclude && blnFound;
+                    }
+                }
+
                 if (blnInclude)
                 {
                     if (objXmlSpell["translate"] != null)
@@ -647,6 +666,12 @@ namespace Chummer
 
                 lblDV.Text = strDV;
             }
+        }
+
+        private void lblSource_Click(object sender, EventArgs e)
+        {
+            CommonFunctions objCommon = new CommonFunctions(_objCharacter);
+            objCommon.OpenPDF(lblSource.Text);
         }
 	}
 }

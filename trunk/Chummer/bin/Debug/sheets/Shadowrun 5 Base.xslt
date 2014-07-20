@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Character sheet based on the Shadowrun 5th Edition Character Sheet -->
 <!-- Created by Keith Rudolph, krudolph@gmail.com -->
-<!-- Version -499 -->
+<!-- Version -498 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 	<xsl:include href="ConditionMonitor.xslt"/>
@@ -1051,6 +1051,28 @@
 												</xsl:choose>
 											</td>
 										</tr>
+										<xsl:if test="arts != ''">
+											<tr>
+												<td>
+													<strong>ARTS</strong>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<xsl:for-each select="arts/art">
+														<xsl:sort select="name"/>
+														<xsl:value-of select="name"/>
+														<xsl:text> </xsl:text>
+														<xsl:value-of select="source"/>
+														<xsl:text> </xsl:text>
+														<xsl:value-of select="page"/>
+														<xsl:if test="notes != ''">(<xsl:value-of
+															select="notes"/>)</xsl:if>
+														<xsl:if test="position() != last()">; </xsl:if>
+													</xsl:for-each>
+												</td>
+											</tr>
+										</xsl:if>
 										<tr>
 											<td>
 												<xsl:choose>
@@ -1283,6 +1305,28 @@
 											<td width="20%" style="text-align:center;"> </td>
 										</tr>
 										<xsl:call-template name="powers"/>
+										<xsl:if test="enhancements != ''">
+											<tr>
+												<td>
+													<strong>ENHANCEMENTS</strong>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<xsl:for-each select="enhancements/enhancement">
+														<xsl:sort select="name"/>
+														<xsl:value-of select="name"/>
+														<xsl:text> </xsl:text>
+														<xsl:value-of select="source"/>
+														<xsl:text> </xsl:text>
+														<xsl:value-of select="page"/>
+														<xsl:if test="notes != ''">(<xsl:value-of
+															select="notes"/>)</xsl:if>
+														<xsl:if test="position() != last()">; </xsl:if>
+													</xsl:for-each>
+												</td>
+											</tr>
+										</xsl:if>
 										<tr>
 											<td class="rowsummary" colspan="4"> ADEPT POWERS <span
 												class="rowsummarybutton"
@@ -2951,6 +2995,23 @@
 					<xsl:value-of select="page"/>
 				</td>
 			</tr>
+			<xsl:if test="enhancements != ''">
+				<tr>
+					<td colspan="3" class="indent">
+						<xsl:for-each select="enhancements/enhancement">
+							<xsl:sort select="name"/>
+							<xsl:value-of select="name"/>
+							<xsl:text> </xsl:text>
+							<xsl:value-of select="source"/>
+							<xsl:text> </xsl:text>
+							<xsl:value-of select="page"/>
+							<xsl:if test="notes != ''">(<xsl:value-of
+								select="notes"/>)</xsl:if>
+							<xsl:if test="position() != last()">; </xsl:if>
+						</xsl:for-each>
+					</td>
+				</tr>
+			</xsl:if>
 			<xsl:if test="notes != ''">
 				<tr>
 					<xsl:if test="position() mod 2 != 1">

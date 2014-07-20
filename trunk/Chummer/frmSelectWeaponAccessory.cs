@@ -103,18 +103,25 @@ namespace Chummer
 			if (chkFreeItem.Checked)
 				strCost = "0";
 
-			XPathNavigator nav = _objXmlDocument.CreateNavigator();
-			XPathExpression xprCost = nav.Compile(strCost);
-			int intCost = Convert.ToInt32(Convert.ToDouble(nav.Evaluate(xprCost), GlobalOptions.Instance.CultureInfo));
+            if (strCost.Contains("Variable"))
+            {
+                lblCost.Text = strCost;
+                lblTest.Text = "";
+            }
+            else
+            {
+                XPathNavigator nav = _objXmlDocument.CreateNavigator();
+                XPathExpression xprCost = nav.Compile(strCost);
+                int intCost = Convert.ToInt32(Convert.ToDouble(nav.Evaluate(xprCost), GlobalOptions.Instance.CultureInfo));
 
-			// Apply any markup.
-			double dblCost = Convert.ToDouble(intCost, GlobalOptions.Instance.CultureInfo);
-			dblCost *= 1 + (Convert.ToDouble(nudMarkup.Value, GlobalOptions.Instance.CultureInfo) / 100.0);
-			intCost = Convert.ToInt32(dblCost);
+                // Apply any markup.
+                double dblCost = Convert.ToDouble(intCost, GlobalOptions.Instance.CultureInfo);
+                dblCost *= 1 + (Convert.ToDouble(nudMarkup.Value, GlobalOptions.Instance.CultureInfo) / 100.0);
+                intCost = Convert.ToInt32(dblCost);
 
-			lblCost.Text = String.Format("{0:###,###,##0¥}", intCost);
-
-			lblTest.Text = _objCharacter.AvailTest(intCost, lblAvail.Text);
+                lblCost.Text = String.Format("{0:###,###,##0¥}", intCost);
+                lblTest.Text = _objCharacter.AvailTest(intCost, lblAvail.Text);
+            }
 
 			string strBook = _objCharacter.Options.LanguageBookShort(objXmlAccessory["source"].InnerText);
 			string strPage = objXmlAccessory["page"].InnerText;
@@ -279,5 +286,11 @@ namespace Chummer
 			lblSource.Left = lblSourceLabel.Left + lblSourceLabel.Width + 6;
 		}
 		#endregion
+
+        private void lblSource_Click(object sender, EventArgs e)
+        {
+            CommonFunctions objCommon = new CommonFunctions(_objCharacter);
+            objCommon.OpenPDF(lblSource.Text);
+        }
 	}
 }

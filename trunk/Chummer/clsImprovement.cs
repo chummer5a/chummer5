@@ -134,6 +134,8 @@ namespace Chummer
 			Cyberzombie = 24,
 			StackedFocus = 25,
 			AttributeLoss = 26,
+            Art = 27,
+            Enhancement = 28,
 			Custom = 999,
         }
 
