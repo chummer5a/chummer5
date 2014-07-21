@@ -1,3 +1,8 @@
+Build 5.127 (beta)
+- Fixed a bug where it was not rounding Essence up when calculating your Social Limit.
+- Fixed a bug which would prevent adding Sensor Functions to Sensors.
+- Fixed a bug which would prevent any metamagics from being shown when selecting a new metamagic.
+
 Build 5.126 (beta)
 - Completely replaced the Initiation tab. It now should correctly handle Initiation (with discounts), Arts, Enchantments, Enhancements, Metamagics, and Rituals. Add an Initiation grade and then right click on the grade to add Arts, Enchantments, Enhancements, Metamagics, and Rituals.  In case you're not using Street Grimoire or choose not to use the Arts system, there is a new item on the House Rules tab of the Options dialog that you can use to ignore the Art requirements for metamagics and the like.
 - Fixing the above item led to two powers referenced in Street Grimoire that haven't previously been published.  These have only been provided via a forum post by one of the designers.  So that post is now a source (SFP1) that can be enabled in order to provide those powers (Keratin Control and Living Focus).

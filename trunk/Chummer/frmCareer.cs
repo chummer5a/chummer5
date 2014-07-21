@@ -23503,14 +23503,28 @@ namespace Chummer
 			if (_objOptions.EnforceCapacity)
 			{
 				objSelectedArmor.Gear.Add(objSelectedGear);
-				if (objSelectedArmor.CapacityRemaining < 0)
-				{
-					objSelectedArmor.Gear.Remove(objSelectedGear);
-					MessageBox.Show(LanguageManager.Instance.GetString("Message_CapacityReached"), LanguageManager.Instance.GetString("MessageTitle_CapacityReached"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-					return frmPickGear.AddAgain;
-				}
-				else
-					objSelectedArmor.Gear.Remove(objSelectedGear);
+                if (treArmor.SelectedNode.Level > 1)
+                {
+                    if (objSelectedGear.CapacityRemaining < 0)
+				    {
+					    objSelectedArmor.Gear.Remove(objSelectedGear);
+					    MessageBox.Show(LanguageManager.Instance.GetString("Message_CapacityReached"), LanguageManager.Instance.GetString("MessageTitle_CapacityReached"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+					    return frmPickGear.AddAgain;
+				    }
+				    else
+					    objSelectedArmor.Gear.Remove(objSelectedGear);
+                }
+                else
+                {
+				    if (objSelectedArmor.CapacityRemaining < 0)
+				    {
+					    objSelectedArmor.Gear.Remove(objSelectedGear);
+					    MessageBox.Show(LanguageManager.Instance.GetString("Message_CapacityReached"), LanguageManager.Instance.GetString("MessageTitle_CapacityReached"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+					    return frmPickGear.AddAgain;
+				    }
+				    else
+					    objSelectedArmor.Gear.Remove(objSelectedGear);
+                }
 			}
 
 			// Check the item's Cost and make sure the character can afford it.

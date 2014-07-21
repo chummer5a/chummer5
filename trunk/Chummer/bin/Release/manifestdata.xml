@@ -3,7 +3,7 @@
   <file>
     <name>Chummer5.exe</name>
     <type>Application</type>
-    <version>0.0.5.126</version>
+    <version>0.0.5.127</version>
     <description>Chummer</description>
     <notes>- Chummer Application</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMeU9jcjNKNldfdkU</url>
@@ -283,7 +283,7 @@
   <file>
     <name>data/mentors.xml</name>
     <type>Data Files</type>
-    <version>-496</version>
+    <version>-495</version>
     <description>Mentor Spirits</description>
     <notes>- Mentor Spirits data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMQk1lODNHaU5ia1E</url>
@@ -291,7 +291,7 @@
   <file>
     <name>data/metamagic.xml</name>
     <type>Data Files</type>
-    <version>-498</version>
+    <version>-497</version>
     <description>Metamagic</description>
     <notes>- Metamagic data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMZkRqSkZoRTU0Tjg</url>
