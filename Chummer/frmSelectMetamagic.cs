@@ -198,10 +198,17 @@ namespace Chummer
                     {
 					    ListItem objItem = new ListItem();
 					    objItem.Value = objXmlMetamagic["name"].InnerText;
-					    if (objXmlMetamagic["translate"] != null)
-						    objItem.Name = objXmlMetamagic["translate"].InnerText;
-					    else
-						    objItem.Name = objXmlMetamagic["name"].InnerText;
+                        try
+                        {
+                            if (objXmlMetamagic["translate"] != null)
+                                objItem.Name = objXmlMetamagic["translate"].InnerText;
+                            else
+                                objItem.Name = objXmlMetamagic["name"].InnerText;
+                        }
+                        catch
+                        {
+                            objItem.Name = objXmlMetamagic["name"].InnerText;
+                        }
 					    lstMetamagics.Add(objItem);
                     }
 				}

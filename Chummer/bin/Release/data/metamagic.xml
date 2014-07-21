@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-498</version>
+	<version>-497</version>
 	<metamagics>
 		<metamagic>
 			<name>Adept Centering</name>
@@ -407,7 +407,7 @@
 			<magician>no</magician>
 			<required>
 				<allof>
-					<quality>Domain of the Spiritual</quality>
+					<quality>The Spiritual Way</quality>
 				</allof>
 			</required>
 			<source>SG</source>

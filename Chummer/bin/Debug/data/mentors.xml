@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-496</version>
+	<version>-495</version>
 	<mentors>
 		<mentor>
 			<name>Bear</name>
@@ -585,9 +585,9 @@
 						<specificpower>
 							<name>Attribute Boost</name>
 							<val>2</val>
-							<specificattribute>
-								<name>AGI</name>
-							</specificattribute>
+							<selectattribute>
+								<attribute>AGI</attribute>
+							</selectattribute>
 						</specificpower>
 					</bonus>
 				</choice>
