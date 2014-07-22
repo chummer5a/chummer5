@@ -1,4 +1,5 @@
 Build 5.128 (beta)
+- First and foremost, recent builds (including this one) have been getting updates to the French translation files courtesy of Lous_59. Thank you for your amazing work!
 - Fixed a bug preventing loading bows or crossbows with ammunition in Career mode.
 - Cleaned up the former Commlinks section on the Character Sheet.  It now is the Device section and each Commlink, RCC, or Cyberdeck shows itself as such.  Fixed a few problem items that were showing their stats incorrectly.
 - Added device stat labels to cyberware, armor, weapon, gear, and vehicle tabs so that you can see the stats for selected commlinks, cyberdecks, or rigger command consoles.
