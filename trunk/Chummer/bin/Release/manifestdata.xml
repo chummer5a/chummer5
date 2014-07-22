@@ -3,7 +3,7 @@
   <file>
     <name>Chummer5.exe</name>
     <type>Application</type>
-    <version>0.0.5.127</version>
+    <version>0.0.5.128</version>
     <description>Chummer</description>
     <notes>- Chummer Application</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMeU9jcjNKNldfdkU</url>
@@ -179,7 +179,7 @@
   <file>
     <name>data/armor.xml</name>
     <type>Data Files</type>
-    <version>-498</version>
+    <version>-497</version>
     <description>Armor</description>
     <notes>- Armor data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMWFFJenBqREhtNDA</url>
@@ -187,7 +187,7 @@
   <file>
     <name>data/bioware.xml</name>
     <type>Data Files</type>
-    <version>-500</version>
+    <version>-499</version>
     <description>Bioware</description>
     <notes>- Bioware data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMZGtsYUI3bTV1T3c</url>
@@ -203,7 +203,7 @@
   <file>
     <name>data/complexforms.xml</name>
     <type>Data Files</type>
-    <version>-500</version>
+    <version>-499</version>
     <description>Complex Forms</description>
     <notes>- Complex Forms data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMbEJRekRjOGJnNXM</url>
@@ -243,7 +243,7 @@
   <file>
     <name>data/gear.xml</name>
     <type>Data Files</type>
-    <version>-494</version>
+    <version>-493</version>
     <description>Gear</description>
     <notes>- Gear data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMRkI2b2hUQ1JlOHM</url>
@@ -323,7 +323,7 @@
   <file>
     <name>data/powers.xml</name>
     <type>Data Files</type>
-    <version>-495</version>
+    <version>-494</version>
     <description>Powers</description>
     <notes>- Powers data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMUFZ3ZklVZ2VCR28</url>
@@ -347,7 +347,7 @@
   <file>
     <name>data/qualities.xml</name>
     <type>Data Files</type>
-    <version>-494</version>
+    <version>-493</version>
     <description>Qualities</description>
     <notes>- Qualities data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMUUtCaWdFRW9UUGc</url>
