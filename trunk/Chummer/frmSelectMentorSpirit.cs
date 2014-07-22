@@ -102,22 +102,31 @@ namespace Chummer
 
 				foreach (XmlNode objChoice in objXmlMentor["choices"].SelectNodes("choice"))
 				{					
-					ListItem objItem = new ListItem();
-					objItem.Value = objChoice["name"].InnerText;
-					if (objChoice["translate"] != null)
-						objItem.Name = objChoice["translate"].InnerText;
-					else
-						objItem.Name = objChoice["name"].InnerText;
+                    bool blnShow = true;
+                    if (objChoice["name"].InnerText.StartsWith("Adept:") && !_objCharacter.AdeptEnabled)
+                        blnShow = false;
+                    if (objChoice["name"].InnerText.StartsWith("Magician:") && !_objCharacter.MagicianEnabled)
+                        blnShow = false;
 
-					if (objChoice.Attributes["set"] != null)
-					{
-						if (objChoice.Attributes["set"].InnerText == "2")
-							lstChoice2.Add(objItem);
-						else
-							lstChoice1.Add(objItem);
-					}
-					else
-						lstChoice1.Add(objItem);
+                    if (blnShow)
+                    {
+                        ListItem objItem = new ListItem();
+                        objItem.Value = objChoice["name"].InnerText;
+                        if (objChoice["translate"] != null)
+                            objItem.Name = objChoice["translate"].InnerText;
+                        else
+                            objItem.Name = objChoice["name"].InnerText;
+
+                        if (objChoice.Attributes["set"] != null)
+                        {
+                            if (objChoice.Attributes["set"].InnerText == "2")
+                                lstChoice2.Add(objItem);
+                            else
+                                lstChoice1.Add(objItem);
+                        }
+                        else
+                            lstChoice1.Add(objItem);
+                    }
 				}
 
 				lblChoice1.Visible = true;

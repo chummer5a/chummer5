@@ -6377,6 +6377,7 @@ namespace Chummer
         private string _strSource = "";
 		private string _strPage = "";
         private string _strNotes = "";
+        private string _strExtra = "";
 		private readonly Character _objCharacter;
 
 		#region Constructor, Create, Save, Load, and Print Methods
@@ -6392,13 +6393,14 @@ namespace Chummer
 		/// <param name="objCharacter">Character the Gear is being added to.</param>
 		/// <param name="objNode">TreeNode to populate a TreeView.</param>
 		/// <param name="strForcedValue">Value to forcefully select for any ImprovementManager prompts.</param>
-		public void Create(XmlNode objXmlProgramNode, Character objCharacter, TreeNode objNode, string strForcedValue = "")
+		public void Create(XmlNode objXmlProgramNode, Character objCharacter, TreeNode objNode, string strExtra = "")
 		{
 			_strName = objXmlProgramNode["name"].InnerText;
             _strTarget = objXmlProgramNode["target"].InnerText;
 			_strSource = objXmlProgramNode["source"].InnerText;
 			_strPage = objXmlProgramNode["page"].InnerText;
             _strDuration = objXmlProgramNode["duration"].InnerText;
+            _strExtra = strExtra;
             _strFV = objXmlProgramNode["fv"].InnerText;
             try
             {
@@ -6422,7 +6424,8 @@ namespace Chummer
             objWriter.WriteElementString("target", _strTarget);
             objWriter.WriteElementString("duration", _strDuration);
             objWriter.WriteElementString("fv", _strFV);
-			objWriter.WriteElementString("source", _strSource);
+            objWriter.WriteElementString("extra", _strExtra);
+            objWriter.WriteElementString("source", _strSource);
 			objWriter.WriteElementString("page", _strPage);
 			objWriter.WriteElementString("notes", _strNotes);
 			objWriter.WriteEndElement();
@@ -6459,6 +6462,13 @@ namespace Chummer
             try
             {
                 _strFV = objNode["fv"].InnerText;
+            }
+            catch
+            {
+            }
+            try
+            {
+                _strExtra = objNode["extra"].InnerText;
             }
             catch
             {
@@ -6532,7 +6542,22 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Complex Form's extra info.
+        /// </summary>
+        public string Extra
+        {
+            get
+            {
+                return _strExtra;
+            }
+            set
+            {
+                _strExtra = value;
+            }
+        }
+
+        /// <summary>
 		/// The name of the object as it should be displayed on printouts (translated name only).
 		/// </summary>
 		public string DisplayNameShort
@@ -6540,6 +6565,8 @@ namespace Chummer
 			get
 			{
 				string strReturn = _strName;
+                if (_strExtra != "")
+                    strReturn += " (" + _strExtra + ")";
 				// Get the translated name if applicable.
                 //if (GlobalOptions.Instance.Language != "en-us")
                 //{
@@ -7309,6 +7336,7 @@ namespace Chummer
         private string _strName = "";
         private string _strNotes = "";
         private string _strLimit = "";
+        private string _strCondition = "";
         private int _intBonus = 0;
         private Character _objCharacter;
 
@@ -7348,11 +7376,12 @@ namespace Chummer
         /// <param name="strLimit">The limit this modifies.</param>
         /// <param name="objCharacter">Character the modifier is being added to.</param>
         /// <param name="objNode">TreeNode to populate a TreeView.</param>
-        public void Create(string strName, int intBonus, string strLimit, Character objCharacter, TreeNode objNode)
+        public void Create(string strName, int intBonus, string strLimit, string strCondition, Character objCharacter, TreeNode objNode)
         {
             _strName = strName;
             _strLimit = strLimit;
             _intBonus = intBonus;
+            _strCondition = strCondition;
 
             objNode.Text = DisplayName;
             objNode.Tag = _guiID.ToString();
@@ -7368,6 +7397,7 @@ namespace Chummer
             objWriter.WriteElementString("guid", _guiID.ToString());
             objWriter.WriteElementString("name", _strName);
             objWriter.WriteElementString("limit", _strLimit);
+            objWriter.WriteElementString("condition", _strCondition);
             objWriter.WriteElementString("bonus", _intBonus.ToString());
             objWriter.WriteElementString("notes", _strNotes);
             objWriter.WriteEndElement();
@@ -7385,6 +7415,13 @@ namespace Chummer
             _intBonus = Convert.ToInt32(objNode["bonus"].InnerText);
             try
             {
+                _strCondition = objNode["condition"].InnerText;
+            }
+            catch
+            {
+            }
+            try
+            {
                 _strNotes = objNode["notes"].InnerText;
             }
             catch
@@ -7400,6 +7437,7 @@ namespace Chummer
         {
             objWriter.WriteStartElement("limitmodifier");
             objWriter.WriteElementString("name", DisplayName);
+            objWriter.WriteElementString("condition", _strCondition);
             if (_objCharacter.Options.PrintNotes)
                 objWriter.WriteElementString("notes", _strNotes);
             objWriter.WriteEndElement();
@@ -7464,6 +7502,21 @@ namespace Chummer
         }
 
         /// <summary>
+        /// Condition.
+        /// </summary>
+        public string Condition
+        {
+            get
+            {
+                return _strCondition;
+            }
+            set
+            {
+                _strCondition = value;
+            }
+        }
+
+        /// <summary>
         /// Bonus.
         /// </summary>
         public int Bonus
@@ -7504,6 +7557,8 @@ namespace Chummer
                     strBonus = _intBonus.ToString();
 
                 string strReturn = DisplayNameShort + " [" + strBonus + "]";
+                if (_strCondition != "")
+                    strReturn += " (" + _strCondition + ")";
                 return strReturn;
             }
         }

@@ -72,7 +72,7 @@
 			<name>Resonance [Program]</name>
 			<limit>no</limit>
 			<bonus>
-				<selectprogram/>
+				<selecttext/>
 			</bonus>
 			<source>SR5</source>
 			<page>258</page>

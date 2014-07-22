@@ -103,6 +103,9 @@ namespace Chummer
             SpecificQuality = 90,
             MartialArt = 91,
             LimitModifier = 92,
+            PhysicalLimit = 93,
+            MentalLimit = 94,
+            SocialLimit = 95,
         }
 
         public enum ImprovementSource
@@ -854,7 +857,6 @@ namespace Chummer
 		private string _strSelectedValue = "";
 		private string _strForcedValue = "";
 		private readonly List<Improvement> _lstTransaction = new List<Improvement>();
-        private bool _blnAddingLimit = false;
 
         private CommonFunctions objFunctions = new CommonFunctions();
 
@@ -1615,15 +1617,15 @@ namespace Chummer
                     }
 
                     // Select a Limit.
-                    if (NodeExists(nodBonus, "selectlimit") && !_blnAddingLimit)
+                    if (NodeExists(nodBonus, "selectlimit"))
                     {
                         objFunctions.LogWrite(CommonFunctions.LogType.Message, "Chummer.ImprovementManager", "selectlimit");
                         // Display the Select Limit window and record which Limit was selected.
                         frmSelectLimit frmPickLimit = new frmSelectLimit();
                         if (strFriendlyName != "")
-                            frmPickLimit.Description = LanguageManager.Instance.GetString("String_Improvement_SelectAttributeNamed").Replace("{0}", strFriendlyName);
+                            frmPickLimit.Description = LanguageManager.Instance.GetString("String_Improvement_SelectLimitNamed").Replace("{0}", strFriendlyName);
                         else
-                            frmPickLimit.Description = LanguageManager.Instance.GetString("String_Improvement_SelectAttribute");
+                            frmPickLimit.Description = LanguageManager.Instance.GetString("String_Improvement_SelectLimit");
 
                         objFunctions.LogWrite(CommonFunctions.LogType.Content, "Chummer.ImprovementManager", "selectlimit = " + nodBonus["selectlimit"].OuterXml.ToString());
 
@@ -1702,8 +1704,14 @@ namespace Chummer
                         string strName = strFriendlyName;
                         TreeNode nodTemp = new TreeNode();
 
+                        Improvement.ImprovementType objType = Improvement.ImprovementType.PhysicalLimit;
+                        if (strLimit == "Mental")
+                            objType = Improvement.ImprovementType.MentalLimit;
+                        else if (strLimit == "Social")
+                            objType = Improvement.ImprovementType.SocialLimit;
+
                         objFunctions.LogWrite(CommonFunctions.LogType.Message, "Chummer.ImprovementManager", "Calling CreateImprovement");
-                        CreateImprovement(strLimit, objImprovementSource, strSourceName, Improvement.ImprovementType.LimitModifier, strFriendlyName, intBonus, 0, intMin, intMax, intAug, intAugMax);
+                        CreateImprovement(strLimit, objImprovementSource, strSourceName, objType, strFriendlyName, intBonus, 0, intMin, intMax, intAug, intAugMax);
                     }
 
                     // Select an Attribute.
@@ -1879,6 +1887,33 @@ namespace Chummer
                         CreateImprovement("", objImprovementSource, strSourceName, Improvement.ImprovementType.NuyenMaxBP, "", ValueToInt(nodBonus["nuyenmaxbp"].InnerText, intRating));
                     }
 
+                    // Apply a bonus/penalty to physical limit.
+                    if (NodeExists(nodBonus, "physicallimit"))
+                    {
+                        objFunctions.LogWrite(CommonFunctions.LogType.Message, "Chummer.ImprovementManager", "physicallimit");
+                        objFunctions.LogWrite(CommonFunctions.LogType.Content, "Chummer.ImprovementManager", "physicallimit = " + nodBonus["physicallimit"].OuterXml.ToString());
+                        objFunctions.LogWrite(CommonFunctions.LogType.Message, "Chummer.ImprovementManager", "Calling CreateImprovement");
+                        CreateImprovement("", objImprovementSource, strSourceName, Improvement.ImprovementType.PhysicalLimit, "", ValueToInt(nodBonus["physicallimit"].InnerText, intRating));
+                    }
+
+                    // Apply a bonus/penalty to mental limit.
+                    if (NodeExists(nodBonus, "mentallimit"))
+                    {
+                        objFunctions.LogWrite(CommonFunctions.LogType.Message, "Chummer.ImprovementManager", "mentallimit");
+                        objFunctions.LogWrite(CommonFunctions.LogType.Content, "Chummer.ImprovementManager", "mentallimit = " + nodBonus["mentallimit"].OuterXml.ToString());
+                        objFunctions.LogWrite(CommonFunctions.LogType.Message, "Chummer.ImprovementManager", "Calling CreateImprovement");
+                        CreateImprovement("", objImprovementSource, strSourceName, Improvement.ImprovementType.MentalLimit, "", ValueToInt(nodBonus["mentallimit"].InnerText, intRating));
+                    }
+
+                    // Apply a bonus/penalty to social limit.
+                    if (NodeExists(nodBonus, "sociallimit"))
+                    {
+                        objFunctions.LogWrite(CommonFunctions.LogType.Message, "Chummer.ImprovementManager", "sociallimit");
+                        objFunctions.LogWrite(CommonFunctions.LogType.Content, "Chummer.ImprovementManager", "sociallimit = " + nodBonus["sociallimit"].OuterXml.ToString());
+                        objFunctions.LogWrite(CommonFunctions.LogType.Message, "Chummer.ImprovementManager", "Calling CreateImprovement");
+                        CreateImprovement("", objImprovementSource, strSourceName, Improvement.ImprovementType.SocialLimit, "", ValueToInt(nodBonus["sociallimit"].InnerText, intRating));
+                    }
+
                     // Change the amount of Nuyen the character has at creation time (this can put the character over the amount they're normally allowed).
                     if (NodeExists(nodBonus, "nuyenamt"))
                     {
@@ -2035,6 +2070,12 @@ namespace Chummer
                         LimitModifier objLimitMod = new LimitModifier(_objCharacter);
                         string strLimit = nodBonus["limitmodifier"]["limit"].InnerText;
                         string strBonus = nodBonus["limitmodifier"]["value"].InnerText;
+                        string strCondition = "";
+                        try
+                        {
+                            strCondition = nodBonus["limitmodifier"]["condition"].InnerText;
+                        }
+                        catch { }
                         int intBonus = 0;
                         if (strBonus == "Rating")
                             intBonus = intRating;
@@ -2043,7 +2084,7 @@ namespace Chummer
                         string strName = strFriendlyName;
                         TreeNode nodTemp = new TreeNode();
                         objFunctions.LogWrite(CommonFunctions.LogType.Message, "Chummer.ImprovementManager", "Calling CreateImprovement");
-                        CreateImprovement(strLimit, objImprovementSource, strSourceName, Improvement.ImprovementType.LimitModifier, strFriendlyName, intBonus, 0, 0, 0, 0, 0);
+                        CreateImprovement(strLimit, objImprovementSource, strSourceName, Improvement.ImprovementType.LimitModifier, strFriendlyName, intBonus, 0, 0, 0, 0, 0, strCondition);
 
                     }
 
@@ -2739,8 +2780,8 @@ namespace Chummer
                         // If the character isn't an adept or mystic adept, skip the rest of this.
                         if (_objCharacter.AdeptEnabled)
                         {
-                            _blnAddingLimit = true;
                             string strSelection = "";
+                            _strForcedValue = "";
 
                             XmlNodeList objXmlPowerList = nodBonus.SelectNodes("specificpower");
                             foreach (XmlNode objXmlSpecificPower in objXmlPowerList)
@@ -2763,9 +2804,9 @@ namespace Chummer
                                     // Display the Select Limit window and record which Limit was selected.
                                     frmSelectLimit frmPickLimit = new frmSelectLimit();
                                     if (strFriendlyName != "")
-                                        frmPickLimit.Description = LanguageManager.Instance.GetString("String_Improvement_SelectAttributeNamed").Replace("{0}", strFriendlyName);
+                                        frmPickLimit.Description = LanguageManager.Instance.GetString("String_Improvement_SelectLimitNamed").Replace("{0}", strFriendlyName);
                                     else
-                                        frmPickLimit.Description = LanguageManager.Instance.GetString("String_Improvement_SelectAttribute");
+                                        frmPickLimit.Description = LanguageManager.Instance.GetString("String_Improvement_SelectLimit");
 
                                     if (nodBonus["specificpower"]["selectlimit"].InnerXml.Contains("<limit>"))
                                     {
@@ -2810,6 +2851,7 @@ namespace Chummer
 
                                     _strSelectedValue = frmPickLimit.SelectedLimit;
                                     strSelection = _strSelectedValue;
+                                    _strForcedValue = _strSelectedValue;
 
                                     objFunctions.LogWrite(CommonFunctions.LogType.Content, "Chummer.ImprovementManager", "_strSelectedValue = " + _strSelectedValue);
                                     objFunctions.LogWrite(CommonFunctions.LogType.Content, "Chummer.ImprovementManager", "strSelection = " + strSelection);
@@ -2911,7 +2953,7 @@ namespace Chummer
                                 if (objXmlSpecificPower["selectattribute"] != null)
                                 {
                                     objFunctions.LogWrite(CommonFunctions.LogType.Content, "Chummer.ImprovementManager", "selectattribute = " + objXmlSpecificPower["selectattribute"].OuterXml.ToString());
-                                    XmlNode nodSkill = nodBonus["specificpower"];
+                                    XmlNode nodSkill = objXmlSpecificPower;
                                     if (_strForcedValue.StartsWith("Adept"))
                                         _strForcedValue = "";
 
@@ -3070,7 +3112,6 @@ namespace Chummer
                             }
                             objFunctions.LogWrite(CommonFunctions.LogType.Message, "Chummer.ImprovementManager", "Calling CreateImprovement");
                             CreateImprovement("", objImprovementSource, strSourceName, Improvement.ImprovementType.AdeptPower, "");
-                            _blnAddingLimit = false;
                         }
                     }
 

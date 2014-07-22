@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-500</version>
+	<version>-499</version>
 	<complexforms>
 		<complexform>
 			<name>Cleaner</name>
@@ -15,6 +15,9 @@
 			<target>Device</target>
 			<duration>S</duration>
 			<fv>L+1</fv>
+			<bonus>
+				<selecttext/>
+			</bonus>
 			<source>SR5</source>
 			<page>252</page>
 		</complexform>
@@ -31,6 +34,9 @@
 			<target>Device</target>
 			<duration>S</duration>
 			<fv>L+1</fv>
+			<bonus>
+				<selecttext/>
+			</bonus>
 			<source>SR5</source>
 			<page>252</page>
 		</complexform>

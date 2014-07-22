@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-498</version>
+	<version>-497</version>
 	<categories>
 		<category>Armor</category>
 		<category>Clothing</category>
@@ -152,6 +152,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>2</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -168,6 +169,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>2</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -187,6 +189,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -207,6 +210,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -227,6 +231,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -247,6 +252,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -267,6 +273,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -288,6 +295,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -310,6 +318,7 @@
 					<limit>Social</limit>
 					<value>1</value>
 				</limitmodifier>
+				<condition>Must be visible</condition>
 			</bonus>
 			<source>RG</source>
 			<page>58</page>
@@ -330,6 +339,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -346,6 +356,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -388,6 +399,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>3</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -459,6 +471,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -481,6 +494,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -504,6 +518,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -525,6 +540,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -545,6 +561,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>2</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -565,6 +582,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>2</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -585,6 +603,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>2</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -605,6 +624,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>2</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -625,6 +645,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>2</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -645,6 +666,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>2</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -664,6 +686,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<addmodcategory>Nightshade IR</addmodcategory>
@@ -753,6 +776,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Only with appropriate corp, Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -827,6 +851,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>2</value>
+					<condition>Only for intimidation, Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -848,6 +873,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>2</value>
+					<condition>Only for intimidation, Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -869,6 +895,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>2</value>
+					<condition>Only for intimidation, Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -903,6 +930,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Only for intimidation, Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -927,6 +955,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Only for intimidation, Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -951,6 +980,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Only for intimidation, Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -1001,6 +1031,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>2</value>
+					<condition>Only in emergency situations, Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -1031,6 +1062,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>2</value>
+					<condition>Only for intimidation, Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -1060,7 +1092,8 @@
 			<bonus>
 				<limitmodifier>
 					<limit>Social</limit>
-					<value>3</value>
+					<value>2</value>
+					<condition>Only for intimidation, Must be visible; reduce by 1 in all other tests</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -1087,6 +1120,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>-1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -1103,6 +1137,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>-1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -1119,6 +1154,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>-1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -1139,6 +1175,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>-1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -1155,6 +1192,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>-1</value>
+					<condition>Must be visible, general public only; increase by 1 with gang members</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -1175,6 +1213,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>-1</value>
+					<condition>Must be visible, general public only; increase by 1 with gang members</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>
@@ -1231,6 +1270,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>1</value>
+					<condition>Only for intimidation, Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<addmodcategory>Ballistic Mask</addmodcategory>
@@ -1261,6 +1301,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>-1</value>
+					<condition>Must be visible</condition>
 				</limitmodifier>
 			</bonus>
 			<addmodcategory>Globetrotter Jacket Liners</addmodcategory>
@@ -1347,6 +1388,7 @@
 				<limitmodifier>
 					<limit>Physical</limit>
 					<value>1</value>
+					<condition>Only for climbing tests</condition>
 				</limitmodifier>
 			</bonus>
 			<source>RG</source>

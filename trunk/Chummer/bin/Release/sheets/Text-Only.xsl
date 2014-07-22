@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Text-Only Character Sheet -->
 <!-- Created by Keith Rudolph, krudolph@gmail.com -->
-<!-- Version -500 -->
+<!-- Version -499 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	
 	<xsl:template match="/characters/character">
@@ -650,7 +650,7 @@
 	<xsl:template name="commlinks">
 		<xsl:for-each select="gears/gear[iscommlink = 'True']">
 			<xsl:sort select="name" />
-			<br /><xsl:value-of select="name" /> (<xsl:value-of select="response" />, <xsl:value-of select="system" />, <xsl:value-of select="firewall" />, <xsl:value-of select="signal" />)
+			<br /><xsl:value-of select="name" /> (ATT: <xsl:value-of select="attack" />, SLZ: <xsl:value-of select="sleaze" />, DP: <xsl:value-of select="dataprocessing" />, FWL: <xsl:value-of select="firewall" />)
 				<xsl:if test="extra != ''"> (<xsl:value-of select="extra" />)</xsl:if>
 				<xsl:if test="rating != 0"> Rating <xsl:value-of select="rating" /></xsl:if>
 				<xsl:if test="qty &gt; 1"> x<xsl:value-of select="qty" /></xsl:if>
@@ -690,8 +690,8 @@
 		</xsl:for-each>
 		<xsl:for-each select="armors/armor/gears/gear[iscommlink = 'True']">
 			<xsl:sort select="name" />
-			<br /><xsl:value-of select="name" /> (<xsl:value-of select="response" />, <xsl:value-of select="system" />, <xsl:value-of select="firewall" />, <xsl:value-of select="signal" />)
-				<xsl:if test="extra != ''"> (<xsl:value-of select="extra" />)</xsl:if>
+			<br /><xsl:value-of select="name" /> (ATT: <xsl:value-of select="attack" />, SLZ: <xsl:value-of select="sleaze" />, DP: <xsl:value-of select="dataprocessing" />, FWL: <xsl:value-of select="firewall" />)
+			<xsl:if test="extra != ''"> (<xsl:value-of select="extra" />)</xsl:if>
 				<xsl:if test="rating != 0"> Rating <xsl:value-of select="rating" /></xsl:if>
 				<xsl:if test="qty &gt; 1"> x<xsl:value-of select="qty" /></xsl:if>
 				<xsl:if test="children/gear">
@@ -730,8 +730,8 @@
 		</xsl:for-each>
 		<xsl:for-each select="cyberwares/cyberware/gears/gear[iscommlink = 'True']">
 			<xsl:sort select="name" />
-			<br /><xsl:value-of select="name" /> (<xsl:value-of select="response" />, <xsl:value-of select="system" />, <xsl:value-of select="firewall" />, <xsl:value-of select="signal" />)
-				<xsl:if test="extra != ''"> (<xsl:value-of select="extra" />)</xsl:if>
+			<br /><xsl:value-of select="name" /> (ATT: <xsl:value-of select="attack" />, SLZ: <xsl:value-of select="sleaze" />, DP: <xsl:value-of select="dataprocessing" />, FWL: <xsl:value-of select="firewall" />)
+			<xsl:if test="extra != ''"> (<xsl:value-of select="extra" />)</xsl:if>
 				<xsl:if test="rating != 0"> Rating <xsl:value-of select="rating" /></xsl:if>
 				<xsl:if test="qty &gt; 1"> x<xsl:value-of select="qty" /></xsl:if>
 				<xsl:if test="children/gear">
@@ -770,8 +770,8 @@
 		</xsl:for-each>
 		<xsl:for-each select="cyberwares/cyberware/children/cyberware/gears/gear[iscommlink = 'True']">
 			<xsl:sort select="name" />
-			<br /><xsl:value-of select="name" /> (<xsl:value-of select="response" />, <xsl:value-of select="system" />, <xsl:value-of select="firewall" />, <xsl:value-of select="signal" />)
-				<xsl:if test="extra != ''"> (<xsl:value-of select="extra" />)</xsl:if>
+			<br /><xsl:value-of select="name" /> (ATT: <xsl:value-of select="attack" />, SLZ: <xsl:value-of select="sleaze" />, DP: <xsl:value-of select="dataprocessing" />, FWL: <xsl:value-of select="firewall" />)
+			<xsl:if test="extra != ''"> (<xsl:value-of select="extra" />)</xsl:if>
 				<xsl:if test="rating != 0"> Rating <xsl:value-of select="rating" /></xsl:if>
 				<xsl:if test="qty &gt; 1"> x<xsl:value-of select="qty" /></xsl:if>
 				<xsl:if test="children/gear">
@@ -810,8 +810,8 @@
 		</xsl:for-each>
 		<xsl:for-each select="weapons/weapon/accessories/accessory/gears/gear[iscommlink = 'True']">
 			<xsl:sort select="name" />
-			<br /><xsl:value-of select="name" /> (<xsl:value-of select="response" />, <xsl:value-of select="system" />, <xsl:value-of select="firewall" />, <xsl:value-of select="signal" />)
-				<xsl:if test="extra != ''"> (<xsl:value-of select="extra" />)</xsl:if>
+			<br /><xsl:value-of select="name" /> (ATT: <xsl:value-of select="attack" />, SLZ: <xsl:value-of select="sleaze" />, DP: <xsl:value-of select="dataprocessing" />, FWL: <xsl:value-of select="firewall" />)
+			<xsl:if test="extra != ''"> (<xsl:value-of select="extra" />)</xsl:if>
 				<xsl:if test="rating != 0"> Rating <xsl:value-of select="rating" /></xsl:if>
 				<xsl:if test="qty &gt; 1"> x<xsl:value-of select="qty" /></xsl:if>
 				<xsl:if test="children/gear">

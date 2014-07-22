@@ -34,16 +34,18 @@
             this.nudBonus = new System.Windows.Forms.NumericUpDown();
             this.lblNameLabel = new System.Windows.Forms.Label();
             this.lblBonusLabel = new System.Windows.Forms.Label();
+            this.lblCondition = new System.Windows.Forms.Label();
+            this.txtCondition = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudBonus)).BeginInit();
             this.SuspendLayout();
             // 
             // cmdCancel
             // 
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdCancel.Location = new System.Drawing.Point(252, 41);
+            this.cmdCancel.Location = new System.Drawing.Point(252, 36);
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(75, 23);
-            this.cmdCancel.TabIndex = 3;
+            this.cmdCancel.TabIndex = 4;
             this.cmdCancel.Tag = "String_Cancel";
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
@@ -58,10 +60,10 @@
             // 
             // cmdOK
             // 
-            this.cmdOK.Location = new System.Drawing.Point(252, 12);
+            this.cmdOK.Location = new System.Drawing.Point(252, 9);
             this.cmdOK.Name = "cmdOK";
             this.cmdOK.Size = new System.Drawing.Size(75, 23);
-            this.cmdOK.TabIndex = 2;
+            this.cmdOK.TabIndex = 3;
             this.cmdOK.Tag = "String_OK";
             this.cmdOK.Text = "OK";
             this.cmdOK.UseVisualStyleBackColor = true;
@@ -69,7 +71,7 @@
             // 
             // nudBonus
             // 
-            this.nudBonus.Location = new System.Drawing.Point(79, 44);
+            this.nudBonus.Location = new System.Drawing.Point(79, 64);
             this.nudBonus.Maximum = new decimal(new int[] {
             20,
             0,
@@ -82,7 +84,7 @@
             -2147483648});
             this.nudBonus.Name = "nudBonus";
             this.nudBonus.Size = new System.Drawing.Size(40, 20);
-            this.nudBonus.TabIndex = 1;
+            this.nudBonus.TabIndex = 2;
             this.nudBonus.Value = new decimal(new int[] {
             1,
             0,
@@ -102,18 +104,39 @@
             // lblBonusLabel
             // 
             this.lblBonusLabel.AutoSize = true;
-            this.lblBonusLabel.Location = new System.Drawing.Point(10, 46);
+            this.lblBonusLabel.Location = new System.Drawing.Point(10, 66);
             this.lblBonusLabel.Name = "lblBonusLabel";
             this.lblBonusLabel.Size = new System.Drawing.Size(40, 13);
             this.lblBonusLabel.TabIndex = 10;
             this.lblBonusLabel.Tag = "Label_Bonus";
             this.lblBonusLabel.Text = "Bonus:";
             // 
+            // lblCondition
+            // 
+            this.lblCondition.AutoSize = true;
+            this.lblCondition.Location = new System.Drawing.Point(10, 41);
+            this.lblCondition.Name = "lblCondition";
+            this.lblCondition.Size = new System.Drawing.Size(54, 13);
+            this.lblCondition.TabIndex = 12;
+            this.lblCondition.Tag = "Label_Condition";
+            this.lblCondition.Text = "Condition:";
+            // 
+            // txtCondition
+            // 
+            this.txtCondition.Location = new System.Drawing.Point(79, 38);
+            this.txtCondition.Name = "txtCondition";
+            this.txtCondition.Size = new System.Drawing.Size(167, 20);
+            this.txtCondition.TabIndex = 1;
+            // 
             // frmSelectLimitModifier
             // 
+            this.AcceptButton = this.cmdOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(339, 75);
+            this.CancelButton = this.cmdCancel;
+            this.ClientSize = new System.Drawing.Size(339, 98);
+            this.Controls.Add(this.lblCondition);
+            this.Controls.Add(this.txtCondition);
             this.Controls.Add(this.lblBonusLabel);
             this.Controls.Add(this.lblNameLabel);
             this.Controls.Add(this.nudBonus);
@@ -139,5 +162,7 @@
         internal System.Windows.Forms.NumericUpDown nudBonus;
         internal System.Windows.Forms.Label lblNameLabel;
         internal System.Windows.Forms.Label lblBonusLabel;
+        internal System.Windows.Forms.Label lblCondition;
+        private System.Windows.Forms.TextBox txtCondition;
     }
 }
