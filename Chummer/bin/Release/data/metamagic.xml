@@ -63,6 +63,7 @@
 		</metamagic>
 		<metamagic>
 			<name>Power Point</name>
+			<limit>no</limit>
 			<adept>yes</adept>
 			<magician>no</magician>
 			<bonus>

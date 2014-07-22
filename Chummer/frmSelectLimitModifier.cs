@@ -13,6 +13,7 @@ namespace Chummer
     {
         private string _strReturnName = "";
         private int _intBonus = 1;
+        private string _strCondition = "";
 
         #region Control Events
         public frmSelectLimitModifier()
@@ -25,6 +26,7 @@ namespace Chummer
         {
             _strReturnName = txtName.Text;
             _intBonus = Convert.ToInt32(nudBonus.Value);
+            _strCondition = txtCondition.Text;
             this.DialogResult = DialogResult.OK;
         }
 
@@ -55,6 +57,21 @@ namespace Chummer
 			{
 				txtName.Text = value;
 			}
+        }
+
+        /// <summary>
+        /// Modifier condition that was entered in the dialogue.
+        /// </summary>
+        public string SelectedCondition
+        {
+            get
+            {
+                return _strCondition;
+            }
+            set
+            {
+                txtCondition.Text = value;
+            }
         }
 
         /// <summary>

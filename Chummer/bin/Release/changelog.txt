@@ -1,3 +1,16 @@
+Build 5.128 (beta)
+- Fixed a bug preventing loading bows or crossbows with ammunition in Career mode.
+- Cleaned up the former Commlinks section on the Character Sheet.  It now is the Device section and each Commlink, RCC, or Cyberdeck shows itself as such.  Fixed a few problem items that were showing their stats incorrectly.
+- Added device stat labels to cyberware, armor, weapon, gear, and vehicle tabs so that you can see the stats for selected commlinks, cyberdecks, or rigger command consoles.
+- For newly created characters only, limit modifiers will now inlcude the condition under which they operate.  I'd make this retroactive but it would be a nightmare to code.
+- Fixed the Quality Indomitable and the Adept Power Improved Potential to add directly to the calculated limits rather than add limit modifiers as these bonuses apply at all times.  This also resolved the issue with the Chaos Mentor Spirit where it was not applying the bonus from the granted Improved Potential power.
+- Fixed a bug where in some cases carry-over karma from character creation would not be carried over.
+- Will now automatically remove the Allergy when removing the Eagle Mentor Spirit.
+- Fixed the Initiation/Submersion tab so that it will allow adding multiple instances of metamagics and echoes that allow it.
+- Updated the Infusion of [Matrix Attribute] and Defusion of [Matrix Attribute] so that they will ask for you to enter the name of the attribute being adjusted.  For now it is a text entry, at some later date it may become a drop down.
+- Fixed a bug that was breaking the karma calculation when increasing skills belonging to a broken skill group in creation mode.
+- Updated the Select a Mentor Spirit dialog to not show choices you're not eligible for.  So Magician options won't show up for Adepts and Adept options won't show up for Magicians.  Mystic Adepts still see all options.
+
 Build 5.127 (beta)
 - Fixed a bug where it was not rounding Essence up when calculating your Social Limit.
 - Fixed a bug which would prevent adding Sensor Functions to Sensors.

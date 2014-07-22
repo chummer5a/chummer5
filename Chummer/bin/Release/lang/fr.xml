@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-499</version>
+	<version>-498</version>
 	<name>Français</name>
 	<strings>
 		<!-- Common Strings -->
@@ -7032,5 +7032,153 @@ Un saul attribut peut atteindre sa valeur maximum durant la création de personn
 	      <key>String_MountStock</key>
 	      <text>Réserve</text>
 	    </string>
+		<string>
+			<key>String_Metamagic</key>
+			<text>Métamagie</text>
+		</string>
+		<string>
+			<key>Label_Metamagic</key>
+			<text>Métamagie:</text>
+		</string>
+		<string>
+			<key>String_Ritual</key>
+			<text>Rituel</text>
+		</string>
+		<string>
+			<key>String_Enchantment</key>
+			<text>Enchantement</text>
+		</string>
+		<string>
+			<key>Label_Ritual</key>
+			<text>Rituel:</text>
+		</string>
+		<string>
+			<key>Label_Enchantment</key>
+			<text>Enchantement:</text>
+		</string>
+		<string>
+			<key>String_Enhancement</key>
+			<text>Amélioration</text>
+		</string>
+		<string>
+			<key>Label_Enhancement</key>
+			<text>Amélioration:</text>
+		</string>
+		<string>
+			<key>String_Art</key>
+			<text>Talent</text>
+		</string>
+		<string>
+			<key>Label_Art</key>
+			<text>Talent:</text>
+		</string>
+		<string>
+			<key>String_Echo</key>
+			<text>Echo</text>
+		</string>
+		<string>
+			<key>Label_Echo</key>
+			<text>Echo:</text>
+		</string>
+		<string>
+			<key>Message_CannotRemoveSpell</key>
+			<text>Cet element ne peut pas être supprimé car elle a été acquise comme un bonus d'initiation.</text>
+		</string>
+		<string>
+			<key>MessageTitle_CannotRemoveSpell</key>
+			<text>Impossible de supprimer ce sort</text>
+		</string>
+		<string>
+			<key>Message_ConfirmKarmaandNuyenExpense</key>
+			<text>Etes-vous sûr de vouloir dépenser {2} Karma et {3} Nuyens pour améliorer de {0} à {1} ?</text>
+		</string>
+		<string>
+			<key>MessageTitle_NotHighestGrade</key>
+			<text>Vous ne pouvez pas annuler cette entrée</text>
+		</string>
+		<string>
+			<key>Checkbox_InitiationSchooling</key>
+			<text>Scolarisation (-10%)</text>
+		</string>
+		<string>
+			<key>Button_AddInitiateGrade</key>
+			<text>Ajouter un Grade d'Initié</text>
+		</string>
+		<string>
+			<key>Button_AddSubmersionGrade</key>
+			<text>Ajouter un Grade de Immersion</text>
+		</string>
+		<string>
+			<key>Checkbox_Options_IgnoreArt</key>
+			<text>Ignorer les prérequis du Grimoire des rues pour les Talents</text>
+		</string>
+		<string>
+			<key>Title_SelectArt</key>
+			<text>Selectionner un Talent</text>
+		</string>
+		<string>
+			<key>Title_SelectEnhancement</key>
+			<text>Selectionner une Amélioration</text>
+		</string>
+		<string>
+			<key>Title_SelectEnchantment</key>
+			<text>Selectionner un Enchantement</text>
+		</string>
+		<string>
+			<key>Title_SelectRitual</key>
+			<text>Selectionner un Rituel</text>
+		</string>
+		<string>
+			<key>Message_SelectArt_ArtRequirement</key>
+			<text>Vous ne remplissez pas les prérequises pour ce Talent. Vous devez répondre à tous les critères suivants:</text>
+		</string>
+		<string>
+			<key>MessageTitle_SelectArt_ArtRequirement</key>
+			<text>Prérequis du Talent</text>
+		</string>
+		<string>
+			<key>Message_SelectArt_EnchantmentRequirement</key>
+			<text>Vous ne remplissez pas les prérequises pour cet Enchantement. Vous devez répondre à tous les critères suivants:</text>
+		</string>
+		<string>
+			<key>MessageTitle_SelectArt_EnchantmentRequirement</key>
+			<text>Prérequis d'Enchantement</text>
+		</string>
+		<string>
+			<key>Message_SelectArt_EnhancementRequirement</key>
+			<text>Vous ne remplissez pas les prérequises pour cette Amélioration. Vous devez répondre à tous les critères suivants:</text>
+		</string>
+		<string>
+			<key>MessageTitle_SelectArt_EnhancementRequirement</key>
+			<text>Prérequis d'Amélioration</text>
+		</string>
+		<string>
+			<key>Message_SelectArt_RitualRequirement</key>
+			<text>Vous ne remplissez pas les prérequises pour ce Rituel. Vous devez répondre à tous les critères suivants:</text>
+		</string>
+		<string>
+			<key>MessageTitle_SelectArt_RitualRequirement</key>
+			<text>Prérequis du Rituel</text>
+		</string>
+		<string>
+			<key>Checkbox_SelectArt_LimitList</key>
+			<text>Afficher uniquement les talents que je peux prendre</text>
+		</string>
+		<string>
+			<key>Checkbox_SelectEnhancement_LimitList</key>
+			<text>Afficher uniquement les Améliorations que je peux prendre</text>
+		</string>
+		<string>
+			<key>Checkbox_SelectEnchantment_LimitList</key>
+			<text>Afficher uniquement les Enchantements que je peux prendre</text>
+		</string>
+		<string>
+			<key>Checkbox_SelectRitual_LimitList</key>
+			<text>Afficher uniquement les Rituels que je peux prendre</text>
+		</string>
+		<string>
+			<key>Message_UndoNotHighestGrade</key>
+			<text>Vous devez d'abord annuler les entrées des grades d'initiation.</text>
+		</string>
 	</strings>
 </chummer>

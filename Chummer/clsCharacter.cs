@@ -212,6 +212,9 @@ namespace Chummer
 		private List<string> _lstImprovementGroups = new List<string>();
 		private List<CalendarWeek> _lstCalendar = new List<CalendarWeek>();
 
+        // Character Version
+        private string _strVersionCreated = Application.ProductVersion.ToString().Replace("0.0.", string.Empty);
+
 		// Events.
 		public event MAGEnabledChangedHandler MAGEnabledChanged;
 		public event RESEnabledChangedHandler RESEnabledChanged;
@@ -266,8 +269,10 @@ namespace Chummer
 			// <character>
 			objWriter.WriteStartElement("character");
 
-			// <appversion />
-			objWriter.WriteElementString("appversion", Application.ProductVersion.ToString().Replace("0.0.0.", string.Empty));
+            // <createdversion />
+            objWriter.WriteElementString("createdversion", _strVersionCreated);
+            // <appversion />
+			objWriter.WriteElementString("appversion", Application.ProductVersion.ToString().Replace("0.0.", string.Empty));
 			// <gameedition />
 			objWriter.WriteElementString("gameedition", "SR5");
 
@@ -842,7 +847,15 @@ namespace Chummer
 			catch
 			{
 			}
-			
+
+            try
+            {
+                _strVersionCreated = objXmlCharacter["createdversion"].InnerText;
+            }
+            catch
+            {
+            }
+
 			// Metatype information.
 			_strMetatype = objXmlCharacter["metatype"].InnerText;
 			try
@@ -1444,6 +1457,18 @@ namespace Chummer
                         objGroup.RatingMaximum = 12;
 				}
 			}
+
+            // Apply the broken skill group fix
+            foreach (Skill objSkill in _lstSkills)
+            {
+                foreach (SkillGroup objGroup in _lstSkillGroups)
+                {
+                    if (objGroup.Broken && objGroup.Name == objSkill.SkillGroup)
+                    {
+                        objSkill.FreeLevels = objGroup.Rating;
+                    }
+                }
+            }
 
 			// Knowledge Skills.
 			List<ListItem> lstKnowledgeSkillOrder = new List<ListItem>();
@@ -2171,6 +2196,9 @@ namespace Chummer
                         else
                             strName += " [" + objImprovement.Value.ToString() + "]";
 
+                        if (objImprovement.Exclude != "")
+                            strName += " (" + objImprovement.Exclude + ")";
+
                         objWriter.WriteStartElement("limitmodifier");
                         objWriter.WriteElementString("name", strName);
                         if (this.Options.PrintNotes)
@@ -2202,6 +2230,9 @@ namespace Chummer
                         else
                             strName += " [" + objImprovement.Value.ToString() + "]";
 
+                        if (objImprovement.Exclude != "")
+                            strName += " (" + objImprovement.Exclude + ")";
+
                         objWriter.WriteStartElement("limitmodifier");
                         objWriter.WriteElementString("name", strName);
                         if (this.Options.PrintNotes)
@@ -2232,6 +2263,9 @@ namespace Chummer
                             strName += " [+" + objImprovement.Value.ToString() + "]";
                         else
                             strName += " [" + objImprovement.Value.ToString() + "]";
+
+                        if (objImprovement.Exclude != "")
+                            strName += " (" + objImprovement.Exclude + ")";
 
                         objWriter.WriteStartElement("limitmodifier");
                         objWriter.WriteElementString("name", strName);
@@ -5590,6 +5624,7 @@ namespace Chummer
             get
             {
                 int intLimit = Convert.ToInt32(Math.Ceiling(((Convert.ToDecimal(_attSTR.TotalValue) * 2) + Convert.ToDecimal(_attBOD.TotalValue) + Convert.ToDecimal(_attREA.TotalValue)) / 3));
+                intLimit += _objImprovementManager.ValueOf(Improvement.ImprovementType.PhysicalLimit);
                 return intLimit;
             }
         }
@@ -5602,6 +5637,7 @@ namespace Chummer
             get
             {
                 int intLimit = Convert.ToInt32(Math.Ceiling(((Convert.ToDecimal(_attLOG.TotalValue) * 2) + Convert.ToDecimal(_attINT.TotalValue) + Convert.ToDecimal(_attWIL.TotalValue)) / 3));
+                intLimit += _objImprovementManager.ValueOf(Improvement.ImprovementType.MentalLimit);
                 return intLimit;
             }
         }
@@ -5614,6 +5650,7 @@ namespace Chummer
             get
             {
                 int intLimit = Convert.ToInt32(Math.Ceiling(((Convert.ToDecimal(_attCHA.TotalValue) * 2) + Convert.ToDecimal(_attWIL.TotalValue) + Math.Ceiling(Essence)) / 3));
+                intLimit += _objImprovementManager.ValueOf(Improvement.ImprovementType.SocialLimit);
                 return intLimit;
             }
         }

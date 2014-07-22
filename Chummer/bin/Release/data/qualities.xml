@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-494</version>
+	<version>-493</version>
 	<categories>
 		<category>Positive</category>
 		<category>Negative</category>
@@ -386,10 +386,7 @@
 			<limit>no</limit>
 			<category>Positive</category>
 			<bonus>
-				<limitmodifier>
-					<limit>Mental</limit>
-					<value>Rating</value>
-				</limitmodifier>
+				<mentallimit>Rating</mentallimit>
 			</bonus>
 			<source>SR5</source>
 			<page>75</page>
@@ -400,10 +397,7 @@
 			<limit>no</limit>
 			<category>Positive</category>
 			<bonus>
-				<limitmodifier>
-					<limit>Physical</limit>
-					<value>Rating</value>
-				</limitmodifier>
+				<physicallimit>Rating</physicallimit>
 			</bonus>
 			<source>SR5</source>
 			<page>75</page>
@@ -414,10 +408,7 @@
 			<limit>no</limit>
 			<category>Positive</category>
 			<bonus>
-				<limitmodifier>
-					<limit>Social</limit>
-					<value>Rating</value>
-				</limitmodifier>
+				<sociallimit>Rating</sociallimit>
 			</bonus>
 			<source>SR5</source>
 			<page>75</page>
@@ -1977,6 +1968,7 @@
 				<limitmodifier>
 					<limit>Mental</limit>
 					<value>1</value>
+					<condition>Only for Academic Knowledge Skills</condition>
 				</limitmodifier>
 			</bonus>
 			<source>SASS</source>

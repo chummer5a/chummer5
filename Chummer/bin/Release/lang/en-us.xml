@@ -366,7 +366,7 @@
 		</string>
 		<string>
 			<key>Label_DataProcessing</key>
-			<text>Data Processing:</text>
+			<text>Data Proc:</text>
 		</string>
 		<string>
 			<key>Label_Firewall</key>
@@ -7013,6 +7013,14 @@ Only one attribute may be at its Maximum value during character creation.</text>
 			<text>Choose an Attribute to affect.</text>
 		</string>
 		<string>
+			<key>String_Improvement_SelectLimitNamed</key>
+			<text>Choose a Limit for {0} to affect.</text>
+		</string>
+		<string>
+			<key>String_Improvement_SelectLimit</key>
+			<text>Choose a Limit to affect.</text>
+		</string>
+		<string>
 			<key>String_Improvement_SideLeft</key>
 			<text>Left</text>
 		</string>
@@ -7109,6 +7117,10 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		<string>
 			<key>MessageTitle_Metatype_Duplicate</key>
 			<text>Duplicate Selection</text>
+		</string>
+		<string>
+			<key>Label_Condition</key>
+			<text>Condition:</text>
 		</string>
 	</strings>
 </chummer>

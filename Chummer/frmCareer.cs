@@ -5296,9 +5296,22 @@ namespace Chummer
 
             XmlNode objXmlProgram = objXmlDocument.SelectSingleNode("/chummer/complexforms/complexform[name = \"" + frmPickProgram.SelectedProgram + "\"]");
 
-			TreeNode objNode = new TreeNode();
+            // Check for SelectText.
+            string strExtra = "";
+            if (objXmlProgram["bonus"] != null)
+            {
+                if (objXmlProgram["bonus"]["selecttext"] != null)
+                {
+                    frmSelectText frmPickText = new frmSelectText();
+                    frmPickText.Description = LanguageManager.Instance.GetString("String_Improvement_SelectText").Replace("{0}", frmPickProgram.SelectedProgram);
+                    frmPickText.ShowDialog(this);
+                    strExtra = frmPickText.SelectedValue;
+                }
+            }
+
+            TreeNode objNode = new TreeNode();
             ComplexForm objProgram = new ComplexForm(_objCharacter);
-			objProgram.Create(objXmlProgram, _objCharacter, objNode);
+			objProgram.Create(objXmlProgram, _objCharacter, objNode, strExtra);
 			if (objProgram.InternalId == Guid.Empty.ToString())
 				return;
 
@@ -21771,7 +21784,18 @@ namespace Chummer
 		/// </summary>
 		public void RefreshSelectedCyberware()
 		{
-			bool blnClear = false;
+            lblCyberDeviceRating.Visible = false;
+            lblCyberAttack.Visible = false;
+            lblCyberSleaze.Visible = false;
+            lblCyberDataProcessing.Visible = false;
+            lblCyberFirewall.Visible = false;
+            lblCyberDeviceRatingLabel.Visible = false;
+            lblCyberAttackLabel.Visible = false;
+            lblCyberSleazeLabel.Visible = false;
+            lblCyberDataProcessingLabel.Visible = false;
+            lblCyberFirewallLabel.Visible = false;
+
+            bool blnClear = false;
 			try
 			{
 				if (treCyberware.SelectedNode.Level == 0)
@@ -21827,6 +21851,40 @@ namespace Chummer
 				// Locate the selected piece of Gear.
 				Cyberware objFoundCyberware = new Cyberware(_objCharacter);
 				Gear objGear = _objFunctions.FindCyberwareGear(treCyberware.SelectedNode.Tag.ToString(), _objCharacter.Cyberware, out objFoundCyberware);
+
+                if (objGear.GetType() == typeof(Commlink))
+                {
+                    Commlink objCommlink = (Commlink)objGear;
+                    lblCyberDeviceRating.Text = objCommlink.TotalDeviceRating.ToString();
+                    lblCyberAttack.Text = objCommlink.Attack.ToString();
+                    lblCyberSleaze.Text = objCommlink.Sleaze.ToString();
+                    lblCyberDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                    lblCyberFirewall.Text = objCommlink.Firewall.ToString();
+
+                    lblCyberDeviceRating.Visible = true;
+                    lblCyberAttack.Visible = true;
+                    lblCyberSleaze.Visible = true;
+                    lblCyberDataProcessing.Visible = true;
+                    lblCyberFirewall.Visible = true;
+                    lblCyberDeviceRatingLabel.Visible = true;
+                    lblCyberAttackLabel.Visible = true;
+                    lblCyberSleazeLabel.Visible = true;
+                    lblCyberDataProcessingLabel.Visible = true;
+                    lblCyberFirewallLabel.Visible = true;
+                }
+                else
+                {
+                    lblCyberDeviceRating.Visible = false;
+                    lblCyberAttack.Visible = false;
+                    lblCyberSleaze.Visible = false;
+                    lblCyberDataProcessing.Visible = false;
+                    lblCyberFirewall.Visible = false;
+                    lblCyberDeviceRatingLabel.Visible = false;
+                    lblCyberAttackLabel.Visible = false;
+                    lblCyberSleazeLabel.Visible = false;
+                    lblCyberDataProcessingLabel.Visible = false;
+                    lblCyberFirewallLabel.Visible = false;
+                }
 
 				_blnSkipRefresh = true;
 				lblCyberwareName.Text = objGear.DisplayNameShort;
@@ -21890,6 +21948,8 @@ namespace Chummer
                         strName += " [+" + objImprovement.Value.ToString() + "]";
                     else
                         strName += " [" + objImprovement.Value.ToString() + "]";
+                    if (objImprovement.Exclude != "")
+                        strName += " (" + objImprovement.Exclude + ")";
                     objLimitModifierNode.Text = strName;
                     objLimitModifierNode.Tag = objImprovement.SourceName;
                     objLimitModifierNode.ContextMenuStrip = cmsMartialArts;
@@ -21922,7 +21982,13 @@ namespace Chummer
 		/// </summary>
 		public void RefreshSelectedWeapon()
 		{
-			bool blnClear = false;
+            lblWeaponDeviceRating.Text = "";
+            lblWeaponAttack.Text = "";
+            lblWeaponSleaze.Text = "";
+            lblWeaponDataProcessing.Text = "";
+            lblWeaponFirewall.Text = "";
+
+            bool blnClear = false;
 			try
 			{
 				if (treWeapons.SelectedNode.Level == 0)
@@ -22343,7 +22409,17 @@ namespace Chummer
 							chkIncludedInWeapon.Enabled = false;
 							chkIncludedInWeapon.Checked = false;
 							_blnSkipRefresh = true;
-						}
+
+                            if (objGear.GetType() == typeof(Commlink))
+                            {
+                                Commlink objCommlink = (Commlink)objGear;
+                                lblWeaponDeviceRating.Text = objCommlink.DeviceRating.ToString();
+                                lblWeaponAttack.Text = objCommlink.Attack.ToString();
+                                lblWeaponSleaze.Text = objCommlink.Sleaze.ToString();
+                                lblWeaponDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                                lblWeaponFirewall.Text = objCommlink.Firewall.ToString();
+                            }
+                        }
 					}
 
 					// Show the Weapon Ranges.
@@ -22360,7 +22436,13 @@ namespace Chummer
 		/// </summary>
 		public void RefreshSelectedArmor()
 		{
-			if (treArmor.SelectedNode.Level == 0)
+            lblArmorDeviceRating.Text = "";
+            lblArmorAttack.Text = "";
+            lblArmorSleaze.Text = "";
+            lblArmorDataProcessing.Text = "";
+            lblArmorFirewall.Text = "";
+
+            if (treArmor.SelectedNode.Level == 0)
 			{
 				lblArmorEquipped.Text = "";
 				foreach (Armor objArmor in _objCharacter.Armor)
@@ -22484,7 +22566,17 @@ namespace Chummer
 					chkArmorEquipped.Enabled = true;
 					chkArmorEquipped.Checked = objSelectedGear.Equipped;
 					lblArmorRating.Text = objSelectedGear.Rating.ToString();
-				}
+
+                    if (objSelectedGear.GetType() == typeof(Commlink))
+                    {
+                        Commlink objCommlink = (Commlink)objSelectedGear;
+                        lblArmorDeviceRating.Text = objCommlink.DeviceRating.ToString();
+                        lblArmorAttack.Text = objCommlink.Attack.ToString();
+                        lblArmorSleaze.Text = objCommlink.Sleaze.ToString();
+                        lblArmorDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                        lblArmorFirewall.Text = objCommlink.Firewall.ToString();
+                    }
+                }
 			}
 			else if (treArmor.SelectedNode.Level > 2)
 			{
@@ -22509,7 +22601,17 @@ namespace Chummer
 				chkArmorEquipped.Enabled = true;
 				chkArmorEquipped.Checked = objSelectedGear.Equipped;
 				lblArmorRating.Text = objSelectedGear.Rating.ToString();
-			}
+
+                if (objSelectedGear.GetType() == typeof(Commlink))
+                {
+                    Commlink objCommlink = (Commlink)objSelectedGear;
+                    lblArmorDeviceRating.Text = objCommlink.DeviceRating.ToString();
+                    lblArmorAttack.Text = objCommlink.Attack.ToString();
+                    lblArmorSleaze.Text = objCommlink.Sleaze.ToString();
+                    lblArmorDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                    lblArmorFirewall.Text = objCommlink.Firewall.ToString();
+                }
+            }
 			else
 			{
                 lblArmorValue.Text = "";
@@ -22582,19 +22684,42 @@ namespace Chummer
 				if (objGear.GetType() == typeof(Commlink))
 				{
 					Commlink objCommlink = (Commlink)objGear;
-                    lblGearResponse.Text = objCommlink.TotalDeviceRating.ToString();
-					_blnSkipRefresh = true;
+                    lblGearDeviceRating.Text = objCommlink.TotalDeviceRating.ToString();
+                    lblGearAttack.Text = objCommlink.Attack.ToString();
+                    lblGearSleaze.Text = objCommlink.Sleaze.ToString();
+                    lblGearDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                    lblGearFirewall.Text = objCommlink.Firewall.ToString();
+                    _blnSkipRefresh = true;
 					chkActiveCommlink.Checked = objCommlink.IsActive;
 					_blnSkipRefresh = false;
+
+                    lblGearDeviceRating.Visible = true;
+                    lblGearAttack.Visible = true;
+                    lblGearSleaze.Visible = true;
+                    lblGearDataProcessing.Visible = true;
+                    lblGearFirewall.Visible = true;
+                    lblGearDeviceRatingLabel.Visible = true;
+                    lblGearAttackLabel.Visible = true;
+                    lblGearSleazeLabel.Visible = true;
+                    lblGearDataProcessingLabel.Visible = true;
+                    lblGearFirewallLabel.Visible = true;
 
 					if (objCommlink.Category != "Commlink Upgrade")
 						chkActiveCommlink.Visible = true;
 				}
 				else
 				{
-					lblGearResponse.Text = objGear.DeviceRating.ToString();
-					chkActiveCommlink.Visible = false;
-				}
+                    lblGearDeviceRating.Text = objGear.DeviceRating.ToString();
+                    chkActiveCommlink.Visible = false;
+                    lblGearAttack.Visible = false;
+                    lblGearSleaze.Visible = false;
+                    lblGearDataProcessing.Visible = false;
+                    lblGearFirewall.Visible = false;
+                    lblGearAttackLabel.Visible = false;
+                    lblGearSleazeLabel.Visible = false;
+                    lblGearDataProcessingLabel.Visible = false;
+                    lblGearFirewallLabel.Visible = false;
+                }
 
 				if (objGear.MaxRating > 0)
 					lblGearRating.Text = objGear.Rating.ToString();
@@ -23765,7 +23890,13 @@ namespace Chummer
 		/// </summary>
 		private void RefreshSelectedVehicle()
 		{
-			bool blnClear = false;
+
+            lblVehicleAttack.Text = "";
+            lblVehicleSleaze.Text = "";
+            lblVehicleDataProcessing.Text = "";
+            lblVehicleFirewall.Text = "";
+            
+            bool blnClear = false;
 			try
 			{
 				if (treVehicles.SelectedNode.Level == 0)
@@ -23907,10 +24038,6 @@ namespace Chummer
 								lblVehicleBody.Text = "";
 								lblVehicleArmor.Text = "";
 								lblVehicleSensor.Text = "";
-								lblVehicleFirewall.Text = "";
-								lblVehicleSignal.Text = "";
-								lblVehicleResponse.Text = "";
-								lblVehicleSystem.Text = "";
 								lblVehicleAvail.Text = "";
 								lblVehicleCost.Text = "";
 								lblVehicleSlots.Text = "";
@@ -23965,10 +24092,6 @@ namespace Chummer
 					lblVehicleBody.Text = "";
 					lblVehicleArmor.Text = "";
 					lblVehicleSensor.Text = "";
-					lblVehicleFirewall.Text = "";
-					lblVehicleSignal.Text = "";
-					lblVehicleResponse.Text = "";
-					lblVehicleSystem.Text = "";
 					lblVehicleSlots.Text = objMod.CalculatedSlots.ToString();
 					string strBook = _objOptions.LanguageBookShort(objMod.Source);
 					string strPage = objMod.Page;
@@ -24007,10 +24130,6 @@ namespace Chummer
 						lblVehicleBody.Text = "";
 						lblVehicleArmor.Text = "";
 						lblVehicleSensor.Text = "";
-						lblVehicleFirewall.Text = "";
-						lblVehicleSignal.Text = "";
-						lblVehicleResponse.Text = "";
-						lblVehicleSystem.Text = "";
 						lblVehicleSlots.Text = objGear.CalculatedCapacity + " (" + objGear.CapacityRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 						string strBook = _objOptions.LanguageBookShort(objGear.Source);
 						string strPage = objGear.Page;
@@ -24018,6 +24137,16 @@ namespace Chummer
 						tipTooltip.SetToolTip(lblVehicleSource, _objOptions.LanguageBookLong(objGear.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objGear.Page);
 
 						cmdVehicleMoveToInventory.Enabled = true;
+
+                        if (objGear.GetType() == typeof(Commlink))
+                        {
+                            Commlink objCommlink = (Commlink)objGear;
+                            lblVehicleDevice.Text = objCommlink.DeviceRating.ToString();
+                            lblVehicleAttack.Text = objCommlink.Attack.ToString();
+                            lblVehicleSleaze.Text = objCommlink.Sleaze.ToString();
+                            lblVehicleDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                            lblVehicleFirewall.Text = objCommlink.Firewall.ToString();
+                        }
 
 						if ((_objCharacter.Metatype.EndsWith("A.I.") || _objCharacter.MetatypeCategory == "Technocritters" || _objCharacter.MetatypeCategory == "Protosapients") && objGear.GetType() == typeof(Commlink))
 						{
@@ -24139,10 +24268,6 @@ namespace Chummer
 						lblVehicleBody.Text = "";
 						lblVehicleArmor.Text = "";
 						lblVehicleSensor.Text = "";
-						lblVehicleFirewall.Text = "";
-						lblVehicleSignal.Text = "";
-						lblVehicleResponse.Text = "";
-						lblVehicleSystem.Text = "";
 						lblVehicleSlots.Text = "6 (" + objWeapon.SlotsRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 						string strBook = _objOptions.LanguageBookShort(objWeapon.Source);
 						string strPage = objWeapon.Page;
@@ -24218,15 +24343,21 @@ namespace Chummer
 					lblVehicleBody.Text = "";
 					lblVehicleArmor.Text = "";
 					lblVehicleSensor.Text = "";
-					lblVehicleFirewall.Text = "";
-					lblVehicleSignal.Text = "";
-					lblVehicleResponse.Text = "";
-					lblVehicleSystem.Text = "";
 					lblVehicleSlots.Text = objGear.CalculatedCapacity + " (" + objGear.CapacityRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 					string strBook = _objOptions.LanguageBookShort(objGear.Source);
 					string strPage = objGear.Page;
 					lblVehicleSource.Text = strBook + " " + strPage;
 					tipTooltip.SetToolTip(lblVehicleSource, _objOptions.LanguageBookLong(objGear.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objGear.Page);
+
+                    if (objGear.GetType() == typeof(Commlink))
+                    {
+                        Commlink objCommlink = (Commlink)objGear;
+                        lblVehicleDevice.Text = objCommlink.DeviceRating.ToString();
+                        lblVehicleAttack.Text = objCommlink.Attack.ToString();
+                        lblVehicleSleaze.Text = objCommlink.Sleaze.ToString();
+                        lblVehicleDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                        lblVehicleFirewall.Text = objCommlink.Firewall.ToString();
+                    }
 
 					if ((_objCharacter.Metatype.EndsWith("A.I.") || _objCharacter.MetatypeCategory == "Technocritters" || _objCharacter.MetatypeCategory == "Protosapients") && objGear.GetType() == typeof(Commlink))
 					{
@@ -24339,10 +24470,6 @@ namespace Chummer
 						lblVehicleBody.Text = "";
 						lblVehicleArmor.Text = "";
 						lblVehicleSensor.Text = "";
-						lblVehicleFirewall.Text = "";
-						lblVehicleSignal.Text = "";
-						lblVehicleResponse.Text = "";
-						lblVehicleSystem.Text = "";
 						lblVehicleSlots.Text = "6 (" + objWeapon.SlotsRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 						string strBook = _objOptions.LanguageBookShort(objWeapon.Source);
 						string strPage = objWeapon.Page;
@@ -24403,10 +24530,6 @@ namespace Chummer
 							lblVehicleBody.Text = "";
 							lblVehicleArmor.Text = "";
 							lblVehicleSensor.Text = "";
-							lblVehicleFirewall.Text = "";
-							lblVehicleSignal.Text = "";
-							lblVehicleResponse.Text = "";
-							lblVehicleSystem.Text = "";
 							lblVehicleSlots.Text = "";
 							string strBook = _objOptions.LanguageBookShort(objCyberware.Source);
 							string strPage = objCyberware.Page;
@@ -24451,15 +24574,21 @@ namespace Chummer
 					lblVehicleBody.Text = "";
 					lblVehicleArmor.Text = "";
 					lblVehicleSensor.Text = "";
-					lblVehicleFirewall.Text = "";
-					lblVehicleSignal.Text = "";
-					lblVehicleResponse.Text = "";
-					lblVehicleSystem.Text = "";
 					lblVehicleSlots.Text = objGear.CalculatedCapacity + " (" + objGear.CapacityRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 					string strBook = _objOptions.LanguageBookShort(objGear.Source);
 					string strPage = objGear.Page;
 					lblVehicleSource.Text = strBook + " " + strPage;
 					tipTooltip.SetToolTip(lblVehicleSource, _objOptions.LanguageBookLong(objGear.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objGear.Page);
+
+                    if (objGear.GetType() == typeof(Commlink))
+                    {
+                        Commlink objCommlink = (Commlink)objGear;
+                        lblVehicleDevice.Text = objCommlink.DeviceRating.ToString();
+                        lblVehicleAttack.Text = objCommlink.Attack.ToString();
+                        lblVehicleSleaze.Text = objCommlink.Sleaze.ToString();
+                        lblVehicleDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                        lblVehicleFirewall.Text = objCommlink.Firewall.ToString();
+                    }
 
 					if ((_objCharacter.Metatype.EndsWith("A.I.") || _objCharacter.MetatypeCategory == "Technocritters" || _objCharacter.MetatypeCategory == "Protosapients") && objGear.GetType() == typeof(Commlink))
 					{
@@ -24494,10 +24623,6 @@ namespace Chummer
 						lblVehicleBody.Text = "";
 						lblVehicleArmor.Text = "";
 						lblVehicleSensor.Text = "";
-						lblVehicleFirewall.Text = "";
-						lblVehicleSignal.Text = "";
-						lblVehicleResponse.Text = "";
-						lblVehicleSystem.Text = "";
 
 						string[] strMounts = objAccessory.Mount.Split('/');
 						string strMount = "";
@@ -24553,10 +24678,6 @@ namespace Chummer
 							lblVehicleBody.Text = "";
 							lblVehicleArmor.Text = "";
 							lblVehicleSensor.Text = "";
-							lblVehicleFirewall.Text = "";
-							lblVehicleSignal.Text = "";
-							lblVehicleResponse.Text = "";
-							lblVehicleSystem.Text = "";
 							lblVehicleSlots.Text = objMod.Slots.ToString();
 							string strBook = _objOptions.LanguageBookShort(objMod.Source);
 							string strPage = objMod.Page;
@@ -24674,10 +24795,6 @@ namespace Chummer
 							lblVehicleBody.Text = "";
 							lblVehicleArmor.Text = "";
 							lblVehicleSensor.Text = "";
-							lblVehicleFirewall.Text = "";
-							lblVehicleSignal.Text = "";
-							lblVehicleResponse.Text = "";
-							lblVehicleSystem.Text = "";
 							lblVehicleSlots.Text = "6 (" + objWeapon.SlotsRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 							string strBook = _objOptions.LanguageBookShort(objWeapon.Source);
 							string strPage = objWeapon.Page;
@@ -24743,10 +24860,6 @@ namespace Chummer
 					lblVehicleBody.Text = "";
 					lblVehicleArmor.Text = "";
 					lblVehicleSensor.Text = "";
-					lblVehicleFirewall.Text = "";
-					lblVehicleSignal.Text = "";
-					lblVehicleResponse.Text = "";
-					lblVehicleSystem.Text = "";
 
 					string[] strMounts = objAccessory.Mount.Split('/');
 					string strMount = "";
@@ -24801,10 +24914,6 @@ namespace Chummer
 						lblVehicleBody.Text = "";
 						lblVehicleArmor.Text = "";
 						lblVehicleSensor.Text = "";
-						lblVehicleFirewall.Text = "";
-						lblVehicleSignal.Text = "";
-						lblVehicleResponse.Text = "";
-						lblVehicleSystem.Text = "";
 						lblVehicleSlots.Text = objMod.Slots.ToString();
 						string strBook = _objOptions.LanguageBookShort(objMod.Source);
 						string strPage = objMod.Page;
@@ -24851,15 +24960,21 @@ namespace Chummer
 						lblVehicleBody.Text = "";
 						lblVehicleArmor.Text = "";
 						lblVehicleSensor.Text = "";
-						lblVehicleFirewall.Text = "";
-						lblVehicleSignal.Text = "";
-						lblVehicleResponse.Text = "";
-						lblVehicleSystem.Text = "";
 						lblVehicleSlots.Text = objGear.CalculatedCapacity + " (" + objGear.CapacityRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 						string strBook = _objOptions.LanguageBookShort(objGear.Source);
 						string strPage = objGear.Page;
 						lblVehicleSource.Text = strBook + " " + strPage;
 						tipTooltip.SetToolTip(lblVehicleSource, _objOptions.LanguageBookLong(objGear.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objGear.Page);
+
+                        if (objGear.GetType() == typeof(Commlink))
+                        {
+                            Commlink objCommlink = (Commlink)objGear;
+                            lblVehicleDevice.Text = objCommlink.DeviceRating.ToString();
+                            lblVehicleAttack.Text = objCommlink.Attack.ToString();
+                            lblVehicleSleaze.Text = objCommlink.Sleaze.ToString();
+                            lblVehicleDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                            lblVehicleFirewall.Text = objCommlink.Firewall.ToString();
+                        }
 
 						if ((_objCharacter.Metatype.EndsWith("A.I.") || _objCharacter.MetatypeCategory == "Technocritters" || _objCharacter.MetatypeCategory == "Protosapients") && objGear.GetType() == typeof(Commlink))
 						{
@@ -24897,15 +25012,21 @@ namespace Chummer
 				lblVehicleBody.Text = "";
 				lblVehicleArmor.Text = "";
 				lblVehicleSensor.Text = "";
-				lblVehicleFirewall.Text = "";
-				lblVehicleSignal.Text = "";
-				lblVehicleResponse.Text = "";
-				lblVehicleSystem.Text = "";
 				lblVehicleSlots.Text = objGear.CalculatedCapacity + " (" + objGear.CapacityRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 				string strBook = _objOptions.LanguageBookShort(objGear.Source);
 				string strPage = objGear.Page;
 				lblVehicleSource.Text = strBook + " " + strPage;
 				tipTooltip.SetToolTip(lblVehicleSource, _objOptions.LanguageBookLong(objGear.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objGear.Page);
+
+                if (objGear.GetType() == typeof(Commlink))
+                {
+                    Commlink objCommlink = (Commlink)objGear;
+                    lblVehicleDevice.Text = objCommlink.DeviceRating.ToString();
+                    lblVehicleAttack.Text = objCommlink.Attack.ToString();
+                    lblVehicleSleaze.Text = objCommlink.Sleaze.ToString();
+                    lblVehicleDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                    lblVehicleFirewall.Text = objCommlink.Firewall.ToString();
+                }
 
 				if ((_objCharacter.Metatype.EndsWith("A.I.") || _objCharacter.MetatypeCategory == "Technocritters" || _objCharacter.MetatypeCategory == "Protosapients") && objGear.GetType() == typeof(Commlink))
 				{
@@ -25099,7 +25220,12 @@ namespace Chummer
                 {
                     if (objMetamagic.Grade == objGrade.Grade)
                     {
-                        TreeNode nodMetamagic = nodGrade.Nodes.Add(objMetamagic.InternalId, LanguageManager.Instance.GetString("Label_Metamagic") + " " + objMetamagic.DisplayName);
+                        string strName = "";
+                        if (_objCharacter.MAGEnabled)
+                            strName = LanguageManager.Instance.GetString("Label_Metamagic") + " " + objMetamagic.DisplayName;
+                        else
+                            strName = LanguageManager.Instance.GetString("Label_Echo") + " " + objMetamagic.DisplayName;
+                        TreeNode nodMetamagic = nodGrade.Nodes.Add(objMetamagic.InternalId, strName);
                         nodMetamagic.Tag = objMetamagic.InternalId;
                         nodMetamagic.ContextMenuStrip = cmsInitiationNotes;
                         if (objMetamagic.Notes != string.Empty)
@@ -25567,6 +25693,15 @@ namespace Chummer
 			intWidth = Math.Max(lblCyberwareRatingLabel.Width, lblCyberwareCapacityLabel.Width);
 			intWidth = Math.Max(intWidth, lblCyberwareCostLabel.Width);
 
+            lblCyberAttackLabel.Left = lblCyberDeviceRating.Left + lblCyberDeviceRating.Width + 20;
+            lblCyberAttack.Left = lblCyberAttackLabel.Left + lblCyberAttackLabel.Width + 6;
+            lblCyberSleazeLabel.Left = lblCyberAttack.Left + lblCyberAttack.Width + 20;
+            lblCyberSleaze.Left = lblCyberSleazeLabel.Left + lblCyberSleazeLabel.Width + 6;
+            lblCyberDataProcessingLabel.Left = lblCyberSleaze.Left + lblCyberSleaze.Width + 20;
+            lblCyberDataProcessing.Left = lblCyberDataProcessingLabel.Left + lblCyberDataProcessingLabel.Width + 6;
+            lblCyberFirewallLabel.Left = lblCyberDataProcessing.Left + lblCyberDataProcessing.Width + 20;
+            lblCyberFirewall.Left = lblCyberFirewallLabel.Left + lblCyberFirewallLabel.Width + 6;
+
 			lblCyberwareRatingLabel.Left = lblCyberwareName.Left + 208;
 			lblCyberwareRating.Left = lblCyberwareRatingLabel.Left + intWidth + 6;
 			lblCyberwareCapacityLabel.Left = lblCyberwareName.Left + 208;
@@ -25606,6 +25741,15 @@ namespace Chummer
 
             cmdArmorIncrease.Left = lblArmorValue.Left + 45;
 			cmdArmorDecrease.Left = cmdArmorIncrease.Left + cmdArmorIncrease.Width + 6;
+
+            lblArmorAttackLabel.Left = lblArmorDeviceRating.Left + lblArmorDeviceRating.Width + 20;
+            lblArmorAttack.Left = lblArmorAttackLabel.Left + lblArmorAttackLabel.Width + 6;
+            lblArmorSleazeLabel.Left = lblArmorAttack.Left + lblArmorAttack.Width + 20;
+            lblArmorSleaze.Left = lblArmorSleazeLabel.Left + lblArmorSleazeLabel.Width + 6;
+            lblArmorDataProcessingLabel.Left = lblArmorSleaze.Left + lblArmorSleaze.Width + 20;
+            lblArmorDataProcessing.Left = lblArmorDataProcessingLabel.Left + lblArmorDataProcessingLabel.Width + 6;
+            lblArmorFirewallLabel.Left = lblArmorDataProcessing.Left + lblArmorDataProcessing.Width + 20;
+            lblArmorFirewall.Left = lblArmorFirewallLabel.Left + lblArmorFirewallLabel.Width + 6;
 
 			// Weapons tab.
 			lblWeaponName.Left = lblWeaponNameLabel.Left + lblWeaponNameLabel.Width + 6;
@@ -25664,6 +25808,15 @@ namespace Chummer
 			cmdRollWeapon.Left = lblWeaponDicePool.Left + lblWeaponDicePool.Width + 6;
 			cmdRollWeapon.Visible = _objOptions.AllowSkillDiceRolling;
 
+            lblWeaponAttackLabel.Left = lblWeaponDeviceRating.Left + lblWeaponDeviceRating.Width + 20;
+            lblWeaponAttack.Left = lblWeaponAttackLabel.Left + lblWeaponAttackLabel.Width + 6;
+            lblWeaponSleazeLabel.Left = lblWeaponAttack.Left + lblWeaponAttack.Width + 20;
+            lblWeaponSleaze.Left = lblWeaponSleazeLabel.Left + lblWeaponSleazeLabel.Width + 6;
+            lblWeaponDataProcessingLabel.Left = lblWeaponSleaze.Left + lblWeaponSleaze.Width + 20;
+            lblWeaponDataProcessing.Left = lblWeaponDataProcessingLabel.Left + lblWeaponDataProcessingLabel.Width + 6;
+            lblWeaponFirewallLabel.Left = lblWeaponDataProcessing.Left + lblWeaponDataProcessing.Width + 20;
+            lblWeaponFirewall.Left = lblWeaponFirewallLabel.Left + lblWeaponFirewallLabel.Width + 6;
+
 			// Gear tab.
 			intWidth = Math.Max(lblGearNameLabel.Width, lblGearCategoryLabel.Width);
 			intWidth = Math.Max(intWidth, lblGearRatingLabel.Width);
@@ -25689,20 +25842,20 @@ namespace Chummer
 			cmdGearMergeQty.Left = cmdGearSplitQty.Left + cmdGearSplitQty.Width + 6;
 			cmdGearMoveToVehicle.Left = cmdGearMergeQty.Left + 56;
 
-			intWidth = Math.Max(lblGearResponseLabel.Width, lblGearDamageLabel.Width);
-			lblGearResponse.Left = lblGearResponseLabel.Left + intWidth + 6;
+			intWidth = lblGearDamageLabel.Width;
 			lblGearDamage.Left = lblGearDamageLabel.Left + intWidth + 6;
 
-			intWidth = Math.Max(lblGearSignalLabel.Width, lblGearAPLabel.Width);
-			lblGearSignalLabel.Left = lblGearResponse.Left + lblGearResponse.Width + 16;
-			lblGearSignal.Left = lblGearSignalLabel.Left + intWidth + 6;
-			lblGearAPLabel.Left = lblGearResponse.Left + lblGearResponse.Width + 16;
-			lblGearAP.Left = lblGearAPLabel.Left + intWidth + 6;
+            lblGearAttackLabel.Left = lblGearDeviceRating.Left + lblGearDeviceRating.Width + 20;
+            lblGearAttack.Left = lblGearAttackLabel.Left + lblGearAttackLabel.Width + 6;
+            lblGearSleazeLabel.Left = lblGearAttack.Left + lblGearAttack.Width + 20;
+            lblGearSleaze.Left = lblGearSleazeLabel.Left + lblGearSleazeLabel.Width + 6;
+            lblGearDataProcessingLabel.Left = lblGearSleaze.Left + lblGearSleaze.Width + 20;
+            lblGearDataProcessing.Left = lblGearDataProcessingLabel.Left + lblGearDataProcessingLabel.Width + 6;
+            lblGearFirewallLabel.Left = lblGearDataProcessing.Left + lblGearDataProcessing.Width + 20;
+            lblGearFirewall.Left = lblGearFirewallLabel.Left + lblGearFirewallLabel.Width + 6;
 
-			lblGearSystemLabel.Left = lblGearSignal.Left + lblGearSignal.Width + 16;
-			lblGearSystem.Left = lblGearSystemLabel.Left + lblGearSystemLabel.Width + 6;
-			lblGearFirewallLabel.Left = lblGearSystem.Left + lblGearSystem.Width + 16;
-			lblGearFirewall.Left = lblGearFirewallLabel.Left + lblGearFirewallLabel.Width + 6;
+			intWidth = lblGearAPLabel.Width;
+			lblGearAP.Left = lblGearAPLabel.Left + intWidth + 6;
 
 			lblGearSource.Left = lblGearSourceLabel.Left + lblGearSourceLabel.Width + 6;
 			chkGearHomeNode.Left = chkGearEquipped.Left + chkGearEquipped.Width + 16;
@@ -25710,7 +25863,8 @@ namespace Chummer
 			// Vehicles and Drones tab.
 			intWidth = Math.Max(lblVehicleNameLabel.Width, lblVehicleCategoryLabel.Width);
 			intWidth = Math.Max(intWidth, lblVehicleHandlingLabel.Width);
-			intWidth = Math.Max(intWidth, lblVehiclePilotLabel.Width);
+            intWidth = Math.Max(intWidth, lblVehicleAttackLabel.Width);
+            intWidth = Math.Max(intWidth, lblVehiclePilotLabel.Width);
 			intWidth = Math.Max(intWidth, lblVehicleFirewallLabel.Width);
 			intWidth = Math.Max(intWidth, lblVehicleAvailLabel.Width);
 			intWidth = Math.Max(intWidth, lblVehicleRatingLabel.Width);
@@ -25724,6 +25878,7 @@ namespace Chummer
 			lblVehicleCategory.Left = lblVehicleCategoryLabel.Left + intWidth + 6;
 			lblVehicleHandling.Left = lblVehicleHandlingLabel.Left + intWidth + 6;
 			lblVehiclePilot.Left = lblVehiclePilotLabel.Left + intWidth + 6;
+            lblVehicleAttack.Left = lblVehicleAttackLabel.Left + intWidth + 6;
 			lblVehicleFirewall.Left = lblVehicleFirewallLabel.Left + intWidth + 6;
 			lblVehicleAvail.Left = lblVehicleAvailLabel.Left + intWidth + 6;
 			lblVehicleRating.Left = lblVehicleRatingLabel.Left + intWidth + 6;
@@ -25734,17 +25889,17 @@ namespace Chummer
 			lblVehicleWeaponDamage.Left = lblVehicleWeaponDamageLabel.Left + intWidth + 6;
 
 			intWidth = Math.Max(lblVehicleAccelLabel.Width, lblVehicleBodyLabel.Width);
-			intWidth = Math.Max(intWidth, lblVehicleSignalLabel.Width);
 			intWidth = Math.Max(intWidth, lblVehicleCostLabel.Width);
 			intWidth = Math.Max(intWidth, lblVehicleWeaponAPLabel.Width);
+            intWidth = Math.Max(intWidth, lblVehicleSleazeLabel.Width);
 
 			lblVehicleAccelLabel.Left = lblVehicleHandling.Left + 47;
 			lblVehicleAccel.Left = lblVehicleAccelLabel.Left + intWidth + 6;
 			lblVehicleBodyLabel.Left = lblVehicleHandling.Left + 47;
 			lblVehicleBody.Left = lblVehicleBodyLabel.Left + intWidth + 6;
-			lblVehicleSignalLabel.Left = lblVehicleHandling.Left + 47;
-			lblVehicleSignal.Left = lblVehicleSignalLabel.Left + intWidth + 6;
-			lblVehicleCostLabel.Left = lblVehicleHandling.Left + 47;
+            lblVehicleSleazeLabel.Left = lblVehicleHandling.Left + 47;
+            lblVehicleSleaze.Left = lblVehicleSleazeLabel.Left + intWidth + 6;
+            lblVehicleCostLabel.Left = lblVehicleHandling.Left + 47;
 			lblVehicleCost.Left = lblVehicleCostLabel.Left + intWidth + 6;
 			lblVehicleWeaponAPLabel.Left = lblVehicleHandling.Left + 47;
 			lblVehicleWeaponAP.Left = lblVehicleWeaponAPLabel.Left + intWidth + 6;
@@ -25755,29 +25910,29 @@ namespace Chummer
 			cmdVehicleMoveToInventory.Left = lblVehicleAccel.Left;
 
 			intWidth = Math.Max(lblVehicleSpeedLabel.Width, lblVehicleArmorLabel.Width);
-			intWidth = Math.Max(intWidth, lblVehicleResponseLabel.Width);
 			intWidth = Math.Max(intWidth, lblVehicleWeaponModeLabel.Width);
+            intWidth = Math.Max(intWidth, lblVehicleDataProcessingLabel.Width);
 
 			lblVehicleSpeedLabel.Left = lblVehicleAccel.Left + 53;
 			lblVehicleSpeed.Left = lblVehicleSpeedLabel.Left + intWidth + 6;
 			lblVehicleArmorLabel.Left = lblVehicleAccel.Left + 53;
 			lblVehicleArmor.Left = lblVehicleArmorLabel.Left + intWidth + 6;
-			lblVehicleResponseLabel.Left = lblVehicleAccel.Left + 53;
-			lblVehicleResponse.Left = lblVehicleResponseLabel.Left + intWidth + 6;
-			lblVehicleWeaponModeLabel.Left = lblVehicleAccel.Left + 53;
+            lblVehicleDataProcessingLabel.Left = lblVehicleAccel.Left + 53;
+            lblVehicleDataProcessing.Left = lblVehicleDataProcessingLabel.Left + intWidth + 6;
+            lblVehicleWeaponModeLabel.Left = lblVehicleAccel.Left + 53;
 			lblVehicleWeaponMode.Left = lblVehicleWeaponModeLabel.Left + intWidth + 6;
 
 			intWidth = Math.Max(lblVehicleDeviceLabel.Width, lblVehicleSensorLabel.Width);
-			intWidth = Math.Max(intWidth, lblVehicleSystemLabel.Width);
 			intWidth = Math.Max(intWidth, lblVehicleWeaponAmmoLabel.Width);
+            intWidth = Math.Max(intWidth, lblVehicleFirewallLabel.Width);
 
 			lblVehicleDeviceLabel.Left = lblVehicleSpeed.Left + 35;
 			lblVehicleDevice.Left = lblVehicleDeviceLabel.Left + intWidth + 6;
 			lblVehicleSensorLabel.Left = lblVehicleSpeed.Left + 35;
 			lblVehicleSensor.Left = lblVehicleSensorLabel.Left + intWidth + 6;
-			lblVehicleSystemLabel.Left = lblVehicleSpeed.Left + 35;
-			lblVehicleSystem.Left = lblVehicleSystemLabel.Left + intWidth + 6;
-			lblVehicleWeaponAmmoLabel.Left = lblVehicleSpeed.Left + 35;
+            lblVehicleFirewallLabel.Left = lblVehicleSpeed.Left + 35;
+            lblVehicleFirewall.Left = lblVehicleFirewallLabel.Left + intWidth + 6;
+            lblVehicleWeaponAmmoLabel.Left = lblVehicleSpeed.Left + 35;
 			lblVehicleWeaponAmmo.Left = lblVehicleWeaponAmmoLabel.Left + intWidth + 6;
 
 			lblVehicleSlotsLabel.Left = lblVehicleCost.Left + 94;
@@ -26467,7 +26622,8 @@ namespace Chummer
                 TreeNode objNode = new TreeNode();
                 LimitModifier objLimitModifier = new LimitModifier(_objCharacter);
                 string strLimit = treLimit.SelectedNode.Text;
-                objLimitModifier.Create(frmPickLimitModifier.SelectedName, frmPickLimitModifier.SelectedBonus, strLimit, _objCharacter, objNode);
+                string strCondition = frmPickLimitModifier.SelectedCondition;
+                objLimitModifier.Create(frmPickLimitModifier.SelectedName, frmPickLimitModifier.SelectedBonus, strLimit, strCondition, _objCharacter, objNode);
                 if (objLimitModifier.InternalId == Guid.Empty.ToString())
                     return;
 

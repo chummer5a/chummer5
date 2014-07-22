@@ -4057,14 +4057,15 @@ namespace Chummer
 
 				// Remove all of the Active Skills from the Skill Group being broken.
 				string strGroup = objSkillControl.SkillGroup;
-				foreach (SkillControl objActiveSkilll in panActiveSkills.Controls)
+				foreach (SkillControl objActiveSkill in panActiveSkills.Controls)
 				{
-					if (objActiveSkilll.SkillGroup == strGroup)
+                    if (objActiveSkill.SkillGroup == strGroup)
 					{
-						objActiveSkilll.IsGrouped = false;
-						objActiveSkilll.SkillRating = intRating;
+                        objActiveSkill.IsGrouped = false;
+                        objActiveSkill.SkillRating = intRating;
+                        objActiveSkill.SkillObject.FreeLevels = intRating;
                         if (objSkillGroup.FreeLevels > 0)
-                            objActiveSkilll.SkillObject.FreeLevels = intRating;
+                            objActiveSkill.SkillObject.FreeLevels = intRating;
 					}
 				}
 			}
@@ -5342,9 +5343,22 @@ namespace Chummer
 
             XmlNode objXmlProgram = objXmlDocument.SelectSingleNode("/chummer/complexforms/complexform[name = \"" + frmPickProgram.SelectedProgram + "\"]");
 
+            // Check for SelectText.
+            string strExtra = "";
+            if (objXmlProgram["bonus"] != null)
+            {
+                if (objXmlProgram["bonus"]["selecttext"] != null)
+                {
+                    frmSelectText frmPickText = new frmSelectText();
+                    frmPickText.Description = LanguageManager.Instance.GetString("String_Improvement_SelectText").Replace("{0}", frmPickProgram.SelectedProgram);
+                    frmPickText.ShowDialog(this);
+                    strExtra = frmPickText.SelectedValue;
+                }
+            }
+
             TreeNode objNode = new TreeNode();
             ComplexForm objProgram = new ComplexForm(_objCharacter);
-            objProgram.Create(objXmlProgram, _objCharacter, objNode);
+            objProgram.Create(objXmlProgram, _objCharacter, objNode, strExtra);
             if (objProgram.InternalId == Guid.Empty.ToString())
                 return;
 
@@ -7250,6 +7264,32 @@ namespace Chummer
                 }
             }
 
+            // Remove Qualities that were created by the Quality.
+            if (objQuality.Name == "Mentor Spirit")
+            {
+                if (objQuality.Extra == "Eagle")
+                {
+                    // Find and remove the Allergy (Pollutants) quality.
+                    foreach (Quality objMentorQuality in _objCharacter.Qualities)
+                    {
+                        if (objMentorQuality.Name == "Allergy (Common, Mild)" && objMentorQuality.Extra == "Pollutants")
+                        {
+                            // Remove this quality
+                            foreach (TreeNode nodAllergy in treQualities.Nodes[1].Nodes)
+                            {
+                                if (nodAllergy.Tag.ToString() == objMentorQuality.InternalId.ToString())
+                                {
+                                    nodAllergy.Remove();
+                                    break;
+                                }
+                            }
+                            _objCharacter.Qualities.Remove(objMentorQuality);
+                            break;
+                        }
+                    }
+                }
+            }
+
 			XmlNode objXmlDeleteQuality = objXmlDocument.SelectSingleNode("/chummer/qualities/quality[name = \"" + objQuality.Name + "\"]");
 			
 			// Remove any Critter Powers that are gained through the Quality (Infected).
@@ -7527,7 +7567,8 @@ namespace Chummer
                 TreeNode objNode = new TreeNode();
                 LimitModifier objLimitModifier = new LimitModifier(_objCharacter);
                 string strLimit = treLimit.SelectedNode.Text;
-                objLimitModifier.Create(frmPickLimitModifier.SelectedName, frmPickLimitModifier.SelectedBonus, strLimit, _objCharacter, objNode);
+                string strCondition = frmPickLimitModifier.SelectedCondition;
+                objLimitModifier.Create(frmPickLimitModifier.SelectedName, frmPickLimitModifier.SelectedBonus, strLimit, strCondition, _objCharacter, objNode);
                 if (objLimitModifier.InternalId == Guid.Empty.ToString())
                     return;
 
@@ -14721,28 +14762,28 @@ namespace Chummer
                 intPointsUsed = 0;
                 foreach (SkillGroupControl objGroupControl in panSkillGroups.Controls)
                 {
-                    // If the Skill Group has been broken, get the Rating value for the lowest Skill in the Group.
-                    if (objGroupControl.Broken && _objOptions.BreakSkillGroupsInCreateMode)
-                    {
-                        int intMin = 999;
-                        foreach (Skill objSkill in _objCharacter.Skills)
-                        {
-                            if (objSkill.SkillGroup == objGroupControl.GroupName)
-                            {
-                                if (objSkill.Rating < intMin)
-                                    intMin = objSkill.Rating;
-                            }
-                        }
-                        if (intMin >= objGroupControl.GroupRatingMinimum)
-                            intPointsUsed += (intMin - objGroupControl.GroupRatingMinimum);
-                    }
-                    else
-                    {
+                    //// If the Skill Group has been broken, get the Rating value for the lowest Skill in the Group.
+                    //if (objGroupControl.Broken && _objOptions.BreakSkillGroupsInCreateMode)
+                    //{
+                    //    int intMin = objski;
+                    //    //foreach (Skill objSkill in _objCharacter.Skills)
+                    //    //{
+                    //    //    if (objSkill.SkillGroup == objGroupControl.GroupName)
+                    //    //    {
+                    //    //        if (objSkill.Rating < intMin)
+                    //    //            intMin = objSkill.Rating;
+                    //    //    }
+                    //    //}
+                    //    if (intMin >= objGroupControl.GroupRatingMinimum)
+                    //        intPointsUsed += (intMin - objGroupControl.GroupRatingMinimum);
+                    //}
+                    //else
+                    //{
                         if (objGroupControl.GroupRating > objGroupControl.GroupRatingMinimum)
                         {
                             intPointsUsed += objGroupControl.GroupRating - objGroupControl.GroupRatingMinimum;
                         }
-                    }
+                    //}
                 }
 
                 // If they've spent more points than they have available from their build priorities, figure out the cheapest option for paying for the extra points with karma.
@@ -14828,7 +14869,7 @@ namespace Chummer
                 {
                     if (objSkillControl.SkillRating > objSkillControl.SkillRatingMinimum && !objSkillControl.IsGrouped)
                     {
-                        intPointsUsed += objSkillControl.SkillRating - objSkillControl.SkillRatingMinimum;
+                        intPointsUsed += objSkillControl.SkillRating - objSkillControl.SkillObject.FreeLevels;
                     }
 
                     // Specialization Cost (Exotic skills do not count since their "Spec" is actually what the Skill is being used for and cannot be Specialized).
@@ -14851,37 +14892,39 @@ namespace Chummer
                             intPointsUsed += 1;
                     }
 
-                    if (_objOptions.BreakSkillGroupsInCreateMode)
-                    {
-                        int intMin = 999;
-                        bool blnApplyModifier = false;
+                    //if (_objOptions.BreakSkillGroupsInCreateMode)
+                    //{
+                    //    int intMin = 999;
+                    //    bool blnApplyModifier = false;
 
-                        // Find the matching Skill Group.
-                        foreach (SkillGroup objGroup in _objCharacter.SkillGroups)
-                        {
-                            if (objGroup.Broken && objGroup.Name == objSkillControl.SkillGroup)
-                            {
-                                // Determine the lowest Rating amongst the Skills in the Groups.
-                                foreach (Skill objSkill in _objCharacter.Skills)
-                                {
-                                    if (objSkill.SkillGroup == objGroup.Name)
-                                    {
-                                        if (objSkill.Rating < intMin)
-                                        {
-                                            intMin = objSkill.Rating;
-                                            blnApplyModifier = true;
-                                        }
-                                    }
-                                }
-                                break;
-                            }
-                        }
+                    //    // Find the matching Skill Group.
+                    //    foreach (SkillGroup objGroup in _objCharacter.SkillGroups)
+                    //    {
+                    //        if (objGroup.Broken && objGroup.Name == objSkillControl.SkillGroup)
+                    //        {
+                    //            //// Determine the lowest Rating amongst the Skills in the Groups.
+                    //            //foreach (Skill objSkill in _objCharacter.Skills)
+                    //            //{
+                    //            //    if (objSkill.SkillGroup == objGroup.Name)
+                    //            //    {
+                    //            //        if (objSkill.Rating < intMin)
+                    //            //        {
+                    //            //            intMin = objSkill.Rating;
+                    //            //            blnApplyModifier = true;
+                    //            //        }
+                    //            //    }
+                    //            //}
+                    //            intMin = objGroup.Rating;
+                    //            blnApplyModifier = true;
+                    //            break;
+                    //        }
+                    //    }
 
-                        if (blnApplyModifier)
-                        {
-                            intPointsUsed -= (intMin - objSkillControl.SkillRatingMinimum);
-                        }
-                    }
+                    //    //if (blnApplyModifier)
+                    //    //{
+                    //    //    intPointsUsed -= (intMin - objSkillControl.SkillRatingMinimum);
+                    //    //}
+                    //}
                 }
 
                 // If they've spent more points than they have available from their build priorities, figure out the cheapest option for paying for the extra points with karma.
@@ -14909,18 +14952,20 @@ namespace Chummer
                                 {
                                     if (objGroup.Broken && objGroup.Name == objSkill.SkillGroup)
                                     {
-                                        // Determine the lowest Rating amongst the Skills in the Groups.
-                                        foreach (Skill objSkillG in _objCharacter.Skills)
-                                        {
-                                            if (objSkillG.SkillGroup == objGroup.Name)
-                                            {
-                                                if (objSkillG.Rating < intMinGroup)
-                                                {
-                                                    intMinGroup = objSkillG.Rating;
-                                                    blnApplyModifier = true;
-                                                }
-                                            }
-                                        }
+                                        //// Determine the lowest Rating amongst the Skills in the Groups.
+                                        //foreach (Skill objSkillG in _objCharacter.Skills)
+                                        //{
+                                        //    if (objSkillG.SkillGroup == objGroup.Name)
+                                        //    {
+                                        //        if (objSkillG.Rating < intMinGroup)
+                                        //        {
+                                        //            intMinGroup = objSkillG.Rating;
+                                        //            blnApplyModifier = true;
+                                        //        }
+                                        //    }
+                                        //}
+                                        intMinGroup = objGroup.Rating;
+                                        blnApplyModifier = true;
                                         break;
                                     }
                                     else if (objGroup.Name == objSkill.SkillGroup)
@@ -15516,7 +15561,7 @@ namespace Chummer
 					objSkillControl.SkillRatingMaximum = objSkillControl.SkillObject.RatingMaximum;
 					objSkillControl.RefreshControl();
                     if (!objSkillControl.IsGrouped)
-                        intSkills += objSkillControl.SkillRating - objSkillControl.SkillRatingMinimum;
+                        intSkills += objSkillControl.SkillRating - objSkillControl.SkillObject.FreeLevels;
                     if (objSkillControl.SkillSpec.Trim() != string.Empty && !objSkillControl.SkillObject.ExoticSkill)
                     {
                         bool blnFound = false;
@@ -15536,37 +15581,37 @@ namespace Chummer
                         }
                     }
 
-                    if (_objOptions.BreakSkillGroupsInCreateMode)
-                    {
-                        int intMin = 999;
-                        bool blnApplyModifier = false;
+                    //if (_objOptions.BreakSkillGroupsInCreateMode)
+                    //{
+                    //    int intMin = 999;
+                    //    bool blnApplyModifier = false;
 
-                        // Find the matching Skill Group.
-                        foreach (SkillGroup objGroup in _objCharacter.SkillGroups)
-                        {
-                            if (objGroup.Broken && objGroup.Name == objSkillControl.SkillGroup)
-                            {
-                                // Determine the lowest Rating amongst the Skills in the Groups.
-                                foreach (Skill objSkill in _objCharacter.Skills)
-                                {
-                                    if (objSkill.SkillGroup == objGroup.Name)
-                                    {
-                                        if (objSkill.Rating < intMin)
-                                        {
-                                            intMin = objSkill.Rating;
-                                            blnApplyModifier = true;
-                                        }
-                                    }
-                                }
-                                break;
-                            }
-                        }
+                    //    // Find the matching Skill Group.
+                    //    foreach (SkillGroup objGroup in _objCharacter.SkillGroups)
+                    //    {
+                    //        if (objGroup.Broken && objGroup.Name == objSkillControl.SkillGroup)
+                    //        {
+                    //            // Determine the lowest Rating amongst the Skills in the Groups.
+                    //            foreach (Skill objSkill in _objCharacter.Skills)
+                    //            {
+                    //                if (objSkill.SkillGroup == objGroup.Name)
+                    //                {
+                    //                    if (objSkill.Rating < intMin)
+                    //                    {
+                    //                        intMin = objSkill.Rating;
+                    //                        blnApplyModifier = true;
+                    //                    }
+                    //                }
+                    //            }
+                    //            break;
+                    //        }
+                    //    }
 
-                        if (blnApplyModifier)
-                        {
-                            intSkills -= (intMin - objSkillControl.SkillRatingMinimum);
-                        }
-                    }
+                    //    if (blnApplyModifier)
+                    //    {
+                    //        intSkills -= (intMin - objSkillControl.SkillRatingMinimum);
+                    //    }
+                    //}
                 }
                 _objCharacter.SkillPoints = _objCharacter.SkillPointsMaximum - intSkills;
                 //if (_objCharacter.SkillPoints < 0)
@@ -16334,6 +16379,17 @@ namespace Chummer
 		/// </summary>
 		public void RefreshSelectedCyberware()
 		{
+            lblCyberDeviceRating.Visible = false;
+            lblCyberAttack.Visible = false;
+            lblCyberSleaze.Visible = false;
+            lblCyberDataProcessing.Visible = false;
+            lblCyberFirewall.Visible = false;
+            lblCyberDeviceRatingLabel.Visible = false;
+            lblCyberAttackLabel.Visible = false;
+            lblCyberSleazeLabel.Visible = false;
+            lblCyberDataProcessingLabel.Visible = false;
+            lblCyberFirewallLabel.Visible = false;
+
 			bool blnClear = false;
 			try
 			{
@@ -16444,6 +16500,40 @@ namespace Chummer
 				string strPage = objGear.Page;
 				lblCyberwareSource.Text = strBook + " " + strPage;
 				tipTooltip.SetToolTip(lblCyberwareSource, _objOptions.LanguageBookLong(objGear.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objGear.Page);
+
+                if (objGear.GetType() == typeof(Commlink))
+                {
+                    Commlink objCommlink = (Commlink)objGear;
+                    lblCyberDeviceRating.Text = objCommlink.TotalDeviceRating.ToString();
+                    lblCyberAttack.Text = objCommlink.Attack.ToString();
+                    lblCyberSleaze.Text = objCommlink.Sleaze.ToString();
+                    lblCyberDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                    lblCyberFirewall.Text = objCommlink.Firewall.ToString();
+
+                    lblCyberDeviceRating.Visible = true;
+                    lblCyberAttack.Visible = true;
+                    lblCyberSleaze.Visible = true;
+                    lblCyberDataProcessing.Visible = true;
+                    lblCyberFirewall.Visible = true;
+                    lblCyberDeviceRatingLabel.Visible = true;
+                    lblCyberAttackLabel.Visible = true;
+                    lblCyberSleazeLabel.Visible = true;
+                    lblCyberDataProcessingLabel.Visible = true;
+                    lblCyberFirewallLabel.Visible = true;
+                }
+                else
+                {
+                    lblCyberDeviceRating.Visible = false;
+                    lblCyberAttack.Visible = false;
+                    lblCyberSleaze.Visible = false;
+                    lblCyberDataProcessing.Visible = false;
+                    lblCyberFirewall.Visible = false;
+                    lblCyberDeviceRatingLabel.Visible = false;
+                    lblCyberAttackLabel.Visible = false;
+                    lblCyberSleazeLabel.Visible = false;
+                    lblCyberDataProcessingLabel.Visible = false;
+                    lblCyberFirewallLabel.Visible = false;
+                }
 
 				if (objGear.MaxRating > 0)
 				{
@@ -16602,6 +16692,8 @@ namespace Chummer
                         strName += " [+" + objImprovement.Value.ToString() + "]";
                     else
                         strName += " [" + objImprovement.Value.ToString() + "]";
+                    if (objImprovement.Exclude != "")
+                        strName += " (" + objImprovement.Exclude + ")";
                     objLimitModifierNode.Text = strName;
                     objLimitModifierNode.Tag = objImprovement.SourceName;
                     objLimitModifierNode.ContextMenuStrip = cmsMartialArts;
@@ -16634,7 +16726,13 @@ namespace Chummer
 		/// </summary>
 		public void RefreshSelectedWeapon()
 		{
-			bool blnClear = false;
+            lblWeaponDeviceRating.Text = "";
+            lblWeaponAttack.Text = "";
+            lblWeaponSleaze.Text = "";
+            lblWeaponDataProcessing.Text = "";
+            lblWeaponFirewall.Text = "";
+
+            bool blnClear = false;
 			try
 			{
 				if (treWeapons.SelectedNode.Level == 0)
@@ -16898,6 +16996,16 @@ namespace Chummer
 							chkIncludedInWeapon.Checked = false;
 							chkWeaponBlackMarketDiscount.Checked = objGear.DiscountCost;
 							_blnSkipRefresh = false;
+
+                            if (objGear.GetType() == typeof(Commlink))
+                            {
+                                Commlink objCommlink = (Commlink)objGear;
+                                lblWeaponDeviceRating.Text = objCommlink.DeviceRating.ToString();
+                                lblWeaponAttack.Text = objCommlink.Attack.ToString();
+                                lblWeaponSleaze.Text = objCommlink.Sleaze.ToString();
+                                lblWeaponDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                                lblWeaponFirewall.Text = objCommlink.Firewall.ToString();
+                            }
 						}
 					}
 
@@ -16915,7 +17023,13 @@ namespace Chummer
 		/// </summary>
 		public void RefreshSelectedArmor()
 		{
-			if (treArmor.SelectedNode.Level == 0)
+            lblArmorDeviceRating.Text = "";
+            lblArmorAttack.Text = "";
+            lblArmorSleaze.Text = "";
+            lblArmorDataProcessing.Text = "";
+            lblArmorFirewall.Text = "";
+
+            if (treArmor.SelectedNode.Level == 0)
 			{
 				lblArmorEquipped.Text = "";
 				foreach (Armor objArmor in _objCharacter.Armor)
@@ -17068,6 +17182,16 @@ namespace Chummer
 						_blnSkipRefresh = false;
 					}
 
+                    if (objSelectedGear.GetType() == typeof(Commlink))
+                    {
+                        Commlink objCommlink = (Commlink)objSelectedGear;
+                        lblArmorDeviceRating.Text = objCommlink.DeviceRating.ToString();
+                        lblArmorAttack.Text = objCommlink.Attack.ToString();
+                        lblArmorSleaze.Text = objCommlink.Sleaze.ToString();
+                        lblArmorDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                        lblArmorFirewall.Text = objCommlink.Firewall.ToString();
+                    }
+
 					_blnSkipRefresh = true;
 					chkIncludedInArmor.Enabled = false;
 					chkIncludedInArmor.Checked = false;
@@ -17113,7 +17237,17 @@ namespace Chummer
 					nudArmorRating.Value = 1;
 					_blnSkipRefresh = false;
 				}
-			}
+
+                if (objSelectedGear.GetType() == typeof(Commlink))
+                {
+                    Commlink objCommlink = (Commlink)objSelectedGear;
+                    lblArmorDeviceRating.Text = objCommlink.DeviceRating.ToString();
+                    lblArmorAttack.Text = objCommlink.Attack.ToString();
+                    lblArmorSleaze.Text = objCommlink.Sleaze.ToString();
+                    lblArmorDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                    lblArmorFirewall.Text = objCommlink.Firewall.ToString();
+                }
+            }
 			else
 			{
                 lblArmorValue.Text = "";
@@ -17183,6 +17317,21 @@ namespace Chummer
 				{
 					Commlink objCommlink = (Commlink)objGear;
 					lblGearDeviceRating.Text = objCommlink.TotalDeviceRating.ToString();
+                    lblGearAttack.Text = objCommlink.Attack.ToString();
+                    lblGearSleaze.Text = objCommlink.Sleaze.ToString();
+                    lblGearDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                    lblGearFirewall.Text = objCommlink.Firewall.ToString();
+
+                    lblGearDeviceRating.Visible = true;
+                    lblGearAttack.Visible = true;
+                    lblGearSleaze.Visible = true;
+                    lblGearDataProcessing.Visible = true;
+                    lblGearFirewall.Visible = true;
+                    lblGearDeviceRatingLabel.Visible = true;
+                    lblGearAttackLabel.Visible = true;
+                    lblGearSleazeLabel.Visible = true;
+                    lblGearDataProcessingLabel.Visible = true;
+                    lblGearFirewallLabel.Visible = true;
 
 					_blnSkipRefresh = true;
 					chkActiveCommlink.Checked = objCommlink.IsActive;
@@ -17195,7 +17344,15 @@ namespace Chummer
 				{
 					lblGearDeviceRating.Text = objGear.DeviceRating.ToString();
 					chkActiveCommlink.Visible = false;
-				}
+                    lblGearAttack.Visible = false;
+                    lblGearSleaze.Visible = false;
+                    lblGearDataProcessing.Visible = false;
+                    lblGearFirewall.Visible = false;
+                    lblGearAttackLabel.Visible = false;
+                    lblGearSleazeLabel.Visible = false;
+                    lblGearDataProcessingLabel.Visible = false;
+                    lblGearFirewallLabel.Visible = false;
+                }
 
 				if (objGear.MaxRating > 0)
 				{
@@ -17423,8 +17580,8 @@ namespace Chummer
 		private void SaveCharacterAsCreated()
 		{
 			// If the character was built with Karma, record their staring Karma amount (if any).
-			if (_objCharacter.BuildMethod == CharacterBuildMethod.Karma)
-			{
+            //if (_objCharacter.BuildMethod == CharacterBuildMethod.Karma)
+            //{
 				if (_objCharacter.Karma > 0)
 				{
 					ExpenseLogEntry objKarma = new ExpenseLogEntry();
@@ -17436,7 +17593,7 @@ namespace Chummer
 					objKarmaUndo.CreateKarma(KarmaExpenseType.ManualAdd, "");
 					objKarma.Undo = objKarmaUndo;
 				}
-			}
+            //}
 
 			// If the character has an Essence Penalty, this needs to be added as a positive value to the character's MAG/RES so that it's correctly shown in Career Mode.
 			if (_objCharacter.EssencePenalty > 0 && (_objCharacter.MAGEnabled || _objCharacter.RESEnabled))
@@ -18224,6 +18381,11 @@ namespace Chummer
 		/// </summary>
 		private void RefreshSelectedVehicle()
 		{
+            lblVehicleAttack.Text = "";
+            lblVehicleSleaze.Text = "";
+            lblVehicleDataProcessing.Text = "";
+            lblVehicleFirewall.Text = "";
+
 			bool blnClear = false;
 
 			try
@@ -18328,7 +18490,6 @@ namespace Chummer
 								lblVehicleBody.Text = "";
 								lblVehicleArmor.Text = "";
 								lblVehicleSensor.Text = "";
-								lblVehicleDeviceRating.Text = "";
 								lblVehicleAvail.Text = "";
 								lblVehicleCost.Text = "";
 								lblVehicleSlots.Text = "";
@@ -18403,7 +18564,6 @@ namespace Chummer
 					lblVehicleBody.Text = "";
 					lblVehicleArmor.Text = "";
 					lblVehicleSensor.Text = "";
-					lblVehicleDeviceRating.Text = "";
 					lblVehicleSlots.Text = objMod.CalculatedSlots.ToString();
 					string strBook = _objOptions.LanguageBookShort(objMod.Source);
 					string strPage = objMod.Page;
@@ -18450,12 +18610,21 @@ namespace Chummer
 						lblVehicleBody.Text = "";
 						lblVehicleArmor.Text = "";
 						lblVehicleSensor.Text = "";
-						lblVehicleDeviceRating.Text = "";
 						lblVehicleSlots.Text = objGear.CalculatedCapacity + " (" + objGear.CapacityRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 						string strBook = _objOptions.LanguageBookShort(objGear.Source);
 						string strPage = objGear.Page;
 						lblVehicleSource.Text = strBook + " " + strPage;
 						tipTooltip.SetToolTip(lblVehicleSource, _objOptions.LanguageBookLong(objGear.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objGear.Page);
+
+                        if (objGear.GetType() == typeof(Commlink))
+                        {
+                            Commlink objCommlink = (Commlink)objGear;
+                            lblVehicleDevice.Text = objCommlink.DeviceRating.ToString();
+                            lblVehicleAttack.Text = objCommlink.Attack.ToString();
+                            lblVehicleSleaze.Text = objCommlink.Sleaze.ToString();
+                            lblVehicleDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                            lblVehicleFirewall.Text = objCommlink.Firewall.ToString();
+                        }
 
 						if ((_objCharacter.Metatype.EndsWith("A.I.") || _objCharacter.MetatypeCategory == "Technocritters" || _objCharacter.MetatypeCategory == "Protosapients") && objGear.GetType() == typeof(Commlink))
 						{
@@ -18501,7 +18670,6 @@ namespace Chummer
 						lblVehicleBody.Text = "";
 						lblVehicleArmor.Text = "";
 						lblVehicleSensor.Text = "";
-						lblVehicleDeviceRating.Text = "";
 						lblVehicleSlots.Text = "6 (" + objWeapon.SlotsRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 						string strBook = _objOptions.LanguageBookShort(objWeapon.Source);
 						string strPage = objWeapon.Page;
@@ -18565,12 +18733,21 @@ namespace Chummer
 					lblVehicleBody.Text = "";
 					lblVehicleArmor.Text = "";
 					lblVehicleSensor.Text = "";
-					lblVehicleDeviceRating.Text = "";
 					lblVehicleSlots.Text = objGear.CalculatedCapacity + " (" + objGear.CapacityRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 					string strBook = _objOptions.LanguageBookShort(objGear.Source);
 					string strPage = objGear.Page;
 					lblVehicleSource.Text = strBook + " " + strPage;
 					tipTooltip.SetToolTip(lblVehicleSource, _objOptions.LanguageBookLong(objGear.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objGear.Page);
+
+                    if (objGear.GetType() == typeof(Commlink))
+                    {
+                        Commlink objCommlink = (Commlink)objGear;
+                        lblVehicleDevice.Text = objCommlink.DeviceRating.ToString();
+                        lblVehicleAttack.Text = objCommlink.Attack.ToString();
+                        lblVehicleSleaze.Text = objCommlink.Sleaze.ToString();
+                        lblVehicleDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                        lblVehicleFirewall.Text = objCommlink.Firewall.ToString();
+                    }
 
 					if ((_objCharacter.Metatype.EndsWith("A.I.") || _objCharacter.MetatypeCategory == "Technocritters" || _objCharacter.MetatypeCategory == "Protosapients") && objGear.GetType() == typeof(Commlink))
 					{
@@ -18614,7 +18791,6 @@ namespace Chummer
 						lblVehicleBody.Text = "";
 						lblVehicleArmor.Text = "";
 						lblVehicleSensor.Text = "";
-						lblVehicleDeviceRating.Text = "";
 						lblVehicleSlots.Text = "6 (" + objWeapon.SlotsRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 						string strBook = _objOptions.LanguageBookShort(objWeapon.Source);
 						string strPage = objWeapon.Page;
@@ -18656,7 +18832,6 @@ namespace Chummer
 							lblVehicleArmor.Text = "";
 							lblVehicleSensor.Text = "";
 							lblVehicleSlots.Text = "";
-							lblVehicleDeviceRating.Text = "";
 							string strBook = _objOptions.LanguageBookShort(objCyberware.Source);
 							string strPage = objCyberware.Page;
 							lblVehicleSource.Text = strBook + " " + strPage;
@@ -18711,12 +18886,21 @@ namespace Chummer
 					lblVehicleBody.Text = "";
 					lblVehicleArmor.Text = "";
 					lblVehicleSensor.Text = "";
-					lblVehicleDeviceRating.Text = "";
 					lblVehicleSlots.Text = objGear.CalculatedCapacity + " (" + objGear.CapacityRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 					string strBook = _objOptions.LanguageBookShort(objGear.Source);
 					string strPage = objGear.Page;
 					lblVehicleSource.Text = strBook + " " + strPage;
 					tipTooltip.SetToolTip(lblVehicleSource, _objOptions.LanguageBookLong(objGear.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objGear.Page);
+
+                    if (objGear.GetType() == typeof(Commlink))
+                    {
+                        Commlink objCommlink = (Commlink)objGear;
+                        lblVehicleDevice.Text = objCommlink.DeviceRating.ToString();
+                        lblVehicleAttack.Text = objCommlink.Attack.ToString();
+                        lblVehicleSleaze.Text = objCommlink.Sleaze.ToString();
+                        lblVehicleDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                        lblVehicleFirewall.Text = objCommlink.Firewall.ToString();
+                    }
 
 					if ((_objCharacter.Metatype.EndsWith("A.I.") || _objCharacter.MetatypeCategory == "Technocritters" || _objCharacter.MetatypeCategory == "Protosapients") && objGear.GetType() == typeof(Commlink))
 					{
@@ -18751,7 +18935,6 @@ namespace Chummer
 						lblVehicleBody.Text = "";
 						lblVehicleArmor.Text = "";
 						lblVehicleSensor.Text = "";
-						lblVehicleDeviceRating.Text = "";
 						_blnSkipRefresh = true;
 						chkVehicleBlackMarketDiscount.Checked = objAccessory.DiscountCost;
 						_blnSkipRefresh = false;
@@ -18801,7 +18984,6 @@ namespace Chummer
 							lblVehicleBody.Text = "";
 							lblVehicleArmor.Text = "";
 							lblVehicleSensor.Text = "";
-							lblVehicleDeviceRating.Text = "";
 							lblVehicleSlots.Text = objMod.Slots.ToString();
 							string strBook = _objOptions.LanguageBookShort(objMod.Source);
 							string strPage = objMod.Page;
@@ -18832,7 +19014,6 @@ namespace Chummer
 							lblVehicleBody.Text = "";
 							lblVehicleArmor.Text = "";
 							lblVehicleSensor.Text = "";
-							lblVehicleDeviceRating.Text = "";
 							lblVehicleSlots.Text = "6 (" + objWeapon.SlotsRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 							string strBook = _objOptions.LanguageBookShort(objWeapon.Source);
 							string strPage = objWeapon.Page;
@@ -18874,7 +19055,6 @@ namespace Chummer
 					lblVehicleBody.Text = "";
 					lblVehicleArmor.Text = "";
 					lblVehicleSensor.Text = "";
-					lblVehicleDeviceRating.Text = "";
 
 					string[] strMounts = objAccessory.Mount.Split('/');
 					string strMount = "";
@@ -18923,7 +19103,6 @@ namespace Chummer
 						lblVehicleBody.Text = "";
 						lblVehicleArmor.Text = "";
 						lblVehicleSensor.Text = "";
-						lblVehicleDeviceRating.Text = "";
 						lblVehicleSlots.Text = objMod.Slots.ToString();
 						string strBook = _objOptions.LanguageBookShort(objMod.Source);
 						string strPage = objMod.Page;
@@ -18975,12 +19154,21 @@ namespace Chummer
 						lblVehicleBody.Text = "";
 						lblVehicleArmor.Text = "";
 						lblVehicleSensor.Text = "";
-						lblVehicleDeviceRating.Text = "";
 						lblVehicleSlots.Text = objGear.CalculatedCapacity + " (" + objGear.CapacityRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 						string strBook = _objOptions.LanguageBookShort(objGear.Source);
 						string strPage = objGear.Page;
 						lblVehicleSource.Text = strBook + " " + strPage;
 						tipTooltip.SetToolTip(lblVehicleSource, _objOptions.LanguageBookLong(objGear.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objGear.Page);
+
+                        if (objGear.GetType() == typeof(Commlink))
+                        {
+                            Commlink objCommlink = (Commlink)objGear;
+                            lblVehicleDevice.Text = objCommlink.DeviceRating.ToString();
+                            lblVehicleAttack.Text = objCommlink.Attack.ToString();
+                            lblVehicleSleaze.Text = objCommlink.Sleaze.ToString();
+                            lblVehicleDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                            lblVehicleFirewall.Text = objCommlink.Firewall.ToString();
+                        }
 
 						if ((_objCharacter.Metatype.EndsWith("A.I.") || _objCharacter.MetatypeCategory == "Technocritters" || _objCharacter.MetatypeCategory == "Protosapients") && objGear.GetType() == typeof(Commlink))
 						{
@@ -19027,7 +19215,6 @@ namespace Chummer
 				lblVehicleBody.Text = "";
 				lblVehicleArmor.Text = "";
 				lblVehicleSensor.Text = "";
-				lblVehicleDeviceRating.Text = "";
 				lblVehicleSlots.Text = objGear.CalculatedCapacity + " (" + objGear.CapacityRemaining.ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 				string strBook = _objOptions.LanguageBookShort(objGear.Source);
 				string strPage = objGear.Page;
@@ -19036,6 +19223,16 @@ namespace Chummer
 				chkVehicleBlackMarketDiscount.Checked = objGear.DiscountCost;
 				_blnSkipRefresh = false;
 				tipTooltip.SetToolTip(lblVehicleSource, _objOptions.LanguageBookLong(objGear.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objGear.Page);
+
+                if (objGear.GetType() == typeof(Commlink))
+                {
+                    Commlink objCommlink = (Commlink)objGear;
+                    lblVehicleDevice.Text = objCommlink.DeviceRating.ToString();
+                    lblVehicleAttack.Text = objCommlink.Attack.ToString();
+                    lblVehicleSleaze.Text = objCommlink.Sleaze.ToString();
+                    lblVehicleDataProcessing.Text = objCommlink.DataProcessing.ToString();
+                    lblVehicleFirewall.Text = objCommlink.Firewall.ToString();
+                }
 
 				if ((_objCharacter.Metatype.EndsWith("A.I.") || _objCharacter.MetatypeCategory == "Technocritters" || _objCharacter.MetatypeCategory == "Protosapients") && objGear.GetType() == typeof(Commlink))
 				{
@@ -19791,7 +19988,10 @@ namespace Chummer
 					else
 						_objCharacter.Karma = _objOptions.KarmaCarryover;
 				}
-
+                else
+                {
+                    _objCharacter.Karma = intBuildPoints;
+                }
 				// Determine the highest Lifestyle the character has.
 				Lifestyle objLifestyle = new Lifestyle(_objCharacter);
 				foreach (Lifestyle objCharacterLifestyle in _objCharacter.Lifestyles)
@@ -21656,6 +21856,15 @@ namespace Chummer
 			intWidth = Math.Max(lblCyberwareRatingLabel.Width, lblCyberwareCapacityLabel.Width);
 			intWidth = Math.Max(intWidth, lblCyberwareCostLabel.Width);
 
+            lblCyberAttackLabel.Left = lblCyberDeviceRating.Left + lblCyberDeviceRating.Width + 20;
+            lblCyberAttack.Left = lblCyberAttackLabel.Left + lblCyberAttackLabel.Width + 6;
+            lblCyberSleazeLabel.Left = lblCyberAttack.Left + lblCyberAttack.Width + 20;
+            lblCyberSleaze.Left = lblCyberSleazeLabel.Left + lblCyberSleazeLabel.Width + 6;
+            lblCyberDataProcessingLabel.Left = lblCyberSleaze.Left + lblCyberSleaze.Width + 20;
+            lblCyberDataProcessing.Left = lblCyberDataProcessingLabel.Left + lblCyberDataProcessingLabel.Width + 6;
+            lblCyberFirewallLabel.Left = lblCyberDataProcessing.Left + lblCyberDataProcessing.Width + 20;
+            lblCyberFirewall.Left = lblCyberFirewallLabel.Left + lblCyberFirewallLabel.Width + 6;
+
 			lblCyberwareRatingLabel.Left = cboCyberwareGrade.Left + cboCyberwareGrade.Width + 16;
 			nudCyberwareRating.Left = lblCyberwareRatingLabel.Left + intWidth + 6;
 			lblCyberwareCapacityLabel.Left = cboCyberwareGrade.Left + cboCyberwareGrade.Width + 16;
@@ -21695,6 +21904,15 @@ namespace Chummer
 			lblArmorCost.Left = lblArmorCostLabel.Left + lblArmorCostLabel.Width + 6;
 			chkArmorBlackMarketDiscount.Left = lblArmorCostLabel.Left;
 
+            lblArmorAttackLabel.Left = lblArmorDeviceRating.Left + lblArmorDeviceRating.Width + 20;
+            lblArmorAttack.Left = lblArmorAttackLabel.Left + lblArmorAttackLabel.Width + 6;
+            lblArmorSleazeLabel.Left = lblArmorAttack.Left + lblArmorAttack.Width + 20;
+            lblArmorSleaze.Left = lblArmorSleazeLabel.Left + lblArmorSleazeLabel.Width + 6;
+            lblArmorDataProcessingLabel.Left = lblArmorSleaze.Left + lblArmorSleaze.Width + 20;
+            lblArmorDataProcessing.Left = lblArmorDataProcessingLabel.Left + lblArmorDataProcessingLabel.Width + 6;
+            lblArmorFirewallLabel.Left = lblArmorDataProcessing.Left + lblArmorDataProcessing.Width + 20;
+            lblArmorFirewall.Left = lblArmorFirewallLabel.Left + lblArmorFirewallLabel.Width + 6;
+
 			// Weapons tab.
 			lblWeaponName.Left = lblWeaponNameLabel.Left + lblWeaponNameLabel.Width + 6;
 			lblWeaponCategory.Left = lblWeaponCategoryLabel.Left + lblWeaponCategoryLabel.Width + 6;
@@ -21730,6 +21948,15 @@ namespace Chummer
 			intWidth = Math.Max(lblWeaponAPLabel.Width, lblWeaponAmmoLabel.Width);
 			intWidth = Math.Max(intWidth, lblWeaponConcealLabel.Width);
 
+            lblWeaponAttackLabel.Left = lblWeaponDeviceRating.Left + lblWeaponDeviceRating.Width + 20;
+            lblWeaponAttack.Left = lblWeaponAttackLabel.Left + lblWeaponAttackLabel.Width + 6;
+            lblWeaponSleazeLabel.Left = lblWeaponAttack.Left + lblWeaponAttack.Width + 20;
+            lblWeaponSleaze.Left = lblWeaponSleazeLabel.Left + lblWeaponSleazeLabel.Width + 6;
+            lblWeaponDataProcessingLabel.Left = lblWeaponSleaze.Left + lblWeaponSleaze.Width + 20;
+            lblWeaponDataProcessing.Left = lblWeaponDataProcessingLabel.Left + lblWeaponDataProcessingLabel.Width + 6;
+            lblWeaponFirewallLabel.Left = lblWeaponDataProcessing.Left + lblWeaponDataProcessing.Width + 20;
+            lblWeaponFirewall.Left = lblWeaponFirewallLabel.Left + lblWeaponFirewallLabel.Width + 6;
+
 			lblWeaponAPLabel.Left = lblWeaponRC.Left + 95;
 			lblWeaponAP.Left = lblWeaponAPLabel.Left + intWidth + 6;
 			lblWeaponAmmoLabel.Left = lblWeaponRC.Left + 95;
@@ -21764,6 +21991,15 @@ namespace Chummer
 			lblGearDeviceRating.Left = lblGearDeviceRatingLabel.Left + intWidth + 6;
 			lblGearDamage.Left = lblGearDamageLabel.Left + intWidth + 6;
 
+            lblGearAttackLabel.Left = lblGearDeviceRating.Left + lblGearDeviceRating.Width + 20;
+            lblGearAttack.Left = lblGearAttackLabel.Left + lblGearAttackLabel.Width + 6;
+            lblGearSleazeLabel.Left = lblGearAttack.Left + lblGearAttack.Width + 20;
+            lblGearSleaze.Left = lblGearSleazeLabel.Left + lblGearSleazeLabel.Width + 6;
+            lblGearDataProcessingLabel.Left = lblGearSleaze.Left + lblGearSleaze.Width + 20;
+            lblGearDataProcessing.Left = lblGearDataProcessingLabel.Left + lblGearDataProcessingLabel.Width + 6;
+            lblGearFirewallLabel.Left = lblGearDataProcessing.Left + lblGearDataProcessing.Width + 20;
+            lblGearFirewall.Left = lblGearFirewallLabel.Left + lblGearFirewallLabel.Width + 6;
+
 			lblGearSource.Left = lblGearSourceLabel.Left + lblGearSourceLabel.Width + 6;
 			chkGearHomeNode.Left = chkGearEquipped.Left + chkGearEquipped.Width + 16;
 
@@ -21775,11 +22011,13 @@ namespace Chummer
 			intWidth = Math.Max(intWidth, lblVehicleRatingLabel.Width);
 			intWidth = Math.Max(intWidth, lblVehicleGearQtyLabel.Width);
 			intWidth = Math.Max(intWidth, lblVehicleSourceLabel.Width);
+            intWidth = Math.Max(intWidth, lblVehicleAttackLabel.Width);
 
 			lblVehicleName.Left = lblVehicleNameLabel.Left + intWidth + 6;
 			lblVehicleCategory.Left = lblVehicleCategoryLabel.Left + intWidth + 6;
 			lblVehicleHandling.Left = lblVehicleHandlingLabel.Left + intWidth + 6;
-			lblVehiclePilot.Left = lblVehiclePilotLabel.Left + intWidth + 6;
+            lblVehicleAttack.Left = lblVehicleAttackLabel.Left + intWidth + 6;
+            lblVehiclePilot.Left = lblVehiclePilotLabel.Left + intWidth + 6;
 			lblVehicleAvail.Left = lblVehicleAvailLabel.Left + intWidth + 6;
 			nudVehicleRating.Left = lblVehicleRatingLabel.Left + intWidth + 6;
 			nudVehicleGearQty.Left = lblVehicleGearQtyLabel.Left + intWidth + 6;
@@ -21790,6 +22028,7 @@ namespace Chummer
 
 			intWidth = Math.Max(lblVehicleAccelLabel.Width, lblVehicleBodyLabel.Width);
 			intWidth = Math.Max(intWidth, lblVehicleCostLabel.Width);
+            intWidth = Math.Max(intWidth, lblVehicleSleazeLabel.Width);
 
 			lblVehicleAccelLabel.Left = lblVehicleHandling.Left + 47;
 			lblVehicleAccel.Left = lblVehicleAccelLabel.Left + intWidth + 6;
@@ -21797,27 +22036,32 @@ namespace Chummer
 			lblVehicleBody.Left = lblVehicleBodyLabel.Left + intWidth + 6;
 			lblVehicleCostLabel.Left = lblVehicleHandling.Left + 47;
 			lblVehicleCost.Left = lblVehicleCostLabel.Left + intWidth + 6;
+            lblVehicleSleazeLabel.Left = lblVehicleHandling.Left + 47;
+            lblVehicleSleaze.Left = lblVehicleSleazeLabel.Left + intWidth + 6;
 
 			chkVehicleIncludedInWeapon.Left = lblVehicleAccel.Left;
 			chkVehicleHomeNode.Left = lblVehicleAccel.Left;
 			chkVehicleBlackMarketDiscount.Left = lblVehicleAccel.Left;
 
 			intWidth = Math.Max(lblVehicleSpeedLabel.Width, lblVehicleArmorLabel.Width);
-			intWidth = Math.Max(intWidth, lblVehicleDeviceRatingLabel.Width);
+            intWidth = Math.Max(intWidth, lblVehicleDataProcessingLabel.Width);
 
 			lblVehicleSpeedLabel.Left = lblVehicleAccel.Left + 53;
 			lblVehicleSpeed.Left = lblVehicleSpeedLabel.Left + intWidth + 6;
 			lblVehicleArmorLabel.Left = lblVehicleAccel.Left + 53;
 			lblVehicleArmor.Left = lblVehicleArmorLabel.Left + intWidth + 6;
-			lblVehicleDeviceRatingLabel.Left = lblVehicleAccel.Left + 53;
-			lblVehicleDeviceRating.Left = lblVehicleDeviceRatingLabel.Left + intWidth + 6;
+            lblVehicleDataProcessingLabel.Left = lblVehicleAccel.Left + 53;
+            lblVehicleDataProcessing.Left = lblVehicleDataProcessingLabel.Left + intWidth + 6;
 
 			intWidth = Math.Max(lblVehicleDeviceLabel.Width, lblVehicleSensorLabel.Width);
+            intWidth = Math.Max(intWidth, lblVehicleFirewallLabel.Width);
 
 			lblVehicleDeviceLabel.Left = lblVehicleSpeed.Left + 35;
 			lblVehicleDevice.Left = lblVehicleDeviceLabel.Left + intWidth + 6;
 			lblVehicleSensorLabel.Left = lblVehicleSpeed.Left + 35;
 			lblVehicleSensor.Left = lblVehicleSensorLabel.Left + intWidth + 6;
+            lblVehicleFirewallLabel.Left = lblVehicleSpeed.Left + 35;
+            lblVehicleFirewall.Left = lblVehicleFirewallLabel.Left + intWidth + 6;
 
 			lblVehicleSlotsLabel.Left = lblVehicleCost.Left + 94;
 			lblVehicleSlots.Left = lblVehicleSlotsLabel.Left + lblVehicleSlotsLabel.Width + 6;
@@ -22635,5 +22879,10 @@ namespace Chummer
 			}
 		}
 		#endregion
+
+        private void tabVehicles_Click(object sender, EventArgs e)
+        {
+
+        }
 	}
 }

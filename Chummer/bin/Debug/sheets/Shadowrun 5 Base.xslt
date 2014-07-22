@@ -681,7 +681,7 @@
 												<strong>CONNECTION</strong>
 												</td>
 												<td width="15%" style="text-align:center;">
-												<strong>LOYALTY/INCIDENCE</strong>
+												<strong>LOYALTY</strong>
 												</td>
 												</tr>
 												<xsl:call-template name="contacts"/>
@@ -1132,7 +1132,7 @@
 									class="tableborder">
 									<tr>
 										<td width="18%">
-											<strong>COMMLINK</strong>
+											<strong>DEVICE</strong>
 										</td>
 										<td width="16%" style="text-align:center;">
 											<strong>DEVICE RATING</strong>
@@ -1153,7 +1153,7 @@
 									</tr>
 									<xsl:call-template name="commlink"/>
 									<tr>
-										<td class="rowsummary" colspan="7"> COMMLINK/PROGRAMS <span
+										<td class="rowsummary" colspan="7"> DEVICES/PROGRAMS <span
 												class="rowsummarybutton"
 												onClick="showhide(this,'ComlinkBlock');" colspan="1"
 												>Show: YES</span>
@@ -2381,7 +2381,7 @@
 					<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 				</xsl:if>
 				<td width="18%" valign="top">
-					<xsl:value-of select="name"/>
+					<xsl:value-of select="name"/> (<xsl:value-of select="category"/>)
 					<xsl:if test="extra != ''"> (<xsl:value-of select="extra"/>)</xsl:if>
 				</td>
 				<td width="16%" style="text-align:center;" valign="top">
@@ -2458,20 +2458,23 @@
 					<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 				</xsl:if>
 				<td width="18%" valign="top">
-					<xsl:value-of select="name"/>
+					<xsl:value-of select="name"/> (<xsl:value-of select="category"/>)
 					<xsl:if test="extra != ''"> (<xsl:value-of select="extra"/>)</xsl:if>
 				</td>
-				<td width="18%" style="text-align:center;" valign="top">
-					<xsl:value-of select="response"/>
+				<td width="16%" style="text-align:center;" valign="top">
+					<xsl:value-of select="devicerating"/>
 				</td>
-				<td width="18%" style="text-align:center;" valign="top">
-					<xsl:value-of select="system"/>
+				<td width="14%" style="text-align:center;" valign="top">
+					<xsl:value-of select="attack"/>
 				</td>
-				<td width="18%" style="text-align:center;" valign="top">
+				<td width="14%" style="text-align:center;" valign="top">
+					<xsl:value-of select="sleaze"/>
+				</td>
+				<td width="14%" style="text-align:center;" valign="top">
+					<xsl:value-of select="dataprocessing"/>
+				</td>
+				<td width="14%" style="text-align:center;" valign="top">
 					<xsl:value-of select="firewall"/>
-				</td>
-				<td width="18%" style="text-align:center;" valign="top">
-					<xsl:value-of select="signal"/>
 				</td>
 				<td width="10%" style="text-align:center;" valign="top">
 					<xsl:value-of select="source"/>
@@ -2532,20 +2535,23 @@
 					<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 				</xsl:if>
 				<td width="18%" valign="top">
-					<xsl:value-of select="name"/>
+					<xsl:value-of select="name"/> (<xsl:value-of select="category"/>)
 					<xsl:if test="extra != ''"> (<xsl:value-of select="extra"/>)</xsl:if>
 				</td>
-				<td width="18%" style="text-align:center;" valign="top">
-					<xsl:value-of select="response"/>
+				<td width="16%" style="text-align:center;" valign="top">
+					<xsl:value-of select="devicerating"/>
 				</td>
-				<td width="18%" style="text-align:center;" valign="top">
-					<xsl:value-of select="system"/>
+				<td width="14%" style="text-align:center;" valign="top">
+					<xsl:value-of select="attack"/>
 				</td>
-				<td width="18%" style="text-align:center;" valign="top">
+				<td width="14%" style="text-align:center;" valign="top">
+					<xsl:value-of select="sleaze"/>
+				</td>
+				<td width="14%" style="text-align:center;" valign="top">
+					<xsl:value-of select="dataprocessing"/>
+				</td>
+				<td width="14%" style="text-align:center;" valign="top">
 					<xsl:value-of select="firewall"/>
-				</td>
-				<td width="18%" style="text-align:center;" valign="top">
-					<xsl:value-of select="signal"/>
 				</td>
 				<td width="10%" style="text-align:center;" valign="top">
 					<xsl:value-of select="source"/>
@@ -2607,20 +2613,23 @@
 					<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 				</xsl:if>
 				<td width="18%" valign="top">
-					<xsl:value-of select="name"/>
+					<xsl:value-of select="name"/> (<xsl:value-of select="category"/>)
 					<xsl:if test="extra != ''"> (<xsl:value-of select="extra"/>)</xsl:if>
 				</td>
-				<td width="18%" style="text-align:center;" valign="top">
-					<xsl:value-of select="response"/>
+				<td width="16%" style="text-align:center;" valign="top">
+					<xsl:value-of select="devicerating"/>
 				</td>
-				<td width="18%" style="text-align:center;" valign="top">
-					<xsl:value-of select="system"/>
+				<td width="14%" style="text-align:center;" valign="top">
+					<xsl:value-of select="attack"/>
 				</td>
-				<td width="18%" style="text-align:center;" valign="top">
+				<td width="14%" style="text-align:center;" valign="top">
+					<xsl:value-of select="sleaze"/>
+				</td>
+				<td width="14%" style="text-align:center;" valign="top">
+					<xsl:value-of select="dataprocessing"/>
+				</td>
+				<td width="14%" style="text-align:center;" valign="top">
 					<xsl:value-of select="firewall"/>
-				</td>
-				<td width="18%" style="text-align:center;" valign="top">
-					<xsl:value-of select="signal"/>
 				</td>
 				<td width="10%" style="text-align:center;" valign="top">
 					<xsl:value-of select="source"/>
@@ -2681,20 +2690,23 @@
 					<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 				</xsl:if>
 				<td width="18%" valign="top">
-					<xsl:value-of select="name"/>
+					<xsl:value-of select="name"/> (<xsl:value-of select="category"/>)
 					<xsl:if test="extra != ''"> (<xsl:value-of select="extra"/>)</xsl:if>
 				</td>
-				<td width="18%" style="text-align:center;" valign="top">
-					<xsl:value-of select="response"/>
+				<td width="16%" style="text-align:center;" valign="top">
+					<xsl:value-of select="devicerating"/>
 				</td>
-				<td width="18%" style="text-align:center;" valign="top">
-					<xsl:value-of select="system"/>
+				<td width="14%" style="text-align:center;" valign="top">
+					<xsl:value-of select="attack"/>
 				</td>
-				<td width="18%" style="text-align:center;" valign="top">
+				<td width="14%" style="text-align:center;" valign="top">
+					<xsl:value-of select="sleaze"/>
+				</td>
+				<td width="14%" style="text-align:center;" valign="top">
+					<xsl:value-of select="dataprocessing"/>
+				</td>
+				<td width="14%" style="text-align:center;" valign="top">
 					<xsl:value-of select="firewall"/>
-				</td>
-				<td width="18%" style="text-align:center;" valign="top">
-					<xsl:value-of select="signal"/>
 				</td>
 				<td width="10%" style="text-align:center;" valign="top">
 					<xsl:value-of select="source"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-500</version>
+	<version>-499</version>
 	<grades>
 		<grade>
 			<name>Standard</name>
@@ -140,7 +140,7 @@
 				<physicallimit>+1</physicallimit>
 			</bonus>
 			<source>SR5</source>
-			<page>460</page>
+			<page>459</page>
 		</bioware>
 		<bioware>
 			<name>Mnemonic Enhancer</name>
@@ -378,6 +378,7 @@
 				<limitmodifier>
 					<limit>Social</limit>
 					<value>Rating</value>
+					<condition>Only in person</condition>
 				</limitmodifier>
 			</bonus>
 			<source>SR5</source>

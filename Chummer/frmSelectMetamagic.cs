@@ -190,7 +190,19 @@ namespace Chummer
                     {
                         if (objMetamagic.Name == objXmlMetamagic["name"].InnerText)
                         {
+                            try
+                            {
+                                if (objXmlMetamagic["limit"].InnerText == "no")
+                                    blnNew = true;
+                                else
+                                    blnNew = false;
+                                break;
+                            }
+                            catch
+                            {
+                            }
                             blnNew = false;
+                            break;
                         }
                     }
 

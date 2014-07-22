@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-495</version>
+	<version>-494</version>
 	<powers>
 		<power>
 			<name>Adrenaline Boost</name>
@@ -327,10 +327,7 @@
 			<levels>yes</levels>
 			<limit>20</limit>
 			<bonus>
-				<limitmodifier>
-					<limit>Social</limit>
-					<value>1</value>
-				</limitmodifier>
+				<sociallimit>Rating</sociallimit>
 			</bonus>
 			<source>SR5</source>
 			<page>311</page>

@@ -9785,7 +9785,7 @@ namespace Chummer
 			objNode.Tag = _guiID.ToString();
 
 			// If the Gear is Ammunition, ask the user to select a Weapon Category for it to be limited to.
-			if (_strCategory == "Ammunition" && _strName.StartsWith("Ammo:"))
+            if (_strCategory == "Ammunition" && (_strName.StartsWith("Ammo:") || _strName.StartsWith("Arrow:") || _strName.StartsWith("Bolt:")))
 			{
 				frmSelectWeaponCategory frmPickWeaponCategory = new frmSelectWeaponCategory();
 				frmPickWeaponCategory.Description = LanguageManager.Instance.GetString("String_SelectWeaponCategoryAmmo");

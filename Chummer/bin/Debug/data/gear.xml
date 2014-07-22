@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-494</version>
+	<version>-493</version>
 	<categories>
 		<category>Ammunition</category>
 		<category>Armor Enhancements</category>
@@ -3715,7 +3715,8 @@
 			<category>Foci</category>
 			<rating>18</rating>
 			<bonus>
-				<selecttext />
+				<selecttext/>
+				<selectweapon />
 			</bonus>
 			<avail>(Rating * 4)R</avail>
 			<cost>Rating * 7000</cost>
