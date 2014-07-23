@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-493</version>
+	<version>-492</version>
 	<categories>
 		<category>Blades</category>
 		<category>Clubs</category>
@@ -180,7 +180,7 @@
 				<mount>Under</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>431</page>
@@ -281,7 +281,7 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Shock Pad</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>428</page>
@@ -321,7 +321,7 @@
 			<accuracy>4</accuracy>
 			<reach>0</reach>
 			<damage>9P</damage>
-			<ap>0</ap>
+			<ap>-2</ap>
 			<mode>SA/BF/FA</mode>
 			<rc>0</rc>
 			<ammo>40(c)</ammo>
@@ -386,7 +386,7 @@
 			<accessories>
 				<accessory>Shock Pad</accessory>
 				<accessory>Imaging Scope</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>RG</source>
 			<page>37</page>
@@ -415,7 +415,7 @@
 			<accessories>
 				<accessory>Shock Pad</accessory>
 				<accessory>Imaging Scope</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<range>Submachine Guns</range>
 			<useskill>Automatics</useskill>
@@ -446,7 +446,7 @@
 			<accessories>
 				<accessory>Shock Pad</accessory>
 				<accessory>Imaging Scope</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<range>Light Machine Guns</range>
 			<useskill>Heavy Weapons</useskill>
@@ -477,7 +477,7 @@
 			<accessories>
 				<accessory>Shock Pad</accessory>
 				<accessory>Imaging Scope</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<range>Shotguns (flechette)</range>
 			<useskill>Longarms</useskill>
@@ -508,7 +508,7 @@
 			<accessories>
 				<accessory>Shock Pad</accessory>
 				<accessory>Imaging Scope</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<range>Sniper Rifles</range>
 			<useskill>Longarms</useskill>
@@ -564,7 +564,7 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Shock Pad</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>RG</source>
 			<page>38</page>
@@ -616,7 +616,7 @@
 				<mount>Under</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>GH3</source>
 			<page>13</page>
@@ -670,7 +670,7 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Sound Suppressor</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>428</page>
@@ -2427,7 +2427,7 @@
 				<mount>Under</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>430</page>
@@ -2755,7 +2755,7 @@
 				<mount>Top</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 				<accessory>Safe Target System, Base</accessory>
 				<accessory>Advanced Safety System, Basic</accessory>
 			</accessories>
@@ -3172,7 +3172,7 @@
 			<ap>-10</ap>
 			<mode>SA</mode>
 			<rc>0</rc>
-			<ammo>External source</ammo>
+			<ammo>Internal source</ammo>
 			<avail>24F</avail>
 			<cost>35000</cost>
 			<allowaccessory>true</allowaccessory>
@@ -3198,7 +3198,7 @@
 			<ap>-10</ap>
 			<mode>SA</mode>
 			<rc>0</rc>
-			<ammo>2x10(c) or external source</ammo>
+			<ammo>2x10(c) or Internal source</ammo>
 			<avail>18F</avail>
 			<cost>16000</cost>
 			<allowaccessory>true</allowaccessory>
@@ -3221,7 +3221,7 @@
 			<ap>-10</ap>
 			<mode>SA</mode>
 			<rc>0</rc>
-			<ammo>10(c) or external source</ammo>
+			<ammo>10(c) or Internal source</ammo>
 			<avail>14F</avail>
 			<cost>7500</cost>
 			<allowaccessory>true</allowaccessory>
@@ -3257,7 +3257,7 @@
 			<accessories>
 				<accessory>Slide Mount</accessory>
 				<accessory>Slide Mount</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>RG</source>
 			<page>42</page>
@@ -3342,7 +3342,7 @@
 			<accessories>
 				<accessory>Safe Target System, Base</accessory>
 				<accessory>Safe Target System, Additional set of RFID or GPS data (10 data sets)</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>RG</source>
 			<page>43</page>
@@ -3386,7 +3386,7 @@
 			<avail>6F</avail>
 			<cost>1250</cost>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<allowaccessory>true</allowaccessory>
 			<accessorymounts>
@@ -3662,7 +3662,8 @@
 				<mount>Top</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
+				<accessory>Gas-Vent 2 System</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>427</page>
@@ -3764,7 +3765,7 @@
 				<mount>Top</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>GH3</source>
 			<page>7</page>
@@ -4053,7 +4054,7 @@
 			<cost>14000</cost>
 			<allowaccessory>true</allowaccessory>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>431</page>
@@ -4098,7 +4099,7 @@
 			<allowaccessory>true</allowaccessory>
 			<accessories>
 				<accessory>Advanced Safety System, Basic</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>GH3</source>
 			<page>22</page>
@@ -4220,7 +4221,7 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Shock Pad</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>RG</source>
 			<page>41</page>
@@ -4270,7 +4271,7 @@
 				<mount>Under</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>RG</source>
 			<page>41</page>
@@ -4478,7 +4479,7 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Bipod</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>RG</source>
 			<page>40</page>
@@ -4691,7 +4692,7 @@
 			<accessories>
 				<accessory>Bipod</accessory>
 				<accessory>Weapon Commlink</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 				<accessory>Imaging Scope</accessory>
 				<accessory>Underbarrel Weight</accessory>
 				<accessory>Safe Target System, Base</accessory>
@@ -5316,7 +5317,7 @@
 				<accessory>Folding Stock</accessory>
 				<accessory>Foregrip</accessory>
 				<accessory>Slide Mount</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>GH3</source>
 			<page>11</page>
@@ -5443,7 +5444,7 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Folding Stock</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 				<accessory>Sound Suppressor</accessory>
 			</accessories>
 			<source>SR5</source>
@@ -5469,7 +5470,7 @@
 				<mount>Top</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 				<accessory>Sound Suppressor</accessory>
 			</accessories>
 			<source>RG</source>
@@ -5495,7 +5496,7 @@
 				<mount>Top</mount>
 			</accessorymounts>
 			<accessories>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 				<accessory>Sound Suppressor</accessory>
 			</accessories>
 			<source>SR5</source>
@@ -5546,7 +5547,7 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Folding Stock</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>428</page>
@@ -5822,7 +5823,7 @@
 			<accessories>
 				<accessory>Shock Pad</accessory>
 				<accessory>Imaging Scope</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<useskill>Heavy Weapons</useskill>
 			<range>Grenade Launchers</range>
@@ -5853,7 +5854,7 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Shock Pad</accessory>
-				<accessory>Smartgun System, External</accessory>
+				<accessory>Smartgun System, Internal</accessory>
 			</accessories>
 			<useskill>Longarms</useskill>
 			<range>Shotguns</range>

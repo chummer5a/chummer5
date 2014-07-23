@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-493</version>
+	<version>-492</version>
 	<categories>
 		<category>Ammunition</category>
 		<category>Armor Enhancements</category>
@@ -3489,6 +3489,11 @@
 			<name>Qi Focus</name>
 			<category>Foci</category>
 			<rating>18</rating>
+			<bonus>
+				<selectpower>
+					<val>Rating</val>
+				</selectpower>
+			</bonus>
 			<avail>(Rating * 3)R</avail>
 			<cost>Rating * 3000</cost>
 			<source>SR5</source>

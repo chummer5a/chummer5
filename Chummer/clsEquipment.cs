@@ -13927,7 +13927,7 @@ namespace Chummer
 					// Find the first free Weapon Mount in the Vehicle.
 					foreach (VehicleMod objMod in _lstVehicleMods)
 					{
-						if (objMod.Name.StartsWith("Weapon Mount") && objMod.Weapons.Count == 0)
+						if ((objMod.Name.StartsWith("Weapon Mount") || objMod.Name.StartsWith("Heavy Weapon Mount")) && objMod.Weapons.Count == 0)
 						{
 							objMod.Weapons.Add(objWeapon);
 							foreach (TreeNode objModNode in objNode.Nodes)
@@ -13950,7 +13950,7 @@ namespace Chummer
 					{
 						foreach (VehicleMod objMod in _lstVehicleMods)
 						{
-							if (objMod.Name.StartsWith("Weapon Mount"))
+                            if (objMod.Name.StartsWith("Weapon Mount") || objMod.Name.StartsWith("Heavy Weapon Mount"))
 							{
 								objMod.Weapons.Add(objWeapon);
 								foreach (TreeNode objModNode in objNode.Nodes)

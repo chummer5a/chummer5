@@ -5758,6 +5758,8 @@ namespace Chummer
         private bool _blnFree = false;
         private int _intFreeLevels = 0;
         private decimal _decAdeptWayDiscount = 0;
+        private string _strBonusSource = "";
+        private decimal _decFreePoints = 0;
         private List<Enhancement> _lstEnhancements = new List<Enhancement>();
 
 		private readonly Character _objCharacter;
@@ -5787,7 +5789,9 @@ namespace Chummer
 			objWriter.WriteElementString("maxlevel", _intMaxLevel.ToString());
 			objWriter.WriteElementString("discounted", _blnDiscountedAdeptWay.ToString());
 			objWriter.WriteElementString("discountedgeas", _blnDiscountedGeas.ToString());
-			objWriter.WriteElementString("source", _strSource);
+            objWriter.WriteElementString("bonussource", _strBonusSource);
+            objWriter.WriteElementString("freepoints", _decFreePoints.ToString());
+            objWriter.WriteElementString("source", _strSource);
 			objWriter.WriteElementString("page", _strPage);
             objWriter.WriteElementString("free", _blnFree.ToString());
             objWriter.WriteElementString("freelevels", _intFreeLevels.ToString());
@@ -5846,7 +5850,21 @@ namespace Chummer
 			catch
 			{
 			}
-			try
+            try
+            {
+                _strBonusSource = objNode["bonussource"].InnerText;
+            }
+            catch
+            {
+            }
+            try
+            {
+                _decFreePoints = Convert.ToDecimal(objNode["freepoints"].InnerText);
+            }
+            catch
+            {
+            }
+            try
 			{
 				_strSource = objNode["source"].InnerText;
 			}
@@ -6085,7 +6103,7 @@ namespace Chummer
                 if (_blnDiscountedAdeptWay)
                     return _decAdeptWayDiscount;
                 else
-                    return 0;
+                    return _decFreePoints;
 			}
 		}
 
@@ -6174,7 +6192,37 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Bonus source.
+        /// </summary>
+        public string BonusSource
+        {
+            get
+            {
+                return _strBonusSource;
+            }
+            set
+            {
+                _strBonusSource = value;
+            }
+        }
+
+        /// <summary>
+        /// Bonus source.
+        /// </summary>
+        public decimal FreePoints
+        {
+            get
+            {
+                return _decFreePoints;
+            }
+            set
+            {
+                _decFreePoints = value;
+            }
+        }
+
+        /// <summary>
 		/// Sourcebook.
 		/// </summary>
 		public string Source
