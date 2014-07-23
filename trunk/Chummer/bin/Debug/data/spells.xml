@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-495</version>
+	<version>-494</version>
 	<categories>
 		<category>Combat</category>
 		<category>Detection</category>
@@ -67,7 +67,7 @@
 			<range>LOS (A)</range>
 			<damage>S</damage>
 			<duration>I</duration>
-			<dv>F-3</dv>
+			<dv>F</dv>
 			<source>SR5</source>
 			<page>284</page>
 		</spell>
@@ -87,7 +87,7 @@
 			<name>Manabolt</name>
 			<descriptor>Direct</descriptor>
 			<category>Combat</category>
-			<type>P</type>
+			<type>M</type>
 			<range>LOS</range>
 			<damage>P</damage>
 			<duration>I</duration>

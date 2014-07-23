@@ -3530,7 +3530,7 @@ namespace Chummer
 							{
 								if (objVehicleMod.InternalId == treVehicles.SelectedNode.Tag.ToString())
 								{
-									if (objVehicleMod.Name.StartsWith("Weapon Mount") || objVehicleMod.Name.StartsWith("Mechanical Arm"))
+                                    if (objVehicleMod.Name.StartsWith("Weapon Mount") || objVehicleMod.Name.StartsWith("Heavy Weapon Mount") || objVehicleMod.Name.StartsWith("Mechanical Arm"))
 									{
 										objVehicleMod.Weapons.Add(objWeapon);
 
@@ -8388,7 +8388,7 @@ namespace Chummer
 				Vehicle objFoundVehicle = new Vehicle(_objCharacter);
 				objMod = _objFunctions.FindVehicleMod(treVehicles.SelectedNode.Tag.ToString(), _objCharacter.Vehicles, out objFoundVehicle);
 
-				if (!objMod.Name.StartsWith("Weapon Mount") && !objMod.Name.StartsWith("Mechanical Arm"))
+                if (!objMod.Name.StartsWith("Weapon Mount") && !objMod.Name.StartsWith("Heavy Weapon Mount") && !objMod.Name.StartsWith("Mechanical Arm"))
 				{
 					MessageBox.Show(LanguageManager.Instance.GetString("Message_CannotAddWeapon"), LanguageManager.Instance.GetString("MessageTitle_CannotAddWeapon"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 					return;
@@ -12153,7 +12153,15 @@ namespace Chummer
 						if (objGear.Extra.EndsWith(", Hacked"))
 							_objImprovementManager.ForcedValue = objGear.Extra.Replace(", Hacked", string.Empty);
 					}
-					_objImprovementManager.CreateImprovements(Improvement.ImprovementSource.Gear, objGear.InternalId, objGear.Bonus, false, objGear.Rating, objGear.DisplayNameShort);
+                    bool blnAddBonus = true;
+                    if (objGear.Name == "Qi Focus")
+                    {
+                        if (!objGear.Bonded)
+                            blnAddBonus = false;
+                    }
+                    if (blnAddBonus)
+					    _objImprovementManager.CreateImprovements(Improvement.ImprovementSource.Gear, objGear.InternalId, objGear.Bonus, false, objGear.Rating, objGear.DisplayNameShort);
+                    RefreshPowers();
 				}
 
 				_objController.PopulateFocusList(treFoci);
@@ -13067,6 +13075,18 @@ namespace Chummer
 							if (objSelectedFocus.Extra != "")
 								_objImprovementManager.ForcedValue = objSelectedFocus.Extra;
 							_objImprovementManager.CreateImprovements(Improvement.ImprovementSource.Gear, objSelectedFocus.InternalId, objSelectedFocus.Bonus, false, objSelectedFocus.Rating, objSelectedFocus.DisplayNameShort);
+
+                            foreach (Power objPower in _objCharacter.Powers)
+                            {
+                                if (objFocus.GearId == objPower.BonusSource)
+                                {
+                                    objSelectedFocus.Extra = objPower.Name;
+                                    break;
+                                }
+                            }
+
+                            RefreshPowers();
+                            _objController.PopulateFocusList(treFoci);
 						}
 					}
 				}
@@ -13120,7 +13140,29 @@ namespace Chummer
 					objGear.Bonded = false;
 					_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Gear, objGear.InternalId);
 					_objCharacter.Foci.Remove(objFocus);
-				}
+                    foreach (Power objPower in _objCharacter.Powers)
+                    {
+                        if (objPower.BonusSource == objGear.InternalId)
+                        {
+                            if (objPower.Free)
+                                _objCharacter.Powers.Remove(objPower);
+                            else if (objPower.FreeLevels < objPower.Rating)
+                            {
+                                objPower.Rating -= objPower.FreeLevels;
+                                objPower.FreeLevels = 0;
+                            }
+                            else if (objPower.FreePoints > 0)
+                                objPower.FreePoints = 0;
+                            else
+                                _objCharacter.Powers.Remove(objPower);
+
+                            objGear.Extra = "";
+                            _objController.PopulateFocusList(treFoci);
+                            break;
+                        }
+                    }
+                    RefreshPowers();
+                }
 				else
 				{
 					// This is a Stacked Focus.
@@ -21178,7 +21220,7 @@ namespace Chummer
 							// Find the first Weapon Mount in the Vehicle.
 							foreach (VehicleMod objMod in objVehicle.Mods)
 							{
-								if (objMod.Name.StartsWith("Weapon Mount"))
+                                if (objMod.Name.StartsWith("Weapon Mount") || objMod.Name.StartsWith("Heavy Weapon Mount"))
 								{
 									objMod.Weapons.Add(objWeapon);
 									foreach (TreeNode objModNode in objNode.Nodes)
@@ -22500,7 +22542,7 @@ namespace Chummer
 							{
 								if (objVehicleMod.InternalId == treVehicles.SelectedNode.Tag.ToString())
 								{
-									if (objVehicleMod.Name.StartsWith("Weapon Mount") || objVehicleMod.Name.StartsWith("Mechanical Arm"))
+                                    if (objVehicleMod.Name.StartsWith("Weapon Mount") || objVehicleMod.Name.StartsWith("Heavy Weapon Mount") || objVehicleMod.Name.StartsWith("Mechanical Arm"))
 									{
 										blnPasteEnabled = true;
 										break;

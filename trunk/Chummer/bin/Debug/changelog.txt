@@ -1,3 +1,11 @@
+Build 5.129 (beta)
+- Qi Foci will now ask what power they're providing when you bind the foci and that power will now show up on your list of powers with the appropriate free levels if any and the name of the Qi Foci will be updated to show the power it is providing.  For Improved Reflexes, select the level you want your character to have and the foci rating, it will reduce the power point cost accordingly.
+- Fixed a bug preventing weapons from being added to Heavy Weapon Mounts.
+- Updated firearms that come stock with a Smartgun System to have the internal version.
+- Added the Gas-Vent 2 System that the Ares Crusader II should have.
+- Fixed the AP on the Colt M23.
+- Manabolt is now correctly a Mana based spell.
+
 Build 5.128 (beta)
 - First and foremost, recent builds (including this one) have been getting updates to the French translation files courtesy of Lous_59. Thank you for your amazing work!
 - Fixed a bug preventing loading bows or crossbows with ammunition in Career mode.
