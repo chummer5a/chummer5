@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Text-Only Character Sheet -->
 <!-- Created by Keith Rudolph, krudolph@gmail.com -->
-<!-- Version -499 -->
+<!-- Version -498 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	
 	<xsl:template match="/characters/character">
@@ -232,6 +232,17 @@
 				</xsl:call-template>
 				<xsl:value-of select="limitsocial" />
 				<xsl:call-template name="limitmodifierssoc"/>
+				<br />Astral:
+				<xsl:call-template name="for.loop">
+					<xsl:with-param name="i">
+						<xsl:value-of select="string-length('Social:')" />
+					</xsl:with-param>
+					<xsl:with-param name="count">
+						<xsl:value-of select="25" />
+					</xsl:with-param>
+				</xsl:call-template>
+				<xsl:value-of select="limitastral" />
+				<xsl:call-template name="limitmodifiersast"/>
 				
 				<br />
 				<br />== Active Skills ==
@@ -1078,6 +1089,14 @@
 	
 	<xsl:template name="limitmodifierssoc">
 		<xsl:for-each select="limitmodifierssoc/limitmodifier">
+			<xsl:sort select="name"/>
+			<br />&#160;&#160;&#160;<xsl:value-of select="name"/>
+			<xsl:if test="extra != ''"> (<xsl:value-of select="extra"/>)</xsl:if>
+		</xsl:for-each>
+	</xsl:template>
+	
+	<xsl:template name="limitmodifiersast">
+		<xsl:for-each select="limitmodifiersast/limitmodifier">
 			<xsl:sort select="name"/>
 			<br />&#160;&#160;&#160;<xsl:value-of select="name"/>
 			<xsl:if test="extra != ''"> (<xsl:value-of select="extra"/>)</xsl:if>

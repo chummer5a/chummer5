@@ -1935,6 +1935,8 @@ namespace Chummer
             objWriter.WriteElementString("limitmental", LimitMental.ToString());
             // <limitsocial />
             objWriter.WriteElementString("limitsocial", LimitSocial.ToString());
+            // <limitastral />
+            objWriter.WriteElementString("limitastral", LimitAstral.ToString());
 
             // <contactpoints />
             objWriter.WriteElementString("contactpoints", _intContactPoints.ToString());
@@ -5617,6 +5619,18 @@ namespace Chummer
 		}
 
         /// <summary>
+        /// The calculated Astral Limit.
+        /// </summary>
+        public int LimitAstral
+        {
+            get
+            {
+                int intLimit = Math.Max(LimitMental, LimitSocial);
+                return intLimit;
+            }
+        }
+
+        /// <summary>
         /// The calculated Physical Limit.
         /// </summary>
         public int LimitPhysical
@@ -5823,7 +5837,28 @@ namespace Chummer
                             string strRun = objXmlDocument.SelectSingleNode("/chummer/metatypes/metatype[name = \"" + _strMetatype + "\"]")["run"].InnerText;
                             string strSprint = objXmlDocument.SelectSingleNode("/chummer/metatypes/metatype[name = \"" + _strMetatype + "\"]")["sprint"].InnerText;
 
-                            _strMovement = String.Format("{0}/{1}", (_attAGI.TotalValue * 2), (_attAGI.TotalValue * 4));
+                            if (_objOptions.CyberlegMovement)
+                            {
+                                int intLegs = 0;
+                                int intAGI = 0;
+                                foreach (Cyberware objCyber in _lstCyberware)
+                                {
+                                    if (objCyber.LimbSlot == "leg")
+                                    {
+                                        intLegs++;
+                                        if (intAGI > 0)
+                                            intAGI = Math.Min(intAGI, objCyber.TotalAgility);
+                                        else
+                                            intAGI = objCyber.TotalAgility;
+                                    }
+                                }
+                                if (intLegs == 2)
+                                    _strMovement = String.Format("{0}/{1}", (intAGI * 2), (intAGI * 4));
+                                else
+                                    _strMovement = String.Format("{0}/{1}", (_attAGI.TotalValue * 2), (_attAGI.TotalValue * 4));
+                            }
+                            else
+                                _strMovement = String.Format("{0}/{1}", (_attAGI.TotalValue * 2), (_attAGI.TotalValue * 4));
                         }
                         catch
                         { }

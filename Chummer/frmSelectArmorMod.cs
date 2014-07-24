@@ -247,7 +247,7 @@ namespace Chummer
 			string strAvail = "";
 			string strAvailExpr = "";
 			strAvailExpr = objXmlMod["avail"].InnerText;
-			
+
 			XPathExpression xprAvail;
 			if (strAvailExpr.Substring(strAvailExpr.Length - 1, 1) == "F" || strAvailExpr.Substring(strAvailExpr.Length - 1, 1) == "R")
 			{
@@ -284,21 +284,29 @@ namespace Chummer
 			// XPathExpression cannot evaluate while there are square brackets, so remove them if necessary.
 			string strCapacity = objXmlMod["armorcapacity"].InnerText;
 
-			if (strCapacity.StartsWith("FixedValues"))
-			{
-				string[] strValues = strCapacity.Replace("FixedValues(", string.Empty).Replace(")", string.Empty).Split(',');
-				strCapacity = strValues[Convert.ToInt32(nudRating.Value) - 1];
-			}
+            // Handle YNT Softweave
+            if (strCapacity.Contains("Capacity"))
+            {
+                lblCapacity.Text = "+50%";
+            }
+            else
+            {
+                if (strCapacity.StartsWith("FixedValues"))
+                {
+                    string[] strValues = strCapacity.Replace("FixedValues(", string.Empty).Replace(")", string.Empty).Split(',');
+                    strCapacity = strValues[Convert.ToInt32(nudRating.Value) - 1];
+                }
 
-			strCapacity = strCapacity.Substring(1, strCapacity.Length - 2);
-			XPathExpression xprCapacity = nav.Compile(strCapacity.Replace("Rating", nudRating.Value.ToString()));
+                strCapacity = strCapacity.Substring(1, strCapacity.Length - 2);
+                XPathExpression xprCapacity = nav.Compile(strCapacity.Replace("Rating", nudRating.Value.ToString()));
 
-			if (_objCapacityStyle == CapacityStyle.Standard)
-				lblCapacity.Text = "[" + nav.Evaluate(xprCapacity) + "]";
-			else if (_objCapacityStyle == CapacityStyle.PerRating)
-				lblCapacity.Text = "[" + nudRating.Value.ToString() + "]";
-			else if (_objCapacityStyle == CapacityStyle.Zero)
-				lblCapacity.Text = "[0]";
+                if (_objCapacityStyle == CapacityStyle.Standard)
+                    lblCapacity.Text = "[" + nav.Evaluate(xprCapacity) + "]";
+                else if (_objCapacityStyle == CapacityStyle.PerRating)
+                    lblCapacity.Text = "[" + nudRating.Value.ToString() + "]";
+                else if (_objCapacityStyle == CapacityStyle.Zero)
+                    lblCapacity.Text = "[0]";
+            }
 
 			if (chkFreeItem.Checked)
 				lblCost.Text = String.Format("{0:###,###,##0¥}", 0);

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-499</version>
+	<version>-498</version>
 	<skillgroups>
 		<name>Acting</name>
 		<name>Athletics</name>
@@ -2233,7 +2233,6 @@
 			<specs>
 				<spec>Corporate</spec>
 				<spec>Military</spec>
-				<spec>Political</spec>
 				<spec>Social</spec>
 				<spec>Tribal</spec>
 				<spec>Underworld</spec>
@@ -2276,7 +2275,6 @@
 				<spec>Asia - Minor</spec>
 				<spec>Middle East</spec>
 				<spec>Australia</spec>
-				<spec>Politics</spec>
 			</specs>
 		</skill>
 		<skill>

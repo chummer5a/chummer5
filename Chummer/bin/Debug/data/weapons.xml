@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-492</version>
+	<version>-491</version>
 	<categories>
 		<category>Blades</category>
 		<category>Clubs</category>
@@ -3387,6 +3387,7 @@
 			<cost>1250</cost>
 			<accessories>
 				<accessory>Smartgun System, Internal</accessory>
+				<accessory>Silencer, Ares Light Fire 70</accessory>
 			</accessories>
 			<allowaccessory>true</allowaccessory>
 			<accessorymounts>
@@ -5933,6 +5934,14 @@
 			<page>425</page>
 		</accessory>
 		<accessory>
+			<name>Silencer, Ares Light Fire 75</name>
+			<mount>Barrel</mount>
+			<avail>6F</avail>
+			<cost>750</cost>
+			<source>SR5</source>
+			<page>425</page>
+		</accessory>
+		<accessory>
 			<name>Silencer, PSK-3 Collapsible Heavy Pistol</name>
 			<mount>Barrel</mount>
 			<avail>6F</avail>
@@ -6406,15 +6415,15 @@
 			<name>Underbarrel Chainsaw</name>
 			<mount>Under</mount>
 			<avail>10R</avail>
-			<cost>500 + chainsaw</cost>
+			<cost>500</cost>
 			<source>RG</source>
 			<page>53</page>
 		</accessory>
 		<accessory>
 			<name>Underbarrel Flamethrower</name>
 			<mount>Under</mount>
-			<avail>Flamethrower + 2</avail>
-			<cost>200 + flamethrower</cost>
+			<avail>2</avail>
+			<cost>200</cost>
 			<source>RG</source>
 			<page>53</page>
 		</accessory>

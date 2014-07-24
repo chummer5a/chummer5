@@ -1,3 +1,19 @@
+Build 5.130 (beta)
+- Removed some duplicate specialties from the Politics Knowledge Skill.
+- Made the Adept Way Qualities not available for non-adepts.
+- Added the Astral Limit to the Limits tab and the character sheets.  Keep in mind that limit modifiers to either your mental limit or social limit that can apply in the astral might conditionally apply to your astral limit during play.
+- Fixed Enhanced Articulation Bioware so that it applies the correct skill bonuses.
+- Fixed several issues surrounding full Cyberlimbs. Attribute averaging has been removed as it was a 4th Edition rule. The limb on the character sheet now shows the limb's total Strength, Agility, and its Physical Limit.
+- Movement rate now uses the augmented Agility value.
+- Added an option under House Rules to use derived Attributes from Cyberlegs when calculating movement speed.
+- Added all that lovely Qi Foci code from build 5.129 to Career Mode as well. Completely missed that one.
+- Now correctly charges double for positive qualities added or negative qualities deleted after character creation.
+- When selecting YNT Softweave in the Select Armor Mod dialog, it will now show "+50%" in the capacity field.
+- Removed the button in Career mode that allowed adding more Mystic Adept Power Points. You're not actually allowed to add points this way after character creation.
+- Added Custom Ballistic Mask.
+- Added the specialized silencer for the Ares Light Fire 75 and added it to the Ares Light Fire 75.
+- Added some very minor fixes for the underbarrel weapons from Run and Gun so at least they won't cause a crash.  They still don't behave the way I want them to though so I'll be revisiting this "soon".
+
 Build 5.129 (beta)
 - Qi Foci will now ask what power they're providing when you bind the foci and that power will now show up on your list of powers with the appropriate free levels if any and the name of the Qi Foci will be updated to show the power it is providing.  For Improved Reflexes, select the level you want your character to have and the foci rating, it will reduce the power point cost accordingly.
 - Fixed a bug preventing weapons from being added to Heavy Weapon Mounts.

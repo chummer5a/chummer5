@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Character sheet based on the Shadowrun 5th Edition Character Sheet -->
 <!-- Created by Keith Rudolph, krudolph@gmail.com -->
-<!-- Version -498 -->
+<!-- Version -497 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 	<xsl:include href="ConditionMonitor.xslt"/>
@@ -593,23 +593,27 @@
 							<td width="100%">
 								<table width="100%" cellspacing="0" cellpadding="0" border="0">
 									<tr>
-										<td width="33%" style="text-align:center;" valign="top">
+										<td width="25%" style="text-align:center;" valign="top">
 											<strong>PHYSICAL LIMIT: <xsl:value-of
 												select="limitphysical"/></strong>
 										</td>
-										<td width="33%"
+										<td width="25%"
 											style="border-left: solid 1px #1c4a2d; border-right: solid 1px #1c4a2d; text-align:center;"
 											valign="top">
 											<strong>MENTAL LIMIT: <xsl:value-of select="limitmental"
 												/></strong>
 										</td>
-										<td width="33%" style="text-align:center;" valign="top">
+										<td width="25%" style="border-right: solid 1px #1c4a2d; text-align:center;" valign="top">
 											<strong>SOCIAL LIMIT: <xsl:value-of select="limitsocial"
 												/></strong>
 										</td>
+										<td width="25%" style="text-align:center;" valign="top">
+											<strong>ASTRAL LIMIT: <xsl:value-of select="limitastral"
+											/></strong>
+										</td>
 									</tr>
 									<tr>
-										<td width="33%" style="text-align:left;" valign="top">
+										<td width="25%" style="text-align:left;" valign="top">
 											<table>
 												<xsl:call-template name="limitmodifiersphys"/>
 												<tr>
@@ -617,7 +621,7 @@
 												</tr>
 											</table>
 										</td>
-										<td width="33%"
+										<td width="25"
 											style="border-left: solid 1px #1c4a2d; border-right: solid 1px #1c4a2d; text-align:left;"
 											valign="top">
 											<table>
@@ -627,11 +631,19 @@
 												</tr>
 											</table>
 										</td>
-										<td width="33%" style="text-align:left;" valign="top">
+										<td width="25%" style="border-right: solid 1px #1c4a2d; text-align:left;" valign="top">
 											<table>
 												<xsl:call-template name="limitmodifierssoc"/>
 												<tr>
 												<td/>
+												</tr>
+											</table>
+										</td>
+										<td width="25%" style="text-align:left;" valign="top">
+											<table>
+												<xsl:call-template name="limitmodifiersast"/>
+												<tr>
+													<td/>
 												</tr>
 											</table>
 										</td>
@@ -2001,6 +2013,33 @@
 		</xsl:for-each>
 	</xsl:template>
 
+	<xsl:template name="limitmodifiersast">
+		<xsl:for-each select="limitmodifiersast/limitmodifier">
+			<xsl:sort select="name"/>
+			<tr>
+				<xsl:if test="position() mod 2 != 1">
+					<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
+				</xsl:if>
+				<td valign="top" width="100%">
+					<xsl:value-of select="name"/>
+					<xsl:if test="extra != ''"> (<xsl:value-of select="extra"/>)</xsl:if>
+				</td>
+			</tr>
+			<xsl:if test="notes != ''">
+				<tr>
+					<xsl:if test="position() mod 2 != 1">
+						<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
+					</xsl:if>
+					<td colspan="1" class="notesrow">
+						<xsl:call-template name="PreserveLineBreaks">
+							<xsl:with-param name="text" select="notes"/>
+						</xsl:call-template>
+					</td>
+				</tr>
+			</xsl:if>
+		</xsl:for-each>
+	</xsl:template>
+	
 	<xsl:template name="rangedweapons">
 		<xsl:param name="weapon"/>
 		<tr>

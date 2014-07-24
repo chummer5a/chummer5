@@ -415,14 +415,14 @@ namespace Chummer
 				}
 
 				// If this is AGI or STR, factor in any Cyberlimbs.
-				if (_strAbbrev == "AGI" || _strAbbrev == "STR")
-				{
-					foreach (Cyberware objCyberware in _objCharacter.Cyberware)
-					{
-						if (objCyberware.Category == "Cyberlimb" && objCyberware.LimbSlot != "")
-							return true;
-					}
-				}
+                //if (_strAbbrev == "AGI" || _strAbbrev == "STR")
+                //{
+                //    foreach (Cyberware objCyberware in _objCharacter.Cyberware)
+                //    {
+                //        if (objCyberware.Category == "Cyberlimb" && objCyberware.LimbSlot != "")
+                //            return true;
+                //    }
+                //}
 				return false;
 			}
 		}
@@ -494,42 +494,42 @@ namespace Chummer
 				int intMeat = _intValue + AttributeModifiers;
 				int intReturn = intMeat;
 
-				// If this is AGI or STR, factor in any Cyberlimbs.
-				if (_strAbbrev == "AGI" || _strAbbrev == "STR")
-				{
-					int intLimbTotal = 0;
-					int intLimbCount = 0;
-					foreach (Cyberware objCyberware in _objCharacter.Cyberware)
-					{
-						if (objCyberware.Category == "Cyberlimb" && objCyberware.LimbSlot != "" && objCyberware.LimbSlot != _objCharacter.Options.ExcludeLimbSlot)
-						{
-							intLimbCount++;
-							switch (_strAbbrev)
-							{
-								case "STR":
-									intLimbTotal += objCyberware.TotalStrength;
-									break;
-								default:
-									intLimbTotal += objCyberware.TotalAgility;
-									break;
-							}
-						}
-					}
+                //// If this is AGI or STR, factor in any Cyberlimbs.
+                //if (_strAbbrev == "AGI" || _strAbbrev == "STR")
+                //{
+                //    int intLimbTotal = 0;
+                //    int intLimbCount = 0;
+                //    foreach (Cyberware objCyberware in _objCharacter.Cyberware)
+                //    {
+                //        if (objCyberware.Category == "Cyberlimb" && objCyberware.LimbSlot != "" && objCyberware.LimbSlot != _objCharacter.Options.ExcludeLimbSlot)
+                //        {
+                //            intLimbCount++;
+                //            switch (_strAbbrev)
+                //            {
+                //                case "STR":
+                //                    intLimbTotal += objCyberware.TotalStrength;
+                //                    break;
+                //                default:
+                //                    intLimbTotal += objCyberware.TotalAgility;
+                //                    break;
+                //            }
+                //        }
+                //    }
 
-					if (intLimbCount > 0)
-					{
-						intReturn = 0;
-						if (intLimbCount < _objCharacter.Options.LimbCount)
-						{
-							// Not all of the limbs have been replaced, so we need to place the Attribute in the other "limbs" to get the average value.
-							for (int i = intLimbCount + 1; i <= _objCharacter.Options.LimbCount; i++)
-								intLimbTotal += intMeat;
-							intLimbCount = _objCharacter.Options.LimbCount;
-						}
-						int intTotal = Convert.ToInt32(Math.Floor(Convert.ToDecimal((intLimbTotal), GlobalOptions.Instance.CultureInfo) / Convert.ToDecimal(intLimbCount, GlobalOptions.Instance.CultureInfo)));
-						intReturn += intTotal;
-					}
-				}
+                //    if (intLimbCount > 0)
+                //    {
+                //        intReturn = 0;
+                //        if (intLimbCount < _objCharacter.Options.LimbCount)
+                //        {
+                //            // Not all of the limbs have been replaced, so we need to place the Attribute in the other "limbs" to get the average value.
+                //            for (int i = intLimbCount + 1; i <= _objCharacter.Options.LimbCount; i++)
+                //                intLimbTotal += intMeat;
+                //            intLimbCount = _objCharacter.Options.LimbCount;
+                //        }
+                //        int intTotal = Convert.ToInt32(Math.Floor(Convert.ToDecimal((intLimbTotal), GlobalOptions.Instance.CultureInfo) / Convert.ToDecimal(intLimbCount, GlobalOptions.Instance.CultureInfo)));
+                //        intReturn += intTotal;
+                //    }
+                //}
 
 				// Do not let the Attribute go above the Metatype's Augmented Maximum.
 				if (intReturn > TotalAugmentedMaximum)
@@ -805,21 +805,21 @@ namespace Chummer
 				}
 			}
 
-			// If this is AGI or STR, factor in any Cyberlimbs.
-			string strCyberlimb = "";
-			if (_strAbbrev == "AGI" || _strAbbrev == "STR")
-			{
-				foreach (Cyberware objCyberware in _objCharacter.Cyberware)
-				{
-					if (objCyberware.Category == "Cyberlimb" && objCyberware.LimbSlot != "")
-					{
-						LanguageManager.Instance.Load(GlobalOptions.Instance.Language, null);
-						strCyberlimb = LanguageManager.Instance.GetString("String_CyberlimbAttributeModifier");
-					}
-				}
-				if (strCyberlimb != "")
-					strModifier += " " + strCyberlimb;
-			}
+            //// If this is AGI or STR, factor in any Cyberlimbs.
+            //string strCyberlimb = "";
+            //if (_strAbbrev == "AGI" || _strAbbrev == "STR")
+            //{
+            //    foreach (Cyberware objCyberware in _objCharacter.Cyberware)
+            //    {
+            //        if (objCyberware.Category == "Cyberlimb" && objCyberware.LimbSlot != "")
+            //        {
+            //            LanguageManager.Instance.Load(GlobalOptions.Instance.Language, null);
+            //            strCyberlimb = LanguageManager.Instance.GetString("String_CyberlimbAttributeModifier");
+            //        }
+            //    }
+            //    if (strCyberlimb != "")
+            //        strModifier += " " + strCyberlimb;
+            //}
 
 			return strReturn + strModifier;
 		}
