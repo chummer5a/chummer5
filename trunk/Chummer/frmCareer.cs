@@ -7979,7 +7979,7 @@ namespace Chummer
 				objQuality.BP = 0;
 
 			bool blnAddItem = true;
-			int intKarmaCost = objQuality.BP * _objOptions.KarmaQuality;
+			int intKarmaCost = objQuality.BP * 2 * _objOptions.KarmaQuality;
 
 			// Make sure the character has enough Karma to pay for the Quality.
 			if (objQuality.Type == QualityType.Positive)
@@ -8189,7 +8189,7 @@ namespace Chummer
 			{
 				// Look up the cost of the Quality.
 				XmlNode objXmlMetatypeQuality = objXmlDocument.SelectSingleNode("/chummer/qualities/quality[name = \"" + objQuality.Name + "\"]");
-				int intBP = Convert.ToInt32(objXmlMetatypeQuality["bp"].InnerText) * -1;
+				int intBP = Convert.ToInt32(objXmlMetatypeQuality["bp"].InnerText) * -2;
 				int intShowBP = intBP * _objOptions.KarmaQuality;
 				string strBP = intShowBP.ToString() + " " + LanguageManager.Instance.GetString("String_Karma");
 
@@ -8232,7 +8232,7 @@ namespace Chummer
 			else
 			{
 				// Make sure the character has enough Karma to buy off the Quality.
-				int intKarmaCost = (objQuality.BP * _objOptions.KarmaQuality) * -1;
+				int intKarmaCost = (objQuality.BP * _objOptions.KarmaQuality) * -2;
 				if (intKarmaCost > _objCharacter.Karma)
 				{
 					MessageBox.Show(LanguageManager.Instance.GetString("Message_NotEnoughKarma"), LanguageManager.Instance.GetString("MessageTitle_NotEnoughKarma"), MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -18695,17 +18695,29 @@ namespace Chummer
 					objFocus.GearId = e.Node.Tag.ToString();
 					_objCharacter.Foci.Add(objFocus);
 
-					// Mark the Gear and Bonded and create an Improvements.
-					objSelectedFocus.Bonded = true;
-					if (objSelectedFocus.Equipped)
-					{
-						if (objSelectedFocus.Bonus != null)
-						{
-							if (objSelectedFocus.Extra != "")
-								_objImprovementManager.ForcedValue = objSelectedFocus.Extra;
-							_objImprovementManager.CreateImprovements(Improvement.ImprovementSource.Gear, objSelectedFocus.InternalId, objSelectedFocus.Bonus, false, objSelectedFocus.Rating, objSelectedFocus.DisplayNameShort);
-						}
-					}
+                    // Mark the Gear and Bonded and create an Improvements.
+                    objSelectedFocus.Bonded = true;
+                    if (objSelectedFocus.Equipped)
+                    {
+                        if (objSelectedFocus.Bonus != null)
+                        {
+                            if (objSelectedFocus.Extra != "")
+                                _objImprovementManager.ForcedValue = objSelectedFocus.Extra;
+                            _objImprovementManager.CreateImprovements(Improvement.ImprovementSource.Gear, objSelectedFocus.InternalId, objSelectedFocus.Bonus, false, objSelectedFocus.Rating, objSelectedFocus.DisplayNameShort);
+
+                            foreach (Power objPower in _objCharacter.Powers)
+                            {
+                                if (objFocus.GearId == objPower.BonusSource)
+                                {
+                                    objSelectedFocus.Extra = objPower.Name;
+                                    break;
+                                }
+                            }
+
+                            RefreshPowers();
+                            _objController.PopulateFocusList(treFoci);
+                        }
+                    }
 				}
 				else
 				{
@@ -18748,16 +18760,38 @@ namespace Chummer
 					}
 				}
 
-				// Mark the Gear as not Bonded and remove any Improvements.
-				Gear objGear = new Gear(_objCharacter);
-				objGear = _objFunctions.FindGear(objFocus.GearId, _objCharacter.Gear);
+                // Mark the Gear as not Bonded and remove any Improvements.
+                Gear objGear = new Gear(_objCharacter);
+                objGear = _objFunctions.FindGear(objFocus.GearId, _objCharacter.Gear);
 
-				if (objGear != null)
-				{
-					objGear.Bonded = false;
-					_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Gear, objGear.InternalId);
-					_objCharacter.Foci.Remove(objFocus);
-				}
+                if (objGear != null)
+                {
+                    objGear.Bonded = false;
+                    _objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Gear, objGear.InternalId);
+                    _objCharacter.Foci.Remove(objFocus);
+                    foreach (Power objPower in _objCharacter.Powers)
+                    {
+                        if (objPower.BonusSource == objGear.InternalId)
+                        {
+                            if (objPower.Free)
+                                _objCharacter.Powers.Remove(objPower);
+                            else if (objPower.FreeLevels < objPower.Rating)
+                            {
+                                objPower.Rating -= objPower.FreeLevels;
+                                objPower.FreeLevels = 0;
+                            }
+                            else if (objPower.FreePoints > 0)
+                                objPower.FreePoints = 0;
+                            else
+                                _objCharacter.Powers.Remove(objPower);
+
+                            objGear.Extra = "";
+                            _objController.PopulateFocusList(treFoci);
+                            break;
+                        }
+                    }
+                    RefreshPowers();
+                }
 				else
 				{
 					// This is a Stacked Focus.
@@ -20902,6 +20936,34 @@ namespace Chummer
 				string strTip = "";
 				_blnSkipUpdate = true;
 
+                // Calculate the character's move.
+                string strMovement = "";
+                if (_objOptions.CyberlegMovement)
+                {
+                    int intLegs = 0;
+                    int intAGI = 0;
+                    foreach (Cyberware objCyber in _objCharacter.Cyberware)
+                    {
+                        if (objCyber.LimbSlot == "leg")
+                        {
+                            intLegs++;
+                            if (intAGI > 0)
+                                intAGI = Math.Min(intAGI, objCyber.TotalAgility);
+                            else
+                                intAGI = objCyber.TotalAgility;
+                        }
+                    }
+                    if (intLegs == 2)
+                        strMovement = String.Format("{0}/{1}", (intAGI * 2), (intAGI * 4));
+                    else
+                        strMovement = String.Format("{0}/{1}", (_objCharacter.AGI.TotalValue * 2), (_objCharacter.AGI.TotalValue * 4));
+                }
+                else
+                    strMovement = String.Format("{0}/{1}", (_objCharacter.AGI.TotalValue * 2), (_objCharacter.AGI.TotalValue * 4));
+
+                _objCharacter.Movement = strMovement;
+                lblMovement.Text = _objCharacter.Movement;
+
 				string strFormat;
 				if (_objCharacter.Options.EssenceDecimals == 4)
 					strFormat = "{0:0.0000}";
@@ -21638,6 +21700,8 @@ namespace Chummer
                 string strSocial = "(CHA [" + _objCharacter.CHA.TotalValue.ToString() + "] * 2) + WIL [" + _objCharacter.WIL.TotalValue.ToString() + "] + ESS [" + _objCharacter.Essence.ToString() + "] / 3";
                 tipTooltip.SetToolTip(lblSocial, strSocial);
 
+                lblAstral.Text = _objCharacter.LimitAstral.ToString();
+
                 // Initiative.
                 lblINI.Text = _objCharacter.Initiative;
                 string strInit = "REA (" + _objCharacter.REA.Value.ToString() + ") + INT (" + _objCharacter.INT.Value.ToString() + ")";
@@ -21901,6 +21965,53 @@ namespace Chummer
 				tipTooltip.SetToolTip(lblCyberwareSource, _objOptions.LanguageBookLong(objGear.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objGear.Page);
 			}
 		}
+
+        public void RefreshPowers()
+        {
+            _blnLoading = true;
+
+            foreach (PowerControl pc in panPowers.Controls)
+            {
+                pc.PowerRatingChanged += objPower_PowerRatingChanged;
+                pc.DeletePower += objPower_DeletePower;
+            }
+
+            // Remove Adept Powers.
+            panPowers.Controls.Clear();
+
+            // Populate Adept Powers.
+            int i = -1;
+            foreach (Power objPower in _objCharacter.Powers)
+            {
+                i++;
+                PowerControl objPowerControl = new PowerControl();
+                objPowerControl.PowerObject = objPower;
+
+                // Attach an EventHandler for the PowerRatingChanged Event.
+                objPowerControl.PowerRatingChanged += objPower_PowerRatingChanged;
+                objPowerControl.DeletePower += objPower_DeletePower;
+
+                objPowerControl.PowerName = objPower.Name;
+                objPowerControl.Extra = objPower.Extra;
+                objPowerControl.PointsPerLevel = objPower.PointsPerLevel;
+                objPowerControl.AdeptWayDiscount = objPower.AdeptWayDiscount;
+                objPowerControl.LevelEnabled = objPower.LevelsEnabled;
+                if (objPower.MaxLevels > 0)
+                    objPowerControl.MaxLevels = objPower.MaxLevels;
+                objPowerControl.RefreshMaximum(_objCharacter.MAG.TotalValue);
+                if (objPower.Rating < 1)
+                    objPower.Rating = 1;
+                objPowerControl.PowerLevel = Convert.ToInt32(objPower.Rating);
+                if (objPower.DiscountedAdeptWay)
+                    objPowerControl.DiscountedByAdeptWay = true;
+                if (objPower.DiscountedGeas)
+                    objPowerControl.DiscountedByGeas = true;
+
+                objPowerControl.Top = i * objPowerControl.Height;
+                panPowers.Controls.Add(objPowerControl);
+            }
+            _blnLoading = false;
+        }
 
         public void RefreshLimitModifiers()
         {

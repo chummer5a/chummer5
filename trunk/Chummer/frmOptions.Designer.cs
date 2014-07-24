@@ -218,11 +218,12 @@
             this.chkCapSkillRating = new System.Windows.Forms.CheckBox();
             this.chkNoSingleArmorEncumbrance = new System.Windows.Forms.CheckBox();
             this.tabHouseRules = new System.Windows.Forms.TabPage();
+            this.chkIgnoreArt = new System.Windows.Forms.CheckBox();
             this.cboSetting = new System.Windows.Forms.ComboBox();
             this.lblSetting = new System.Windows.Forms.Label();
             this.lblSettingName = new System.Windows.Forms.Label();
             this.txtSettingName = new System.Windows.Forms.TextBox();
-            this.chkIgnoreArt = new System.Windows.Forms.CheckBox();
+            this.chkCyberlegMovement = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaComplexFormOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaMetamagic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaInitiation)).BeginInit();
@@ -2380,6 +2381,7 @@
             // tabHouseRules
             // 
             this.tabHouseRules.BackColor = System.Drawing.SystemColors.Control;
+            this.tabHouseRules.Controls.Add(this.chkCyberlegMovement);
             this.tabHouseRules.Controls.Add(this.chkIgnoreArt);
             this.tabHouseRules.Controls.Add(this.chkKnucks);
             this.tabHouseRules.Location = new System.Drawing.Point(4, 22);
@@ -2388,6 +2390,17 @@
             this.tabHouseRules.TabIndex = 3;
             this.tabHouseRules.Tag = "Tab_Options_HouseRules";
             this.tabHouseRules.Text = "House Rules";
+            // 
+            // chkIgnoreArt
+            // 
+            this.chkIgnoreArt.AutoSize = true;
+            this.chkIgnoreArt.Location = new System.Drawing.Point(8, 3);
+            this.chkIgnoreArt.Name = "chkIgnoreArt";
+            this.chkIgnoreArt.Size = new System.Drawing.Size(235, 17);
+            this.chkIgnoreArt.TabIndex = 1;
+            this.chkIgnoreArt.Tag = "Checkbox_Options_IgnoreArt";
+            this.chkIgnoreArt.Text = "Ignore Art Requirements from Street Grimoire";
+            this.chkIgnoreArt.UseVisualStyleBackColor = true;
             // 
             // cboSetting
             // 
@@ -2426,16 +2439,16 @@
             this.txtSettingName.Size = new System.Drawing.Size(190, 20);
             this.txtSettingName.TabIndex = 3;
             // 
-            // chkIgnoreArt
+            // chkCyberlegMovement
             // 
-            this.chkIgnoreArt.AutoSize = true;
-            this.chkIgnoreArt.Location = new System.Drawing.Point(8, 3);
-            this.chkIgnoreArt.Name = "chkIgnoreArt";
-            this.chkIgnoreArt.Size = new System.Drawing.Size(235, 17);
-            this.chkIgnoreArt.TabIndex = 1;
-            this.chkIgnoreArt.Tag = "Checkbox_Options_IgnoreArt";
-            this.chkIgnoreArt.Text = "Ignore Art Requirements from Street Grimoire";
-            this.chkIgnoreArt.UseVisualStyleBackColor = true;
+            this.chkCyberlegMovement.AutoSize = true;
+            this.chkCyberlegMovement.Location = new System.Drawing.Point(8, 49);
+            this.chkCyberlegMovement.Name = "chkCyberlegMovement";
+            this.chkCyberlegMovement.Size = new System.Drawing.Size(184, 17);
+            this.chkCyberlegMovement.TabIndex = 2;
+            this.chkCyberlegMovement.Tag = "Checkbox_Options_CyberlegMovement";
+            this.chkCyberlegMovement.Text = "Use Cyberleg Stats for Movement";
+            this.chkCyberlegMovement.UseVisualStyleBackColor = true;
             // 
             // frmOptions
             // 
@@ -2720,5 +2733,6 @@
         private System.Windows.Forms.CheckBox chkLicenseEachRestrictedItem;
         private System.Windows.Forms.CheckBox chkUseLogging;
         private System.Windows.Forms.CheckBox chkIgnoreArt;
+        private System.Windows.Forms.CheckBox chkCyberlegMovement;
 	}
 }

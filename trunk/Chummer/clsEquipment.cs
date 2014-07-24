@@ -2857,10 +2857,13 @@ namespace Chummer
 		public void Print(XmlTextWriter objWriter)
 		{
 			objWriter.WriteStartElement("cyberware");
-			if (_strLimbSlot == "")
-				objWriter.WriteElementString("name", DisplayNameShort);
-			else
-				objWriter.WriteElementString("name", DisplayNameShort + " (" + LanguageManager.Instance.GetString("String_AttributeBODShort") + " " + TotalBody.ToString() + ", " + LanguageManager.Instance.GetString("String_AttributeAGIShort") + " " + TotalAgility.ToString() + ", " + LanguageManager.Instance.GetString("String_AttributeSTRShort") + " " + TotalStrength.ToString() + ")");
+            if (_strLimbSlot == "")
+                objWriter.WriteElementString("name", DisplayNameShort);
+            else
+            {
+                int intLimit = Convert.ToInt32(Math.Ceiling(((Convert.ToDecimal(TotalStrength) * 2) + Convert.ToDecimal(_objCharacter.BOD.TotalValue) + Convert.ToDecimal(_objCharacter.REA.TotalValue)) / 3));
+                objWriter.WriteElementString("name", DisplayNameShort + " (" + LanguageManager.Instance.GetString("String_AttributeAGIShort") + " " + TotalAgility.ToString() + ", " + LanguageManager.Instance.GetString("String_AttributeSTRShort") + " " + TotalStrength.ToString() + ", " + LanguageManager.Instance.GetString("String_LimitPhysicalShort") + " " + intLimit.ToString() + ")");
+            }
 			objWriter.WriteElementString("category", DisplayCategory);
 			objWriter.WriteElementString("ess", CalculatedESS.ToString());
 			objWriter.WriteElementString("capacity", _strCapacity);

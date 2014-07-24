@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-492</version>
+	<version>-491</version>
 	<categories>
 		<category>Ammunition</category>
 		<category>Armor Enhancements</category>
@@ -2186,7 +2186,7 @@
 			<category>Communications and Countermeasures</category>
 			<armorcapacity>[1]</armorcapacity>
 			<rating>0</rating>
-			<avail>6R</avail>
+			<avail>2</avail>
 			<cost>100</cost>
 			<source>SR5</source>
 			<page>441</page>

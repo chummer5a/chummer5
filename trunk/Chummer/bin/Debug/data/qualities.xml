@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-493</version>
+	<version>-492</version>
 	<categories>
 		<category>Positive</category>
 		<category>Negative</category>
@@ -1590,6 +1590,12 @@
 					<quality>The Warrior's Way</quality>
 				</oneof>
 			</forbidden>
+			<required>
+				<oneof>
+					<quality>Adept</quality>
+					<quality>Mystic Adept</quality>
+				</oneof>
+			</required>
 			<source>SG</source>
 			<page>176</page>
 		</quality>
@@ -1611,6 +1617,12 @@
 					<quality>The Warrior's Way</quality>
 				</oneof>
 			</forbidden>
+			<required>
+				<oneof>
+					<quality>Adept</quality>
+					<quality>Mystic Adept</quality>
+				</oneof>
+			</required>
 			<source>SG</source>
 			<page>176</page>
 		</quality>
@@ -1632,6 +1644,12 @@
 					<quality>The Warrior's Way</quality>
 				</oneof>
 			</forbidden>
+			<required>
+				<oneof>
+					<quality>Adept</quality>
+					<quality>Mystic Adept</quality>
+				</oneof>
+			</required>
 			<source>SG</source>
 			<page>176</page>
 		</quality>
@@ -1653,6 +1671,12 @@
 					<quality>The Warrior's Way</quality>
 				</oneof>
 			</forbidden>
+			<required>
+				<oneof>
+					<quality>Adept</quality>
+					<quality>Mystic Adept</quality>
+				</oneof>
+			</required>
 			<source>SG</source>
 			<page>176</page>
 		</quality>
@@ -1673,6 +1697,12 @@
 					<quality>The Spiritual Way</quality>
 					<quality>The Warrior's Way</quality>
 				</oneof>
+				<required>
+					<oneof>
+						<quality>Adept</quality>
+						<quality>Mystic Adept</quality>
+					</oneof>
+				</required>
 			</forbidden>
 			<source>SG</source>
 			<page>177</page>
@@ -1695,6 +1725,12 @@
 					<quality>The Warrior's Way</quality>
 				</oneof>
 			</forbidden>
+			<required>
+				<oneof>
+					<quality>Adept</quality>
+					<quality>Mystic Adept</quality>
+				</oneof>
+			</required>
 			<source>SG</source>
 			<page>177</page>
 		</quality>
@@ -1716,6 +1752,12 @@
 					<quality>The Warrior's Way</quality>
 				</oneof>
 			</forbidden>
+			<required>
+				<oneof>
+					<quality>Adept</quality>
+					<quality>Mystic Adept</quality>
+				</oneof>
+			</required>
 			<source>SG</source>
 			<page>178</page>
 		</quality>
@@ -1737,6 +1779,12 @@
 					<quality>The Warrior's Way</quality>
 				</oneof>
 			</forbidden>
+			<required>
+				<oneof>
+					<quality>Adept</quality>
+					<quality>Mystic Adept</quality>
+				</oneof>
+			</required>
 			<source>SG</source>
 			<page>178</page>
 		</quality>
@@ -1758,6 +1806,12 @@
 					<quality>The Warrior's Way</quality>
 				</oneof>
 			</forbidden>
+			<required>
+				<oneof>
+					<quality>Adept</quality>
+					<quality>Mystic Adept</quality>
+				</oneof>
+			</required>
 			<source>SG</source>
 			<page>178</page>
 		</quality>
@@ -1779,6 +1833,12 @@
 					<quality>The Artisan's Way</quality>
 				</oneof>
 			</forbidden>
+			<required>
+				<oneof>
+					<quality>Adept</quality>
+					<quality>Mystic Adept</quality>
+				</oneof>
+			</required>
 			<source>SG</source>
 			<page>178</page>
 		</quality>

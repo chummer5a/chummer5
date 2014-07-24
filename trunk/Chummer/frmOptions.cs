@@ -340,6 +340,7 @@ namespace Chummer
 			_objOptions.CapSkillRating = chkCapSkillRating.Checked;
 			_objOptions.PrintExpenses = chkPrintExpenses.Checked;
 			_objOptions.KnucksUseUnarmed = chkKnucks.Checked;
+            _objOptions.CyberlegMovement = chkCyberlegMovement.Checked;
             _objOptions.IgnoreArt = chkIgnoreArt.Checked;
 			_objOptions.NuyenPerBP = Convert.ToInt32(nudNuyenPerBP.Value);
 			_objOptions.EssenceDecimals = Convert.ToInt32(cboEssenceDecimals.SelectedValue);
@@ -963,6 +964,16 @@ namespace Chummer
             {
             }
             chkIgnoreArt.Checked = blnIgnoreArt;
+
+            bool blnCyberlegsMovement = false;
+            try
+            {
+                blnCyberlegsMovement = _objOptions.CyberlegMovement;
+            }
+            catch
+            {
+            }
+            chkCyberlegMovement.Checked = blnCyberlegsMovement;
 
             int intFreeKarmaContactsMultiplier = 2;
 			try

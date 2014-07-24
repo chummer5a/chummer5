@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-499</version>
+	<version>-498</version>
 	<grades>
 		<grade>
 			<name>Standard</name>
@@ -134,9 +134,11 @@
 			<avail>12</avail>
 			<cost>24000</cost>
 			<bonus>
-				<skillarticulation>
-					<bonus>1</bonus>
-				</skillarticulation>
+				<selectskill>
+					<name>Escape Artist</name>
+					<val>1</val>
+					<applytorating>yes</applytorating>
+				</selectskill>
 				<physicallimit>+1</physicallimit>
 			</bonus>
 			<source>SR5</source>

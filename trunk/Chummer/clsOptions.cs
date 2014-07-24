@@ -790,6 +790,7 @@ namespace Chummer
         private bool _blnLicenseRestrictedItems = false;
         private bool _blnKnucksUseUnarmed = false;
         private bool _blnIgnoreArt = false;
+        private bool _blnCyberlegMovement = false;
 		private string _strBookXPath = "";
 		private int _intNuyenPerBP = 5000;
 		private int _intFreeContactsMultiplier = 2;
@@ -941,6 +942,8 @@ namespace Chummer
             objWriter.WriteElementString("knucksuseunarmed", _blnKnucksUseUnarmed.ToString());
             // <ignoreart />
             objWriter.WriteElementString("ignoreart", _blnIgnoreArt.ToString());
+            // <cyberlegmovement />
+            objWriter.WriteElementString("cyberlegmovement", _blnCyberlegMovement.ToString());
             // <freekarmacontactsmultiplier />
 			objWriter.WriteElementString("freekarmacontactsmultiplier", _intFreeContactsMultiplier.ToString());
 			// <freecontactsflat />
@@ -1274,6 +1277,13 @@ namespace Chummer
             try
             {
                 _blnIgnoreArt = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/ignoreart").InnerText);
+            }
+            catch
+            { }
+            // Use Cyberleg Stats for Movement
+            try
+            {
+                _blnCyberlegMovement = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/cyberlegmovement").InnerText);
             }
             catch
             { }
@@ -2347,6 +2357,21 @@ namespace Chummer
             set
             {
                 _blnIgnoreArt = value;
+            }
+        }
+
+        /// <summary>
+        /// Whether or not to use stats from Cyberlegs when calculating movement rates
+        /// </summary>
+        public bool CyberlegMovement
+        {
+            get
+            {
+                return _blnCyberlegMovement;
+            }
+            set
+            {
+                _blnCyberlegMovement = value;
             }
         }
 

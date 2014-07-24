@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-497</version>
+	<version>-496</version>
 	<categories>
 		<category>Armor</category>
 		<category>Clothing</category>
@@ -1266,6 +1266,24 @@
 			<armorcapacity>8</armorcapacity>
 			<avail>6</avail>
 			<cost>150</cost>
+			<bonus>
+				<limitmodifier>
+					<limit>Social</limit>
+					<value>1</value>
+					<condition>Only for intimidation, Must be visible</condition>
+				</limitmodifier>
+			</bonus>
+			<addmodcategory>Ballistic Mask</addmodcategory>
+			<source>RG</source>
+			<page>74</page>
+		</armor>			
+		<armor>
+			<name>Custom Ballistic Mask</name>
+			<category>Specialty Armor</category>
+			<armor>+2</armor>
+			<armorcapacity>8</armorcapacity>
+			<avail>6</avail>
+			<cost>300</cost>
 			<bonus>
 				<limitmodifier>
 					<limit>Social</limit>

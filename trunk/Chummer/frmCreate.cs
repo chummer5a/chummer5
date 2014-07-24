@@ -3651,7 +3651,31 @@ namespace Chummer
 			UpdateCharacterInfo();
 
             // Calculate the character's move.
-            _objCharacter.Movement = (_objCharacter.AGI.TotalValue * 2).ToString() + "/" + (_objCharacter.AGI.TotalValue * 4).ToString();
+            string strMovement = "";
+            if (_objOptions.CyberlegMovement)
+            {
+                int intLegs = 0;
+                int intAGI = 0;
+                foreach (Cyberware objCyber in _objCharacter.Cyberware)
+                {
+                    if (objCyber.LimbSlot == "leg")
+                    {
+                        intLegs++;
+                        if (intAGI > 0)
+                            intAGI = Math.Min(intAGI, objCyber.TotalAgility);
+                        else
+                            intAGI = objCyber.TotalAgility;
+                    }
+                }
+                if (intLegs == 2)
+                    strMovement = String.Format("{0}/{1}", (intAGI * 2), (intAGI * 4));
+                else
+                    strMovement = String.Format("{0}/{1}", (_objCharacter.AGI.TotalValue * 2), (_objCharacter.AGI.TotalValue * 4));
+            }
+            else
+                strMovement = String.Format("{0}/{1}", (_objCharacter.AGI.TotalValue * 2), (_objCharacter.AGI.TotalValue * 4));
+
+            _objCharacter.Movement = strMovement;
             lblMovement.Text = _objCharacter.Movement;
 
 			_blnIsDirty = true;
@@ -15571,6 +15595,34 @@ namespace Chummer
 				string strTip = "";
 				_blnSkipUpdate = true;
 
+                // Calculate the character's move.
+                string strMovement = "";
+                if (_objOptions.CyberlegMovement)
+                {
+                    int intLegs = 0;
+                    int intAGI = 0;
+                    foreach (Cyberware objCyber in _objCharacter.Cyberware)
+                    {
+                        if (objCyber.LimbSlot == "leg")
+                        {
+                            intLegs++;
+                            if (intAGI > 0)
+                                intAGI = Math.Min(intAGI, objCyber.TotalAgility);
+                            else
+                                intAGI = objCyber.TotalAgility;
+                        }
+                    }
+                    if (intLegs == 2)
+                        strMovement = String.Format("{0}/{1}", (intAGI * 2), (intAGI * 4));
+                    else
+                        strMovement = String.Format("{0}/{1}", (_objCharacter.AGI.TotalValue * 2), (_objCharacter.AGI.TotalValue * 4));
+                }
+                else
+                    strMovement = String.Format("{0}/{1}", (_objCharacter.AGI.TotalValue * 2), (_objCharacter.AGI.TotalValue * 4));
+
+                _objCharacter.Movement = strMovement;
+                lblMovement.Text = _objCharacter.Movement;
+
 				// If the character is an A.I., set the Edge MetatypeMaximum to their Rating.
 				if (_objCharacter.Metatype.EndsWith("A.I.") || _objCharacter.MetatypeCategory == "Technocritters" || _objCharacter.MetatypeCategory == "Protosapients")
 					_objCharacter.EDG.MetatypeMaximum = _objCharacter.Rating;
@@ -16145,7 +16197,9 @@ namespace Chummer
                 string strSocial = "(CHA [" + _objCharacter.CHA.TotalValue.ToString() + "] * 2) + WIL [" + _objCharacter.WIL.TotalValue.ToString() + "] + ESS [" + _objCharacter.Essence.ToString() + "] / 3";
                 tipTooltip.SetToolTip(lblSocial, strSocial);
 
-				// Initiative.
+                lblAstral.Text = _objCharacter.LimitAstral.ToString();
+
+                // Initiative.
 				lblINI.Text = _objCharacter.Initiative;
 				string strInit = "REA (" + _objCharacter.REA.Value.ToString() + ") + INT (" + _objCharacter.INT.Value.ToString() + ")";
 				if (_objCharacter.INI.AttributeModifiers > 0 || _objImprovementManager.ValueOf(Improvement.ImprovementType.Initiative) > 0 || _objCharacter.INT.AttributeModifiers > 0 || _objCharacter.REA.AttributeModifiers > 0)
