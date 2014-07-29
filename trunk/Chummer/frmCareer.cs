@@ -21377,7 +21377,7 @@ namespace Chummer
 
 				// Armor Ratings.
                 lblArmor.Text = _objCharacter.TotalArmorRating.ToString();
-                lblCMArmor.Text = lblArmorValue.Text;
+                lblCMArmor.Text = lblArmor.Text;
 				string strArmorToolTip = "";
 				strArmorToolTip = LanguageManager.Instance.GetString("Tip_Armor") + " (" + _objCharacter.ArmorRating.ToString() + ")";
                 if (_objCharacter.ArmorRating != _objCharacter.TotalArmorRating)

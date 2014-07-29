@@ -5300,80 +5300,17 @@ namespace Chummer
 		{
 			get
 			{
-				// Ignore Armor Encumbrance entirely.
-				if (_objOptions.IgnoreArmorEncumbrance)
-					return 0;
-
-				int intArmorCount = 0;
 				int intTotalA = 0;
-				// Armor encumbrance is measure as BOD * 2 unless it is Military Grade.
-				int intMultiplier = 2;
 				foreach (Armor objArmor in _lstArmor)
-				{
 					if (objArmor.Equipped)
-					{
 						// Form-Fitting Armor is treated as half of its value for determining Armor Encumbrance.
-						if (objArmor.Name.StartsWith("Form-Fitting"))
-						{
-							intTotalA += objArmor.TotalArmor / 2;
-						}
-						else
-						{
+						if (objArmor.ArmorValue.StartsWith("+"))
 							intTotalA += objArmor.TotalArmor;
-						}
 
-						// If the character is wearing ANY Military Grade Armor, change the BOD multiplier to 3.
-						if (objArmor.Category == "Military Grade Armor")
-							intMultiplier = 3;
-
-						// Helmets and Shields and SecureTech PPP System Armors do not count as stack armor for # of worn pieces consideration.
-						if (objArmor.Category != "Helmets and Shields" && objArmor.Category != "SecureTech PPP System")
-							intArmorCount++;
-					}
-				}
-
-				// If the character has SmartWeave, reduce the highest Armor Ratings by the character's STR.
-				foreach (Improvement objImprovement in _lstImprovements)
-				{
-					if (objImprovement.ImproveType == Improvement.ImprovementType.SoftWeave && objImprovement.Enabled)
-					{
-						int intReduceA = 0;
-
-						// Take the lowest value of highest Armor Rating and STR (since you cannot reduce its Rating below 0 for SoftWeave).
-						if (ArmorRating <= _attSTR.TotalValue)
-							intReduceA = ArmorRating;
-						else
-							intReduceA = _attSTR.TotalValue;
-
-						intTotalA -= intReduceA;
-					}
-				}
-
-				// If the alternate Armor Encumbrance house rule is in use, the threshold is instead BOD + STR instead of BOD * 2.
-				int intThreshold = _attBOD.TotalValue * intMultiplier;
-				if (_objOptions.AlternateArmorEncumbrance)
-				{
-					intMultiplier--;
-					intThreshold = (_attBOD.TotalValue * intMultiplier) + _attSTR.TotalValue;
-				}
-
-				// Calculate the Encumbrance penalty if the total value is higher than the BOD * X value (or (BOD * (X-1)) + STR if alternate encumbrance is enabled).
-				if (intTotalA > intThreshold)
-				{
-					// No penalty if the option to ignore Encumbrance if only a single piece of Armor is worn is turned on.
-					if (_objOptions.NoSingleArmorEncumbrance && intArmorCount == 1)
-						return 0;
-					else
-					{
-						decimal decPenalty = Math.Ceiling((Convert.ToDecimal(intTotalA, GlobalOptions.Instance.CultureInfo) - (Convert.ToDecimal(intThreshold, GlobalOptions.Instance.CultureInfo))) / 2);
-						decPenalty *= -1;
-						// Include an Armor Encumbrance Penalty modifiers.
-						decPenalty -= _objImprovementManager.ValueOf(Improvement.ImprovementType.ArmorEncumbrancePenalty);
-						return Convert.ToInt32(decPenalty);
-					}
-				}
-				else
-					return 0;
+                // calculate armor encumberance
+                if (intTotalA > this._attSTR.TotalValue)
+                    return (intTotalA - this._attSTR.TotalValue) / 2 * -1;  // we expect a negative number
+                return 0;
 			}
 		}
 

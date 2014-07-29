@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-494</version>
+	<version>-493</version>
 	<categories>
 		<category>Combat</category>
 		<category>Detection</category>
@@ -596,7 +596,7 @@
 			<range>T</range>
 			<damage>0</damage>
 			<duration>P</duration>
-			<dv>F-4</dv>
+			<dv>(Damage Value)-6</dv>
 			<source>SR5</source>
 			<page>289</page>
 		</spell>

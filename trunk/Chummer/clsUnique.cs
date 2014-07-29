@@ -7787,6 +7787,18 @@ namespace Chummer
 		#endregion
 
 		#region Properties
+
+        /// <summary>
+        /// Total points used for this contact.
+        /// </summary>
+        public int ContactPoints
+        {
+            get
+            {
+                return _intConnection + _intLoyalty;
+            }
+        }
+
 		/// <summary>
 		/// Name of the Contact.
 		/// </summary>
