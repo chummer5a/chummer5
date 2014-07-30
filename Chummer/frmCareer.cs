@@ -7979,7 +7979,9 @@ namespace Chummer
 				objQuality.BP = 0;
 
 			bool blnAddItem = true;
-			int intKarmaCost = objQuality.BP * 2 * _objOptions.KarmaQuality;
+			int intKarmaCost = objQuality.BP * _objOptions.KarmaQuality;
+            if (!_objCharacter.Options.DontDoubleQualities)
+                intKarmaCost *= 2;
 
 			// Make sure the character has enough Karma to pay for the Quality.
 			if (objQuality.Type == QualityType.Positive)
@@ -27511,5 +27513,25 @@ namespace Chummer
             _blnIsDirty = true;
             UpdateWindowTitle();
         }
-	}
+
+        private void panActiveSkills_Click(object sender, System.EventArgs e)
+        {
+            panActiveSkills.Focus();
+        }
+
+        private void panSkillGroups_Click(object sender, System.EventArgs e)
+        {
+            panSkillGroups.Focus();
+        }
+
+        private void panKnowledgeSkills_Click(object sender, System.EventArgs e)
+        {
+            panKnowledgeSkills.Focus();
+        }
+
+        private void panContacts_Click(object sender, System.EventArgs e)
+        {
+            panContacts.Focus();
+        }
+    }
 }

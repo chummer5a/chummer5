@@ -1194,7 +1194,28 @@ namespace Chummer
 					_objCharacter.INT.Value = _objCharacter.INT.TotalMinimum;
 					_objCharacter.LOG.Value = _objCharacter.LOG.TotalMinimum;
 					_objCharacter.WIL.Value = _objCharacter.WIL.TotalMinimum;
-				}
+
+                    _objCharacter.BOD.Base = _objCharacter.BOD.TotalMinimum;
+                    _objCharacter.AGI.Base = _objCharacter.AGI.TotalMinimum;
+                    _objCharacter.REA.Base = _objCharacter.REA.TotalMinimum;
+                    _objCharacter.STR.Base = _objCharacter.STR.TotalMinimum;
+                    _objCharacter.CHA.Base = _objCharacter.CHA.TotalMinimum;
+                    _objCharacter.INT.Base = _objCharacter.INT.TotalMinimum;
+                    _objCharacter.LOG.Base = _objCharacter.LOG.TotalMinimum;
+                    _objCharacter.WIL.Base = _objCharacter.WIL.TotalMinimum;
+
+                    _objCharacter.BOD.Karma = 0;
+                    _objCharacter.AGI.Karma = 0;
+                    _objCharacter.REA.Karma = 0;
+                    _objCharacter.STR.Karma = 0;
+                    _objCharacter.CHA.Karma = 0;
+                    _objCharacter.INT.Karma = 0;
+                    _objCharacter.LOG.Karma = 0;
+                    _objCharacter.WIL.Karma = 0;
+                    _objCharacter.EDG.Karma = 0;
+                    _objCharacter.MAG.Karma = 0;
+                    _objCharacter.RES.Karma = 0;
+                }
 
 				// Add any Critter Powers the Metatype/Critter should have.
 				XmlNode objXmlCritter = objXmlDocument.SelectSingleNode("/chummer/metatypes/metatype[name = \"" + _objCharacter.Metatype + "\"]");
@@ -1613,8 +1634,8 @@ namespace Chummer
                     if (cboSkill1.Visible && objSkillGroup.Name == cboSkill1.Text && blnGroup)
                     {
                         objSkillGroup.FreeLevels = intFreeLevels;
-                        if (objSkillGroup.Rating < intFreeLevels)
-                            objSkillGroup.Rating = intFreeLevels;
+                        if (objSkillGroup.Base < intFreeLevels)
+                            objSkillGroup.Base = intFreeLevels;
                     }
                     else
                         objSkillGroup.FreeLevels = 0;

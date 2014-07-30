@@ -41,6 +41,7 @@ namespace Chummer
 					_objSkillGroup.RatingMaximum = 12;
 				nudSkill.Maximum = _objSkillGroup.RatingMaximum;
 				nudSkill.Visible = false;
+                nudKarma.Visible = false;
 				cmdImproveSkill.Visible = true;
 				lblGroupRating.Visible = true;
 			}
@@ -52,22 +53,35 @@ namespace Chummer
 
 			if (_objSkillGroup.Broken)
 				IsEnabled = false;
-			this.Width = cmdImproveSkill.Left + cmdImproveSkill.Width;
+            this.Width = nudKarma.Left + nudKarma.Width;
         }
 
 		private void nudSkill_ValueChanged(object sender, EventArgs e)
         {
             // Raise the GroupRatingChanged Event when the NumericUpDown's Value changes.
             // The entire SkillGroupControl is passed as an argument so the handling event can evaluate its contents.
-			_objSkillGroup.Rating = Convert.ToInt32(nudSkill.Value);
+            if (nudSkill.Value + nudKarma.Value > nudSkill.Maximum)
+                nudSkill.Value = nudSkill.Maximum - nudKarma.Value;
+            _objSkillGroup.Base = Convert.ToInt32(nudSkill.Value);
+			_objSkillGroup.Rating = Convert.ToInt32(nudSkill.Value) + Convert.ToInt32(nudKarma.Value);
+            GroupRatingChanged(this);
+        }
+
+        private void nudKarma_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudSkill.Value + nudKarma.Value > nudSkill.Maximum)
+                nudKarma.Value = nudSkill.Maximum - nudSkill.Value;
+            _objSkillGroup.Karma = Convert.ToInt32(nudKarma.Value);
+            _objSkillGroup.Rating = Convert.ToInt32(nudSkill.Value) + Convert.ToInt32(nudKarma.Value);
             GroupRatingChanged(this);
         }
 
         private void txtSkillName_Enter(object sender, EventArgs e)
         {
             // If the SkillName TextBox is ReadOnly, jump to the Rating Control.
-            if (txtGroupName.ReadOnly)
-                nudSkill.Focus();
+            //if (txtGroupName.ReadOnly)
+            //    nudSkill.Focus();
+            this.Focus();
         }
 
 		private void cmdImproveSkill_Click(object sender, EventArgs e)
@@ -180,6 +194,40 @@ namespace Chummer
 				}
 				else
 					cmdImproveSkill.Enabled = false;
+            }
+        }
+
+        /// <summary>
+        /// Base Group Rating.
+        /// </summary>
+        public int BaseRating
+        {
+            get
+            {
+                return _objSkillGroup.Base;
+            }
+            set
+            {
+                nudSkill.Value = value;
+                lblGroupRating.Text = (value + nudKarma.Value).ToString();
+                _objSkillGroup.Base = value;
+            }
+        }
+
+        /// <summary>
+        /// Karma Group Rating.
+        /// </summary>
+        public int KarmaRating
+        {
+            get
+            {
+                return _objSkillGroup.Karma;
+            }
+            set
+            {
+                nudKarma.Value = value;
+                lblGroupRating.Text = (value + nudSkill.Value).ToString();
+                _objSkillGroup.Karma = value;
             }
         }
 
@@ -322,6 +370,7 @@ namespace Chummer
 					if (_objSkillGroup.Rating < _objSkillGroup.RatingMaximum)
 						cmdImproveSkill.Enabled = true;
 					nudSkill.Enabled = true;
+                    nudKarma.Enabled = true;
 				}
 				else
 				{
@@ -329,7 +378,8 @@ namespace Chummer
 					lblGroupRating.ForeColor = SystemColors.GrayText;
 					cmdImproveSkill.Enabled = false;
 					nudSkill.Enabled = false;
-				}
+                    nudKarma.Enabled = false;
+                }
 			}
 		}
 		#endregion
@@ -343,5 +393,10 @@ namespace Chummer
             _intWorkingRating = _objSkillGroup.Rating;
         }
         #endregion
+
+        private void txtGroupName_Click(object sender, System.EventArgs e)
+        {
+            this.Focus();
+        }
     }
 }

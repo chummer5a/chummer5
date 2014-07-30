@@ -33,6 +33,8 @@ namespace Chummer
 		private string _strOldSpec = "";
 		private bool _blnSkipRefresh = false;
         private int _intWorkingRating = 0;
+        private int _intBaseRating = 0;
+        private int _intKarmaRating = 0;
 
 		#region Control Events
 		public SkillControl()
@@ -87,6 +89,7 @@ namespace Chummer
 				tipTooltip.SetToolTip(cmdImproveSkill, strTooltip);
 
 				nudSkill.Visible = false;
+                nudKarma.Visible = false;
 				lblSkillRating.Visible = true;
 				cmdImproveSkill.Visible = true;
 
@@ -121,6 +124,12 @@ namespace Chummer
 			else
 				this.Width = cmdChangeSpec.Left + cmdChangeSpec.Width;
 
+            if (!_objSkill.CharacterObject.Created && _objSkill.SkillGroupObject != null && _objSkill.SkillGroupObject.Broken)
+            {
+                nudSkill.Enabled = false;
+                cmdBreakGroup.Visible = false;
+            }
+
 			lblAttribute.Text = _objSkill.DisplayAttribute;
 
 			RefreshControl();
@@ -131,9 +140,24 @@ namespace Chummer
         {
             // Raise the RatingChanged Event when the NumericUpDown's Value changes.
             // The entire SkillControl is passed as an argument so the handling event can evaluate its contents.
-			_objSkill.Rating = Convert.ToInt32(nudSkill.Value);
-			RefreshControl();
+            if (nudSkill.Value + nudKarma.Value > nudSkill.Maximum)
+                nudSkill.Value = nudSkill.Maximum - nudKarma.Value;
+            _intBaseRating = Convert.ToInt32(nudSkill.Value);
+            _objSkill.Base = Convert.ToInt32(nudSkill.Value);
+            _objSkill.Rating = Convert.ToInt32(nudSkill.Value) + (Convert.ToInt32(nudKarma.Value));
+            RefreshControl();
 			RatingChanged(this);
+        }
+
+        private void nudKarma_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudSkill.Value + nudKarma.Value > nudSkill.Maximum)
+                nudKarma.Value = nudSkill.Maximum - nudSkill.Value;
+            _intKarmaRating = Convert.ToInt32(nudKarma.Value);
+            _objSkill.Karma = Convert.ToInt32(nudKarma.Value);
+            _objSkill.Rating = Convert.ToInt32(nudSkill.Value) + (Convert.ToInt32(nudKarma.Value));
+            RefreshControl();
+            RatingChanged(this);
         }
 
         private void cboSpec_TextChanged(object sender, EventArgs e)
@@ -273,6 +297,38 @@ namespace Chummer
         }
 
         /// <summary>
+        /// Skill Base Value (from Skill Points)
+        /// </summary>
+        public int SkillBase
+        {
+            get
+            {
+                return _intBaseRating;
+            }
+            set
+            {
+                _intBaseRating = value;
+                nudSkill.Value = value;
+            }
+        }
+
+        /// <summary>
+        /// Skill Karma Value (from Karma Points)
+        /// </summary>
+        public int SkillKarma
+        {
+            get
+            {
+                return _intKarmaRating;
+            }
+            set
+            {
+                _intKarmaRating = value;
+                nudKarma.Value = value;
+            }
+        }
+
+        /// <summary>
         /// Skill Rating.
         /// </summary>
         public int SkillRating
@@ -288,7 +344,7 @@ namespace Chummer
                 if (value < _objSkill.FreeLevels)
                     value = _objSkill.FreeLevels;
 
-                nudSkill.Value = value;
+                // nudSkill.Value = value;
                 lblSkillRating.Text = value.ToString();
                 _objSkill.Rating = value;
 
@@ -497,6 +553,11 @@ namespace Chummer
 				// If we're in Create Mode, show the Break Group button if the Skill is Grouped.
 				if (!_objSkill.CharacterObject.Created && _objSkill.IsGrouped)
 					cmdBreakGroup.Visible = _objSkill.CharacterObject.Options.BreakSkillGroupsInCreateMode;
+                else if (!_objSkill.CharacterObject.Created && _objSkill.SkillGroupObject.Broken)
+                {
+                    nudSkill.Enabled = false;
+                    cmdBreakGroup.Visible = false;
+                }
 				else
 					cmdBreakGroup.Visible = false;
 			}

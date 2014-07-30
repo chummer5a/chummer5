@@ -1,3 +1,21 @@
+Build 5.131 (beta)
+A quick shout out... I had programming help on this build from a friend of mine named Ed.  Thank you Ed!
+
+- Completely rebuilt how karma is spent on Attributes, Special Attributes, Skill Groups, Active Skills, and Knowledge Skills to reflect the RAW on the steps in character creation. All existing characters should load up just fine but karma costs may have changed to reflect applying the RAW. Each of these now have separate entry boxes for applying points from your Priority selection and for buying up with Karma. Validation now checks to see if you've overspent on your points.  I believe I've been able to correctly handle the steps as written while giving a UI that allows you to treat it as a single step (rather than going through a gateway similar to "Mark as Created").  The only thing I haven't updated as part of this is whether skill specialization is paid for with skill points or karma... at this time it automatically uses skill points to pay for skill specialization but I'll update this in a future enhancement when I will also tackle being able to have multiple specializations per skill.  There are two new house rules to allow you to tailor how these rules are applied to some degree. If others are needed, send along a request and I'll take a look.
+- Added custom Traditions. If you select the Custom Tradition from the dropdown, it will enable additional fields for you to provide your tradition name, select your drain attributes, and select your spirits for each school.  This information is saved with the character and is portable with it.
+- Fixed the skill bonus from the Cat Mentor Spirit so that it will apply to Sneaking (the English core book says Infiltration on page 321).
+- Spell dice pools should now pull from the correct skill (Spellcasting, Ritual Spellcasting, Alchemy, Artificing) for each spell.
+- Corrected the drain value for the Resist Pain Spell.
+- Fixed the values on the Build Summary tab for Spells, Complex Forms, and Contacts which under some conditions might show the wrong value.
+- Fixed the Armor value on the Condition Monitor tab in Career Mode to show the correct value.
+- Added the armor encumberance rule from page 169 so that it applies to armor accessories such as helmets and shields.
+- Removed the duplicate Astral Powder gear entry.
+- Fixed the missing availability and price for Fetishes.
+- Clicking on a blank area within the Contacts, Skill Groups, Active Skills, or Knowledge Skills regions will allow you to scroll them with the scroll wheel.
+- Removed the tooltips that were showing the wrong text on the labels on the Limits tab.
+- Added a house rule to allow paying only the standard cost for Qualities in Career Mode instead of double as per RAW.
+- Removed the option to buy a vehicle used as this was from 4th Edition and has not been carried over into 5th.
+
 Build 5.130 (beta)
 - Removed some duplicate specialties from the Politics Knowledge Skill.
 - Made the Adept Way Qualities not available for non-adepts.

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-499</version>
+	<version>-498</version>
 	<traditions>
+		<tradition>
+			<name>Custom</name>
+			<drain />
+			<spirits />
+			<source>SR5</source>
+			<page>279</page>
+		</tradition>
 		<tradition>
 			<name>Hermetic</name>
 			<drain>WIL + LOG</drain>
@@ -263,4 +270,67 @@
 			<page>94</page>
 		</tradition>
 	</traditions>
+	<spirits>
+		<spirit>
+			<name>Guardian Spirit</name>
+			<source>SG</source>
+			<page>193</page>
+		</spirit>
+		<spirit>
+			<name>Guidance Spirit</name>
+			<source>SG</source>
+			<page>193</page>
+		</spirit>
+		<spirit>
+			<name>Plant Spirit</name>
+			<source>SG</source>
+			<page>193</page>
+		</spirit>
+		<spirit>
+			<name>Spirit of Air</name>
+			<source>SR5</source>
+			<page>303</page>
+		</spirit>
+		<spirit>
+			<name>Spirit of Beasts</name>
+			<source>SR5</source>
+			<page>303</page>
+		</spirit>
+		<spirit>
+			<name>Spirit of Earth</name>
+			<source>SR5</source>
+			<page>303</page>
+		</spirit>
+		<spirit>
+			<name>Spirit of Fire</name>
+			<source>SR5</source>
+			<page>303</page>
+		</spirit>
+		<spirit>
+			<name>Spirit of Man</name>
+			<source>SR5</source>
+			<page>304</page>
+		</spirit>
+		<spirit>
+			<name>Spirit of Water</name>
+			<source>SR5</source>
+			<page>304</page>
+		</spirit>
+		<spirit>
+			<name>Task Spirit</name>
+			<source>SG</source>
+			<page>193</page>
+		</spirit>
+	</spirits>
+	<drainattributes>
+		<drainattribute>
+			<name>WIL + CHA</name>
+		</drainattribute>
+		<drainattribute>
+			<name>WIL + INT</name>
+		</drainattribute>
+		<drainattribute>
+			<name>WIL + LOG</name>
+		</drainattribute>
+	</drainattributes>
 </chummer>

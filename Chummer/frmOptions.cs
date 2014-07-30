@@ -340,9 +340,12 @@ namespace Chummer
 			_objOptions.CapSkillRating = chkCapSkillRating.Checked;
 			_objOptions.PrintExpenses = chkPrintExpenses.Checked;
 			_objOptions.KnucksUseUnarmed = chkKnucks.Checked;
+            _objOptions.DontDoubleQualities = chkDontDoubleQualities.Checked;
             _objOptions.CyberlegMovement = chkCyberlegMovement.Checked;
             _objOptions.IgnoreArt = chkIgnoreArt.Checked;
-			_objOptions.NuyenPerBP = Convert.ToInt32(nudNuyenPerBP.Value);
+            _objOptions.AllowAttributePointsOnExceptional = chkExceptionalAttributes.Checked;
+            _objOptions.Allow2ndMaxAttribute = chkExceptionalNotMaxed.Checked;
+            _objOptions.NuyenPerBP = Convert.ToInt32(nudNuyenPerBP.Value);
 			_objOptions.EssenceDecimals = Convert.ToInt32(cboEssenceDecimals.SelectedValue);
 			_objOptions.NoSingleArmorEncumbrance = chkNoSingleArmorEncumbrance.Checked;
 			_objOptions.AllowSkillRegrouping = chkAllowSkillRegrouping.Checked;
@@ -954,6 +957,36 @@ namespace Chummer
             {
             }
             chkKnucks.Checked = blnKnucksUseUnarmed;
+
+            bool blnDontDoubleQualities = false;
+            try
+            {
+                blnDontDoubleQualities = _objOptions.DontDoubleQualities;
+            }
+            catch
+            {
+            }
+            chkDontDoubleQualities.Checked = blnDontDoubleQualities;
+
+            bool blnAllow2ndMaxAttribute = false;
+            try
+            {
+                blnAllow2ndMaxAttribute = _objOptions.Allow2ndMaxAttribute;
+            }
+            catch
+            {
+            }
+            chkExceptionalNotMaxed.Checked = blnAllow2ndMaxAttribute;
+
+            bool blnExceptionalAttributes = false;
+            try
+            {
+                blnExceptionalAttributes = _objOptions.AllowAttributePointsOnExceptional;
+            }
+            catch
+            {
+            }
+            chkExceptionalAttributes.Checked = blnExceptionalAttributes;
 
             bool blnIgnoreArt = false;
             try

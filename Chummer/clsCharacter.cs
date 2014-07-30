@@ -93,6 +93,7 @@ namespace Chummer
 
 		// Build Points
 		private int _intBuildPoints = 400;
+        private int _intKnowledgeSkills = 0;
 		private int _intKnowledgeSkillPoints = 0;
         private int _intSkillPoints = 0;
         private int _intSkillPointsMaximum = 0;
@@ -160,7 +161,14 @@ namespace Chummer
 
 		// Magic Tradition.
 		private string _strMagicTradition = "";
-		// Technomancer Stream.
+        private string _strTraditionDrain = "";
+        private string _strTraditionName = "";
+        private string _strSpiritCombat = "";
+        private string _strSpiritDetection = "";
+        private string _strSpiritHealth = "";
+        private string _strSpiritIllusion = "";
+        private string _strSpiritManipulation = "";
+        // Technomancer Stream.
 		private string _strTechnomancerStream = "Default";
 
 		// Condition Monitor Progress.
@@ -387,7 +395,9 @@ namespace Chummer
 			// <buildmethod />
 			objWriter.WriteElementString("buildmethod", _objBuildMethod.ToString());
 
-			// <knowpts />
+            // <knowpts />
+            objWriter.WriteElementString("knowskillpts", _intKnowledgeSkills.ToString());
+            // <knowpts />
 			objWriter.WriteElementString("knowpts", _intKnowledgeSkillPoints.ToString());
             // <skillpts />
             objWriter.WriteElementString("skillpts", _intSkillPoints.ToString());
@@ -475,7 +485,17 @@ namespace Chummer
 
 			// Write the Magic Tradition.
 			objWriter.WriteElementString("tradition", _strMagicTradition);
-			// Write the Technomancer Stream.
+            // Write the Drain Attributes.
+            objWriter.WriteElementString("traditiondrain", _strTraditionDrain);
+            // Write the Tradition Name.
+            objWriter.WriteElementString("traditionname", _strTraditionName);
+            // Write the Tradition Spirits.
+            objWriter.WriteElementString("spiritcombat", _strSpiritCombat);
+            objWriter.WriteElementString("spiritdetection", _strSpiritDetection);
+            objWriter.WriteElementString("spirithealth", _strSpiritHealth);
+            objWriter.WriteElementString("spiritillusion", _strSpiritIllusion);
+            objWriter.WriteElementString("spiritmanipulation", _strSpiritManipulation);
+            // Write the Technomancer Stream.
 			objWriter.WriteElementString("stream", _strTechnomancerStream);
 
 			// Condition Monitor Progress.
@@ -1225,7 +1245,13 @@ namespace Chummer
 			catch
 			{
 			}
-			_intKnowledgeSkillPoints = Convert.ToInt32(objXmlCharacter["knowpts"].InnerText);
+            try
+            {
+                _intKnowledgeSkills = Convert.ToInt32(objXmlCharacter["knowskillpts"].InnerText);
+
+            }
+            catch { }
+            _intKnowledgeSkillPoints = Convert.ToInt32(objXmlCharacter["knowpts"].InnerText);
             _intSkillPoints = Convert.ToInt32(objXmlCharacter["skillpts"].InnerText);
             _intSkillPointsMaximum = Convert.ToInt32(objXmlCharacter["skillptsmax"].InnerText);
             _intSkillGroups = Convert.ToInt32(objXmlCharacter["skillgrps"].InnerText);
@@ -1407,7 +1433,63 @@ namespace Chummer
 			catch
 			{
 			}
-			// Attempt to load the Technomancer Stream.
+            // Attempt to load the Magic Tradition Drain Attributes.
+            try
+            {
+                _strTraditionDrain = objXmlDocument.SelectSingleNode("/character/traditiondrain").InnerText;
+            }
+            catch
+            {
+            }
+            // Attempt to load the Magic Tradition Name.
+            try
+            {
+                _strTraditionName = objXmlDocument.SelectSingleNode("/character/traditionname").InnerText;
+            }
+            catch
+            {
+            }
+            // Attempt to load the Spirit Combat Name.
+            try
+            {
+                _strSpiritCombat = objXmlDocument.SelectSingleNode("/character/spiritcombat").InnerText;
+            }
+            catch
+            {
+            }
+            // Attempt to load the Spirit Detection Name.
+            try
+            {
+                _strSpiritDetection = objXmlDocument.SelectSingleNode("/character/spiritdetection").InnerText;
+            }
+            catch
+            {
+            }
+            // Attempt to load the Spirit Health Name.
+            try
+            {
+                _strSpiritHealth = objXmlDocument.SelectSingleNode("/character/spirithealth").InnerText;
+            }
+            catch
+            {
+            }
+            // Attempt to load the Spirit Illusion Name.
+            try
+            {
+                _strSpiritIllusion = objXmlDocument.SelectSingleNode("/character/spiritillusion").InnerText;
+            }
+            catch
+            {
+            }
+            // Attempt to load the Spirit Manipulation Name.
+            try
+            {
+                _strSpiritManipulation = objXmlDocument.SelectSingleNode("/character/spiritmanipulation").InnerText;
+            }
+            catch
+            {
+            }
+            // Attempt to load the Technomancer Stream.
 			try
 			{
 				_strTechnomancerStream = objXmlDocument.SelectSingleNode("/character/stream").InnerText;
@@ -1466,8 +1548,16 @@ namespace Chummer
                     if (objGroup.Broken && objGroup.Name == objSkill.SkillGroup)
                     {
                         objSkill.FreeLevels = objGroup.Rating;
+                        objSkill.Base = objGroup.Rating;
+                        objSkill.Karma = objSkill.Rating - objSkill.Base;
                     }
                 }
+            }
+
+            foreach (SkillGroup objGroup in _lstSkillGroups)
+            {
+                if (objGroup.Base == 0 && objGroup.Karma == 0 && objGroup.Rating > 0)
+                    objGroup.Base = objGroup.Rating;
             }
 
 			// Knowledge Skills.
@@ -1993,7 +2083,10 @@ namespace Chummer
 			objWriter.WriteElementString("critter", _blnCritterEnabled.ToString());
 
 			// <tradition />
-			objWriter.WriteElementString("tradition", _strMagicTradition);
+            string strTraditionName = _strMagicTradition;
+            if (strTraditionName == "Custom")
+                strTraditionName = _strTraditionName;
+            objWriter.WriteElementString("tradition", strTraditionName);
 			// <stream />
 			objWriter.WriteElementString("stream", _strTechnomancerStream);
 			// <drain />
@@ -2004,7 +2097,18 @@ namespace Chummer
 				objXmlDocument = XmlManager.Instance.Load("traditions.xml");
 
 				XmlNode objXmlTradition = objXmlDocument.SelectSingleNode("/chummer/traditions/tradition[name = \"" + _strMagicTradition + "\"]");
-				strDrainAtt = objXmlTradition["drain"].InnerText;
+
+                try
+                {
+                    if (objXmlTradition["name"].InnerText == "Custom")
+                        strDrainAtt = _strTraditionDrain;
+                    else
+                        strDrainAtt = objXmlTradition["drain"].InnerText;
+                }
+                catch
+                {
+                    strDrainAtt = objXmlTradition["drain"].InnerText;
+                }
 
 				XPathNavigator nav = objXmlDocument.CreateNavigator();
 				string strDrain = strDrainAtt.Replace("BOD", _attBOD.TotalValue.ToString());
@@ -2557,6 +2661,7 @@ namespace Chummer
 		private void ResetCharacter()
 		{
 			_intBuildPoints = 400;
+            _intKnowledgeSkills = 0;
 			_intKnowledgeSkillPoints = 0;
             _intSkillPoints = 0;
             _intSkillPointsMaximum = 0;
@@ -4012,7 +4117,112 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Magician's Tradition Drain Attributes.
+        /// </summary>
+        public string TraditionDrain
+        {
+            get
+            {
+                return _strTraditionDrain;
+            }
+            set
+            {
+                _strTraditionDrain = value;
+            }
+        }
+
+        /// <summary>
+        /// Magician's Tradition Name (for Custom Traditions).
+        /// </summary>
+        public string TraditionName
+        {
+            get
+            {
+                return _strTraditionName;
+            }
+            set
+            {
+                _strTraditionName = value;
+            }
+        }
+
+        /// <summary>
+        /// Magician's Combat Spirit (for Custom Traditions).
+        /// </summary>
+        public string SpiritCombat
+        {
+            get
+            {
+                return _strSpiritCombat;
+            }
+            set
+            {
+                _strSpiritCombat = value;
+            }
+        }
+
+        /// <summary>
+        /// Magician's Detection Spirit (for Custom Traditions).
+        /// </summary>
+        public string SpiritDetection
+        {
+            get
+            {
+                return _strSpiritDetection;
+            }
+            set
+            {
+                _strSpiritDetection = value;
+            }
+        }
+
+        /// <summary>
+        /// Magician's Health Spirit (for Custom Traditions).
+        /// </summary>
+        public string SpiritHealth
+        {
+            get
+            {
+                return _strSpiritHealth;
+            }
+            set
+            {
+                _strSpiritHealth = value;
+            }
+        }
+
+        /// <summary>
+        /// Magician's Illusion Spirit (for Custom Traditions).
+        /// </summary>
+        public string SpiritIllusion
+        {
+            get
+            {
+                return _strSpiritIllusion;
+            }
+            set
+            {
+                _strSpiritIllusion = value;
+            }
+        }
+
+        /// <summary>
+        /// Magician's Manipulation Spirit (for Custom Traditions).
+        /// </summary>
+        public string SpiritManipulation
+        {
+            get
+            {
+                return _strSpiritManipulation;
+            }
+            set
+            {
+                _strSpiritManipulation = value;
+            }
+        }
+
+        /// <summary>
 		/// Technomancer's Stream.
 		/// </summary>
 		public string TechnomancerStream
@@ -5620,6 +5830,21 @@ namespace Chummer
 				_intKnowledgeSkillPoints = value;
 			}
 		}
+
+        /// <summary>
+        /// Number of free Knowledge Skill Points the character has used.
+        /// </summary>
+        public int KnowledgeSkillPointsUsed
+        {
+            get
+            {
+                return _intKnowledgeSkills;
+            }
+            set
+            {
+                _intKnowledgeSkills = value;
+            }
+        }
 
         /// <summary>
         /// Number of free Skill Points the character has.

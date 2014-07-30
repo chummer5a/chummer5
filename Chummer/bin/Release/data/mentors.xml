@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-495</version>
+	<version>-494</version>
 	<mentors>
 		<mentor>
 			<name>Bear</name>
@@ -45,10 +45,10 @@
 					</bonus>
 				</choice>
 				<choice>
-					<name>+2 dice on Infiltration Tests</name>
+					<name>+2 dice on Sneaking Tests</name>
 					<bonus>
 						<specificskill>
-							<name>Infiltration</name>
+							<name>Sneaking</name>
 							<bonus>2</bonus>
 							<applytorating>no</applytorating>
 						</specificskill>

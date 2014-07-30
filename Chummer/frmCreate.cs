@@ -300,6 +300,7 @@ namespace Chummer
 			lblMAGLabel.Enabled = _objCharacter.MAGEnabled;
 			lblMAGAug.Enabled = _objCharacter.MAGEnabled;
 			nudMAG.Enabled = _objCharacter.MAGEnabled;
+            nudKMAG.Enabled = _objCharacter.MAGEnabled;
 			lblMAGMetatype.Enabled = _objCharacter.MAGEnabled;
 			lblFoci.Visible = _objCharacter.MAGEnabled;
 			treFoci.Visible = _objCharacter.MAGEnabled;
@@ -308,6 +309,7 @@ namespace Chummer
 			lblRESLabel.Enabled = _objCharacter.RESEnabled;
 			lblRESAug.Enabled = _objCharacter.RESEnabled;
 			nudRES.Enabled = _objCharacter.RESEnabled;
+            nudKRES.Enabled = _objCharacter.RESEnabled;
 			lblRESMetatype.Enabled = _objCharacter.RESEnabled;
 
 			// Define the XML objects that will be used.
@@ -365,6 +367,145 @@ namespace Chummer
 			cboTradition.DisplayMember = "Name";
 			cboTradition.DataSource = lstTraditions;
 
+            // Populate the Magician Custom Drain Options list.
+            objXmlDocument = XmlManager.Instance.Load("traditions.xml");
+            List<ListItem> lstDrainAttributes = new List<ListItem>();
+            ListItem objDrainBlank = new ListItem();
+            objDrainBlank.Value = "";
+            objDrainBlank.Name = "";
+            lstDrainAttributes.Add(objDrainBlank);
+            foreach (XmlNode objXmlDrain in objXmlDocument.SelectNodes("/chummer/drainattributes/drainattribute"))
+            {
+                ListItem objItem = new ListItem();
+                objItem.Value = objXmlDrain["name"].InnerText;
+                if (objXmlDrain["translate"] != null)
+                    objItem.Name = objXmlDrain["translate"].InnerText;
+                else
+                    objItem.Name = objXmlDrain["name"].InnerText;
+                lstDrainAttributes.Add(objItem);
+            }
+            SortListItem objDrainSort = new SortListItem();
+            lstDrainAttributes.Sort(objDrainSort.Compare);
+            cboDrain.ValueMember = "Value";
+            cboDrain.DisplayMember = "Name";
+            cboDrain.DataSource = lstDrainAttributes;
+
+            // Populate the Magician Custom Spirits lists - Combat.
+            objXmlDocument = XmlManager.Instance.Load("traditions.xml");
+            List<ListItem> lstSpirit = new List<ListItem>();
+            ListItem objSpiritBlank = new ListItem();
+            objSpiritBlank.Value = "";
+            objSpiritBlank.Name = "";
+            lstSpirit.Add(objSpiritBlank);
+            foreach (XmlNode objXmlSpirit in objXmlDocument.SelectNodes("/chummer/spirits/spirit"))
+            {
+                ListItem objItem = new ListItem();
+                objItem.Value = objXmlSpirit["name"].InnerText;
+                if (objXmlSpirit["translate"] != null)
+                    objItem.Name = objXmlSpirit["translate"].InnerText;
+                else
+                    objItem.Name = objXmlSpirit["name"].InnerText;
+                lstSpirit.Add(objItem);
+            }
+            SortListItem objSpiritSort = new SortListItem();
+            lstSpirit.Sort(objSpiritSort.Compare);
+
+            cboSpiritCombat.ValueMember = "Value";
+            cboSpiritCombat.DisplayMember = "Name";
+            cboSpiritCombat.DataSource = lstSpirit;
+
+            // Populate the Magician Custom Spirits lists - Detection.
+            lstSpirit = new List<ListItem>();
+            objSpiritBlank = new ListItem();
+            objSpiritBlank.Value = "";
+            objSpiritBlank.Name = "";
+            lstSpirit.Add(objSpiritBlank);
+            foreach (XmlNode objXmlSpirit in objXmlDocument.SelectNodes("/chummer/spirits/spirit"))
+            {
+                ListItem objItem = new ListItem();
+                objItem.Value = objXmlSpirit["name"].InnerText;
+                if (objXmlSpirit["translate"] != null)
+                    objItem.Name = objXmlSpirit["translate"].InnerText;
+                else
+                    objItem.Name = objXmlSpirit["name"].InnerText;
+                lstSpirit.Add(objItem);
+            }
+            objSpiritSort = new SortListItem();
+            lstSpirit.Sort(objSpiritSort.Compare);
+
+            cboSpiritDetection.ValueMember = "Value";
+            cboSpiritDetection.DisplayMember = "Name";
+            cboSpiritDetection.DataSource = lstSpirit;
+
+            // Populate the Magician Custom Spirits lists - Health.
+            lstSpirit = new List<ListItem>();
+            objSpiritBlank = new ListItem();
+            objSpiritBlank.Value = "";
+            objSpiritBlank.Name = "";
+            lstSpirit.Add(objSpiritBlank);
+            foreach (XmlNode objXmlSpirit in objXmlDocument.SelectNodes("/chummer/spirits/spirit"))
+            {
+                ListItem objItem = new ListItem();
+                objItem.Value = objXmlSpirit["name"].InnerText;
+                if (objXmlSpirit["translate"] != null)
+                    objItem.Name = objXmlSpirit["translate"].InnerText;
+                else
+                    objItem.Name = objXmlSpirit["name"].InnerText;
+                lstSpirit.Add(objItem);
+            }
+            objSpiritSort = new SortListItem();
+            lstSpirit.Sort(objSpiritSort.Compare);
+
+            cboSpiritHealth.ValueMember = "Value";
+            cboSpiritHealth.DisplayMember = "Name";
+            cboSpiritHealth.DataSource = lstSpirit;
+
+            // Populate the Magician Custom Spirits lists - Illusion.
+            lstSpirit = new List<ListItem>();
+            objSpiritBlank = new ListItem();
+            objSpiritBlank.Value = "";
+            objSpiritBlank.Name = "";
+            lstSpirit.Add(objSpiritBlank);
+            foreach (XmlNode objXmlSpirit in objXmlDocument.SelectNodes("/chummer/spirits/spirit"))
+            {
+                ListItem objItem = new ListItem();
+                objItem.Value = objXmlSpirit["name"].InnerText;
+                if (objXmlSpirit["translate"] != null)
+                    objItem.Name = objXmlSpirit["translate"].InnerText;
+                else
+                    objItem.Name = objXmlSpirit["name"].InnerText;
+                lstSpirit.Add(objItem);
+            }
+            objSpiritSort = new SortListItem();
+            lstSpirit.Sort(objSpiritSort.Compare);
+
+            cboSpiritIllusion.ValueMember = "Value";
+            cboSpiritIllusion.DisplayMember = "Name";
+            cboSpiritIllusion.DataSource = lstSpirit;
+
+            // Populate the Magician Custom Spirits lists - Manipulation.
+            lstSpirit = new List<ListItem>();
+            objSpiritBlank = new ListItem();
+            objSpiritBlank.Value = "";
+            objSpiritBlank.Name = "";
+            lstSpirit.Add(objSpiritBlank);
+            foreach (XmlNode objXmlSpirit in objXmlDocument.SelectNodes("/chummer/spirits/spirit"))
+            {
+                ListItem objItem = new ListItem();
+                objItem.Value = objXmlSpirit["name"].InnerText;
+                if (objXmlSpirit["translate"] != null)
+                    objItem.Name = objXmlSpirit["translate"].InnerText;
+                else
+                    objItem.Name = objXmlSpirit["name"].InnerText;
+                lstSpirit.Add(objItem);
+            }
+            objSpiritSort = new SortListItem();
+            lstSpirit.Sort(objSpiritSort.Compare);
+
+            cboSpiritManipulation.ValueMember = "Value";
+            cboSpiritManipulation.DisplayMember = "Name";
+            cboSpiritManipulation.DataSource = lstSpirit;
+
             // Load the Metatype information before going anywhere else. Doing this later causes the Attributes to get messed up because of calls
 			// to UpdateCharacterInformation();
 			MetatypeSelected();
@@ -421,7 +562,9 @@ namespace Chummer
 					objSkillControl.SkillGroup = objSkill.SkillGroup;
 					objSkillControl.SkillRatingMaximum = objSkill.RatingMaximum;
 					objSkillControl.SkillRating = objSkill.Rating;
-					objSkillControl.SkillSpec = objSkill.Specialization;
+                    objSkillControl.SkillBase = objSkill.Base;
+                    objSkillControl.SkillKarma = objSkill.Karma;
+                    objSkillControl.SkillSpec = objSkill.Specialization;
 
 					XmlNode objXmlSkill = objXmlDocument.SelectSingleNode("/chummer/skills/skill[name = \"" + objSkill.Name + "\"]");
 					// Populate the Skill's Specializations (if any).
@@ -459,7 +602,9 @@ namespace Chummer
 					objSkillControl.SkillCategory = objSkill.SkillCategory;
 					objSkillControl.SkillGroup = objSkill.SkillGroup;
 					objSkillControl.SkillRatingMaximum = objSkill.RatingMaximum;
-					objSkillControl.SkillRating = objSkill.Rating;
+                    objSkillControl.SkillBase = objSkill.Base;
+                    objSkillControl.SkillKarma = objSkill.Karma;
+                    objSkillControl.SkillRating = objSkill.Rating;
 					objSkillControl.SkillSpec = objSkill.Specialization;
 
 					XmlNode objXmlSkill = objXmlDocument.SelectSingleNode("/chummer/skills/skill[name = \"" + objSkill.Name + "\"]");
@@ -507,8 +652,10 @@ namespace Chummer
 				if (objGroup.Rating > objGroup.RatingMaximum)
 					objGroup.RatingMaximum = objGroup.Rating;
 				objGroupControl.GroupRatingMaximum = objGroup.RatingMaximum;
-				objGroupControl.GroupRating = objGroup.Rating;
-				objGroupControl.Top = i * objGroupControl.Height;
+				// objGroupControl.GroupRating = objGroup.Rating;
+                objGroupControl.BaseRating = objGroup.Base;
+                objGroupControl.KarmaRating = objGroup.Karma;
+                objGroupControl.Top = i * objGroupControl.Height;
 				objGroupControl.Width = 250;
 
 				// Loop through all of the Active Skills the character has and set their maximums if needed.
@@ -563,6 +710,8 @@ namespace Chummer
 					objSkillControl.SkillCategory = objSkill.SkillCategory;
 					objSkillControl.AllowDelete = true;
 					objSkillControl.SkillRatingMaximum = objSkill.RatingMaximum;
+                    objSkillControl.SkillBase = objSkill.Base;
+                    objSkillControl.SkillKarma = objSkill.Karma;
 					objSkillControl.SkillRating = objSkill.Rating;
 					objSkillControl.SkillName = objSkill.Name;
 					objSkillControl.SkillSpec = objSkill.Specialization;
@@ -979,7 +1128,28 @@ namespace Chummer
 			if (_objCharacter.MagicTradition != "")
 				cboTradition.SelectedValue = _objCharacter.MagicTradition;
 
-			// Clear the Dirty flag which gets set when creating a new Character.
+            if (_objCharacter.TraditionName != "")
+                txtTraditionName.Text = _objCharacter.TraditionName;
+
+            if (_objCharacter.TraditionDrain != "")
+                cboDrain.SelectedValue = _objCharacter.TraditionDrain;
+
+            if (_objCharacter.SpiritCombat != "")
+                cboSpiritCombat.SelectedValue = _objCharacter.SpiritCombat;
+
+            if (_objCharacter.SpiritDetection != "")
+                cboSpiritDetection.SelectedValue = _objCharacter.SpiritDetection;
+
+            if (_objCharacter.SpiritHealth != "")
+                cboSpiritHealth.SelectedValue = _objCharacter.SpiritHealth;
+
+            if (_objCharacter.SpiritIllusion != "")
+                cboSpiritIllusion.SelectedValue = _objCharacter.SpiritIllusion;
+
+            if (_objCharacter.SpiritManipulation != "")
+                cboSpiritManipulation.SelectedValue = _objCharacter.SpiritManipulation;
+
+            // Clear the Dirty flag which gets set when creating a new Character.
 			CalculateBP();
 			_blnIsDirty = false;
 			UpdateWindowTitle();
@@ -1460,6 +1630,7 @@ namespace Chummer
 			lblMAGLabel.Enabled = _objCharacter.MAGEnabled;
 			lblMAGAug.Enabled = _objCharacter.MAGEnabled;
 			nudMAG.Enabled = _objCharacter.MAGEnabled;
+            nudKMAG.Enabled = _objCharacter.MAGEnabled;
 			lblMAGMetatype.Enabled = _objCharacter.MAGEnabled;
 
 			lblFoci.Visible = _objCharacter.MAGEnabled;
@@ -1541,6 +1712,7 @@ namespace Chummer
 			lblRESLabel.Enabled = _objCharacter.RESEnabled;
 			lblRESAug.Enabled = _objCharacter.RESEnabled;
 			nudRES.Enabled = _objCharacter.RESEnabled;
+            nudKRES.Enabled = _objCharacter.RESEnabled;
 			lblRESMetatype.Enabled = _objCharacter.RESEnabled;
 
 			if (_objCharacter.RESEnabled)
@@ -3610,12 +3782,16 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
+            int intExceptional = 0;
+            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
+                intExceptional = _objCharacter.BOD.MaximumModifiers;
+
 			// Verify that the Attribute can be improved within the rules.
-			if (!CanImproveAttribute("nudBOD") && nudBOD.Value >= nudBOD.Maximum && !_objCharacter.IgnoreRules)
+            if (!CanImproveAttribute("nudBOD") && (nudBOD.Value + nudKBOD.Value + intExceptional) >= nudBOD.Maximum && !_objCharacter.IgnoreRules)
 			{
 				try
 				{
-					nudBOD.Value = nudBOD.Maximum - 1;
+                    nudBOD.Value = nudBOD.Maximum - nudKBOD.Value - intExceptional - 1;
 					ShowAttributeRule();
 				}
 				catch
@@ -3623,8 +3799,20 @@ namespace Chummer
 					nudBOD.Value = nudBOD.Minimum;
 				}
 			}
+            else if ((nudBOD.Value + nudKBOD.Value + intExceptional) > nudBOD.Maximum)
+            {
+                try
+                {
+                    nudBOD.Value = nudBOD.Maximum - nudKBOD.Value - intExceptional;
+                }
+                catch
+                {
+                    nudBOD.Value = nudBOD.Minimum;
+                }
+            }
 
-			_objCharacter.BOD.Value = Convert.ToInt32(nudBOD.Value);
+            _objCharacter.BOD.Base = Convert.ToInt32(nudBOD.Value);
+            _objCharacter.BOD.Value = Convert.ToInt32(nudBOD.Value) + Convert.ToInt32(nudKBOD.Value);
 			UpdateCharacterInfo();
 
 			_blnIsDirty = true;
@@ -3637,12 +3825,16 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
+            int intExceptional = 0;
+            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
+                intExceptional = _objCharacter.AGI.MaximumModifiers;
+
 			// Verify that the Attribute can be improved within the rules.
-			if (!CanImproveAttribute("nudAGI") && nudAGI.Value >= nudAGI.Maximum && !_objCharacter.IgnoreRules)
+			if (!CanImproveAttribute("nudAGI") && (nudAGI.Value + nudKAGI.Value + intExceptional) >= nudAGI.Maximum && !_objCharacter.IgnoreRules)
 			{
 				try
 				{
-					nudAGI.Value = nudAGI.Maximum - 1;
+                    nudAGI.Value = nudAGI.Maximum - nudKAGI.Value - intExceptional - 1;
 					ShowAttributeRule();
 				}
 				catch
@@ -3650,8 +3842,20 @@ namespace Chummer
 					nudAGI.Value = nudAGI.Minimum;
 				}
 			}
+            else if ((nudAGI.Value + nudKAGI.Value + intExceptional) > nudAGI.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudAGI.Value = nudAGI.Maximum - nudKAGI.Value - intExceptional;
+                }
+                catch
+                {
+                    nudAGI.Value = nudAGI.Minimum;
+                }
+            }
 
-			_objCharacter.AGI.Value = Convert.ToInt32(nudAGI.Value);
+            _objCharacter.AGI.Base = Convert.ToInt32(nudAGI.Value);
+            _objCharacter.AGI.Value = Convert.ToInt32(nudAGI.Value) + Convert.ToInt32(nudKAGI.Value);
 			UpdateCharacterInfo();
 
             // Calculate the character's move.
@@ -3692,12 +3896,16 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-			// Verify that the Attribute can be improved within the rules.
-			if (!CanImproveAttribute("nudREA") && nudREA.Value >= nudREA.Maximum && !_objCharacter.IgnoreRules)
+            int intExceptional = 0;
+            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
+                intExceptional = _objCharacter.REA.MaximumModifiers;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (!CanImproveAttribute("nudREA") && (nudREA.Value + nudKREA.Value + intExceptional) >= nudREA.Maximum && !_objCharacter.IgnoreRules)
 			{
 				try
 				{
-					nudREA.Value = nudREA.Maximum - 1;
+                    nudREA.Value = nudREA.Maximum - nudKREA.Value - intExceptional - 1;
 					ShowAttributeRule();
 				}
 				catch
@@ -3705,8 +3913,20 @@ namespace Chummer
 					nudREA.Value = nudREA.Minimum;
 				}
 			}
+            else if ((nudREA.Value + nudKREA.Value + intExceptional) > nudREA.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudREA.Value = nudREA.Maximum - nudKREA.Value - intExceptional;
+                }
+                catch
+                {
+                    nudREA.Value = nudREA.Minimum;
+                }
+            }
 
-			_objCharacter.REA.Value = Convert.ToInt32(nudREA.Value);
+            _objCharacter.REA.Base = Convert.ToInt32(nudREA.Value);
+            _objCharacter.REA.Value = Convert.ToInt32(nudREA.Value) + Convert.ToInt32(nudKREA.Value);
 			UpdateCharacterInfo();
 
 			_blnIsDirty = true;
@@ -3719,12 +3939,16 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-			// Verify that the Attribute can be improved within the rules.
-			if (!CanImproveAttribute("nudSTR") && nudSTR.Value >= nudSTR.Maximum && !_objCharacter.IgnoreRules)
+            int intExceptional = 0;
+            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
+                intExceptional = _objCharacter.STR.MaximumModifiers;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (!CanImproveAttribute("nudSTR") && (nudSTR.Value + nudKSTR.Value + intExceptional) >= nudSTR.Maximum && !_objCharacter.IgnoreRules)
 			{
 				try
 				{
-					nudSTR.Value = nudSTR.Maximum - 1;
+                    nudSTR.Value = nudSTR.Maximum - nudKSTR.Value - intExceptional - 1;
 					ShowAttributeRule();
 				}
 				catch
@@ -3732,8 +3956,20 @@ namespace Chummer
 					nudSTR.Value = nudSTR.Minimum;
 				}
 			}
+            else if ((nudSTR.Value + nudKREA.Value + intExceptional) > nudSTR.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudSTR.Value = nudSTR.Maximum - nudKSTR.Value - intExceptional;
+                }
+                catch
+                {
+                    nudSTR.Value = nudSTR.Minimum;
+                }
+            }
 
-			_objCharacter.STR.Value = Convert.ToInt32(nudSTR.Value);
+            _objCharacter.STR.Base = Convert.ToInt32(nudSTR.Value);
+            _objCharacter.STR.Value = Convert.ToInt32(nudSTR.Value) + Convert.ToInt32(nudKSTR.Value);
 			UpdateCharacterInfo();
 
 			_blnIsDirty = true;
@@ -3746,12 +3982,16 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-			// Verify that the Attribute can be improved within the rules.
-			if (!CanImproveAttribute("nudCHA") && nudCHA.Value >= nudCHA.Maximum && !_objCharacter.IgnoreRules)
+            int intExceptional = 0;
+            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
+                intExceptional = _objCharacter.CHA.MaximumModifiers;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (!CanImproveAttribute("nudCHA") && (nudCHA.Value + nudKCHA.Value + intExceptional) >= nudCHA.Maximum && !_objCharacter.IgnoreRules)
 			{
 				try
 				{
-					nudCHA.Value = nudCHA.Maximum - 1;
+                    nudCHA.Value = nudCHA.Maximum - nudKCHA.Value - intExceptional - 1;
 					ShowAttributeRule();
 				}
 				catch
@@ -3759,11 +3999,23 @@ namespace Chummer
 					nudCHA.Value = nudCHA.Minimum;
 				}
 			}
+            else if ((nudCHA.Value + nudKCHA.Value + intExceptional) > nudCHA.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudCHA.Value = nudCHA.Maximum - nudKCHA.Value - intExceptional;
+                }
+                catch
+                {
+                    nudCHA.Value = nudCHA.Minimum;
+                }
+            }
 
-			_objCharacter.CHA.Value = Convert.ToInt32(nudCHA.Value);
+            _objCharacter.CHA.Base = Convert.ToInt32(nudCHA.Value);
+            _objCharacter.CHA.Value = Convert.ToInt32(nudCHA.Value) + Convert.ToInt32(nudKCHA.Value);
 
             // Calculate the BP used by Contacts.
-            _objCharacter.ContactPoints = _objCharacter.CHA.Value * _objCharacter.ContactMultiplier;
+            _objCharacter.ContactPoints = _objCharacter.CHA.Base * _objCharacter.ContactMultiplier;
             int intContactPointsUsed = 0;
             foreach (ContactControl objContactControl in panContacts.Controls)
             {
@@ -3792,12 +4044,16 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-			// Verify that the Attribute can be improved within the rules.
-			if (!CanImproveAttribute("nudINT") && nudINT.Value >= nudINT.Maximum && !_objCharacter.IgnoreRules)
+            int intExceptional = 0;
+            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
+                intExceptional = _objCharacter.INT.MaximumModifiers;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (!CanImproveAttribute("nudINT") && (nudINT.Value + nudKINT.Value + intExceptional) >= nudINT.Maximum && !_objCharacter.IgnoreRules)
 			{
 				try
 				{
-					nudINT.Value = nudINT.Maximum - 1;
+                    nudINT.Value = nudINT.Maximum - nudKINT.Value - intExceptional - 1;
 					ShowAttributeRule();
 				}
 				catch
@@ -3805,8 +4061,20 @@ namespace Chummer
 					nudINT.Value = nudINT.Minimum;
 				}
 			}
+            else if ((nudINT.Value + nudKINT.Value + intExceptional) > nudINT.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudINT.Value = nudINT.Maximum - nudKINT.Value - intExceptional;
+                }
+                catch
+                {
+                    nudINT.Value = nudINT.Minimum;
+                }
+            }
 
-			_objCharacter.INT.Value = Convert.ToInt32(nudINT.Value);
+            _objCharacter.INT.Base = Convert.ToInt32(nudINT.Value);
+            _objCharacter.INT.Value = Convert.ToInt32(nudINT.Value) + Convert.ToInt32(nudKINT.Value);
 			UpdateCharacterInfo();
 
 			_blnIsDirty = true;
@@ -3819,12 +4087,16 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-			// Verify that the Attribute can be improved within the rules.
-			if (!CanImproveAttribute("nudLOG") && nudLOG.Value >= nudLOG.Maximum && !_objCharacter.IgnoreRules)
+            int intExceptional = 0;
+            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
+                intExceptional = _objCharacter.LOG.MaximumModifiers;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (!CanImproveAttribute("nudLOG") && (nudLOG.Value + nudKLOG.Value + intExceptional) >= nudLOG.Maximum && !_objCharacter.IgnoreRules)
 			{
 				try
 				{
-					nudLOG.Value = nudLOG.Maximum - 1;
+                    nudLOG.Value = nudLOG.Maximum - nudKLOG.Value - intExceptional - 1;
 					ShowAttributeRule();
 				}
 				catch
@@ -3832,8 +4104,20 @@ namespace Chummer
 					nudLOG.Value = nudLOG.Minimum;
 				}
 			}
+            else if ((nudLOG.Value + nudKLOG.Value + intExceptional) > nudLOG.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudLOG.Value = nudLOG.Maximum - nudKLOG.Value - intExceptional;
+                }
+                catch
+                {
+                    nudLOG.Value = nudLOG.Minimum;
+                }
+            }
 
-			_objCharacter.LOG.Value = Convert.ToInt32(nudLOG.Value);
+            _objCharacter.LOG.Base = Convert.ToInt32(nudLOG.Value);
+            _objCharacter.LOG.Value = Convert.ToInt32(nudLOG.Value) + Convert.ToInt32(nudKLOG.Value);
 			UpdateCharacterInfo();
 
 			_blnIsDirty = true;
@@ -3846,12 +4130,16 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-			// Verify that the Attribute can be improved within the rules.
-			if (!CanImproveAttribute("nudWIL") && nudWIL.Value >= nudWIL.Maximum && !_objCharacter.IgnoreRules)
+            int intExceptional = 0;
+            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
+                intExceptional = _objCharacter.WIL.MaximumModifiers;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (!CanImproveAttribute("nudWIL") && (nudWIL.Value + nudKWIL.Value + intExceptional) >= nudWIL.Maximum && !_objCharacter.IgnoreRules)
 			{
 				try
 				{
-					nudWIL.Value = nudWIL.Maximum - 1;
+                    nudWIL.Value = nudWIL.Maximum - nudKWIL.Value - intExceptional - 1;
 					ShowAttributeRule();
 				}
 				catch
@@ -3859,8 +4147,20 @@ namespace Chummer
 					nudWIL.Value = nudLOG.Minimum;
 				}
 			}
+            else if ((nudWIL.Value + nudKWIL.Value + intExceptional) > nudWIL.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudWIL.Value = nudWIL.Maximum - nudKWIL.Value - intExceptional;
+                }
+                catch
+                {
+                    nudWIL.Value = nudWIL.Minimum;
+                }
+            }
 
-			_objCharacter.WIL.Value = Convert.ToInt32(nudWIL.Value);
+            _objCharacter.WIL.Base = Convert.ToInt32(nudWIL.Value);
+            _objCharacter.WIL.Value = Convert.ToInt32(nudWIL.Value) + Convert.ToInt32(nudKWIL.Value);
 			UpdateCharacterInfo();
 
 			_blnIsDirty = true;
@@ -3873,7 +4173,24 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-			_objCharacter.EDG.Value = Convert.ToInt32(nudEDG.Value);
+            int intExceptional = 0;
+            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
+                intExceptional = _objCharacter.EDG.MaximumModifiers;
+
+            if ((nudEDG.Value + nudKEDG.Value + intExceptional) > nudEDG.Maximum)
+            {
+                try
+                {
+                    nudEDG.Value = nudEDG.Maximum - nudKEDG.Value - intExceptional;
+                }
+                catch
+                {
+                    nudEDG.Value = nudEDG.Minimum;
+                }
+            }
+
+            _objCharacter.EDG.Base = Convert.ToInt32(nudEDG.Value);
+            _objCharacter.EDG.Value = Convert.ToInt32(nudEDG.Value) + Convert.ToInt32(nudKEDG.Value);
 			UpdateCharacterInfo();
 
 			_blnIsDirty = true;
@@ -3886,7 +4203,24 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-			_objCharacter.MAG.Value = Convert.ToInt32(nudMAG.Value);
+            int intExceptional = 0;
+            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
+                intExceptional = _objCharacter.MAG.MaximumModifiers;
+
+            if ((nudMAG.Value + nudKMAG.Value + intExceptional) > nudMAG.Maximum)
+            {
+                try
+                {
+                    nudMAG.Value = nudMAG.Maximum - nudKMAG.Value - intExceptional;
+                }
+                catch
+                {
+                    nudMAG.Value = nudMAG.Minimum;
+                }
+            }
+
+            _objCharacter.MAG.Base = Convert.ToInt32(nudMAG.Value);
+            _objCharacter.MAG.Value = Convert.ToInt32(nudMAG.Value) + Convert.ToInt32(nudKMAG.Value);
 
 			if (_objCharacter.Metatype == "Free Spirit")
 			{
@@ -3918,7 +4252,24 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-			_objCharacter.RES.Value = Convert.ToInt32(nudRES.Value);
+            int intExceptional = 0;
+            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
+                intExceptional = _objCharacter.RES.MaximumModifiers;
+
+            if ((nudRES.Value + nudKRES.Value + intExceptional) > nudRES.Maximum)
+            {
+                try
+                {
+                    nudRES.Value = nudRES.Maximum - nudKRES.Value - intExceptional;
+                }
+                catch
+                {
+                    nudRES.Value = nudRES.Minimum;
+                }
+            }
+
+            _objCharacter.RES.Base = Convert.ToInt32(nudRES.Value);
+            _objCharacter.RES.Value = Convert.ToInt32(nudRES.Value) + Convert.ToInt32(nudKRES.Value);
 
 			try
 			{
@@ -4120,13 +4471,13 @@ namespace Chummer
 							// Setting a Group's Rating above 0 should place the Skill in the Group and disable the SkillControl.
 							if (objGroupControl.GroupRating > objSkillControl.SkillRatingMaximum)
 								objSkillControl.SkillRatingMaximum = objGroupControl.GroupRating;
-							objSkillControl.SkillRating = objGroupControl.GroupRating;
+							objSkillControl.SkillBase = objGroupControl.GroupRating;
 							objSkillControl.IsGrouped = true;
 						}
 						else if (!objGroupControl.SkillGroupObject.Broken)
 						{
 							// Returning a Group's Rating back to 0 should release the Skill from the Group and re-enable the SkillControl.
-							objSkillControl.SkillRating = 0;
+                            objSkillControl.SkillBase = 0;
 							objSkillControl.IsGrouped = false;
 						}
 					}
@@ -13355,27 +13706,169 @@ namespace Chummer
 			XmlDocument objXmlDocument = XmlManager.Instance.Load("traditions.xml");
 
 			XmlNode objXmlTradition = objXmlDocument.SelectSingleNode("/chummer/traditions/tradition[name = \"" + cboTradition.SelectedValue + "\"]");
-			lblDrainAttributes.Text = objXmlTradition["drain"].InnerText;
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("BOD", LanguageManager.Instance.GetString("String_AttributeBODShort"));
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("AGI", LanguageManager.Instance.GetString("String_AttributeAGIShort"));
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("REA", LanguageManager.Instance.GetString("String_AttributeREAShort"));
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("STR", LanguageManager.Instance.GetString("String_AttributeSTRShort"));
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("CHA", LanguageManager.Instance.GetString("String_AttributeCHAShort"));
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("INT", LanguageManager.Instance.GetString("String_AttributeINTShort"));
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("LOG", LanguageManager.Instance.GetString("String_AttributeLOGShort"));
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("WIL", LanguageManager.Instance.GetString("String_AttributeWILShort"));
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("MAG", LanguageManager.Instance.GetString("String_AttributeMAGShort"));
-			_objCharacter.MagicTradition = cboTradition.SelectedValue.ToString();
 
-			foreach (SpiritControl objSpiritControl in panSpirits.Controls)
-				objSpiritControl.RebuildSpiritList(cboTradition.SelectedValue.ToString());
+            if (objXmlTradition["name"].InnerText == "Custom")
+            {
+                cboDrain.Visible = true;
+                lblTraditionName.Visible = true;
+                txtTraditionName.Visible = true;
+                lblSpiritCombat.Visible = true;
+                lblSpiritDetection.Visible = true;
+                lblSpiritHealth.Visible = true;
+                lblSpiritIllusion.Visible = true;
+                lblSpiritManipulation.Visible = true;
+                cboSpiritCombat.Visible = true;
+                cboSpiritDetection.Visible = true;
+                cboSpiritHealth.Visible = true;
+                cboSpiritIllusion.Visible = true;
+                cboSpiritManipulation.Visible = true;
 
+                if (txtTraditionName.Text == "")
+                    _objCharacter.MagicTradition = cboTradition.SelectedValue.ToString();
+                else
+                    _objCharacter.MagicTradition = txtTraditionName.Text;
+
+                if (cboDrain.SelectedIndex != 0)
+                    lblDrainAttributes.Text = cboDrain.Text;
+            }
+            else
+            {
+                cboDrain.Visible = false;
+                lblTraditionName.Visible = false;
+                txtTraditionName.Visible = false;
+                lblSpiritCombat.Visible = false;
+                lblSpiritDetection.Visible = false;
+                lblSpiritHealth.Visible = false;
+                lblSpiritIllusion.Visible = false;
+                lblSpiritManipulation.Visible = false;
+                cboSpiritCombat.Visible = false;
+                cboSpiritDetection.Visible = false;
+                cboSpiritHealth.Visible = false;
+                cboSpiritIllusion.Visible = false;
+                cboSpiritManipulation.Visible = false;
+
+                lblDrainAttributes.Text = objXmlTradition["drain"].InnerText;
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("BOD", LanguageManager.Instance.GetString("String_AttributeBODShort"));
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("AGI", LanguageManager.Instance.GetString("String_AttributeAGIShort"));
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("REA", LanguageManager.Instance.GetString("String_AttributeREAShort"));
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("STR", LanguageManager.Instance.GetString("String_AttributeSTRShort"));
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("CHA", LanguageManager.Instance.GetString("String_AttributeCHAShort"));
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("INT", LanguageManager.Instance.GetString("String_AttributeINTShort"));
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("LOG", LanguageManager.Instance.GetString("String_AttributeLOGShort"));
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("WIL", LanguageManager.Instance.GetString("String_AttributeWILShort"));
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("MAG", LanguageManager.Instance.GetString("String_AttributeMAGShort"));
+                _objCharacter.MagicTradition = cboTradition.SelectedValue.ToString();
+
+                foreach (SpiritControl objSpiritControl in panSpirits.Controls)
+                    objSpiritControl.RebuildSpiritList(cboTradition.SelectedValue.ToString());
+
+            }
 			UpdateCharacterInfo();
 
 			_blnIsDirty = true;
 			UpdateWindowTitle();
 		}
-		#endregion
+
+        private void cboDrain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_blnLoading || cboDrain.SelectedValue.ToString() == string.Empty)
+                return;
+
+            _objCharacter.TraditionDrain = cboDrain.Text;
+            lblDrainAttributes.Text = cboDrain.Text;
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("BOD", LanguageManager.Instance.GetString("String_AttributeBODShort"));
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("AGI", LanguageManager.Instance.GetString("String_AttributeAGIShort"));
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("REA", LanguageManager.Instance.GetString("String_AttributeREAShort"));
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("STR", LanguageManager.Instance.GetString("String_AttributeSTRShort"));
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("CHA", LanguageManager.Instance.GetString("String_AttributeCHAShort"));
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("INT", LanguageManager.Instance.GetString("String_AttributeINTShort"));
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("LOG", LanguageManager.Instance.GetString("String_AttributeLOGShort"));
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("WIL", LanguageManager.Instance.GetString("String_AttributeWILShort"));
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("MAG", LanguageManager.Instance.GetString("String_AttributeMAGShort"));
+
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void txtTraditionName_TextChanged(object sender, EventArgs e)
+        {
+            _objCharacter.TraditionName = txtTraditionName.Text;
+            _blnIsDirty = true;
+            UpdateWindowTitle(false);
+        }
+
+        private void cboSpiritCombat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_blnLoading || cboSpiritCombat.SelectedValue.ToString() == string.Empty)
+                return;
+
+            _objCharacter.SpiritCombat = cboSpiritCombat.Text;
+            foreach (SpiritControl objSpiritControl in panSpirits.Controls)
+                objSpiritControl.RebuildSpiritList(cboTradition.SelectedValue.ToString());
+
+            UpdateCharacterInfo();
+            _blnIsDirty = true;
+            UpdateWindowTitle(false);
+        }
+
+        private void cboSpiritDetection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_blnLoading || cboSpiritDetection.SelectedValue.ToString() == string.Empty)
+                return;
+
+            _objCharacter.SpiritDetection = cboSpiritDetection.Text;
+            foreach (SpiritControl objSpiritControl in panSpirits.Controls)
+                objSpiritControl.RebuildSpiritList(cboTradition.SelectedValue.ToString());
+
+            UpdateCharacterInfo();
+            _blnIsDirty = true;
+            UpdateWindowTitle(false);
+        }
+
+        private void cboSpiritHealth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_blnLoading || cboSpiritHealth.SelectedValue.ToString() == string.Empty)
+                return;
+
+            _objCharacter.SpiritHealth = cboSpiritHealth.Text;
+            foreach (SpiritControl objSpiritControl in panSpirits.Controls)
+                objSpiritControl.RebuildSpiritList(cboTradition.SelectedValue.ToString());
+
+            UpdateCharacterInfo();
+            _blnIsDirty = true;
+            UpdateWindowTitle(false);
+        }
+
+        private void cboSpiritIllusion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_blnLoading || cboSpiritIllusion.SelectedValue.ToString() == string.Empty)
+                return;
+
+            _objCharacter.SpiritIllusion = cboSpiritIllusion.Text;
+            foreach (SpiritControl objSpiritControl in panSpirits.Controls)
+                objSpiritControl.RebuildSpiritList(cboTradition.SelectedValue.ToString());
+
+            UpdateCharacterInfo();
+            _blnIsDirty = true;
+            UpdateWindowTitle(false);
+        }
+
+        private void cboSpiritManipulation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_blnLoading || cboSpiritManipulation.SelectedValue.ToString() == string.Empty)
+                return;
+
+            _objCharacter.SpiritManipulation = cboSpiritManipulation.Text;
+            foreach (SpiritControl objSpiritControl in panSpirits.Controls)
+                objSpiritControl.RebuildSpiritList(cboTradition.SelectedValue.ToString());
+
+            UpdateCharacterInfo();
+            _blnIsDirty = true;
+            UpdateWindowTitle(false);
+        }
+        #endregion
 
 		#region Additional Sprites and Complex Forms Tab Control Events
 		private void treComplexForms_AfterSelect(object sender, TreeViewEventArgs e)
@@ -14150,19 +14643,31 @@ namespace Chummer
 			nudMAG.Maximum = _objCharacter.MAG.TotalMaximum + intEssenceLoss;
 			nudRES.Maximum = _objCharacter.RES.TotalMaximum + intEssenceLoss;
 
-			nudBOD.Value = _objCharacter.BOD.Value;
-			nudAGI.Value = _objCharacter.AGI.Value;
-			nudREA.Value = _objCharacter.REA.Value;
-			nudSTR.Value = _objCharacter.STR.Value;
-			nudCHA.Value = _objCharacter.CHA.Value;
-			nudINT.Value = _objCharacter.INT.Value;
-			nudLOG.Value = _objCharacter.LOG.Value;
-			nudWIL.Value = _objCharacter.WIL.Value;
-			nudEDG.Value = _objCharacter.EDG.Value;
-			nudMAG.Value = _objCharacter.MAG.Value;
-			nudRES.Value = _objCharacter.RES.Value;
+			nudBOD.Value = _objCharacter.BOD.Base;
+            nudAGI.Value = _objCharacter.AGI.Base;
+            nudREA.Value = _objCharacter.REA.Base;
+            nudSTR.Value = _objCharacter.STR.Base;
+            nudCHA.Value = _objCharacter.CHA.Base;
+            nudINT.Value = _objCharacter.INT.Base;
+            nudLOG.Value = _objCharacter.LOG.Base;
+            nudWIL.Value = _objCharacter.WIL.Base;
+            nudEDG.Value = _objCharacter.EDG.Base;
+            nudMAG.Value = _objCharacter.MAG.Base;
+            nudRES.Value = _objCharacter.RES.Base;
 
-			nudBOD.Minimum = _objCharacter.BOD.MetatypeMinimum;
+            nudKBOD.Value = _objCharacter.BOD.Karma;
+            nudKAGI.Value = _objCharacter.AGI.Karma;
+            nudKREA.Value = _objCharacter.REA.Karma;
+            nudKSTR.Value = _objCharacter.STR.Karma;
+            nudKCHA.Value = _objCharacter.CHA.Karma;
+            nudKINT.Value = _objCharacter.INT.Karma;
+            nudKLOG.Value = _objCharacter.LOG.Karma;
+            nudKWIL.Value = _objCharacter.WIL.Karma;
+            nudKEDG.Value = _objCharacter.EDG.Karma;
+            nudKMAG.Value = _objCharacter.MAG.Karma;
+            nudKRES.Value = _objCharacter.RES.Karma;
+
+            nudBOD.Minimum = _objCharacter.BOD.MetatypeMinimum;
 			nudAGI.Minimum = _objCharacter.AGI.MetatypeMinimum;
 			nudREA.Minimum = _objCharacter.REA.MetatypeMinimum;
 			nudSTR.Minimum = _objCharacter.STR.MetatypeMinimum;
@@ -14198,20 +14703,95 @@ namespace Chummer
 		private bool CanImproveAttribute(string strAttribute)
 		{
 			bool blnAtMaximum = false;
-			foreach (Control objControl in panAttributes.Controls)
-			{
-				if (objControl is NumericUpDown && objControl.Enabled)
-				{
-					// Edge, Magic, and Resonance are not part of the 200 BP rule do not roll those into the BP used for Attributes. They do, however, count towards the total for Karma.
-					NumericUpDown nudAttribute = (NumericUpDown)objControl;
-					if (nudAttribute.Name != strAttribute && nudAttribute.Name != "nudEDG" && nudAttribute.Name != "nudMAG" && nudAttribute.Name != "nudRES")
-					{
-						if (nudAttribute.Value == nudAttribute.Maximum && nudAttribute.Maximum != 0)
-							blnAtMaximum = true;
-					}
-				}
-			}
-			return !blnAtMaximum;
+
+            if (_objCharacter.Options.Allow2ndMaxAttribute)
+            {
+                if (strAttribute != "nudSTR")
+                {
+                    if (((nudSTR.Value + nudKSTR.Value) == nudSTR.Maximum) && nudSTR.Maximum != 0)
+                        blnAtMaximum = true;
+                }
+                if (strAttribute != "nudBOD")
+                {
+                    if (((nudBOD.Value + nudKBOD.Value) == nudBOD.Maximum) && nudBOD.Maximum != 0)
+                        blnAtMaximum = true;
+                }
+                if (strAttribute != "nudAGI")
+                {
+                    if (((nudAGI.Value + nudKAGI.Value) == nudAGI.Maximum) && nudAGI.Maximum != 0)
+                        blnAtMaximum = true;
+                }
+                if (strAttribute != "nudREA")
+                {
+                    if (((nudREA.Value + nudKREA.Value) == nudREA.Maximum) && nudREA.Maximum != 0)
+                        blnAtMaximum = true;
+                }
+                if (strAttribute != "nudCHA")
+                {
+                    if (((nudCHA.Value + nudKCHA.Value) == nudCHA.Maximum) && nudCHA.Maximum != 0)
+                        blnAtMaximum = true;
+                }
+                if (strAttribute != "nudINT")
+                {
+                    if (((nudINT.Value + nudKINT.Value) == nudINT.Maximum) && nudINT.Maximum != 0)
+                        blnAtMaximum = true;
+                }
+                if (strAttribute != "nudWIL")
+                {
+                    if (((nudWIL.Value + nudKWIL.Value) == nudWIL.Maximum) && nudWIL.Maximum != 0)
+                        blnAtMaximum = true;
+                }
+                if (strAttribute != "nudLOG")
+                {
+                    if (((nudLOG.Value + nudKLOG.Value) == nudLOG.Maximum) && nudLOG.Maximum != 0)
+                        blnAtMaximum = true;
+                }
+            }
+            else
+            {
+                if (strAttribute != "nudSTR")
+                {
+                    if (((nudSTR.Value + nudKSTR.Value + _objCharacter.STR.MaximumModifiers) == nudSTR.Maximum) && nudSTR.Maximum != 0)
+                        blnAtMaximum = true;
+                }
+                if (strAttribute != "nudBOD")
+                {
+                    if (((nudBOD.Value + nudKBOD.Value + _objCharacter.BOD.MaximumModifiers) == nudBOD.Maximum) && nudBOD.Maximum != 0)
+                        blnAtMaximum = true;
+                }
+                if (strAttribute != "nudAGI")
+                {
+                    if (((nudAGI.Value + nudKAGI.Value + _objCharacter.AGI.MaximumModifiers) == nudAGI.Maximum) && nudAGI.Maximum != 0)
+                        blnAtMaximum = true;
+                }
+                if (strAttribute != "nudREA")
+                {
+                    if (((nudREA.Value + nudKREA.Value + _objCharacter.REA.MaximumModifiers) == nudREA.Maximum) && nudREA.Maximum != 0)
+                        blnAtMaximum = true;
+                }
+                if (strAttribute != "nudCHA")
+                {
+                    if (((nudCHA.Value + nudKCHA.Value + _objCharacter.CHA.MaximumModifiers) == nudCHA.Maximum) && nudCHA.Maximum != 0)
+                        blnAtMaximum = true;
+                }
+                if (strAttribute != "nudINT")
+                {
+                    if (((nudINT.Value + nudKINT.Value + _objCharacter.INT.MaximumModifiers) == nudINT.Maximum) && nudINT.Maximum != 0)
+                        blnAtMaximum = true;
+                }
+                if (strAttribute != "nudWIL")
+                {
+                    if (((nudWIL.Value + nudKWIL.Value + _objCharacter.WIL.MaximumModifiers) == nudWIL.Maximum) && nudWIL.Maximum != 0)
+                        blnAtMaximum = true;
+                }
+                if (strAttribute != "nudLOG")
+                {
+                    if (((nudLOG.Value + nudKLOG.Value + _objCharacter.LOG.MaximumModifiers) == nudLOG.Maximum) && nudLOG.Maximum != 0)
+                        blnAtMaximum = true;
+                }
+            }
+
+            return !blnAtMaximum;
 		}
 
 		/// <summary>
@@ -14231,6 +14811,58 @@ namespace Chummer
 			string strINT = "";
 			string strLOG = "";
 			string strWIL = "";
+
+            if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
+            {
+                // Get the total of "free points" spent
+                int intAtt = 0;
+                intAtt += Convert.ToInt32(nudBOD.Value - nudBOD.Minimum);
+                intAtt += Convert.ToInt32(nudAGI.Value - nudAGI.Minimum);
+                intAtt += Convert.ToInt32(nudREA.Value - nudREA.Minimum);
+                intAtt += Convert.ToInt32(nudSTR.Value - nudSTR.Minimum);
+                intAtt += Convert.ToInt32(nudCHA.Value - nudCHA.Minimum);
+                intAtt += Convert.ToInt32(nudINT.Value - nudINT.Minimum);
+                intAtt += Convert.ToInt32(nudLOG.Value - nudLOG.Minimum);
+                intAtt += Convert.ToInt32(nudWIL.Value - nudWIL.Minimum);
+
+                _objCharacter.Attributes = _objCharacter.TotalAttributes - intAtt;
+                lblPBuildAttributes.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.Attributes).ToString(), _objCharacter.TotalAttributes.ToString());
+
+                // For each attribute, figure out the actual karma cost of attributes raised with karma
+                for (int i = 1; i <= nudKBOD.Value; i++)
+                {
+                    intBP += ((Convert.ToInt32(nudBOD.Value) + i) * _objOptions.KarmaAttribute);
+                }
+                for (int i = 1; i <= nudKAGI.Value; i++)
+                {
+                    intBP += ((Convert.ToInt32(nudAGI.Value) + i) * _objOptions.KarmaAttribute);
+                }
+                for (int i = 1; i <= nudKREA.Value; i++)
+                {
+                    intBP += ((Convert.ToInt32(nudREA.Value) + i) * _objOptions.KarmaAttribute);
+                }
+                for (int i = 1; i <= nudKSTR.Value; i++)
+                {
+                    intBP += ((Convert.ToInt32(nudSTR.Value) + i) * _objOptions.KarmaAttribute);
+                }
+                for (int i = 1; i <= nudKCHA.Value; i++)
+                {
+                    intBP += ((Convert.ToInt32(nudCHA.Value) + i) * _objOptions.KarmaAttribute);
+                }
+                for (int i = 1; i <= nudKINT.Value; i++)
+                {
+                    intBP += ((Convert.ToInt32(nudINT.Value) + i) * _objOptions.KarmaAttribute);
+                }
+                for (int i = 1; i <= nudKLOG.Value; i++)
+                {
+                    intBP += ((Convert.ToInt32(nudLOG.Value) + i) * _objOptions.KarmaAttribute);
+                }
+                for (int i = 1; i <= nudKWIL.Value; i++)
+                {
+                    intBP += ((Convert.ToInt32(nudWIL.Value) + i) * _objOptions.KarmaAttribute);
+                }
+                return intBP;
+            }
 
 			foreach (NumericUpDown objControl in panAttributes.Controls.OfType<NumericUpDown>())
 			{
@@ -14434,6 +15066,34 @@ namespace Chummer
 			string strEDG = "";
 			string strMAG = "";
 			string strRES = "";
+
+            if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
+            {
+                // Get the total of "free points" spent
+                int intAtt = 0;
+                intAtt += Convert.ToInt32(nudEDG.Value - nudEDG.Minimum);
+                intAtt += Convert.ToInt32(nudMAG.Value - nudMAG.Minimum);
+                intAtt += Convert.ToInt32(nudRES.Value - nudRES.Minimum);
+
+                _objCharacter.Special = _objCharacter.TotalSpecial - intAtt;
+                lblPBuildSpecial.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.Special).ToString(), _objCharacter.TotalSpecial.ToString());
+
+                // For each attribute, figure out the actual karma cost of attributes raised with karma
+                for (int i = 1; i <= nudKEDG.Value; i++)
+                {
+                    intBP += ((Convert.ToInt32(nudEDG.Value) + i) * _objOptions.KarmaAttribute);
+                }
+                for (int i = 1; i <= nudKMAG.Value; i++)
+                {
+                    intBP += ((Convert.ToInt32(nudMAG.Value) + i) * _objOptions.KarmaAttribute);
+                }
+                for (int i = 1; i <= nudKRES.Value; i++)
+                {
+                    intBP += ((Convert.ToInt32(nudRES.Value) + i) * _objOptions.KarmaAttribute);
+                }
+                return intBP;
+            }
+
 
 			// Find the character's Essence Loss. This applies unless the house rule to have ESS Loss only affect the Maximum of the Attribute is turned on.
 			int intEssenceLoss = 0;
@@ -14832,58 +15492,13 @@ namespace Chummer
                 intPointsUsed = 0;
                 foreach (SkillGroupControl objGroupControl in panSkillGroups.Controls)
                 {
-                    //// If the Skill Group has been broken, get the Rating value for the lowest Skill in the Group.
-                    //if (objGroupControl.Broken && _objOptions.BreakSkillGroupsInCreateMode)
-                    //{
-                    //    int intMin = objski;
-                    //    //foreach (Skill objSkill in _objCharacter.Skills)
-                    //    //{
-                    //    //    if (objSkill.SkillGroup == objGroupControl.GroupName)
-                    //    //    {
-                    //    //        if (objSkill.Rating < intMin)
-                    //    //            intMin = objSkill.Rating;
-                    //    //    }
-                    //    //}
-                    //    if (intMin >= objGroupControl.GroupRatingMinimum)
-                    //        intPointsUsed += (intMin - objGroupControl.GroupRatingMinimum);
-                    //}
-                    //else
-                    //{
-                        if (objGroupControl.GroupRating > objGroupControl.GroupRatingMinimum)
-                        {
-                            intPointsUsed += objGroupControl.GroupRating - objGroupControl.GroupRatingMinimum;
-                        }
-                    //}
-                }
-
-                // If they've spent more points than they have available from their build priorities, figure out the cheapest option for paying for the extra points with karma.
-                if (intPointsUsed > _objCharacter.SkillGroupPointsMaximum)
-                {
-                    // Reset their working values
-                    foreach (SkillGroupControl objGroupControl in panSkillGroups.Controls)
+                    if (objGroupControl.GroupRating > objGroupControl.GroupRatingMinimum)
                     {
-                        objGroupControl.ResetWorkingRating();
+                        intPointsUsed += objGroupControl.BaseRating - objGroupControl.GroupRatingMinimum;
                     }
-
-                    for (int i = intPointsUsed; i > _objCharacter.SkillGroupPointsMaximum; i--)
+                    for (int i = 1; i <= objGroupControl.KarmaRating; i++)
                     {
-                        // Find the lowest skill with points in it
-                        int intMin = 999;
-                        SkillGroupControl objLowSkillGroup = new SkillGroupControl(_objOptions);
-                        foreach (SkillGroupControl objSkillGroup in panSkillGroups.Controls)
-                        {
-                            if (objSkillGroup.GroupWorkingRating > objSkillGroup.GroupRatingMinimum && objSkillGroup.GroupWorkingRating < intMin)
-                            {
-                                intMin = objSkillGroup.GroupWorkingRating;
-                                objLowSkillGroup = objSkillGroup;
-                            }
-                        }
-                        if (objLowSkillGroup.GroupWorkingRating == objLowSkillGroup.GroupRatingMinimum + 1)
-                            intPointsRemain -= _objOptions.KarmaNewSkillGroup;
-                        else
-                            intPointsRemain -= objLowSkillGroup.GroupWorkingRating * _objOptions.KarmaImproveSkillGroup;
-
-                        objLowSkillGroup.GroupWorkingRating--;
+                        intPointsRemain -= ((Convert.ToInt32(objGroupControl.BaseRating) + i) * _objOptions.KarmaImproveSkillGroup);
                     }
                 }
             }
@@ -14931,139 +15546,18 @@ namespace Chummer
                 intFreestyleBP += intPointsUsed;
             }
 
+            intPointsUsed = 0;
             if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
             {
-                // Get the total point value
-                intPointsUsed = 0;
                 foreach (SkillControl objSkillControl in panActiveSkills.Controls)
                 {
-                    if (objSkillControl.SkillRating > objSkillControl.SkillRatingMinimum && !objSkillControl.IsGrouped)
+                    for (int i = 1; i <= objSkillControl.SkillKarma; i++)
                     {
-                        intPointsUsed += objSkillControl.SkillRating - objSkillControl.SkillObject.FreeLevels;
-                    }
-
-                    // Specialization Cost (Exotic skills do not count since their "Spec" is actually what the Skill is being used for and cannot be Specialized).
-                    if (objSkillControl.SkillSpec.Trim() != string.Empty && !objSkillControl.SkillObject.ExoticSkill)
-                    {
-                        // Each Specialization costs KarmaSpecialization.
-                        // intPointsRemain -= _objOptions.KarmaSpecialization;
-                        bool blnFound = false;
-                        if (objSkillControl.SkillName == "Artisan")
-                        {
-                            // Look for the Inspired quality to see if we get a free specialization
-                            foreach (Quality objQuality in _objCharacter.Qualities)
-                            {
-                                if (objQuality.Name == "Inspired")
-                                    blnFound = true;
-                            }
-
-                        }
-                        if (!blnFound)
-                            intPointsUsed += 1;
-                    }
-
-                    //if (_objOptions.BreakSkillGroupsInCreateMode)
-                    //{
-                    //    int intMin = 999;
-                    //    bool blnApplyModifier = false;
-
-                    //    // Find the matching Skill Group.
-                    //    foreach (SkillGroup objGroup in _objCharacter.SkillGroups)
-                    //    {
-                    //        if (objGroup.Broken && objGroup.Name == objSkillControl.SkillGroup)
-                    //        {
-                    //            //// Determine the lowest Rating amongst the Skills in the Groups.
-                    //            //foreach (Skill objSkill in _objCharacter.Skills)
-                    //            //{
-                    //            //    if (objSkill.SkillGroup == objGroup.Name)
-                    //            //    {
-                    //            //        if (objSkill.Rating < intMin)
-                    //            //        {
-                    //            //            intMin = objSkill.Rating;
-                    //            //            blnApplyModifier = true;
-                    //            //        }
-                    //            //    }
-                    //            //}
-                    //            intMin = objGroup.Rating;
-                    //            blnApplyModifier = true;
-                    //            break;
-                    //        }
-                    //    }
-
-                    //    //if (blnApplyModifier)
-                    //    //{
-                    //    //    intPointsUsed -= (intMin - objSkillControl.SkillRatingMinimum);
-                    //    //}
-                    //}
-                }
-
-                // If they've spent more points than they have available from their build priorities, figure out the cheapest option for paying for the extra points with karma.
-                if (intPointsUsed > _objCharacter.SkillPointsMaximum)
-                {
-                    // Reset their working values
-                    foreach (SkillControl objSkillControl in panActiveSkills.Controls)
-                    {
-                        objSkillControl.ResetWorkingRating();
-                    }
-
-                    for (int i = intPointsUsed; i > _objCharacter.SkillPointsMaximum; i--)
-                    {
-                        // Find the lowest skill with points in it
-                        int intMin = 999;
-                        SkillControl objLowSkill = new SkillControl();
-                        foreach (SkillControl objSkill in panActiveSkills.Controls)
-                        {
-                            bool blnApplyModifier = false;
-                            int intMinGroup = 999;
-                            if (_objOptions.BreakSkillGroupsInCreateMode)
-                            {
-                                // Find the matching Skill Group.
-                                foreach (SkillGroup objGroup in _objCharacter.SkillGroups)
-                                {
-                                    if (objGroup.Broken && objGroup.Name == objSkill.SkillGroup)
-                                    {
-                                        //// Determine the lowest Rating amongst the Skills in the Groups.
-                                        //foreach (Skill objSkillG in _objCharacter.Skills)
-                                        //{
-                                        //    if (objSkillG.SkillGroup == objGroup.Name)
-                                        //    {
-                                        //        if (objSkillG.Rating < intMinGroup)
-                                        //        {
-                                        //            intMinGroup = objSkillG.Rating;
-                                        //            blnApplyModifier = true;
-                                        //        }
-                                        //    }
-                                        //}
-                                        intMinGroup = objGroup.Rating;
-                                        blnApplyModifier = true;
-                                        break;
-                                    }
-                                    else if (objGroup.Name == objSkill.SkillGroup)
-                                    {
-                                        intMinGroup = objGroup.Rating;
-                                        blnApplyModifier = true;
-                                    }
-                                }
-                            }
-
-                            int intSkillMin = objSkill.SkillRatingMinimum;
-                            if (blnApplyModifier)
-                                intSkillMin = Math.Max(intSkillMin, intMinGroup);
-
-                            if (objSkill.WorkingRating > intSkillMin && objSkill.WorkingRating < intMin)
-                            {
-                                intMin = objSkill.WorkingRating;
-                                objLowSkill = objSkill;
-                            }
-                        }
-                        if (objLowSkill.WorkingRating == objLowSkill.SkillRatingMinimum + 1)
-                            intPointsRemain -= _objOptions.KarmaNewActiveSkill;
-                        else
-                            intPointsRemain -= objLowSkill.WorkingRating * _objOptions.KarmaImproveActiveSkill;
-
-                        objLowSkill.WorkingRating--;
+                        intPointsUsed += ((Convert.ToInt32(objSkillControl.SkillBase) + i) * _objOptions.KarmaImproveActiveSkill);
                     }
                 }
+                intFreestyleBP += intPointsUsed;
+                intPointsRemain -= intPointsUsed;
             }
             else
             {
@@ -15191,14 +15685,14 @@ namespace Chummer
             foreach (SkillControl objSkillControl in panKnowledgeSkills.Controls)
             {
                 // Add the current Skill's SkillRating to the counter.
-                intPointsInKnowledgeSkills += objSkillControl.SkillRating;
+                intPointsInKnowledgeSkills += objSkillControl.SkillBase;
 
                 // The cost is double if the character is Uneducated and is an Academic or Professional Skill.
                 if (_objCharacter.Uneducated && (objSkillControl.SkillCategory == "Academic" || objSkillControl.SkillCategory == "Professional"))
-                    intPointsInKnowledgeSkills += objSkillControl.SkillRating;
+                    intPointsInKnowledgeSkills += objSkillControl.SkillBase;
 
                 // The Linguistics Adept Power gives 1 free point in Languages.
-                if (_objImprovementManager.ValueOf(Improvement.ImprovementType.AdeptLinguistics) > 0 && objSkillControl.SkillCategory == "Language" && objSkillControl.SkillRating > 0)
+                if (_objImprovementManager.ValueOf(Improvement.ImprovementType.AdeptLinguistics) > 0 && objSkillControl.SkillCategory == "Language" && objSkillControl.SkillBase > 0)
                     intPointsInKnowledgeSkills--;
 
                 if (objSkillControl.SkillSpec.Trim() != string.Empty)
@@ -15240,118 +15734,21 @@ namespace Chummer
                     intKnowledgeSkillPoints += 15;
             }
 
-            // If the number of points in Knowledge Skills exceeds the free amount, the remaining amount is deducted from BP.
-            if (intPointsInKnowledgeSkills > intKnowledgeSkillPoints)
+            _objCharacter.KnowledgeSkillPointsUsed = intKnowledgeSkillPoints - intPointsInKnowledgeSkills;
+
+            intPointsUsed = 0;
+            if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
             {
-                if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
+                foreach (SkillControl objSkillControl in panKnowledgeSkills.Controls)
                 {
-                    // Reset their working values
-                    foreach (SkillControl objSkillControl in panKnowledgeSkills.Controls)
+                    for (int i = 1; i <= objSkillControl.SkillKarma; i++)
                     {
-                        objSkillControl.ResetWorkingRating();
-                    }
-
-                    for (int i = intPointsInKnowledgeSkills; i > intKnowledgeSkillPoints; i--)
-                    {
-                        // Find the lowest skill with points in it
-                        int intMin = 999;
-                        SkillControl objLowSkill = new SkillControl();
-                        foreach (SkillControl objSkill in panKnowledgeSkills.Controls)
-                        {
-                            bool blnApplyModifier = false;
-                            int intLinguistMin = 0;
-                            // Adepts with the Linguist Power get the first point of a Language for free.
-                            if ((_objImprovementManager.ValueOf(Improvement.ImprovementType.AdeptLinguistics) > 0 && objSkill.SkillCategory == "Language" && objSkill.SkillRating > 0))
-                            {
-                                blnApplyModifier = true;
-                                intLinguistMin = 1;
-                            }
-
-                            int intSkillMin = objSkill.SkillRatingMinimum;
-                            if (blnApplyModifier)
-                                intSkillMin = Math.Max(intSkillMin, intLinguistMin);
-
-                            if (objSkill.WorkingRating > intSkillMin && objSkill.WorkingRating < intMin)
-                            {
-                                intMin = objSkill.WorkingRating;
-                                objLowSkill = objSkill;
-                            }
-                        }
-                        if (objLowSkill.WorkingRating == objLowSkill.SkillRatingMinimum + 1)
-                            intPointsRemain -= _objOptions.KarmaNewKnowledgeSkill;
-                        else
-                            intPointsRemain -= objLowSkill.WorkingRating * _objOptions.KarmaImproveKnowledgeSkill;
-
-                        objLowSkill.WorkingRating--;
+                        intPointsUsed += ((Convert.ToInt32(objSkillControl.SkillBase) + i) * _objOptions.KarmaImproveKnowledgeSkill);
                     }
                 }
-                else
-                {
-                    // Working with Karma is different. Go through all of the Knowledge Skills and calculate their costs individually.
-                    foreach (SkillControl objSkillControl in panKnowledgeSkills.Controls)
-                    {
-                        // The first point in a Knowledge Skill costs KarmaNewKnowledgeSkill.
-                        // Each additional beyond 1 costs i x KarmaImproveKnowledgeSkill.
-                        if (objSkillControl.SkillRating > 0)
-                        {
-                            // Adepts with the Linguist Power get the first point of a Language for free.
-                            if (!(_objImprovementManager.ValueOf(Improvement.ImprovementType.AdeptLinguistics) > 0 && objSkillControl.SkillCategory == "Language" && objSkillControl.SkillRating > 0))
-                            {
-                                intPointsRemain -= _objOptions.KarmaNewKnowledgeSkill;
-                                intPointsUsed += _objOptions.KarmaNewKnowledgeSkill;
-                            }
-                            for (int i = 2; i <= objSkillControl.SkillRating; i++)
-                            {
-                                intPointsRemain -= i * _objOptions.KarmaImproveKnowledgeSkill;
-                                intPointsUsed += i * _objOptions.KarmaImproveKnowledgeSkill;
-                            }
-                            if (objSkillControl.SkillSpec.Trim() != string.Empty)
-                            {
-                                intPointsRemain -= _objOptions.KarmaSpecialization;
-                                intPointsUsed += _objOptions.KarmaSpecialization;
-                            }
-                        }
-                    }
-
-                    if ((_objCharacter.BuildMethod == CharacterBuildMethod.Karma && _objOptions.FreeKarmaKnowledge) || _objCharacter.BuildMethod == CharacterBuildMethod.Priority)
-                    {
-                        // Working with Karma and free Knowledge Skills.
-                        int intKnowledgePointsUsed = intPointsInKnowledgeSkills;
-                        if (intKnowledgePointsUsed > intKnowledgeSkillPoints)
-                            intKnowledgePointsUsed = intKnowledgeSkillPoints;
-
-                        // Go back through the controls and start adjusting costs for free points.
-                        int intRating = 0;
-                        do
-                        {
-                            intRating++;
-                            foreach (SkillControl objSkillControl in panKnowledgeSkills.Controls)
-                            {
-                                if (intRating <= objSkillControl.SkillRating)
-                                {
-                                    intKnowledgePointsUsed--;
-                                    if (intRating == 1)
-                                    {
-                                        intPointsRemain += _objOptions.KarmaNewKnowledgeSkill;
-                                        intPointsUsed -= _objOptions.KarmaNewKnowledgeSkill;
-                                    }
-                                    else
-                                    {
-                                        intPointsRemain += intRating * _objOptions.KarmaImproveKnowledgeSkill;
-                                        intPointsUsed -= intRating * _objOptions.KarmaImproveKnowledgeSkill;
-                                    }
-                                    if (intKnowledgePointsUsed == 0)
-                                        break;
-                                }
-                            }
-                        } while (intKnowledgePointsUsed > 0);
-                    }
-                }
-
-                // Update the label that displays the number of free Knowledge Skill points remaining.
-                //lblKnowledgeSkillPoints.Text = String.Format("0 " + LanguageManager.Instance.GetString("String_Of") + " {0}", intKnowledgeSkillPoints.ToString());
-                //lblPBuildKnowledgeSkills.Text = String.Format("0 " + LanguageManager.Instance.GetString("String_Of") + " {0}", intKnowledgeSkillPoints.ToString());
+                intPointsRemain -= intPointsUsed;
             }
+
             // Update the label that displays the number of free Knowledge Skill points remaining.
             lblKnowledgeSkillPoints.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (intKnowledgeSkillPoints - intPointsInKnowledgeSkills).ToString(), intKnowledgeSkillPoints.ToString());
             lblPBuildKnowledgeSkills.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (intKnowledgeSkillPoints - intPointsInKnowledgeSkills).ToString(), intKnowledgeSkillPoints.ToString());
@@ -15634,7 +16031,7 @@ namespace Chummer
 				// Calculate Free Knowledge Skill Points. Free points = (INT + LOG) * 2.
 				// Characters built using the Karma system do not get free Knowledge Skills.
                 if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority || (_objCharacter.BuildMethod == CharacterBuildMethod.Karma && _objOptions.FreeKarmaKnowledge))
-					_objCharacter.KnowledgeSkillPoints = (int)(nudINT.Value + nudLOG.Value) * 2;
+                    _objCharacter.KnowledgeSkillPoints = (int)(_objCharacter.INT.Base + _objCharacter.LOG.Base) * 2;
 				else
 					_objCharacter.KnowledgeSkillPoints = 0;
 
@@ -15659,7 +16056,7 @@ namespace Chummer
 					objSkillControl.SkillRatingMaximum = objSkillControl.SkillObject.RatingMaximum;
 					objSkillControl.RefreshControl();
                     if (!objSkillControl.IsGrouped)
-                        intSkills += objSkillControl.SkillRating - objSkillControl.SkillObject.FreeLevels;
+                        intSkills += objSkillControl.SkillBase - objSkillControl.SkillObject.FreeLevels;
                     if (objSkillControl.SkillSpec.Trim() != string.Empty && !objSkillControl.SkillObject.ExoticSkill)
                     {
                         bool blnFound = false;
@@ -15678,38 +16075,6 @@ namespace Chummer
                             intSkills++;
                         }
                     }
-
-                    //if (_objOptions.BreakSkillGroupsInCreateMode)
-                    //{
-                    //    int intMin = 999;
-                    //    bool blnApplyModifier = false;
-
-                    //    // Find the matching Skill Group.
-                    //    foreach (SkillGroup objGroup in _objCharacter.SkillGroups)
-                    //    {
-                    //        if (objGroup.Broken && objGroup.Name == objSkillControl.SkillGroup)
-                    //        {
-                    //            // Determine the lowest Rating amongst the Skills in the Groups.
-                    //            foreach (Skill objSkill in _objCharacter.Skills)
-                    //            {
-                    //                if (objSkill.SkillGroup == objGroup.Name)
-                    //                {
-                    //                    if (objSkill.Rating < intMin)
-                    //                    {
-                    //                        intMin = objSkill.Rating;
-                    //                        blnApplyModifier = true;
-                    //                    }
-                    //                }
-                    //            }
-                    //            break;
-                    //        }
-                    //    }
-
-                    //    if (blnApplyModifier)
-                    //    {
-                    //        intSkills -= (intMin - objSkillControl.SkillRatingMinimum);
-                    //    }
-                    //}
                 }
                 _objCharacter.SkillPoints = _objCharacter.SkillPointsMaximum - intSkills;
                 //if (_objCharacter.SkillPoints < 0)
@@ -15721,7 +16086,7 @@ namespace Chummer
                 intSkills = 0;
 				foreach (SkillControl objSkillControl in panKnowledgeSkills.Controls)
 				{
-                    intSkills += objSkillControl.SkillRating;
+                    intSkills += objSkillControl.SkillBase;
 					objSkillControl.SkillRatingMaximum = objSkillControl.SkillObject.RatingMaximum;
 					objSkillControl.RefreshControl();
 				}
@@ -15746,19 +16111,10 @@ namespace Chummer
                 int intSkillGroups = 0;
                 foreach (SkillGroupControl objSkillGroupControl in panSkillGroups.Controls)
                 {
-                    intSkillGroups += objSkillGroupControl.GroupRating - objSkillGroupControl.GroupRatingMinimum;
+                    intSkillGroups += objSkillGroupControl.BaseRating - objSkillGroupControl.GroupRatingMinimum;
                 }
-                if (intSkillGroups > _objCharacter.SkillGroupPointsMaximum)
-                {
-                    lblPBuildSkillGroups.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", _objCharacter.SkillGroupPoints.ToString(), _objCharacter.SkillGroupPointsMaximum.ToString());
-                    //lblPBuildSkillGroups.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (0).ToString(), _objCharacter.SkillGroupPointsMaximum.ToString());
-                    _objCharacter.SkillGroupPoints = 0;
-                }
-                else
-                {
-                    lblPBuildSkillGroups.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", _objCharacter.SkillGroupPoints.ToString(), _objCharacter.SkillGroupPointsMaximum.ToString());
-                    _objCharacter.SkillGroupPoints = _objCharacter.SkillGroupPointsMaximum - intSkillGroups;
-                }
+                lblPBuildSkillGroups.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", _objCharacter.SkillGroupPoints.ToString(), _objCharacter.SkillGroupPointsMaximum.ToString());
+                _objCharacter.SkillGroupPoints = _objCharacter.SkillGroupPointsMaximum - intSkillGroups;
 
 				// Condition Monitor.
 				double dblBOD = _objCharacter.BOD.TotalValue;
@@ -15859,136 +16215,138 @@ namespace Chummer
 				nudBOD.Maximum = _objCharacter.BOD.TotalMaximum;
 				if (_objCharacter.BOD.HasModifiers)
 				{
-					lblBODAug.Text = string.Format("({0})", _objCharacter.BOD.TotalValue);
+					lblBODAug.Text = string.Format("{0} ({1})", _objCharacter.BOD.Value, _objCharacter.BOD.TotalValue);
 					tipTooltip.SetToolTip(lblBODAug, _objCharacter.BOD.ToolTip());
 				}
 				else
 				{
-					lblBODAug.Text = "";
-					tipTooltip.SetToolTip(lblBODAug, "");
-				}
+                    lblBODAug.Text = string.Format("{0}", _objCharacter.BOD.Value);
+                    tipTooltip.SetToolTip(lblBODAug, _objCharacter.BOD.ToolTip());
+                }
 
 				// Attribute: Agility.
 				lblAGIMetatype.Text = string.Format("{0} / {1} ({2})", _objCharacter.AGI.TotalMinimum, _objCharacter.AGI.TotalMaximum, _objCharacter.AGI.TotalAugmentedMaximum);
 				nudAGI.Minimum = _objCharacter.AGI.TotalMinimum;
 				nudAGI.Maximum = _objCharacter.AGI.TotalMaximum;
-				if (_objCharacter.AGI.HasModifiers)
-				{
-					lblAGIAug.Text = string.Format("({0})", _objCharacter.AGI.TotalValue);
-					tipTooltip.SetToolTip(lblAGIAug, _objCharacter.AGI.ToolTip());
-				}
-				else
-				{
-					lblAGIAug.Text = "";
-					tipTooltip.SetToolTip(lblAGIAug, "");
-				}
+                if (_objCharacter.AGI.HasModifiers)
+                {
+                    lblAGIAug.Text = string.Format("{0} ({1})", _objCharacter.AGI.Value, _objCharacter.AGI.TotalValue);
+                    tipTooltip.SetToolTip(lblAGIAug, _objCharacter.AGI.ToolTip());
+                }
+                else
+                {
+                    lblAGIAug.Text = string.Format("{0}", _objCharacter.AGI.Value);
+                    tipTooltip.SetToolTip(lblAGIAug, _objCharacter.AGI.ToolTip());
+                }
+
 
 				// Attribute: Reaction.
 				lblREAMetatype.Text = string.Format("{0} / {1} ({2})", _objCharacter.REA.TotalMinimum, _objCharacter.REA.TotalMaximum, _objCharacter.REA.TotalAugmentedMaximum);
 				nudREA.Minimum = _objCharacter.REA.TotalMinimum;
 				nudREA.Maximum = _objCharacter.REA.TotalMaximum;
-				if (_objCharacter.REA.HasModifiers)
-				{
-					lblREAAug.Text = string.Format("({0})", _objCharacter.REA.TotalValue);
-					tipTooltip.SetToolTip(lblREAAug, _objCharacter.REA.ToolTip());
-				}
-				else
-				{
-					lblREAAug.Text = "";
-					tipTooltip.SetToolTip(lblREAAug, "");
-				}
+                if (_objCharacter.REA.HasModifiers)
+                {
+                    lblREAAug.Text = string.Format("{0} ({1})", _objCharacter.REA.Value, _objCharacter.REA.TotalValue);
+                    tipTooltip.SetToolTip(lblREAAug, _objCharacter.REA.ToolTip());
+                }
+                else
+                {
+                    lblREAAug.Text = string.Format("{0}", _objCharacter.REA.Value);
+                    tipTooltip.SetToolTip(lblREAAug, _objCharacter.REA.ToolTip());
+                }
+
 
 				// Attribute: Strength.
 				lblSTRMetatype.Text = string.Format("{0} / {1} ({2})", _objCharacter.STR.TotalMinimum, _objCharacter.STR.TotalMaximum, _objCharacter.STR.TotalAugmentedMaximum);
 				nudSTR.Minimum = _objCharacter.STR.TotalMinimum;
 				nudSTR.Maximum = _objCharacter.STR.TotalMaximum;
-				if (_objCharacter.STR.HasModifiers)
-				{
-					lblSTRAug.Text = string.Format("({0})", _objCharacter.STR.TotalValue);
-					tipTooltip.SetToolTip(lblSTRAug, _objCharacter.STR.ToolTip());
-				}
-				else
-				{
-					lblSTRAug.Text = "";
-					tipTooltip.SetToolTip(lblSTRAug, "");
-				}
+                if (_objCharacter.STR.HasModifiers)
+                {
+                    lblSTRAug.Text = string.Format("{0} ({1})", _objCharacter.STR.Value, _objCharacter.STR.TotalValue);
+                    tipTooltip.SetToolTip(lblSTRAug, _objCharacter.STR.ToolTip());
+                }
+                else
+                {
+                    lblSTRAug.Text = string.Format("{0}", _objCharacter.STR.Value);
+                    tipTooltip.SetToolTip(lblSTRAug, _objCharacter.STR.ToolTip());
+                }
 
 				// Attribute: Charisma.
 				lblCHAMetatype.Text = string.Format("{0} / {1} ({2})", _objCharacter.CHA.TotalMinimum, _objCharacter.CHA.TotalMaximum, _objCharacter.CHA.TotalAugmentedMaximum);
 				nudCHA.Minimum = _objCharacter.CHA.TotalMinimum;
 				nudCHA.Maximum = _objCharacter.CHA.TotalMaximum;
-				if (_objCharacter.CHA.HasModifiers)
-				{
-					lblCHAAug.Text = string.Format("({0})", _objCharacter.CHA.TotalValue);
-					tipTooltip.SetToolTip(lblCHAAug, _objCharacter.CHA.ToolTip());
-				}
-				else
-				{
-					lblCHAAug.Text = "";
-					tipTooltip.SetToolTip(lblCHAAug, "");
-				}
+                if (_objCharacter.CHA.HasModifiers)
+                {
+                    lblCHAAug.Text = string.Format("{0} ({1})", _objCharacter.CHA.Value, _objCharacter.CHA.TotalValue);
+                    tipTooltip.SetToolTip(lblCHAAug, _objCharacter.CHA.ToolTip());
+                }
+                else
+                {
+                    lblCHAAug.Text = string.Format("{0}", _objCharacter.CHA.Value);
+                    tipTooltip.SetToolTip(lblCHAAug, _objCharacter.CHA.ToolTip());
+                }
 
 				// Attribute: Intuition.
 				lblINTMetatype.Text = string.Format("{0} / {1} ({2})", _objCharacter.INT.TotalMinimum, _objCharacter.INT.TotalMaximum, _objCharacter.INT.TotalAugmentedMaximum);
 				nudINT.Minimum = _objCharacter.INT.TotalMinimum;
 				nudINT.Maximum = _objCharacter.INT.TotalMaximum;
-				if (_objCharacter.INT.HasModifiers)
-				{
-					lblINTAug.Text = string.Format("({0})", _objCharacter.INT.TotalValue);
-					tipTooltip.SetToolTip(lblINTAug, _objCharacter.INT.ToolTip());
-				}
-				else
-				{
-					lblINTAug.Text = "";
-					tipTooltip.SetToolTip(lblINTAug, "");
-				}
+                if (_objCharacter.INT.HasModifiers)
+                {
+                    lblINTAug.Text = string.Format("{0} ({1})", _objCharacter.INT.Value, _objCharacter.INT.TotalValue);
+                    tipTooltip.SetToolTip(lblINTAug, _objCharacter.INT.ToolTip());
+                }
+                else
+                {
+                    lblINTAug.Text = string.Format("{0}", _objCharacter.INT.Value);
+                    tipTooltip.SetToolTip(lblINTAug, _objCharacter.INT.ToolTip());
+                }
 
-				// Attribute: Logic.
+                // Attribute: Logic.
 				lblLOGMetatype.Text = string.Format("{0} / {1} ({2})", _objCharacter.LOG.TotalMinimum, _objCharacter.LOG.TotalMaximum, _objCharacter.LOG.TotalAugmentedMaximum);
 				nudLOG.Minimum = _objCharacter.LOG.TotalMinimum;
 				nudLOG.Maximum = _objCharacter.LOG.TotalMaximum;
-				if (_objCharacter.LOG.HasModifiers)
-				{
-					lblLOGAug.Text = string.Format("({0})", _objCharacter.LOG.TotalValue);
-					tipTooltip.SetToolTip(lblLOGAug, _objCharacter.LOG.ToolTip());
-				}
-				else
-				{
-					lblLOGAug.Text = "";
-					tipTooltip.SetToolTip(lblLOGAug, "");
-				}
+                if (_objCharacter.LOG.HasModifiers)
+                {
+                    lblLOGAug.Text = string.Format("{0} ({1})", _objCharacter.LOG.Value, _objCharacter.LOG.TotalValue);
+                    tipTooltip.SetToolTip(lblLOGAug, _objCharacter.LOG.ToolTip());
+                }
+                else
+                {
+                    lblLOGAug.Text = string.Format("{0}", _objCharacter.LOG.Value);
+                    tipTooltip.SetToolTip(lblLOGAug, _objCharacter.LOG.ToolTip());
+                }
 
-				// Attribute: Willpower.
+                // Attribute: Willpower.
 				lblWILMetatype.Text = string.Format("{0} / {1} ({2})", _objCharacter.WIL.TotalMinimum, _objCharacter.WIL.TotalMaximum, _objCharacter.WIL.TotalAugmentedMaximum);
 				nudWIL.Minimum = _objCharacter.WIL.TotalMinimum;
 				nudWIL.Maximum = _objCharacter.WIL.TotalMaximum;
-				if (_objCharacter.WIL.HasModifiers)
-				{
-					lblWILAug.Text = string.Format("({0})", _objCharacter.WIL.TotalValue);
-					tipTooltip.SetToolTip(lblWILAug, _objCharacter.WIL.ToolTip());
-				}
-				else
-				{
-					lblWILAug.Text = "";
-					tipTooltip.SetToolTip(lblWILAug, "");
-				}
+                if (_objCharacter.WIL.HasModifiers)
+                {
+                    lblWILAug.Text = string.Format("{0} ({1})", _objCharacter.WIL.Value, _objCharacter.WIL.TotalValue);
+                    tipTooltip.SetToolTip(lblWILAug, _objCharacter.WIL.ToolTip());
+                }
+                else
+                {
+                    lblWILAug.Text = string.Format("{0}", _objCharacter.WIL.Value);
+                    tipTooltip.SetToolTip(lblWILAug, _objCharacter.WIL.ToolTip());
+                }
 
-				// Attribute: Edge.
+                // Attribute: Edge.
 				lblEDGMetatype.Text = string.Format("{0} / {1} ({2})", _objCharacter.EDG.TotalMinimum, _objCharacter.EDG.TotalMaximum, _objCharacter.EDG.TotalAugmentedMaximum);
 				nudEDG.Minimum = _objCharacter.EDG.TotalMinimum;
 				nudEDG.Maximum = _objCharacter.EDG.TotalMaximum;
-				if (_objCharacter.EDG.HasModifiers)
-				{
-					lblEDGAug.Text = string.Format("({0})", _objCharacter.EDG.TotalValue);
-					tipTooltip.SetToolTip(lblEDGAug, _objCharacter.EDG.ToolTip());
-				}
-				else
-				{
-					lblEDGAug.Text = "";
-					tipTooltip.SetToolTip(lblEDGAug, "");
-				}
+                if (_objCharacter.EDG.HasModifiers)
+                {
+                    lblEDGAug.Text = string.Format("{0} ({1})", _objCharacter.EDG.Value, _objCharacter.EDG.TotalValue);
+                    tipTooltip.SetToolTip(lblEDGAug, _objCharacter.EDG.ToolTip());
+                }
+                else
+                {
+                    lblEDGAug.Text = string.Format("{0}", _objCharacter.EDG.Value);
+                    tipTooltip.SetToolTip(lblEDGAug, _objCharacter.EDG.ToolTip());
+                }
 
-				// Attribute: Magic.
+                // Attribute: Magic.
                 if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority)
                 {
                     lblMAGMetatype.Text = string.Format("{0} / {1} ({2})", Math.Max(_objCharacter.MAG.MetatypeMinimum - intReduction, 0), _objCharacter.MAG.TotalMaximum, _objCharacter.MAG.TotalAugmentedMaximum);
@@ -16000,31 +16358,31 @@ namespace Chummer
                     nudMAG.Minimum = _objCharacter.MAG.TotalMinimum;
                 }
 				nudMAG.Maximum = _objCharacter.MAG.TotalMaximum;
-				if (_objCharacter.MAG.HasModifiers)
-				{
-					lblMAGAug.Text = string.Format("({0})", _objCharacter.MAG.TotalValue);
-					tipTooltip.SetToolTip(lblMAGAug, _objCharacter.MAG.ToolTip());
-				}
-				else
-				{
-					lblMAGAug.Text = "";
-					tipTooltip.SetToolTip(lblMAGAug, "");
-				}
+                if (_objCharacter.MAG.HasModifiers)
+                {
+                    lblMAGAug.Text = string.Format("{0} ({1})", _objCharacter.MAG.Value, _objCharacter.MAG.TotalValue);
+                    tipTooltip.SetToolTip(lblMAGAug, _objCharacter.MAG.ToolTip());
+                }
+                else
+                {
+                    lblMAGAug.Text = string.Format("{0}", _objCharacter.MAG.Value);
+                    tipTooltip.SetToolTip(lblMAGAug, _objCharacter.MAG.ToolTip());
+                }
 
 				// Attribute: Resonance.
 				lblRESMetatype.Text = string.Format("{0} / {1} ({2})", _objCharacter.RES.TotalMinimum, _objCharacter.RES.TotalMaximum, _objCharacter.RES.TotalAugmentedMaximum);
 				nudRES.Minimum = _objCharacter.RES.TotalMinimum;
 				nudRES.Maximum = _objCharacter.RES.TotalMaximum;
-				if (_objCharacter.RES.HasModifiers)
-				{
-					lblRESAug.Text = string.Format("({0})", _objCharacter.RES.TotalValue);
-					tipTooltip.SetToolTip(lblRESAug, _objCharacter.RES.ToolTip());
-				}
-				else
-				{
-					lblRESAug.Text = "";
-					tipTooltip.SetToolTip(lblRESAug, "");
-				}
+                if (_objCharacter.RES.HasModifiers)
+                {
+                    lblRESAug.Text = string.Format("{0} ({1})", _objCharacter.RES.Value, _objCharacter.RES.TotalValue);
+                    tipTooltip.SetToolTip(lblRESAug, _objCharacter.RES.ToolTip());
+                }
+                else
+                {
+                    lblRESAug.Text = string.Format("{0}", _objCharacter.RES.Value);
+                    tipTooltip.SetToolTip(lblRESAug, _objCharacter.RES.ToolTip());
+                }
 
 				// Update the MAG pseudo-Attributes if applicable.
 				if (_objCharacter.AdeptEnabled && _objCharacter.MagicianEnabled)
@@ -19523,7 +19881,42 @@ namespace Chummer
 				strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_InvalidPointExcess").Replace("{0}", (intBuildPoints * -1).ToString() + " " + LanguageManager.Instance.GetString("String_Karma"));
 			}
 
-			// Check if the character has gone over the Nuyen limit.
+            // Check if the character has gone over on Primary Attributes
+            if (_objCharacter.Attributes < 0)
+            {
+                blnValid = false;
+                strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_InvalidAttributeExcess").Replace("{0}", ((_objCharacter.Attributes) * -1).ToString());
+            }
+
+            // Check if the character has gone over on Special Attributes
+            if (_objCharacter.Special < 0)
+            {
+                blnValid = false;
+                strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_InvalidSpecialExcess").Replace("{0}", ((_objCharacter.Special) * -1).ToString());
+            }
+
+            // Check if the character has gone over on Skill Groups
+            if (_objCharacter.SkillGroupPoints < 0)
+            {
+                blnValid = false;
+                strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_InvalidSkillGroupExcess").Replace("{0}", ((_objCharacter.SkillGroupPoints) * -1).ToString());
+            }
+
+            // Check if the character has gone over on Active Skills
+            if (_objCharacter.SkillPoints < 0)
+            {
+                blnValid = false;
+                strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_InvalidActiveSkillExcess").Replace("{0}", ((_objCharacter.SkillPoints) * -1).ToString());
+            }
+
+            // Check if the character has gone over on Knowledge Skills
+            if (_objCharacter.KnowledgeSkillPointsUsed < 0)
+            {
+                blnValid = false;
+                strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_InvalidKnowledgeSkillExcess").Replace("{0}", ((_objCharacter.KnowledgeSkillPointsUsed) * -1).ToString());
+            }
+
+            // Check if the character has gone over the Nuyen limit.
 			int intNuyen = CalculateNuyen();
 			if (intNuyen < 0)
 			{
@@ -20478,10 +20871,21 @@ namespace Chummer
 					}
 					
 					// Make sure it's not going above the maximum number.
-					if (Convert.ToInt32(objXmlGroup["rating"].InnerText) > objSkillGroupControl.GroupRatingMaximum)
-						objSkillGroupControl.GroupRating = objSkillGroupControl.GroupRatingMaximum;
-					else
-						objSkillGroupControl.GroupRating = Convert.ToInt32(objXmlGroup["rating"].InnerText);
+                    if (Convert.ToInt32(objXmlGroup["base"].InnerText) > objSkillGroupControl.GroupRatingMaximum)
+                    {
+                        objSkillGroupControl.BaseRating = objSkillGroupControl.GroupRatingMaximum;
+                        objSkillGroupControl.KarmaRating = 0;
+                    }
+                    else if (Convert.ToInt32(objXmlGroup["base"].InnerText) + Convert.ToInt32(objXmlGroup["karma"].InnerText) > objSkillGroupControl.GroupRatingMaximum)
+                    {
+                        objSkillGroupControl.BaseRating = Convert.ToInt32(objXmlGroup["base"].InnerText);
+                        objSkillGroupControl.KarmaRating = objSkillGroupControl.GroupRatingMaximum - objSkillGroupControl.BaseRating;
+                    }
+                    else
+                    {
+                        objSkillGroupControl.BaseRating = Convert.ToInt32(objXmlGroup["base"].InnerText);
+                        objSkillGroupControl.KarmaRating = Convert.ToInt32(objXmlGroup["karma"].InnerText);
+                    }
 				}
 			}
 
@@ -21878,9 +22282,28 @@ namespace Chummer
 			intWidth = Math.Max(lblTraditionLabel.Width, lblDrainAttributesLabel.Width);
 			intWidth = Math.Max(intWidth, lblMentorSpiritLabel.Width);
 			cboTradition.Left = lblTraditionLabel.Left + intWidth + 6;
-			lblDrainAttributes.Left = lblDrainAttributesLabel.Left + intWidth + 6;
+            cboDrain.Left = lblTraditionLabel.Left + intWidth + 6;
+            lblDrainAttributes.Left = lblDrainAttributesLabel.Left + intWidth + 6;
 			lblDrainAttributesValue.Left = lblDrainAttributes.Left + 91;
 			lblMentorSpirit.Left = lblMentorSpiritLabel.Left + intWidth + 6;
+
+            lblTraditionName.Left = cboTradition.Left + cboTradition.Width + 10;
+            lblSpiritCombat.Left = cboTradition.Left + cboTradition.Width + 10;
+            lblSpiritDetection.Left = cboTradition.Left + cboTradition.Width + 10;
+            lblSpiritHealth.Left = cboTradition.Left + cboTradition.Width + 10;
+            lblSpiritIllusion.Left = cboTradition.Left + cboTradition.Width + 10;
+            lblSpiritManipulation.Left = cboTradition.Left + cboTradition.Width + 10;
+            intWidth = Math.Max(lblTraditionName.Width, lblSpiritCombat.Width);
+            intWidth = Math.Max(intWidth, lblSpiritDetection.Width);
+            intWidth = Math.Max(intWidth, lblSpiritHealth.Width);
+            intWidth = Math.Max(intWidth, lblSpiritIllusion.Width);
+            intWidth = Math.Max(intWidth, lblSpiritManipulation.Width);
+            txtTraditionName.Left = lblTraditionName.Left + intWidth + 6;
+            cboSpiritCombat.Left = lblTraditionName.Left + intWidth + 6;
+            cboSpiritDetection.Left = lblTraditionName.Left + intWidth + 6;
+            cboSpiritHealth.Left = lblTraditionName.Left + intWidth + 6;
+            cboSpiritIllusion.Left = lblTraditionName.Left + intWidth + 6;
+            cboSpiritManipulation.Left = lblTraditionName.Left + intWidth + 6;
 
 			// Adept Powers tab.
 			lblPowerPoints.Left = lblPowerPointsLabel.Left + lblPowerPointsLabel.Width + 6;
@@ -22983,6 +23406,466 @@ namespace Chummer
         private void tabVehicles_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void nudKBOD_ValueChanged(object sender, EventArgs e)
+        {
+            // Don't attempt to do anything while the data is still being populated.
+            if (_blnLoading)
+                return;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (!CanImproveAttribute("nudBOD") && (nudBOD.Value + nudKBOD.Value) >= nudBOD.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudKBOD.Value = nudBOD.Maximum - nudBOD.Value - 1;
+                    ShowAttributeRule();
+                }
+                catch
+                {
+                    nudKBOD.Value = 0;
+                }
+            }
+            else if ((nudBOD.Value + nudKBOD.Value) > nudBOD.Maximum)
+            {
+                try
+                {
+                    nudKBOD.Value = nudBOD.Maximum - nudBOD.Value;
+                }
+                catch
+                {
+                    nudKBOD.Value = 0;
+                }
+            }
+
+            _objCharacter.BOD.Base = Convert.ToInt32(nudBOD.Value);
+            _objCharacter.BOD.Karma = Convert.ToInt32(nudKBOD.Value);
+            _objCharacter.BOD.Value = Convert.ToInt32(nudBOD.Value) + Convert.ToInt32(nudKBOD.Value);
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void nudKAGI_ValueChanged(object sender, EventArgs e)
+        {
+            // Don't attempt to do anything while the data is still being populated.
+            if (_blnLoading)
+                return;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (!CanImproveAttribute("nudAGI") && (nudAGI.Value + nudKAGI.Value) >= nudAGI.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudKAGI.Value = nudAGI.Maximum - nudAGI.Value - 1;
+                    ShowAttributeRule();
+                }
+                catch
+                {
+                    nudKAGI.Value = 0;
+                }
+            }
+            else if ((nudAGI.Value + nudKAGI.Value) > nudAGI.Maximum)
+            {
+                try
+                {
+                    nudKAGI.Value = nudAGI.Maximum - nudAGI.Value;
+                }
+                catch
+                {
+                    nudKAGI.Value = 0;
+                }
+            }
+
+            _objCharacter.AGI.Base = Convert.ToInt32(nudAGI.Value);
+            _objCharacter.AGI.Karma = Convert.ToInt32(nudKAGI.Value);
+            _objCharacter.AGI.Value = Convert.ToInt32(nudAGI.Value) + Convert.ToInt32(nudKAGI.Value);
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void nudKREA_ValueChanged(object sender, EventArgs e)
+        {
+            // Don't attempt to do anything while the data is still being populated.
+            if (_blnLoading)
+                return;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (!CanImproveAttribute("nudREA") && (nudREA.Value + nudKREA.Value) >= nudREA.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudKREA.Value = nudREA.Maximum - nudREA.Value - 1;
+                    ShowAttributeRule();
+                }
+                catch
+                {
+                    nudKREA.Value = 0;
+                }
+            }
+            else if ((nudREA.Value + nudKREA.Value) > nudREA.Maximum)
+            {
+                try
+                {
+                    nudKREA.Value = nudREA.Maximum - nudREA.Value;
+                }
+                catch
+                {
+                    nudKREA.Value = 0;
+                }
+            }
+
+            _objCharacter.REA.Base = Convert.ToInt32(nudREA.Value);
+            _objCharacter.REA.Karma = Convert.ToInt32(nudKREA.Value);
+            _objCharacter.REA.Value = Convert.ToInt32(nudREA.Value) + Convert.ToInt32(nudKREA.Value);
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void nudKSTR_ValueChanged(object sender, EventArgs e)
+        {
+            // Don't attempt to do anything while the data is still being populated.
+            if (_blnLoading)
+                return;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (!CanImproveAttribute("nudSTR") && (nudSTR.Value + nudKSTR.Value) >= nudSTR.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudKSTR.Value = nudSTR.Maximum - nudSTR.Value - 1;
+                    ShowAttributeRule();
+                }
+                catch
+                {
+                    nudKSTR.Value = 0;
+                }
+            }
+            else if ((nudSTR.Value + nudKSTR.Value) > nudSTR.Maximum)
+            {
+                try
+                {
+                    nudKSTR.Value = nudSTR.Maximum - nudSTR.Value;
+                }
+                catch
+                {
+                    nudKSTR.Value = 0;
+                }
+            }
+
+            _objCharacter.STR.Base = Convert.ToInt32(nudSTR.Value);
+            _objCharacter.STR.Karma = Convert.ToInt32(nudKSTR.Value);
+            _objCharacter.STR.Value = Convert.ToInt32(nudSTR.Value) + Convert.ToInt32(nudKSTR.Value);
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void nudKCHA_ValueChanged(object sender, EventArgs e)
+        {
+            // Don't attempt to do anything while the data is still being populated.
+            if (_blnLoading)
+                return;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (!CanImproveAttribute("nudCHA") && (nudCHA.Value + nudKCHA.Value) >= nudCHA.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudKCHA.Value = nudCHA.Maximum - nudCHA.Value - 1;
+                    ShowAttributeRule();
+                }
+                catch
+                {
+                    nudKCHA.Value = 0;
+                }
+            }
+            else if ((nudCHA.Value + nudKCHA.Value) > nudCHA.Maximum)
+            {
+                try
+                {
+                    nudKCHA.Value = nudCHA.Maximum - nudCHA.Value;
+                }
+                catch
+                {
+                    nudKCHA.Value = 0;
+                }
+            }
+
+            _objCharacter.CHA.Base = Convert.ToInt32(nudCHA.Value);
+            _objCharacter.CHA.Karma = Convert.ToInt32(nudKCHA.Value);
+            _objCharacter.CHA.Value = Convert.ToInt32(nudCHA.Value) + Convert.ToInt32(nudKCHA.Value);
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void nudKINT_ValueChanged(object sender, EventArgs e)
+        {
+            // Don't attempt to do anything while the data is still being populated.
+            if (_blnLoading)
+                return;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (!CanImproveAttribute("nudINT") && (nudINT.Value + nudKINT.Value) >= nudINT.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudKINT.Value = nudINT.Maximum - nudINT.Value - 1;
+                    ShowAttributeRule();
+                }
+                catch
+                {
+                    nudKINT.Value = 0;
+                }
+            }
+            else if ((nudINT.Value + nudKINT.Value) > nudINT.Maximum)
+            {
+                try
+                {
+                    nudKINT.Value = nudINT.Maximum - nudINT.Value;
+                }
+                catch
+                {
+                    nudKINT.Value = 0;
+                }
+            }
+
+            _objCharacter.INT.Base = Convert.ToInt32(nudINT.Value);
+            _objCharacter.INT.Karma = Convert.ToInt32(nudKINT.Value);
+            _objCharacter.INT.Value = Convert.ToInt32(nudINT.Value) + Convert.ToInt32(nudKINT.Value);
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void nudKLOG_ValueChanged(object sender, EventArgs e)
+        {
+            // Don't attempt to do anything while the data is still being populated.
+            if (_blnLoading)
+                return;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (!CanImproveAttribute("nudLOG") && (nudLOG.Value + nudKLOG.Value) >= nudLOG.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudKLOG.Value = nudLOG.Maximum - nudLOG.Value - 1;
+                    ShowAttributeRule();
+                }
+                catch
+                {
+                    nudKLOG.Value = 0;
+                }
+            }
+            else if ((nudLOG.Value + nudKLOG.Value) > nudLOG.Maximum)
+            {
+                try
+                {
+                    nudKLOG.Value = nudLOG.Maximum - nudLOG.Value;
+                }
+                catch
+                {
+                    nudKLOG.Value = 0;
+                }
+            }
+
+            _objCharacter.LOG.Base = Convert.ToInt32(nudLOG.Value);
+            _objCharacter.LOG.Karma = Convert.ToInt32(nudKLOG.Value);
+            _objCharacter.LOG.Value = Convert.ToInt32(nudLOG.Value) + Convert.ToInt32(nudKLOG.Value);
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void nudKWIL_ValueChanged(object sender, EventArgs e)
+        {
+            // Don't attempt to do anything while the data is still being populated.
+            if (_blnLoading)
+                return;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (!CanImproveAttribute("nudWIL") && (nudWIL.Value + nudKWIL.Value) >= nudWIL.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudKWIL.Value = nudWIL.Maximum - nudWIL.Value - 1;
+                    ShowAttributeRule();
+                }
+                catch
+                {
+                    nudKWIL.Value = 0;
+                }
+            }
+            else if ((nudWIL.Value + nudKWIL.Value) > nudWIL.Maximum)
+            {
+                try
+                {
+                    nudKWIL.Value = nudWIL.Maximum - nudWIL.Value;
+                }
+                catch
+                {
+                    nudKWIL.Value = 0;
+                }
+            }
+
+            _objCharacter.WIL.Base = Convert.ToInt32(nudWIL.Value);
+            _objCharacter.WIL.Karma = Convert.ToInt32(nudKWIL.Value);
+            _objCharacter.WIL.Value = Convert.ToInt32(nudWIL.Value) + Convert.ToInt32(nudKWIL.Value);
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void nudKEDG_ValueChanged(object sender, EventArgs e)
+        {
+            // Don't attempt to do anything while the data is still being populated.
+            if (_blnLoading)
+                return;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (!CanImproveAttribute("nudEDG") && (nudEDG.Value + nudKEDG.Value) >= nudEDG.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudKEDG.Value = nudEDG.Maximum - nudEDG.Value - 1;
+                    ShowAttributeRule();
+                }
+                catch
+                {
+                    nudKEDG.Value = 0;
+                }
+            }
+            else if ((nudEDG.Value + nudKEDG.Value) > nudEDG.Maximum)
+            {
+                try
+                {
+                    nudKEDG.Value = nudEDG.Maximum - nudEDG.Value;
+                }
+                catch
+                {
+                    nudKEDG.Value = 0;
+                }
+            }
+
+            _objCharacter.EDG.Base = Convert.ToInt32(nudEDG.Value);
+            _objCharacter.EDG.Karma = Convert.ToInt32(nudKEDG.Value);
+            _objCharacter.EDG.Value = Convert.ToInt32(nudEDG.Value) + Convert.ToInt32(nudKEDG.Value);
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void nudKMAG_ValueChanged(object sender, EventArgs e)
+        {
+            // Don't attempt to do anything while the data is still being populated.
+            if (_blnLoading)
+                return;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (!CanImproveAttribute("nudMAG") && (nudMAG.Value + nudKMAG.Value) >= nudMAG.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudKMAG.Value = nudMAG.Maximum - nudMAG.Value - 1;
+                    ShowAttributeRule();
+                }
+                catch
+                {
+                    nudKMAG.Value = 0;
+                }
+            }
+            else if ((nudMAG.Value + nudKMAG.Value) > nudMAG.Maximum)
+            {
+                try
+                {
+                    nudKMAG.Value = nudMAG.Maximum - nudMAG.Value;
+                }
+                catch
+                {
+                    nudKMAG.Value = 0;
+                }
+            }
+
+            _objCharacter.MAG.Base = Convert.ToInt32(nudMAG.Value);
+            _objCharacter.MAG.Karma = Convert.ToInt32(nudKMAG.Value);
+            _objCharacter.MAG.Value = Convert.ToInt32(nudMAG.Value) + Convert.ToInt32(nudKMAG.Value);
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void nudKRES_ValueChanged(object sender, EventArgs e)
+        {
+            // Don't attempt to do anything while the data is still being populated.
+            if (_blnLoading)
+                return;
+
+            // Verify that the Attribute can be improved within the rules.
+            if (!CanImproveAttribute("nudRES") && (nudRES.Value + nudKRES.Value) >= nudRES.Maximum && !_objCharacter.IgnoreRules)
+            {
+                try
+                {
+                    nudKRES.Value = nudRES.Maximum - nudRES.Value - 1;
+                    ShowAttributeRule();
+                }
+                catch
+                {
+                    nudKRES.Value = 0;
+                }
+            }
+            else if ((nudRES.Value + nudKRES.Value) > nudRES.Maximum)
+            {
+                try
+                {
+                    nudKRES.Value = nudRES.Maximum - nudRES.Value;
+                }
+                catch
+                {
+                    nudKRES.Value = 0;
+                }
+            }
+
+            _objCharacter.RES.Base = Convert.ToInt32(nudRES.Value);
+            _objCharacter.RES.Karma = Convert.ToInt32(nudKRES.Value);
+            _objCharacter.RES.Value = Convert.ToInt32(nudRES.Value) + Convert.ToInt32(nudKRES.Value);
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void panActiveSkills_Click(object sender, System.EventArgs e)
+        {
+            panActiveSkills.Focus();
+        }
+
+        private void panSkillGroups_Click(object sender, System.EventArgs e)
+        {
+            panSkillGroups.Focus();
+        }
+
+        private void panKnowledgeSkills_Click(object sender, System.EventArgs e)
+        {
+            panKnowledgeSkills.Focus();
+        }
+
+        private void panContacts_Click(object sender, System.EventArgs e)
+        {
+            panContacts.Focus();
         }
 	}
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-491</version>
+	<version>-490</version>
 	<categories>
 		<category>Ammunition</category>
 		<category>Armor Enhancements</category>
@@ -4129,8 +4129,8 @@
 			<name>Fetish</name>
 			<category>Magical Supplies</category>
 			<rating>0</rating>
-			<avail>0</avail>
-			<cost>0</cost>
+			<avail>4</avail>
+			<cost>2000</cost>
 			<source>SG</source>
 			<page>212</page>
 		</gear>	
@@ -4169,15 +4169,6 @@
 			<cost>15</cost>
 			<source>SG</source>
 			<page>211</page>
-		</gear>	
-		<gear>
-			<name>Astral Powder</name>
-			<category>Magical Supplies</category>
-			<rating>0</rating>
-			<avail>4</avail>
-			<cost>120</cost>
-			<source>SG</source>
-			<page>212</page>
 		</gear>	
 		<gear>
 			<name>Astral Powder</name>
