@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-494</version>
+	<version>-493</version>
 	<name>English (US)</name>
 	<strings>
 		<!-- Common Strings -->
@@ -11,6 +11,10 @@
 		<string>
 			<key>String_Karma</key>
 			<text>Karma</text>
+		</string>
+		<string>
+			<key>String_Points</key>
+			<text>Points</text>
 		</string>
 		<string>
 			<key>String_Priority</key>
@@ -1742,6 +1746,26 @@
 			<text>This character is not valid and breaks the following rules:</text>
 		</string>
 		<string>
+			<key>Message_InvalidAttributeExcess</key>
+			<text>{0} over allotted Attribute point limit</text>
+		</string>
+		<string>
+			<key>Message_InvalidSpecialExcess</key>
+			<text>{0} over allotted Special Attribute point limit</text>
+		</string>
+		<string>
+			<key>Message_InvalidSkillGroupExcess</key>
+			<text>{0} over allotted Skill Group point limit</text>
+		</string>
+		<string>
+			<key>Message_InvalidActiveSkillExcess</key>
+			<text>{0} over allotted Active Skill point limit</text>
+		</string>
+		<string>
+			<key>Message_InvalidKnowledgeSkillExcess</key>
+			<text>{0} over allotted Knowledge Skill point limit</text>
+		</string>
+		<string>
 			<key>Message_InvalidPointExcess</key>
 			<text>{0} over allotted limit</text>
 		</string>
@@ -2915,6 +2939,10 @@
 			<text>(Aug)</text>
 		</string>
 		<string>
+			<key>Label_ValAugmented</key>
+			<text>Val (Aug)</text>
+		</string>
+		<string>
 			<key>Label_MetatypeLimits</key>
 			<text>Metatype Limits</text>
 		</string>
@@ -3089,6 +3117,30 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		<string>
 			<key>Label_Tradition</key>
 			<text>Tradition:</text>
+		</string>
+		<string>
+			<key>Label_TraditionName</key>
+			<text>Name:</text>
+		</string>
+		<string>
+			<key>Label_SpiritCombat</key>
+			<text>Combat:</text>
+		</string>
+		<string>
+			<key>Label_SpiritDetection</key>
+			<text>Detection:</text>
+		</string>
+		<string>
+			<key>Label_SpiritHealth</key>
+			<text>Health:</text>
+		</string>
+		<string>
+			<key>Label_SpiritIllusion</key>
+			<text>Illusion:</text>
+		</string>
+		<string>
+			<key>Label_SpiritManipulation</key>
+			<text>Manipulation:</text>
 		</string>
 		<string>
 			<key>Label_ResistDrain</key>
@@ -5595,12 +5647,24 @@ Only one attribute may be at its Maximum value during character creation.</text>
 			<text>Knucks Benefit from Unarmed Attack Bonuses</text>
 		</string>
 		<string>
+			<key>Checkbox_Options_DontDoubleQualities</key>
+			<text>Don't double the cost of Qualities in Career Mode</text>
+		</string>
+		<string>
 			<key>Checkbox_Options_IgnoreArt</key>
 			<text>Ignore Art Requirements from Street Grimoire</text>
 		</string>
 		<string>
 			<key>Checkbox_Options_CyberlegMovement</key>
 			<text>Use Cyberleg Stats for Movement</text>
+		</string>
+		<string>
+			<key>Checkbox_Options_ExceptionalAttributes</key>
+			<text>Attribute Points may be spent on Exceptional Attributes</text>
+		</string>
+		<string>
+			<key>Checkbox_Options_ExceptionalNotMaxed</key>
+			<text>Exceptional Attributes not at cap, are not maxed</text>
 		</string>
 		<string>
 			<key>Checkbox_Options_SingleArmorEncumbrance</key>

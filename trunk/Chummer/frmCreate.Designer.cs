@@ -135,11 +135,19 @@
             this.lblINILabel = new System.Windows.Forms.Label();
             this.lblCMStunLabel = new System.Windows.Forms.Label();
             this.lblCMPhysicalLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblSocialLabel = new System.Windows.Forms.Label();
+            this.lblMentalLabel = new System.Windows.Forms.Label();
+            this.lblPhysicalLabel = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.lblSelectedSpells = new System.Windows.Forms.Label();
+            this.lblAstralLabel = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.cmsMartialArts = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsMartialArtsAddAdvantage = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMartialArtsNotes = new System.Windows.Forms.ToolStripMenuItem();
@@ -303,6 +311,17 @@
             this.lblMetatype = new System.Windows.Forms.Label();
             this.lblMetatypeLabel = new System.Windows.Forms.Label();
             this.panAttributes = new System.Windows.Forms.Panel();
+            this.nudKRES = new System.Windows.Forms.NumericUpDown();
+            this.nudKMAG = new System.Windows.Forms.NumericUpDown();
+            this.nudKEDG = new System.Windows.Forms.NumericUpDown();
+            this.nudKWIL = new System.Windows.Forms.NumericUpDown();
+            this.nudKLOG = new System.Windows.Forms.NumericUpDown();
+            this.nudKINT = new System.Windows.Forms.NumericUpDown();
+            this.nudKCHA = new System.Windows.Forms.NumericUpDown();
+            this.nudKSTR = new System.Windows.Forms.NumericUpDown();
+            this.nudKREA = new System.Windows.Forms.NumericUpDown();
+            this.nudKAGI = new System.Windows.Forms.NumericUpDown();
+            this.nudKBOD = new System.Windows.Forms.NumericUpDown();
             this.lblRESAug = new System.Windows.Forms.Label();
             this.lblMAGAug = new System.Windows.Forms.Label();
             this.lblEDGAug = new System.Windows.Forms.Label();
@@ -360,6 +379,7 @@
             this.lblKnowledgeSkillPointsTitle = new System.Windows.Forms.Label();
             this.cmdAddKnowledgeSkill = new System.Windows.Forms.Button();
             this.tabLimits = new System.Windows.Forms.TabPage();
+            this.lblAstral = new System.Windows.Forms.Label();
             this.lblSocial = new System.Windows.Forms.Label();
             this.lblMental = new System.Windows.Forms.Label();
             this.lblPhysical = new System.Windows.Forms.Label();
@@ -367,12 +387,24 @@
             this.treLimit = new System.Windows.Forms.TreeView();
             this.cmdDeleteLimitModifier = new System.Windows.Forms.Button();
             this.tabMartialArts = new System.Windows.Forms.TabPage();
-            this.cmdAddMartialArt = new SplitButton();
             this.lblMartialArtSource = new System.Windows.Forms.Label();
             this.lblMartialArtSourceLabel = new System.Windows.Forms.Label();
             this.treMartialArts = new System.Windows.Forms.TreeView();
             this.cmdDeleteMartialArt = new System.Windows.Forms.Button();
             this.tabMagician = new System.Windows.Forms.TabPage();
+            this.cboSpiritManipulation = new System.Windows.Forms.ComboBox();
+            this.lblSpiritManipulation = new System.Windows.Forms.Label();
+            this.cboSpiritIllusion = new System.Windows.Forms.ComboBox();
+            this.lblSpiritIllusion = new System.Windows.Forms.Label();
+            this.cboSpiritHealth = new System.Windows.Forms.ComboBox();
+            this.lblSpiritHealth = new System.Windows.Forms.Label();
+            this.cboSpiritDetection = new System.Windows.Forms.ComboBox();
+            this.lblSpiritDetection = new System.Windows.Forms.Label();
+            this.cboSpiritCombat = new System.Windows.Forms.ComboBox();
+            this.lblSpiritCombat = new System.Windows.Forms.Label();
+            this.cboDrain = new System.Windows.Forms.ComboBox();
+            this.txtTraditionName = new System.Windows.Forms.TextBox();
+            this.lblTraditionName = new System.Windows.Forms.Label();
             this.lblSpellDicePool = new System.Windows.Forms.Label();
             this.lblSpellDicePoolLabel = new System.Windows.Forms.Label();
             this.lblMentorSpirit = new System.Windows.Forms.Label();
@@ -403,7 +435,6 @@
             this.cmdDeleteSpell = new System.Windows.Forms.Button();
             this.cmdAddSpirit = new System.Windows.Forms.Button();
             this.panSpirits = new System.Windows.Forms.Panel();
-            this.cmdAddSpell = new SplitButton();
             this.tabAdept = new System.Windows.Forms.TabPage();
             this.panPowers = new System.Windows.Forms.Panel();
             this.lblPowerPoints = new System.Windows.Forms.Label();
@@ -436,7 +467,6 @@
             this.cmdDeleteComplexForm = new System.Windows.Forms.Button();
             this.cmdAddSprite = new System.Windows.Forms.Button();
             this.panSprites = new System.Windows.Forms.Panel();
-            this.cmdAddComplexForm = new SplitButton();
             this.tabCritter = new System.Windows.Forms.TabPage();
             this.chkCritterPowerCount = new System.Windows.Forms.CheckBox();
             this.lblCritterPowerPointCost = new System.Windows.Forms.Label();
@@ -517,7 +547,6 @@
             this.lblCyberwareName = new System.Windows.Forms.Label();
             this.lblCyberwareNameLabel = new System.Windows.Forms.Label();
             this.treCyberware = new System.Windows.Forms.TreeView();
-            this.cmdAddCyberware = new SplitButton();
             this.tabStreetGear = new System.Windows.Forms.TabPage();
             this.tabStreetGearTabs = new System.Windows.Forms.TabControl();
             this.tabLifestyle = new System.Windows.Forms.TabPage();
@@ -569,7 +598,6 @@
             this.lblArmorAvail = new System.Windows.Forms.Label();
             this.treArmor = new System.Windows.Forms.TreeView();
             this.lblArmorAvailLabel = new System.Windows.Forms.Label();
-            this.cmdAddArmor = new SplitButton();
             this.tabWeapons = new System.Windows.Forms.TabPage();
             this.lblWeaponFirewall = new System.Windows.Forms.Label();
             this.lblWeaponFirewallLabel = new System.Windows.Forms.Label();
@@ -625,7 +653,6 @@
             this.lblWeaponAvail = new System.Windows.Forms.Label();
             this.lblWeaponRC = new System.Windows.Forms.Label();
             this.lblWeaponAvailLabel = new System.Windows.Forms.Label();
-            this.cmdAddWeapon = new SplitButton();
             this.tabGear = new System.Windows.Forms.TabPage();
             this.lblGearFirewall = new System.Windows.Forms.Label();
             this.lblGearFirewallLabel = new System.Windows.Forms.Label();
@@ -669,7 +696,6 @@
             this.lblGearRatingLabel = new System.Windows.Forms.Label();
             this.treGear = new System.Windows.Forms.TreeView();
             this.cmdDeleteGear = new System.Windows.Forms.Button();
-            this.cmdAddGear = new SplitButton();
             this.tabPets = new System.Windows.Forms.TabPage();
             this.panPets = new System.Windows.Forms.FlowLayoutPanel();
             this.cmdAddPet = new System.Windows.Forms.Button();
@@ -741,7 +767,6 @@
             this.lblVehicleHandlingLabel = new System.Windows.Forms.Label();
             this.cmdDeleteVehicle = new System.Windows.Forms.Button();
             this.treVehicles = new System.Windows.Forms.TreeView();
-            this.cmdAddVehicle = new SplitButton();
             this.tabCharacterInfo = new System.Windows.Forms.TabPage();
             this.lblPublicAwareTotal = new System.Windows.Forms.Label();
             this.lblNotorietyTotal = new System.Windows.Forms.Label();
@@ -840,8 +865,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmsLimitModifier = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tssLimitModifierNotes = new System.Windows.Forms.ToolStripMenuItem();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblAstral = new System.Windows.Forms.Label();
+            this.cmdAddMartialArt = new SplitButton();
+            this.cmdAddSpell = new SplitButton();
+            this.cmdAddComplexForm = new SplitButton();
+            this.cmdAddCyberware = new SplitButton();
+            this.cmdAddArmor = new SplitButton();
+            this.cmdAddWeapon = new SplitButton();
+            this.cmdAddGear = new SplitButton();
+            this.cmdAddVehicle = new SplitButton();
             this.StatusStrip.SuspendLayout();
             this.cmsMartialArts.SuspendLayout();
             this.cmsSpellButton.SuspendLayout();
@@ -892,6 +923,17 @@
             this.splitContacts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMysticAdeptMAGMagician)).BeginInit();
             this.panAttributes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKRES)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKMAG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKEDG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKWIL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKLOG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKINT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKCHA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKSTR)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKREA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKAGI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKBOD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRES)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMAG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEDG)).BeginInit();
@@ -1041,7 +1083,7 @@
             // lblSignalLabel
             // 
             this.lblSignalLabel.AutoSize = true;
-            this.lblSignalLabel.Location = new System.Drawing.Point(628, 211);
+            this.lblSignalLabel.Location = new System.Drawing.Point(650, 211);
             this.lblSignalLabel.Name = "lblSignalLabel";
             this.lblSignalLabel.Size = new System.Drawing.Size(36, 13);
             this.lblSignalLabel.TabIndex = 74;
@@ -1053,7 +1095,7 @@
             // lblResponseLabel
             // 
             this.lblResponseLabel.AutoSize = true;
-            this.lblResponseLabel.Location = new System.Drawing.Point(628, 185);
+            this.lblResponseLabel.Location = new System.Drawing.Point(650, 185);
             this.lblResponseLabel.Name = "lblResponseLabel";
             this.lblResponseLabel.Size = new System.Drawing.Size(55, 13);
             this.lblResponseLabel.TabIndex = 72;
@@ -1065,7 +1107,7 @@
             // lblFirewallLabel
             // 
             this.lblFirewallLabel.AutoSize = true;
-            this.lblFirewallLabel.Location = new System.Drawing.Point(628, 159);
+            this.lblFirewallLabel.Location = new System.Drawing.Point(650, 159);
             this.lblFirewallLabel.Name = "lblFirewallLabel";
             this.lblFirewallLabel.Size = new System.Drawing.Size(42, 13);
             this.lblFirewallLabel.TabIndex = 70;
@@ -1077,7 +1119,7 @@
             // lblSystemLabel
             // 
             this.lblSystemLabel.AutoSize = true;
-            this.lblSystemLabel.Location = new System.Drawing.Point(628, 133);
+            this.lblSystemLabel.Location = new System.Drawing.Point(650, 133);
             this.lblSystemLabel.Name = "lblSystemLabel";
             this.lblSystemLabel.Size = new System.Drawing.Size(41, 13);
             this.lblSystemLabel.TabIndex = 68;
@@ -1089,7 +1131,7 @@
             // lblRatingLabel
             // 
             this.lblRatingLabel.AutoSize = true;
-            this.lblRatingLabel.Location = new System.Drawing.Point(628, 107);
+            this.lblRatingLabel.Location = new System.Drawing.Point(650, 107);
             this.lblRatingLabel.Name = "lblRatingLabel";
             this.lblRatingLabel.Size = new System.Drawing.Size(38, 13);
             this.lblRatingLabel.TabIndex = 44;
@@ -1124,12 +1166,12 @@
             // lblAttributesAug
             // 
             this.lblAttributesAug.AutoSize = true;
-            this.lblAttributesAug.Location = new System.Drawing.Point(462, 32);
+            this.lblAttributesAug.Location = new System.Drawing.Point(508, 32);
             this.lblAttributesAug.Name = "lblAttributesAug";
-            this.lblAttributesAug.Size = new System.Drawing.Size(32, 13);
+            this.lblAttributesAug.Size = new System.Drawing.Size(50, 13);
             this.lblAttributesAug.TabIndex = 55;
-            this.lblAttributesAug.Tag = "Label_Augmented";
-            this.lblAttributesAug.Text = "(Aug)";
+            this.lblAttributesAug.Tag = "Label_ValAugmented";
+            this.lblAttributesAug.Text = "Val (Aug)";
             this.tipTooltip.SetToolTip(this.lblAttributesAug, "Augmented Attribute value.");
             // 
             // lblAttributesBase
@@ -1146,7 +1188,7 @@
             // lblAttributesMetatype
             // 
             this.lblAttributesMetatype.AutoSize = true;
-            this.lblAttributesMetatype.Location = new System.Drawing.Point(513, 32);
+            this.lblAttributesMetatype.Location = new System.Drawing.Point(564, 32);
             this.lblAttributesMetatype.Name = "lblAttributesMetatype";
             this.lblAttributesMetatype.Size = new System.Drawing.Size(80, 13);
             this.lblAttributesMetatype.TabIndex = 53;
@@ -1170,7 +1212,7 @@
             // lblNuyen
             // 
             this.lblNuyen.AutoSize = true;
-            this.lblNuyen.Location = new System.Drawing.Point(628, 65);
+            this.lblNuyen.Location = new System.Drawing.Point(650, 65);
             this.lblNuyen.Name = "lblNuyen";
             this.lblNuyen.Size = new System.Drawing.Size(38, 13);
             this.lblNuyen.TabIndex = 16;
@@ -1849,38 +1891,35 @@
             this.lblCMPhysicalLabel.Text = "Physical Condition Track:";
             this.tipTooltip.SetToolTip(this.lblCMPhysicalLabel, "Physical CM is calculated as 8 + (BOD / 2).");
             // 
-            // label2
+            // lblSocialLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(328, 84);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 13);
-            this.label2.TabIndex = 76;
-            this.label2.Tag = "Node_Social";
-            this.label2.Text = "Social";
-            this.tipTooltip.SetToolTip(this.label2, "An A.I.\'s Firewall is the average of their CHA and WIL Attributes.");
+            this.lblSocialLabel.AutoSize = true;
+            this.lblSocialLabel.Location = new System.Drawing.Point(328, 84);
+            this.lblSocialLabel.Name = "lblSocialLabel";
+            this.lblSocialLabel.Size = new System.Drawing.Size(36, 13);
+            this.lblSocialLabel.TabIndex = 76;
+            this.lblSocialLabel.Tag = "Node_Social";
+            this.lblSocialLabel.Text = "Social";
             // 
-            // label4
+            // lblMentalLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(328, 58);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 13);
-            this.label4.TabIndex = 74;
-            this.label4.Tag = "Node_Mental";
-            this.label4.Text = "Mental";
-            this.tipTooltip.SetToolTip(this.label4, "An A.I.\'s System is the average of their INT and LOG Attributes.");
+            this.lblMentalLabel.AutoSize = true;
+            this.lblMentalLabel.Location = new System.Drawing.Point(328, 58);
+            this.lblMentalLabel.Name = "lblMentalLabel";
+            this.lblMentalLabel.Size = new System.Drawing.Size(39, 13);
+            this.lblMentalLabel.TabIndex = 74;
+            this.lblMentalLabel.Tag = "Node_Mental";
+            this.lblMentalLabel.Text = "Mental";
             // 
-            // label6
+            // lblPhysicalLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(328, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 13);
-            this.label6.TabIndex = 72;
-            this.label6.Tag = "Node_Physical";
-            this.label6.Text = "Physical";
-            this.tipTooltip.SetToolTip(this.label6, "An A.I.\'s Rating is the average of their CHA, INT, LOG, and WIL Attributes.");
+            this.lblPhysicalLabel.AutoSize = true;
+            this.lblPhysicalLabel.Location = new System.Drawing.Point(328, 32);
+            this.lblPhysicalLabel.Name = "lblPhysicalLabel";
+            this.lblPhysicalLabel.Size = new System.Drawing.Size(46, 13);
+            this.lblPhysicalLabel.TabIndex = 72;
+            this.lblPhysicalLabel.Tag = "Node_Physical";
+            this.lblPhysicalLabel.Text = "Physical";
             // 
             // label33
             // 
@@ -1903,6 +1942,105 @@
             this.lblSelectedSpells.Tag = "Label_SelectedSpells";
             this.lblSelectedSpells.Text = "Selected Spells";
             this.tipTooltip.SetToolTip(this.lblSelectedSpells, "Each Spell costs 3 BP.");
+            // 
+            // lblAstralLabel
+            // 
+            this.lblAstralLabel.AutoSize = true;
+            this.lblAstralLabel.Location = new System.Drawing.Point(328, 111);
+            this.lblAstralLabel.Name = "lblAstralLabel";
+            this.lblAstralLabel.Size = new System.Drawing.Size(33, 13);
+            this.lblAstralLabel.TabIndex = 78;
+            this.lblAstralLabel.Tag = "Node_Astral";
+            this.lblAstralLabel.Text = "Astral";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(459, 32);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(37, 13);
+            this.label7.TabIndex = 92;
+            this.label7.Tag = "String_Karma";
+            this.label7.Text = "Karma";
+            this.tipTooltip.SetToolTip(this.label7, "Base Attribute value.");
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(476, 7);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(36, 13);
+            this.label8.TabIndex = 45;
+            this.label8.Tag = "String_Points";
+            this.label8.Text = "Points";
+            this.tipTooltip.SetToolTip(this.label8, "Skills cost 4 BP per point and 2 BP for a Specialization. Characters may have up " +
+        "to 1 Active Skill at Rating 6 or two at Rating 5. The rest must be at Rating 4 o" +
+        "r lower.");
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(525, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.TabIndex = 46;
+            this.label9.Tag = "String_Karma";
+            this.label9.Text = "Karma";
+            this.tipTooltip.SetToolTip(this.label9, "Skills cost 4 BP per point and 2 BP for a Specialization. Characters may have up " +
+        "to 1 Active Skill at Rating 6 or two at Rating 5. The rest must be at Rating 4 o" +
+        "r lower.");
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(255, 31);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(37, 13);
+            this.label10.TabIndex = 48;
+            this.label10.Tag = "String_Karma";
+            this.label10.Text = "Karma";
+            this.tipTooltip.SetToolTip(this.label10, "Skills cost 4 BP per point and 2 BP for a Specialization. Characters may have up " +
+        "to 1 Active Skill at Rating 6 or two at Rating 5. The rest must be at Rating 4 o" +
+        "r lower.");
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(206, 31);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(36, 13);
+            this.label11.TabIndex = 47;
+            this.label11.Tag = "String_Points";
+            this.label11.Text = "Points";
+            this.tipTooltip.SetToolTip(this.label11, "Skills cost 4 BP per point and 2 BP for a Specialization. Characters may have up " +
+        "to 1 Active Skill at Rating 6 or two at Rating 5. The rest must be at Rating 4 o" +
+        "r lower.");
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(204, 7);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(37, 13);
+            this.label13.TabIndex = 48;
+            this.label13.Tag = "String_Karma";
+            this.label13.Text = "Karma";
+            this.tipTooltip.SetToolTip(this.label13, "Skills cost 4 BP per point and 2 BP for a Specialization. Characters may have up " +
+        "to 1 Active Skill at Rating 6 or two at Rating 5. The rest must be at Rating 4 o" +
+        "r lower.");
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(157, 7);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(36, 13);
+            this.label14.TabIndex = 47;
+            this.label14.Tag = "String_Points";
+            this.label14.Text = "Points";
+            this.tipTooltip.SetToolTip(this.label14, "Skills cost 4 BP per point and 2 BP for a Specialization. Characters may have up " +
+        "to 1 Active Skill at Rating 6 or two at Rating 5. The rest must be at Rating 4 o" +
+        "r lower.");
             // 
             // cmsMartialArts
             // 
@@ -3213,6 +3351,7 @@
             // tabCommon
             // 
             this.tabCommon.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabCommon.Controls.Add(this.label7);
             this.tabCommon.Controls.Add(this.txtAlias);
             this.tabCommon.Controls.Add(this.lblAlias);
             this.tabCommon.Controls.Add(this.lblMetatypeSource);
@@ -3276,7 +3415,7 @@
             // lblMetatypeSource
             // 
             this.lblMetatypeSource.AutoSize = true;
-            this.lblMetatypeSource.Location = new System.Drawing.Point(688, 32);
+            this.lblMetatypeSource.Location = new System.Drawing.Point(710, 32);
             this.lblMetatypeSource.Name = "lblMetatypeSource";
             this.lblMetatypeSource.Size = new System.Drawing.Size(33, 13);
             this.lblMetatypeSource.TabIndex = 89;
@@ -3286,7 +3425,7 @@
             // lblMetatypeSourceLabel
             // 
             this.lblMetatypeSourceLabel.AutoSize = true;
-            this.lblMetatypeSourceLabel.Location = new System.Drawing.Point(628, 32);
+            this.lblMetatypeSourceLabel.Location = new System.Drawing.Point(650, 32);
             this.lblMetatypeSourceLabel.Name = "lblMetatypeSourceLabel";
             this.lblMetatypeSourceLabel.Size = new System.Drawing.Size(44, 13);
             this.lblMetatypeSourceLabel.TabIndex = 88;
@@ -3296,7 +3435,7 @@
             // nudSignal
             // 
             this.nudSignal.Enabled = false;
-            this.nudSignal.Location = new System.Drawing.Point(712, 209);
+            this.nudSignal.Location = new System.Drawing.Point(734, 209);
             this.nudSignal.Maximum = new decimal(new int[] {
             10,
             0,
@@ -3321,7 +3460,7 @@
             // nudResponse
             // 
             this.nudResponse.Enabled = false;
-            this.nudResponse.Location = new System.Drawing.Point(712, 183);
+            this.nudResponse.Location = new System.Drawing.Point(734, 183);
             this.nudResponse.Maximum = new decimal(new int[] {
             10,
             0,
@@ -3346,7 +3485,7 @@
             // lblFirewall
             // 
             this.lblFirewall.AutoSize = true;
-            this.lblFirewall.Location = new System.Drawing.Point(711, 159);
+            this.lblFirewall.Location = new System.Drawing.Point(733, 159);
             this.lblFirewall.Name = "lblFirewall";
             this.lblFirewall.Size = new System.Drawing.Size(19, 13);
             this.lblFirewall.TabIndex = 71;
@@ -3356,7 +3495,7 @@
             // lblSystem
             // 
             this.lblSystem.AutoSize = true;
-            this.lblSystem.Location = new System.Drawing.Point(711, 133);
+            this.lblSystem.Location = new System.Drawing.Point(733, 133);
             this.lblSystem.Name = "lblSystem";
             this.lblSystem.Size = new System.Drawing.Size(19, 13);
             this.lblSystem.TabIndex = 69;
@@ -3366,7 +3505,7 @@
             // lblRating
             // 
             this.lblRating.AutoSize = true;
-            this.lblRating.Location = new System.Drawing.Point(711, 107);
+            this.lblRating.Location = new System.Drawing.Point(733, 107);
             this.lblRating.Name = "lblRating";
             this.lblRating.Size = new System.Drawing.Size(19, 13);
             this.lblRating.TabIndex = 45;
@@ -3476,6 +3615,7 @@
             this.panContacts.Name = "panContacts";
             this.panContacts.Size = new System.Drawing.Size(550, 84);
             this.panContacts.TabIndex = 23;
+            this.panContacts.Click += new System.EventHandler(this.panContacts_Click);
             // 
             // cmdAddContact
             // 
@@ -3511,7 +3651,7 @@
             // 
             // nudMysticAdeptMAGMagician
             // 
-            this.nudMysticAdeptMAGMagician.Location = new System.Drawing.Point(767, 287);
+            this.nudMysticAdeptMAGMagician.Location = new System.Drawing.Point(789, 287);
             this.nudMysticAdeptMAGMagician.Name = "nudMysticAdeptMAGMagician";
             this.nudMysticAdeptMAGMagician.Size = new System.Drawing.Size(40, 20);
             this.nudMysticAdeptMAGMagician.TabIndex = 60;
@@ -3521,7 +3661,7 @@
             // lblMysticAdeptAssignment
             // 
             this.lblMysticAdeptAssignment.AutoSize = true;
-            this.lblMysticAdeptAssignment.Location = new System.Drawing.Point(628, 289);
+            this.lblMysticAdeptAssignment.Location = new System.Drawing.Point(650, 289);
             this.lblMysticAdeptAssignment.Name = "lblMysticAdeptAssignment";
             this.lblMysticAdeptAssignment.Size = new System.Drawing.Size(133, 13);
             this.lblMysticAdeptAssignment.TabIndex = 56;
@@ -3557,7 +3697,7 @@
             // lblMetatype
             // 
             this.lblMetatype.AutoSize = true;
-            this.lblMetatype.Location = new System.Drawing.Point(688, 9);
+            this.lblMetatype.Location = new System.Drawing.Point(710, 9);
             this.lblMetatype.Name = "lblMetatype";
             this.lblMetatype.Size = new System.Drawing.Size(33, 13);
             this.lblMetatype.TabIndex = 20;
@@ -3566,7 +3706,7 @@
             // lblMetatypeLabel
             // 
             this.lblMetatypeLabel.AutoSize = true;
-            this.lblMetatypeLabel.Location = new System.Drawing.Point(628, 9);
+            this.lblMetatypeLabel.Location = new System.Drawing.Point(650, 9);
             this.lblMetatypeLabel.Name = "lblMetatypeLabel";
             this.lblMetatypeLabel.Size = new System.Drawing.Size(54, 13);
             this.lblMetatypeLabel.TabIndex = 19;
@@ -3575,6 +3715,17 @@
             // 
             // panAttributes
             // 
+            this.panAttributes.Controls.Add(this.nudKRES);
+            this.panAttributes.Controls.Add(this.nudKMAG);
+            this.panAttributes.Controls.Add(this.nudKEDG);
+            this.panAttributes.Controls.Add(this.nudKWIL);
+            this.panAttributes.Controls.Add(this.nudKLOG);
+            this.panAttributes.Controls.Add(this.nudKINT);
+            this.panAttributes.Controls.Add(this.nudKCHA);
+            this.panAttributes.Controls.Add(this.nudKSTR);
+            this.panAttributes.Controls.Add(this.nudKREA);
+            this.panAttributes.Controls.Add(this.nudKAGI);
+            this.panAttributes.Controls.Add(this.nudKBOD);
             this.panAttributes.Controls.Add(this.lblRESAug);
             this.panAttributes.Controls.Add(this.lblMAGAug);
             this.panAttributes.Controls.Add(this.lblEDGAug);
@@ -3621,14 +3772,104 @@
             this.panAttributes.Controls.Add(this.lblBODMetatype);
             this.panAttributes.Location = new System.Drawing.Point(288, 48);
             this.panAttributes.Name = "panAttributes";
-            this.panAttributes.Size = new System.Drawing.Size(324, 291);
+            this.panAttributes.Size = new System.Drawing.Size(356, 291);
             this.panAttributes.TabIndex = 6;
+            // 
+            // nudKRES
+            // 
+            this.nudKRES.Enabled = false;
+            this.nudKRES.Location = new System.Drawing.Point(174, 265);
+            this.nudKRES.Name = "nudKRES";
+            this.nudKRES.Size = new System.Drawing.Size(40, 20);
+            this.nudKRES.TabIndex = 54;
+            this.nudKRES.ValueChanged += new System.EventHandler(this.nudKRES_ValueChanged);
+            // 
+            // nudKMAG
+            // 
+            this.nudKMAG.Enabled = false;
+            this.nudKMAG.Location = new System.Drawing.Point(174, 239);
+            this.nudKMAG.Name = "nudKMAG";
+            this.nudKMAG.Size = new System.Drawing.Size(40, 20);
+            this.nudKMAG.TabIndex = 53;
+            this.nudKMAG.ValueChanged += new System.EventHandler(this.nudKMAG_ValueChanged);
+            // 
+            // nudKEDG
+            // 
+            this.nudKEDG.Location = new System.Drawing.Point(174, 213);
+            this.nudKEDG.Name = "nudKEDG";
+            this.nudKEDG.Size = new System.Drawing.Size(40, 20);
+            this.nudKEDG.TabIndex = 52;
+            this.nudKEDG.ValueChanged += new System.EventHandler(this.nudKEDG_ValueChanged);
+            // 
+            // nudKWIL
+            // 
+            this.nudKWIL.Location = new System.Drawing.Point(174, 187);
+            this.nudKWIL.Name = "nudKWIL";
+            this.nudKWIL.Size = new System.Drawing.Size(40, 20);
+            this.nudKWIL.TabIndex = 51;
+            this.nudKWIL.ValueChanged += new System.EventHandler(this.nudKWIL_ValueChanged);
+            // 
+            // nudKLOG
+            // 
+            this.nudKLOG.Location = new System.Drawing.Point(174, 161);
+            this.nudKLOG.Name = "nudKLOG";
+            this.nudKLOG.Size = new System.Drawing.Size(40, 20);
+            this.nudKLOG.TabIndex = 50;
+            this.nudKLOG.ValueChanged += new System.EventHandler(this.nudKLOG_ValueChanged);
+            // 
+            // nudKINT
+            // 
+            this.nudKINT.Location = new System.Drawing.Point(174, 135);
+            this.nudKINT.Name = "nudKINT";
+            this.nudKINT.Size = new System.Drawing.Size(40, 20);
+            this.nudKINT.TabIndex = 49;
+            this.nudKINT.ValueChanged += new System.EventHandler(this.nudKINT_ValueChanged);
+            // 
+            // nudKCHA
+            // 
+            this.nudKCHA.Location = new System.Drawing.Point(174, 109);
+            this.nudKCHA.Name = "nudKCHA";
+            this.nudKCHA.Size = new System.Drawing.Size(40, 20);
+            this.nudKCHA.TabIndex = 48;
+            this.nudKCHA.ValueChanged += new System.EventHandler(this.nudKCHA_ValueChanged);
+            // 
+            // nudKSTR
+            // 
+            this.nudKSTR.Location = new System.Drawing.Point(174, 83);
+            this.nudKSTR.Name = "nudKSTR";
+            this.nudKSTR.Size = new System.Drawing.Size(40, 20);
+            this.nudKSTR.TabIndex = 47;
+            this.nudKSTR.ValueChanged += new System.EventHandler(this.nudKSTR_ValueChanged);
+            // 
+            // nudKREA
+            // 
+            this.nudKREA.Location = new System.Drawing.Point(174, 57);
+            this.nudKREA.Name = "nudKREA";
+            this.nudKREA.Size = new System.Drawing.Size(40, 20);
+            this.nudKREA.TabIndex = 46;
+            this.nudKREA.ValueChanged += new System.EventHandler(this.nudKREA_ValueChanged);
+            // 
+            // nudKAGI
+            // 
+            this.nudKAGI.Location = new System.Drawing.Point(174, 31);
+            this.nudKAGI.Name = "nudKAGI";
+            this.nudKAGI.Size = new System.Drawing.Size(40, 20);
+            this.nudKAGI.TabIndex = 45;
+            this.nudKAGI.ValueChanged += new System.EventHandler(this.nudKAGI_ValueChanged);
+            // 
+            // nudKBOD
+            // 
+            this.nudKBOD.Location = new System.Drawing.Point(174, 5);
+            this.nudKBOD.Name = "nudKBOD";
+            this.nudKBOD.Size = new System.Drawing.Size(40, 20);
+            this.nudKBOD.TabIndex = 44;
+            this.nudKBOD.ValueChanged += new System.EventHandler(this.nudKBOD_ValueChanged);
             // 
             // lblRESAug
             // 
             this.lblRESAug.AutoSize = true;
             this.lblRESAug.Enabled = false;
-            this.lblRESAug.Location = new System.Drawing.Point(174, 267);
+            this.lblRESAug.Location = new System.Drawing.Point(220, 267);
             this.lblRESAug.Name = "lblRESAug";
             this.lblRESAug.Size = new System.Drawing.Size(19, 13);
             this.lblRESAug.TabIndex = 43;
@@ -3638,7 +3879,7 @@
             // 
             this.lblMAGAug.AutoSize = true;
             this.lblMAGAug.Enabled = false;
-            this.lblMAGAug.Location = new System.Drawing.Point(174, 241);
+            this.lblMAGAug.Location = new System.Drawing.Point(220, 241);
             this.lblMAGAug.Name = "lblMAGAug";
             this.lblMAGAug.Size = new System.Drawing.Size(19, 13);
             this.lblMAGAug.TabIndex = 42;
@@ -3647,7 +3888,7 @@
             // lblEDGAug
             // 
             this.lblEDGAug.AutoSize = true;
-            this.lblEDGAug.Location = new System.Drawing.Point(174, 215);
+            this.lblEDGAug.Location = new System.Drawing.Point(220, 215);
             this.lblEDGAug.Name = "lblEDGAug";
             this.lblEDGAug.Size = new System.Drawing.Size(19, 13);
             this.lblEDGAug.TabIndex = 41;
@@ -3656,7 +3897,7 @@
             // lblWILAug
             // 
             this.lblWILAug.AutoSize = true;
-            this.lblWILAug.Location = new System.Drawing.Point(174, 189);
+            this.lblWILAug.Location = new System.Drawing.Point(220, 189);
             this.lblWILAug.Name = "lblWILAug";
             this.lblWILAug.Size = new System.Drawing.Size(19, 13);
             this.lblWILAug.TabIndex = 40;
@@ -3665,7 +3906,7 @@
             // lblLOGAug
             // 
             this.lblLOGAug.AutoSize = true;
-            this.lblLOGAug.Location = new System.Drawing.Point(174, 163);
+            this.lblLOGAug.Location = new System.Drawing.Point(220, 163);
             this.lblLOGAug.Name = "lblLOGAug";
             this.lblLOGAug.Size = new System.Drawing.Size(19, 13);
             this.lblLOGAug.TabIndex = 39;
@@ -3674,7 +3915,7 @@
             // lblINTAug
             // 
             this.lblINTAug.AutoSize = true;
-            this.lblINTAug.Location = new System.Drawing.Point(174, 137);
+            this.lblINTAug.Location = new System.Drawing.Point(220, 137);
             this.lblINTAug.Name = "lblINTAug";
             this.lblINTAug.Size = new System.Drawing.Size(19, 13);
             this.lblINTAug.TabIndex = 38;
@@ -3683,7 +3924,7 @@
             // lblCHAAug
             // 
             this.lblCHAAug.AutoSize = true;
-            this.lblCHAAug.Location = new System.Drawing.Point(174, 111);
+            this.lblCHAAug.Location = new System.Drawing.Point(220, 111);
             this.lblCHAAug.Name = "lblCHAAug";
             this.lblCHAAug.Size = new System.Drawing.Size(19, 13);
             this.lblCHAAug.TabIndex = 37;
@@ -3692,7 +3933,7 @@
             // lblSTRAug
             // 
             this.lblSTRAug.AutoSize = true;
-            this.lblSTRAug.Location = new System.Drawing.Point(174, 85);
+            this.lblSTRAug.Location = new System.Drawing.Point(220, 85);
             this.lblSTRAug.Name = "lblSTRAug";
             this.lblSTRAug.Size = new System.Drawing.Size(19, 13);
             this.lblSTRAug.TabIndex = 36;
@@ -3701,7 +3942,7 @@
             // lblREAAug
             // 
             this.lblREAAug.AutoSize = true;
-            this.lblREAAug.Location = new System.Drawing.Point(174, 59);
+            this.lblREAAug.Location = new System.Drawing.Point(220, 59);
             this.lblREAAug.Name = "lblREAAug";
             this.lblREAAug.Size = new System.Drawing.Size(19, 13);
             this.lblREAAug.TabIndex = 35;
@@ -3710,7 +3951,7 @@
             // lblAGIAug
             // 
             this.lblAGIAug.AutoSize = true;
-            this.lblAGIAug.Location = new System.Drawing.Point(174, 33);
+            this.lblAGIAug.Location = new System.Drawing.Point(220, 33);
             this.lblAGIAug.Name = "lblAGIAug";
             this.lblAGIAug.Size = new System.Drawing.Size(19, 13);
             this.lblAGIAug.TabIndex = 34;
@@ -3719,7 +3960,7 @@
             // lblBODAug
             // 
             this.lblBODAug.AutoSize = true;
-            this.lblBODAug.Location = new System.Drawing.Point(174, 7);
+            this.lblBODAug.Location = new System.Drawing.Point(220, 7);
             this.lblBODAug.Name = "lblBODAug";
             this.lblBODAug.Size = new System.Drawing.Size(19, 13);
             this.lblBODAug.TabIndex = 33;
@@ -3729,7 +3970,7 @@
             // 
             this.lblRESMetatype.AutoSize = true;
             this.lblRESMetatype.Enabled = false;
-            this.lblRESMetatype.Location = new System.Drawing.Point(245, 267);
+            this.lblRESMetatype.Location = new System.Drawing.Point(288, 267);
             this.lblRESMetatype.Name = "lblRESMetatype";
             this.lblRESMetatype.Size = new System.Drawing.Size(45, 13);
             this.lblRESMetatype.TabIndex = 32;
@@ -3763,7 +4004,7 @@
             // 
             this.lblMAGMetatype.AutoSize = true;
             this.lblMAGMetatype.Enabled = false;
-            this.lblMAGMetatype.Location = new System.Drawing.Point(245, 241);
+            this.lblMAGMetatype.Location = new System.Drawing.Point(288, 241);
             this.lblMAGMetatype.Name = "lblMAGMetatype";
             this.lblMAGMetatype.Size = new System.Drawing.Size(45, 13);
             this.lblMAGMetatype.TabIndex = 29;
@@ -3796,7 +4037,7 @@
             // lblEDGMetatype
             // 
             this.lblEDGMetatype.AutoSize = true;
-            this.lblEDGMetatype.Location = new System.Drawing.Point(245, 215);
+            this.lblEDGMetatype.Location = new System.Drawing.Point(288, 215);
             this.lblEDGMetatype.Name = "lblEDGMetatype";
             this.lblEDGMetatype.Size = new System.Drawing.Size(45, 13);
             this.lblEDGMetatype.TabIndex = 26;
@@ -3827,7 +4068,7 @@
             // lblWILMetatype
             // 
             this.lblWILMetatype.AutoSize = true;
-            this.lblWILMetatype.Location = new System.Drawing.Point(245, 189);
+            this.lblWILMetatype.Location = new System.Drawing.Point(288, 189);
             this.lblWILMetatype.Name = "lblWILMetatype";
             this.lblWILMetatype.Size = new System.Drawing.Size(45, 13);
             this.lblWILMetatype.TabIndex = 23;
@@ -3858,7 +4099,7 @@
             // lblLOGMetatype
             // 
             this.lblLOGMetatype.AutoSize = true;
-            this.lblLOGMetatype.Location = new System.Drawing.Point(245, 163);
+            this.lblLOGMetatype.Location = new System.Drawing.Point(288, 163);
             this.lblLOGMetatype.Name = "lblLOGMetatype";
             this.lblLOGMetatype.Size = new System.Drawing.Size(45, 13);
             this.lblLOGMetatype.TabIndex = 20;
@@ -3889,7 +4130,7 @@
             // lblINTMetatype
             // 
             this.lblINTMetatype.AutoSize = true;
-            this.lblINTMetatype.Location = new System.Drawing.Point(245, 137);
+            this.lblINTMetatype.Location = new System.Drawing.Point(288, 137);
             this.lblINTMetatype.Name = "lblINTMetatype";
             this.lblINTMetatype.Size = new System.Drawing.Size(45, 13);
             this.lblINTMetatype.TabIndex = 17;
@@ -3920,7 +4161,7 @@
             // lblCHAMetatype
             // 
             this.lblCHAMetatype.AutoSize = true;
-            this.lblCHAMetatype.Location = new System.Drawing.Point(245, 111);
+            this.lblCHAMetatype.Location = new System.Drawing.Point(288, 111);
             this.lblCHAMetatype.Name = "lblCHAMetatype";
             this.lblCHAMetatype.Size = new System.Drawing.Size(45, 13);
             this.lblCHAMetatype.TabIndex = 14;
@@ -3951,7 +4192,7 @@
             // lblSTRMetatype
             // 
             this.lblSTRMetatype.AutoSize = true;
-            this.lblSTRMetatype.Location = new System.Drawing.Point(245, 85);
+            this.lblSTRMetatype.Location = new System.Drawing.Point(288, 85);
             this.lblSTRMetatype.Name = "lblSTRMetatype";
             this.lblSTRMetatype.Size = new System.Drawing.Size(45, 13);
             this.lblSTRMetatype.TabIndex = 11;
@@ -3982,7 +4223,7 @@
             // lblREAMetatype
             // 
             this.lblREAMetatype.AutoSize = true;
-            this.lblREAMetatype.Location = new System.Drawing.Point(245, 59);
+            this.lblREAMetatype.Location = new System.Drawing.Point(288, 59);
             this.lblREAMetatype.Name = "lblREAMetatype";
             this.lblREAMetatype.Size = new System.Drawing.Size(45, 13);
             this.lblREAMetatype.TabIndex = 8;
@@ -4013,7 +4254,7 @@
             // lblAGIMetatype
             // 
             this.lblAGIMetatype.AutoSize = true;
-            this.lblAGIMetatype.Location = new System.Drawing.Point(245, 33);
+            this.lblAGIMetatype.Location = new System.Drawing.Point(288, 33);
             this.lblAGIMetatype.Name = "lblAGIMetatype";
             this.lblAGIMetatype.Size = new System.Drawing.Size(45, 13);
             this.lblAGIMetatype.TabIndex = 5;
@@ -4066,7 +4307,7 @@
             // lblBODMetatype
             // 
             this.lblBODMetatype.AutoSize = true;
-            this.lblBODMetatype.Location = new System.Drawing.Point(245, 7);
+            this.lblBODMetatype.Location = new System.Drawing.Point(288, 7);
             this.lblBODMetatype.Name = "lblBODMetatype";
             this.lblBODMetatype.Size = new System.Drawing.Size(45, 13);
             this.lblBODMetatype.TabIndex = 2;
@@ -4074,7 +4315,7 @@
             // 
             // nudNuyen
             // 
-            this.nudNuyen.Location = new System.Drawing.Point(672, 63);
+            this.nudNuyen.Location = new System.Drawing.Point(694, 63);
             this.nudNuyen.Maximum = new decimal(new int[] {
             50,
             0,
@@ -4088,7 +4329,7 @@
             // lblNuyenTotal
             // 
             this.lblNuyenTotal.AutoSize = true;
-            this.lblNuyenTotal.Location = new System.Drawing.Point(724, 65);
+            this.lblNuyenTotal.Location = new System.Drawing.Point(746, 65);
             this.lblNuyenTotal.Name = "lblNuyenTotal";
             this.lblNuyenTotal.Size = new System.Drawing.Size(28, 13);
             this.lblNuyenTotal.TabIndex = 18;
@@ -4118,6 +4359,10 @@
             // splitSkills.Panel1
             // 
             this.splitSkills.Panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.splitSkills.Panel1.Controls.Add(this.label13);
+            this.splitSkills.Panel1.Controls.Add(this.label14);
+            this.splitSkills.Panel1.Controls.Add(this.label9);
+            this.splitSkills.Panel1.Controls.Add(this.label8);
             this.splitSkills.Panel1.Controls.Add(this.panActiveSkills);
             this.splitSkills.Panel1.Controls.Add(this.cboSkillFilter);
             this.splitSkills.Panel1.Controls.Add(this.lblSkillGroups);
@@ -4129,6 +4374,8 @@
             // splitSkills.Panel2
             // 
             this.splitSkills.Panel2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.splitSkills.Panel2.Controls.Add(this.label10);
+            this.splitSkills.Panel2.Controls.Add(this.label11);
             this.splitSkills.Panel2.Controls.Add(this.lblKnowledgeSkills);
             this.splitSkills.Panel2.Controls.Add(this.lblKnowledgeSkillPoints);
             this.splitSkills.Panel2.Controls.Add(this.panKnowledgeSkills);
@@ -4149,6 +4396,7 @@
             this.panActiveSkills.Name = "panActiveSkills";
             this.panActiveSkills.Size = new System.Drawing.Size(565, 421);
             this.panActiveSkills.TabIndex = 44;
+            this.panActiveSkills.Click += new System.EventHandler(this.panActiveSkills_Click);
             // 
             // cboSkillFilter
             // 
@@ -4183,6 +4431,7 @@
             this.panSkillGroups.Name = "panSkillGroups";
             this.panSkillGroups.Size = new System.Drawing.Size(264, 421);
             this.panSkillGroups.TabIndex = 32;
+            this.panSkillGroups.Click += new System.EventHandler(this.panSkillGroups_Click);
             // 
             // lblKnowledgeSkillPoints
             // 
@@ -4200,6 +4449,7 @@
             this.panKnowledgeSkills.Name = "panKnowledgeSkills";
             this.panKnowledgeSkills.Size = new System.Drawing.Size(835, 104);
             this.panKnowledgeSkills.TabIndex = 39;
+            this.panKnowledgeSkills.Click += new System.EventHandler(this.panKnowledgeSkills_Click);
             // 
             // lblKnowledgeSkillPointsTitle
             // 
@@ -4224,13 +4474,13 @@
             // 
             // tabLimits
             // 
-            this.tabLimits.Controls.Add(this.label5);
+            this.tabLimits.Controls.Add(this.lblAstralLabel);
             this.tabLimits.Controls.Add(this.lblAstral);
-            this.tabLimits.Controls.Add(this.label2);
+            this.tabLimits.Controls.Add(this.lblSocialLabel);
             this.tabLimits.Controls.Add(this.lblSocial);
-            this.tabLimits.Controls.Add(this.label4);
+            this.tabLimits.Controls.Add(this.lblMentalLabel);
             this.tabLimits.Controls.Add(this.lblMental);
-            this.tabLimits.Controls.Add(this.label6);
+            this.tabLimits.Controls.Add(this.lblPhysicalLabel);
             this.tabLimits.Controls.Add(this.lblPhysical);
             this.tabLimits.Controls.Add(this.cmdAddLimitModifier);
             this.tabLimits.Controls.Add(this.treLimit);
@@ -4241,6 +4491,15 @@
             this.tabLimits.TabIndex = 13;
             this.tabLimits.Tag = "Tab_Limits";
             this.tabLimits.Text = "Limits";
+            // 
+            // lblAstral
+            // 
+            this.lblAstral.AutoSize = true;
+            this.lblAstral.Location = new System.Drawing.Point(411, 111);
+            this.lblAstral.Name = "lblAstral";
+            this.lblAstral.Size = new System.Drawing.Size(19, 13);
+            this.lblAstral.TabIndex = 79;
+            this.lblAstral.Text = "[0]";
             // 
             // lblSocial
             // 
@@ -4335,20 +4594,6 @@
             this.tabMartialArts.Tag = "Tab_MartialArts";
             this.tabMartialArts.Text = "Martial Arts";
             // 
-            // cmdAddMartialArt
-            // 
-            this.cmdAddMartialArt.AutoSize = true;
-            this.cmdAddMartialArt.ContextMenuStrip = this.cmsMartialArts;
-            this.cmdAddMartialArt.Location = new System.Drawing.Point(8, 6);
-            this.cmdAddMartialArt.Name = "cmdAddMartialArt";
-            this.cmdAddMartialArt.Size = new System.Drawing.Size(107, 23);
-            this.cmdAddMartialArt.SplitMenuStrip = this.cmsMartialArts;
-            this.cmdAddMartialArt.TabIndex = 55;
-            this.cmdAddMartialArt.Tag = "Button_AddMartialArt";
-            this.cmdAddMartialArt.Text = "&Add Martial Art";
-            this.cmdAddMartialArt.UseVisualStyleBackColor = true;
-            this.cmdAddMartialArt.Click += new System.EventHandler(this.cmdAddMartialArt_Click);
-            // 
             // lblMartialArtSource
             // 
             this.lblMartialArtSource.AutoSize = true;
@@ -4408,6 +4653,19 @@
             // tabMagician
             // 
             this.tabMagician.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabMagician.Controls.Add(this.cboSpiritManipulation);
+            this.tabMagician.Controls.Add(this.lblSpiritManipulation);
+            this.tabMagician.Controls.Add(this.cboSpiritIllusion);
+            this.tabMagician.Controls.Add(this.lblSpiritIllusion);
+            this.tabMagician.Controls.Add(this.cboSpiritHealth);
+            this.tabMagician.Controls.Add(this.lblSpiritHealth);
+            this.tabMagician.Controls.Add(this.cboSpiritDetection);
+            this.tabMagician.Controls.Add(this.lblSpiritDetection);
+            this.tabMagician.Controls.Add(this.cboSpiritCombat);
+            this.tabMagician.Controls.Add(this.lblSpiritCombat);
+            this.tabMagician.Controls.Add(this.cboDrain);
+            this.tabMagician.Controls.Add(this.txtTraditionName);
+            this.tabMagician.Controls.Add(this.lblTraditionName);
             this.tabMagician.Controls.Add(this.lblSpellDicePool);
             this.tabMagician.Controls.Add(this.lblSpellDicePoolLabel);
             this.tabMagician.Controls.Add(this.lblMentorSpirit);
@@ -4449,6 +4707,147 @@
             this.tabMagician.Tag = "Tab_Magician";
             this.tabMagician.Text = "Spells and Spirits";
             // 
+            // cboSpiritManipulation
+            // 
+            this.cboSpiritManipulation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSpiritManipulation.FormattingEnabled = true;
+            this.cboSpiritManipulation.Location = new System.Drawing.Point(639, 326);
+            this.cboSpiritManipulation.Name = "cboSpiritManipulation";
+            this.cboSpiritManipulation.Size = new System.Drawing.Size(122, 21);
+            this.cboSpiritManipulation.TabIndex = 153;
+            this.cboSpiritManipulation.Visible = false;
+            this.cboSpiritManipulation.SelectedIndexChanged += new System.EventHandler(this.cboSpiritManipulation_SelectedIndexChanged);
+            // 
+            // lblSpiritManipulation
+            // 
+            this.lblSpiritManipulation.AutoSize = true;
+            this.lblSpiritManipulation.Location = new System.Drawing.Point(566, 329);
+            this.lblSpiritManipulation.Name = "lblSpiritManipulation";
+            this.lblSpiritManipulation.Size = new System.Drawing.Size(70, 13);
+            this.lblSpiritManipulation.TabIndex = 152;
+            this.lblSpiritManipulation.Tag = "Label_SpiritManipulation";
+            this.lblSpiritManipulation.Text = "Manipulation:";
+            this.lblSpiritManipulation.Visible = false;
+            // 
+            // cboSpiritIllusion
+            // 
+            this.cboSpiritIllusion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSpiritIllusion.FormattingEnabled = true;
+            this.cboSpiritIllusion.Location = new System.Drawing.Point(639, 299);
+            this.cboSpiritIllusion.Name = "cboSpiritIllusion";
+            this.cboSpiritIllusion.Size = new System.Drawing.Size(122, 21);
+            this.cboSpiritIllusion.TabIndex = 151;
+            this.cboSpiritIllusion.Visible = false;
+            this.cboSpiritIllusion.SelectedIndexChanged += new System.EventHandler(this.cboSpiritIllusion_SelectedIndexChanged);
+            // 
+            // lblSpiritIllusion
+            // 
+            this.lblSpiritIllusion.AutoSize = true;
+            this.lblSpiritIllusion.Location = new System.Drawing.Point(566, 302);
+            this.lblSpiritIllusion.Name = "lblSpiritIllusion";
+            this.lblSpiritIllusion.Size = new System.Drawing.Size(42, 13);
+            this.lblSpiritIllusion.TabIndex = 150;
+            this.lblSpiritIllusion.Tag = "Label_SpiritIllusion";
+            this.lblSpiritIllusion.Text = "Illusion:";
+            this.lblSpiritIllusion.Visible = false;
+            // 
+            // cboSpiritHealth
+            // 
+            this.cboSpiritHealth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSpiritHealth.FormattingEnabled = true;
+            this.cboSpiritHealth.Location = new System.Drawing.Point(639, 272);
+            this.cboSpiritHealth.Name = "cboSpiritHealth";
+            this.cboSpiritHealth.Size = new System.Drawing.Size(122, 21);
+            this.cboSpiritHealth.TabIndex = 149;
+            this.cboSpiritHealth.Visible = false;
+            this.cboSpiritHealth.SelectedIndexChanged += new System.EventHandler(this.cboSpiritHealth_SelectedIndexChanged);
+            // 
+            // lblSpiritHealth
+            // 
+            this.lblSpiritHealth.AutoSize = true;
+            this.lblSpiritHealth.Location = new System.Drawing.Point(566, 275);
+            this.lblSpiritHealth.Name = "lblSpiritHealth";
+            this.lblSpiritHealth.Size = new System.Drawing.Size(41, 13);
+            this.lblSpiritHealth.TabIndex = 148;
+            this.lblSpiritHealth.Tag = "Label_SpiritHealth";
+            this.lblSpiritHealth.Text = "Health:";
+            this.lblSpiritHealth.Visible = false;
+            // 
+            // cboSpiritDetection
+            // 
+            this.cboSpiritDetection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSpiritDetection.FormattingEnabled = true;
+            this.cboSpiritDetection.Location = new System.Drawing.Point(639, 245);
+            this.cboSpiritDetection.Name = "cboSpiritDetection";
+            this.cboSpiritDetection.Size = new System.Drawing.Size(122, 21);
+            this.cboSpiritDetection.TabIndex = 147;
+            this.cboSpiritDetection.Visible = false;
+            this.cboSpiritDetection.SelectedIndexChanged += new System.EventHandler(this.cboSpiritDetection_SelectedIndexChanged);
+            // 
+            // lblSpiritDetection
+            // 
+            this.lblSpiritDetection.AutoSize = true;
+            this.lblSpiritDetection.Location = new System.Drawing.Point(566, 248);
+            this.lblSpiritDetection.Name = "lblSpiritDetection";
+            this.lblSpiritDetection.Size = new System.Drawing.Size(56, 13);
+            this.lblSpiritDetection.TabIndex = 146;
+            this.lblSpiritDetection.Tag = "Label_SpiritDetection";
+            this.lblSpiritDetection.Text = "Detection:";
+            this.lblSpiritDetection.Visible = false;
+            // 
+            // cboSpiritCombat
+            // 
+            this.cboSpiritCombat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSpiritCombat.FormattingEnabled = true;
+            this.cboSpiritCombat.Location = new System.Drawing.Point(639, 218);
+            this.cboSpiritCombat.Name = "cboSpiritCombat";
+            this.cboSpiritCombat.Size = new System.Drawing.Size(122, 21);
+            this.cboSpiritCombat.TabIndex = 145;
+            this.cboSpiritCombat.Visible = false;
+            this.cboSpiritCombat.SelectedIndexChanged += new System.EventHandler(this.cboSpiritCombat_SelectedIndexChanged);
+            // 
+            // lblSpiritCombat
+            // 
+            this.lblSpiritCombat.AutoSize = true;
+            this.lblSpiritCombat.Location = new System.Drawing.Point(566, 221);
+            this.lblSpiritCombat.Name = "lblSpiritCombat";
+            this.lblSpiritCombat.Size = new System.Drawing.Size(46, 13);
+            this.lblSpiritCombat.TabIndex = 144;
+            this.lblSpiritCombat.Tag = "Label_SpiritCombat";
+            this.lblSpiritCombat.Text = "Combat:";
+            this.lblSpiritCombat.Visible = false;
+            // 
+            // cboDrain
+            // 
+            this.cboDrain.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDrain.FormattingEnabled = true;
+            this.cboDrain.Location = new System.Drawing.Point(407, 218);
+            this.cboDrain.Name = "cboDrain";
+            this.cboDrain.Size = new System.Drawing.Size(82, 21);
+            this.cboDrain.TabIndex = 143;
+            this.cboDrain.Visible = false;
+            this.cboDrain.SelectedIndexChanged += new System.EventHandler(this.cboDrain_SelectedIndexChanged);
+            // 
+            // txtTraditionName
+            // 
+            this.txtTraditionName.Location = new System.Drawing.Point(639, 195);
+            this.txtTraditionName.Name = "txtTraditionName";
+            this.txtTraditionName.Size = new System.Drawing.Size(122, 20);
+            this.txtTraditionName.TabIndex = 142;
+            this.txtTraditionName.Visible = false;
+            this.txtTraditionName.TextChanged += new System.EventHandler(this.txtTraditionName_TextChanged);
+            // 
+            // lblTraditionName
+            // 
+            this.lblTraditionName.AutoSize = true;
+            this.lblTraditionName.Location = new System.Drawing.Point(566, 198);
+            this.lblTraditionName.Name = "lblTraditionName";
+            this.lblTraditionName.Size = new System.Drawing.Size(38, 13);
+            this.lblTraditionName.TabIndex = 141;
+            this.lblTraditionName.Tag = "Label_TraditionName";
+            this.lblTraditionName.Text = "Name:";
+            this.lblTraditionName.Visible = false;
+            // 
             // lblSpellDicePool
             // 
             this.lblSpellDicePool.AutoSize = true;
@@ -4471,7 +4870,7 @@
             // lblMentorSpirit
             // 
             this.lblMentorSpirit.AutoSize = true;
-            this.lblMentorSpirit.Location = new System.Drawing.Point(404, 283);
+            this.lblMentorSpirit.Location = new System.Drawing.Point(404, 329);
             this.lblMentorSpirit.Name = "lblMentorSpirit";
             this.lblMentorSpirit.Size = new System.Drawing.Size(72, 13);
             this.lblMentorSpirit.TabIndex = 96;
@@ -4481,7 +4880,7 @@
             // lblMentorSpiritLabel
             // 
             this.lblMentorSpiritLabel.AutoSize = true;
-            this.lblMentorSpiritLabel.Location = new System.Drawing.Point(309, 283);
+            this.lblMentorSpiritLabel.Location = new System.Drawing.Point(309, 329);
             this.lblMentorSpiritLabel.Name = "lblMentorSpiritLabel";
             this.lblMentorSpiritLabel.Size = new System.Drawing.Size(69, 13);
             this.lblMentorSpiritLabel.TabIndex = 95;
@@ -4491,9 +4890,9 @@
             // 
             // lblMentorSpiritInformation
             // 
-            this.lblMentorSpiritInformation.Location = new System.Drawing.Point(309, 306);
+            this.lblMentorSpiritInformation.Location = new System.Drawing.Point(309, 352);
             this.lblMentorSpiritInformation.Name = "lblMentorSpiritInformation";
-            this.lblMentorSpiritInformation.Size = new System.Drawing.Size(526, 137);
+            this.lblMentorSpiritInformation.Size = new System.Drawing.Size(526, 91);
             this.lblMentorSpiritInformation.TabIndex = 94;
             this.lblMentorSpiritInformation.Text = "[Mentor Spirit Information]";
             this.lblMentorSpiritInformation.Visible = false;
@@ -4501,7 +4900,7 @@
             // lblDrainAttributesValue
             // 
             this.lblDrainAttributesValue.AutoSize = true;
-            this.lblDrainAttributesValue.Location = new System.Drawing.Point(495, 237);
+            this.lblDrainAttributesValue.Location = new System.Drawing.Point(495, 221);
             this.lblDrainAttributesValue.Name = "lblDrainAttributesValue";
             this.lblDrainAttributesValue.Size = new System.Drawing.Size(37, 13);
             this.lblDrainAttributesValue.TabIndex = 93;
@@ -4510,7 +4909,7 @@
             // lblDrainAttributes
             // 
             this.lblDrainAttributes.AutoSize = true;
-            this.lblDrainAttributes.Location = new System.Drawing.Point(404, 237);
+            this.lblDrainAttributes.Location = new System.Drawing.Point(404, 221);
             this.lblDrainAttributes.Name = "lblDrainAttributes";
             this.lblDrainAttributes.Size = new System.Drawing.Size(57, 13);
             this.lblDrainAttributes.TabIndex = 92;
@@ -4519,7 +4918,7 @@
             // lblDrainAttributesLabel
             // 
             this.lblDrainAttributesLabel.AutoSize = true;
-            this.lblDrainAttributesLabel.Location = new System.Drawing.Point(309, 237);
+            this.lblDrainAttributesLabel.Location = new System.Drawing.Point(309, 221);
             this.lblDrainAttributesLabel.Name = "lblDrainAttributesLabel";
             this.lblDrainAttributesLabel.Size = new System.Drawing.Size(89, 13);
             this.lblDrainAttributesLabel.TabIndex = 91;
@@ -4530,7 +4929,7 @@
             // 
             this.cboTradition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTradition.FormattingEnabled = true;
-            this.cboTradition.Location = new System.Drawing.Point(407, 211);
+            this.cboTradition.Location = new System.Drawing.Point(407, 195);
             this.cboTradition.Name = "cboTradition";
             this.cboTradition.Size = new System.Drawing.Size(141, 21);
             this.cboTradition.TabIndex = 90;
@@ -4539,7 +4938,7 @@
             // lblTraditionLabel
             // 
             this.lblTraditionLabel.AutoSize = true;
-            this.lblTraditionLabel.Location = new System.Drawing.Point(309, 214);
+            this.lblTraditionLabel.Location = new System.Drawing.Point(309, 198);
             this.lblTraditionLabel.Name = "lblTraditionLabel";
             this.lblTraditionLabel.Size = new System.Drawing.Size(51, 13);
             this.lblTraditionLabel.TabIndex = 89;
@@ -4769,20 +5168,6 @@
             this.panSpirits.Name = "panSpirits";
             this.panSpirits.Size = new System.Drawing.Size(824, 156);
             this.panSpirits.TabIndex = 4;
-            // 
-            // cmdAddSpell
-            // 
-            this.cmdAddSpell.AutoSize = true;
-            this.cmdAddSpell.ContextMenuStrip = this.cmsSpellButton;
-            this.cmdAddSpell.Location = new System.Drawing.Point(8, 26);
-            this.cmdAddSpell.Name = "cmdAddSpell";
-            this.cmdAddSpell.Size = new System.Drawing.Size(80, 23);
-            this.cmdAddSpell.SplitMenuStrip = this.cmsSpellButton;
-            this.cmdAddSpell.TabIndex = 140;
-            this.cmdAddSpell.Tag = "Button_AddSpell";
-            this.cmdAddSpell.Text = "&Add Spell";
-            this.cmdAddSpell.UseVisualStyleBackColor = true;
-            this.cmdAddSpell.Click += new System.EventHandler(this.cmdAddSpell_Click);
             // 
             // tabAdept
             // 
@@ -5137,20 +5522,6 @@
             this.panSprites.Name = "panSprites";
             this.panSprites.Size = new System.Drawing.Size(827, 163);
             this.panSprites.TabIndex = 25;
-            // 
-            // cmdAddComplexForm
-            // 
-            this.cmdAddComplexForm.AutoSize = true;
-            this.cmdAddComplexForm.ContextMenuStrip = this.cmsComplexForm;
-            this.cmdAddComplexForm.Location = new System.Drawing.Point(8, 25);
-            this.cmdAddComplexForm.Name = "cmdAddComplexForm";
-            this.cmdAddComplexForm.Size = new System.Drawing.Size(123, 23);
-            this.cmdAddComplexForm.SplitMenuStrip = this.cmsComplexForm;
-            this.cmdAddComplexForm.TabIndex = 147;
-            this.cmdAddComplexForm.Tag = "Button_AddComplexForm";
-            this.cmdAddComplexForm.Text = "Add Complex Form";
-            this.cmdAddComplexForm.UseVisualStyleBackColor = true;
-            this.cmdAddComplexForm.Click += new System.EventHandler(this.cmdAddComplexForm_Click);
             // 
             // tabCritter
             // 
@@ -6085,20 +6456,6 @@
             this.treCyberware.KeyDown += new System.Windows.Forms.KeyEventHandler(this.treCyberware_KeyDown);
             this.treCyberware.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeView_MouseDown);
             // 
-            // cmdAddCyberware
-            // 
-            this.cmdAddCyberware.AutoSize = true;
-            this.cmdAddCyberware.ContextMenuStrip = this.cmsCyberware;
-            this.cmdAddCyberware.Location = new System.Drawing.Point(8, 7);
-            this.cmdAddCyberware.Name = "cmdAddCyberware";
-            this.cmdAddCyberware.Size = new System.Drawing.Size(107, 23);
-            this.cmdAddCyberware.SplitMenuStrip = this.cmsCyberware;
-            this.cmdAddCyberware.TabIndex = 91;
-            this.cmdAddCyberware.Tag = "Button_AddCyberware";
-            this.cmdAddCyberware.Text = "&Add Cyberware";
-            this.cmdAddCyberware.UseVisualStyleBackColor = true;
-            this.cmdAddCyberware.Click += new System.EventHandler(this.cmdAddCyberware_Click);
-            // 
             // tabStreetGear
             // 
             this.tabStreetGear.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -6720,20 +7077,6 @@
             this.lblArmorAvailLabel.Tag = "Label_Avail";
             this.lblArmorAvailLabel.Text = "Avail:";
             // 
-            // cmdAddArmor
-            // 
-            this.cmdAddArmor.AutoSize = true;
-            this.cmdAddArmor.ContextMenuStrip = this.cmsArmor;
-            this.cmdAddArmor.Location = new System.Drawing.Point(6, 7);
-            this.cmdAddArmor.Name = "cmdAddArmor";
-            this.cmdAddArmor.Size = new System.Drawing.Size(84, 23);
-            this.cmdAddArmor.SplitMenuStrip = this.cmsArmor;
-            this.cmdAddArmor.TabIndex = 131;
-            this.cmdAddArmor.Tag = "Button_AddArmor";
-            this.cmdAddArmor.Text = "&Add Armor";
-            this.cmdAddArmor.UseVisualStyleBackColor = true;
-            this.cmdAddArmor.Click += new System.EventHandler(this.cmdAddArmor_Click);
-            // 
             // tabWeapons
             // 
             this.tabWeapons.BackColor = System.Drawing.SystemColors.Control;
@@ -7342,20 +7685,6 @@
             this.lblWeaponAvailLabel.Tag = "Label_Avail";
             this.lblWeaponAvailLabel.Text = "Avail:";
             // 
-            // cmdAddWeapon
-            // 
-            this.cmdAddWeapon.AutoSize = true;
-            this.cmdAddWeapon.ContextMenuStrip = this.cmsWeapon;
-            this.cmdAddWeapon.Location = new System.Drawing.Point(6, 7);
-            this.cmdAddWeapon.Name = "cmdAddWeapon";
-            this.cmdAddWeapon.Size = new System.Drawing.Size(98, 23);
-            this.cmdAddWeapon.SplitMenuStrip = this.cmsWeapon;
-            this.cmdAddWeapon.TabIndex = 154;
-            this.cmdAddWeapon.Tag = "Button_AddWeapon";
-            this.cmdAddWeapon.Text = "&Add Weapon";
-            this.cmdAddWeapon.UseVisualStyleBackColor = true;
-            this.cmdAddWeapon.Click += new System.EventHandler(this.cmdAddWeapon_Click);
-            // 
             // tabGear
             // 
             this.tabGear.BackColor = System.Drawing.SystemColors.Control;
@@ -7876,20 +8205,6 @@
             this.cmdDeleteGear.Text = "Delete";
             this.cmdDeleteGear.UseVisualStyleBackColor = true;
             this.cmdDeleteGear.Click += new System.EventHandler(this.cmdDeleteGear_Click);
-            // 
-            // cmdAddGear
-            // 
-            this.cmdAddGear.AutoSize = true;
-            this.cmdAddGear.ContextMenuStrip = this.cmsGearButton;
-            this.cmdAddGear.Location = new System.Drawing.Point(3, 7);
-            this.cmdAddGear.Name = "cmdAddGear";
-            this.cmdAddGear.Size = new System.Drawing.Size(80, 23);
-            this.cmdAddGear.SplitMenuStrip = this.cmsGearButton;
-            this.cmdAddGear.TabIndex = 145;
-            this.cmdAddGear.Tag = "Button_AddGear";
-            this.cmdAddGear.Text = "&Add Gear";
-            this.cmdAddGear.UseVisualStyleBackColor = true;
-            this.cmdAddGear.Click += new System.EventHandler(this.cmdAddGear_Click);
             // 
             // tabPets
             // 
@@ -8688,20 +9003,6 @@
             this.treVehicles.DragOver += new System.Windows.Forms.DragEventHandler(this.treVehicles_DragOver);
             this.treVehicles.KeyDown += new System.Windows.Forms.KeyEventHandler(this.treVehicles_KeyDown);
             this.treVehicles.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeView_MouseDown);
-            // 
-            // cmdAddVehicle
-            // 
-            this.cmdAddVehicle.AutoSize = true;
-            this.cmdAddVehicle.ContextMenuStrip = this.cmsVehicle;
-            this.cmdAddVehicle.Location = new System.Drawing.Point(8, 7);
-            this.cmdAddVehicle.Name = "cmdAddVehicle";
-            this.cmdAddVehicle.Size = new System.Drawing.Size(92, 23);
-            this.cmdAddVehicle.SplitMenuStrip = this.cmsVehicle;
-            this.cmdAddVehicle.TabIndex = 185;
-            this.cmdAddVehicle.Tag = "Button_AddVehicle";
-            this.cmdAddVehicle.Text = "&Add Vehicle";
-            this.cmdAddVehicle.UseVisualStyleBackColor = true;
-            this.cmdAddVehicle.Click += new System.EventHandler(this.cmdAddVehicle_Click);
             // 
             // tabCharacterInfo
             // 
@@ -9754,25 +10055,117 @@
             this.tssLimitModifierNotes.Text = "&Notes";
             this.tssLimitModifierNotes.Click += new System.EventHandler(this.tssLimitModifierNotes_Click);
             // 
-            // label5
+            // cmdAddMartialArt
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(328, 111);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 13);
-            this.label5.TabIndex = 78;
-            this.label5.Tag = "Node_Astral";
-            this.label5.Text = "Astral";
-            this.tipTooltip.SetToolTip(this.label5, "An A.I.\'s Firewall is the average of their CHA and WIL Attributes.");
+            this.cmdAddMartialArt.AutoSize = true;
+            this.cmdAddMartialArt.ContextMenuStrip = this.cmsMartialArts;
+            this.cmdAddMartialArt.Location = new System.Drawing.Point(8, 6);
+            this.cmdAddMartialArt.Name = "cmdAddMartialArt";
+            this.cmdAddMartialArt.Size = new System.Drawing.Size(107, 23);
+            this.cmdAddMartialArt.SplitMenuStrip = this.cmsMartialArts;
+            this.cmdAddMartialArt.TabIndex = 55;
+            this.cmdAddMartialArt.Tag = "Button_AddMartialArt";
+            this.cmdAddMartialArt.Text = "&Add Martial Art";
+            this.cmdAddMartialArt.UseVisualStyleBackColor = true;
+            this.cmdAddMartialArt.Click += new System.EventHandler(this.cmdAddMartialArt_Click);
             // 
-            // lblAstral
+            // cmdAddSpell
             // 
-            this.lblAstral.AutoSize = true;
-            this.lblAstral.Location = new System.Drawing.Point(411, 111);
-            this.lblAstral.Name = "lblAstral";
-            this.lblAstral.Size = new System.Drawing.Size(19, 13);
-            this.lblAstral.TabIndex = 79;
-            this.lblAstral.Text = "[0]";
+            this.cmdAddSpell.AutoSize = true;
+            this.cmdAddSpell.ContextMenuStrip = this.cmsSpellButton;
+            this.cmdAddSpell.Location = new System.Drawing.Point(8, 26);
+            this.cmdAddSpell.Name = "cmdAddSpell";
+            this.cmdAddSpell.Size = new System.Drawing.Size(80, 23);
+            this.cmdAddSpell.SplitMenuStrip = this.cmsSpellButton;
+            this.cmdAddSpell.TabIndex = 140;
+            this.cmdAddSpell.Tag = "Button_AddSpell";
+            this.cmdAddSpell.Text = "&Add Spell";
+            this.cmdAddSpell.UseVisualStyleBackColor = true;
+            this.cmdAddSpell.Click += new System.EventHandler(this.cmdAddSpell_Click);
+            // 
+            // cmdAddComplexForm
+            // 
+            this.cmdAddComplexForm.AutoSize = true;
+            this.cmdAddComplexForm.ContextMenuStrip = this.cmsComplexForm;
+            this.cmdAddComplexForm.Location = new System.Drawing.Point(8, 25);
+            this.cmdAddComplexForm.Name = "cmdAddComplexForm";
+            this.cmdAddComplexForm.Size = new System.Drawing.Size(123, 23);
+            this.cmdAddComplexForm.SplitMenuStrip = this.cmsComplexForm;
+            this.cmdAddComplexForm.TabIndex = 147;
+            this.cmdAddComplexForm.Tag = "Button_AddComplexForm";
+            this.cmdAddComplexForm.Text = "Add Complex Form";
+            this.cmdAddComplexForm.UseVisualStyleBackColor = true;
+            this.cmdAddComplexForm.Click += new System.EventHandler(this.cmdAddComplexForm_Click);
+            // 
+            // cmdAddCyberware
+            // 
+            this.cmdAddCyberware.AutoSize = true;
+            this.cmdAddCyberware.ContextMenuStrip = this.cmsCyberware;
+            this.cmdAddCyberware.Location = new System.Drawing.Point(8, 7);
+            this.cmdAddCyberware.Name = "cmdAddCyberware";
+            this.cmdAddCyberware.Size = new System.Drawing.Size(107, 23);
+            this.cmdAddCyberware.SplitMenuStrip = this.cmsCyberware;
+            this.cmdAddCyberware.TabIndex = 91;
+            this.cmdAddCyberware.Tag = "Button_AddCyberware";
+            this.cmdAddCyberware.Text = "&Add Cyberware";
+            this.cmdAddCyberware.UseVisualStyleBackColor = true;
+            this.cmdAddCyberware.Click += new System.EventHandler(this.cmdAddCyberware_Click);
+            // 
+            // cmdAddArmor
+            // 
+            this.cmdAddArmor.AutoSize = true;
+            this.cmdAddArmor.ContextMenuStrip = this.cmsArmor;
+            this.cmdAddArmor.Location = new System.Drawing.Point(6, 7);
+            this.cmdAddArmor.Name = "cmdAddArmor";
+            this.cmdAddArmor.Size = new System.Drawing.Size(84, 23);
+            this.cmdAddArmor.SplitMenuStrip = this.cmsArmor;
+            this.cmdAddArmor.TabIndex = 131;
+            this.cmdAddArmor.Tag = "Button_AddArmor";
+            this.cmdAddArmor.Text = "&Add Armor";
+            this.cmdAddArmor.UseVisualStyleBackColor = true;
+            this.cmdAddArmor.Click += new System.EventHandler(this.cmdAddArmor_Click);
+            // 
+            // cmdAddWeapon
+            // 
+            this.cmdAddWeapon.AutoSize = true;
+            this.cmdAddWeapon.ContextMenuStrip = this.cmsWeapon;
+            this.cmdAddWeapon.Location = new System.Drawing.Point(6, 7);
+            this.cmdAddWeapon.Name = "cmdAddWeapon";
+            this.cmdAddWeapon.Size = new System.Drawing.Size(98, 23);
+            this.cmdAddWeapon.SplitMenuStrip = this.cmsWeapon;
+            this.cmdAddWeapon.TabIndex = 154;
+            this.cmdAddWeapon.Tag = "Button_AddWeapon";
+            this.cmdAddWeapon.Text = "&Add Weapon";
+            this.cmdAddWeapon.UseVisualStyleBackColor = true;
+            this.cmdAddWeapon.Click += new System.EventHandler(this.cmdAddWeapon_Click);
+            // 
+            // cmdAddGear
+            // 
+            this.cmdAddGear.AutoSize = true;
+            this.cmdAddGear.ContextMenuStrip = this.cmsGearButton;
+            this.cmdAddGear.Location = new System.Drawing.Point(3, 7);
+            this.cmdAddGear.Name = "cmdAddGear";
+            this.cmdAddGear.Size = new System.Drawing.Size(80, 23);
+            this.cmdAddGear.SplitMenuStrip = this.cmsGearButton;
+            this.cmdAddGear.TabIndex = 145;
+            this.cmdAddGear.Tag = "Button_AddGear";
+            this.cmdAddGear.Text = "&Add Gear";
+            this.cmdAddGear.UseVisualStyleBackColor = true;
+            this.cmdAddGear.Click += new System.EventHandler(this.cmdAddGear_Click);
+            // 
+            // cmdAddVehicle
+            // 
+            this.cmdAddVehicle.AutoSize = true;
+            this.cmdAddVehicle.ContextMenuStrip = this.cmsVehicle;
+            this.cmdAddVehicle.Location = new System.Drawing.Point(8, 7);
+            this.cmdAddVehicle.Name = "cmdAddVehicle";
+            this.cmdAddVehicle.Size = new System.Drawing.Size(92, 23);
+            this.cmdAddVehicle.SplitMenuStrip = this.cmsVehicle;
+            this.cmdAddVehicle.TabIndex = 185;
+            this.cmdAddVehicle.Tag = "Button_AddVehicle";
+            this.cmdAddVehicle.Text = "&Add Vehicle";
+            this.cmdAddVehicle.UseVisualStyleBackColor = true;
+            this.cmdAddVehicle.Click += new System.EventHandler(this.cmdAddVehicle_Click);
             // 
             // frmCreate
             // 
@@ -9850,6 +10243,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudMysticAdeptMAGMagician)).EndInit();
             this.panAttributes.ResumeLayout(false);
             this.panAttributes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKRES)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKMAG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKEDG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKWIL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKLOG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKINT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKCHA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKSTR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKREA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKAGI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKBOD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRES)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMAG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEDG)).EndInit();
@@ -9923,7 +10327,6 @@
             this.PerformLayout();
 
         }
-
         #endregion
 
         internal System.Windows.Forms.StatusStrip StatusStrip;
@@ -10601,11 +11004,11 @@
         private System.Windows.Forms.Button cmdDeleteLimitModifier;
         private System.Windows.Forms.ContextMenuStrip cmsLimitModifier;
         private System.Windows.Forms.ToolStripMenuItem tssLimitModifierNotes;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblSocialLabel;
         private System.Windows.Forms.Label lblSocial;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblMentalLabel;
         private System.Windows.Forms.Label lblMental;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblPhysicalLabel;
         private System.Windows.Forms.Label lblPhysical;
         private System.Windows.Forms.Label lblWeaponAccuracy;
         private System.Windows.Forms.Label lblWeaponAccuracyLabel;
@@ -10713,8 +11116,39 @@
         private System.Windows.Forms.Label lblArmorAttackLabel;
         private System.Windows.Forms.Label lblArmorDeviceRating;
         private System.Windows.Forms.Label lblArmorDeviceRatingLabel;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblAstralLabel;
         private System.Windows.Forms.Label lblAstral;
+        private System.Windows.Forms.ComboBox cboDrain;
+        private System.Windows.Forms.TextBox txtTraditionName;
+        private System.Windows.Forms.Label lblTraditionName;
+        private System.Windows.Forms.ComboBox cboSpiritCombat;
+        private System.Windows.Forms.Label lblSpiritCombat;
+        private System.Windows.Forms.ComboBox cboSpiritManipulation;
+        private System.Windows.Forms.Label lblSpiritManipulation;
+        private System.Windows.Forms.ComboBox cboSpiritIllusion;
+        private System.Windows.Forms.Label lblSpiritIllusion;
+        private System.Windows.Forms.ComboBox cboSpiritHealth;
+        private System.Windows.Forms.Label lblSpiritHealth;
+        private System.Windows.Forms.ComboBox cboSpiritDetection;
+        private System.Windows.Forms.Label lblSpiritDetection;
+        private System.Windows.Forms.Label label7;
+        internal System.Windows.Forms.NumericUpDown nudKRES;
+        internal System.Windows.Forms.NumericUpDown nudKMAG;
+        internal System.Windows.Forms.NumericUpDown nudKEDG;
+        internal System.Windows.Forms.NumericUpDown nudKWIL;
+        internal System.Windows.Forms.NumericUpDown nudKLOG;
+        internal System.Windows.Forms.NumericUpDown nudKINT;
+        internal System.Windows.Forms.NumericUpDown nudKCHA;
+        internal System.Windows.Forms.NumericUpDown nudKSTR;
+        internal System.Windows.Forms.NumericUpDown nudKREA;
+        internal System.Windows.Forms.NumericUpDown nudKAGI;
+        internal System.Windows.Forms.NumericUpDown nudKBOD;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
     }
 }
 

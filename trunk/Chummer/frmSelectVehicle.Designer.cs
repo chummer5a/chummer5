@@ -370,6 +370,7 @@
             this.chkUsedVehicle.Tag = "Checkbox_SelectVehicle_UsedVehicle";
             this.chkUsedVehicle.Text = "Used Vehicle";
             this.chkUsedVehicle.UseVisualStyleBackColor = true;
+            this.chkUsedVehicle.Visible = false;
             this.chkUsedVehicle.CheckedChanged += new System.EventHandler(this.chkUsedVehicle_CheckedChanged);
             // 
             // lblUsedVehicleDiscountLabel
@@ -381,6 +382,7 @@
             this.lblUsedVehicleDiscountLabel.TabIndex = 23;
             this.lblUsedVehicleDiscountLabel.Tag = "Label_SelectVehicle_Discount";
             this.lblUsedVehicleDiscountLabel.Text = "Discount:";
+            this.lblUsedVehicleDiscountLabel.Visible = false;
             // 
             // nudUsedVehicleDiscount
             // 
@@ -403,6 +405,7 @@
             0,
             0,
             0});
+            this.nudUsedVehicleDiscount.Visible = false;
             this.nudUsedVehicleDiscount.ValueChanged += new System.EventHandler(this.nudUsedVehicleDiscount_ValueChanged);
             // 
             // lblUsedVehicleDiscountPercentLabel
@@ -413,6 +416,7 @@
             this.lblUsedVehicleDiscountPercentLabel.Size = new System.Drawing.Size(15, 13);
             this.lblUsedVehicleDiscountPercentLabel.TabIndex = 25;
             this.lblUsedVehicleDiscountPercentLabel.Text = "%";
+            this.lblUsedVehicleDiscountPercentLabel.Visible = false;
             // 
             // nudMarkup
             // 

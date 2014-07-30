@@ -791,6 +791,9 @@ namespace Chummer
         private bool _blnKnucksUseUnarmed = false;
         private bool _blnIgnoreArt = false;
         private bool _blnCyberlegMovement = false;
+        private bool _blnAllow2ndMaxAttribute = false;
+        private bool _blnAllowAttributePointsOnExceptional = false;
+        private bool _blnDontDoubleQualityCost = false;
 		private string _strBookXPath = "";
 		private int _intNuyenPerBP = 5000;
 		private int _intFreeContactsMultiplier = 2;
@@ -940,10 +943,16 @@ namespace Chummer
 			objWriter.WriteElementString("nuyenperbp", _intNuyenPerBP.ToString());
 			// <knucksuseunarmed />
             objWriter.WriteElementString("knucksuseunarmed", _blnKnucksUseUnarmed.ToString());
+            // <dontdoublequalities />
+            objWriter.WriteElementString("dontdoublequalities", _blnDontDoubleQualityCost.ToString());
             // <ignoreart />
             objWriter.WriteElementString("ignoreart", _blnIgnoreArt.ToString());
             // <cyberlegmovement />
             objWriter.WriteElementString("cyberlegmovement", _blnCyberlegMovement.ToString());
+            // <allow2ndmaxattribute />
+            objWriter.WriteElementString("allow2ndmaxattribute", _blnAllow2ndMaxAttribute.ToString());
+            // <allowattributepointsonexceptional />
+            objWriter.WriteElementString("allowattributepointsonexceptional", _blnAllowAttributePointsOnExceptional.ToString());
             // <freekarmacontactsmultiplier />
 			objWriter.WriteElementString("freekarmacontactsmultiplier", _intFreeContactsMultiplier.ToString());
 			// <freecontactsflat />
@@ -1273,6 +1282,13 @@ namespace Chummer
             }
             catch
             { }
+            // Don't Double the Cost of Qualities in Career Mode
+            try
+            {
+                _blnDontDoubleQualityCost = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/dontdoublequalities").InnerText);
+            }
+            catch
+            { }
             // Ignore Art Requirements from Street Grimoire
             try
             {
@@ -1284,6 +1300,20 @@ namespace Chummer
             try
             {
                 _blnCyberlegMovement = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/cyberlegmovement").InnerText);
+            }
+            catch
+            { }
+            // Allow a 2nd Max Attribute
+            try
+            {
+                _blnAllow2ndMaxAttribute = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/allow2ndmaxattribute").InnerText);
+            }
+            catch
+            { }
+            // Allow using Attribute Points with Exceptional Attribute
+            try
+            {
+                _blnAllowAttributePointsOnExceptional = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/allowattributepointsonexceptional").InnerText);
             }
             catch
             { }
@@ -2346,6 +2376,21 @@ namespace Chummer
 		}
 
         /// <summary>
+        /// Whether or not characters in Career Mode should pay double for qualities.
+        /// </summary>
+        public bool DontDoubleQualities
+        {
+            get
+            {
+                return _blnDontDoubleQualityCost;
+            }
+            set
+            {
+                _blnDontDoubleQualityCost = value;
+            }
+        }
+
+        /// <summary>
         /// Whether or not to ignore the art requirements from street grimoire.
         /// </summary>
         public bool IgnoreArt
@@ -2372,6 +2417,36 @@ namespace Chummer
             set
             {
                 _blnCyberlegMovement = value;
+            }
+        }
+
+        /// <summary>
+        /// Whether or not to allow a 2nd max attribute with Exceptional Attribute
+        /// </summary>
+        public bool Allow2ndMaxAttribute
+        {
+            get
+            {
+                return _blnAllow2ndMaxAttribute;
+            }
+            set
+            {
+                _blnAllow2ndMaxAttribute = value;
+            }
+        }
+
+        /// <summary>
+        /// Whether or not to allow using Attribute points on the bonus point from Exceptional Attribute
+        /// </summary>
+        public bool AllowAttributePointsOnExceptional
+        {
+            get
+            {
+                return _blnAllowAttributePointsOnExceptional;
+            }
+            set
+            {
+                _blnAllowAttributePointsOnExceptional = value;
             }
         }
 

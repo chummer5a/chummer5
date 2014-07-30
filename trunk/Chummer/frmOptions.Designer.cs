@@ -218,12 +218,15 @@
             this.chkCapSkillRating = new System.Windows.Forms.CheckBox();
             this.chkNoSingleArmorEncumbrance = new System.Windows.Forms.CheckBox();
             this.tabHouseRules = new System.Windows.Forms.TabPage();
+            this.chkCyberlegMovement = new System.Windows.Forms.CheckBox();
             this.chkIgnoreArt = new System.Windows.Forms.CheckBox();
             this.cboSetting = new System.Windows.Forms.ComboBox();
             this.lblSetting = new System.Windows.Forms.Label();
             this.lblSettingName = new System.Windows.Forms.Label();
             this.txtSettingName = new System.Windows.Forms.TextBox();
-            this.chkCyberlegMovement = new System.Windows.Forms.CheckBox();
+            this.chkExceptionalAttributes = new System.Windows.Forms.CheckBox();
+            this.chkExceptionalNotMaxed = new System.Windows.Forms.CheckBox();
+            this.chkDontDoubleQualities = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaComplexFormOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaMetamagic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaInitiation)).BeginInit();
@@ -2381,6 +2384,9 @@
             // tabHouseRules
             // 
             this.tabHouseRules.BackColor = System.Drawing.SystemColors.Control;
+            this.tabHouseRules.Controls.Add(this.chkDontDoubleQualities);
+            this.tabHouseRules.Controls.Add(this.chkExceptionalNotMaxed);
+            this.tabHouseRules.Controls.Add(this.chkExceptionalAttributes);
             this.tabHouseRules.Controls.Add(this.chkCyberlegMovement);
             this.tabHouseRules.Controls.Add(this.chkIgnoreArt);
             this.tabHouseRules.Controls.Add(this.chkKnucks);
@@ -2390,6 +2396,17 @@
             this.tabHouseRules.TabIndex = 3;
             this.tabHouseRules.Tag = "Tab_Options_HouseRules";
             this.tabHouseRules.Text = "House Rules";
+            // 
+            // chkCyberlegMovement
+            // 
+            this.chkCyberlegMovement.AutoSize = true;
+            this.chkCyberlegMovement.Location = new System.Drawing.Point(8, 49);
+            this.chkCyberlegMovement.Name = "chkCyberlegMovement";
+            this.chkCyberlegMovement.Size = new System.Drawing.Size(184, 17);
+            this.chkCyberlegMovement.TabIndex = 2;
+            this.chkCyberlegMovement.Tag = "Checkbox_Options_CyberlegMovement";
+            this.chkCyberlegMovement.Text = "Use Cyberleg Stats for Movement";
+            this.chkCyberlegMovement.UseVisualStyleBackColor = true;
             // 
             // chkIgnoreArt
             // 
@@ -2439,16 +2456,38 @@
             this.txtSettingName.Size = new System.Drawing.Size(190, 20);
             this.txtSettingName.TabIndex = 3;
             // 
-            // chkCyberlegMovement
+            // chkExceptionalAttributes
             // 
-            this.chkCyberlegMovement.AutoSize = true;
-            this.chkCyberlegMovement.Location = new System.Drawing.Point(8, 49);
-            this.chkCyberlegMovement.Name = "chkCyberlegMovement";
-            this.chkCyberlegMovement.Size = new System.Drawing.Size(184, 17);
-            this.chkCyberlegMovement.TabIndex = 2;
-            this.chkCyberlegMovement.Tag = "Checkbox_Options_CyberlegMovement";
-            this.chkCyberlegMovement.Text = "Use Cyberleg Stats for Movement";
-            this.chkCyberlegMovement.UseVisualStyleBackColor = true;
+            this.chkExceptionalAttributes.AutoSize = true;
+            this.chkExceptionalAttributes.Location = new System.Drawing.Point(332, 3);
+            this.chkExceptionalAttributes.Name = "chkExceptionalAttributes";
+            this.chkExceptionalAttributes.Size = new System.Drawing.Size(283, 17);
+            this.chkExceptionalAttributes.TabIndex = 3;
+            this.chkExceptionalAttributes.Tag = "Checkbox_Options_ExceptionalAttributes";
+            this.chkExceptionalAttributes.Text = "Attribute Points may be spent on Exceptional Attributes";
+            this.chkExceptionalAttributes.UseVisualStyleBackColor = true;
+            // 
+            // chkExceptionalNotMaxed
+            // 
+            this.chkExceptionalNotMaxed.AutoSize = true;
+            this.chkExceptionalNotMaxed.Location = new System.Drawing.Point(332, 26);
+            this.chkExceptionalNotMaxed.Name = "chkExceptionalNotMaxed";
+            this.chkExceptionalNotMaxed.Size = new System.Drawing.Size(252, 17);
+            this.chkExceptionalNotMaxed.TabIndex = 4;
+            this.chkExceptionalNotMaxed.Tag = "Checkbox_Options_ExceptionalNotMaxed";
+            this.chkExceptionalNotMaxed.Text = "Exceptional Attributes not at cap, are not maxed";
+            this.chkExceptionalNotMaxed.UseVisualStyleBackColor = true;
+            // 
+            // chkDontDoubleQualities
+            // 
+            this.chkDontDoubleQualities.AutoSize = true;
+            this.chkDontDoubleQualities.Location = new System.Drawing.Point(8, 72);
+            this.chkDontDoubleQualities.Name = "chkDontDoubleQualities";
+            this.chkDontDoubleQualities.Size = new System.Drawing.Size(257, 17);
+            this.chkDontDoubleQualities.TabIndex = 5;
+            this.chkDontDoubleQualities.Tag = "Checkbox_Options_DontDoubleQualities";
+            this.chkDontDoubleQualities.Text = "Don\'t double the cost of Qualities in Career Mode";
+            this.chkDontDoubleQualities.UseVisualStyleBackColor = true;
             // 
             // frmOptions
             // 
@@ -2734,5 +2773,8 @@
         private System.Windows.Forms.CheckBox chkUseLogging;
         private System.Windows.Forms.CheckBox chkIgnoreArt;
         private System.Windows.Forms.CheckBox chkCyberlegMovement;
+        private System.Windows.Forms.CheckBox chkExceptionalNotMaxed;
+        private System.Windows.Forms.CheckBox chkExceptionalAttributes;
+        private System.Windows.Forms.CheckBox chkDontDoubleQualities;
 	}
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-491</version>
+	<version>-490</version>
 	<categories>
 		<category>Blades</category>
 		<category>Clubs</category>
@@ -5046,7 +5046,7 @@
 			<accuracy>5</accuracy>
 			<reach>0</reach>
 			<damage>10P</damage>
-			<ap>-</ap>
+			<ap>-3</ap>
 			<mode>SA</mode>
 			<rc>0</rc>
 			<ammo>6(m)</ammo>

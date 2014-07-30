@@ -404,19 +404,49 @@ namespace Chummer
 				objXmlDocument = XmlManager.Instance.Load("streams.xml");
 			objXmlCritterDocument = XmlManager.Instance.Load("critters.xml");
 
-			List<ListItem> lstCritters = new List<ListItem>();
-			foreach (XmlNode objXmlSpirit in objXmlDocument.SelectNodes("/chummer/traditions/tradition[name = \"" + strTradition + "\"]/spirits/spirit"))
-			{
-				ListItem objItem = new ListItem();
-				objItem.Value = objXmlSpirit.InnerText;
-				XmlNode objXmlCritterNode = objXmlCritterDocument.SelectSingleNode("/chummer/metatypes/metatype[name = \"" + objXmlSpirit.InnerText + "\"]");
-				if (objXmlCritterNode["translate"] != null)
-					objItem.Name = objXmlCritterNode["translate"].InnerText;
-				else
-					objItem.Name = objXmlSpirit.InnerText;
+            List<ListItem> lstCritters = new List<ListItem>();
+            if (strTradition == "Custom")
+            {
+                ListItem objCombat = new ListItem();
+                objCombat.Value = _objSpirit.CharacterObject.SpiritCombat;
+                objCombat.Name = _objSpirit.CharacterObject.SpiritCombat;
+                lstCritters.Add(objCombat);
 
-				lstCritters.Add(objItem);
-			}
+                ListItem objDetection = new ListItem();
+                objDetection.Value = _objSpirit.CharacterObject.SpiritDetection;
+                objDetection.Name = _objSpirit.CharacterObject.SpiritDetection;
+                lstCritters.Add(objDetection);
+
+                ListItem objHealth = new ListItem();
+                objHealth.Value = _objSpirit.CharacterObject.SpiritHealth;
+                objHealth.Name = _objSpirit.CharacterObject.SpiritHealth;
+                lstCritters.Add(objHealth);
+
+                ListItem objIllusion = new ListItem();
+                objIllusion.Value = _objSpirit.CharacterObject.SpiritIllusion;
+                objIllusion.Name = _objSpirit.CharacterObject.SpiritIllusion;
+                lstCritters.Add(objIllusion);
+
+                ListItem objManipulation = new ListItem();
+                objManipulation.Value = _objSpirit.CharacterObject.SpiritManipulation;
+                objManipulation.Name = _objSpirit.CharacterObject.SpiritManipulation;
+                lstCritters.Add(objManipulation);
+            }
+            else
+            {
+                foreach (XmlNode objXmlSpirit in objXmlDocument.SelectNodes("/chummer/traditions/tradition[name = \"" + strTradition + "\"]/spirits/spirit"))
+                {
+                    ListItem objItem = new ListItem();
+                    objItem.Value = objXmlSpirit.InnerText;
+                    XmlNode objXmlCritterNode = objXmlCritterDocument.SelectSingleNode("/chummer/metatypes/metatype[name = \"" + objXmlSpirit.InnerText + "\"]");
+                    if (objXmlCritterNode["translate"] != null)
+                        objItem.Name = objXmlCritterNode["translate"].InnerText;
+                    else
+                        objItem.Name = objXmlSpirit.InnerText;
+
+                    lstCritters.Add(objItem);
+                }
+            }
 
 			if (_objSpirit.CharacterObject.RESEnabled)
 			{

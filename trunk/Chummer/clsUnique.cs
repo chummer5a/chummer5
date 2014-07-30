@@ -18,6 +18,8 @@ namespace Chummer
 		private int _intMetatypeAugMax = 9;
 		private int _intValue = 1;
 		private int _intAugModifier = 0;
+        private int _intBase = 0;
+        private int _intKarma = 0;
 		private string _strAbbrev = "";
 
 		public Character _objCharacter;
@@ -44,7 +46,9 @@ namespace Chummer
 			objWriter.WriteElementString("metatypemax", _intMetatypeMax.ToString());
 			objWriter.WriteElementString("metatypeaugmax", _intMetatypeAugMax.ToString());
 			objWriter.WriteElementString("value", _intValue.ToString());
-			objWriter.WriteElementString("augmodifier", _intAugModifier.ToString());
+            objWriter.WriteElementString("base", _intBase.ToString());
+            objWriter.WriteElementString("karma", _intKarma.ToString());
+            objWriter.WriteElementString("augmodifier", _intAugModifier.ToString());
 			// External reader friendly stuff.
 			objWriter.WriteElementString("totalvalue", TotalValue.ToString());
 			objWriter.WriteEndElement();
@@ -60,8 +64,21 @@ namespace Chummer
 			_intMetatypeMin = Convert.ToInt32(objNode["metatypemin"].InnerText);
 			_intMetatypeMax = Convert.ToInt32(objNode["metatypemax"].InnerText);
 			_intMetatypeAugMax = Convert.ToInt32(objNode["metatypeaugmax"].InnerText);
-			_intValue = Convert.ToInt32(objNode["value"].InnerText);
+            try
+            {
+                _intBase = Convert.ToInt32(objNode["base"].InnerText);
+            }
+            catch { }
+            try
+            {
+                _intKarma = Convert.ToInt32(objNode["karma"].InnerText);
+            }
+            catch { }
+            _intValue = Convert.ToInt32(objNode["value"].InnerText);
 			_intAugModifier = Convert.ToInt32(objNode["augmodifier"].InnerText);
+
+            if (_intBase == 0)
+                _intBase = _intValue;
 		}
 
 		/// <summary>
@@ -134,7 +151,37 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Current base value of the Attribute.
+        /// </summary>
+        public int Base
+        {
+            get
+            {
+                return _intBase;
+            }
+            set
+            {
+                _intBase = value;
+            }
+        }
+
+        /// <summary>
+        /// Current karma value of the Attribute.
+        /// </summary>
+        public int Karma
+        {
+            get
+            {
+                return _intKarma;
+            }
+            set
+            {
+                _intKarma = value;
+            }
+        }
+
+        /// <summary>
 		/// Current value of the Attribute.
 		/// </summary>
 		public int Value
@@ -1513,6 +1560,8 @@ namespace Chummer
 	{
 		private string _strName = "";
 		private int _intRating = 0;
+        private int _intBase = 0;
+        private int _intKarma = 0;
 		private int _intRatingMaximum = 6;
 		private bool _blnBroken = false;
         private int _intFreeLevels = 0;
@@ -1527,6 +1576,8 @@ namespace Chummer
 			objWriter.WriteStartElement("skillgroup");
 			objWriter.WriteElementString("name", _strName);
 			objWriter.WriteElementString("rating", _intRating.ToString());
+            objWriter.WriteElementString("base", _intBase.ToString());
+            objWriter.WriteElementString("karma", _intKarma.ToString());
             objWriter.WriteElementString("freelevels", _intFreeLevels.ToString());
             objWriter.WriteElementString("ratingmax", _intRatingMaximum.ToString());
 			objWriter.WriteElementString("broken", _blnBroken.ToString());
@@ -1545,6 +1596,20 @@ namespace Chummer
             try
             {
                 _intFreeLevels = Convert.ToInt32(objNode["freelevels"].InnerText);
+            }
+            catch
+            {
+            }
+            try
+            {
+                _intBase = Convert.ToInt32(objNode["base"].InnerText);
+            }
+            catch
+            {
+            }
+            try
+            {
+                _intKarma = Convert.ToInt32(objNode["karma"].InnerText);
             }
             catch
             {
@@ -1613,6 +1678,36 @@ namespace Chummer
 				_intRating = value;
 			}
 		}
+
+        /// <summary>
+        /// Skill Group's base rating.
+        /// </summary>
+        public int Base
+        {
+            get
+            {
+                return _intBase;
+            }
+            set
+            {
+                _intBase = value;
+            }
+        }
+
+        /// <summary>
+        /// Skill Group's karma rating.
+        /// </summary>
+        public int Karma
+        {
+            get
+            {
+                return _intKarma;
+            }
+            set
+            {
+                _intKarma = value;
+            }
+        }
 
         /// <summary>
         /// Skill Group's free levels.
@@ -1763,6 +1858,8 @@ namespace Chummer
 		private bool _blnDefault = false;
 		private string _strName = "";
 		private int _intRating = 0;
+        private int _intBase = 0;
+        private int _intKarma = 0;
         private int _intFreeLevels = 0;
 		private int _intRatingMaximum = 6;
 		private bool _blnKnowledgeSkill = false;
@@ -1794,6 +1891,8 @@ namespace Chummer
 			objWriter.WriteElementString("grouped", _blnIsGrouped.ToString());
 			objWriter.WriteElementString("default", _blnDefault.ToString());
 			objWriter.WriteElementString("rating", _intRating.ToString());
+            objWriter.WriteElementString("base", _intBase.ToString());
+            objWriter.WriteElementString("karma", _intKarma.ToString());
             objWriter.WriteElementString("freelevels", _intFreeLevels.ToString());
             objWriter.WriteElementString("ratingmax", _intRatingMaximum.ToString());
 			objWriter.WriteElementString("knowledge", _blnKnowledgeSkill.ToString());
@@ -1820,6 +1919,22 @@ namespace Chummer
 			_blnIsGrouped = Convert.ToBoolean(objNode["grouped"].InnerText);
 			_blnDefault = Convert.ToBoolean(objNode["default"].InnerText);
 			_intRating = Convert.ToInt32(objNode["rating"].InnerText);
+            try
+            {
+                _intBase = Convert.ToInt32(objNode["base"].InnerText);
+            }
+            catch
+            {
+                _intBase = _intRating;
+            }
+            try
+            {
+                _intKarma = Convert.ToInt32(objNode["karma"].InnerText);
+            }
+            catch
+            {
+                _intKarma = 0;
+            }
             _intFreeLevels = Convert.ToInt32(objNode["freelevels"].InnerText);
             _intRatingMaximum = Convert.ToInt32(objNode["ratingmax"].InnerText);
 			_blnKnowledgeSkill = Convert.ToBoolean(objNode["knowledge"].InnerText);
@@ -1920,7 +2035,25 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// The Character object being used by the Skill.
+        /// </summary>
+        public SkillGroup SkillGroupObject
+        {
+            get
+            {
+                foreach (SkillGroup objGroup in _objCharacter.SkillGroups)
+                {
+                    if (objGroup.Name == _strSkillGroup)
+                    {
+                        return objGroup;
+                    }
+                }
+                return null;
+            }
+        }
+
+        /// <summary>
 		/// Skill's name.
 		/// </summary>
 		public string Name
@@ -1976,6 +2109,36 @@ namespace Chummer
 				_intRating = value;
 			}
 		}
+
+        /// <summary>
+        /// Skill's current base rating.
+        /// </summary>
+        public int Base
+        {
+            get
+            {
+                return _intBase;
+            }
+            set
+            {
+                _intBase = value;
+            }
+        }
+
+        /// <summary>
+        /// Skill's current karma rating.
+        /// </summary>
+        public int Karma
+        {
+            get
+            {
+                return _intKarma;
+            }
+            set
+            {
+                _intKarma = value;
+            }
+        }
 
         /// <summary>
         /// Skill's current rating.
@@ -4391,14 +4554,35 @@ namespace Chummer
 				int intReturn = 0;
 				foreach (Skill objSkill in _objCharacter.Skills)
 				{
-					if (objSkill.Name == "Spellcasting")
+                    if (objSkill.Name == "Spellcasting" && !_blnAlchemical && _strCategory != "Rituals" && _strCategory != "Enchantments")
 					{
 						intReturn = objSkill.TotalRating;
 						// Add any Specialization bonus if applicable.
 						if (objSkill.Specialization == _strCategory)
 							intReturn += 2;
 					}
-				}
+                    if (objSkill.Name == "Ritual Spellcasting" && !_blnAlchemical && _strCategory == "Rituals")
+                    {
+                        intReturn = objSkill.TotalRating;
+                        // Add any Specialization bonus if applicable.
+                        if (objSkill.Specialization == _strCategory)
+                            intReturn += 2;
+                    }
+                    if (objSkill.Name == "Artificing" && !_blnAlchemical && _strCategory == "Enchantments")
+                    {
+                        intReturn = objSkill.TotalRating;
+                        // Add any Specialization bonus if applicable.
+                        if (objSkill.Specialization == _strCategory)
+                            intReturn += 2;
+                    }
+                    if (objSkill.Name == "Alchemy" && _blnAlchemical)
+                    {
+                        intReturn = objSkill.TotalRating;
+                        // Add any Specialization bonus if applicable.
+                        if (objSkill.Specialization == _strCategory)
+                            intReturn += 2;
+                    }
+                }
 
 				// Include any Improvements to the Spell Category.
 				ImprovementManager objImprovementManager = new ImprovementManager(_objCharacter);
@@ -4419,14 +4603,35 @@ namespace Chummer
 
 				foreach (Skill objSkill in _objCharacter.Skills)
 				{
-					if (objSkill.Name == "Spellcasting")
-					{
-						strReturn = objSkill.DisplayName + " (" + objSkill.TotalRating.ToString() + ")";
-						// Add any Specialization bonus if applicable.
-						if (objSkill.Specialization == _strCategory)
-							strReturn += " + " + LanguageManager.Instance.GetString("String_ExpenseSpecialization") + ": " + DisplayCategory + " (2)";
-					}
-				}
+                    if (objSkill.Name == "Spellcasting" && !_blnAlchemical && _strCategory != "Rituals" && _strCategory != "Enchantments")
+                    {
+                        strReturn = objSkill.DisplayName + " (" + objSkill.TotalRating.ToString() + ")";
+                        // Add any Specialization bonus if applicable.
+                        if (objSkill.Specialization == _strCategory)
+                            strReturn += " + " + LanguageManager.Instance.GetString("String_ExpenseSpecialization") + ": " + DisplayCategory + " (2)";
+                    }
+                    if (objSkill.Name == "Ritual Spellcasting" && !_blnAlchemical && _strCategory == "Rituals")
+                    {
+                        strReturn = objSkill.DisplayName + " (" + objSkill.TotalRating.ToString() + ")";
+                        // Add any Specialization bonus if applicable.
+                        if (objSkill.Specialization == _strCategory)
+                            strReturn += " + " + LanguageManager.Instance.GetString("String_ExpenseSpecialization") + ": " + DisplayCategory + " (2)";
+                    }
+                    if (objSkill.Name == "Artificing" && !_blnAlchemical && _strCategory == "Enchantments")
+                    {
+                        strReturn = objSkill.DisplayName + " (" + objSkill.TotalRating.ToString() + ")";
+                        // Add any Specialization bonus if applicable.
+                        if (objSkill.Specialization == _strCategory)
+                            strReturn += " + " + LanguageManager.Instance.GetString("String_ExpenseSpecialization") + ": " + DisplayCategory + " (2)";
+                    }
+                    if (objSkill.Name == "Alchemy" && _blnAlchemical)
+                    {
+                        strReturn = objSkill.DisplayName + " (" + objSkill.TotalRating.ToString() + ")";
+                        // Add any Specialization bonus if applicable.
+                        if (objSkill.Specialization == _strCategory)
+                            strReturn += " + " + LanguageManager.Instance.GetString("String_ExpenseSpecialization") + ": " + DisplayCategory + " (2)";
+                    }
+                }
 
 				// Include any Improvements to the Spell Category.
 				ImprovementManager objImprovementManager = new ImprovementManager(_objCharacter);
