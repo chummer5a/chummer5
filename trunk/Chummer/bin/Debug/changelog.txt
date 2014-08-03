@@ -1,3 +1,6 @@
+Build 5.133 (beta)
+- Fixed a bug that could cause a crash when adding adept powers.
+
 Build 5.132 (beta)
 - Added a House Rule "Use Skill Points on broken groups" that allows you to spend Active Skill Points in Creation mode on skills belonging to broken skill groups.
 - Fixed a bug that would prevent raising Edge, Magic, or Resonance to maximum.
