@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-490</version>
+	<version>-489</version>
 	<categories>
 		<category>Ammunition</category>
 		<category>Armor Enhancements</category>
@@ -3323,6 +3323,15 @@
 			<page>450</page>
 		</gear>			
 		<gear>
+			<name>Advanced Medkit</name>
+			<category>Biotech</category>
+			<rating>6</rating>
+			<avail>6</avail>
+			<cost>FixedValues([100],[400],[900],[1600],[2500],[3600])</cost>
+			<source>BB</source>
+			<page>17</page>
+		</gear>			
+		<gear>
 			<name>DocWagon Contract, Basic</name>
 			<category>DocWagon Contract</category>
 			<rating>0</rating>
@@ -4744,15 +4753,6 @@
 			<rating>0</rating>
 			<avail>5R</avail>
 			<cost>50</cost>
-			<source>SS</source>
-			<page>188</page>
-		</gear>
-		<gear>
-			<name>Gamma-Scolopolamine</name>
-			<category>Toxins</category>
-			<rating>0</rating>
-			<avail>14F</avail>
-			<cost>200</cost>
 			<source>SS</source>
 			<page>188</page>
 		</gear>

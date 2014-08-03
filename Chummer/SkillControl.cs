@@ -126,7 +126,8 @@ namespace Chummer
 
             if (!_objSkill.CharacterObject.Created && _objSkill.SkillGroupObject != null && _objSkill.SkillGroupObject.Broken)
             {
-                nudSkill.Enabled = false;
+                if (!_objSkill.CharacterObject.Options.UsePointsOnBrokenGroups)
+                    nudSkill.Enabled = false;
                 cmdBreakGroup.Visible = false;
             }
 
@@ -307,8 +308,13 @@ namespace Chummer
             }
             set
             {
-                _intBaseRating = value;
-                nudSkill.Value = value;
+                if (value < SkillRatingMinimum)
+                    _intBaseRating = SkillRatingMinimum;
+                else if (value > SkillRatingMaximum)
+                    _intBaseRating = SkillRatingMaximum;
+                else
+                    _intBaseRating = value;
+                nudSkill.Value = _intBaseRating;
             }
         }
 
@@ -555,7 +561,8 @@ namespace Chummer
 					cmdBreakGroup.Visible = _objSkill.CharacterObject.Options.BreakSkillGroupsInCreateMode;
                 else if (!_objSkill.CharacterObject.Created && _objSkill.SkillGroupObject.Broken)
                 {
-                    nudSkill.Enabled = false;
+                    if (!_objSkill.CharacterObject.Options.UsePointsOnBrokenGroups)
+                        nudSkill.Enabled = false;
                     cmdBreakGroup.Visible = false;
                 }
 				else

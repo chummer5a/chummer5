@@ -359,7 +359,7 @@ namespace Chummer
 
 				lblMysticAdeptAssignment.Visible = true;
 				lblMysticAdeptMAGAdept.Visible = true;
-                cmdIncreasePowerPoints.Visible = true;
+                // cmdIncreasePowerPoints.Visible = true;
 			}
 
 			// Load the Skills information.
@@ -1623,13 +1623,13 @@ namespace Chummer
 			{
 				lblMysticAdeptAssignment.Visible = true;
 				lblMysticAdeptMAGAdept.Visible = true;
-                cmdIncreasePowerPoints.Visible = true;
+                // cmdIncreasePowerPoints.Visible = true;
 			}
 			else
 			{
 				lblMysticAdeptAssignment.Visible = false;
 				lblMysticAdeptMAGAdept.Visible = false;
-                cmdIncreasePowerPoints.Visible = false;
+                // cmdIncreasePowerPoints.Visible = false;
 			}
 		}
 
@@ -1655,13 +1655,13 @@ namespace Chummer
 			{
 				lblMysticAdeptAssignment.Visible = true;
 				lblMysticAdeptMAGAdept.Visible = true;
-                cmdIncreasePowerPoints.Visible = true;
+                // cmdIncreasePowerPoints.Visible = true;
 			}
 			else
 			{
 				lblMysticAdeptAssignment.Visible = false;
 				lblMysticAdeptMAGAdept.Visible = false;
-                cmdIncreasePowerPoints.Visible = false;
+                // cmdIncreasePowerPoints.Visible = false;
             }
 		}
 

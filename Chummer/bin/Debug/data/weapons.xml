@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-490</version>
+	<version>-489</version>
 	<categories>
 		<category>Blades</category>
 		<category>Clubs</category>
@@ -358,6 +358,7 @@
 			</accessorymounts>
 			<accessories>
 				<accessory>Laser Sight</accessory>
+				<accessory>Gas-Vent 2 System</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>428</page>
@@ -1384,7 +1385,7 @@
 			<mode>SS</mode>
 			<rc>0</rc>
 			<ammo>5(m)</ammo>
-			<avail/>
+			<avail>0</avail>
 			<cost>50</cost>
 			<allowaccessory>true</allowaccessory>
 			<range>Shuriken</range>
@@ -1867,7 +1868,7 @@
 			<cost>50</cost>
 			<allowaccessory>true</allowaccessory>
 			<useskill>Throwing Weapons</useskill>
-			<range>Aerodynamic Grenades</range>
+			<range>Aerodynamic Grenade</range>
 			<source>RG</source>
 			<page>24</page>
 		</weapon>
@@ -1887,7 +1888,7 @@
 			<cost>200</cost>
 			<allowaccessory>true</allowaccessory>
 			<useskill>Throwing Weapons</useskill>
-			<range>Aerodynamic Grenades</range>
+			<range>Aerodynamic Grenade</range>
 			<source>RG</source>
 			<page>25</page>
 		</weapon>
@@ -2067,7 +2068,7 @@
 			<cost>125</cost>
 			<allowaccessory>true</allowaccessory>
 			<useskill>Throwing Weapons</useskill>
-			<range>Aerodynamic Grenades</range>
+			<range>Aerodynamic Grenade</range>
 			<source>RG</source>
 			<page>24</page>
 		</weapon>
@@ -2087,7 +2088,7 @@
 			<cost>125</cost>
 			<allowaccessory>true</allowaccessory>
 			<useskill>Throwing Weapons</useskill>
-			<range>Aerodynamic Grenades</range>
+			<range>Aerodynamic Grenade</range>
 			<source>RG</source>
 			<page>24</page>
 		</weapon>
@@ -3287,6 +3288,7 @@
 				<accessory>Stock</accessory>
 				<accessory>Shock Pad</accessory>
 				<accessory>Laser Sight</accessory>
+				<accessory>Gas-Vent 2 System</accessory>
 			</accessories>
 			<source>SR5</source>
 			<page>430</page>

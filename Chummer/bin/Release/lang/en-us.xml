@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-493</version>
+	<version>-492</version>
 	<name>English (US)</name>
 	<strings>
 		<!-- Common Strings -->
@@ -1735,7 +1735,7 @@
 		</string>
 		<string>
 			<key>Message_CapacityReachedValidate</key>
-			<text>{0} items over their Capacity.</text>
+			<text>The following {0} items are over their Capacity:</text>
 		</string>
 		<string>
 			<key>MessageTitle_CapacityReached</key>
@@ -5665,6 +5665,10 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		<string>
 			<key>Checkbox_Options_ExceptionalNotMaxed</key>
 			<text>Exceptional Attributes not at cap, are not maxed</text>
+		</string>
+		<string>
+			<key>Checkbox_Options_PointsOnBrokenGroups</key>
+			<text>Use Skill Points on broken groups</text>
 		</string>
 		<string>
 			<key>Checkbox_Options_SingleArmorEncumbrance</key>

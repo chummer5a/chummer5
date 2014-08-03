@@ -340,6 +340,7 @@ namespace Chummer
 			_objOptions.CapSkillRating = chkCapSkillRating.Checked;
 			_objOptions.PrintExpenses = chkPrintExpenses.Checked;
 			_objOptions.KnucksUseUnarmed = chkKnucks.Checked;
+            _objOptions.UsePointsOnBrokenGroups = chkUsePointsOnBrokenGroups.Checked;
             _objOptions.DontDoubleQualities = chkDontDoubleQualities.Checked;
             _objOptions.CyberlegMovement = chkCyberlegMovement.Checked;
             _objOptions.IgnoreArt = chkIgnoreArt.Checked;
@@ -957,6 +958,16 @@ namespace Chummer
             {
             }
             chkKnucks.Checked = blnKnucksUseUnarmed;
+
+            bool blnUsePointsOnBrokenGroups = false;
+            try
+            {
+                blnUsePointsOnBrokenGroups = _objOptions.UsePointsOnBrokenGroups;
+            }
+            catch
+            {
+            }
+            chkUsePointsOnBrokenGroups.Checked = blnUsePointsOnBrokenGroups;
 
             bool blnDontDoubleQualities = false;
             try

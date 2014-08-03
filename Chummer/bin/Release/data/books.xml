@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-496</version>
+	<version>-495</version>
 	<books>
 		<book>
 			<name>Assassin's Primer</name>
@@ -35,7 +35,7 @@
 			<code>SS</code>
 		</book>
 		<book>
-			<name>Shadworun Forum Post 1</name>
+			<name>Shadowrun Forum Post 1</name>
 			<code>SFP1</code>
 			<url>http://forums.shadowruntabletop.com/index.php?topic=17175.msg303991#msg303991</url>
 		</book>

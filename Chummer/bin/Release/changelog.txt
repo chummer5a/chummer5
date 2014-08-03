@@ -1,3 +1,23 @@
+Build 5.132 (beta)
+- Added a House Rule "Use Skill Points on broken groups" that allows you to spend Active Skill Points in Creation mode on skills belonging to broken skill groups.
+- Fixed a bug that would prevent raising Edge, Magic, or Resonance to maximum.
+- Fixed a bug that would cause a crash if a skill group was raised which included a skill that had free levels.
+- Fixed the page numbers for a handful of Illusion Spells.
+- Removed a duplicate entry for Gamma-Scopolamine.
+- Removed the button to add Adept Power Points in Career mode for Mystic Adepts.
+- Fixed a bug that would erroneously charge a special attribute point when puchasing cyberware or bioware.
+- Fixed a bug that was preventing the range values for a number of thrown weapons from being shown.
+- Fixed a bug causing new spirits added in Create mode being added by a Mystic Adept to have the wrong Force value.
+- Fixed a spelling error on the Shadowrun Forum Post 1.
+- Added Advanced Medkits from Bullets & Bandages.  No availability is listed for Advanced Medkits in B&B so I just used the availability for standard Medkits.
+- Updated the validation warning message concerning having gear over capacity so that it now specifies exactly which items are over capacity.
+- Fixed a bug that would throw up a validation error on characters using Prime Runner stats that have more than 25 karma in positive or negative qualities.
+- Fixed a bug that was preventing Prime Runners from converting to Career mode.
+- Fixed a bug that was causing the character load to fail if it was a Prime Runner with more than 10 karma spent on nuyen.
+- Updated the Missile Mastery Adept Power to include the +1DV and +1 Dice on Thrown Weapons.  Not sure this is the correct fix though as this is only supposed to apply to non-explosive thrown weapons.
+- Fixed a bug allowing purchase of more levels than should be allowed on Flexibility, Stillness, and Penetrating Strike.  This fix will only apply on powers added after this update.
+- Fixed a bug with the Ares Giantslayer Slingshot that was causing a crash when selecting it.
+
 Build 5.131 (beta)
 A quick shout out... I had programming help on this build from a friend of mine named Ed.  Thank you Ed!
 

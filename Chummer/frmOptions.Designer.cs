@@ -218,15 +218,16 @@
             this.chkCapSkillRating = new System.Windows.Forms.CheckBox();
             this.chkNoSingleArmorEncumbrance = new System.Windows.Forms.CheckBox();
             this.tabHouseRules = new System.Windows.Forms.TabPage();
+            this.chkDontDoubleQualities = new System.Windows.Forms.CheckBox();
+            this.chkExceptionalNotMaxed = new System.Windows.Forms.CheckBox();
+            this.chkExceptionalAttributes = new System.Windows.Forms.CheckBox();
             this.chkCyberlegMovement = new System.Windows.Forms.CheckBox();
             this.chkIgnoreArt = new System.Windows.Forms.CheckBox();
             this.cboSetting = new System.Windows.Forms.ComboBox();
             this.lblSetting = new System.Windows.Forms.Label();
             this.lblSettingName = new System.Windows.Forms.Label();
             this.txtSettingName = new System.Windows.Forms.TextBox();
-            this.chkExceptionalAttributes = new System.Windows.Forms.CheckBox();
-            this.chkExceptionalNotMaxed = new System.Windows.Forms.CheckBox();
-            this.chkDontDoubleQualities = new System.Windows.Forms.CheckBox();
+            this.chkUsePointsOnBrokenGroups = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaComplexFormOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaMetamagic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaInitiation)).BeginInit();
@@ -2384,6 +2385,7 @@
             // tabHouseRules
             // 
             this.tabHouseRules.BackColor = System.Drawing.SystemColors.Control;
+            this.tabHouseRules.Controls.Add(this.chkUsePointsOnBrokenGroups);
             this.tabHouseRules.Controls.Add(this.chkDontDoubleQualities);
             this.tabHouseRules.Controls.Add(this.chkExceptionalNotMaxed);
             this.tabHouseRules.Controls.Add(this.chkExceptionalAttributes);
@@ -2396,6 +2398,39 @@
             this.tabHouseRules.TabIndex = 3;
             this.tabHouseRules.Tag = "Tab_Options_HouseRules";
             this.tabHouseRules.Text = "House Rules";
+            // 
+            // chkDontDoubleQualities
+            // 
+            this.chkDontDoubleQualities.AutoSize = true;
+            this.chkDontDoubleQualities.Location = new System.Drawing.Point(8, 72);
+            this.chkDontDoubleQualities.Name = "chkDontDoubleQualities";
+            this.chkDontDoubleQualities.Size = new System.Drawing.Size(257, 17);
+            this.chkDontDoubleQualities.TabIndex = 5;
+            this.chkDontDoubleQualities.Tag = "Checkbox_Options_DontDoubleQualities";
+            this.chkDontDoubleQualities.Text = "Don\'t double the cost of Qualities in Career Mode";
+            this.chkDontDoubleQualities.UseVisualStyleBackColor = true;
+            // 
+            // chkExceptionalNotMaxed
+            // 
+            this.chkExceptionalNotMaxed.AutoSize = true;
+            this.chkExceptionalNotMaxed.Location = new System.Drawing.Point(332, 26);
+            this.chkExceptionalNotMaxed.Name = "chkExceptionalNotMaxed";
+            this.chkExceptionalNotMaxed.Size = new System.Drawing.Size(252, 17);
+            this.chkExceptionalNotMaxed.TabIndex = 4;
+            this.chkExceptionalNotMaxed.Tag = "Checkbox_Options_ExceptionalNotMaxed";
+            this.chkExceptionalNotMaxed.Text = "Exceptional Attributes not at cap, are not maxed";
+            this.chkExceptionalNotMaxed.UseVisualStyleBackColor = true;
+            // 
+            // chkExceptionalAttributes
+            // 
+            this.chkExceptionalAttributes.AutoSize = true;
+            this.chkExceptionalAttributes.Location = new System.Drawing.Point(332, 3);
+            this.chkExceptionalAttributes.Name = "chkExceptionalAttributes";
+            this.chkExceptionalAttributes.Size = new System.Drawing.Size(283, 17);
+            this.chkExceptionalAttributes.TabIndex = 3;
+            this.chkExceptionalAttributes.Tag = "Checkbox_Options_ExceptionalAttributes";
+            this.chkExceptionalAttributes.Text = "Attribute Points may be spent on Exceptional Attributes";
+            this.chkExceptionalAttributes.UseVisualStyleBackColor = true;
             // 
             // chkCyberlegMovement
             // 
@@ -2456,38 +2491,16 @@
             this.txtSettingName.Size = new System.Drawing.Size(190, 20);
             this.txtSettingName.TabIndex = 3;
             // 
-            // chkExceptionalAttributes
+            // chkUsePointsOnBrokenGroups
             // 
-            this.chkExceptionalAttributes.AutoSize = true;
-            this.chkExceptionalAttributes.Location = new System.Drawing.Point(332, 3);
-            this.chkExceptionalAttributes.Name = "chkExceptionalAttributes";
-            this.chkExceptionalAttributes.Size = new System.Drawing.Size(283, 17);
-            this.chkExceptionalAttributes.TabIndex = 3;
-            this.chkExceptionalAttributes.Tag = "Checkbox_Options_ExceptionalAttributes";
-            this.chkExceptionalAttributes.Text = "Attribute Points may be spent on Exceptional Attributes";
-            this.chkExceptionalAttributes.UseVisualStyleBackColor = true;
-            // 
-            // chkExceptionalNotMaxed
-            // 
-            this.chkExceptionalNotMaxed.AutoSize = true;
-            this.chkExceptionalNotMaxed.Location = new System.Drawing.Point(332, 26);
-            this.chkExceptionalNotMaxed.Name = "chkExceptionalNotMaxed";
-            this.chkExceptionalNotMaxed.Size = new System.Drawing.Size(252, 17);
-            this.chkExceptionalNotMaxed.TabIndex = 4;
-            this.chkExceptionalNotMaxed.Tag = "Checkbox_Options_ExceptionalNotMaxed";
-            this.chkExceptionalNotMaxed.Text = "Exceptional Attributes not at cap, are not maxed";
-            this.chkExceptionalNotMaxed.UseVisualStyleBackColor = true;
-            // 
-            // chkDontDoubleQualities
-            // 
-            this.chkDontDoubleQualities.AutoSize = true;
-            this.chkDontDoubleQualities.Location = new System.Drawing.Point(8, 72);
-            this.chkDontDoubleQualities.Name = "chkDontDoubleQualities";
-            this.chkDontDoubleQualities.Size = new System.Drawing.Size(257, 17);
-            this.chkDontDoubleQualities.TabIndex = 5;
-            this.chkDontDoubleQualities.Tag = "Checkbox_Options_DontDoubleQualities";
-            this.chkDontDoubleQualities.Text = "Don\'t double the cost of Qualities in Career Mode";
-            this.chkDontDoubleQualities.UseVisualStyleBackColor = true;
+            this.chkUsePointsOnBrokenGroups.AutoSize = true;
+            this.chkUsePointsOnBrokenGroups.Location = new System.Drawing.Point(332, 49);
+            this.chkUsePointsOnBrokenGroups.Name = "chkUsePointsOnBrokenGroups";
+            this.chkUsePointsOnBrokenGroups.Size = new System.Drawing.Size(185, 17);
+            this.chkUsePointsOnBrokenGroups.TabIndex = 6;
+            this.chkUsePointsOnBrokenGroups.Tag = "Checkbox_Options_PointsOnBrokenGroups";
+            this.chkUsePointsOnBrokenGroups.Text = "Use Skill Points on broken groups";
+            this.chkUsePointsOnBrokenGroups.UseVisualStyleBackColor = true;
             // 
             // frmOptions
             // 
@@ -2776,5 +2789,6 @@
         private System.Windows.Forms.CheckBox chkExceptionalNotMaxed;
         private System.Windows.Forms.CheckBox chkExceptionalAttributes;
         private System.Windows.Forms.CheckBox chkDontDoubleQualities;
+        private System.Windows.Forms.CheckBox chkUsePointsOnBrokenGroups;
 	}
 }
