@@ -394,6 +394,13 @@ namespace Chummer
 			objWriter.WriteElementString("buildkarma", _intBuildKarma.ToString());
 			// <buildmethod />
 			objWriter.WriteElementString("buildmethod", _objBuildMethod.ToString());
+            // <gameplayoption />
+            objWriter.WriteElementString("gameplayoption", _strGameplayOption);
+            // <maxnuyen />
+            objWriter.WriteElementString("maxnuyen", _intMaxNuyen.ToString());
+
+            // <maxkarma />
+            objWriter.WriteElementString("maxkarma", _intMaxKarma.ToString());
 
             // <knowpts />
             objWriter.WriteElementString("knowskillpts", _intKnowledgeSkills.ToString());
@@ -1234,7 +1241,17 @@ namespace Chummer
 			try
 			{
 				_intBuildKarma = Convert.ToInt32(objXmlCharacter["buildkarma"].InnerText);
-			}
+                if (_intMaxKarma == 0)
+                    _intMaxKarma = _intBuildKarma;
+                if (_intBuildKarma == 35 && _strGameplayOption == "")
+                {
+                    _strGameplayOption = "Prime Runner";
+                }
+                if (_intBuildKarma == 35 && _intMaxNuyen == 0)
+                {
+                    _intMaxNuyen = 25;
+                }
+            }
 			catch
 			{
 			}

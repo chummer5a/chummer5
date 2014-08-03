@@ -793,6 +793,7 @@ namespace Chummer
         private bool _blnCyberlegMovement = false;
         private bool _blnAllow2ndMaxAttribute = false;
         private bool _blnAllowAttributePointsOnExceptional = false;
+        private bool _blnUsePointsOnBrokenGroups = false;
         private bool _blnDontDoubleQualityCost = false;
 		private string _strBookXPath = "";
 		private int _intNuyenPerBP = 5000;
@@ -943,6 +944,8 @@ namespace Chummer
 			objWriter.WriteElementString("nuyenperbp", _intNuyenPerBP.ToString());
 			// <knucksuseunarmed />
             objWriter.WriteElementString("knucksuseunarmed", _blnKnucksUseUnarmed.ToString());
+            // <usepointsonbrokengroups />
+            objWriter.WriteElementString("usepointsonbrokengroups", _blnUsePointsOnBrokenGroups.ToString());
             // <dontdoublequalities />
             objWriter.WriteElementString("dontdoublequalities", _blnDontDoubleQualityCost.ToString());
             // <ignoreart />
@@ -1279,6 +1282,13 @@ namespace Chummer
             try
             {
             _blnKnucksUseUnarmed = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/knucksuseunarmed").InnerText);
+            }
+            catch
+            { }
+            // Use Points on Broken Groups
+            try
+            {
+                _blnUsePointsOnBrokenGroups = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/usepointsonbrokengroups").InnerText);
             }
             catch
             { }
@@ -2374,6 +2384,21 @@ namespace Chummer
                 _blnKnucksUseUnarmed = value;
 			}
 		}
+
+        /// <summary>
+        /// Whether or not characters can spend skill points on broken groups.
+        /// </summary>
+        public bool UsePointsOnBrokenGroups
+        {
+            get
+            {
+                return _blnUsePointsOnBrokenGroups;
+            }
+            set
+            {
+                _blnUsePointsOnBrokenGroups = value;
+            }
+        }
 
         /// <summary>
         /// Whether or not characters in Career Mode should pay double for qualities.

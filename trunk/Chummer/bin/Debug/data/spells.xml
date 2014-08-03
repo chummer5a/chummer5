@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-493</version>
+	<version>-492</version>
 	<categories>
 		<category>Combat</category>
 		<category>Detection</category>
@@ -742,7 +742,7 @@
 			<duration>S</duration>
 			<dv>F-1</dv>
 			<source>SR5</source>
-			<page>290</page>
+			<page>291</page>
 		</spell>
 		<spell>
 			<name>Invisibility</name>
@@ -754,7 +754,7 @@
 			<duration>S</duration>
 			<dv>F-2</dv>
 			<source>SR5</source>
-			<page>290</page>
+			<page>291</page>
 		</spell>
 		<spell>
 			<name>Mask</name>
@@ -766,7 +766,7 @@
 			<duration>S</duration>
 			<dv>F-2</dv>
 			<source>SR5</source>
-			<page>290</page>
+			<page>291</page>
 		</spell>
 		<spell>
 			<name>Physical Mask</name>
@@ -778,7 +778,7 @@
 			<duration>S</duration>
 			<dv>F-1</dv>
 			<source>SR5</source>
-			<page>290</page>
+			<page>291</page>
 		</spell>
 		<spell>
 			<name>Phantasm</name>
@@ -790,7 +790,7 @@
 			<duration>S</duration>
 			<dv>F-1</dv>
 			<source>SR5</source>
-			<page>290</page>
+			<page>291</page>
 		</spell>
 		<spell>
 			<name>Trid Phantasm</name>
@@ -802,7 +802,7 @@
 			<duration>S</duration>
 			<dv>F</dv>
 			<source>SR5</source>
-			<page>290</page>
+			<page>291</page>
 		</spell>
 		<spell>
 			<name>Hush</name>
@@ -814,7 +814,7 @@
 			<duration>S</duration>
 			<dv>F-2</dv>
 			<source>SR5</source>
-			<page>290</page>
+			<page>291</page>
 		</spell>
 		<spell>
 			<name>Silence</name>
@@ -826,7 +826,7 @@
 			<duration>S</duration>
 			<dv>F-1</dv>
 			<source>SR5</source>
-			<page>290</page>
+			<page>291</page>
 		</spell>
 		<spell>
 			<name>Stealth</name>
@@ -838,7 +838,7 @@
 			<duration>S</duration>
 			<dv>F-2</dv>
 			<source>SR5</source>
-			<page>290</page>
+			<page>292</page>
 		</spell>
 		<spell>
 			<name>Animate</name>

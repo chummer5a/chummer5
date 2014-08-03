@@ -5427,7 +5427,7 @@ namespace Chummer
 			int intMAG = Convert.ToInt32(_objCharacter.MAG.TotalValue);
 			if (_objCharacter.AdeptEnabled && _objCharacter.MagicianEnabled)
 			{
-				intMAG = _objCharacter.MAGMagician;
+                intMAG = _objCharacter.MAG.TotalValue;
 			}
 			if (_objOptions.SpiritForceBasedOnTotalMAG)
 			{
@@ -15072,8 +15072,10 @@ namespace Chummer
                 // Get the total of "free points" spent
                 int intAtt = 0;
                 intAtt += Convert.ToInt32(nudEDG.Value - nudEDG.Minimum);
-                intAtt += Convert.ToInt32(nudMAG.Value - nudMAG.Minimum);
-                intAtt += Convert.ToInt32(nudRES.Value - nudRES.Minimum);
+                if (_objCharacter.MAGEnabled)
+                    intAtt += Convert.ToInt32(nudMAG.Value - nudMAG.Minimum);
+                if (_objCharacter.RESEnabled)
+                    intAtt += Convert.ToInt32(nudRES.Value - nudRES.Minimum);
 
                 _objCharacter.Special = _objCharacter.TotalSpecial - intAtt;
                 lblPBuildSpecial.Text = String.Format("{0} " + LanguageManager.Instance.GetString("String_Of") + " {1}", (_objCharacter.Special).ToString(), _objCharacter.TotalSpecial.ToString());
@@ -15083,13 +15085,19 @@ namespace Chummer
                 {
                     intBP += ((Convert.ToInt32(nudEDG.Value) + i) * _objOptions.KarmaAttribute);
                 }
-                for (int i = 1; i <= nudKMAG.Value; i++)
+                if (_objCharacter.MAGEnabled)
                 {
-                    intBP += ((Convert.ToInt32(nudMAG.Value) + i) * _objOptions.KarmaAttribute);
+                    for (int i = 1; i <= nudKMAG.Value; i++)
+                    {
+                        intBP += ((Convert.ToInt32(nudMAG.Value) + i) * _objOptions.KarmaAttribute);
+                    }
                 }
-                for (int i = 1; i <= nudKRES.Value; i++)
+                if (_objCharacter.RESEnabled)
                 {
-                    intBP += ((Convert.ToInt32(nudRES.Value) + i) * _objOptions.KarmaAttribute);
+                    for (int i = 1; i <= nudKRES.Value; i++)
+                    {
+                        intBP += ((Convert.ToInt32(nudRES.Value) + i) * _objOptions.KarmaAttribute);
+                    }
                 }
                 return intBP;
             }
@@ -15432,9 +15440,9 @@ namespace Chummer
 			// If the character is only allowed to gain 25 BP (70 Karma) from Negative Qualities but allowed to take as many as they'd like, limit their refunded points.
 			if (_objOptions.ExceedNegativeQualitiesLimit)
 			{
-				if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority && intNegativePoints < -25)
+                if (_objCharacter.BuildMethod == CharacterBuildMethod.Priority && intNegativePoints < -1 * _objCharacter.MaxKarma)
 				{
-					intNegativePoints += 35;
+                    intNegativePoints += _objCharacter.MaxKarma;
 					intPointsRemain += intNegativePoints;
 				}
 				if (_objCharacter.BuildMethod == CharacterBuildMethod.Karma && intNegativePoints < -70)
@@ -19820,14 +19828,14 @@ namespace Chummer
                 // if positive points > 25
                 if (intPositivePointsUsed > _objCharacter.MaxKarma)
                 {
-                    strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_PositiveQualityLimit").Replace("{0}", (25).ToString());
+                    strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_PositiveQualityLimit").Replace("{0}", (_objCharacter.MaxKarma).ToString());
                     blnValid = false;
                 }
 
                 // if negative points > 25
                 if (intNegativePoints < (_objCharacter.MaxKarma * -1))
                 {
-                    strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_NegativeQualityLimit").Replace("{0}", (25).ToString());
+                    strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_NegativeQualityLimit").Replace("{0}", (_objCharacter.MaxKarma).ToString());
                     blnValid = false;
                 }
 
@@ -20281,7 +20289,9 @@ namespace Chummer
 			}
 
 			// Check item Capacities if the option is enabled.
-			if (_objOptions.EnforceCapacity)
+            List<string> lstOverCapacity = new List<string>();
+
+            if (_objOptions.EnforceCapacity)
 			{
 				bool blnOverCapacity = false;
 				int intCapacityOver = 0;
@@ -20291,6 +20301,7 @@ namespace Chummer
 					if (objArmor.CapacityRemaining < 0)
 					{
 						blnOverCapacity = true;
+                        lstOverCapacity.Add(objArmor.Name);
 						intCapacityOver++;
 					}
 				}
@@ -20301,7 +20312,8 @@ namespace Chummer
 					if (objWeapon.SlotsRemaining < 0)
 					{
 						blnOverCapacity = true;
-						intCapacityOver++;
+                        lstOverCapacity.Add(objWeapon.Name);
+                        intCapacityOver++;
 					}
 					// Check Underbarrel Weapons.
 					if (objWeapon.UnderbarrelWeapons.Count > 0)
@@ -20311,7 +20323,8 @@ namespace Chummer
 							if (objUnderbarrelWeapon.SlotsRemaining < 0)
 							{
 								blnOverCapacity = true;
-								intCapacityOver++;
+                                lstOverCapacity.Add(objUnderbarrelWeapon.Name);
+                                intCapacityOver++;
 							}
 						}
 					}
@@ -20323,7 +20336,8 @@ namespace Chummer
 					if (objGear.CapacityRemaining < 0)
 					{
 						blnOverCapacity = true;
-						intCapacityOver++;
+                        lstOverCapacity.Add(objGear.Name);
+                        intCapacityOver++;
 					}
 					// Child Gear.
 					foreach (Gear objChild in objGear.Children)
@@ -20331,7 +20345,8 @@ namespace Chummer
 						if (objChild.CapacityRemaining < 0)
 						{
 							blnOverCapacity = true;
-							intCapacityOver++;
+                            lstOverCapacity.Add(objChild.Name);
+                            intCapacityOver++;
 						}
 					}
 				}
@@ -20342,7 +20357,8 @@ namespace Chummer
 					if (objCyberware.CapacityRemaining < 0)
 					{
 						blnOverCapacity = true;
-						intCapacityOver++;
+                        lstOverCapacity.Add(objCyberware.Name);
+                        intCapacityOver++;
 					}
 					// Check plugins.
 					foreach (Cyberware objChild in objCyberware.Children)
@@ -20350,7 +20366,8 @@ namespace Chummer
 						if (objChild.CapacityRemaining < 0)
 						{
 							blnOverCapacity = true;
-							intCapacityOver++;
+                            lstOverCapacity.Add(objChild.Name);
+                            intCapacityOver++;
 						}
 					}
 				}
@@ -20361,7 +20378,8 @@ namespace Chummer
 					if (objVehicle.Slots - objVehicle.SlotsUsed < 0)
 					{
 						blnOverCapacity = true;
-						intCapacityOver++;
+                        lstOverCapacity.Add(objVehicle.Name);
+                        intCapacityOver++;
 					}
 					// Check Vehicle Weapons.
 					foreach (Weapon objWeapon in objVehicle.Weapons)
@@ -20369,7 +20387,8 @@ namespace Chummer
 						if (objWeapon.SlotsRemaining < 0)
 						{
 							blnOverCapacity = true;
-							intCapacityOver++;
+                            lstOverCapacity.Add(objWeapon.Name);
+                            intCapacityOver++;
 						}
 						// Check Underbarrel Weapons.
 						if (objWeapon.UnderbarrelWeapons.Count > 0)
@@ -20379,7 +20398,8 @@ namespace Chummer
 								if (objUnderbarrelWeapon.SlotsRemaining < 0)
 								{
 									blnOverCapacity = true;
-									intCapacityOver++;
+                                    lstOverCapacity.Add(objUnderbarrelWeapon.Name);
+                                    intCapacityOver++;
 								}
 							}
 						}
@@ -20390,7 +20410,8 @@ namespace Chummer
 						if (objGear.CapacityRemaining < 0)
 						{
 							blnOverCapacity = true;
-							intCapacityOver++;
+                            lstOverCapacity.Add(objGear.Name);
+                            intCapacityOver++;
 						}
 						// Check Child Gear.
 						foreach (Gear objChild in objGear.Children)
@@ -20398,7 +20419,8 @@ namespace Chummer
 							if (objChild.CapacityRemaining < 0)
 							{
 								blnOverCapacity = true;
-								intCapacityOver++;
+                                lstOverCapacity.Add(objChild.Name);
+                                intCapacityOver++;
 							}
 						}
 					}
@@ -20411,7 +20433,8 @@ namespace Chummer
 							if (objWeapon.SlotsRemaining < 0)
 							{
 								blnOverCapacity = true;
-								intCapacityOver++;
+                                lstOverCapacity.Add(objWeapon.Name);
+                                intCapacityOver++;
 							}
 							// Check Underbarrel Weapons.
 							if (objWeapon.UnderbarrelWeapons.Count > 0)
@@ -20421,7 +20444,8 @@ namespace Chummer
 									if (objUnderbarrelWeapon.SlotsRemaining < 0)
 									{
 										blnOverCapacity = true;
-										intCapacityOver++;
+                                        lstOverCapacity.Add(objUnderbarrelWeapon.Name);
+                                        intCapacityOver++;
 									}
 								}
 							}
@@ -20433,6 +20457,10 @@ namespace Chummer
 				{
 					blnValid = false;
 					strMessage += "\n\t" + LanguageManager.Instance.GetString("Message_CapacityReachedValidate").Replace("{0}", intCapacityOver.ToString());
+                    foreach (string strItem in lstOverCapacity)
+                    {
+                        strMessage += "\n\t- " + strItem;
+                    }
 				}
 			}
 
@@ -23735,19 +23763,7 @@ namespace Chummer
                 return;
 
             // Verify that the Attribute can be improved within the rules.
-            if (!CanImproveAttribute("nudEDG") && (nudEDG.Value + nudKEDG.Value) >= nudEDG.Maximum && !_objCharacter.IgnoreRules)
-            {
-                try
-                {
-                    nudKEDG.Value = nudEDG.Maximum - nudEDG.Value - 1;
-                    ShowAttributeRule();
-                }
-                catch
-                {
-                    nudKEDG.Value = 0;
-                }
-            }
-            else if ((nudEDG.Value + nudKEDG.Value) > nudEDG.Maximum)
+            if ((nudEDG.Value + nudKEDG.Value) > nudEDG.Maximum)
             {
                 try
                 {
@@ -23775,19 +23791,7 @@ namespace Chummer
                 return;
 
             // Verify that the Attribute can be improved within the rules.
-            if (!CanImproveAttribute("nudMAG") && (nudMAG.Value + nudKMAG.Value) >= nudMAG.Maximum && !_objCharacter.IgnoreRules)
-            {
-                try
-                {
-                    nudKMAG.Value = nudMAG.Maximum - nudMAG.Value - 1;
-                    ShowAttributeRule();
-                }
-                catch
-                {
-                    nudKMAG.Value = 0;
-                }
-            }
-            else if ((nudMAG.Value + nudKMAG.Value) > nudMAG.Maximum)
+            if ((nudMAG.Value + nudKMAG.Value) > nudMAG.Maximum)
             {
                 try
                 {
@@ -23815,19 +23819,7 @@ namespace Chummer
                 return;
 
             // Verify that the Attribute can be improved within the rules.
-            if (!CanImproveAttribute("nudRES") && (nudRES.Value + nudKRES.Value) >= nudRES.Maximum && !_objCharacter.IgnoreRules)
-            {
-                try
-                {
-                    nudKRES.Value = nudRES.Maximum - nudRES.Value - 1;
-                    ShowAttributeRule();
-                }
-                catch
-                {
-                    nudKRES.Value = 0;
-                }
-            }
-            else if ((nudRES.Value + nudKRES.Value) > nudRES.Maximum)
+            if ((nudRES.Value + nudKRES.Value) > nudRES.Maximum)
             {
                 try
                 {

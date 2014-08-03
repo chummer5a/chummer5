@@ -315,8 +315,7 @@ namespace Chummer
 			if (objXmlPower["levels"].InnerText != "no")
 			{
 				_blnLevels = true;
-				if (objXmlPower["levels"].InnerText != "yes")
-					_intMaxLevels = Convert.ToInt32(objXmlPower["levels"].InnerText);
+				_intMaxLevels = Convert.ToInt32(objXmlPower["maxlevel"].InnerText);
 			}
 			else
 				_blnLevels = false;

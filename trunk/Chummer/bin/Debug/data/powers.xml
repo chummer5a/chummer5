@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-494</version>
+	<version>-493</version>
 	<powers>
 		<power>
 			<name>Adrenaline Boost</name>
@@ -453,7 +453,8 @@
 			<name>Commanding Voice</name>
 			<points>.25</points>
 			<adeptway>0</adeptway>
-			<levels>3</levels>
+			<levels>yes</levels>
+			<maxlevel>3</maxlevel>
 			<limit>1</limit>
 			<source>SG</source>
 			<page>170</page>
@@ -513,7 +514,7 @@
 			<page>171</page>
 		</power>
 		<power>
-			<name>Facial Sclupt</name>
+			<name>Facial Sculpt</name>
 			<points>.25</points>
 			<adeptway>0</adeptway>
 			<levels>yes</levels>
@@ -531,7 +532,8 @@
 			<name>Flexibility</name>
 			<points>.25</points>
 			<adeptway>0</adeptway>
-			<levels>3</levels>
+			<levels>yes</levels>
+			<maxlevel>3</maxlevel>
 			<limit>1</limit>
 			<source>SG</source>
 			<page>171</page>
@@ -625,6 +627,16 @@
 			<adeptway>.5</adeptway>
 			<levels>no</levels>
 			<limit>1</limit>
+			<bonus>
+				<weaponcategorydv>
+					<name>Throwing Weapons</name>
+					<bonus>1</bonus>
+				</weaponcategorydv>
+				<specificskill>
+					<name>Throwing Weapons</name>
+					<bonus>1</bonus>
+				</specificskill>
+			</bonus>
 			<source>SG</source>
 			<page>172</page>
 		</power>
@@ -674,7 +686,8 @@
 			<name>Penetrating Strike</name>
 			<points>.25</points>
 			<adeptway>0</adeptway>
-			<levels>4</levels>
+			<levels>yes</levels>
+			<maxlevel>4</maxlevel>
 			<limit>1</limit>
 			<source>SG</source>
 			<page>173</page>
@@ -746,7 +759,8 @@
 			<name>Stillness</name>
 			<points>.25</points>
 			<adeptway>0</adeptway>
-			<levels>3</levels>
+			<levels>yes</levels>
+			<maxlevel>3</maxlevel>
 			<limit>1</limit>
 			<source>SG</source>
 			<page>174</page>
