@@ -30,29 +30,29 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreate));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Selected Positive Qualities");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Selected Negative Qualities");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Physical");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Mental");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Social");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Selected Martial Arts");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Selected Qualities");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Selected Combat Spells");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Selected Detection Spells");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Selected Health Spells");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Selected Illusion Spells");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Selected Manipulation Spells");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Selected Rituals");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Selected Complex Forms");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Critter Powers");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Weaknesses");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Selected Cyberware");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Selected Bioware");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Selected Lifestyles");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Selected Armor");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Selected Weapons");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Selected Gear");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Selected Vehicles");
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Selected Positive Qualities");
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Selected Negative Qualities");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Physical");
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Mental");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("Social");
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Selected Martial Arts");
+            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("Selected Qualities");
+            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Selected Combat Spells");
+            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("Selected Detection Spells");
+            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("Selected Health Spells");
+            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("Selected Illusion Spells");
+            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("Selected Manipulation Spells");
+            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("Selected Rituals");
+            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("Selected Complex Forms");
+            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("Critter Powers");
+            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("Weaknesses");
+            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("Selected Cyberware");
+            System.Windows.Forms.TreeNode treeNode64 = new System.Windows.Forms.TreeNode("Selected Bioware");
+            System.Windows.Forms.TreeNode treeNode65 = new System.Windows.Forms.TreeNode("Selected Lifestyles");
+            System.Windows.Forms.TreeNode treeNode66 = new System.Windows.Forms.TreeNode("Selected Armor");
+            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Selected Weapons");
+            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("Selected Gear");
+            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("Selected Vehicles");
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.tssBPLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssBP = new System.Windows.Forms.ToolStripStatusLabel();
@@ -70,8 +70,6 @@
             this.lblFirewallLabel = new System.Windows.Forms.Label();
             this.lblSystemLabel = new System.Windows.Forms.Label();
             this.lblRatingLabel = new System.Windows.Forms.Label();
-            this.lblContacts = new System.Windows.Forms.Label();
-            this.lblEnemies = new System.Windows.Forms.Label();
             this.lblAttributesAug = new System.Windows.Forms.Label();
             this.lblAttributesBase = new System.Windows.Forms.Label();
             this.lblAttributesMetatype = new System.Windows.Forms.Label();
@@ -135,12 +133,8 @@
             this.lblINILabel = new System.Windows.Forms.Label();
             this.lblCMStunLabel = new System.Windows.Forms.Label();
             this.lblCMPhysicalLabel = new System.Windows.Forms.Label();
-            this.lblSocialLabel = new System.Windows.Forms.Label();
-            this.lblMentalLabel = new System.Windows.Forms.Label();
-            this.lblPhysicalLabel = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.lblSelectedSpells = new System.Windows.Forms.Label();
-            this.lblAstralLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -148,6 +142,10 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.lblSocialLabel = new System.Windows.Forms.Label();
+            this.lblMentalLabel = new System.Windows.Forms.Label();
+            this.lblPhysicalLabel = new System.Windows.Forms.Label();
+            this.lblAstralLabel = new System.Windows.Forms.Label();
             this.cmsMartialArts = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsMartialArtsAddAdvantage = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMartialArtsNotes = new System.Windows.Forms.ToolStripMenuItem();
@@ -300,11 +298,6 @@
             this.lblQualitySourceLabel = new System.Windows.Forms.Label();
             this.cmdDeleteQuality = new System.Windows.Forms.Button();
             this.cmdAddQuality = new System.Windows.Forms.Button();
-            this.splitContacts = new System.Windows.Forms.SplitContainer();
-            this.panContacts = new System.Windows.Forms.Panel();
-            this.cmdAddContact = new System.Windows.Forms.Button();
-            this.panEnemies = new System.Windows.Forms.Panel();
-            this.cmdAddEnemy = new System.Windows.Forms.Button();
             this.nudMysticAdeptMAGMagician = new System.Windows.Forms.NumericUpDown();
             this.lblMysticAdeptAssignment = new System.Windows.Forms.Label();
             this.treQualities = new System.Windows.Forms.TreeView();
@@ -873,6 +866,9 @@
             this.cmdAddWeapon = new SplitButton();
             this.cmdAddGear = new SplitButton();
             this.cmdAddVehicle = new SplitButton();
+            this.lblContacts = new System.Windows.Forms.Label();
+            this.panContacts = new System.Windows.Forms.Panel();
+            this.cmdAddContact = new System.Windows.Forms.Button();
             this.StatusStrip.SuspendLayout();
             this.cmsMartialArts.SuspendLayout();
             this.cmsSpellButton.SuspendLayout();
@@ -917,10 +913,6 @@
             this.tabCommon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSignal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudResponse)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContacts)).BeginInit();
-            this.splitContacts.Panel1.SuspendLayout();
-            this.splitContacts.Panel2.SuspendLayout();
-            this.splitContacts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMysticAdeptMAGMagician)).BeginInit();
             this.panAttributes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudKRES)).BeginInit();
@@ -1139,29 +1131,6 @@
             this.lblRatingLabel.Text = "Rating";
             this.tipTooltip.SetToolTip(this.lblRatingLabel, "An A.I.\'s Rating is the average of their CHA, INT, LOG, and WIL Attributes.");
             this.lblRatingLabel.Visible = false;
-            // 
-            // lblContacts
-            // 
-            this.lblContacts.AutoSize = true;
-            this.lblContacts.Location = new System.Drawing.Point(0, 0);
-            this.lblContacts.Name = "lblContacts";
-            this.lblContacts.Size = new System.Drawing.Size(49, 13);
-            this.lblContacts.TabIndex = 21;
-            this.lblContacts.Tag = "Label_Contacts";
-            this.lblContacts.Text = "Contacts";
-            this.tipTooltip.SetToolTip(this.lblContacts, "Each point of Connection or Loyalty costs 1 BP.");
-            // 
-            // lblEnemies
-            // 
-            this.lblEnemies.AutoSize = true;
-            this.lblEnemies.Location = new System.Drawing.Point(0, 0);
-            this.lblEnemies.Name = "lblEnemies";
-            this.lblEnemies.Size = new System.Drawing.Size(47, 13);
-            this.lblEnemies.TabIndex = 37;
-            this.lblEnemies.Tag = "Label_Enemies";
-            this.lblEnemies.Text = "Enemies";
-            this.tipTooltip.SetToolTip(this.lblEnemies, "Enemies are the opposite of Contacts. Each Enemy counts towards your Negative Qua" +
-        "lities BP amount.");
             // 
             // lblAttributesAug
             // 
@@ -1891,36 +1860,6 @@
             this.lblCMPhysicalLabel.Text = "Physical Condition Track:";
             this.tipTooltip.SetToolTip(this.lblCMPhysicalLabel, "Physical CM is calculated as 8 + (BOD / 2).");
             // 
-            // lblSocialLabel
-            // 
-            this.lblSocialLabel.AutoSize = true;
-            this.lblSocialLabel.Location = new System.Drawing.Point(328, 84);
-            this.lblSocialLabel.Name = "lblSocialLabel";
-            this.lblSocialLabel.Size = new System.Drawing.Size(36, 13);
-            this.lblSocialLabel.TabIndex = 76;
-            this.lblSocialLabel.Tag = "Node_Social";
-            this.lblSocialLabel.Text = "Social";
-            // 
-            // lblMentalLabel
-            // 
-            this.lblMentalLabel.AutoSize = true;
-            this.lblMentalLabel.Location = new System.Drawing.Point(328, 58);
-            this.lblMentalLabel.Name = "lblMentalLabel";
-            this.lblMentalLabel.Size = new System.Drawing.Size(39, 13);
-            this.lblMentalLabel.TabIndex = 74;
-            this.lblMentalLabel.Tag = "Node_Mental";
-            this.lblMentalLabel.Text = "Mental";
-            // 
-            // lblPhysicalLabel
-            // 
-            this.lblPhysicalLabel.AutoSize = true;
-            this.lblPhysicalLabel.Location = new System.Drawing.Point(328, 32);
-            this.lblPhysicalLabel.Name = "lblPhysicalLabel";
-            this.lblPhysicalLabel.Size = new System.Drawing.Size(46, 13);
-            this.lblPhysicalLabel.TabIndex = 72;
-            this.lblPhysicalLabel.Tag = "Node_Physical";
-            this.lblPhysicalLabel.Text = "Physical";
-            // 
             // label33
             // 
             this.label33.AutoSize = true;
@@ -1942,16 +1881,6 @@
             this.lblSelectedSpells.Tag = "Label_SelectedSpells";
             this.lblSelectedSpells.Text = "Selected Spells";
             this.tipTooltip.SetToolTip(this.lblSelectedSpells, "Each Spell costs 3 BP.");
-            // 
-            // lblAstralLabel
-            // 
-            this.lblAstralLabel.AutoSize = true;
-            this.lblAstralLabel.Location = new System.Drawing.Point(328, 111);
-            this.lblAstralLabel.Name = "lblAstralLabel";
-            this.lblAstralLabel.Size = new System.Drawing.Size(33, 13);
-            this.lblAstralLabel.TabIndex = 78;
-            this.lblAstralLabel.Tag = "Node_Astral";
-            this.lblAstralLabel.Text = "Astral";
             // 
             // label7
             // 
@@ -2041,6 +1970,46 @@
             this.tipTooltip.SetToolTip(this.label14, "Skills cost 4 BP per point and 2 BP for a Specialization. Characters may have up " +
         "to 1 Active Skill at Rating 6 or two at Rating 5. The rest must be at Rating 4 o" +
         "r lower.");
+            // 
+            // lblSocialLabel
+            // 
+            this.lblSocialLabel.AutoSize = true;
+            this.lblSocialLabel.Location = new System.Drawing.Point(328, 84);
+            this.lblSocialLabel.Name = "lblSocialLabel";
+            this.lblSocialLabel.Size = new System.Drawing.Size(36, 13);
+            this.lblSocialLabel.TabIndex = 76;
+            this.lblSocialLabel.Tag = "Node_Social";
+            this.lblSocialLabel.Text = "Social";
+            // 
+            // lblMentalLabel
+            // 
+            this.lblMentalLabel.AutoSize = true;
+            this.lblMentalLabel.Location = new System.Drawing.Point(328, 58);
+            this.lblMentalLabel.Name = "lblMentalLabel";
+            this.lblMentalLabel.Size = new System.Drawing.Size(39, 13);
+            this.lblMentalLabel.TabIndex = 74;
+            this.lblMentalLabel.Tag = "Node_Mental";
+            this.lblMentalLabel.Text = "Mental";
+            // 
+            // lblPhysicalLabel
+            // 
+            this.lblPhysicalLabel.AutoSize = true;
+            this.lblPhysicalLabel.Location = new System.Drawing.Point(328, 32);
+            this.lblPhysicalLabel.Name = "lblPhysicalLabel";
+            this.lblPhysicalLabel.Size = new System.Drawing.Size(46, 13);
+            this.lblPhysicalLabel.TabIndex = 72;
+            this.lblPhysicalLabel.Tag = "Node_Physical";
+            this.lblPhysicalLabel.Text = "Physical";
+            // 
+            // lblAstralLabel
+            // 
+            this.lblAstralLabel.AutoSize = true;
+            this.lblAstralLabel.Location = new System.Drawing.Point(328, 111);
+            this.lblAstralLabel.Name = "lblAstralLabel";
+            this.lblAstralLabel.Size = new System.Drawing.Size(33, 13);
+            this.lblAstralLabel.TabIndex = 78;
+            this.lblAstralLabel.Tag = "Node_Astral";
+            this.lblAstralLabel.Text = "Astral";
             // 
             // cmsMartialArts
             // 
@@ -3351,6 +3320,9 @@
             // tabCommon
             // 
             this.tabCommon.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabCommon.Controls.Add(this.lblContacts);
+            this.tabCommon.Controls.Add(this.panContacts);
+            this.tabCommon.Controls.Add(this.cmdAddContact);
             this.tabCommon.Controls.Add(this.label7);
             this.tabCommon.Controls.Add(this.txtAlias);
             this.tabCommon.Controls.Add(this.lblAlias);
@@ -3372,7 +3344,6 @@
             this.tabCommon.Controls.Add(this.lblQualitySourceLabel);
             this.tabCommon.Controls.Add(this.cmdDeleteQuality);
             this.tabCommon.Controls.Add(this.cmdAddQuality);
-            this.tabCommon.Controls.Add(this.splitContacts);
             this.tabCommon.Controls.Add(this.nudMysticAdeptMAGMagician);
             this.tabCommon.Controls.Add(this.lblAttributesAug);
             this.tabCommon.Controls.Add(this.lblMysticAdeptAssignment);
@@ -3579,76 +3550,6 @@
             this.cmdAddQuality.UseVisualStyleBackColor = true;
             this.cmdAddQuality.Click += new System.EventHandler(this.cmdAddQuality_Click);
             // 
-            // splitContacts
-            // 
-            this.splitContacts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContacts.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.splitContacts.Location = new System.Drawing.Point(288, 345);
-            this.splitContacts.Name = "splitContacts";
-            this.splitContacts.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContacts.Panel1
-            // 
-            this.splitContacts.Panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.splitContacts.Panel1.Controls.Add(this.lblContacts);
-            this.splitContacts.Panel1.Controls.Add(this.panContacts);
-            this.splitContacts.Panel1.Controls.Add(this.cmdAddContact);
-            this.splitContacts.Panel1.Resize += new System.EventHandler(this.splitContacts_Panel1_Resize);
-            // 
-            // splitContacts.Panel2
-            // 
-            this.splitContacts.Panel2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.splitContacts.Panel2.Controls.Add(this.lblEnemies);
-            this.splitContacts.Panel2.Controls.Add(this.panEnemies);
-            this.splitContacts.Panel2.Controls.Add(this.cmdAddEnemy);
-            this.splitContacts.Panel2.Resize += new System.EventHandler(this.splitContacts_Panel2_Resize);
-            this.splitContacts.Size = new System.Drawing.Size(550, 257);
-            this.splitContacts.SplitterDistance = 128;
-            this.splitContacts.TabIndex = 61;
-            // 
-            // panContacts
-            // 
-            this.panContacts.AutoScroll = true;
-            this.panContacts.Location = new System.Drawing.Point(0, 41);
-            this.panContacts.Name = "panContacts";
-            this.panContacts.Size = new System.Drawing.Size(550, 84);
-            this.panContacts.TabIndex = 23;
-            this.panContacts.Click += new System.EventHandler(this.panContacts_Click);
-            // 
-            // cmdAddContact
-            // 
-            this.cmdAddContact.AutoSize = true;
-            this.cmdAddContact.Location = new System.Drawing.Point(3, 16);
-            this.cmdAddContact.Name = "cmdAddContact";
-            this.cmdAddContact.Size = new System.Drawing.Size(76, 23);
-            this.cmdAddContact.TabIndex = 22;
-            this.cmdAddContact.Tag = "Button_AddContact";
-            this.cmdAddContact.Text = "&Add Contact";
-            this.cmdAddContact.UseVisualStyleBackColor = true;
-            this.cmdAddContact.Click += new System.EventHandler(this.cmdAddContact_Click);
-            // 
-            // panEnemies
-            // 
-            this.panEnemies.AutoScroll = true;
-            this.panEnemies.Location = new System.Drawing.Point(0, 45);
-            this.panEnemies.Name = "panEnemies";
-            this.panEnemies.Size = new System.Drawing.Size(550, 77);
-            this.panEnemies.TabIndex = 39;
-            // 
-            // cmdAddEnemy
-            // 
-            this.cmdAddEnemy.AutoSize = true;
-            this.cmdAddEnemy.Location = new System.Drawing.Point(3, 16);
-            this.cmdAddEnemy.Name = "cmdAddEnemy";
-            this.cmdAddEnemy.Size = new System.Drawing.Size(75, 23);
-            this.cmdAddEnemy.TabIndex = 38;
-            this.cmdAddEnemy.Tag = "Button_AddEnemy";
-            this.cmdAddEnemy.Text = "A&dd Enemy";
-            this.cmdAddEnemy.UseVisualStyleBackColor = true;
-            this.cmdAddEnemy.Click += new System.EventHandler(this.cmdAddEnemy_Click);
-            // 
             // nudMysticAdeptMAGMagician
             // 
             this.nudMysticAdeptMAGMagician.Location = new System.Drawing.Point(789, 287);
@@ -3676,15 +3577,15 @@
             this.treQualities.Indent = 15;
             this.treQualities.Location = new System.Drawing.Point(6, 38);
             this.treQualities.Name = "treQualities";
-            treeNode1.Name = "nodPositiveQualityRoot";
-            treeNode1.Tag = "Node_SelectedPositiveQualities";
-            treeNode1.Text = "Selected Positive Qualities";
-            treeNode2.Name = "nodNegativeQualityRoot";
-            treeNode2.Tag = "Node_SelectedNegativeQualities";
-            treeNode2.Text = "Selected Negative Qualities";
+            treeNode47.Name = "nodPositiveQualityRoot";
+            treeNode47.Tag = "Node_SelectedPositiveQualities";
+            treeNode47.Text = "Selected Positive Qualities";
+            treeNode48.Name = "nodNegativeQualityRoot";
+            treeNode48.Tag = "Node_SelectedNegativeQualities";
+            treeNode48.Text = "Selected Negative Qualities";
             this.treQualities.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
+            treeNode47,
+            treeNode48});
             this.treQualities.ShowNodeToolTips = true;
             this.treQualities.ShowPlusMinus = false;
             this.treQualities.ShowRootLines = false;
@@ -4547,19 +4448,19 @@
             this.treLimit.HideSelection = false;
             this.treLimit.Location = new System.Drawing.Point(8, 33);
             this.treLimit.Name = "treLimit";
-            treeNode3.Name = "trePhysicalRoot";
-            treeNode3.Tag = "Node_Physical";
-            treeNode3.Text = "Physical";
-            treeNode4.Name = "treMentalRoot";
-            treeNode4.Tag = "Node_Mental";
-            treeNode4.Text = "Mental";
-            treeNode5.Name = "treSocialRoot";
-            treeNode5.Tag = "Node_Social";
-            treeNode5.Text = "Social";
+            treeNode49.Name = "trePhysicalRoot";
+            treeNode49.Tag = "Node_Physical";
+            treeNode49.Text = "Physical";
+            treeNode50.Name = "treMentalRoot";
+            treeNode50.Tag = "Node_Mental";
+            treeNode50.Text = "Mental";
+            treeNode51.Name = "treSocialRoot";
+            treeNode51.Tag = "Node_Social";
+            treeNode51.Text = "Social";
             this.treLimit.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4,
-            treeNode5});
+            treeNode49,
+            treeNode50,
+            treeNode51});
             this.treLimit.ShowNodeToolTips = true;
             this.treLimit.ShowPlusMinus = false;
             this.treLimit.ShowRootLines = false;
@@ -4621,14 +4522,14 @@
             this.treMartialArts.HideSelection = false;
             this.treMartialArts.Location = new System.Drawing.Point(8, 35);
             this.treMartialArts.Name = "treMartialArts";
-            treeNode6.Name = "treMartialArtsRoot";
-            treeNode6.Tag = "Node_SelectedMartialArts";
-            treeNode6.Text = "Selected Martial Arts";
-            treeNode7.Name = "treQualitiesRoot";
-            treeNode7.Text = "Selected Qualities";
+            treeNode52.Name = "treMartialArtsRoot";
+            treeNode52.Tag = "Node_SelectedMartialArts";
+            treeNode52.Text = "Selected Martial Arts";
+            treeNode53.Name = "treQualitiesRoot";
+            treeNode53.Text = "Selected Qualities";
             this.treMartialArts.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode7});
+            treeNode52,
+            treeNode53});
             this.treMartialArts.ShowNodeToolTips = true;
             this.treMartialArts.ShowPlusMinus = false;
             this.treMartialArts.ShowRootLines = false;
@@ -5103,31 +5004,31 @@
             this.treSpells.HideSelection = false;
             this.treSpells.Location = new System.Drawing.Point(8, 55);
             this.treSpells.Name = "treSpells";
-            treeNode8.Name = "nodSpellCombatRoot";
-            treeNode8.Tag = "Node_SelectedCombatSpells";
-            treeNode8.Text = "Selected Combat Spells";
-            treeNode9.Name = "nodSpellDetectionRoot";
-            treeNode9.Tag = "Node_SelectedDetectionSpells";
-            treeNode9.Text = "Selected Detection Spells";
-            treeNode10.Name = "nodSpellHealthRoot";
-            treeNode10.Tag = "Node_SelectedHealthSpells";
-            treeNode10.Text = "Selected Health Spells";
-            treeNode11.Name = "nodSpellIllusionRoot";
-            treeNode11.Tag = "Node_SelectedIllusionSpells";
-            treeNode11.Text = "Selected Illusion Spells";
-            treeNode12.Name = "nodSpellManipulationRoot";
-            treeNode12.Tag = "Node_SelectedManipulationSpells";
-            treeNode12.Text = "Selected Manipulation Spells";
-            treeNode13.Name = "nodSpellGeomancyRoot";
-            treeNode13.Tag = "Node_SelectedGeomancyRituals";
-            treeNode13.Text = "Selected Rituals";
+            treeNode54.Name = "nodSpellCombatRoot";
+            treeNode54.Tag = "Node_SelectedCombatSpells";
+            treeNode54.Text = "Selected Combat Spells";
+            treeNode55.Name = "nodSpellDetectionRoot";
+            treeNode55.Tag = "Node_SelectedDetectionSpells";
+            treeNode55.Text = "Selected Detection Spells";
+            treeNode56.Name = "nodSpellHealthRoot";
+            treeNode56.Tag = "Node_SelectedHealthSpells";
+            treeNode56.Text = "Selected Health Spells";
+            treeNode57.Name = "nodSpellIllusionRoot";
+            treeNode57.Tag = "Node_SelectedIllusionSpells";
+            treeNode57.Text = "Selected Illusion Spells";
+            treeNode58.Name = "nodSpellManipulationRoot";
+            treeNode58.Tag = "Node_SelectedManipulationSpells";
+            treeNode58.Text = "Selected Manipulation Spells";
+            treeNode59.Name = "nodSpellGeomancyRoot";
+            treeNode59.Tag = "Node_SelectedGeomancyRituals";
+            treeNode59.Text = "Selected Rituals";
             this.treSpells.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12,
-            treeNode13});
+            treeNode54,
+            treeNode55,
+            treeNode56,
+            treeNode57,
+            treeNode58,
+            treeNode59});
             this.treSpells.ShowNodeToolTips = true;
             this.treSpells.ShowRootLines = false;
             this.treSpells.Size = new System.Drawing.Size(295, 333);
@@ -5477,11 +5378,11 @@
             this.treComplexForms.HideSelection = false;
             this.treComplexForms.Location = new System.Drawing.Point(8, 54);
             this.treComplexForms.Name = "treComplexForms";
-            treeNode14.Name = "nodProgramAdvancedRoot";
-            treeNode14.Tag = "Node_SelectedAdvancedComplexForms";
-            treeNode14.Text = "Selected Complex Forms";
+            treeNode60.Name = "nodProgramAdvancedRoot";
+            treeNode60.Tag = "Node_SelectedAdvancedComplexForms";
+            treeNode60.Text = "Selected Complex Forms";
             this.treComplexForms.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode14});
+            treeNode60});
             this.treComplexForms.ShowNodeToolTips = true;
             this.treComplexForms.ShowRootLines = false;
             this.treComplexForms.Size = new System.Drawing.Size(295, 333);
@@ -5774,15 +5675,15 @@
             this.treCritterPowers.HideSelection = false;
             this.treCritterPowers.Location = new System.Drawing.Point(8, 32);
             this.treCritterPowers.Name = "treCritterPowers";
-            treeNode15.Name = "nodCritterPowerRoot";
-            treeNode15.Tag = "Node_CritterPowers";
-            treeNode15.Text = "Critter Powers";
-            treeNode16.Name = "nodCritterWeaknessRoot";
-            treeNode16.Tag = "Node_CritterWeaknesses";
-            treeNode16.Text = "Weaknesses";
+            treeNode61.Name = "nodCritterPowerRoot";
+            treeNode61.Tag = "Node_CritterPowers";
+            treeNode61.Text = "Critter Powers";
+            treeNode62.Name = "nodCritterWeaknessRoot";
+            treeNode62.Tag = "Node_CritterWeaknesses";
+            treeNode62.Text = "Weaknesses";
             this.treCritterPowers.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode15,
-            treeNode16});
+            treeNode61,
+            treeNode62});
             this.treCritterPowers.ShowNodeToolTips = true;
             this.treCritterPowers.ShowPlusMinus = false;
             this.treCritterPowers.ShowRootLines = false;
@@ -6439,15 +6340,15 @@
             this.treCyberware.HideSelection = false;
             this.treCyberware.Location = new System.Drawing.Point(8, 36);
             this.treCyberware.Name = "treCyberware";
-            treeNode17.Name = "nodCyberwareRoot";
-            treeNode17.Tag = "Node_SelectedCyberware";
-            treeNode17.Text = "Selected Cyberware";
-            treeNode18.Name = "nodBioware";
-            treeNode18.Tag = "Node_SelectedBioware";
-            treeNode18.Text = "Selected Bioware";
+            treeNode63.Name = "nodCyberwareRoot";
+            treeNode63.Tag = "Node_SelectedCyberware";
+            treeNode63.Text = "Selected Cyberware";
+            treeNode64.Name = "nodBioware";
+            treeNode64.Tag = "Node_SelectedBioware";
+            treeNode64.Text = "Selected Bioware";
             this.treCyberware.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode17,
-            treeNode18});
+            treeNode63,
+            treeNode64});
             this.treCyberware.ShowNodeToolTips = true;
             this.treCyberware.ShowRootLines = false;
             this.treCyberware.Size = new System.Drawing.Size(295, 572);
@@ -6626,11 +6527,11 @@
             this.treLifestyles.HideSelection = false;
             this.treLifestyles.Location = new System.Drawing.Point(6, 36);
             this.treLifestyles.Name = "treLifestyles";
-            treeNode19.Name = "nodLifestylesRoot";
-            treeNode19.Tag = "Node_SelectedLifestyles";
-            treeNode19.Text = "Selected Lifestyles";
+            treeNode65.Name = "nodLifestylesRoot";
+            treeNode65.Tag = "Node_SelectedLifestyles";
+            treeNode65.Text = "Selected Lifestyles";
             this.treLifestyles.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode19});
+            treeNode65});
             this.treLifestyles.ShowNodeToolTips = true;
             this.treLifestyles.ShowRootLines = false;
             this.treLifestyles.Size = new System.Drawing.Size(295, 537);
@@ -7054,11 +6955,11 @@
             this.treArmor.HideSelection = false;
             this.treArmor.Location = new System.Drawing.Point(6, 36);
             this.treArmor.Name = "treArmor";
-            treeNode20.Name = "nodArmorRoot";
-            treeNode20.Tag = "Node_SelectedArmor";
-            treeNode20.Text = "Selected Armor";
+            treeNode66.Name = "nodArmorRoot";
+            treeNode66.Tag = "Node_SelectedArmor";
+            treeNode66.Text = "Selected Armor";
             this.treArmor.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode20});
+            treeNode66});
             this.treArmor.ShowNodeToolTips = true;
             this.treArmor.Size = new System.Drawing.Size(295, 537);
             this.treArmor.TabIndex = 69;
@@ -7489,11 +7390,11 @@
             this.treWeapons.HideSelection = false;
             this.treWeapons.Location = new System.Drawing.Point(6, 36);
             this.treWeapons.Name = "treWeapons";
-            treeNode21.Name = "nodWeaponsRoot";
-            treeNode21.Tag = "Node_SelectedWeapons";
-            treeNode21.Text = "Selected Weapons";
+            treeNode67.Name = "nodWeaponsRoot";
+            treeNode67.Tag = "Node_SelectedWeapons";
+            treeNode67.Text = "Selected Weapons";
             this.treWeapons.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode21});
+            treeNode67});
             this.treWeapons.ShowNodeToolTips = true;
             this.treWeapons.Size = new System.Drawing.Size(295, 540);
             this.treWeapons.TabIndex = 29;
@@ -8181,11 +8082,11 @@
             this.treGear.HideSelection = false;
             this.treGear.Location = new System.Drawing.Point(6, 36);
             this.treGear.Name = "treGear";
-            treeNode22.Name = "nodGearRoot";
-            treeNode22.Tag = "Node_SelectedGear";
-            treeNode22.Text = "Selected Gear";
+            treeNode68.Name = "nodGearRoot";
+            treeNode68.Tag = "Node_SelectedGear";
+            treeNode68.Text = "Selected Gear";
             this.treGear.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode22});
+            treeNode68});
             this.treGear.ShowNodeToolTips = true;
             this.treGear.Size = new System.Drawing.Size(295, 540);
             this.treGear.TabIndex = 49;
@@ -8990,11 +8891,11 @@
             this.treVehicles.HideSelection = false;
             this.treVehicles.Location = new System.Drawing.Point(8, 36);
             this.treVehicles.Name = "treVehicles";
-            treeNode23.Name = "nodVehiclesRoot";
-            treeNode23.Tag = "Node_SelectedVehicles";
-            treeNode23.Text = "Selected Vehicles";
+            treeNode69.Name = "nodVehiclesRoot";
+            treeNode69.Tag = "Node_SelectedVehicles";
+            treeNode69.Text = "Selected Vehicles";
             this.treVehicles.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode23});
+            treeNode69});
             this.treVehicles.ShowNodeToolTips = true;
             this.treVehicles.ShowRootLines = false;
             this.treVehicles.Size = new System.Drawing.Size(403, 572);
@@ -10167,6 +10068,40 @@
             this.cmdAddVehicle.UseVisualStyleBackColor = true;
             this.cmdAddVehicle.Click += new System.EventHandler(this.cmdAddVehicle_Click);
             // 
+            // lblContacts
+            // 
+            this.lblContacts.AutoSize = true;
+            this.lblContacts.Location = new System.Drawing.Point(285, 349);
+            this.lblContacts.Name = "lblContacts";
+            this.lblContacts.Size = new System.Drawing.Size(49, 13);
+            this.lblContacts.TabIndex = 93;
+            this.lblContacts.Tag = "Label_Contacts";
+            this.lblContacts.Text = "Contacts";
+            this.tipTooltip.SetToolTip(this.lblContacts, "Each point of Connection or Loyalty costs 1 BP.");
+            // 
+            // panContacts
+            // 
+            this.panContacts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panContacts.AutoScroll = true;
+            this.panContacts.Location = new System.Drawing.Point(285, 390);
+            this.panContacts.Name = "panContacts";
+            this.panContacts.Size = new System.Drawing.Size(550, 218);
+            this.panContacts.TabIndex = 95;
+            this.panContacts.Click += new System.EventHandler(this.panContacts_Click);
+            // 
+            // cmdAddContact
+            // 
+            this.cmdAddContact.AutoSize = true;
+            this.cmdAddContact.Location = new System.Drawing.Point(288, 365);
+            this.cmdAddContact.Name = "cmdAddContact";
+            this.cmdAddContact.Size = new System.Drawing.Size(76, 23);
+            this.cmdAddContact.TabIndex = 94;
+            this.cmdAddContact.Tag = "Button_AddContact";
+            this.cmdAddContact.Text = "&Add Contact";
+            this.cmdAddContact.UseVisualStyleBackColor = true;
+            // 
             // frmCreate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -10234,12 +10169,6 @@
             this.tabCommon.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSignal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudResponse)).EndInit();
-            this.splitContacts.Panel1.ResumeLayout(false);
-            this.splitContacts.Panel1.PerformLayout();
-            this.splitContacts.Panel2.ResumeLayout(false);
-            this.splitContacts.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContacts)).EndInit();
-            this.splitContacts.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudMysticAdeptMAGMagician)).EndInit();
             this.panAttributes.ResumeLayout(false);
             this.panAttributes.PerformLayout();
@@ -10374,10 +10303,7 @@
 		private System.Windows.Forms.Label lblNuyenTotal;
         private System.Windows.Forms.Label lblMetatypeLabel;
         private System.Windows.Forms.Label lblMetatype;
-		private System.Windows.Forms.SaveFileDialog dlgSaveFile;
-        private System.Windows.Forms.Button cmdAddContact;
-        private System.Windows.Forms.Panel panContacts;
-		private System.Windows.Forms.Label lblContacts;
+        private System.Windows.Forms.SaveFileDialog dlgSaveFile;
         private System.Windows.Forms.ToolTip tipTooltip;
         private System.Windows.Forms.TabControl tabCharacterTabs;
         private System.Windows.Forms.TabPage tabCommon;
@@ -10397,10 +10323,7 @@
 		private System.Windows.Forms.Label lblComplexForms;
         private System.Windows.Forms.Label lblPowerPoints;
         private System.Windows.Forms.Label lblPowerPointsLabel;
-		private System.Windows.Forms.Panel panPowers;
-		private System.Windows.Forms.Button cmdAddEnemy;
-		private System.Windows.Forms.Panel panEnemies;
-		private System.Windows.Forms.Label lblEnemies;
+        private System.Windows.Forms.Panel panPowers;
 		private System.Windows.Forms.Label lblCyberwareRatingLabel;
 		private System.Windows.Forms.Label lblCyberwareCost;
 		private System.Windows.Forms.Label lblCyberwareCostLabel;
@@ -10731,8 +10654,7 @@
 		private System.Windows.Forms.Label lblFadingAttributesValue;
 		private System.Windows.Forms.Label lblFadingAttributes;
         private System.Windows.Forms.Label lblFadingAttributesLabel;
-		private System.Windows.Forms.SplitContainer splitSkills;
-		private System.Windows.Forms.SplitContainer splitContacts;
+        private System.Windows.Forms.SplitContainer splitSkills;
 		private System.Windows.Forms.ContextMenuStrip cmsComplexForm;
 		private System.Windows.Forms.ToolStripMenuItem tsAddComplexFormOption;
 		private System.Windows.Forms.NumericUpDown nudVehicleGearQty;
@@ -11149,6 +11071,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblContacts;
+        private System.Windows.Forms.Panel panContacts;
+        private System.Windows.Forms.Button cmdAddContact;
     }
 }
 

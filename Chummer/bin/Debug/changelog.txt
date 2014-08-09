@@ -1,3 +1,15 @@
+Build 5.135 (beta)
+- Minor fix to enable downloading the translator app via Chummer update.
+
+Build 5.134 (beta)
+- Now includes a translator application (Translator.exe).  This app allows you to create and edit the language files to translate Chummer into non-English languages.  If you're interested in doing a translation for distribution with Chummer, please let me know via srchummer5@gmail.com and we'll make arrangements for you to send me updated language files.  This is the first release of this translator app so please let me know if you run into problems using it. There's a bit more to come for handling translation, this was just the first big step.
+- To resolve an issue with Exotic weapon skills, special weapons were moved into the appropriate Exotic weapon category.
+- Fixed a bug that could cause Adept Power Points to be miscalculated in Career mode when adding cyber/bioware.
+- Fixed a bug that could cause a crash when printing your character.
+- Removed the Enemies section as this was a leftover from 4th Edition.
+- Removed the duplicate Narcoject entry.
+- Added the low-light and infrared flashlights from the core book.
+
 Build 5.133 (beta)
 - Fixed a bug that could cause a crash when adding adept powers.
 

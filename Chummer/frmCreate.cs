@@ -723,7 +723,6 @@ namespace Chummer
 
 			// Populate Contacts and Enemies.
 			int intContact = -1;
-			int intEnemy = -1;
 			foreach (Contact objContact in _objCharacter.Contacts)
 			{
 				if (objContact.EntityType == ContactType.Contact)
@@ -747,27 +746,6 @@ namespace Chummer
 					objContactControl.Top = intContact * objContactControl.Height;
 
 					panContacts.Controls.Add(objContactControl);
-				}
-				if (objContact.EntityType == ContactType.Enemy)
-				{
-					intEnemy++;
-					ContactControl objContactControl = new ContactControl();
-					// Attach an EventHandler for the ConnectioNRatingChanged, LoyaltyRatingChanged, DeleteContact, and FileNameChanged Events.
-					objContactControl.ConnectionRatingChanged += objEnemy_ConnectionRatingChanged;
-					objContactControl.ConnectionGroupRatingChanged += objEnemy_ConnectionGroupRatingChanged;
-					objContactControl.LoyaltyRatingChanged += objEnemy_LoyaltyRatingChanged;
-					objContactControl.DeleteContact += objEnemy_DeleteContact;
-					objContactControl.FileNameChanged += objEnemy_FileNameChanged;
-
-					objContactControl.ContactObject = objContact;
-					objContactControl.ContactName = objContact.Name;
-					objContactControl.ConnectionRating = objContact.Connection;
-					objContactControl.LoyaltyRating = objContact.Loyalty;
-					objContactControl.EntityType = objContact.EntityType;
-					objContactControl.BackColor = objContact.Colour;
-
-					objContactControl.Top = intEnemy * objContactControl.Height;
-					panEnemies.Controls.Add(objContactControl);
 				}
 				if (objContact.EntityType == ContactType.Pet)
 				{
@@ -1464,15 +1442,6 @@ namespace Chummer
 					objContactControl.LoyaltyRatingChanged -= objContact_LoyaltyRatingChanged;
 					objContactControl.DeleteContact -= objContact_DeleteContact;
 					objContactControl.FileNameChanged -= objContact_FileNameChanged;
-				}
-
-				foreach (ContactControl objContactControl in panEnemies.Controls.OfType<ContactControl>())
-				{
-					objContactControl.ConnectionRatingChanged -= objEnemy_ConnectionRatingChanged;
-					objContactControl.ConnectionGroupRatingChanged -= objEnemy_ConnectionGroupRatingChanged;
-					objContactControl.LoyaltyRatingChanged -= objEnemy_LoyaltyRatingChanged;
-					objContactControl.DeleteContact -= objEnemy_DeleteContact;
-					objContactControl.FileNameChanged -= objEnemy_FileNameChanged;
 				}
 
 				foreach (PetControl objContactControl in panPets.Controls.OfType<PetControl>())
@@ -4577,10 +4546,6 @@ namespace Chummer
 				intNegativeQualityBP *= _objOptions.KarmaQuality;
 
 			int intBPUsed = 0;
-			foreach (ContactControl objContactControl in panEnemies.Controls)
-			{
-				intBPUsed -= (objContactControl.ConnectionRating + objContactControl.LoyaltyRating + objContactControl.GroupRating) * _objOptions.KarmaQuality;
-			}
 
 			int intEnemyMax = 0;
 			int intQualityMax = 0;
@@ -4633,10 +4598,6 @@ namespace Chummer
 				intNegativeQualityBP *= _objOptions.KarmaQuality;
 
 			int intBPUsed = 0;
-			foreach (ContactControl objContactControl in panEnemies.Controls)
-			{
-				intBPUsed -= (objContactControl.ConnectionRating + objContactControl.LoyaltyRating + objContactControl.GroupRating) * _objOptions.KarmaQuality;
-			}
 
 			int intEnemyMax = 0;
 			int intQualityMax = 0;
@@ -4698,10 +4659,6 @@ namespace Chummer
 				intNegativeQualityBP *= _objOptions.KarmaQuality;
 
 			int intBPUsed = 0;
-			foreach (ContactControl objContactControl in panEnemies.Controls)
-			{
-				intBPUsed -= (objContactControl.ConnectionRating + objContactControl.LoyaltyRating + objContactControl.GroupRating) * _objOptions.KarmaQuality;
-			}
 
 			int intEnemyMax = 0;
 			int intQualityMax = 0;
@@ -4730,44 +4687,6 @@ namespace Chummer
 				}
 			}
 
-			UpdateCharacterInfo();
-
-			_blnIsDirty = true;
-			UpdateWindowTitle();
-		}
-
-		private void objEnemy_DeleteContact(Object sender)
-		{
-			if (!_objFunctions.ConfirmDelete(LanguageManager.Instance.GetString("Message_DeleteEnemy")))
-				return;
-
-			// Handle the DeleteCOntact Event for the ContactControl object.
-			ContactControl objSender = (ContactControl)sender;
-			bool blnFound = false;
-			foreach (ContactControl objContactControl in panEnemies.Controls)
-			{
-				// Set the flag to show that we have found the contact.
-				if (objContactControl == objSender)
-					blnFound = true;
-
-				// Once the Enemy has been found, all of the other ContactControls on the Panel should move up 25 pixels to fill in the gap that deleting this one will cause.
-				if (blnFound)
-				{
-					_objCharacter.Contacts.Remove(objContactControl.ContactObject);
-					objContactControl.Top -= 25;
-				}
-			}
-			// Remove the ContactControl that raised the Event.
-			panEnemies.Controls.Remove(objSender);
-			UpdateCharacterInfo();
-
-			_blnIsDirty = true;
-			UpdateWindowTitle();
-		}
-
-		private void objEnemy_FileNameChanged(Object sender)
-		{
-			// Handle the FileNameChanged Event for the ContactControl object.
 			UpdateCharacterInfo();
 
 			_blnIsDirty = true;
@@ -5177,79 +5096,6 @@ namespace Chummer
 			// Set the ContactControl's Location since scrolling the Panel causes it to actually change the child Controls' Locations.
 			objContactControl.Location = new Point(0, objContactControl.Height * i + panContacts.AutoScrollPosition.Y);
 			panContacts.Controls.Add(objContactControl);
-			UpdateCharacterInfo();
-
-			_blnIsDirty = true;
-			UpdateWindowTitle();
-		}
-
-		private void cmdAddEnemy_Click(object sender, EventArgs e)
-		{
-			// Handle the ConnectionRatingChanged Event for the ContactControl object.
-			int intNegativeQualityBP = 0;
-			// Calculate the BP used for Negative Qualities.
-			foreach (Quality objQuality in _objCharacter.Qualities)
-			{
-				if (objQuality.Type == QualityType.Negative && objQuality.ContributeToLimit)
-					intNegativeQualityBP += objQuality.BP;
-			}
-			// Include the amount of free Negative Qualities from Improvements.
-			intNegativeQualityBP -= _objImprovementManager.ValueOf(Improvement.ImprovementType.FreeNegativeQualities);
-
-			// Adjust for Karma build method.
-			if (_objCharacter.BuildMethod == CharacterBuildMethod.Karma)
-				intNegativeQualityBP *= _objOptions.KarmaQuality;
-
-			int intBPUsed = 0;
-			int intEnemyMax = 0;
-			int intQualityMax = 0;
-			string strEnemyPoints = "";
-			string strQualityPoints = "";
-			intBPUsed = -2 * _objOptions.KarmaQuality;
-			intEnemyMax = 50;
-			intQualityMax = 70;
-			strEnemyPoints = "50 " + LanguageManager.Instance.GetString("String_Karma");
-			strQualityPoints = "70 " +LanguageManager.Instance.GetString("String_Karma");
-
-			foreach (ContactControl objEnemyControl in panEnemies.Controls)
-			{
-				intBPUsed -= (objEnemyControl.ConnectionRating + objEnemyControl.LoyaltyRating) * _objOptions.KarmaQuality;
-			}
-
-			if (intBPUsed < (intEnemyMax * -1) && !_objCharacter.IgnoreRules)
-			{
-				MessageBox.Show(LanguageManager.Instance.GetString("Message_EnemyLimit").Replace("{0}", strEnemyPoints), LanguageManager.Instance.GetString("MessageTitle_EnemyLimit"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-				return;
-			}
-
-			if (!_objOptions.ExceedNegativeQualities)
-			{
-				if (intBPUsed + intNegativeQualityBP < (intQualityMax * -1) && !_objCharacter.IgnoreRules)
-				{
-					MessageBox.Show(LanguageManager.Instance.GetString("Message_NegativeQualityLimit").Replace("{0}", strQualityPoints), LanguageManager.Instance.GetString("MessageTitle_NegativeQualityLimit"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-					return;
-				}
-			}
-
-			Contact objContact = new Contact(_objCharacter);
-			_objCharacter.Contacts.Add(objContact);
-
-			int i = panEnemies.Controls.Count;
-			ContactControl objContactControl = new ContactControl();
-			objContactControl.ContactObject = objContact;
-			objContactControl.EntityType = ContactType.Enemy;
-
-			// Attach an EventHandler for the ConnectioNRatingChanged, LoyaltyRatingChanged, DeleteContact, and FileNameChanged Events.
-			objContactControl.ConnectionRatingChanged += objEnemy_ConnectionRatingChanged;
-			objContactControl.ConnectionGroupRatingChanged += objEnemy_ConnectionGroupRatingChanged;
-			objContactControl.LoyaltyRatingChanged += objEnemy_LoyaltyRatingChanged;
-			objContactControl.DeleteContact += objEnemy_DeleteContact;
-			objContactControl.FileNameChanged += objEnemy_FileNameChanged;
-
-			// Set the ContactControl's Location since scrolling the Panel causes it to actually change the child Controls' Locations.
-			objContactControl.Location = new Point(0, objContactControl.Height * i + panEnemies.AutoScrollPosition.Y);
-			panEnemies.Controls.Add(objContactControl);
-
 			UpdateCharacterInfo();
 
 			_blnIsDirty = true;
@@ -7143,7 +6989,7 @@ namespace Chummer
 
 			// Look through the Weapons file and grab the names of items that are part of the appropriate Exotic Category or use the matching Exoctic Skill.
 			XmlDocument objXmlWeaponDocument = XmlManager.Instance.Load("weapons.xml");
-			XmlNodeList objXmlWeaponList = objXmlWeaponDocument.SelectNodes("/chummer/weapons/weapon[category = \"" + frmPickExoticSkill.SelectedExoticSkill + "s\" or useskill = \"" + frmPickExoticSkill.SelectedExoticSkill + "s\"]");
+			XmlNodeList objXmlWeaponList = objXmlWeaponDocument.SelectNodes("/chummer/weapons/weapon[category = \"" + frmPickExoticSkill.SelectedExoticSkill + "s\" or useskill = \"" + frmPickExoticSkill.SelectedExoticSkill + "\"]");
 			foreach (XmlNode objXmlWeapon in objXmlWeaponList)
 			{
 				if (objXmlWeapon["translate"] != null)
@@ -14248,18 +14094,6 @@ namespace Chummer
 			panKnowledgeSkills.Width = splitSkills.Panel2.Width - 3;
 			panKnowledgeSkills.Height = splitSkills.Panel2.Height - panKnowledgeSkills.Top;
 		}
-
-		private void splitContacts_Panel1_Resize(object sender, EventArgs e)
-		{
-			panContacts.Width = splitContacts.Panel1.Width - 3;
-			panContacts.Height = splitContacts.Panel1.Height - panContacts.Top;
-		}
-
-		private void splitContacts_Panel2_Resize(object sender, EventArgs e)
-		{
-			panEnemies.Width = splitContacts.Panel2.Width - 3;
-			panEnemies.Height = splitContacts.Panel2.Height - panEnemies.Top;
-		}
 		#endregion
 
 		#region Other Control Events
@@ -15262,7 +15096,6 @@ namespace Chummer
 		{
 			int intPointsRemain = 0;
 			int intPointsUsed = 0;
-			int intEnemyPoints = 0;
 			int intNegativePoints = 0;
 			int intFreestyleBPMin = 0;
 			int intFreestyleBP = 0;
@@ -15384,18 +15217,6 @@ namespace Chummer
 			// Calculate the BP used by Enemies. These are added to the BP since they are tehnically
 			// a Negative Quality.
 			intPointsUsed = 0;
-			foreach (ContactControl objContactControl in panEnemies.Controls)
-			{
-				if (!objContactControl.Free)
-				{
-					// The Enemy's Karma cost = their (Connection + Loyalty Rating) x Karma multiplier.
-					intPointsRemain += (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.KarmaContact;
-					intPointsUsed -= (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.KarmaContact;
-					intEnemyPoints += (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.KarmaContact;
-					intNegativePoints += intPointsUsed;
-				}
-			}
-			lblEnemiesBP.Text = String.Format("{0} " + strPoints, intPointsUsed.ToString());
 			intFreestyleBP += intPointsUsed;
 
 			// Calculate the BP used by Positive Qualities.
@@ -19777,15 +19598,6 @@ namespace Chummer
                 // a Negative Quality.
                 int intPointsUsed = 0;
                 int intNegativePoints = 0;
-                foreach (ContactControl objContactControl in panEnemies.Controls)
-                {
-                    if (!objContactControl.Free)
-                    {
-                        // The Enemy's BP cost = their Connection + Loyalty Rating.
-                        intPointsUsed -= (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.BPContact;
-                        intNegativePoints += intPointsUsed;
-                    }
-                }
 
                 // Calculate the BP used by Positive Qualities.
                 intPointsUsed = 0;
@@ -22144,7 +21956,6 @@ namespace Chummer
 			tipTooltip.SetToolTip(lblResponseLabel, LanguageManager.Instance.GetString("Tip_CommonAIResponse"));
 			tipTooltip.SetToolTip(lblSignalLabel, LanguageManager.Instance.GetString("Tip_CommonAISignal"));
 			tipTooltip.SetToolTip(lblContacts, LanguageManager.Instance.GetString("Tip_CommonContacts"));
-			tipTooltip.SetToolTip(lblEnemies, LanguageManager.Instance.GetString("Tip_CommonEnemies"));
 			// Skills Tab.
 			tipTooltip.SetToolTip(lblSkillGroups, LanguageManager.Instance.GetString("Tip_SkillsSkillGroups"));
 			tipTooltip.SetToolTip(lblActiveSkills, LanguageManager.Instance.GetString("Tip_SkillsActiveSkills"));
