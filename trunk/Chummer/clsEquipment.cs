@@ -11630,10 +11630,21 @@ namespace Chummer
 				else
 				{
 					// Just a straight cost, so return the value.
-					if (_strCost == string.Empty)
-						intReturn = 0;
-					else
-						intReturn = Convert.ToInt32(_strCost);
+                    if (_strCost == string.Empty)
+                        intReturn = 0;
+                    else
+                    {
+                        if (_strCost.StartsWith("FixedValues"))
+                        {
+                            string[] strValues = _strCost.Replace("FixedValues(", string.Empty).Replace(")", string.Empty).Split(',');
+                            string strCost = "0";
+                            if (_intRating > 0)
+                                strCost = strValues[Convert.ToInt32(_intRating) - 1].Replace("[", string.Empty).Replace("]", string.Empty);
+                            intReturn = Convert.ToInt32(strCost);
+                        }
+                        else
+                            intReturn = Convert.ToInt32(_strCost);
+                    }
 				}
 				intGearCost = intReturn;
 

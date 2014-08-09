@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-499</version>
-	<categories>
-		<category>Heritage</category>
-		<category>Talent</category>
-		<category>Attributes</category>
-		<category>Skills</category>
-		<category>Resources</category>
-	</categories>
+  <version>-498</version>
+  <categories>
+    <category>Heritage</category>
+    <category>Talent</category>
+    <category>Attributes</category>
+    <category>Skills</category>
+    <category>Resources</category>
+  </categories>
   <gameplayoptions>
     <gameplayoption>
+      <id>054559be-d80a-42b9-a0a9-d6957d2b3c55</id>
       <name>Standard</name>
       <karma>25</karma>
       <maxavailability>12</maxavailability>
@@ -18,6 +19,7 @@
       <default>yes</default>
     </gameplayoption>
     <gameplayoption>
+      <id>5b1281c0-466d-441d-a844-5a2bc93d9843</id>
       <name>Prime Runner</name>
       <karma>35</karma>
       <maxavailability>15</maxavailability>
@@ -25,6 +27,7 @@
       <contactmultiplier>6</contactmultiplier>
     </gameplayoption>
     <gameplayoption>
+      <id>def8a6aa-4bfa-4c73-a20f-2a8e80d2b1df</id>
       <name>Street Level</name>
       <karma>13</karma>
       <maxavailability>10</maxavailability>
@@ -33,10 +36,11 @@
     </gameplayoption>
   </gameplayoptions>
   <priorities>
-		<priority>
-			<name>A - Any metatype</name>
+    <priority>
+      <id>55bc32fb-e097-4234-bdd5-a70e4f043b3d</id>
+      <name>A - Any metatype</name>
       <value>A</value>
-			<category>Heritage</category>
+      <category>Heritage</category>
       <metatypes>
         <metatype>
           <name>Human</name>
@@ -59,8 +63,9 @@
           <value>5</value>
         </metatype>
       </metatypes>
-		</priority>
+    </priority>
     <priority>
+      <id>f9aa712d-7140-4ddd-9e88-4a06e8bae222</id>
       <name>B - Any metatype</name>
       <value>B</value>
       <category>Heritage</category>
@@ -88,6 +93,7 @@
       </metatypes>
     </priority>
     <priority>
+      <id>988b7ce3-5739-4300-bc21-a6c92b869262</id>
       <name>C - Human, Dwarf, Elf, or Ork</name>
       <value>C</value>
       <category>Heritage</category>
@@ -111,6 +117,7 @@
       </metatypes>
     </priority>
     <priority>
+      <id>255da2ba-8d21-4a73-9f81-37156901db72</id>
       <name>D - Human or Elf</name>
       <value>D</value>
       <category>Heritage</category>
@@ -126,6 +133,7 @@
       </metatypes>
     </priority>
     <priority>
+      <id>91dccab9-c3fc-4868-abf8-1825b70e8a6c</id>
       <name>E - Human</name>
       <value>E</value>
       <category>Heritage</category>
@@ -137,6 +145,7 @@
       </metatypes>
     </priority>
     <priority>
+      <id>9d58a295-7c59-4d3f-8001-a5565da6b836</id>
       <name>A - Magician or Technomancer</name>
       <value>A</value>
       <category>Talent</category>
@@ -180,6 +189,7 @@
       </talents>
     </priority>
     <priority>
+      <id>774fd89a-ecea-4f5f-ad2b-c4476ca46f70</id>
       <name>B - Adept, Magician, or Technomancer</name>
       <value>B</value>
       <category>Talent</category>
@@ -245,6 +255,7 @@
       </talents>
     </priority>
     <priority>
+      <id>aae3a140-d306-4811-a9d2-874140600150</id>
       <name>C - Adept, Magician, or Technomancer</name>
       <value>C</value>
       <category>Talent</category>
@@ -301,6 +312,7 @@
       </talents>
     </priority>
     <priority>
+      <id>b97be625-a732-4c3c-80e4-06c4d88bac91</id>
       <name>D - Adept or Aspected Magician</name>
       <value>D</value>
       <category>Talent</category>
@@ -326,6 +338,7 @@
       </talents>
     </priority>
     <priority>
+      <id>9753a254-94b0-46e8-83f4-e7627bdb8571</id>
       <name>E - Mundane</name>
       <value>E</value>
       <category>Talent</category>
@@ -339,36 +352,42 @@
       </talents>
     </priority>
     <priority>
+      <id>1c4a7955-1ae1-4a5b-9ed4-5ab8525d13b0</id>
       <name>A - 24 Attributes</name>
       <value>A</value>
       <category>Attributes</category>
       <attributes>24</attributes>
     </priority>
     <priority>
+      <id>521c1f60-f382-479e-af3b-a3eda5201f22</id>
       <name>B - 20 Attributes</name>
       <value>B</value>
       <category>Attributes</category>
       <attributes>20</attributes>
     </priority>
     <priority>
+      <id>0a224d86-d355-4cd6-8e4e-b94e31f97c4b</id>
       <name>C - 16 Attributes</name>
       <value>C</value>
       <category>Attributes</category>
       <attributes>16</attributes>
     </priority>
     <priority>
+      <id>984600d8-5b2f-437c-86eb-693a5bbff030</id>
       <name>D - 14 Attributes</name>
       <value>D</value>
       <category>Attributes</category>
       <attributes>14</attributes>
     </priority>
     <priority>
+      <id>f6a36071-41ab-4f8e-884d-3cee92d8f181</id>
       <name>E - 12 Attributes</name>
       <value>E</value>
       <category>Attributes</category>
       <attributes>12</attributes>
     </priority>
     <priority>
+      <id>45a5f7b4-c152-4e05-839f-1b3d14e56058</id>
       <name>A - 46 Skills/10 Skill Groups</name>
       <value>A</value>
       <category>Skills</category>
@@ -376,6 +395,7 @@
       <skillgroups>10</skillgroups>
     </priority>
     <priority>
+      <id>bde37645-6789-4401-bcec-4c0e61c7fe17</id>
       <name>B - 36 Skills/5 Skill Groups</name>
       <value>B</value>
       <category>Skills</category>
@@ -383,6 +403,7 @@
       <skillgroups>5</skillgroups>
     </priority>
     <priority>
+      <id>57c52154-489e-4e8a-b885-13b341700deb</id>
       <name>C - 28 Skills/2 Skill Groups</name>
       <value>C</value>
       <category>Skills</category>
@@ -390,6 +411,7 @@
       <skillgroups>2</skillgroups>
     </priority>
     <priority>
+      <id>61e1758f-e4ca-4e53-ad45-bb88a0e5ac04</id>
       <name>D - 22 Skills/0 Skill Groups</name>
       <value>D</value>
       <category>Skills</category>
@@ -397,6 +419,7 @@
       <skillgroups>0</skillgroups>
     </priority>
     <priority>
+      <id>b1ca5551-46a4-4ef0-9d07-c33ae0abbcd1</id>
       <name>E - 18 Skills/0 Skill Groups</name>
       <value>E</value>
       <category>Skills</category>
@@ -404,6 +427,7 @@
       <skillgroups>0</skillgroups>
     </priority>
     <priority>
+      <id>ee17af88-5564-4009-b0a1-4c8632bffaf4</id>
       <name>A - 450,000¥</name>
       <value>A</value>
       <gameplayoption>Standard</gameplayoption>
@@ -411,6 +435,7 @@
       <resources>450000</resources>
     </priority>
     <priority>
+      <id>ddb56487-f6ef-480d-9812-cf6077111c2b</id>
       <name>B - 275,000¥</name>
       <value>B</value>
       <gameplayoption>Standard</gameplayoption>
@@ -418,6 +443,7 @@
       <resources>275000</resources>
     </priority>
     <priority>
+      <id>be69802a-5379-457b-8084-87b22d2e9ea6</id>
       <name>C - 140,000¥</name>
       <value>C</value>
       <gameplayoption>Standard</gameplayoption>
@@ -425,6 +451,7 @@
       <resources>140000</resources>
     </priority>
     <priority>
+      <id>b977475b-9728-45a0-9873-a77bb036fb99</id>
       <name>D - 50,000¥</name>
       <value>D</value>
       <gameplayoption>Standard</gameplayoption>
@@ -432,6 +459,7 @@
       <resources>50000</resources>
     </priority>
     <priority>
+      <id>dd4eb137-e218-4d92-9ac2-db4d6bad4704</id>
       <name>E - 6,000¥</name>
       <value>E</value>
       <gameplayoption>Standard</gameplayoption>
@@ -439,6 +467,7 @@
       <resources>6000</resources>
     </priority>
     <priority>
+      <id>7e4c5695-52c8-4b16-b233-058af14a41d1</id>
       <name>A - 500,000¥</name>
       <value>A</value>
       <gameplayoption>Prime Runner</gameplayoption>
@@ -446,6 +475,7 @@
       <resources>500000</resources>
     </priority>
     <priority>
+      <id>1da0e4d3-e75b-40ab-b366-e1eba499e8ca</id>
       <name>B - 325,000¥</name>
       <value>B</value>
       <gameplayoption>Prime Runner</gameplayoption>
@@ -453,6 +483,7 @@
       <resources>325000</resources>
     </priority>
     <priority>
+      <id>0fdfe7f7-119d-4971-a629-4a4dea938c6c</id>
       <name>C - 210,000¥</name>
       <value>C</value>
       <gameplayoption>Prime Runner</gameplayoption>
@@ -460,6 +491,7 @@
       <resources>210000</resources>
     </priority>
     <priority>
+      <id>2cbe209a-ae97-4985-b42f-4839613dfb28</id>
       <name>D - 150,000¥</name>
       <value>D</value>
       <gameplayoption>Prime Runner</gameplayoption>
@@ -467,6 +499,7 @@
       <resources>150000</resources>
     </priority>
     <priority>
+      <id>860a9601-e06f-424f-8f40-bee843a6b5dc</id>
       <name>E - 100,000¥</name>
       <value>E</value>
       <gameplayoption>Prime Runner</gameplayoption>
@@ -474,6 +507,7 @@
       <resources>100000</resources>
     </priority>
     <priority>
+      <id>dc72a445-a956-4ea5-b383-0f775c638f05</id>
       <name>A - 75,000¥</name>
       <value>A</value>
       <gameplayoption>Street Level</gameplayoption>
@@ -481,6 +515,7 @@
       <resources>75000</resources>
     </priority>
     <priority>
+      <id>edc5db00-8d4c-4510-85d2-8d82d6c66ed6</id>
       <name>B - 50,000¥</name>
       <value>B</value>
       <gameplayoption>Street Level</gameplayoption>
@@ -488,6 +523,7 @@
       <resources>50000</resources>
     </priority>
     <priority>
+      <id>9aecfa32-4d5c-4ba9-a88e-9a04f83e516b</id>
       <name>C - 25,000¥</name>
       <value>C</value>
       <gameplayoption>Street Level</gameplayoption>
@@ -495,6 +531,7 @@
       <resources>25000</resources>
     </priority>
     <priority>
+      <id>c5b45f74-3396-45c7-afa9-b69c0c8db6ee</id>
       <name>D - 15,000¥</name>
       <value>D</value>
       <gameplayoption>Street Level</gameplayoption>
@@ -502,6 +539,7 @@
       <resources>15000</resources>
     </priority>
     <priority>
+      <id>cb4060e7-61b9-40d7-b97f-9ab9129bfc26</id>
       <name>E - 6,000¥</name>
       <value>E</value>
       <gameplayoption>Street Level</gameplayoption>

@@ -276,10 +276,24 @@ namespace Chummer
 				bool blnCreateNode = true;
 				if (objXmlNode["name"].InnerText.Contains(".exe"))
 				{
-					if (Convert.ToInt32(objXmlNode["version"].InnerText.Replace(".", string.Empty)) > Convert.ToInt32(Application.ProductVersion.Replace(".", string.Empty)))
-						blnCreateNode = true;
-					else
-						blnCreateNode = false;
+                    if (objXmlNode["name"].InnerText == "Chummer5.exe")
+                    {
+					    if (Convert.ToInt32(objXmlNode["version"].InnerText.Replace(".", string.Empty)) > Convert.ToInt32(Application.ProductVersion.Replace(".", string.Empty)))
+						    blnCreateNode = true;
+					    else
+						    blnCreateNode = false;
+                    }
+                    else
+                    {
+                        FileVersionInfo myFileVersionInfo = FileVersionInfo.GetVersionInfo(Application.StartupPath + Path.DirectorySeparatorChar + objXmlNode["name"].InnerText);
+                        string strVersion = myFileVersionInfo.FileVersion.ToString().Replace(".", "");
+                        int intVersion = Convert.ToInt32(strVersion);
+
+                        if (Convert.ToInt32(objXmlNode["version"].InnerText.Replace(".", string.Empty)) > intVersion)
+                            blnCreateNode = true;
+                        else
+                            blnCreateNode = false;
+                    }
 				}
 
 				// If we're on an XML file, check for the existing file and compare version numbers.
@@ -503,7 +517,8 @@ namespace Chummer
 								try
 								{
 									wc.Encoding = Encoding.Default;
-									wc.DownloadFileCompleted += wc_DownloadExeFileCompleted;
+                                    if (nodNode.Tag.ToString() == "Chummer5.exe")
+									    wc.DownloadFileCompleted += wc_DownloadExeFileCompleted;
 									wc.DownloadFileCompleted += wc_DownloadFileCompleted;
                                     XmlNode objNode = _objXmlDocument.SelectSingleNode("/manifest/file[name=\"" + nodNode.Tag.ToString() + "\"]/url");
                                     string strFile = objNode.InnerText;
