@@ -14,6 +14,8 @@ public delegate void SpecializationLeaveHandler(Object sender);
 public delegate void DeleteSkillHandler(Object sender);
 public delegate void SkillKarmaClickHandler(Object sender);
 public delegate void DiceRollerHandler(Object sender);
+// BuyWithKarma Event Handler
+public delegate void BuyWithKarmaChangedHandler(Object sender);
 
 namespace Chummer
 {
@@ -29,6 +31,7 @@ namespace Chummer
 		public event SkillKarmaClickHandler SkillKarmaClicked;
 		public event DiceRollerHandler DiceRollerClicked;
 		public event BreakGroupHandler BreakGroupClicked;
+        public event BuyWithKarmaChangedHandler BuyWithKarmaChanged;
 
 		private string _strOldSpec = "";
 		private bool _blnSkipRefresh = false;
@@ -56,6 +59,8 @@ namespace Chummer
 				string strTooltip = "";
 				int intNewRating = _objSkill.Rating + 1;
 				int intKarmaCost = 0;
+
+                chkKarma.Visible = false;
 
 				if (_objSkill.Rating < _objSkill.RatingMaximum)
 				{
@@ -131,6 +136,7 @@ namespace Chummer
                 cmdBreakGroup.Visible = false;
             }
 
+            chkKarma.Checked = _objSkill.BuyWithKarma;
 			lblAttribute.Text = _objSkill.DisplayAttribute;
 
 			RefreshControl();
@@ -256,7 +262,13 @@ namespace Chummer
 			DiceRollerClicked(this);
 		}
 
-		private void cmdBreakGroup_Click(object sender, EventArgs e)
+        private void chkKarma_CheckedChanged(object sender, EventArgs e)
+        {
+            _objSkill.BuyWithKarma = chkKarma.Checked;
+            BuyWithKarmaChanged(this);
+        }
+        
+        private void cmdBreakGroup_Click(object sender, EventArgs e)
 		{
 			BreakGroupClicked(this);
 		}
@@ -526,6 +538,22 @@ namespace Chummer
             set
             {
 				_objSkill.SkillGroup = value;
+            }
+        }
+
+        /// <summary>
+        /// Whether or not the skill's specialization is paid for with karma.
+        /// </summary>
+        public bool BuyWithKarma
+        {
+            get
+            {
+                return _objSkill.BuyWithKarma;
+            }
+            set
+            {
+                chkKarma.Checked = value;
+                _objSkill.BuyWithKarma = value;
             }
         }
 

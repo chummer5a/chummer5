@@ -3,7 +3,7 @@
   <file>
     <name>Chummer5.exe</name>
     <type>Application</type>
-    <version>0.0.5.135</version>
+    <version>0.0.5.136</version>
     <description>Chummer</description>
     <notes>- Chummer Application</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMeU9jcjNKNldfdkU</url>
@@ -215,6 +215,14 @@
     <description>Complex Forms</description>
     <notes>- Complex Forms data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMbEJRekRjOGJnNXM</url>
+  </file>
+  <file>
+    <name>data/contacts.xml</name>
+    <type>Data Files</type>
+    <version>-500</version>
+    <description>Contacts</description>
+    <notes>- Contacts data file</notes>
+    <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMSHBYVzRFUDdndjg</url>
   </file>
   <file>
     <name>data/critterpowers.xml</name>

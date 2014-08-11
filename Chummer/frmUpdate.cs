@@ -19,20 +19,26 @@ namespace Chummer
 		private int _intFileCount = 0;
 		private int _intDoneCount = 0;
         private XmlDocument _objXmlDocument;
+        private CommonFunctions objFunctions = new CommonFunctions();
 
 		#region Control Methods
 		public frmUpdate()
 		{
-			InitializeComponent();
+            objFunctions.LogWrite(CommonFunctions.LogType.Entering, "frmUpdate", "Instantiate");
+            InitializeComponent();
 			LanguageManager.Instance.Load(GlobalOptions.Instance.Language, this);
 			MoveControls();
-		}
+            objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "Instantiate");
+        }
 
 		private void frmUpdate_Load(object sender, EventArgs e)
 		{
-			// Count the number of instances of Chummer that are currently running.
-			string strFileName = Process.GetCurrentProcess().MainModule.FileName;
-			int intCount = 0;
+            objFunctions.LogWrite(CommonFunctions.LogType.Entering, "frmUpdate", "frmUpdate_Load");
+            // Count the number of instances of Chummer that are currently running.
+            objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Get process list");
+            string strFileName = Process.GetCurrentProcess().MainModule.FileName;
+            objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Get Chummer process count");
+            int intCount = 0;
 			foreach (Process objProcess in Process.GetProcesses())
 			{
 				try
@@ -45,12 +51,15 @@ namespace Chummer
 				}
 			}
 
-			// If there is more than 1 instance running, do not let the application be updated.
+            objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "intCount = " + intCount.ToString());
+            // If there is more than 1 instance running, do not let the application be updated.
 			if (intCount > 1)
 			{
-				if (!_blnSilentMode)
+                objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "More than one instance, exiting");
+                if (!_blnSilentMode)
 					MessageBox.Show(LanguageManager.Instance.GetString("Message_Update_MultipleInstances"), LanguageManager.Instance.GetString("Title_Update"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-				this.Close();
+                objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "frmUpdate_Load");
+                this.Close();
 			}
 
 			//if (Application.StartupPath.Contains("\\Debug"))
@@ -59,13 +68,17 @@ namespace Chummer
 			//    this.Close();
 			//}
 
-			FetchXML();
-		}
+            objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Fetch XML");
+            FetchXML();
+            objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "frmUpdate_Load");
+        }
 
 		private void cmdUpdate_Click(object sender, EventArgs e)
 		{
-			// Make sure updates have been selected before attempting to download anything.
-			bool blnUpdatesSelected = false;
+            objFunctions.LogWrite(CommonFunctions.LogType.Entering, "frmUpdate", "cmdUpdate_Click");
+            // Make sure updates have been selected before attempting to download anything.
+            objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Verify at least one file has been selected");
+            bool blnUpdatesSelected = false;
 			foreach (TreeNode objNode in treeUpdate.Nodes)
 			{
 				foreach (TreeNode objChild in objNode.Nodes)
@@ -78,37 +91,47 @@ namespace Chummer
 				}
 			}
 
-			// No updates have been selected, so display a message.
+            objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "blnUpdatesSelected = " + blnUpdatesSelected.ToString());
+            // No updates have been selected, so display a message.
 			if (!blnUpdatesSelected)
 			{
-				MessageBox.Show(LanguageManager.Instance.GetString("Message_Update_NoUpdatesSelected"), LanguageManager.Instance.GetString("Title_Update"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-				return;
+                objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "No files selected");
+                MessageBox.Show(LanguageManager.Instance.GetString("Message_Update_NoUpdatesSelected"), LanguageManager.Instance.GetString("Title_Update"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "cmdUpdate_Click");
+                return;
 			}
 
 			// If we've made it this far, there's stuff to download, so go do it.
-			DownloadUpdates();
-		}
+            objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Download updates");
+            DownloadUpdates();
+            objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "cmdUpdate_Click");
+        }
 
 		private void cmdSelectAll_Click(object sender, EventArgs e)
 		{
-			// Select all of the items in the Tree.
+            objFunctions.LogWrite(CommonFunctions.LogType.Entering, "frmUpdate", "cmdSelectAll_Click");
+            // Select all of the items in the Tree.
 			foreach (TreeNode nodItem in treeUpdate.Nodes)
 			{
 				nodItem.Checked = true;
 			}
-		}
+            objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "cmdSelectAll_Click");
+        }
 
 		private void treeUpdate_AfterCheck(object sender, TreeViewEventArgs e)
 		{
-			// Select/deselect all of the child nodes if a root node is checked/unchecked.
+            objFunctions.LogWrite(CommonFunctions.LogType.Entering, "frmUpdate", "treeUpdate_AfterCheck");
+            // Select/deselect all of the child nodes if a root node is checked/unchecked.
 			TreeNode nodClicked = e.Node;
-			foreach (TreeNode nodNode in nodClicked.Nodes)
+            objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Select/deselect child nodes");
+            foreach (TreeNode nodNode in nodClicked.Nodes)
 			{
 				nodNode.Checked = nodClicked.Checked;
 			}
 
 			// chummer5.exe and lang/en-us.xml must always match.
-			if (!_blnSkip)
+            objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Make sure Chummer5.exe and lang/en-us.xml match");
+            if (!_blnSkip)
 			{
 				_blnSkip = true;
 				if (nodClicked.Tag != null)
@@ -144,11 +167,13 @@ namespace Chummer
 				}
 				_blnSkip = false;
 			}
-		}
+            objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "treeUpdate_AfterCheck");
+        }
 
 		private void treeUpdate_AfterSelect(object sender, TreeViewEventArgs e)
 		{
-			// Display the description of the update.
+            objFunctions.LogWrite(CommonFunctions.LogType.Entering, "frmUpdate", "treeUpdate_AfterSelect");
+            // Display the description of the update.
 			try
 			{
 				if (e.Node.ToolTipText != "")
@@ -157,11 +182,13 @@ namespace Chummer
 			catch
 			{
 			}
-		}
+            objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "treeUpdate_AfterSelect");
+        }
 
 		private void cmdRestart_Click(object sender, EventArgs e)
 		{
-			// Restart the application.
+            objFunctions.LogWrite(CommonFunctions.LogType.Entering, "frmUpdate", "cmdRestart_Click");
+            // Restart the application.
 			Application.Restart();
 		}
 		#endregion
@@ -187,7 +214,8 @@ namespace Chummer
 		/// </summary>
 		private void FetchXML()
 		{
-			treeUpdate.Nodes.Clear();
+            objFunctions.LogWrite(CommonFunctions.LogType.Entering, "frmUpdate", "FetchXML");
+            treeUpdate.Nodes.Clear();
 
 			XmlDocument objXmlDocument = new XmlDocument();
 			XmlDocument objXmlFileDocument = new XmlDocument();
@@ -196,7 +224,8 @@ namespace Chummer
 
 			XmlDocument objXmlLanguageDocument = new XmlDocument();
 
-			// Download the manifestdata.xml file which describes all of the files available for download and extract its nodes.
+            objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Get manifestdata.xml");
+            // Download the manifestdata.xml file which describes all of the files available for download and extract its nodes.
 			// Timeout set to 30 seconds.
             HttpWebRequest objRequest = (HttpWebRequest)WebRequest.Create("https://docs.google.com/uc?export=download&id=0B1j5wMS6KHqMQzRxYmlJWEVzQVE");
 			//HttpWebRequest objRequest = (HttpWebRequest)WebRequest.Create("http://localhost/manifestdata.xml");
@@ -210,13 +239,19 @@ namespace Chummer
 			{
 				objResponse = (HttpWebResponse)objRequest.GetResponse();
 				objReader = new StreamReader(objResponse.GetResponseStream());
-			}
-			catch
+                objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Got manifestdata.xml");
+            }
+			catch (Exception ex)
 			{
-				// Don't show the error message if we're running in silent mode.
+                objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Failed to retrieve manifestdata.xml");
+                objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Message = " + ex.Message);
+                objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Source  = " + ex.Source);
+                objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Trace   = " + ex.StackTrace.ToString());
+                // Don't show the error message if we're running in silent mode.
 				if (!_blnSilentMode)
 					MessageBox.Show(LanguageManager.Instance.GetString("Message_Update_CannotConnect"), LanguageManager.Instance.GetString("Title_Update"), MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "FetchXML");
 				this.Close();
 				return;
 			}
@@ -224,26 +259,34 @@ namespace Chummer
 			// Load the downloaded manifestdata.xml file.
 			objXmlDocument.Load(objReader);
 
-			// Download the manifestlang.xml file which describes the language content available for download.
+            objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Get manifestlang.xml");
+            // Download the manifestlang.xml file which describes the language content available for download.
             objRequest = (HttpWebRequest)WebRequest.Create("https://docs.google.com/uc?export=download&id=0B1j5wMS6KHqMUFFTTWo2dC01S0k");
 			// objRequest = (HttpWebRequest)WebRequest.Create("http://localhost/manifestlang.xml");
 			try
 			{
 				objResponse = (HttpWebResponse)objRequest.GetResponse();
 				objReader = new StreamReader(objResponse.GetResponseStream());
-			}
-			catch
+                objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Got manifestdata.xml");
+            }
+			catch (Exception ex)
 			{
-				// Don't show the error message if we're running in silent mode.
+                objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Failed to retrieve manifestlang.xml");
+                objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Message = " + ex.Message);
+                objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Source  = " + ex.Source);
+                objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Trace   = " + ex.StackTrace.ToString());
+                // Don't show the error message if we're running in silent mode.
 				if (!_blnSilentMode)
 					MessageBox.Show(LanguageManager.Instance.GetString("Message_Update_CannotConnect"), LanguageManager.Instance.GetString("Title_Update"), MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-				this.Close();
+                objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "FetchXML");
+                this.Close();
 				return;
 			}
 
 			// Merge the manifests together into a single usable XmlDocument.
-			objXmlLanguageDocument.Load(objReader);
+            objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Merge the two manifests");
+            objXmlLanguageDocument.Load(objReader);
 			XmlNodeList objXmlList = objXmlLanguageDocument.SelectNodes("/manifest/*");
 			foreach (XmlNode objNode in objXmlList)
 			{
@@ -251,14 +294,17 @@ namespace Chummer
 				objXmlDocument.DocumentElement.AppendChild(objImported);
 			}
 
-			XmlNodeList objXmlNodeList = objXmlDocument.SelectNodes("/manifest/file");
+            objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Get the file list");
+            XmlNodeList objXmlNodeList = objXmlDocument.SelectNodes("/manifest/file");
 
 			TreeNode nodRoot = new TreeNode();
             _objXmlDocument = objXmlDocument;
+            objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "_objXmlDocument = " + _objXmlDocument.InnerXml.ToString());
 
 			foreach (XmlNode objXmlNode in objXmlNodeList)
 			{
-				// A new type has been found, so attach the current root node to the tree and start a new one.
+                objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "objXmlNode = " + objXmlNode["name"].InnerText.ToString());
+                // A new type has been found, so attach the current root node to the tree and start a new one.
 				if (objXmlNode["type"].InnerText != strLastType)
 				{
 					if (strLastType != "")
@@ -276,18 +322,25 @@ namespace Chummer
 				bool blnCreateNode = true;
 				if (objXmlNode["name"].InnerText.Contains(".exe"))
 				{
+                    objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "File is EXE");
                     if (objXmlNode["name"].InnerText == "Chummer5.exe")
                     {
-					    if (Convert.ToInt32(objXmlNode["version"].InnerText.Replace(".", string.Empty)) > Convert.ToInt32(Application.ProductVersion.Replace(".", string.Empty)))
+                        objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "File is Chummer5.exe");
+                        objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "Existing Version = " + Convert.ToInt32(Application.ProductVersion.Replace(".", string.Empty)).ToString());
+                        objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "New Version = " + Convert.ToInt32(objXmlNode["version"].InnerText.Replace(".", string.Empty)).ToString());
+                        if (Convert.ToInt32(objXmlNode["version"].InnerText.Replace(".", string.Empty)) > Convert.ToInt32(Application.ProductVersion.Replace(".", string.Empty)))
 						    blnCreateNode = true;
 					    else
 						    blnCreateNode = false;
                     }
                     else
                     {
+                        objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "File is another EXE");
                         FileVersionInfo myFileVersionInfo = FileVersionInfo.GetVersionInfo(Application.StartupPath + Path.DirectorySeparatorChar + objXmlNode["name"].InnerText);
                         string strVersion = myFileVersionInfo.FileVersion.ToString().Replace(".", "");
                         int intVersion = Convert.ToInt32(strVersion);
+                        objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "Existing Version = " + intVersion.ToString());
+                        objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "New Version = " + Convert.ToInt32(objXmlNode["version"].InnerText.Replace(".", string.Empty)).ToString());
 
                         if (Convert.ToInt32(objXmlNode["version"].InnerText.Replace(".", string.Empty)) > intVersion)
                             blnCreateNode = true;
@@ -299,18 +352,25 @@ namespace Chummer
 				// If we're on an XML file, check for the existing file and compare version numbers.
 				if (objXmlNode["name"].InnerText.Contains(".xml"))
 				{
-					try
+                    objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "File is XML");
+                    try
 					{
 						objXmlFileDocument.Load(Application.StartupPath + Path.DirectorySeparatorChar + objXmlNode["name"].InnerText.Replace('/', Path.DirectorySeparatorChar));
 						objXmlFileNode = objXmlFileDocument.SelectSingleNode("/chummer/version");
-						if (Convert.ToInt32(objXmlNode["version"].InnerText) > Convert.ToInt32(objXmlFileNode.InnerText))
+                        objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "Existing Version = " + Convert.ToInt32(objXmlFileNode.InnerText).ToString());
+                        objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "New Version = " + Convert.ToInt32(objXmlNode["version"].InnerText).ToString());
+                        if (Convert.ToInt32(objXmlNode["version"].InnerText) > Convert.ToInt32(objXmlFileNode.InnerText))
 							blnCreateNode = true;
 						else
 							blnCreateNode = false;
 					}
-					catch (Exception)
+					catch (Exception ex)
 					{
-						blnCreateNode = true;
+                        objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Failed to get the existing version number");
+                        objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Message = " + ex.Message);
+                        objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Source  = " + ex.Source);
+                        objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Trace   = " + ex.StackTrace.ToString());
+                        blnCreateNode = true;
 					}
 
 					// Check for localisation limitations.
@@ -328,7 +388,8 @@ namespace Chummer
 				// If we're on an XSL file, check for the existing file and compare version numbers.
 				if (objXmlNode["name"].InnerText.Contains(".xsl"))
 				{
-					try
+                    objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "File is XSL");
+                    try
 					{
 						StreamReader objFile = new StreamReader(Application.StartupPath + Path.DirectorySeparatorChar + objXmlNode["name"].InnerText.Replace('/', Path.DirectorySeparatorChar));
 						string strLine = "";
@@ -337,7 +398,9 @@ namespace Chummer
 							if (strLine.Contains("<!-- Version"))
 							{
 								int intVersion = Convert.ToInt32(strLine.Replace("<!-- Version ", string.Empty).Replace(" -->", string.Empty));
-								if (intVersion < Convert.ToInt32(objXmlNode["version"].InnerText))
+                                objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "Existing Version = " + intVersion.ToString());
+                                objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "New Version = " + Convert.ToInt32(objXmlNode["version"].InnerText).ToString());
+                                if (intVersion < Convert.ToInt32(objXmlNode["version"].InnerText))
 									blnCreateNode = true;
 								else
 									blnCreateNode = false;
@@ -346,9 +409,13 @@ namespace Chummer
 						}
 						objFile.Close();
 					}
-					catch(Exception)
+					catch(Exception ex)
 					{
-						blnCreateNode = true;
+                        objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Failed to get the existing version number");
+                        objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Message = " + ex.Message);
+                        objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Source  = " + ex.Source);
+                        objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Trace   = " + ex.StackTrace.ToString());
+                        blnCreateNode = true;
 					}
 
 					// Check for localisation limitations.
@@ -366,7 +433,8 @@ namespace Chummer
 
 				if (blnCreateNode)
 				{
-					TreeNode nodNode = new TreeNode();
+                    objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Will Create Node");
+                    TreeNode nodNode = new TreeNode();
 					nodNode.Text = objXmlNode["description"].InnerText;
 					nodNode.Tag = objXmlNode["name"].InnerText;
 					nodNode.ToolTipText = objXmlNode["notes"].InnerText;
@@ -393,48 +461,59 @@ namespace Chummer
 							nodNode.Checked = blnChecked;
 						}
 					}
-					nodRoot.Nodes.Add(nodNode);
+                    objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Create Node - " + nodNode.Tag.ToString());
+                    nodRoot.Nodes.Add(nodNode);
 				}
 			}
-			
-			objReader.Close();
+
+            objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Close the reader");
+            objReader.Close();
 
 			// Attach the last root node to the tree.
-			nodRoot.ExpandAll();
+            objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Expand all nodes");
+            nodRoot.ExpandAll();
 			if (nodRoot.GetNodeCount(false) > 0)
 				treeUpdate.Nodes.Add(nodRoot);
 
 			if (treeUpdate.GetNodeCount(false) == 0)
 			{
-				this.Visible = false;
+                objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "No new updates");
+                this.Visible = false;
 				if (!_blnSilentMode)
 					MessageBox.Show(LanguageManager.Instance.GetString("Message_Update_NoNewUpdates"), LanguageManager.Instance.GetString("Title_Update"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 				this.Close();
 			}
 			else
-				if (_blnSilentMode)
-					DownloadUpdates();
-				else
-				{
-					this.Opacity = 100;
-					this.Show();
-				}
+                if (_blnSilentMode)
+                {
+                    objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Download updates");
+                    DownloadUpdates();
+                }
+                else
+                {
+                    objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Show frmUpdate with available updates");
+                    this.Opacity = 100;
+                    this.Show();
+                }
 
 			// Close the connection now that we're done with it.
 			objResponse.Close();
-		}
+            objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "FetchXML");
+        }
 
 		/// <summary>
 		/// Download the selected updates and overwrite the existing files.
 		/// </summary>
 		private void DownloadUpdates()
 		{
-			cmdUpdate.Enabled = false;
+            objFunctions.LogWrite(CommonFunctions.LogType.Entering, "frmUpdate", "DownloadUpdates");
+            cmdUpdate.Enabled = false;
 			cmdSelectAll.Enabled = false;
 
 			// Determine the temporary location for the new executable if it is downloaded.
 			string strNewPath = Path.Combine(Path.GetTempPath(), "chummer5.exe");
 			string strFilePath = Application.StartupPath + Path.DirectorySeparatorChar;
+            objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "Temp path = " + strNewPath);
 
 			WebClient wc = new WebClient();
 
@@ -454,12 +533,14 @@ namespace Chummer
 				}
 			}
 
-			if (_blnSilentMode)
+            objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "File Count = " + _intFileCount.ToString());
+            if (_blnSilentMode)
 			{
 				// If nothing is selected (Language files that the user does not have installed), close the window.
 				if (pgbOverallProgress.Maximum == 0)
 				{
-					this.Close();
+                    objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "DownloadUpdates");
+                    this.Close();
 					return;
 				}
 
@@ -480,9 +561,11 @@ namespace Chummer
 						pgbFileProgress.Value = 0;
 						wc.DownloadProgressChanged += wc_DownloadProgressChanged;
 
-						if (nodNode.Tag.ToString().Contains(".xml") || nodNode.Tag.ToString().Contains(".xsl"))
+                        objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "nodNode = " + nodNode.Tag.ToString());
+                        if (nodNode.Tag.ToString().Contains(".xml") || nodNode.Tag.ToString().Contains(".xsl"))
 						{
-							// Make sure the target directory exists. If it doesn't, create it.
+                            objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "File is XML or XSL");
+                            // Make sure the target directory exists. If it doesn't, create it.
 							string[] strCheckDirectory = (strFilePath + nodNode.Tag.ToString().Replace('/', Path.DirectorySeparatorChar)).Split(Path.DirectorySeparatorChar);
 							StringBuilder strDirectory = new StringBuilder();
 							for (int i = 0; i < strCheckDirectory.Length - 1; i++)
@@ -495,6 +578,7 @@ namespace Chummer
 							wc.DownloadFileCompleted += wc_DownloadFileCompleted;
                             XmlNode objNode = _objXmlDocument.SelectSingleNode("/manifest/file[name=\"" + nodNode.Tag.ToString() + "\"]/url");
                             string strFile = objNode.InnerText;
+                            objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "strFile = " + strFile);
                             wc.DownloadFileAsync(new Uri(strFile), strFilePath + nodNode.Tag.ToString().Replace('/', Path.DirectorySeparatorChar));
 						}
 						else
@@ -505,43 +589,57 @@ namespace Chummer
 								try
 								{
 									wc.Encoding = Encoding.UTF8;
+                                    objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Download the changelog");
                                     wc.DownloadFile("https://docs.google.com/uc?export=download&id=0B1j5wMS6KHqMODljM1JXdHcxRjg", Path.Combine(Application.StartupPath, "changelog.txt"));
 									webNotes.DocumentText = "<font size=\"-1\" face=\"Courier New,Serif\">" + File.ReadAllText(Path.Combine(Application.StartupPath, "changelog.txt")).Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;").Replace("\n", "<br />") + "</font>";
 								}
-								catch
+								catch (Exception ex)
 								{
 									// Not a critical file, so don't freak out if it can't be downloaded.
-								}
+                                    objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Failed to download the file");
+                                    objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Message = " + ex.Message);
+                                    objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Source  = " + ex.Source);
+                                    objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Trace   = " + ex.StackTrace.ToString());
+                                }
 
 								// Downloading the application executable file.
 								try
 								{
 									wc.Encoding = Encoding.Default;
+                                    objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Set the download complete event");
                                     if (nodNode.Tag.ToString() == "Chummer5.exe")
 									    wc.DownloadFileCompleted += wc_DownloadExeFileCompleted;
 									wc.DownloadFileCompleted += wc_DownloadFileCompleted;
                                     XmlNode objNode = _objXmlDocument.SelectSingleNode("/manifest/file[name=\"" + nodNode.Tag.ToString() + "\"]/url");
                                     string strFile = objNode.InnerText;
+                                    objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "strFile = " + strFile);
                                     wc.DownloadFileAsync(new Uri(strFile), strNewPath);
 								}
-								catch
+								catch (Exception ex)
 								{
 									// The executable couldn't be downloaded, so don't try to replace the current app with something that doesn't exist.
-								}
+                                    objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Failed to download the file");
+                                    objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Message = " + ex.Message);
+                                    objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Source  = " + ex.Source);
+                                    objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Trace   = " + ex.StackTrace.ToString());
+                                }
 							}
 						}
 						Application.DoEvents();
-					}
+                        objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Done with this file");
+                    }
 				}
 			}
-		}
+            objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "DownloadUpdates");
+        }
 
 		/// <summary>
 		/// Run through the files that were downloaded and make sure their size is more than 0 bytes.
 		/// </summary>
 		private bool ValidateFiles()
 		{
-			bool blnReturn = true;
+            objFunctions.LogWrite(CommonFunctions.LogType.Entering, "frmUpdate", "ValidateFiles");
+            bool blnReturn = true;
 			string strFilePath = Application.StartupPath + Path.DirectorySeparatorChar;
 			
 			// Loop through all of the root-level nodes in the update tree.
@@ -552,11 +650,13 @@ namespace Chummer
 				{
                     if (nodNode.Checked)
                     {
+                        objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "nodNode = " + nodNode.Tag.ToString());
                         try
                         {
                             FileInfo objInfo = new FileInfo(strFilePath + nodNode.Tag.ToString().Replace('/', Path.DirectorySeparatorChar));
                             if (objInfo.Length == 0)
                             {
+                                objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "The file is zero-length");
                                 blnReturn = false;
                                 break;
                             }
@@ -565,15 +665,20 @@ namespace Chummer
                             objXmlFileDocument.Load(strFilePath + nodNode.Tag.ToString().Replace('/', Path.DirectorySeparatorChar));
                             blnReturn = true;
                         }
-                        catch (Exception)
+                        catch (Exception ex)
                         {
                             blnReturn = false;
+                            objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Failed to download the file");
+                            objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Message = " + ex.Message);
+                            objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Source  = " + ex.Source);
+                            objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Trace   = " + ex.StackTrace.ToString());
                         }
                     }
 				}
 			}
 
-			return blnReturn && _blnExeDownloadSuccess;
+            objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "ValidateFiles");
+            return blnReturn && _blnExeDownloadSuccess;
 		}
 
 		/// <summary>
@@ -581,23 +686,30 @@ namespace Chummer
 		/// </summary>
 		private bool ValidateExecutable()
 		{
-			bool blnReturn = true;
+            objFunctions.LogWrite(CommonFunctions.LogType.Entering, "frmUpdate", "ValidateExecutable");
+            bool blnReturn = true;
 
 			try
 			{
 				string strVersion = FileVersionInfo.GetVersionInfo(Path.Combine(Path.GetTempPath(), "chummer5.exe")).ProductVersion;
-			}
-			catch
+                objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "strVersion = " + strVersion);
+            }
+			catch (Exception ex)
 			{
 				blnReturn = false;
-			}
+                objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Message = " + ex.Message);
+                objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Source  = " + ex.Source);
+                objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Trace   = " + ex.StackTrace.ToString());
+            }
 
-			return blnReturn;
+            objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "ValidateExecutable");
+            return blnReturn;
 		}
 
 		private void MoveControls()
 		{
-			cmdRestart.Left = this.Width - 19 - cmdRestart.Width;
+            objFunctions.LogWrite(CommonFunctions.LogType.Entering, "frmUpdate", "MoveControls");
+            cmdRestart.Left = this.Width - 19 - cmdRestart.Width;
 			cmdSelectAll.Left = cmdUpdate.Left + cmdUpdate.Width + 24;
 
 			int intWidth = Math.Max(lblOverallProgress.Width, lblFileProgress.Width);
@@ -605,7 +717,8 @@ namespace Chummer
 			pgbOverallProgress.Width = this.Width - pgbOverallProgress.Left - 19;
 			pgbFileProgress.Left = lblFileProgress.Left + intWidth + 6;
 			pgbFileProgress.Width = this.Width - pgbFileProgress.Left - 19;
-		}
+            objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "MoveControls");
+        }
 		#endregion
 
 		#region AsyncDownload Events
@@ -614,51 +727,71 @@ namespace Chummer
 		/// </summary>
 		private void wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
 		{
-			pgbFileProgress.Value = e.ProgressPercentage;
-		}
+            objFunctions.LogWrite(CommonFunctions.LogType.Entering, "frmUpdate", "wc_DownloadProgressChanged");
+            pgbFileProgress.Value = e.ProgressPercentage;
+            objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "wc_DownloadProgressChanged");
+        }
 
 		/// <summary>
 		/// The EXE file is down downloading, so replace the old file with the new one.
 		/// </summary>
 		private void wc_DownloadExeFileCompleted(object sender, AsyncCompletedEventArgs e)
 		{
-			string strAppPath = Application.ExecutablePath;
+            objFunctions.LogWrite(CommonFunctions.LogType.Entering, "frmUpdate", "wc_DownloadExeFileCompleted");
+            string strAppPath = Application.ExecutablePath;
 			string strArchive = strAppPath + ".old";
 			string strNewPath = Path.Combine(Path.GetTempPath(), "chummer5.exe");
 
-			if (ValidateExecutable())
+            objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Validate the EXE");
+            if (ValidateExecutable())
 			{
-				_blnExeDownloadSuccess = true;
+                objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "EXE validated");
+                _blnExeDownloadSuccess = true;
 
 				// Copy over the executable.
 				try
 				{
-					File.Delete(strArchive);
-					File.Move(strAppPath, strArchive);
-					File.Move(strNewPath, strAppPath);
-					File.Delete(strNewPath);
+                    objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "strArchive = " + strArchive);
+                    objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "strAppPath = " + strAppPath);
+                    objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "strNewPath = " + strNewPath);
+                    objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Delete the file");
+                    File.Delete(strArchive);
+                    objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Move to archive");
+                    File.Move(strAppPath, strArchive);
+                    objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Move to app path");
+                    File.Move(strNewPath, strAppPath);
+                    objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Delete the file");
+                    File.Delete(strNewPath);
 					_blnExeDownloaded = true;
 				}
-				catch
+				catch (Exception ex)
 				{
-				}
+                    objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Message = " + ex.Message);
+                    objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Source  = " + ex.Source);
+                    objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Trace   = " + ex.StackTrace.ToString());
+                }
 			}
 			else
 			{
-				// If the executable did not validate, delete the downloaded copy and set the download success flag to false so it can be attempted again.
+                objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "EXE FAILED validation");
+                // If the executable did not validate, delete the downloaded copy and set the download success flag to false so it can be attempted again.
 				_blnExeDownloaded = false;
 				_blnExeDownloadSuccess = false;
-				File.Delete(Path.Combine(Path.GetTempPath(), "chummer5.exe"));
-				File.Move(strArchive, strNewPath);
+                objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Delete the file");
+                File.Delete(Path.Combine(Path.GetTempPath(), "chummer5.exe"));
+                objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Move from archive");
+                File.Move(strArchive, strNewPath);
 			}
-		}
+            objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "wc_DownloadExeFileCompleted");
+        }
 
 		/// <summary>
 		/// A file is done downloading, so increment the overall progress bar and check to see if all downloads are done.
 		/// </summary>
 		private void wc_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
 		{
-			// Detach the event handlers once they're done so they don't continue to fire and/or consume memory.
+            objFunctions.LogWrite(CommonFunctions.LogType.Entering, "frmUpdate", "wc_DownloadFileCompleted");
+            // Detach the event handlers once they're done so they don't continue to fire and/or consume memory.
 			WebClient wc = new WebClient();
 			wc = (WebClient)sender;
 			wc.DownloadProgressChanged -= wc_DownloadProgressChanged;
@@ -666,27 +799,32 @@ namespace Chummer
 
 			_intDoneCount++;
 			pgbOverallProgress.Value++;
-			if (_intDoneCount == _intFileCount)
+            objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "_intDoneCount = " + _intDoneCount.ToString());
+            if (_intDoneCount == _intFileCount)
 			{
 				bool blnUnzipSuccess = true;
 
 				// Unzip the data files that have been downloaded.
-				OmaeHelper objHelper = new OmaeHelper();
-				foreach (string strFile in Directory.GetFiles(Path.Combine(Application.StartupPath, "data"), "*.zip"))
-				{
-					try
-					{
-						byte[] bytFile = File.ReadAllBytes(strFile);
-						bytFile = objHelper.Decompress(bytFile);
-						File.WriteAllBytes(strFile.Replace(".zip", ".xml"), bytFile);
-						if (!strFile.Contains("\\Debug\\"))
-							File.Delete(strFile);
-					}
-					catch
-					{
-						blnUnzipSuccess = false;
-					}
-				}
+                //OmaeHelper objHelper = new OmaeHelper();
+                //foreach (string strFile in Directory.GetFiles(Path.Combine(Application.StartupPath, "data"), "*.zip"))
+                //{
+                //    objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "strFile = " + strFile);
+                //    try
+                //    {
+                //        byte[] bytFile = File.ReadAllBytes(strFile);
+                //        bytFile = objHelper.Decompress(bytFile);
+                //        File.WriteAllBytes(strFile.Replace(".zip", ".xml"), bytFile);
+                //        if (!strFile.Contains("\\Debug\\"))
+                //            File.Delete(strFile);
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        blnUnzipSuccess = false;
+                //        objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Message = " + ex.Message);
+                //        objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Source  = " + ex.Source);
+                //        objFunctions.LogWrite(CommonFunctions.LogType.Error, "frmUpdate", "ERROR Trace   = " + ex.StackTrace.ToString());
+                //    }
+                //}
 
 				if (!_blnSilentMode)
 				{
@@ -696,75 +834,90 @@ namespace Chummer
 					lblDone.Visible = true;
 				}
 
-				if (ValidateFiles() && blnUnzipSuccess)
+                objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Validate the files");
+                if (ValidateFiles() && blnUnzipSuccess)
 				{
-					if (_blnExeDownloaded)
+                    objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "_blnExeDownloaded = " + _blnExeDownloaded.ToString());
+                    if (_blnExeDownloaded)
 					{
-						cmdRestart.Visible = true;
+                        cmdRestart.Visible = true;
 						if (_blnSilentMode)
 						{
 							// The user is in silent mode, so restart the application.
-							Application.Restart();
+                            objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Restart the application");
+                            Application.Restart();
 						}
 					}
 
 					// Close the window when we're done in Silent Mode.
-					if (_blnSilentMode)
-						this.Close();
+                    if (_blnSilentMode)
+                    {
+                        objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Close the window");
+                        this.Close();
+                    }
 				}
 				else
 				{
-					// Show the progress bars again.
+                    objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Validation failed");
+                    // Show the progress bars again.
 					pgbOverallProgress.Visible = true;
 					pgbFileProgress.Visible = true;
 					lblDone.Visible = false;
 
 					// Something did not download properly.
-					if (_blnSilentMode)
-						FetchXML();
-					else
-					{
-						// Make a list of each item that is currently checked.
-						List<string> lstStrings = new List<string>();
+                    if (_blnSilentMode)
+                    {
+                        objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Fetch the XML again");
+                        FetchXML();
+                    }
+                    else
+                    {
+                        // Make a list of each item that is currently checked.
+                        List<string> lstStrings = new List<string>();
 
-						// Loop through all of the root-level nodes in the update tree.
-						foreach (TreeNode nodRoot in treeUpdate.Nodes)
-						{
-							// Loop through each of the child nodes.
-							foreach (TreeNode nodNode in nodRoot.Nodes)
-							{
-								if (nodNode.Checked)
-								{
-									lstStrings.Add(nodNode.Tag.ToString());
-								}
-							}
-						}
+                        // Loop through all of the root-level nodes in the update tree.
+                        foreach (TreeNode nodRoot in treeUpdate.Nodes)
+                        {
+                            // Loop through each of the child nodes.
+                            foreach (TreeNode nodNode in nodRoot.Nodes)
+                            {
+                                if (nodNode.Checked)
+                                {
+                                    objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "nodNode.Tag = " + nodNode.Tag.ToString());
+                                    lstStrings.Add(nodNode.Tag.ToString());
+                                }
+                            }
+                        }
 
-						FetchXML();
+                        objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Fetch the XML again");
+                        FetchXML();
 
-						// Select all of the items that were selected before.
-						// Loop through all of the root-level nodes in the update tree.
-						foreach (string strString in lstStrings)
-						{
-							foreach (TreeNode nodRoot in treeUpdate.Nodes)
-							{
-								// Loop through each of the child nodes.
-								foreach (TreeNode nodNode in nodRoot.Nodes)
-								{
-									if (nodNode.Tag.ToString() == strString)
-									{
-										nodNode.Checked = true;
-									}
-								}
-							}
-						}
+                        // Select all of the items that were selected before.
+                        // Loop through all of the root-level nodes in the update tree.
+                        foreach (string strString in lstStrings)
+                        {
+                            foreach (TreeNode nodRoot in treeUpdate.Nodes)
+                            {
+                                // Loop through each of the child nodes.
+                                foreach (TreeNode nodNode in nodRoot.Nodes)
+                                {
+                                    if (nodNode.Tag.ToString() == strString)
+                                    {
+                                        objFunctions.LogWrite(CommonFunctions.LogType.Content, "frmUpdate", "nodNode.Tag = " + nodNode.Tag.ToString());
+                                        nodNode.Checked = true;
+                                    }
+                                }
+                            }
+                        }
 
-						// Click the button to do it all again.
-						cmdUpdate_Click(null, null);
-					}
+                        // Click the button to do it all again.
+                        objFunctions.LogWrite(CommonFunctions.LogType.Message, "frmUpdate", "Call cmdUpdate_Click to do it again");
+                        cmdUpdate_Click(null, null);
+                    }
 				}
 			}
-		}
+            objFunctions.LogWrite(CommonFunctions.LogType.Exiting, "frmUpdate", "wc_DownloadFileCompleted");
+        }
 		#endregion
 	}
 }

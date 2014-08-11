@@ -4,14 +4,16 @@ using System.IO;
 using System.Windows.Forms;
 using System.Xml;
 using Microsoft.Win32;
+using System.Text.RegularExpressions;
 
 namespace Chummer
 {
 	public partial class frmOptions : Form
 	{
 		private readonly CharacterOptions _objOptions = new CharacterOptions();
+        private CommonFunctions _objFunctions = new CommonFunctions();
 		private bool _blnSkipRefresh = false;
-
+        
 		#region Form Events
 		public frmOptions()
 		{
@@ -78,6 +80,13 @@ namespace Chummer
 
 			lblMetatypeCostsKarma.Left = chkMetatypeCostsKarma.Left + chkMetatypeCostsKarma.Width + 6;
 			nudMetatypeCostsKarmaMultiplier.Left = lblMetatypeCostsKarma.Left + lblMetatypeCostsKarma.Width + 6;
+
+            tipTooltip.SetToolTip(chkKnucks, _objFunctions.WordWrap(LanguageManager.Instance.GetString("Tip_OptionsKnucks"), 50));
+            tipTooltip.SetToolTip(chkIgnoreArt, _objFunctions.WordWrap(LanguageManager.Instance.GetString("Tip_OptionsIgnoreArt"), 50));
+            tipTooltip.SetToolTip(chkCyberlegMovement, _objFunctions.WordWrap(LanguageManager.Instance.GetString("Tip_OptionsCyberlegMovement"), 50));
+            tipTooltip.SetToolTip(chkDontDoubleQualities, _objFunctions.WordWrap(LanguageManager.Instance.GetString("Tip_OptionsDontDoubleQualities"), 50));
+            tipTooltip.SetToolTip(chkUsePointsOnBrokenGroups, _objFunctions.WordWrap(LanguageManager.Instance.GetString("Tip_OptionsUsePointsOnBrokenGroups"), 50));
+            tipTooltip.SetToolTip(chkAllowInitiation, _objFunctions.WordWrap(LanguageManager.Instance.GetString("Tip_OptionsAllowInitiation"), 50));
 
 			MoveControls();
 		}
@@ -340,12 +349,11 @@ namespace Chummer
 			_objOptions.CapSkillRating = chkCapSkillRating.Checked;
 			_objOptions.PrintExpenses = chkPrintExpenses.Checked;
 			_objOptions.KnucksUseUnarmed = chkKnucks.Checked;
+            _objOptions.AllowInitiationInCreateMode = chkAllowInitiation.Checked;
             _objOptions.UsePointsOnBrokenGroups = chkUsePointsOnBrokenGroups.Checked;
             _objOptions.DontDoubleQualities = chkDontDoubleQualities.Checked;
             _objOptions.CyberlegMovement = chkCyberlegMovement.Checked;
             _objOptions.IgnoreArt = chkIgnoreArt.Checked;
-            _objOptions.AllowAttributePointsOnExceptional = chkExceptionalAttributes.Checked;
-            _objOptions.Allow2ndMaxAttribute = chkExceptionalNotMaxed.Checked;
             _objOptions.NuyenPerBP = Convert.ToInt32(nudNuyenPerBP.Value);
 			_objOptions.EssenceDecimals = Convert.ToInt32(cboEssenceDecimals.SelectedValue);
 			_objOptions.NoSingleArmorEncumbrance = chkNoSingleArmorEncumbrance.Checked;
@@ -959,6 +967,16 @@ namespace Chummer
             }
             chkKnucks.Checked = blnKnucksUseUnarmed;
 
+            bool blnAllowInitiation = false;
+            try
+            {
+                blnAllowInitiation = _objOptions.AllowInitiationInCreateMode;
+            }
+            catch
+            {
+            }
+            chkAllowInitiation.Checked = blnAllowInitiation;
+
             bool blnUsePointsOnBrokenGroups = false;
             try
             {
@@ -978,26 +996,6 @@ namespace Chummer
             {
             }
             chkDontDoubleQualities.Checked = blnDontDoubleQualities;
-
-            bool blnAllow2ndMaxAttribute = false;
-            try
-            {
-                blnAllow2ndMaxAttribute = _objOptions.Allow2ndMaxAttribute;
-            }
-            catch
-            {
-            }
-            chkExceptionalNotMaxed.Checked = blnAllow2ndMaxAttribute;
-
-            bool blnExceptionalAttributes = false;
-            try
-            {
-                blnExceptionalAttributes = _objOptions.AllowAttributePointsOnExceptional;
-            }
-            catch
-            {
-            }
-            chkExceptionalAttributes.Checked = blnExceptionalAttributes;
 
             bool blnIgnoreArt = false;
             try

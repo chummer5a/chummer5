@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
             this.cmdOK = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.chkConfirmDelete = new System.Windows.Forms.CheckBox();
@@ -218,16 +219,16 @@
             this.chkCapSkillRating = new System.Windows.Forms.CheckBox();
             this.chkNoSingleArmorEncumbrance = new System.Windows.Forms.CheckBox();
             this.tabHouseRules = new System.Windows.Forms.TabPage();
+            this.chkAllowInitiation = new System.Windows.Forms.CheckBox();
+            this.chkUsePointsOnBrokenGroups = new System.Windows.Forms.CheckBox();
             this.chkDontDoubleQualities = new System.Windows.Forms.CheckBox();
-            this.chkExceptionalNotMaxed = new System.Windows.Forms.CheckBox();
-            this.chkExceptionalAttributes = new System.Windows.Forms.CheckBox();
             this.chkCyberlegMovement = new System.Windows.Forms.CheckBox();
             this.chkIgnoreArt = new System.Windows.Forms.CheckBox();
             this.cboSetting = new System.Windows.Forms.ComboBox();
             this.lblSetting = new System.Windows.Forms.Label();
             this.lblSettingName = new System.Windows.Forms.Label();
             this.txtSettingName = new System.Windows.Forms.TextBox();
-            this.chkUsePointsOnBrokenGroups = new System.Windows.Forms.CheckBox();
+            this.tipTooltip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaComplexFormOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaMetamagic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarmaInitiation)).BeginInit();
@@ -892,6 +893,8 @@
             this.chkKnucks.TabIndex = 0;
             this.chkKnucks.Tag = "Checkbox_Options_Knucks";
             this.chkKnucks.Text = "Knucks Benefit from Unarmed Attack Bonuses";
+            this.tipTooltip.SetToolTip(this.chkKnucks, "Enabling this house rule allows Knucks to benefit from bonuses that apply to unar" +
+        "med attacks including DV bonuses.");
             this.chkKnucks.UseVisualStyleBackColor = true;
             // 
             // tabControl1
@@ -2385,10 +2388,9 @@
             // tabHouseRules
             // 
             this.tabHouseRules.BackColor = System.Drawing.SystemColors.Control;
+            this.tabHouseRules.Controls.Add(this.chkAllowInitiation);
             this.tabHouseRules.Controls.Add(this.chkUsePointsOnBrokenGroups);
             this.tabHouseRules.Controls.Add(this.chkDontDoubleQualities);
-            this.tabHouseRules.Controls.Add(this.chkExceptionalNotMaxed);
-            this.tabHouseRules.Controls.Add(this.chkExceptionalAttributes);
             this.tabHouseRules.Controls.Add(this.chkCyberlegMovement);
             this.tabHouseRules.Controls.Add(this.chkIgnoreArt);
             this.tabHouseRules.Controls.Add(this.chkKnucks);
@@ -2399,6 +2401,31 @@
             this.tabHouseRules.Tag = "Tab_Options_HouseRules";
             this.tabHouseRules.Text = "House Rules";
             // 
+            // chkAllowInitiation
+            // 
+            this.chkAllowInitiation.AutoSize = true;
+            this.chkAllowInitiation.Location = new System.Drawing.Point(366, 26);
+            this.chkAllowInitiation.Name = "chkAllowInitiation";
+            this.chkAllowInitiation.Size = new System.Drawing.Size(227, 17);
+            this.chkAllowInitiation.TabIndex = 7;
+            this.chkAllowInitiation.Tag = "Checkbox_Options_AllowInitiation";
+            this.chkAllowInitiation.Text = "Allow Initiation/Submersion in Create mode";
+            this.tipTooltip.SetToolTip(this.chkAllowInitiation, "Enabling this house rule will allow Initiation/Submersion in Create mode.");
+            this.chkAllowInitiation.UseVisualStyleBackColor = true;
+            // 
+            // chkUsePointsOnBrokenGroups
+            // 
+            this.chkUsePointsOnBrokenGroups.AutoSize = true;
+            this.chkUsePointsOnBrokenGroups.Location = new System.Drawing.Point(366, 3);
+            this.chkUsePointsOnBrokenGroups.Name = "chkUsePointsOnBrokenGroups";
+            this.chkUsePointsOnBrokenGroups.Size = new System.Drawing.Size(185, 17);
+            this.chkUsePointsOnBrokenGroups.TabIndex = 6;
+            this.chkUsePointsOnBrokenGroups.Tag = "Checkbox_Options_PointsOnBrokenGroups";
+            this.chkUsePointsOnBrokenGroups.Text = "Use Skill Points on broken groups";
+            this.tipTooltip.SetToolTip(this.chkUsePointsOnBrokenGroups, "Enabling this house rule will allow Skill Points to be spent on skills belonging " +
+        "to a broken skill group.");
+            this.chkUsePointsOnBrokenGroups.UseVisualStyleBackColor = true;
+            // 
             // chkDontDoubleQualities
             // 
             this.chkDontDoubleQualities.AutoSize = true;
@@ -2408,29 +2435,10 @@
             this.chkDontDoubleQualities.TabIndex = 5;
             this.chkDontDoubleQualities.Tag = "Checkbox_Options_DontDoubleQualities";
             this.chkDontDoubleQualities.Text = "Don\'t double the cost of Qualities in Career Mode";
+            this.tipTooltip.SetToolTip(this.chkDontDoubleQualities, "Enabling this house rule will allow characters in Career mode to purchase Positiv" +
+        "e Qualities and buy off Negative at their normal price instead of doubling them." +
+        "");
             this.chkDontDoubleQualities.UseVisualStyleBackColor = true;
-            // 
-            // chkExceptionalNotMaxed
-            // 
-            this.chkExceptionalNotMaxed.AutoSize = true;
-            this.chkExceptionalNotMaxed.Location = new System.Drawing.Point(332, 26);
-            this.chkExceptionalNotMaxed.Name = "chkExceptionalNotMaxed";
-            this.chkExceptionalNotMaxed.Size = new System.Drawing.Size(252, 17);
-            this.chkExceptionalNotMaxed.TabIndex = 4;
-            this.chkExceptionalNotMaxed.Tag = "Checkbox_Options_ExceptionalNotMaxed";
-            this.chkExceptionalNotMaxed.Text = "Exceptional Attributes not at cap, are not maxed";
-            this.chkExceptionalNotMaxed.UseVisualStyleBackColor = true;
-            // 
-            // chkExceptionalAttributes
-            // 
-            this.chkExceptionalAttributes.AutoSize = true;
-            this.chkExceptionalAttributes.Location = new System.Drawing.Point(332, 3);
-            this.chkExceptionalAttributes.Name = "chkExceptionalAttributes";
-            this.chkExceptionalAttributes.Size = new System.Drawing.Size(283, 17);
-            this.chkExceptionalAttributes.TabIndex = 3;
-            this.chkExceptionalAttributes.Tag = "Checkbox_Options_ExceptionalAttributes";
-            this.chkExceptionalAttributes.Text = "Attribute Points may be spent on Exceptional Attributes";
-            this.chkExceptionalAttributes.UseVisualStyleBackColor = true;
             // 
             // chkCyberlegMovement
             // 
@@ -2441,6 +2449,8 @@
             this.chkCyberlegMovement.TabIndex = 2;
             this.chkCyberlegMovement.Tag = "Checkbox_Options_CyberlegMovement";
             this.chkCyberlegMovement.Text = "Use Cyberleg Stats for Movement";
+            this.tipTooltip.SetToolTip(this.chkCyberlegMovement, "Enabling this house rule will allow characters with two cyberlegs to use their cy" +
+        "berleg\'s AGI when calculating movement rates.");
             this.chkCyberlegMovement.UseVisualStyleBackColor = true;
             // 
             // chkIgnoreArt
@@ -2452,6 +2462,8 @@
             this.chkIgnoreArt.TabIndex = 1;
             this.chkIgnoreArt.Tag = "Checkbox_Options_IgnoreArt";
             this.chkIgnoreArt.Text = "Ignore Art Requirements from Street Grimoire";
+            this.tipTooltip.SetToolTip(this.chkIgnoreArt, "Enabling this house rule allows all metamagics, enhancements, enchantments, and r" +
+        "ituals to ignore the Art requirement detailed in Street Grimoire.");
             this.chkIgnoreArt.UseVisualStyleBackColor = true;
             // 
             // cboSetting
@@ -2491,16 +2503,11 @@
             this.txtSettingName.Size = new System.Drawing.Size(190, 20);
             this.txtSettingName.TabIndex = 3;
             // 
-            // chkUsePointsOnBrokenGroups
+            // tipTooltip
             // 
-            this.chkUsePointsOnBrokenGroups.AutoSize = true;
-            this.chkUsePointsOnBrokenGroups.Location = new System.Drawing.Point(332, 49);
-            this.chkUsePointsOnBrokenGroups.Name = "chkUsePointsOnBrokenGroups";
-            this.chkUsePointsOnBrokenGroups.Size = new System.Drawing.Size(185, 17);
-            this.chkUsePointsOnBrokenGroups.TabIndex = 6;
-            this.chkUsePointsOnBrokenGroups.Tag = "Checkbox_Options_PointsOnBrokenGroups";
-            this.chkUsePointsOnBrokenGroups.Text = "Use Skill Points on broken groups";
-            this.chkUsePointsOnBrokenGroups.UseVisualStyleBackColor = true;
+            this.tipTooltip.AutoPopDelay = 15000;
+            this.tipTooltip.InitialDelay = 500;
+            this.tipTooltip.ReshowDelay = 100;
             // 
             // frmOptions
             // 
@@ -2786,9 +2793,9 @@
         private System.Windows.Forms.CheckBox chkUseLogging;
         private System.Windows.Forms.CheckBox chkIgnoreArt;
         private System.Windows.Forms.CheckBox chkCyberlegMovement;
-        private System.Windows.Forms.CheckBox chkExceptionalNotMaxed;
-        private System.Windows.Forms.CheckBox chkExceptionalAttributes;
         private System.Windows.Forms.CheckBox chkDontDoubleQualities;
         private System.Windows.Forms.CheckBox chkUsePointsOnBrokenGroups;
+        private System.Windows.Forms.ToolTip tipTooltip;
+        private System.Windows.Forms.CheckBox chkAllowInitiation;
 	}
 }

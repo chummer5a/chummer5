@@ -4667,11 +4667,12 @@ namespace Chummer
                 //    strReturn += " (" + intINI.ToString() + ")";
 
                 int intINI = (_attINT.TotalValue + _attREA.TotalValue) + WoundModifiers;
+                intINI += _objImprovementManager.ValueOf(Improvement.ImprovementType.Initiative) + WoundModifiers;
                 if (intINI < 0)
                     intINI = 0;
-                strReturn = (_attINT.TotalValue + _attREA.TotalValue).ToString();
+                strReturn = (intINI).ToString();
 
-                int intExtraIP = 1;
+                int intExtraIP = 1 + Convert.ToInt32(_objImprovementManager.ValueOf(Improvement.ImprovementType.InitiativePass)) + Convert.ToInt32(_objImprovementManager.ValueOf(Improvement.ImprovementType.InitiativePassAdd));
                 strReturn += " + " + intExtraIP.ToString() + "d6";
 
 				return strReturn;
@@ -4764,11 +4765,12 @@ namespace Chummer
                 string strReturn = "";
 
                 int intINI = (_attINT.TotalValue + _attREA.TotalValue) + WoundModifiers;
+                intINI += _objImprovementManager.ValueOf(Improvement.ImprovementType.Initiative) + WoundModifiers;
                 if (intINI < 0)
                     intINI = 0;
-                strReturn = (_attINT.TotalValue + _attREA.TotalValue).ToString();
+                strReturn = (intINI).ToString();
 
-                int intExtraIP = 1;
+                int intExtraIP = 1 + Convert.ToInt32(_objImprovementManager.ValueOf(Improvement.ImprovementType.InitiativePass)) + Convert.ToInt32(_objImprovementManager.ValueOf(Improvement.ImprovementType.InitiativePassAdd));
                 strReturn += " + " + intExtraIP.ToString() + "d6";
 
                 return strReturn;
