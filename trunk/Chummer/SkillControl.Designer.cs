@@ -43,6 +43,7 @@
             this.cmdRoll = new System.Windows.Forms.Button();
             this.cmdBreakGroup = new System.Windows.Forms.Button();
             this.nudKarma = new System.Windows.Forms.NumericUpDown();
+            this.chkKarma = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudSkill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarma)).BeginInit();
             this.SuspendLayout();
@@ -221,10 +222,21 @@
             this.nudKarma.TabIndex = 13;
             this.nudKarma.ValueChanged += new System.EventHandler(this.nudKarma_ValueChanged);
             // 
+            // chkKarma
+            // 
+            this.chkKarma.AutoSize = true;
+            this.chkKarma.Location = new System.Drawing.Point(541, 4);
+            this.chkKarma.Name = "chkKarma";
+            this.chkKarma.Size = new System.Drawing.Size(15, 14);
+            this.chkKarma.TabIndex = 14;
+            this.chkKarma.UseVisualStyleBackColor = true;
+            this.chkKarma.CheckedChanged += new System.EventHandler(this.chkKarma_CheckedChanged);
+            // 
             // SkillControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.chkKarma);
             this.Controls.Add(this.nudKarma);
             this.Controls.Add(this.cmdBreakGroup);
             this.Controls.Add(this.cmdRoll);
@@ -266,5 +278,6 @@
 		private System.Windows.Forms.Button cmdRoll;
 		private System.Windows.Forms.Button cmdBreakGroup;
         private System.Windows.Forms.NumericUpDown nudKarma;
+        private System.Windows.Forms.CheckBox chkKarma;
     }
 }

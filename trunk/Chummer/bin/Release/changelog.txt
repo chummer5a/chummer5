@@ -1,3 +1,14 @@
+Build 5.136 (beta)
+- Due to popular request, Enemies are back again. These are not part of 5th Edition (at least not yet) so using them is a house rule.
+- The Contacts/Enemies UI has been updated to use tabs rather than being stacked.  This gives a little more room for both contacts and enemies.
+- Contacts now show a dropdown list for the name allowing you to enter your own contact information or select one from a list. As of yet, Enemies have no options in the list but this will be added at a later date (suggestions welcome).
+- Added logging to the update function. Hopefully this will be helpful in tracking down issues when downloading updates.
+- Removed a possible bug that could cause the update to go into a loop.
+- Added a new Buy With Karma checkbox to each of the Active and Knowledge skills in Creation mode that allows you to buy the specialization with karma instead of skill points.
+- Added tooltips to the house rules on the options dialog to help explain which each house rule does.
+- Added a house rule to the Options dialog that will allow Initiation and Submersion during Create mode.
+- As it was pointed out to me that I missed the sentence on page 66 that explicitly allows spending Attribute Points on the bonus point granted by Exceptional Attribute or Lucky, I've removed the house rules relating to Exceptional Attribute and am now following the rules as specified.  Sorry for any confusion.
+
 Build 5.135 (beta)
 - Minor fix to enable downloading the translator app via Chummer update.
 

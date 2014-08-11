@@ -199,32 +199,22 @@ namespace Chummer
 					if (_objCharacter.MAGEnabled)
 					{
 						tabInitiation.Text = LanguageManager.Instance.GetString("Tab_Initiation");
-						lblInitiateGradeLabel.Text = LanguageManager.Instance.GetString("Label_InitiationGrade");
 						cmdAddMetamagic.Text = LanguageManager.Instance.GetString("Button_AddMetamagic");
 						chkInitiationGroup.Text = LanguageManager.Instance.GetString("Checkbox_GroupInitiation");
 						chkInitiationOrdeal.Text = LanguageManager.Instance.GetString("Checkbox_InitiationOrdeal");
-						chkJoinGroup.Text = LanguageManager.Instance.GetString("Checkbox_JoinedGroup");
-						chkJoinGroup.Checked = _objCharacter.GroupMember;
-						txtGroupName.Text = _objCharacter.GroupName;
-						txtGroupNotes.Text = _objCharacter.GroupNotes;
 					}
 					else
 					{
 						tabInitiation.Text = LanguageManager.Instance.GetString("Tab_Submersion");
-						lblInitiateGradeLabel.Text = LanguageManager.Instance.GetString("Label_SubmersionGrade");
 						cmdAddMetamagic.Text = LanguageManager.Instance.GetString("Button_AddEcho");
 						chkInitiationGroup.Text = LanguageManager.Instance.GetString("Checkbox_NetworkSubmersion");
 						chkInitiationOrdeal.Text = LanguageManager.Instance.GetString("Checkbox_SubmersionTask");
-						chkJoinGroup.Text = LanguageManager.Instance.GetString("Checkbox_JoinedNetwork");
-						chkJoinGroup.Checked = _objCharacter.GroupMember;
-						txtGroupName.Text = _objCharacter.GroupName;
-						txtGroupNotes.Text = _objCharacter.GroupNotes;
 					}
 				}
 			}
 			else
 			{
-				if (!_objCharacter.InitiationEnabled)
+                if ((!_objCharacter.MAGEnabled && !_objCharacter.RESEnabled) || !_objCharacter.Options.AllowInitiationInCreateMode)
 					tabCharacterTabs.TabPages.Remove(tabInitiation);
 			}
 
@@ -554,6 +544,7 @@ namespace Chummer
 
 					// Attach an EventHandler for the RatingChanged and SpecializationChanged Events.
 					objSkillControl.RatingChanged += objActiveSkill_RatingChanged;
+                    objSkillControl.BuyWithKarmaChanged += objActiveSkill_BuyWithKarmaChanged;
 					objSkillControl.SpecializationChanged += objSkill_SpecializationChanged;
 					objSkillControl.BreakGroupClicked += objSkill_BreakGroupClicked;
 
@@ -597,6 +588,7 @@ namespace Chummer
 					objSkillControl.RatingChanged += objActiveSkill_RatingChanged;
 					objSkillControl.SpecializationChanged += objSkill_SpecializationChanged;
 					objSkillControl.BreakGroupClicked += objSkill_BreakGroupClicked;
+                    objSkillControl.BuyWithKarmaChanged += objActiveSkill_BuyWithKarmaChanged;
 
 					objSkillControl.SkillName = objSkill.Name;
 					objSkillControl.SkillCategory = objSkill.SkillCategory;
@@ -705,6 +697,7 @@ namespace Chummer
 					objSkillControl.SpecializationChanged += objSkill_SpecializationChanged;
 					objSkillControl.DeleteSkill += objKnowledgeSkill_DeleteSkill;
 					objSkillControl.BreakGroupClicked += objSkill_BreakGroupClicked;
+                    objSkillControl.BuyWithKarmaChanged += objKnowledgeSkill_BuyWithKarmaChanged;
 
 					objSkillControl.KnowledgeSkill = true;
 					objSkillControl.SkillCategory = objSkill.SkillCategory;
@@ -723,6 +716,7 @@ namespace Chummer
 
 			// Populate Contacts and Enemies.
 			int intContact = -1;
+			int intEnemy = -1;
 			foreach (Contact objContact in _objCharacter.Contacts)
 			{
 				if (objContact.EntityType == ContactType.Contact)
@@ -746,6 +740,28 @@ namespace Chummer
 					objContactControl.Top = intContact * objContactControl.Height;
 
 					panContacts.Controls.Add(objContactControl);
+				}
+				if (objContact.EntityType == ContactType.Enemy)
+				{
+					intEnemy++;
+					ContactControl objContactControl = new ContactControl();
+					// Attach an EventHandler for the ConnectioNRatingChanged, LoyaltyRatingChanged, DeleteContact, and FileNameChanged Events.
+					objContactControl.ConnectionRatingChanged += objEnemy_ConnectionRatingChanged;
+					objContactControl.ConnectionGroupRatingChanged += objEnemy_ConnectionGroupRatingChanged;
+					objContactControl.LoyaltyRatingChanged += objEnemy_LoyaltyRatingChanged;
+					objContactControl.DeleteContact += objEnemy_DeleteContact;
+					objContactControl.FileNameChanged += objEnemy_FileNameChanged;
+
+					objContactControl.ContactObject = objContact;
+                    objContactControl.IsEnemy = true;
+					objContactControl.ContactName = objContact.Name;
+					objContactControl.ConnectionRating = objContact.Connection;
+					objContactControl.LoyaltyRating = objContact.Loyalty;
+					objContactControl.EntityType = objContact.EntityType;
+					objContactControl.BackColor = objContact.Colour;
+
+					objContactControl.Top = intEnemy * objContactControl.Height;
+					panEnemies.Controls.Add(objContactControl);
 				}
 				if (objContact.EntityType == ContactType.Pet)
 				{
@@ -1054,11 +1070,6 @@ namespace Chummer
 					objNode.ToolTipText = objMetamagic.Notes;
 					treMetamagic.Nodes.Add(objNode);
 				}
-
-				if (_objCharacter.InitiateGrade > 0)
-					lblInitiateGrade.Text = _objCharacter.InitiateGrade.ToString();
-				else
-					lblInitiateGrade.Text = _objCharacter.SubmersionGrade.ToString();
 			}
 
 			// Populate Critter Powers.
@@ -1341,7 +1352,7 @@ namespace Chummer
 			_objFunctions.SortTree(treCritterPowers);
 			_objFunctions.SortTree(treMartialArts);
 			UpdateMentorSpirits();
-			UpdateInitiationGradeList();
+			UpdateInitiationGradeTree();
 
 			UpdateCharacterInfo();
 
@@ -1420,7 +1431,8 @@ namespace Chummer
 					objSkillControl.RatingChanged -= objActiveSkill_RatingChanged;
 					objSkillControl.SpecializationChanged -= objSkill_SpecializationChanged;
 					objSkillControl.BreakGroupClicked -= objSkill_BreakGroupClicked;
-				}
+                    objSkillControl.BuyWithKarmaChanged -= objActiveSkill_BuyWithKarmaChanged;
+                }
 
 				foreach (SkillGroupControl objGroupControl in panSkillGroups.Controls.OfType<SkillGroupControl>())
 				{
@@ -1433,7 +1445,8 @@ namespace Chummer
 					objSkillControl.SpecializationChanged -= objSkill_SpecializationChanged;
 					objSkillControl.DeleteSkill -= objKnowledgeSkill_DeleteSkill;
 					objSkillControl.BreakGroupClicked -= objSkill_BreakGroupClicked;
-				}
+                    objSkillControl.BuyWithKarmaChanged -= objKnowledgeSkill_BuyWithKarmaChanged;
+                }
 
 				foreach (ContactControl objContactControl in panContacts.Controls.OfType<ContactControl>())
 				{
@@ -1442,6 +1455,15 @@ namespace Chummer
 					objContactControl.LoyaltyRatingChanged -= objContact_LoyaltyRatingChanged;
 					objContactControl.DeleteContact -= objContact_DeleteContact;
 					objContactControl.FileNameChanged -= objContact_FileNameChanged;
+				}
+
+				foreach (ContactControl objContactControl in panEnemies.Controls.OfType<ContactControl>())
+				{
+					objContactControl.ConnectionRatingChanged -= objEnemy_ConnectionRatingChanged;
+					objContactControl.ConnectionGroupRatingChanged -= objEnemy_ConnectionGroupRatingChanged;
+					objContactControl.LoyaltyRatingChanged -= objEnemy_LoyaltyRatingChanged;
+					objContactControl.DeleteContact -= objEnemy_DeleteContact;
+					objContactControl.FileNameChanged -= objEnemy_FileNameChanged;
 				}
 
 				foreach (PetControl objContactControl in panPets.Controls.OfType<PetControl>())
@@ -1621,11 +1643,9 @@ namespace Chummer
 					{
 						tabCharacterTabs.TabPages.Insert(3, tabInitiation);
 						tabInitiation.Text = LanguageManager.Instance.GetString("Tab_Initiation");
-						lblInitiateGradeLabel.Text = LanguageManager.Instance.GetString("Label_InitiationGrade");
 						cmdAddMetamagic.Text = LanguageManager.Instance.GetString("Button_AddMetamagic");
 						chkInitiationGroup.Text = LanguageManager.Instance.GetString("Checkbox_GroupInitiation");
 						chkInitiationOrdeal.Text = LanguageManager.Instance.GetString("Checkbox_InitiationOrdeal");
-						chkJoinGroup.Text = LanguageManager.Instance.GetString("Checkbox_JoinedGroup");
 					}
 				}
 			}
@@ -1698,11 +1718,9 @@ namespace Chummer
 					{
 						tabCharacterTabs.TabPages.Insert(3, tabInitiation);
 						tabInitiation.Text = LanguageManager.Instance.GetString("Tab_Submersion");
-						lblInitiateGradeLabel.Text = LanguageManager.Instance.GetString("Label_SubmersionGrade");
 						cmdAddMetamagic.Text = LanguageManager.Instance.GetString("Button_AddEcho");
 						chkInitiationGroup.Text = LanguageManager.Instance.GetString("Checkbox_NetworkSubmersion");
 						chkInitiationOrdeal.Text = LanguageManager.Instance.GetString("Checkbox_SubmersionTask");
-						chkJoinGroup.Text = LanguageManager.Instance.GetString("Checkbox_JoinedNetwork");
 					}
 				}
 			}
@@ -3751,16 +3769,12 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-            int intExceptional = 0;
-            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
-                intExceptional = _objCharacter.BOD.MaximumModifiers;
-
 			// Verify that the Attribute can be improved within the rules.
-            if (!CanImproveAttribute("nudBOD") && (nudBOD.Value + nudKBOD.Value + intExceptional) >= nudBOD.Maximum && !_objCharacter.IgnoreRules)
+            if (!CanImproveAttribute("nudBOD") && (nudBOD.Value + nudKBOD.Value) >= nudBOD.Maximum && !_objCharacter.IgnoreRules)
 			{
 				try
 				{
-                    nudBOD.Value = nudBOD.Maximum - nudKBOD.Value - intExceptional - 1;
+                    nudBOD.Value = nudBOD.Maximum - nudKBOD.Value - 1;
 					ShowAttributeRule();
 				}
 				catch
@@ -3768,11 +3782,11 @@ namespace Chummer
 					nudBOD.Value = nudBOD.Minimum;
 				}
 			}
-            else if ((nudBOD.Value + nudKBOD.Value + intExceptional) > nudBOD.Maximum)
+            else if ((nudBOD.Value + nudKBOD.Value) > nudBOD.Maximum)
             {
                 try
                 {
-                    nudBOD.Value = nudBOD.Maximum - nudKBOD.Value - intExceptional;
+                    nudBOD.Value = nudBOD.Maximum - nudKBOD.Value;
                 }
                 catch
                 {
@@ -3794,16 +3808,12 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-            int intExceptional = 0;
-            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
-                intExceptional = _objCharacter.AGI.MaximumModifiers;
-
 			// Verify that the Attribute can be improved within the rules.
-			if (!CanImproveAttribute("nudAGI") && (nudAGI.Value + nudKAGI.Value + intExceptional) >= nudAGI.Maximum && !_objCharacter.IgnoreRules)
+			if (!CanImproveAttribute("nudAGI") && (nudAGI.Value + nudKAGI.Value) >= nudAGI.Maximum && !_objCharacter.IgnoreRules)
 			{
 				try
 				{
-                    nudAGI.Value = nudAGI.Maximum - nudKAGI.Value - intExceptional - 1;
+                    nudAGI.Value = nudAGI.Maximum - nudKAGI.Value - 1;
 					ShowAttributeRule();
 				}
 				catch
@@ -3811,11 +3821,11 @@ namespace Chummer
 					nudAGI.Value = nudAGI.Minimum;
 				}
 			}
-            else if ((nudAGI.Value + nudKAGI.Value + intExceptional) > nudAGI.Maximum && !_objCharacter.IgnoreRules)
+            else if ((nudAGI.Value + nudKAGI.Value) > nudAGI.Maximum && !_objCharacter.IgnoreRules)
             {
                 try
                 {
-                    nudAGI.Value = nudAGI.Maximum - nudKAGI.Value - intExceptional;
+                    nudAGI.Value = nudAGI.Maximum - nudKAGI.Value;
                 }
                 catch
                 {
@@ -3865,16 +3875,12 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-            int intExceptional = 0;
-            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
-                intExceptional = _objCharacter.REA.MaximumModifiers;
-
             // Verify that the Attribute can be improved within the rules.
-            if (!CanImproveAttribute("nudREA") && (nudREA.Value + nudKREA.Value + intExceptional) >= nudREA.Maximum && !_objCharacter.IgnoreRules)
+            if (!CanImproveAttribute("nudREA") && (nudREA.Value + nudKREA.Value) >= nudREA.Maximum && !_objCharacter.IgnoreRules)
 			{
 				try
 				{
-                    nudREA.Value = nudREA.Maximum - nudKREA.Value - intExceptional - 1;
+                    nudREA.Value = nudREA.Maximum - nudKREA.Value - 1;
 					ShowAttributeRule();
 				}
 				catch
@@ -3882,11 +3888,11 @@ namespace Chummer
 					nudREA.Value = nudREA.Minimum;
 				}
 			}
-            else if ((nudREA.Value + nudKREA.Value + intExceptional) > nudREA.Maximum && !_objCharacter.IgnoreRules)
+            else if ((nudREA.Value + nudKREA.Value) > nudREA.Maximum && !_objCharacter.IgnoreRules)
             {
                 try
                 {
-                    nudREA.Value = nudREA.Maximum - nudKREA.Value - intExceptional;
+                    nudREA.Value = nudREA.Maximum - nudKREA.Value;
                 }
                 catch
                 {
@@ -3908,16 +3914,12 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-            int intExceptional = 0;
-            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
-                intExceptional = _objCharacter.STR.MaximumModifiers;
-
             // Verify that the Attribute can be improved within the rules.
-            if (!CanImproveAttribute("nudSTR") && (nudSTR.Value + nudKSTR.Value + intExceptional) >= nudSTR.Maximum && !_objCharacter.IgnoreRules)
+            if (!CanImproveAttribute("nudSTR") && (nudSTR.Value + nudKSTR.Value) >= nudSTR.Maximum && !_objCharacter.IgnoreRules)
 			{
 				try
 				{
-                    nudSTR.Value = nudSTR.Maximum - nudKSTR.Value - intExceptional - 1;
+                    nudSTR.Value = nudSTR.Maximum - nudKSTR.Value - 1;
 					ShowAttributeRule();
 				}
 				catch
@@ -3925,11 +3927,11 @@ namespace Chummer
 					nudSTR.Value = nudSTR.Minimum;
 				}
 			}
-            else if ((nudSTR.Value + nudKREA.Value + intExceptional) > nudSTR.Maximum && !_objCharacter.IgnoreRules)
+            else if ((nudSTR.Value + nudKREA.Value) > nudSTR.Maximum && !_objCharacter.IgnoreRules)
             {
                 try
                 {
-                    nudSTR.Value = nudSTR.Maximum - nudKSTR.Value - intExceptional;
+                    nudSTR.Value = nudSTR.Maximum - nudKSTR.Value;
                 }
                 catch
                 {
@@ -3951,16 +3953,12 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-            int intExceptional = 0;
-            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
-                intExceptional = _objCharacter.CHA.MaximumModifiers;
-
             // Verify that the Attribute can be improved within the rules.
-            if (!CanImproveAttribute("nudCHA") && (nudCHA.Value + nudKCHA.Value + intExceptional) >= nudCHA.Maximum && !_objCharacter.IgnoreRules)
+            if (!CanImproveAttribute("nudCHA") && (nudCHA.Value + nudKCHA.Value) >= nudCHA.Maximum && !_objCharacter.IgnoreRules)
 			{
 				try
 				{
-                    nudCHA.Value = nudCHA.Maximum - nudKCHA.Value - intExceptional - 1;
+                    nudCHA.Value = nudCHA.Maximum - nudKCHA.Value - 1;
 					ShowAttributeRule();
 				}
 				catch
@@ -3968,11 +3966,11 @@ namespace Chummer
 					nudCHA.Value = nudCHA.Minimum;
 				}
 			}
-            else if ((nudCHA.Value + nudKCHA.Value + intExceptional) > nudCHA.Maximum && !_objCharacter.IgnoreRules)
+            else if ((nudCHA.Value + nudKCHA.Value) > nudCHA.Maximum && !_objCharacter.IgnoreRules)
             {
                 try
                 {
-                    nudCHA.Value = nudCHA.Maximum - nudKCHA.Value - intExceptional;
+                    nudCHA.Value = nudCHA.Maximum - nudKCHA.Value;
                 }
                 catch
                 {
@@ -4013,16 +4011,12 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-            int intExceptional = 0;
-            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
-                intExceptional = _objCharacter.INT.MaximumModifiers;
-
             // Verify that the Attribute can be improved within the rules.
-            if (!CanImproveAttribute("nudINT") && (nudINT.Value + nudKINT.Value + intExceptional) >= nudINT.Maximum && !_objCharacter.IgnoreRules)
+            if (!CanImproveAttribute("nudINT") && (nudINT.Value + nudKINT.Value) >= nudINT.Maximum && !_objCharacter.IgnoreRules)
 			{
 				try
 				{
-                    nudINT.Value = nudINT.Maximum - nudKINT.Value - intExceptional - 1;
+                    nudINT.Value = nudINT.Maximum - nudKINT.Value - 1;
 					ShowAttributeRule();
 				}
 				catch
@@ -4030,11 +4024,11 @@ namespace Chummer
 					nudINT.Value = nudINT.Minimum;
 				}
 			}
-            else if ((nudINT.Value + nudKINT.Value + intExceptional) > nudINT.Maximum && !_objCharacter.IgnoreRules)
+            else if ((nudINT.Value + nudKINT.Value) > nudINT.Maximum && !_objCharacter.IgnoreRules)
             {
                 try
                 {
-                    nudINT.Value = nudINT.Maximum - nudKINT.Value - intExceptional;
+                    nudINT.Value = nudINT.Maximum - nudKINT.Value;
                 }
                 catch
                 {
@@ -4056,16 +4050,12 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-            int intExceptional = 0;
-            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
-                intExceptional = _objCharacter.LOG.MaximumModifiers;
-
             // Verify that the Attribute can be improved within the rules.
-            if (!CanImproveAttribute("nudLOG") && (nudLOG.Value + nudKLOG.Value + intExceptional) >= nudLOG.Maximum && !_objCharacter.IgnoreRules)
+            if (!CanImproveAttribute("nudLOG") && (nudLOG.Value + nudKLOG.Value) >= nudLOG.Maximum && !_objCharacter.IgnoreRules)
 			{
 				try
 				{
-                    nudLOG.Value = nudLOG.Maximum - nudKLOG.Value - intExceptional - 1;
+                    nudLOG.Value = nudLOG.Maximum - nudKLOG.Value - 1;
 					ShowAttributeRule();
 				}
 				catch
@@ -4073,11 +4063,11 @@ namespace Chummer
 					nudLOG.Value = nudLOG.Minimum;
 				}
 			}
-            else if ((nudLOG.Value + nudKLOG.Value + intExceptional) > nudLOG.Maximum && !_objCharacter.IgnoreRules)
+            else if ((nudLOG.Value + nudKLOG.Value) > nudLOG.Maximum && !_objCharacter.IgnoreRules)
             {
                 try
                 {
-                    nudLOG.Value = nudLOG.Maximum - nudKLOG.Value - intExceptional;
+                    nudLOG.Value = nudLOG.Maximum - nudKLOG.Value;
                 }
                 catch
                 {
@@ -4099,16 +4089,12 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-            int intExceptional = 0;
-            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
-                intExceptional = _objCharacter.WIL.MaximumModifiers;
-
             // Verify that the Attribute can be improved within the rules.
-            if (!CanImproveAttribute("nudWIL") && (nudWIL.Value + nudKWIL.Value + intExceptional) >= nudWIL.Maximum && !_objCharacter.IgnoreRules)
+            if (!CanImproveAttribute("nudWIL") && (nudWIL.Value + nudKWIL.Value) >= nudWIL.Maximum && !_objCharacter.IgnoreRules)
 			{
 				try
 				{
-                    nudWIL.Value = nudWIL.Maximum - nudKWIL.Value - intExceptional - 1;
+                    nudWIL.Value = nudWIL.Maximum - nudKWIL.Value - 1;
 					ShowAttributeRule();
 				}
 				catch
@@ -4116,11 +4102,11 @@ namespace Chummer
 					nudWIL.Value = nudLOG.Minimum;
 				}
 			}
-            else if ((nudWIL.Value + nudKWIL.Value + intExceptional) > nudWIL.Maximum && !_objCharacter.IgnoreRules)
+            else if ((nudWIL.Value + nudKWIL.Value) > nudWIL.Maximum && !_objCharacter.IgnoreRules)
             {
                 try
                 {
-                    nudWIL.Value = nudWIL.Maximum - nudKWIL.Value - intExceptional;
+                    nudWIL.Value = nudWIL.Maximum - nudKWIL.Value;
                 }
                 catch
                 {
@@ -4142,15 +4128,11 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-            int intExceptional = 0;
-            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
-                intExceptional = _objCharacter.EDG.MaximumModifiers;
-
-            if ((nudEDG.Value + nudKEDG.Value + intExceptional) > nudEDG.Maximum)
+            if ((nudEDG.Value + nudKEDG.Value) > nudEDG.Maximum)
             {
                 try
                 {
-                    nudEDG.Value = nudEDG.Maximum - nudKEDG.Value - intExceptional;
+                    nudEDG.Value = nudEDG.Maximum - nudKEDG.Value;
                 }
                 catch
                 {
@@ -4172,15 +4154,11 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-            int intExceptional = 0;
-            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
-                intExceptional = _objCharacter.MAG.MaximumModifiers;
-
-            if ((nudMAG.Value + nudKMAG.Value + intExceptional) > nudMAG.Maximum)
+            if ((nudMAG.Value + nudKMAG.Value) > nudMAG.Maximum)
             {
                 try
                 {
-                    nudMAG.Value = nudMAG.Maximum - nudKMAG.Value - intExceptional;
+                    nudMAG.Value = nudMAG.Maximum - nudKMAG.Value;
                 }
                 catch
                 {
@@ -4221,15 +4199,11 @@ namespace Chummer
 			if (_blnLoading)
 				return;
 
-            int intExceptional = 0;
-            if (!_objCharacter.Options.AllowAttributePointsOnExceptional)
-                intExceptional = _objCharacter.RES.MaximumModifiers;
-
-            if ((nudRES.Value + nudKRES.Value + intExceptional) > nudRES.Maximum)
+            if ((nudRES.Value + nudKRES.Value) > nudRES.Maximum)
             {
                 try
                 {
-                    nudRES.Value = nudRES.Maximum - nudKRES.Value - intExceptional;
+                    nudRES.Value = nudRES.Maximum - nudKRES.Value;
                 }
                 catch
                 {
@@ -4320,7 +4294,27 @@ namespace Chummer
 			UpdateWindowTitle();
 		}
 
-		private void objKnowledgeSkill_RatingChanged(Object sender)
+        private void objActiveSkill_BuyWithKarmaChanged(Object sender)
+		{
+            // Handle the BuyWithKarmaChanged even for the Active SkillControl object.
+            CalculateBP();
+			UpdateCharacterInfo();
+
+			_blnIsDirty = true;
+			UpdateWindowTitle();
+		}
+
+        private void objKnowledgeSkill_BuyWithKarmaChanged(Object sender)
+        {
+            // Handle the BuyWithKarmaChanged even for the Knowledge SkillControl object.
+            CalculateBP();
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void objKnowledgeSkill_RatingChanged(Object sender)
 		{
 			// Handle the RatingChanged even for the Knowledge SkillControl object.
             CalculateBP();
@@ -4546,6 +4540,10 @@ namespace Chummer
 				intNegativeQualityBP *= _objOptions.KarmaQuality;
 
 			int intBPUsed = 0;
+			foreach (ContactControl objContactControl in panEnemies.Controls)
+			{
+				intBPUsed -= (objContactControl.ConnectionRating + objContactControl.LoyaltyRating + objContactControl.GroupRating) * _objOptions.KarmaQuality;
+			}
 
 			int intEnemyMax = 0;
 			int intQualityMax = 0;
@@ -4598,6 +4596,10 @@ namespace Chummer
 				intNegativeQualityBP *= _objOptions.KarmaQuality;
 
 			int intBPUsed = 0;
+			foreach (ContactControl objContactControl in panEnemies.Controls)
+			{
+				intBPUsed -= (objContactControl.ConnectionRating + objContactControl.LoyaltyRating + objContactControl.GroupRating) * _objOptions.KarmaQuality;
+			}
 
 			int intEnemyMax = 0;
 			int intQualityMax = 0;
@@ -4659,6 +4661,10 @@ namespace Chummer
 				intNegativeQualityBP *= _objOptions.KarmaQuality;
 
 			int intBPUsed = 0;
+			foreach (ContactControl objContactControl in panEnemies.Controls)
+			{
+				intBPUsed -= (objContactControl.ConnectionRating + objContactControl.LoyaltyRating + objContactControl.GroupRating) * _objOptions.KarmaQuality;
+			}
 
 			int intEnemyMax = 0;
 			int intQualityMax = 0;
@@ -4687,6 +4693,44 @@ namespace Chummer
 				}
 			}
 
+			UpdateCharacterInfo();
+
+			_blnIsDirty = true;
+			UpdateWindowTitle();
+		}
+
+		private void objEnemy_DeleteContact(Object sender)
+		{
+			if (!_objFunctions.ConfirmDelete(LanguageManager.Instance.GetString("Message_DeleteEnemy")))
+				return;
+
+			// Handle the DeleteCOntact Event for the ContactControl object.
+			ContactControl objSender = (ContactControl)sender;
+			bool blnFound = false;
+			foreach (ContactControl objContactControl in panEnemies.Controls)
+			{
+				// Set the flag to show that we have found the contact.
+				if (objContactControl == objSender)
+					blnFound = true;
+
+				// Once the Enemy has been found, all of the other ContactControls on the Panel should move up 25 pixels to fill in the gap that deleting this one will cause.
+				if (blnFound)
+				{
+					_objCharacter.Contacts.Remove(objContactControl.ContactObject);
+					objContactControl.Top -= 25;
+				}
+			}
+			// Remove the ContactControl that raised the Event.
+			panEnemies.Controls.Remove(objSender);
+			UpdateCharacterInfo();
+
+			_blnIsDirty = true;
+			UpdateWindowTitle();
+		}
+
+		private void objEnemy_FileNameChanged(Object sender)
+		{
+			// Handle the FileNameChanged Event for the ContactControl object.
 			UpdateCharacterInfo();
 
 			_blnIsDirty = true;
@@ -5028,6 +5072,7 @@ namespace Chummer
 			objSkillControl.RatingChanged += objKnowledgeSkill_RatingChanged;
 			objSkillControl.SpecializationChanged += objSkill_SpecializationChanged;
 			objSkillControl.DeleteSkill += objKnowledgeSkill_DeleteSkill;
+            objSkillControl.BuyWithKarmaChanged += objKnowledgeSkill_BuyWithKarmaChanged;
 
 			objSkillControl.KnowledgeSkill = true;
 			objSkillControl.AllowDelete = true;
@@ -5096,6 +5141,80 @@ namespace Chummer
 			// Set the ContactControl's Location since scrolling the Panel causes it to actually change the child Controls' Locations.
 			objContactControl.Location = new Point(0, objContactControl.Height * i + panContacts.AutoScrollPosition.Y);
 			panContacts.Controls.Add(objContactControl);
+			UpdateCharacterInfo();
+
+			_blnIsDirty = true;
+			UpdateWindowTitle();
+		}
+
+		private void cmdAddEnemy_Click(object sender, EventArgs e)
+		{
+			// Handle the ConnectionRatingChanged Event for the ContactControl object.
+			int intNegativeQualityBP = 0;
+			// Calculate the BP used for Negative Qualities.
+			foreach (Quality objQuality in _objCharacter.Qualities)
+			{
+				if (objQuality.Type == QualityType.Negative && objQuality.ContributeToLimit)
+					intNegativeQualityBP += objQuality.BP;
+			}
+			// Include the amount of free Negative Qualities from Improvements.
+			intNegativeQualityBP -= _objImprovementManager.ValueOf(Improvement.ImprovementType.FreeNegativeQualities);
+
+			// Adjust for Karma build method.
+			if (_objCharacter.BuildMethod == CharacterBuildMethod.Karma)
+				intNegativeQualityBP *= _objOptions.KarmaQuality;
+
+			int intBPUsed = 0;
+			int intEnemyMax = 0;
+			int intQualityMax = 0;
+			string strEnemyPoints = "";
+			string strQualityPoints = "";
+			intBPUsed = -2 * _objOptions.KarmaQuality;
+			intEnemyMax = 50;
+			intQualityMax = 70;
+			strEnemyPoints = "50 " + LanguageManager.Instance.GetString("String_Karma");
+			strQualityPoints = "70 " +LanguageManager.Instance.GetString("String_Karma");
+
+			foreach (ContactControl objEnemyControl in panEnemies.Controls)
+			{
+				intBPUsed -= (objEnemyControl.ConnectionRating + objEnemyControl.LoyaltyRating) * _objOptions.KarmaQuality;
+			}
+
+			if (intBPUsed < (intEnemyMax * -1) && !_objCharacter.IgnoreRules)
+			{
+				MessageBox.Show(LanguageManager.Instance.GetString("Message_EnemyLimit").Replace("{0}", strEnemyPoints), LanguageManager.Instance.GetString("MessageTitle_EnemyLimit"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
+			}
+
+			if (!_objOptions.ExceedNegativeQualities)
+			{
+				if (intBPUsed + intNegativeQualityBP < (intQualityMax * -1) && !_objCharacter.IgnoreRules)
+				{
+					MessageBox.Show(LanguageManager.Instance.GetString("Message_NegativeQualityLimit").Replace("{0}", strQualityPoints), LanguageManager.Instance.GetString("MessageTitle_NegativeQualityLimit"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+					return;
+				}
+			}
+
+			Contact objContact = new Contact(_objCharacter);
+			_objCharacter.Contacts.Add(objContact);
+
+			int i = panEnemies.Controls.Count;
+			ContactControl objContactControl = new ContactControl();
+			objContactControl.ContactObject = objContact;
+			objContactControl.EntityType = ContactType.Enemy;
+
+			// Attach an EventHandler for the ConnectioNRatingChanged, LoyaltyRatingChanged, DeleteContact, and FileNameChanged Events.
+			objContactControl.ConnectionRatingChanged += objEnemy_ConnectionRatingChanged;
+			objContactControl.ConnectionGroupRatingChanged += objEnemy_ConnectionGroupRatingChanged;
+			objContactControl.LoyaltyRatingChanged += objEnemy_LoyaltyRatingChanged;
+			objContactControl.DeleteContact += objEnemy_DeleteContact;
+			objContactControl.FileNameChanged += objEnemy_FileNameChanged;
+            objContactControl.IsEnemy = true;
+
+			// Set the ContactControl's Location since scrolling the Panel causes it to actually change the child Controls' Locations.
+			objContactControl.Location = new Point(0, objContactControl.Height * i + panEnemies.AutoScrollPosition.Y);
+			panEnemies.Controls.Add(objContactControl);
+
 			UpdateCharacterInfo();
 
 			_blnIsDirty = true;
@@ -6782,165 +6901,318 @@ namespace Chummer
 
 		private void cmdAddMetamagic_Click(object sender, EventArgs e)
 		{
-			// Character can only have a number of Metamagics/Echoes equal to their Initiate Grade. Additional ones cost Karma.
-			bool blnPayWithKarma = false;
-			int intCount = 0;
+            if (_objCharacter.MAGEnabled)
+            {
+                // Make sure that the Initiate Grade is not attempting to go above the character's MAG Attribute.
+                if (_objCharacter.InitiateGrade + 1 > _objCharacter.MAG.TotalValue)
+                {
+                    MessageBox.Show(LanguageManager.Instance.GetString("Message_CannotIncreaseInitiateGrade"), LanguageManager.Instance.GetString("MessageTitle_CannotIncreaseInitiateGrade"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
-			// Count the number of free Metamagics the character has and compare it to their Initiate Grade. If they have reached their limit, a new one is added for Karma.
-			foreach (Metamagic objCharacterMetamagic in _objCharacter.Metamagics)
-			{
-				if (!objCharacterMetamagic.PaidWithKarma)
-					intCount++;
-			}
+                // Make sure the character has enough Karma.
+                double dblMultiplier = 1.0;
+                if (chkInitiationGroup.Checked)
+                    dblMultiplier -= 0.1;
+                if (chkInitiationOrdeal.Checked)
+                    dblMultiplier -= 0.1;
+                if (chkInitiationSchooling.Checked)
+                    dblMultiplier -= 0.1;
+                dblMultiplier = Math.Round(dblMultiplier, 2);
 
-			// Make sure the character has Initiated.
-			if (Convert.ToInt32(lblInitiateGrade.Text) == 0)
-			{
-				if (_objCharacter.MAGEnabled)
-					MessageBox.Show(LanguageManager.Instance.GetString("Message_CannotSelectMetamagic"), LanguageManager.Instance.GetString("MessageTitle_CannotSelectMetamagic"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-				else if (_objCharacter.RESEnabled)
-					MessageBox.Show(LanguageManager.Instance.GetString("Message_CannotSelectEcho"), LanguageManager.Instance.GetString("MessageTitle_CannotSelectEcho"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-				return;
-			}
+                int intKarmaExpense = Convert.ToInt32(Math.Ceiling(Convert.ToDouble((10 + ((_objCharacter.InitiateGrade + 1) * _objOptions.KarmaInitiation)), GlobalOptions.Instance.CultureInfo) * dblMultiplier));
 
-			// Character can only have MAG/RES + Grade Metamagics. Do not let them go beyond this limit.
-			if (intCount + 1 > Convert.ToInt32(lblInitiateGrade.Text))
-			{
-				string strMessage = "";
-				string strTitle = "";
-				int intGrade = Convert.ToInt32(lblInitiateGrade.Text);
-				int intAttribute = 0;
+                // Create the Initiate Grade object.
+                InitiationGrade objGrade = new InitiationGrade(_objCharacter);
+                objGrade.Create(_objCharacter.InitiateGrade + 1, _objCharacter.RESEnabled, chkInitiationGroup.Checked, chkInitiationOrdeal.Checked, chkInitiationSchooling.Checked);
+                _objCharacter.InitiationGrades.Add(objGrade);
 
-				if (_objCharacter.MAGEnabled)
-					intAttribute = _objCharacter.MAG.TotalValue;
-				else
-					intAttribute = _objCharacter.RES.TotalValue;
+                // Set the character's Initiate Grade.
+                _objCharacter.InitiateGrade += 1;
 
-				if (intCount + 1 > intAttribute + intGrade)
-				{
-					if (_objCharacter.MAGEnabled)
-					{
-						strMessage = LanguageManager.Instance.GetString("Message_AdditionalMetamagicLimit");
-						strTitle = LanguageManager.Instance.GetString("MessageTitle_AdditionalMetamagic");
-					}
-					else if (_objCharacter.RESEnabled)
-					{
-						strMessage = LanguageManager.Instance.GetString("Message_AdditionalEchoLimit");
-						strTitle = LanguageManager.Instance.GetString("MessageTitle_CannotSelectEcho");
-					}
+                // Remove any existing Initiation Improvements.
+                _objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Initiation, "Initiation");
 
-					MessageBox.Show(strMessage, strTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-					return;
-				}
-			}
+                // Create the replacement Improvement.
+                _objImprovementManager.CreateImprovement("MAG", Improvement.ImprovementSource.Initiation, "Initiation", Improvement.ImprovementType.Attribute, "", 0, 1, 0, _objCharacter.InitiateGrade);
+                _objImprovementManager.Commit();
 
-			// Additional Metamagics beyond the standard 1 per Grade cost additional Karma, so ask if the user wants to spend the additional Karma.
-			if (intCount >= Convert.ToInt32(lblInitiateGrade.Text))
-			{
-				string strMessage = "";
-				string strTitle = "";
-				if (_objCharacter.MAGEnabled)
-				{
-					strMessage = LanguageManager.Instance.GetString("Message_AdditionalMetamagic").Replace("{0}", _objOptions.KarmaMetamagic.ToString());
-					strTitle = LanguageManager.Instance.GetString("MessageTitle_AdditionalMetamagic");
-				}
-				else if (_objCharacter.RESEnabled)
-				{
-					strMessage = LanguageManager.Instance.GetString("Message_AdditionalEcho").Replace("{0}", _objOptions.KarmaMetamagic.ToString());
-					strTitle = LanguageManager.Instance.GetString("MessageTitle_AdditionalEcho");
-				}
+                // Update any Metamagic Improvements the character might have.
+                foreach (Metamagic objMetamagic in _objCharacter.Metamagics)
+                {
+                    if (objMetamagic.Bonus != null)
+                    {
+                        // If the Bonus contains "Rating", remove the existing Improvement and create new ones.
+                        if (objMetamagic.Bonus.InnerXml.Contains("Rating"))
+                        {
+                            _objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Metamagic, objMetamagic.InternalId);
+                            _objImprovementManager.CreateImprovements(Improvement.ImprovementSource.Metamagic, objMetamagic.InternalId, objMetamagic.Bonus, false, _objCharacter.InitiateGrade, objMetamagic.DisplayNameShort);
+                        }
+                    }
+                }
 
-				if (MessageBox.Show(strMessage, strTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-					return;
-				else
-					blnPayWithKarma = true;
-			}
+                int intAmount = Convert.ToInt32(Math.Ceiling(Convert.ToDouble((10 + ((_objCharacter.InitiateGrade + 1) * _objOptions.KarmaInitiation)), GlobalOptions.Instance.CultureInfo) * dblMultiplier));
 
-			frmSelectMetamagic frmPickMetamagic = new frmSelectMetamagic(_objCharacter);
-			if (_objCharacter.RESEnabled)
-				frmPickMetamagic.WindowMode = frmSelectMetamagic.Mode.Echo;
-			frmPickMetamagic.ShowDialog(this);
+                string strInitTip = LanguageManager.Instance.GetString("Tip_ImproveInitiateGrade").Replace("{0}", (_objCharacter.InitiateGrade + 1).ToString()).Replace("{1}", intAmount.ToString());
+                tipTooltip.SetToolTip(cmdAddMetamagic, strInitTip);
+            }
+            else if (_objCharacter.RESEnabled)
+            {
+                // Make sure that the Initiate Grade is not attempting to go above the character's RES Attribute.
+                if (_objCharacter.SubmersionGrade + 1 > _objCharacter.RES.TotalValue)
+                {
+                    MessageBox.Show(LanguageManager.Instance.GetString("Message_CannotIncreaseSubmersionGrade"), LanguageManager.Instance.GetString("MessageTitle_CannotIncreaseSubmersionGrade"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
-			// Make sure a value was selected.
-			if (frmPickMetamagic.DialogResult == DialogResult.Cancel)
-				return;
+                // Make sure the character has enough Karma.
+                double dblMultiplier = 1.0;
+                dblMultiplier = Math.Round(dblMultiplier, 2);
 
-			string strMetamagic = frmPickMetamagic.SelectedMetamagic;
+                int intKarmaExpense = Convert.ToInt32(Math.Ceiling(Convert.ToDouble((10 + ((_objCharacter.SubmersionGrade + 1) * _objOptions.KarmaInitiation)), GlobalOptions.Instance.CultureInfo) * dblMultiplier));
 
-			XmlDocument objXmlDocument = new XmlDocument();
-			XmlNode objXmlMetamagic;
+                // Create the Initiate Grade object.
+                InitiationGrade objGrade = new InitiationGrade(_objCharacter);
+                objGrade.Create(_objCharacter.SubmersionGrade + 1, _objCharacter.RESEnabled, chkInitiationGroup.Checked, chkInitiationOrdeal.Checked, chkInitiationSchooling.Checked);
+                _objCharacter.InitiationGrades.Add(objGrade);
 
-			TreeNode objNode = new TreeNode();
-			Metamagic objMetamagic = new Metamagic(_objCharacter);
-			Improvement.ImprovementSource objSource;
+                // Set the character's Submersion Grade.
+                _objCharacter.SubmersionGrade += 1;
 
-			if (_objCharacter.MAGEnabled)
-			{
-				objXmlDocument = XmlManager.Instance.Load("metamagic.xml");
-				objXmlMetamagic = objXmlDocument.SelectSingleNode("/chummer/metamagics/metamagic[name = \"" + strMetamagic + "\"]");
-				objSource = Improvement.ImprovementSource.Metamagic;
-			}
-			else
-			{
-				objXmlDocument = XmlManager.Instance.Load("echoes.xml");
-				objXmlMetamagic = objXmlDocument.SelectSingleNode("/chummer/echoes/echo[name = \"" + strMetamagic + "\"]");
-				objSource = Improvement.ImprovementSource.Echo;
-			}
+                // Remove any existing Initiation Improvements.
+                _objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Submersion, "Submersion");
 
-			objMetamagic.Create(objXmlMetamagic, _objCharacter, objNode, objSource);
-			objNode.ContextMenuStrip = cmsMetamagic;
-			if (objMetamagic.InternalId == Guid.Empty.ToString())
-				return;
+                // Create the replacement Improvement.
+                _objImprovementManager.CreateImprovement("RES", Improvement.ImprovementSource.Submersion, "Submersion", Improvement.ImprovementType.Attribute, "", 0, 1, 0, _objCharacter.SubmersionGrade);
+                _objImprovementManager.Commit();
 
-			objMetamagic.PaidWithKarma = blnPayWithKarma;
-			_objCharacter.Metamagics.Add(objMetamagic);
+                // Update any Echo Improvements the character might have.
+                foreach (Metamagic objMetamagic in _objCharacter.Metamagics)
+                {
+                    if (objMetamagic.Bonus != null)
+                    {
+                        // If the Bonus contains "Rating", remove the existing Improvement and create new ones.
+                        if (objMetamagic.Bonus.InnerXml.Contains("Rating"))
+                        {
+                            _objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Echo, objMetamagic.InternalId);
+                            _objImprovementManager.CreateImprovements(Improvement.ImprovementSource.Echo, objMetamagic.InternalId, objMetamagic.Bonus, false, _objCharacter.SubmersionGrade, objMetamagic.DisplayNameShort);
+                        }
+                    }
+                }
 
-			treMetamagic.Nodes.Add(objNode);
+                int intAmount = Convert.ToInt32(Math.Ceiling(Convert.ToDouble((10 + ((_objCharacter.SubmersionGrade + 1) * _objOptions.KarmaInitiation)), GlobalOptions.Instance.CultureInfo) * dblMultiplier));
 
-			UpdateCharacterInfo();
+                string strInitTip = LanguageManager.Instance.GetString("Tip_ImproveSubmersionGrade").Replace("{0}", (_objCharacter.SubmersionGrade + 1).ToString()).Replace("{1}", intAmount.ToString());
+                tipTooltip.SetToolTip(cmdAddMetamagic, strInitTip);
+            }
 
-			_blnIsDirty = true;
-			UpdateWindowTitle();
+            UpdateInitiationGradeTree();
+            UpdateCharacterInfo();
 
-			if (frmPickMetamagic.AddAgain)
-				cmdAddMetamagic_Click(sender, e);
-		}
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
 
 		private void cmdDeleteMetamagic_Click(object sender, EventArgs e)
 		{
-			try
-			{
-				if (treMetamagic.SelectedNode.Level == 0)
-				{
-					string strMessage = "";
-					if (_objCharacter.MAGEnabled)
-						strMessage = LanguageManager.Instance.GetString("Message_DeleteMetamagic");
-					else if (_objCharacter.RESEnabled)
-						strMessage = LanguageManager.Instance.GetString("Message_DeleteEcho");
-					if (!_objFunctions.ConfirmDelete(strMessage))
-						return;
+            try
+            {
+                if (treMetamagic.SelectedNode.Level == 0)
+                {
+                    // Locate the selected Grade.
+                    InitiationGrade objGrade = _objFunctions.FindInitiationGrade(treMetamagic.SelectedNode.Tag.ToString(), _objCharacter.InitiationGrades);
 
-					// Locate the selected Metamagic.
-					Metamagic objMetamagic = _objFunctions.FindMetamagic(treMetamagic.SelectedNode.Tag.ToString(), _objCharacter.Metamagics);
+                    // Stop if this isn't the highest grade
+                    if (objGrade.Grade != _objCharacter.InitiateGrade)
+                    {
+                        MessageBox.Show(LanguageManager.Instance.GetString("Message_DeleteGrade"), LanguageManager.Instance.GetString("MessageTitle_DeleteGrade"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
 
-					// Remove the Improvements created by the Metamagic.
-					_objImprovementManager.RemoveImprovements(objMetamagic.SourceType, objMetamagic.InternalId);
+                    // We're deleting an entire grade
+                    string strMessage = "";
+                    if (_objCharacter.MAGEnabled)
+                        strMessage = LanguageManager.Instance.GetString("Message_DeleteInitiateGrade");
+                    else if (_objCharacter.RESEnabled)
+                        strMessage = LanguageManager.Instance.GetString("Message_DeleteSubmersionGrade");
+                    if (!_objFunctions.ConfirmDelete(strMessage))
+                        return;
 
-					// Remove the Metamagic from the character.
-					_objCharacter.Metamagics.Remove(objMetamagic);
+                    // Remove the child objects (arts, metamagics, enhancements, enchantments, rituals)
+                    // Arts
+                    List<Art> lstRemoveArts = new List<Art>();
+                    foreach (Art objArt in _objCharacter.Arts)
+                    {
+                        if (objArt.Grade == objGrade.Grade)
+                        {
+                            lstRemoveArts.Add(objArt);
+                            foreach (TreeNode nodItem in treMetamagic.SelectedNode.Nodes)
+                            {
+                                if (nodItem.Tag.ToString() == objArt.InternalId.ToString())
+                                {
+                                    treMetamagic.SelectedNode.Nodes.Remove(nodItem);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    foreach (Art objArt in lstRemoveArts)
+                        _objCharacter.Arts.Remove(objArt);
 
-					treMetamagic.SelectedNode.Remove();
+                    // Metamagics
+                    List<Metamagic> lstRemoveMetamagics = new List<Metamagic>();
+                    foreach (Metamagic objMetamagic in _objCharacter.Metamagics)
+                    {
+                        if (objMetamagic.Grade == objGrade.Grade)
+                        {
+                            lstRemoveMetamagics.Add(objMetamagic);
+                            foreach (TreeNode nodItem in treMetamagic.SelectedNode.Nodes)
+                            {
+                                if (nodItem.Tag.ToString() == objMetamagic.InternalId.ToString())
+                                {
+                                    treMetamagic.SelectedNode.Nodes.Remove(nodItem);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    foreach (Metamagic objMetamagic in lstRemoveMetamagics)
+                    {
+                        _objCharacter.Metamagics.Remove(objMetamagic);
+                        _objImprovementManager.RemoveImprovements(objMetamagic.SourceType, objMetamagic.InternalId);
+                    }
 
-					UpdateCharacterInfo();
+                    // Enhancements
+                    List<Enhancement> lstRemoveEnhancements = new List<Enhancement>();
+                    foreach (Enhancement objEnhancement in _objCharacter.Enhancements)
+                    {
+                        if (objEnhancement.Grade == objGrade.Grade)
+                        {
+                            lstRemoveEnhancements.Add(objEnhancement);
+                            foreach (TreeNode nodItem in treMetamagic.SelectedNode.Nodes)
+                            {
+                                if (nodItem.Tag.ToString() == objEnhancement.InternalId.ToString())
+                                {
+                                    treMetamagic.SelectedNode.Nodes.Remove(nodItem);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    foreach (Enhancement objEnhancement in lstRemoveEnhancements)
+                        _objCharacter.Enhancements.Remove(objEnhancement);
 
-					_blnIsDirty = true;
-					UpdateWindowTitle();
-				}
-			}
-			catch
-			{
-			}
-		}
+                    // Spells
+                    List<Spell> lstRemoveSpells = new List<Spell>();
+                    foreach (Spell objSpell in _objCharacter.Spells)
+                    {
+                        if (objSpell.Grade == objGrade.Grade)
+                        {
+                            lstRemoveSpells.Add(objSpell);
+                            foreach (TreeNode nodItem in treMetamagic.SelectedNode.Nodes)
+                            {
+                                if (nodItem.Tag.ToString() == objSpell.InternalId.ToString())
+                                {
+                                    treMetamagic.SelectedNode.Nodes.Remove(nodItem);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    foreach (Spell objSpell in lstRemoveSpells)
+                        _objCharacter.Spells.Remove(objSpell);
+
+                    // Grade
+                    _objCharacter.InitiationGrades.Remove(objGrade);
+
+                    treMetamagic.SelectedNode.Remove();
+                    _objCharacter.InitiateGrade = objGrade.Grade - 1;
+                }
+                else
+                {
+                    // We're deleting a single bonus attached to a grade
+                    string strItemId = treMetamagic.SelectedNode.Tag.ToString();
+                    Art objArt = _objFunctions.FindArt(strItemId, _objCharacter.Arts);
+                    if (objArt != null)
+                    {
+                        string strMessage = "";
+                        strMessage = LanguageManager.Instance.GetString("Message_DeleteArt");
+                        if (!_objFunctions.ConfirmDelete(strMessage))
+                            return;
+
+                        _objCharacter.Arts.Remove(objArt);
+                        treMetamagic.Nodes.Remove(treMetamagic.SelectedNode);
+                        return;
+                    }
+
+                    Metamagic objMetamagic = _objFunctions.FindMetamagic(strItemId, _objCharacter.Metamagics);
+                    if (objMetamagic != null)
+                    {
+                        string strMessage = "";
+                        if (_objCharacter.MAGEnabled)
+                            strMessage = LanguageManager.Instance.GetString("Message_DeleteMetamagic");
+                        else if (_objCharacter.RESEnabled)
+                            strMessage = LanguageManager.Instance.GetString("Message_DeleteEcho");
+                        if (!_objFunctions.ConfirmDelete(strMessage))
+                            return;
+
+                        _objCharacter.Metamagics.Remove(objMetamagic);
+                        _objImprovementManager.RemoveImprovements(objMetamagic.SourceType, objMetamagic.InternalId);
+                        treMetamagic.Nodes.Remove(treMetamagic.SelectedNode);
+                        return;
+                    }
+
+                    Enhancement objEnhancement = _objFunctions.FindEnhancement(strItemId, _objCharacter);
+                    if (objMetamagic != null)
+                    {
+                        string strMessage = "";
+                        strMessage = LanguageManager.Instance.GetString("Message_DeleteEnhancement");
+                        if (!_objFunctions.ConfirmDelete(strMessage))
+                            return;
+
+                        try
+                        {
+                            _objCharacter.Enhancements.Remove(objEnhancement);
+                        }
+                        catch { }
+                        foreach (Power objPower in _objCharacter.Powers)
+                        {
+                            try
+                            {
+                                objPower.Enhancements.Remove(objEnhancement);
+                            }
+                            catch { }
+                        }
+                        treMetamagic.Nodes.Remove(treMetamagic.SelectedNode);
+                        return;
+                    }
+
+                    Spell objSpell = _objFunctions.FindSpell(strItemId, _objCharacter.Spells);
+                    if (objSpell != null)
+                    {
+                        string strMessage = "";
+                        strMessage = LanguageManager.Instance.GetString("Message_DeleteSpell");
+                        if (!_objFunctions.ConfirmDelete(strMessage))
+                            return;
+
+                        _objCharacter.Spells.Remove(objSpell);
+                        treMetamagic.Nodes.Remove(treMetamagic.SelectedNode);
+                        return;
+                    }
+
+
+                }
+            }
+            catch
+            {
+            }
+
+            CalculateBP();
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
 
 		private void cmdAddExoticSkill_Click(object sender, EventArgs e)
 		{
@@ -6968,6 +7240,7 @@ namespace Chummer
 			objSkillControl.RatingChanged += objActiveSkill_RatingChanged;
 			objSkillControl.SpecializationChanged += objSkill_SpecializationChanged;
 			objSkillControl.SkillName = frmPickExoticSkill.SelectedExoticSkill;
+            objSkillControl.BuyWithKarmaChanged += objActiveSkill_BuyWithKarmaChanged;
 
 			objSkillControl.SkillCategory = nodSkill["category"].InnerText;
 			if (nodSkill["default"].InnerText == "Yes")
@@ -7589,186 +7862,6 @@ namespace Chummer
 			UpdateCharacterInfo();
             RefreshMartialArts();
             RefreshPowers();
-
-			_blnIsDirty = true;
-			UpdateWindowTitle();
-		}
-
-		private void cmdImproveInitiation_Click(object sender, EventArgs e)
-		{
-			if (_objCharacter.MAGEnabled)
-			{
-				// Make sure that the Initiate Grade is not attempting to go above the character's MAG Attribute.
-				if (_objCharacter.InitiateGrade + 1 > _objCharacter.MAG.TotalValue)
-				{
-					MessageBox.Show(LanguageManager.Instance.GetString("Message_CannotIncreaseInitiateGrade"), LanguageManager.Instance.GetString("MessageTitle_CannotIncreaseInitiateGrade"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-					return;
-				}
-
-				// Create the Initiate Grade object.
-				InitiationGrade objGrade = new InitiationGrade(_objCharacter);
-				objGrade.Create(_objCharacter.InitiateGrade + 1, _objCharacter.RESEnabled, chkInitiationGroup.Checked, chkInitiationOrdeal.Checked);
-				_objCharacter.InitiationGrades.Add(objGrade);
-
-				// Set the character's Initiate Grade.
-				_objCharacter.InitiateGrade += 1;
-
-				// Remove any existing Initiation Improvements.
-				_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Initiation, "Initiation");
-
-				// Create the replacement Improvement.
-				_objImprovementManager.CreateImprovement("MAG", Improvement.ImprovementSource.Initiation, "Initiation", Improvement.ImprovementType.Attribute, "", 0, 1, 0, _objCharacter.InitiateGrade);
-				_objImprovementManager.Commit();
-
-				// Update any Metamagic Improvements the character might have.
-				foreach (Metamagic objMetamagic in _objCharacter.Metamagics)
-				{
-					if (objMetamagic.Bonus != null)
-					{
-						// If the Bonus contains "Rating", remove the existing Improvement and create new ones.
-						if (objMetamagic.Bonus.InnerXml.Contains("Rating"))
-						{
-							_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Metamagic, objMetamagic.InternalId);
-							_objImprovementManager.CreateImprovements(Improvement.ImprovementSource.Metamagic, objMetamagic.InternalId, objMetamagic.Bonus, false, _objCharacter.InitiateGrade, objMetamagic.DisplayNameShort);
-						}
-					}
-				}
-
-				lblInitiateGrade.Text = _objCharacter.InitiateGrade.ToString();
-			}
-			else if (_objCharacter.RESEnabled)
-			{
-				// Make sure that the Initiate Grade is not attempting to go above the character's RES Attribute.
-				if (_objCharacter.SubmersionGrade + 1 > _objCharacter.RES.TotalValue)
-				{
-					MessageBox.Show(LanguageManager.Instance.GetString("Message_CannotIncreaseSubmersionGrade"), LanguageManager.Instance.GetString("MessageTitle_CannotIncreaseSubmersionGrade"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-					return;
-				}
-
-				// Create the Initiate Grade object.
-				InitiationGrade objGrade = new InitiationGrade(_objCharacter);
-				objGrade.Create(_objCharacter.SubmersionGrade + 1, _objCharacter.RESEnabled, chkInitiationGroup.Checked, chkInitiationOrdeal.Checked);
-				_objCharacter.InitiationGrades.Add(objGrade);
-
-				// Set the character's Submersion Grade.
-				_objCharacter.SubmersionGrade += 1;
-
-				// Remove any existing Initiation Improvements.
-				_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Submersion, "Submersion");
-
-				// Create the replacement Improvement.
-				_objImprovementManager.CreateImprovement("RES", Improvement.ImprovementSource.Submersion, "Submersion", Improvement.ImprovementType.Attribute, "", 0, 1, 0, _objCharacter.SubmersionGrade);
-				_objImprovementManager.Commit();
-
-				// Update any Echo Improvements the character might have.
-				foreach (Metamagic objMetamagic in _objCharacter.Metamagics)
-				{
-					if (objMetamagic.Bonus != null)
-					{
-						// If the Bonus contains "Rating", remove the existing Improvement and create new ones.
-						if (objMetamagic.Bonus.InnerXml.Contains("Rating"))
-						{
-							_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Echo, objMetamagic.InternalId);
-							_objImprovementManager.CreateImprovements(Improvement.ImprovementSource.Echo, objMetamagic.InternalId, objMetamagic.Bonus, false, _objCharacter.SubmersionGrade, objMetamagic.DisplayNameShort);
-						}
-					}
-				}
-
-				lblInitiateGrade.Text = _objCharacter.SubmersionGrade.ToString();
-			}
-
-			UpdateInitiationGradeList();
-			UpdateCharacterInfo();
-
-			_blnIsDirty = true;
-			UpdateWindowTitle();
-		}
-
-		private void cmdReduceInitiation_Click(object sender, EventArgs e)
-		{
-			if (_objCharacter.MAGEnabled)
-			{
-				// Don't attempt to reduce the Grade if they're already at 0.
-				if (_objCharacter.InitiateGrade == 0)
-					return;
-
-				_objCharacter.InitiateGrade -= 1;
-
-				// Remove any existing Initiation Improvements.
-				_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Initiation, "Initiation");
-
-				// Create the replacement Improvement.
-				_objImprovementManager.CreateImprovement("MAG", Improvement.ImprovementSource.Initiation, "Initiation", Improvement.ImprovementType.Attribute, "", 0, 1, 0, _objCharacter.InitiateGrade);
-				_objImprovementManager.Commit();
-
-				// Update any Metamagic Improvements the character might have.
-				foreach (Metamagic objMetamagic in _objCharacter.Metamagics)
-				{
-					if (objMetamagic.Bonus != null)
-					{
-						// If the Bonus contains "Rating", remove the existing Improvement and create new ones.
-						if (objMetamagic.Bonus.InnerXml.Contains("Rating"))
-						{
-							_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Metamagic, objMetamagic.InternalId);
-							_objImprovementManager.CreateImprovements(Improvement.ImprovementSource.Metamagic, objMetamagic.InternalId, objMetamagic.Bonus, false, _objCharacter.InitiateGrade, objMetamagic.DisplayNameShort);
-						}
-					}
-				}
-
-				lblInitiateGrade.Text = _objCharacter.InitiateGrade.ToString();
-
-				// Statement is wrapped in a try since older Initiated character may not have these.
-				try
-				{
-					_objCharacter.InitiationGrades.RemoveAt(_objCharacter.InitiationGrades.Count - 1);
-				}
-				catch
-				{
-				}
-			}
-			else if (_objCharacter.RESEnabled)
-			{
-				// Don't attempt to reduce the Grade if they're already at 0.
-				if (_objCharacter.SubmersionGrade == 0)
-					return;
-
-				_objCharacter.SubmersionGrade -= 1;
-
-				// Remove any existing Initiation Improvements.
-				_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Submersion, "Submersion");
-
-				// Create the replacement Improvement.
-				_objImprovementManager.CreateImprovement("RES", Improvement.ImprovementSource.Submersion, "Submersion", Improvement.ImprovementType.Attribute, "", 0, 1, 0, _objCharacter.SubmersionGrade);
-				_objImprovementManager.Commit();
-
-				// Update any Echo Improvements the character might have.
-				foreach (Metamagic objMetamagic in _objCharacter.Metamagics)
-				{
-					if (objMetamagic.Bonus != null)
-					{
-						// If the Bonus contains "Rating", remove the existing Improvement and create new ones.
-						if (objMetamagic.Bonus.InnerXml.Contains("Rating"))
-						{
-							_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Echo, objMetamagic.InternalId);
-							_objImprovementManager.CreateImprovements(Improvement.ImprovementSource.Echo, objMetamagic.InternalId, objMetamagic.Bonus, false, _objCharacter.SubmersionGrade, objMetamagic.DisplayNameShort);
-						}
-					}
-				}
-
-				lblInitiateGrade.Text = _objCharacter.SubmersionGrade.ToString();
-
-				// Statement is wrapped in a try since older Initiated character may not have these.
-				try
-				{
-					_objCharacter.InitiationGrades.RemoveAt(_objCharacter.InitiationGrades.Count - 1);
-				}
-				catch
-				{
-				}
-			}
-
-			UpdateInitiationGradeList();
-			UpdateCharacterInfo();
 
 			_blnIsDirty = true;
 			UpdateWindowTitle();
@@ -13791,39 +13884,59 @@ namespace Chummer
 			UpdateCharacterInfo();
 		}
 
-		private void chkJoinGroup_CheckedChanged(object sender, EventArgs e)
-		{
-			_objCharacter.GroupMember = chkJoinGroup.Checked;
-			UpdateCharacterInfo();
-
-			_blnIsDirty = true;
-			UpdateWindowTitle();
-		}
-
 		private void treMetamagic_AfterSelect(object sender, TreeViewEventArgs e)
 		{
-			// Locate the selected Metamagic.
-			Metamagic objMetamagic = _objFunctions.FindMetamagic(treMetamagic.SelectedNode.Tag.ToString(), _objCharacter.Metamagics);
+            // Locate the selected Metamagic.
+            Metamagic objMetamagic = _objFunctions.FindMetamagic(treMetamagic.SelectedNode.Tag.ToString(), _objCharacter.Metamagics);
 
-			string strBook = _objOptions.LanguageBookShort(objMetamagic.Source);
-			string strPage = objMetamagic.Page;
-			lblMetamagicSource.Text = strBook + " " + strPage;
-			tipTooltip.SetToolTip(lblMetamagicSource, _objOptions.LanguageBookLong(objMetamagic.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objMetamagic.Page);
-		}
+            if (objMetamagic != null)
+            {
+                string strBook = _objOptions.LanguageBookShort(objMetamagic.Source);
+                string strPage = objMetamagic.Page;
+                lblMetamagicSource.Text = strBook + " " + strPage;
+                tipTooltip.SetToolTip(lblMetamagicSource, _objOptions.BookFromCode(objMetamagic.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objMetamagic.Page);
+                return;
+            }
 
-		private void txtGroupName_TextChanged(object sender, EventArgs e)
-		{
-			_objCharacter.GroupName = txtGroupName.Text;
-			_blnIsDirty = true;
-			UpdateWindowTitle();
-		}
+            // Locate the selected Art.
+            Art objArt = _objFunctions.FindArt(treMetamagic.SelectedNode.Tag.ToString(), _objCharacter.Arts);
 
-		private void txtGroupNotes_TextChanged(object sender, EventArgs e)
-		{
-			_objCharacter.GroupNotes = txtGroupNotes.Text;
-			_blnIsDirty = true;
-			UpdateWindowTitle();
-		}
+            if (objArt != null)
+            {
+                string strBook = _objOptions.LanguageBookShort(objArt.Source);
+                string strPage = objArt.Page;
+                lblMetamagicSource.Text = strBook + " " + strPage;
+                tipTooltip.SetToolTip(lblMetamagicSource, _objOptions.BookFromCode(objArt.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objArt.Page);
+                return;
+            }
+
+            // Locate the selected Spell.
+            Spell objSpell = _objFunctions.FindSpell(treMetamagic.SelectedNode.Tag.ToString(), _objCharacter.Spells);
+
+            if (objSpell != null)
+            {
+                string strBook = _objOptions.LanguageBookShort(objSpell.Source);
+                string strPage = objSpell.Page;
+                lblMetamagicSource.Text = strBook + " " + strPage;
+                tipTooltip.SetToolTip(lblMetamagicSource, _objOptions.BookFromCode(objSpell.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objSpell.Page);
+                return;
+            }
+
+            // Locate the selected Enhancement.
+            Enhancement objEnhancement = _objFunctions.FindEnhancement(treMetamagic.SelectedNode.Tag.ToString(), _objCharacter);
+
+            if (objEnhancement != null)
+            {
+                string strBook = _objOptions.LanguageBookShort(objEnhancement.Source);
+                string strPage = objEnhancement.Page;
+                lblMetamagicSource.Text = strBook + " " + strPage;
+                tipTooltip.SetToolTip(lblMetamagicSource, _objOptions.BookFromCode(objEnhancement.Source) + " " + LanguageManager.Instance.GetString("String_Page") + " " + objEnhancement.Page);
+                return;
+            }
+
+            lblMetamagicSource.Text = "";
+            tipTooltip.SetToolTip(lblMetamagicSource, "");
+        }
 		#endregion
 
 		#region Additional Critter Powers Tab Control Events
@@ -14080,7 +14193,7 @@ namespace Chummer
 		#region Splitter Resize Events
 		private void splitSkills_Panel1_Resize(object sender, EventArgs e)
 		{
-			panActiveSkills.Height = splitSkills.Panel1.Height - panActiveSkills.Top;
+			// panActiveSkills.Height = splitSkills.Panel1.Height - panActiveSkills.Top;
 			panSkillGroups.Height = splitSkills.Panel1.Height - panSkillGroups.Top;
 			panActiveSkills.Width = splitSkills.Panel1.Width - panActiveSkills.Left;
 			panSkillGroups.Width = panActiveSkills.Left - 6 - panSkillGroups.Left;
@@ -14341,9 +14454,7 @@ namespace Chummer
 		private void ClearInitiationTab()
 		{
 			_objController.ClearInitiationTab(treMetamagic);
-			UpdateInitiationGradeList();
-
-			lblInitiateGrade.Text = "0";
+			UpdateInitiationGradeTree();
 
 			_blnIsDirty = true;
 			UpdateCharacterInfo();
@@ -15096,6 +15207,7 @@ namespace Chummer
 		{
 			int intPointsRemain = 0;
 			int intPointsUsed = 0;
+			int intEnemyPoints = 0;
 			int intNegativePoints = 0;
 			int intFreestyleBPMin = 0;
 			int intFreestyleBP = 0;
@@ -15217,6 +15329,18 @@ namespace Chummer
 			// Calculate the BP used by Enemies. These are added to the BP since they are tehnically
 			// a Negative Quality.
 			intPointsUsed = 0;
+			foreach (ContactControl objContactControl in panEnemies.Controls)
+			{
+				if (!objContactControl.Free)
+				{
+					// The Enemy's Karma cost = their (Connection + Loyalty Rating) x Karma multiplier.
+					intPointsRemain += (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.KarmaContact;
+					intPointsUsed -= (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.KarmaContact;
+					intEnemyPoints += (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.KarmaContact;
+					intNegativePoints += intPointsUsed;
+				}
+			}
+			lblEnemiesBP.Text = String.Format("{0} " + strPoints, intPointsUsed.ToString());
 			intFreestyleBP += intPointsUsed;
 
 			// Calculate the BP used by Positive Qualities.
@@ -15384,6 +15508,8 @@ namespace Chummer
                     {
                         intPointsUsed += ((Convert.ToInt32(objSkillControl.SkillBase) + i) * _objOptions.KarmaImproveActiveSkill);
                     }
+                    if (objSkillControl.SkillSpec != "" && objSkillControl.BuyWithKarma && !objSkillControl.SkillObject.ExoticSkill)
+                        intPointsRemain -= _objCharacter.Options.KarmaSpecialization;
                 }
                 intFreestyleBP += intPointsUsed;
                 intPointsRemain -= intPointsUsed;
@@ -15495,7 +15621,7 @@ namespace Chummer
                             }
 
                         }
-                        if (!blnFound)
+                        if (!blnFound && objSkillControl.BuyWithKarma)
                         {
                             // Each Specialization costs KarmaSpecialization.
                             intPointsRemain -= _objOptions.KarmaSpecialization;
@@ -15539,8 +15665,10 @@ namespace Chummer
                             }
 
                         }
-                        if (!blnFound)
+                        if (!blnFound && !objSkillControl.BuyWithKarma)
                             intPointsInKnowledgeSkills++;
+                        else if (!blnFound)
+                            intPointsRemain -= _objCharacter.Options.KarmaSpecialization;
                     }
                     else
                         intPointsInKnowledgeSkills += _objOptions.KarmaSpecialization;
@@ -15752,7 +15880,19 @@ namespace Chummer
 					intInitiationPoints += _objOptions.KarmaMetamagic;
 			}
 
-			// Check to see if the character is a member of a Group.
+            // Add the Karma cost of extra Metamagic/Echoes to the Initiation cost.
+            foreach (Enhancement objEnhancement in _objCharacter.Enhancements)
+            {
+                intInitiationPoints += 2;
+            }
+
+            foreach (Power objPower in _objCharacter.Powers)
+            {
+                foreach (Enhancement objEnhancement in objPower.Enhancements)
+                    intInitiationPoints += 2;
+            }
+
+            // Check to see if the character is a member of a Group.
 			if (_objCharacter.GroupMember && _objCharacter.MAGEnabled)
 				intInitiationPoints += _objOptions.KarmaJoinGroup;
 
@@ -15897,9 +16037,8 @@ namespace Chummer
                                 if (objQuality.Name == "Inspired")
                                     blnFound = true;
                             }
-
                         }
-                        if (!blnFound)
+                        if (!blnFound && !objSkillControl.BuyWithKarma)
                         {
                             intSkills++;
                         }
@@ -16508,12 +16647,6 @@ namespace Chummer
 					strTip += " + " + LanguageManager.Instance.GetString("Tip_Modifiers") + " (" + _objImprovementManager.ValueOf(Improvement.ImprovementType.Memory).ToString() + ")";
 				tipTooltip.SetToolTip(lblMemory, strTip);
 
-				// Update Initiate Grade if applicable.
-				if (_objCharacter.MAGEnabled)
-					lblInitiateGrade.Text = _objCharacter.InitiateGrade.ToString();
-				if (_objCharacter.RESEnabled)
-					lblInitiateGrade.Text = _objCharacter.SubmersionGrade.ToString();
-
 				// Update A.I. Attributes.
 				if (_objCharacter.Metatype.EndsWith("A.I.") || _objCharacter.MetatypeCategory == "Technocritters" || _objCharacter.MetatypeCategory == "Protosapients")
 				{
@@ -16633,7 +16766,14 @@ namespace Chummer
 			foreach (Cyberware objCyberware in _objCharacter.Cyberware)
 				intDeductions += objCyberware.TotalCost;
 
-			// Armor cost.
+            // Initiation Grade cost.
+            foreach (InitiationGrade objGrade in _objCharacter.InitiationGrades)
+            {
+                if (objGrade.Schooling)
+                    intDeductions += 10000;
+            }
+
+            // Armor cost.
 			foreach (Armor objArmor in _objCharacter.Armor)
 				intDeductions += objArmor.TotalCost;
 
@@ -19598,6 +19738,15 @@ namespace Chummer
                 // a Negative Quality.
                 int intPointsUsed = 0;
                 int intNegativePoints = 0;
+                foreach (ContactControl objContactControl in panEnemies.Controls)
+                {
+                    if (!objContactControl.Free)
+                    {
+                        // The Enemy's BP cost = their Connection + Loyalty Rating.
+                        intPointsUsed -= (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.BPContact;
+                        intNegativePoints += intPointsUsed;
+                    }
+                }
 
                 // Calculate the BP used by Positive Qualities.
                 intPointsUsed = 0;
@@ -21615,17 +21764,122 @@ namespace Chummer
 		{
 		}
 
-		/// <summary>
-		/// Update the contents of the Initiation Grade list.
-		/// </summary>
-		public void UpdateInitiationGradeList()
-		{
-			lstInitiation.Items.Clear();
-			foreach (InitiationGrade objGrade in _objCharacter.InitiationGrades)
-				lstInitiation.Items.Add(objGrade.Text);
-		}
+        /// <summary>
+        /// Update the contents of the Initiation Grade list.
+        /// </summary>
+        public void UpdateInitiationGradeTree()
+        {
+            treMetamagic.Nodes.Clear();
+            foreach (InitiationGrade objGrade in _objCharacter.InitiationGrades)
+            {
+                TreeNode nodGrade = treMetamagic.Nodes.Add(objGrade.Grade.ToString(), objGrade.Text);
+                nodGrade.Tag = objGrade.InternalId;
+                nodGrade.ContextMenuStrip = cmsMetamagic;
+                if (objGrade.Notes != string.Empty)
+                    nodGrade.ForeColor = Color.SaddleBrown;
+                nodGrade.ToolTipText = objGrade.Notes;
 
-		/// <summary>
+                foreach (Art objArt in _objCharacter.Arts)
+                {
+                    if (objArt.Grade == objGrade.Grade)
+                    {
+                        TreeNode nodArt = nodGrade.Nodes.Add(objArt.InternalId, LanguageManager.Instance.GetString("Label_Art") + " " + objArt.DisplayName);
+                        nodArt.Tag = objArt.InternalId;
+                        nodArt.ContextMenuStrip = cmsInitiationNotes;
+                        if (objArt.Notes != string.Empty)
+                            nodArt.ForeColor = Color.SaddleBrown;
+                        nodArt.ToolTipText = objArt.Notes;
+                    }
+                }
+                foreach (Metamagic objMetamagic in _objCharacter.Metamagics)
+                {
+                    if (objMetamagic.Grade == objGrade.Grade)
+                    {
+                        string strName = "";
+                        if (_objCharacter.MAGEnabled)
+                            strName = LanguageManager.Instance.GetString("Label_Metamagic") + " " + objMetamagic.DisplayName;
+                        else
+                            strName = LanguageManager.Instance.GetString("Label_Echo") + " " + objMetamagic.DisplayName;
+                        TreeNode nodMetamagic = nodGrade.Nodes.Add(objMetamagic.InternalId, strName);
+                        nodMetamagic.Tag = objMetamagic.InternalId;
+                        nodMetamagic.ContextMenuStrip = cmsInitiationNotes;
+                        if (objMetamagic.Notes != string.Empty)
+                            nodMetamagic.ForeColor = Color.SaddleBrown;
+                        nodMetamagic.ToolTipText = objMetamagic.Notes;
+                    }
+                }
+                foreach (Spell objSpell in _objCharacter.Spells)
+                {
+                    if (objSpell.Grade == objGrade.Grade)
+                    {
+                        string strCategory = "";
+                        if (objSpell.Category == "Rituals")
+                            strCategory = LanguageManager.Instance.GetString("Label_Ritual") + " ";
+                        if (objSpell.Category == "Enchantments")
+                            strCategory = LanguageManager.Instance.GetString("Label_Enchantment") + " ";
+                        TreeNode nodSpell = nodGrade.Nodes.Add(objSpell.InternalId, strCategory + " " + objSpell.DisplayName);
+                        nodSpell.Tag = objSpell.InternalId;
+                        nodSpell.ContextMenuStrip = cmsInitiationNotes;
+                        if (objSpell.Notes != string.Empty)
+                            nodSpell.ForeColor = Color.SaddleBrown;
+                        nodSpell.ToolTipText = objSpell.Notes;
+                    }
+                }
+                foreach (Enhancement objEnhancement in _objCharacter.Enhancements)
+                {
+                    if (objEnhancement.Grade == objGrade.Grade)
+                    {
+                        TreeNode nodEnhancement = nodGrade.Nodes.Add(objEnhancement.InternalId, LanguageManager.Instance.GetString("Label_Enhancement") + " " + objEnhancement.DisplayName);
+                        nodEnhancement.Tag = objEnhancement.InternalId;
+                        nodEnhancement.ContextMenuStrip = cmsInitiationNotes;
+                        if (objEnhancement.Notes != string.Empty)
+                            nodEnhancement.ForeColor = Color.SaddleBrown;
+                        nodEnhancement.ToolTipText = objEnhancement.Notes;
+                    }
+                }
+                foreach (Power objPower in _objCharacter.Powers)
+                {
+                    foreach (Enhancement objEnhancement in objPower.Enhancements)
+                    {
+                        if (objEnhancement.Grade == objGrade.Grade)
+                        {
+                            TreeNode nodEnhancement = nodGrade.Nodes.Add(objEnhancement.InternalId, LanguageManager.Instance.GetString("Label_Enhancement") + " " + objEnhancement.DisplayName);
+                            nodEnhancement.Tag = objEnhancement.InternalId;
+                            nodEnhancement.ContextMenuStrip = cmsInitiationNotes;
+                            if (objEnhancement.Notes != string.Empty)
+                                nodEnhancement.ForeColor = Color.SaddleBrown;
+                            nodEnhancement.ToolTipText = objEnhancement.Notes;
+                        }
+                    }
+                }
+            }
+            treMetamagic.ExpandAll();
+
+            double dblMultiplier = 1.0;
+            if (chkInitiationGroup.Checked)
+                dblMultiplier -= 0.1;
+            if (chkInitiationOrdeal.Checked)
+                dblMultiplier -= 0.1;
+            if (chkInitiationSchooling.Checked)
+                dblMultiplier -= 0.1;
+            dblMultiplier = Math.Round(dblMultiplier, 2);
+
+            int intAmount = 0;
+            if (_objCharacter.MAGEnabled)
+                intAmount = Convert.ToInt32(Math.Ceiling(Convert.ToDouble((10 + ((_objCharacter.InitiateGrade + 1) * _objOptions.KarmaInitiation)), GlobalOptions.Instance.CultureInfo) * dblMultiplier));
+            else
+                intAmount = Convert.ToInt32(Math.Ceiling(Convert.ToDouble((10 + ((_objCharacter.SubmersionGrade + 1) * _objOptions.KarmaInitiation)), GlobalOptions.Instance.CultureInfo) * dblMultiplier));
+
+            string strInitTip = "";
+            if (_objCharacter.MAGEnabled)
+                strInitTip = LanguageManager.Instance.GetString("Tip_ImproveInitiateGrade").Replace("{0}", (_objCharacter.InitiateGrade + 1).ToString()).Replace("{1}", intAmount.ToString());
+            else
+                strInitTip = LanguageManager.Instance.GetString("Tip_ImproveSubmersionGrade").Replace("{0}", (_objCharacter.SubmersionGrade + 1).ToString()).Replace("{1}", intAmount.ToString());
+
+            tipTooltip.SetToolTip(cmdAddMetamagic, strInitTip);
+        }
+
+        /// <summary>
 		/// Change the character's Metatype.
 		/// </summary>
 		public void ChangeMetatype()
@@ -21955,7 +22209,6 @@ namespace Chummer
 			tipTooltip.SetToolTip(lblFirewallLabel, LanguageManager.Instance.GetString("Tip_CommonAIFirewall"));
 			tipTooltip.SetToolTip(lblResponseLabel, LanguageManager.Instance.GetString("Tip_CommonAIResponse"));
 			tipTooltip.SetToolTip(lblSignalLabel, LanguageManager.Instance.GetString("Tip_CommonAISignal"));
-			tipTooltip.SetToolTip(lblContacts, LanguageManager.Instance.GetString("Tip_CommonContacts"));
 			// Skills Tab.
 			tipTooltip.SetToolTip(lblSkillGroups, LanguageManager.Instance.GetString("Tip_SkillsSkillGroups"));
 			tipTooltip.SetToolTip(lblActiveSkills, LanguageManager.Instance.GetString("Tip_SkillsActiveSkills"));
@@ -22039,8 +22292,6 @@ namespace Chummer
 			cmdDeleteComplexForm.Left = cmdAddComplexForm.Left + cmdAddComplexForm.Width + 6;
 			// Critter Powers Tab.
 			cmdDeleteCritterPower.Left = cmdAddCritterPower.Left + cmdAddCritterPower.Width + 6;
-			// Initiation Tab.
-			cmdDeleteMetamagic.Left = cmdAddMetamagic.Left + cmdAddMetamagic.Width + 6;
 			// Cyberware Tab.
 			cmdAddBioware.Left = cmdAddCyberware.Left + cmdAddCyberware.Width + 6;
 			cmdDeleteCyberware.Left = cmdAddBioware.Left + cmdAddBioware.Width + 6;
@@ -23651,6 +23902,499 @@ namespace Chummer
             UpdateWindowTitle();
         }
 
+        private void tsMetamagicAddMetamagic_Click(object sender, EventArgs e)
+        {
+            // Character can only have a number of Metamagics/Echoes equal to their Initiate Grade. Additional ones cost Karma.
+            bool blnPayWithKarma = false;
+            string strType = "";
+
+            if (treMetamagic.SelectedNode.Level != 0)
+                return;
+
+            int intGrade = 0;
+            foreach (InitiationGrade objGrade in _objCharacter.InitiationGrades)
+            {
+                if (objGrade.InternalId == treMetamagic.SelectedNode.Tag.ToString())
+                {
+                    intGrade = objGrade.Grade;
+                    break;
+                }
+            }
+
+            // Evaluate each object 
+            foreach (Metamagic objMetamagic in _objCharacter.Metamagics)
+            {
+                if (objMetamagic.Grade == intGrade)
+                    blnPayWithKarma = true;
+            }
+
+            foreach (Spell objSpell in _objCharacter.Spells)
+            {
+                if (objSpell.Grade == intGrade)
+                    blnPayWithKarma = true;
+            }
+
+            frmSelectMetamagic frmPickMetamagic = new frmSelectMetamagic(_objCharacter);
+            if (_objCharacter.RESEnabled)
+                frmPickMetamagic.WindowMode = frmSelectMetamagic.Mode.Echo;
+            frmPickMetamagic.ShowDialog(this);
+
+            // Make sure a value was selected.
+            if (frmPickMetamagic.DialogResult == DialogResult.Cancel)
+                return;
+
+            string strMetamagic = frmPickMetamagic.SelectedMetamagic;
+
+            XmlDocument objXmlDocument = new XmlDocument();
+            XmlNode objXmlMetamagic;
+
+            TreeNode objNode = new TreeNode();
+            Metamagic objNewMetamagic = new Metamagic(_objCharacter);
+            Improvement.ImprovementSource objSource;
+
+            if (_objCharacter.MAGEnabled)
+            {
+                objXmlDocument = XmlManager.Instance.Load("metamagic.xml");
+                objXmlMetamagic = objXmlDocument.SelectSingleNode("/chummer/metamagics/metamagic[name = \"" + strMetamagic + "\"]");
+                objSource = Improvement.ImprovementSource.Metamagic;
+            }
+            else
+            {
+                objXmlDocument = XmlManager.Instance.Load("echoes.xml");
+                objXmlMetamagic = objXmlDocument.SelectSingleNode("/chummer/echoes/echo[name = \"" + strMetamagic + "\"]");
+                objSource = Improvement.ImprovementSource.Echo;
+            }
+
+            objNewMetamagic.Create(objXmlMetamagic, _objCharacter, objNode, objSource);
+            objNewMetamagic.Grade = intGrade;
+            objNode.ContextMenuStrip = cmsInitiationNotes;
+            if (objNewMetamagic.InternalId == Guid.Empty.ToString())
+                return;
+
+            _objCharacter.Metamagics.Add(objNewMetamagic);
+
+            treMetamagic.SelectedNode.Nodes.Add(objNode);
+            treMetamagic.SelectedNode.Expand();
+
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+
+            if (frmPickMetamagic.AddAgain)
+                cmdAddMetamagic_Click(sender, e);
+        }
+
+        private void tsMetamagicAddArt_Click(object sender, EventArgs e)
+        {
+            // Character can only have a number of Metamagics/Echoes equal to their Initiate Grade. Additional ones cost Karma.
+            bool blnPayWithKarma = false;
+            string strType = "";
+
+            if (treMetamagic.SelectedNode.Level != 0)
+                return;
+
+            int intGrade = 0;
+            foreach (InitiationGrade objGrade in _objCharacter.InitiationGrades)
+            {
+                if (objGrade.InternalId == treMetamagic.SelectedNode.Tag.ToString())
+                {
+                    intGrade = objGrade.Grade;
+                    break;
+                }
+            }
+
+            frmSelectArt frmPickArt = new frmSelectArt(_objCharacter);
+            frmPickArt.WindowMode = frmSelectArt.Mode.Art;
+            frmPickArt.ShowDialog(this);
+
+            // Make sure a value was selected.
+            if (frmPickArt.DialogResult == DialogResult.Cancel)
+                return;
+
+            string strArt = frmPickArt.SelectedItem;
+
+            XmlDocument objXmlDocument = new XmlDocument();
+            XmlNode objXmlArt;
+
+            TreeNode objNode = new TreeNode();
+            Art objArt = new Art(_objCharacter);
+            Improvement.ImprovementSource objSource;
+
+            objXmlDocument = XmlManager.Instance.Load("metamagic.xml");
+            objXmlArt = objXmlDocument.SelectSingleNode("/chummer/arts/art[name = \"" + strArt + "\"]");
+            objSource = Improvement.ImprovementSource.Metamagic;
+
+            objArt.Create(objXmlArt, _objCharacter, objNode, objSource);
+            objArt.Grade = intGrade;
+            objNode.ContextMenuStrip = cmsInitiationNotes;
+            if (objArt.InternalId == Guid.Empty.ToString())
+                return;
+
+            _objCharacter.Arts.Add(objArt);
+
+            treMetamagic.SelectedNode.Nodes.Add(objNode);
+            treMetamagic.SelectedNode.Expand();
+
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void tsMetamagicAddEnchantment_Click(object sender, EventArgs e)
+        {
+            // Character can only have a number of Metamagics/Echoes equal to their Initiate Grade. Additional ones cost Karma.
+            bool blnPayWithKarma = false;
+            string strType = "";
+
+            if (treMetamagic.SelectedNode.Level != 0)
+                return;
+
+            int intGrade = 0;
+            foreach (InitiationGrade objGrade in _objCharacter.InitiationGrades)
+            {
+                if (objGrade.InternalId == treMetamagic.SelectedNode.Tag.ToString())
+                {
+                    intGrade = objGrade.Grade;
+                    break;
+                }
+            }
+
+            // Evaluate each object 
+            foreach (Metamagic objMetamagic in _objCharacter.Metamagics)
+            {
+                if (objMetamagic.Grade == intGrade)
+                    blnPayWithKarma = true;
+            }
+
+            foreach (Spell objSpell in _objCharacter.Spells)
+            {
+                if (objSpell.Grade == intGrade)
+                    blnPayWithKarma = true;
+            }
+
+            frmSelectArt frmPickArt = new frmSelectArt(_objCharacter);
+            frmPickArt.WindowMode = frmSelectArt.Mode.Enchantment;
+            frmPickArt.ShowDialog(this);
+
+            // Make sure a value was selected.
+            if (frmPickArt.DialogResult == DialogResult.Cancel)
+                return;
+
+            string strEnchantment = frmPickArt.SelectedItem;
+
+            XmlDocument objXmlDocument = new XmlDocument();
+            XmlNode objXmlArt;
+
+            TreeNode objNode = new TreeNode();
+            Spell objNewSpell = new Spell(_objCharacter);
+            Improvement.ImprovementSource objSource;
+
+            objXmlDocument = XmlManager.Instance.Load("spells.xml");
+            objXmlArt = objXmlDocument.SelectSingleNode("/chummer/spells/spell[name = \"" + strEnchantment + "\"]");
+            objSource = Improvement.ImprovementSource.Initiation;
+
+            objNewSpell.Create(objXmlArt, _objCharacter, objNode, "", false, false, false, objSource);
+            objNewSpell.Grade = intGrade;
+            objNode.ContextMenuStrip = cmsInitiationNotes;
+            if (objNewSpell.InternalId == Guid.Empty.ToString())
+                return;
+
+            _objCharacter.Spells.Add(objNewSpell);
+
+            TreeNode objSpellNode = new TreeNode();
+            objSpellNode.Text = objNode.Text;
+            objSpellNode.Tag = objNode.Tag;
+
+            string strCategory = "";
+            if (objNewSpell.Category == "Rituals")
+                strCategory = LanguageManager.Instance.GetString("Label_Ritual") + " ";
+            if (objNewSpell.Category == "Enchantments")
+                strCategory = LanguageManager.Instance.GetString("Label_Enchantment") + " ";
+            objNode.Text = strCategory + objNode.Text;
+            treMetamagic.SelectedNode.Nodes.Add(objNode);
+            treMetamagic.SelectedNode.Expand();
+
+            treSpells.Nodes[6].Nodes.Add(objSpellNode);
+            treSpells.Nodes[6].Expand();
+
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void tsMetamagicAddRitual_Click(object sender, EventArgs e)
+        {
+            // Character can only have a number of Metamagics/Echoes equal to their Initiate Grade. Additional ones cost Karma.
+            bool blnPayWithKarma = false;
+            string strType = "";
+
+            if (treMetamagic.SelectedNode.Level != 0)
+                return;
+
+            int intGrade = 0;
+            foreach (InitiationGrade objGrade in _objCharacter.InitiationGrades)
+            {
+                if (objGrade.InternalId == treMetamagic.SelectedNode.Tag.ToString())
+                {
+                    intGrade = objGrade.Grade;
+                    break;
+                }
+            }
+
+            // Evaluate each object 
+            foreach (Metamagic objMetamagic in _objCharacter.Metamagics)
+            {
+                if (objMetamagic.Grade == intGrade)
+                    blnPayWithKarma = true;
+            }
+
+            foreach (Spell objSpell in _objCharacter.Spells)
+            {
+                if (objSpell.Grade == intGrade)
+                    blnPayWithKarma = true;
+            }
+
+            frmSelectArt frmPickArt = new frmSelectArt(_objCharacter);
+            frmPickArt.WindowMode = frmSelectArt.Mode.Ritual;
+            frmPickArt.ShowDialog(this);
+
+            // Make sure a value was selected.
+            if (frmPickArt.DialogResult == DialogResult.Cancel)
+                return;
+
+            string strEnchantment = frmPickArt.SelectedItem;
+
+            XmlDocument objXmlDocument = new XmlDocument();
+            XmlNode objXmlArt;
+
+            TreeNode objNode = new TreeNode();
+            Spell objNewSpell = new Spell(_objCharacter);
+            Improvement.ImprovementSource objSource;
+
+            objXmlDocument = XmlManager.Instance.Load("spells.xml");
+            objXmlArt = objXmlDocument.SelectSingleNode("/chummer/spells/spell[name = \"" + strEnchantment + "\"]");
+            objSource = Improvement.ImprovementSource.Initiation;
+
+            objNewSpell.Create(objXmlArt, _objCharacter, objNode, "", false, false, false, objSource);
+            objNewSpell.Grade = intGrade;
+            objNode.ContextMenuStrip = cmsInitiationNotes;
+            if (objNewSpell.InternalId == Guid.Empty.ToString())
+                return;
+
+            _objCharacter.Spells.Add(objNewSpell);
+
+            TreeNode objSpellNode = new TreeNode();
+            objSpellNode.Text = objNode.Text;
+            objSpellNode.Tag = objNode.Tag;
+
+            string strCategory = "";
+            if (objNewSpell.Category == "Rituals")
+                strCategory = LanguageManager.Instance.GetString("Label_Ritual") + " ";
+            if (objNewSpell.Category == "Enchantments")
+                strCategory = LanguageManager.Instance.GetString("Label_Enchantment") + " ";
+            objNode.Text = strCategory + objNode.Text;
+            treMetamagic.SelectedNode.Nodes.Add(objNode);
+            treMetamagic.SelectedNode.Expand();
+
+            int intNode = 5;
+            if (!_objCharacter.MagicianEnabled)
+                intNode = 0;
+            treSpells.Nodes[intNode].Nodes.Add(objSpellNode);
+            treSpells.Nodes[intNode].Expand();
+
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void tsInitiationNotes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Locate the selected Metamagic.
+                Metamagic objMetamagic = _objFunctions.FindMetamagic(treMetamagic.SelectedNode.Tag.ToString(), _objCharacter.Metamagics);
+                if (objMetamagic != null)
+                {
+                    frmNotes frmItemNotes = new frmNotes();
+                    frmItemNotes.Notes = objMetamagic.Notes;
+                    string strOldValue = objMetamagic.Notes;
+                    frmItemNotes.ShowDialog(this);
+
+                    if (frmItemNotes.DialogResult == DialogResult.OK)
+                    {
+                        objMetamagic.Notes = frmItemNotes.Notes;
+                        if (objMetamagic.Notes != strOldValue)
+                        {
+                            _blnIsDirty = true;
+                            UpdateWindowTitle();
+                        }
+                    }
+
+                    if (objMetamagic.Notes != string.Empty)
+                        treMetamagic.SelectedNode.ForeColor = Color.SaddleBrown;
+                    else
+                        treMetamagic.SelectedNode.ForeColor = SystemColors.WindowText;
+                    treMetamagic.SelectedNode.ToolTipText = objMetamagic.Notes;
+                    return;
+                }
+
+                // Locate the selected Art.
+                Art objArt = _objFunctions.FindArt(treMetamagic.SelectedNode.Tag.ToString(), _objCharacter.Arts);
+                if (objArt != null)
+                {
+                    frmNotes frmItemNotes = new frmNotes();
+                    frmItemNotes.Notes = objArt.Notes;
+                    string strOldValue = objArt.Notes;
+                    frmItemNotes.ShowDialog(this);
+
+                    if (frmItemNotes.DialogResult == DialogResult.OK)
+                    {
+                        objArt.Notes = frmItemNotes.Notes;
+                        if (objArt.Notes != strOldValue)
+                        {
+                            _blnIsDirty = true;
+                            UpdateWindowTitle();
+                        }
+                    }
+
+                    if (objArt.Notes != string.Empty)
+                        treMetamagic.SelectedNode.ForeColor = Color.SaddleBrown;
+                    else
+                        treMetamagic.SelectedNode.ForeColor = SystemColors.WindowText;
+                    treMetamagic.SelectedNode.ToolTipText = objArt.Notes;
+                    return;
+                }
+
+                // Locate the selected Spell.
+                Spell objSpell = _objFunctions.FindSpell(treMetamagic.SelectedNode.Tag.ToString(), _objCharacter.Spells);
+                if (objSpell != null)
+                {
+                    frmNotes frmItemNotes = new frmNotes();
+                    frmItemNotes.Notes = objSpell.Notes;
+                    string strOldValue = objSpell.Notes;
+                    frmItemNotes.ShowDialog(this);
+
+                    if (frmItemNotes.DialogResult == DialogResult.OK)
+                    {
+                        objSpell.Notes = frmItemNotes.Notes;
+                        if (objSpell.Notes != strOldValue)
+                        {
+                            _blnIsDirty = true;
+                            UpdateWindowTitle();
+                        }
+                    }
+
+                    if (objSpell.Notes != string.Empty)
+                        treMetamagic.SelectedNode.ForeColor = Color.SaddleBrown;
+                    else
+                        treMetamagic.SelectedNode.ForeColor = SystemColors.WindowText;
+                    treMetamagic.SelectedNode.ToolTipText = objSpell.Notes;
+
+                    foreach (TreeNode nodSchool in treSpells.Nodes)
+                    {
+                        foreach (TreeNode nodSpell in nodSchool.Nodes)
+                        {
+                            if (nodSpell.Tag.ToString() == treMetamagic.SelectedNode.Tag.ToString())
+                            {
+                                if (objSpell.Notes != string.Empty)
+                                    nodSpell.ForeColor = Color.SaddleBrown;
+                                else
+                                    nodSpell.ForeColor = SystemColors.WindowText;
+                                nodSpell.ToolTipText = objSpell.Notes;
+                            }
+                        }
+                    }
+
+                    return;
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        private void tsMetamagicAddEnhancement_Click(object sender, EventArgs e)
+        {
+            bool blnPayWithKarma = false;
+            string strType = "";
+
+            if (treMetamagic.SelectedNode.Level != 0)
+                return;
+
+            int intGrade = 0;
+            foreach (InitiationGrade objGrade in _objCharacter.InitiationGrades)
+            {
+                if (objGrade.InternalId == treMetamagic.SelectedNode.Tag.ToString())
+                {
+                    intGrade = objGrade.Grade;
+                    break;
+                }
+            }
+
+            blnPayWithKarma = true;
+
+            frmSelectArt frmPickArt = new frmSelectArt(_objCharacter);
+            frmPickArt.WindowMode = frmSelectArt.Mode.Enhancement;
+            frmPickArt.ShowDialog(this);
+
+            // Make sure a value was selected.
+            if (frmPickArt.DialogResult == DialogResult.Cancel)
+                return;
+
+            string strEnhancement = frmPickArt.SelectedItem;
+
+            XmlDocument objXmlDocument = new XmlDocument();
+            XmlNode objXmlArt;
+
+            TreeNode objNode = new TreeNode();
+            Enhancement objEnhancement = new Enhancement(_objCharacter);
+            Improvement.ImprovementSource objSource;
+
+            objXmlDocument = XmlManager.Instance.Load("powers.xml");
+            objXmlArt = objXmlDocument.SelectSingleNode("/chummer/enhancements/enhancement[name = \"" + strEnhancement + "\"]");
+            objSource = Improvement.ImprovementSource.Initiation;
+
+            // Find the associated Power
+            string strPower = objXmlArt["power"].InnerText.ToString();
+
+            objEnhancement.Create(objXmlArt, _objCharacter, objNode, objSource);
+            objEnhancement.Grade = intGrade;
+            objNode.ContextMenuStrip = cmsInitiationNotes;
+            if (objEnhancement.InternalId == Guid.Empty.ToString())
+                return;
+
+            Power objPower = new Power(_objCharacter);
+            bool blnPowerFound = false;
+            foreach (Power objExistingPower in _objCharacter.Powers)
+            {
+                if (objExistingPower.Name == strPower)
+                {
+                    objPower = objExistingPower;
+                    objPower.Enhancements.Add(objEnhancement);
+                    blnPowerFound = true;
+                    break;
+                }
+            }
+
+            if (!blnPowerFound)
+            {
+                // Add it to the character instead
+                _objCharacter.Enhancements.Add(objEnhancement);
+            }
+
+            treMetamagic.SelectedNode.Nodes.Add(objNode);
+            treMetamagic.SelectedNode.Expand();
+
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
         private void panActiveSkills_Click(object sender, System.EventArgs e)
         {
             panActiveSkills.Focus();
@@ -23670,5 +24414,10 @@ namespace Chummer
         {
             panContacts.Focus();
         }
-	}
+
+        private void panEnemies_Click(object sender, System.EventArgs e)
+        {
+            panEnemies.Focus();
+        }
+    }
 }

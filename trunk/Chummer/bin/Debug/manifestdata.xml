@@ -3,10 +3,18 @@
   <file>
     <name>Chummer5.exe</name>
     <type>Application</type>
-    <version>5.118</version>
+    <version>0.0.5.136</version>
     <description>Chummer</description>
     <notes>- Chummer Application</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMeU9jcjNKNldfdkU</url>
+  </file>
+  <file>
+    <name>Translator.exe</name>
+    <type>Application</type>
+    <version>0.0.5.101</version>
+    <description>Translator</description>
+    <notes>- Translator Application</notes>
+    <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMenNnNHBTYWRkZDg</url>
   </file>
   <file>
     <name>sheets/Commlinks.xsl</name>
@@ -179,7 +187,7 @@
   <file>
     <name>data/armor.xml</name>
     <type>Data Files</type>
-    <version>-499</version>
+    <version>-495</version>
     <description>Armor</description>
     <notes>- Armor data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMWFFJenBqREhtNDA</url>
@@ -187,7 +195,7 @@
   <file>
     <name>data/bioware.xml</name>
     <type>Data Files</type>
-    <version>-500</version>
+    <version>-497</version>
     <description>Bioware</description>
     <notes>- Bioware data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMZGtsYUI3bTV1T3c</url>
@@ -195,7 +203,7 @@
   <file>
     <name>data/books.xml</name>
     <type>Data Files</type>
-    <version>-497</version>
+    <version>-494</version>
     <description>Books</description>
     <notes>- Books data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMSVc4Y0ZtZUtuMjQ</url>
@@ -203,15 +211,23 @@
   <file>
     <name>data/complexforms.xml</name>
     <type>Data Files</type>
-    <version>-500</version>
+    <version>-498</version>
     <description>Complex Forms</description>
     <notes>- Complex Forms data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMbEJRekRjOGJnNXM</url>
   </file>
   <file>
-    <name>data/critterpowers.xml</name>
+    <name>data/contacts.xml</name>
     <type>Data Files</type>
     <version>-500</version>
+    <description>Contacts</description>
+    <notes>- Contacts data file</notes>
+    <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMSHBYVzRFUDdndjg</url>
+  </file>
+  <file>
+    <name>data/critterpowers.xml</name>
+    <type>Data Files</type>
+    <version>-499</version>
     <description>Critter Powers</description>
     <notes>- Critter Powers data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMbGF3UUZlT19iNkk</url>
@@ -219,7 +235,7 @@
   <file>
     <name>data/critters.xml</name>
     <type>Data Files</type>
-    <version>-500</version>
+    <version>-499</version>
     <description>Critters</description>
     <notes>- Critters data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMTkt6VGZxbmVDakU</url>
@@ -227,7 +243,7 @@
   <file>
     <name>data/cyberware.xml</name>
     <type>Data Files</type>
-    <version>-499</version>
+    <version>-497</version>
     <description>Cyberware</description>
     <notes>- Cyberware data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMOUxDODBZcHB4YmM</url>
@@ -235,7 +251,7 @@
   <file>
     <name>data/echoes.xml</name>
     <type>Data Files</type>
-    <version>-500</version>
+    <version>-499</version>
     <description>Echoes</description>
     <notes>- Echoes data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMNDVncWxEOEJTbWM</url>
@@ -243,7 +259,7 @@
   <file>
     <name>data/gear.xml</name>
     <type>Data Files</type>
-    <version>-499</version>
+    <version>-488</version>
     <description>Gear</description>
     <notes>- Gear data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMRkI2b2hUQ1JlOHM</url>
@@ -251,7 +267,7 @@
   <file>
     <name>data/improvements.xml</name>
     <type>Data Files</type>
-    <version>-500</version>
+    <version>-499</version>
     <description>Improvements</description>
     <notes>- Improvements data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMcm9jUHQyczVvOXc</url>
@@ -259,7 +275,7 @@
   <file>
     <name>data/licenses.xml</name>
     <type>Data Files</type>
-    <version>-500</version>
+    <version>-498</version>
     <description>Licenses</description>
     <notes>- Licenses data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMVTdfSmNzSUpLMG8</url>
@@ -267,7 +283,7 @@
   <file>
     <name>data/lifestyles.xml</name>
     <type>Data Files</type>
-    <version>-500</version>
+    <version>-499</version>
     <description>Lifestyles</description>
     <notes>- Lifestyles data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMZmFrcTlQeE40M2c</url>
@@ -275,7 +291,7 @@
   <file>
     <name>data/martialarts.xml</name>
     <type>Data Files</type>
-    <version>-500</version>
+    <version>-499</version>
     <description>Martial Arts</description>
     <notes>- Martial Arts data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMVTNQekN2TzdSb3M</url>
@@ -283,7 +299,7 @@
   <file>
     <name>data/mentors.xml</name>
     <type>Data Files</type>
-    <version>-499</version>
+    <version>-493</version>
     <description>Mentor Spirits</description>
     <notes>- Mentor Spirits data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMQk1lODNHaU5ia1E</url>
@@ -291,7 +307,7 @@
   <file>
     <name>data/metamagic.xml</name>
     <type>Data Files</type>
-    <version>-499</version>
+    <version>-496</version>
     <description>Metamagic</description>
     <notes>- Metamagic data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMZkRqSkZoRTU0Tjg</url>
@@ -299,7 +315,7 @@
   <file>
     <name>data/metatypes.xml</name>
     <type>Data Files</type>
-    <version>-500</version>
+    <version>-499</version>
     <description>Metatypes</description>
     <notes>- Metatypes data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMcTFTZm5NUDZIcTQ</url>
@@ -323,7 +339,7 @@
   <file>
     <name>data/powers.xml</name>
     <type>Data Files</type>
-    <version>-496</version>
+    <version>-492</version>
     <description>Powers</description>
     <notes>- Powers data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMUFZ3ZklVZ2VCR28</url>
@@ -331,7 +347,7 @@
   <file>
     <name>data/priorities.xml</name>
     <type>Data Files</type>
-    <version>-499</version>
+    <version>-498</version>
     <description>Priorities</description>
     <notes>- Priorities data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMVTlCTmhPOVM2RkE</url>
@@ -339,7 +355,7 @@
   <file>
     <name>data/programs.xml</name>
     <type>Data Files</type>
-    <version>-500</version>
+    <version>-499</version>
     <description>Programs</description>
     <notes>- Programs data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMUlFYNTNiQkh2X1k</url>
@@ -347,7 +363,7 @@
   <file>
     <name>data/qualities.xml</name>
     <type>Data Files</type>
-    <version>-495</version>
+    <version>-491</version>
     <description>Qualities</description>
     <notes>- Qualities data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMUUtCaWdFRW9UUGc</url>
@@ -363,7 +379,7 @@
   <file>
     <name>data/skills.xml</name>
     <type>Data Files</type>
-    <version>-500</version>
+    <version>-497</version>
     <description>Skills</description>
     <notes>- Skills data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMVnRjRVV2RGZGMzg</url>
@@ -371,7 +387,7 @@
   <file>
     <name>data/spells.xml</name>
     <type>Data Files</type>
-    <version>-496</version>
+    <version>-491</version>
     <description>Spells</description>
     <notes>- Spells data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMVlpXOHVTdmNpelk</url>
@@ -379,7 +395,7 @@
   <file>
     <name>data/streams.xml</name>
     <type>Data Files</type>
-    <version>-500</version>
+    <version>-499</version>
     <description>Streams</description>
     <notes>- Streams data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMVWVwWmFiaEFDaU0</url>
@@ -387,7 +403,7 @@
   <file>
     <name>data/traditions.xml</name>
     <type>Data Files</type>
-    <version>-499</version>
+    <version>-497</version>
     <description>Traditions</description>
     <notes>- Magic Traditions data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMc2k1YTNNT2s5amM</url>
@@ -395,7 +411,7 @@
   <file>
     <name>data/vehicles.xml</name>
     <type>Data Files</type>
-    <version>-496</version>
+    <version>-495</version>
     <description>Vehicles</description>
     <notes>- Vehicles data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMNkp5UUFURXJtWkU</url>
@@ -411,7 +427,7 @@
   <file>
     <name>data/weapons.xml</name>
     <type>Data Files</type>
-    <version>-497</version>
+    <version>-488</version>
     <description>Weapons</description>
     <notes>- Weapons data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMTlNLTm1xa3EtTzQ</url>

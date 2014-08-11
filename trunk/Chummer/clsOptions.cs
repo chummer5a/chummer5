@@ -789,6 +789,7 @@ namespace Chummer
 		private bool _blnTechnomancerAllowAutosoft = false;
         private bool _blnLicenseRestrictedItems = false;
         private bool _blnKnucksUseUnarmed = false;
+        private bool _blnAllowInitiationInCreateMode = false;
         private bool _blnIgnoreArt = false;
         private bool _blnCyberlegMovement = false;
         private bool _blnAllow2ndMaxAttribute = false;
@@ -944,6 +945,8 @@ namespace Chummer
 			objWriter.WriteElementString("nuyenperbp", _intNuyenPerBP.ToString());
 			// <knucksuseunarmed />
             objWriter.WriteElementString("knucksuseunarmed", _blnKnucksUseUnarmed.ToString());
+            // <allowinitiationincreatemode />
+            objWriter.WriteElementString("allowinitiationincreatemode", _blnAllowInitiationInCreateMode.ToString());
             // <usepointsonbrokengroups />
             objWriter.WriteElementString("usepointsonbrokengroups", _blnUsePointsOnBrokenGroups.ToString());
             // <dontdoublequalities />
@@ -1282,6 +1285,13 @@ namespace Chummer
             try
             {
             _blnKnucksUseUnarmed = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/knucksuseunarmed").InnerText);
+            }
+            catch
+            { }
+            // Allow Initiation in Create Mode
+            try
+            {
+                _blnAllowInitiationInCreateMode = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/allowinitiationincreatemode").InnerText);
             }
             catch
             { }
@@ -2384,6 +2394,21 @@ namespace Chummer
                 _blnKnucksUseUnarmed = value;
 			}
 		}
+
+        /// <summary>
+        /// Whether or not characters may use Initiation/Submersion in Create mode.
+        /// </summary>
+        public bool AllowInitiationInCreateMode
+        {
+            get
+            {
+                return _blnAllowInitiationInCreateMode;
+            }
+            set
+            {
+                _blnAllowInitiationInCreateMode = value;
+            }
+        }
 
         /// <summary>
         /// Whether or not characters can spend skill points on broken groups.

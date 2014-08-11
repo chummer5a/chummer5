@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-491</version>
+	<version>-490</version>
 	<name>English (US)</name>
 	<strings>
 		<!-- Common Strings -->
@@ -11,6 +11,10 @@
 		<string>
 			<key>String_Karma</key>
 			<text>Karma</text>
+		</string>
+		<string>
+			<key>String_BuyWithKarma</key>
+			<text>Buy With Karma</text>
 		</string>
 		<string>
 			<key>String_Points</key>
@@ -1098,6 +1102,14 @@
 			<text>Condition Monitor</text>
 		</string>
 		<string>
+			<key>MessageTitle_DeleteGrade</key>
+			<text>Cannot Delete</text>
+		</string>
+		<string>
+			<key>Message_DeleteGrade</key>
+			<text>You must delete the highest grade first.</text>
+		</string>
+		<string>
 			<key>Message_UnsavedChanges</key>
 			<text>There are unsaved changes to {0}. Would you like to save your character before closing this window?</text>
 		</string>
@@ -1240,6 +1252,22 @@
 		<string>
 			<key>Message_DeleteEcho</key>
 			<text>Are you sure you want to delete this Echo?</text>
+		</string>
+		<string>
+			<key>Message_DeleteInitiateGrade</key>
+			<text>Are you sure you want to delete this Initiate Grade and all of its bonuses?</text>
+		</string>
+		<string>
+			<key>Message_DeleteSubmersionGrade</key>
+			<text>Are you sure you want to delete this Submersion Grade and all of its bonuses?</text>
+		</string>
+		<string>
+			<key>Message_DeleteArt</key>
+			<text>Are you sure you want to delete this Art?</text>
+		</string>
+		<string>
+			<key>Message_DeleteEnhancement</key>
+			<text>Are you sure you want to delete this Enhancement?</text>
 		</string>
 		<string>
 			<key>Message_DeleteCritterPower</key>
@@ -2498,6 +2526,10 @@
 			<text>Ordeal</text>
 		</string>
 		<string>
+			<key>String_Schooling</key>
+			<text>Schooling</text>
+		</string>
+		<string>
 			<key>String_Retrofit</key>
 			<text>Retrofitting a Vehicle will cost a percentage of the Vehicle's base cost. Please select a percentage.</text>
 		</string>
@@ -2982,6 +3014,38 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		<string>
 			<key>Tip_CommonAttributesBase</key>
 			<text>Base Attribute value.</text>
+		</string>
+		<string>
+			<key>Tip_OptionsKnucks</key>
+			<text>Enabling this house rule allows Knucks to benefit from bonuses that apply to unarmed attacks including DV bonuses.</text>
+		</string>
+		<string>
+			<key>Tip_OptionsIgnoreArt</key>
+			<text>Enabling this house rule allows all metamagics, enhancements, enchantments, and rituals to ignore the Art requirement detailed in Street Grimoire.</text>
+		</string>
+		<string>
+			<key>Tip_OptionsCyberlegMovement</key>
+			<text>Enabling this house rule allows Knucks to benefit from bonuses that apply to unarmed attacks including DV bonuses.</text>
+		</string>
+		<string>
+			<key>Tip_OptionsDontDoubleQualities</key>
+			<text>Enabling this house rule will allow characters in Career mode to purchase Positive Qualities and buy off Negative at their normal price instead of doubling them.</text>
+		</string>
+		<string>
+			<key>Tip_OptionsExceptionalAttribute</key>
+			<text>Enabling this house rule will allow Attribute Points to be spent on the bonus point granted by the Exceptional Attributes quality.</text>
+		</string>
+		<string>
+			<key>Tip_OptionsExceptionalNotMaxed</key>
+			<text>Enabling this house rule will allow two attributes to be at the metatype maximum rather than one if one of those attributes is improved by Exceptional Attribute.</text>
+		</string>
+		<string>
+			<key>Tip_OptionsUsePointsOnBrokenGroups</key>
+			<text>Enabling this house rule will allow Skill Points to be spent on skills belonging to a broken skill group.</text>
+		</string>
+		<string>
+			<key>Tip_OptionsAllowInitiation</key>
+			<text>Enabling this house rule will allow Initiation/Submersion in Create mode.</text>
 		</string>
 		<string>
 			<key>Tip_CommonAttributesAug</key>
@@ -5669,6 +5733,10 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		<string>
 			<key>Checkbox_Options_PointsOnBrokenGroups</key>
 			<text>Use Skill Points on broken groups</text>
+		</string>
+		<string>
+			<key>Checkbox_Options_AllowInitiation</key>
+			<text>Allow Initiation/Submersion in Create mode</text>
 		</string>
 		<string>
 			<key>Checkbox_Options_SingleArmorEncumbrance</key>

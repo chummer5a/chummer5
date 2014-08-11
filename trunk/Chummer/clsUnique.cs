@@ -1869,6 +1869,7 @@ namespace Chummer
 		private string _strAttribute = "";
 		private string _strSource = "";
 		private string _strPage = "";
+        private bool _blnBuyWithKarma = false;
 
 		private readonly Character _objCharacter;
 
@@ -1899,7 +1900,8 @@ namespace Chummer
 			objWriter.WriteElementString("exotic", _blnExoticSkill.ToString());
 			objWriter.WriteElementString("spec", _strSkillSpec);
 			objWriter.WriteElementString("allowdelete", _blnAllowDelete.ToString());
-			objWriter.WriteElementString("attribute", _strAttribute);
+            objWriter.WriteElementString("buywithkarma", _blnBuyWithKarma.ToString());
+            objWriter.WriteElementString("attribute", _strAttribute);
 			objWriter.WriteElementString("source", _strSource);
 			objWriter.WriteElementString("page", _strPage);
 			// External reader friendly stuff.
@@ -1917,7 +1919,7 @@ namespace Chummer
 			_strSkillGroup = objNode["skillgroup"].InnerText;
 			_strSkillCategory = objNode["skillcategory"].InnerText;
 			_blnIsGrouped = Convert.ToBoolean(objNode["grouped"].InnerText);
-			_blnDefault = Convert.ToBoolean(objNode["default"].InnerText);
+            _blnDefault = Convert.ToBoolean(objNode["default"].InnerText);
 			_intRating = Convert.ToInt32(objNode["rating"].InnerText);
             try
             {
@@ -1945,7 +1947,14 @@ namespace Chummer
 			catch
 			{
 			}
-			if (objNode["spec"].InnerText.Contains("Hold-Outs"))
+            try
+            {
+                _blnBuyWithKarma = Convert.ToBoolean(objNode["buywithkarma"].InnerText);
+            }
+            catch
+            {
+            }
+            if (objNode["spec"].InnerText.Contains("Hold-Outs"))
 				objNode["spec"].InnerText = "Holdouts";
 			_strSkillSpec = objNode["spec"].InnerText;
 			_blnAllowDelete = Convert.ToBoolean(objNode["allowdelete"].InnerText);
@@ -2007,7 +2016,8 @@ namespace Chummer
             objWriter.WriteElementString("total", TotalRating.ToString());
 			objWriter.WriteElementString("knowledge", _blnKnowledgeSkill.ToString());
 			objWriter.WriteElementString("exotic", _blnExoticSkill.ToString());
-			objWriter.WriteElementString("spec", _strSkillSpec);
+            objWriter.WriteElementString("buywithkarma", _blnBuyWithKarma.ToString());
+            objWriter.WriteElementString("spec", _strSkillSpec);
 			objWriter.WriteElementString("attribute", strAttribute);
 			objWriter.WriteElementString("source", _objCharacter.Options.LanguageBookShort(_strSource));
 			objWriter.WriteElementString("page", Page);
@@ -2202,7 +2212,22 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Is this skill specialization bought with karma?
+        /// </summary>
+        public bool BuyWithKarma
+        {
+            get
+            {
+                return _blnBuyWithKarma;
+            }
+            set
+            {
+                _blnBuyWithKarma = value;
+            }
+        }
+
+        /// <summary>
 		/// Is this Skill an Exotic Skill?
 		/// </summary>
 		public bool ExoticSkill
@@ -8820,6 +8845,7 @@ namespace Chummer
 		private Guid _guiID = new Guid();
 		private bool _blnGroup = false;
 		private bool _blnOrdeal = false;
+        private bool _blnSchooling = false;
 		private bool _blnTechnomancer = false;
 		private int _intGrade = 0;
 		private string _strNotes = "";
@@ -8839,12 +8865,13 @@ namespace Chummer
 		/// <param name="blnTechnomancer">Whether or not the character is a Technomancer.</param>
 		/// <param name="blnGroup">Whether or not a Group was used.</param>
 		/// <param name="blnOrdeal">Whether or not an Ordeal was used.</param>
-		public void Create(int intGrade, bool blnTechnomancer, bool blnGroup, bool blnOrdeal)
+		public void Create(int intGrade, bool blnTechnomancer, bool blnGroup, bool blnOrdeal, bool blnSchooling)
 		{
 			_intGrade = intGrade;
 			_blnTechnomancer = blnTechnomancer;
 			_blnGroup = blnGroup;
 			_blnOrdeal = blnOrdeal;
+            _blnSchooling = blnSchooling;
 		}
 
 		/// <summary>
@@ -8859,7 +8886,8 @@ namespace Chummer
 			objWriter.WriteElementString("grade", _intGrade.ToString());
 			objWriter.WriteElementString("group", _blnGroup.ToString());
 			objWriter.WriteElementString("ordeal", _blnOrdeal.ToString());
-			objWriter.WriteElementString("notes", _strNotes);
+            objWriter.WriteElementString("schooling", _blnSchooling.ToString());
+            objWriter.WriteElementString("notes", _strNotes);
 			objWriter.WriteEndElement();
 		}
 
@@ -8874,7 +8902,14 @@ namespace Chummer
 			_intGrade = Convert.ToInt32(objNode["grade"].InnerText);
 			_blnGroup = Convert.ToBoolean(objNode["group"].InnerText);
 			_blnOrdeal = Convert.ToBoolean(objNode["ordeal"].InnerText);
-			try
+            try
+            {
+                _blnOrdeal = Convert.ToBoolean(objNode["schooling"].InnerText);
+            }
+            catch
+            {
+            }
+            try
 			{
 				_strNotes = objNode["notes"].InnerText;
 			}
@@ -8941,7 +8976,22 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Whether or not Schooling was used.
+        /// </summary>
+        public bool Schooling
+        {
+            get
+            {
+                return _blnSchooling;
+            }
+            set
+            {
+                _blnSchooling = value;
+            }
+        }
+
+        /// <summary>
 		/// Whether or not the Initiation Grade is for a Technomancer.
 		/// </summary>
 		public bool Technomancer
@@ -8971,13 +9021,17 @@ namespace Chummer
 				
 				// Discount for Group.
 				if (_blnGroup)
-					dblMultiplier -= 0.2;
+					dblMultiplier -= 0.1;
 
 				// Discount for Ordeal.
 				if (_blnOrdeal)
-					dblMultiplier -= 0.2;
+					dblMultiplier -= 0.1;
 
-				intCost = Convert.ToInt32(Math.Ceiling(dblCost * dblMultiplier));
+                // Discount for Schooling.
+                if (_blnSchooling)
+                    dblMultiplier -= 0.1;
+
+                intCost = Convert.ToInt32(Math.Ceiling(dblCost * dblMultiplier));
 
 				return intCost;
 			}
@@ -9002,7 +9056,7 @@ namespace Chummer
 							strReturn += LanguageManager.Instance.GetString("String_Network");
 						else
 							strReturn += LanguageManager.Instance.GetString("String_Group");
-						if (_blnOrdeal)
+						if (_blnOrdeal || _blnSchooling)
 							strReturn += ", ";
 					}
 					if (_blnOrdeal)
@@ -9011,8 +9065,14 @@ namespace Chummer
 							strReturn += LanguageManager.Instance.GetString("String_Task");
 						else
 							strReturn += LanguageManager.Instance.GetString("String_Ordeal");
-					}
-					strReturn += ")";
+                        if (_blnSchooling)
+                            strReturn += ", ";
+                    }
+                    if (_blnSchooling)
+                    {
+                        strReturn += LanguageManager.Instance.GetString("String_Schooling");
+                    }
+                    strReturn += ")";
 				}
 				
 				return strReturn;

@@ -3,6 +3,8 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Xml;
 
 // ConnectionRatingChanged Event Handler.
 public delegate void ConnectionRatingChangedHandler(Object sender);
@@ -20,6 +22,8 @@ namespace Chummer
     public partial class ContactControl : UserControl
     {
 		private Contact _objContact;
+        private string _strContactName;
+        private bool _blnEnemy = false;
 
         // Events.
 		public event ConnectionRatingChangedHandler ConnectionRatingChanged;
@@ -35,10 +39,49 @@ namespace Chummer
 			LanguageManager.Instance.Load(GlobalOptions.Instance.Language, this);
         }
 
+        private void LoadContactList()
+        {
+            if (_blnEnemy)
+            {
+                if (_strContactName != "")
+                    cboContactName.Text = _strContactName;
+                return;
+            }
+
+            // Read the list of Categories from the XML file.
+            List<ListItem> lstCategories = new List<ListItem>();
+
+            ListItem objBlank = new ListItem();
+            objBlank.Value = "";
+            objBlank.Name = "";
+            lstCategories.Add(objBlank);
+
+            XmlDocument objXmlDocument = new XmlDocument();
+            objXmlDocument = XmlManager.Instance.Load("contacts.xml");
+            XmlNodeList objXmlSkillList = objXmlDocument.SelectNodes("/chummer/contacts/contact");
+            foreach (XmlNode objXmlCategory in objXmlSkillList)
+            {
+                ListItem objItem = new ListItem();
+                objItem.Value = objXmlCategory.InnerText;
+                if (objXmlCategory.Attributes["translate"] != null)
+                    objItem.Name = objXmlCategory.Attributes["translate"].InnerText;
+                else
+                    objItem.Name = objXmlCategory.InnerText;
+                lstCategories.Add(objItem);
+            }
+            cboContactName.ValueMember = "Value";
+            cboContactName.DisplayMember = "Name";
+            cboContactName.DataSource = lstCategories;
+
+            if (_strContactName != "")
+                cboContactName.Text = _strContactName;
+        }
+
 		private void ContactControl_Load(object sender, EventArgs e)
 		{
 			this.Width = cmdDelete.Left + cmdDelete.Width;
 			tipTooltip.SetToolTip(cmdGroup, LanguageManager.Instance.GetString("Title_SelectContactConnection"));
+            LoadContactList();
 		}
 
 		private void nudConnection_ValueChanged(object sender, EventArgs e)
@@ -64,9 +107,9 @@ namespace Chummer
 			DeleteContact(this);
         }
 
-		private void txtContactName_TextChanged(object sender, EventArgs e)
+        private void cboContactName_TextChanged(object sender, EventArgs e)
 		{
-			_objContact.Name = txtContactName.Text;
+			_objContact.Name = cboContactName.Text;
 		}
 
 		private void imgLink_Click(object sender, EventArgs e)
@@ -242,6 +285,19 @@ namespace Chummer
 			}
 		}
 
+        public bool IsEnemy
+        {
+            get
+            {
+                return _blnEnemy;
+            }
+            set
+            {
+                _blnEnemy = value;
+                cboContactName.Items.Clear();
+            }
+        }
+
         /// <summary>
         /// Contact name.
         /// </summary>
@@ -253,7 +309,8 @@ namespace Chummer
             }
             set
             {
-                txtContactName.Text = value;
+                cboContactName.Text = value;
+                _strContactName = value;
 				_objContact.Name = value;
             }
         }
