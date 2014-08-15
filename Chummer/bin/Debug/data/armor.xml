@@ -1154,7 +1154,6 @@
       <cost>8000</cost>
       <mods>
         <name>Gear Access</name>
-        <name>Restrictive</name>
       </mods>
       <bonus>
         <limitmodifier>

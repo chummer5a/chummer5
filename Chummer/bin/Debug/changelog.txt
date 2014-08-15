@@ -1,3 +1,9 @@
+Build 5.137 (beta)
+- Updated Contacts by splitting the Name field into three fields: Name, Location, and Archetype. The dropdown has been moved to Archetype. Any existing Contacts will show any existing info under Name.  The character sheets have been updated to show the new Contact fields.
+- Updated the Ultimax Rain Forest Carbine to use the updated stats provided in the Missions FAQ Update version 1.1.1.
+- Removed the Restrictive quality from SWAT Armor that was there in error.
+- Fixed a bad tooltip for the Cyberlegs house rule.
+
 Build 5.136 (beta)
 - Due to popular request, Enemies are back again. These are not part of 5th Edition (at least not yet) so using them is a house rule.
 - The Contacts/Enemies UI has been updated to use tabs rather than being stacked.  This gives a little more room for both contacts and enemies.

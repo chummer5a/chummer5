@@ -645,18 +645,18 @@
     </weapon>
     <weapon>
       <id>40bf3eed-b239-4521-ac1d-80a4e472451e</id>
-      <name>Ultimax Rain Forest Carbine </name>
+      <name>Ultimax Rain Forest Carbine</name>
       <category>Assault Rifles</category>
       <type>Ranged</type>
       <conceal>6</conceal>
-      <accuracy>7</accuracy>
+      <accuracy>5</accuracy>
       <reach>0</reach>
-      <damage>14P</damage>
-      <ap>-4</ap>
-      <mode>SA</mode>
+      <damage>11P</damage>
+      <ap>-2</ap>
+      <mode>SA/BF</mode>
       <rc>0</rc>
       <ammo>18(c)</ammo>
-      <avail>5R</avail>
+      <avail>8R</avail>
       <cost>2800</cost>
       <allowaccessory>true</allowaccessory>
       <accessorymounts>

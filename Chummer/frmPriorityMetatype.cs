@@ -1601,12 +1601,14 @@ namespace Chummer
                         objSkill.FreeLevels = intFreeLevels;
                         if (objSkill.Rating < intFreeLevels)
                             objSkill.Rating = intFreeLevels;
+                        _objCharacter.PriorityBonusSkill1 = cboSkill1.Text.ToString();
                     }
                     else if (cboSkill2.Visible && objSkill.Name == cboSkill2.Text && !blnGroup)
                     {
                         objSkill.FreeLevels = intFreeLevels;
                         if (objSkill.Rating < intFreeLevels)
                             objSkill.Rating = intFreeLevels;
+                        _objCharacter.PriorityBonusSkill2 = cboSkill2.Text.ToString();
                     }
                     else
                     {
@@ -1625,6 +1627,7 @@ namespace Chummer
                                     else
                                         objSkill.RatingMaximum = 6;
                                 }
+                                _objCharacter.PriorityBonusSkillGroup = cboSkill1.Text.ToString();
                             }
                         }
                     }
@@ -1636,6 +1639,7 @@ namespace Chummer
                         objSkillGroup.FreeLevels = intFreeLevels;
                         if (objSkillGroup.Base < intFreeLevels)
                             objSkillGroup.Base = intFreeLevels;
+                        _objCharacter.PriorityBonusSkillGroup = cboSkill1.Text.ToString();
                     }
                     else
                         objSkillGroup.FreeLevels = 0;
