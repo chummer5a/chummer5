@@ -732,7 +732,9 @@ namespace Chummer
 					
 					objContactControl.ContactObject = objContact;
 					objContactControl.ContactName = objContact.Name;
-					objContactControl.ConnectionRating = objContact.Connection;
+                    objContactControl.ContactLocation = objContact.Location;
+                    objContactControl.ContactRole = objContact.Role;
+                    objContactControl.ConnectionRating = objContact.Connection;
 					objContactControl.LoyaltyRating = objContact.Loyalty;
 					objContactControl.EntityType = objContact.EntityType;
 					objContactControl.BackColor = objContact.Colour;
@@ -755,7 +757,9 @@ namespace Chummer
 					objContactControl.ContactObject = objContact;
                     objContactControl.IsEnemy = true;
 					objContactControl.ContactName = objContact.Name;
-					objContactControl.ConnectionRating = objContact.Connection;
+                    objContactControl.ContactLocation = objContact.Location;
+                    objContactControl.ContactRole = objContact.Role;
+                    objContactControl.ConnectionRating = objContact.Connection;
 					objContactControl.LoyaltyRating = objContact.Loyalty;
 					objContactControl.EntityType = objContact.EntityType;
 					objContactControl.BackColor = objContact.Colour;
@@ -3989,7 +3993,7 @@ namespace Chummer
                 if (!objContactControl.Free)
                 {
                     // The Contact's BP cost = their Connection + Loyalty Rating.
-                    intContactPointsUsed += (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.BPContact;
+                    intContactPointsUsed += (objContactControl.ConnectionRating + objContactControl.LoyaltyRating) * _objOptions.BPContact;
                 }
             }
 
@@ -4542,7 +4546,7 @@ namespace Chummer
 			int intBPUsed = 0;
 			foreach (ContactControl objContactControl in panEnemies.Controls)
 			{
-				intBPUsed -= (objContactControl.ConnectionRating + objContactControl.LoyaltyRating + objContactControl.GroupRating) * _objOptions.KarmaQuality;
+				intBPUsed -= (objContactControl.ConnectionRating + objContactControl.LoyaltyRating) * _objOptions.KarmaQuality;
 			}
 
 			int intEnemyMax = 0;
@@ -4598,7 +4602,7 @@ namespace Chummer
 			int intBPUsed = 0;
 			foreach (ContactControl objContactControl in panEnemies.Controls)
 			{
-				intBPUsed -= (objContactControl.ConnectionRating + objContactControl.LoyaltyRating + objContactControl.GroupRating) * _objOptions.KarmaQuality;
+				intBPUsed -= (objContactControl.ConnectionRating + objContactControl.LoyaltyRating) * _objOptions.KarmaQuality;
 			}
 
 			int intEnemyMax = 0;
@@ -4618,7 +4622,6 @@ namespace Chummer
 				objSender.ContactObject.MagicalResources = 0;
 				objSender.ContactObject.MatrixResources = 0;
 				objSender.ContactObject.Membership = 0;
-				objSender.GroupRating = 0;
 				return;
 			}
 
@@ -4632,7 +4635,6 @@ namespace Chummer
 					objSender.ContactObject.MagicalResources = 0;
 					objSender.ContactObject.MatrixResources = 0;
 					objSender.ContactObject.Membership = 0;
-					objSender.GroupRating = 0;
 					return;
 				}
 			}
@@ -4663,7 +4665,7 @@ namespace Chummer
 			int intBPUsed = 0;
 			foreach (ContactControl objContactControl in panEnemies.Controls)
 			{
-				intBPUsed -= (objContactControl.ConnectionRating + objContactControl.LoyaltyRating + objContactControl.GroupRating) * _objOptions.KarmaQuality;
+				intBPUsed -= (objContactControl.ConnectionRating + objContactControl.LoyaltyRating) * _objOptions.KarmaQuality;
 			}
 
 			int intEnemyMax = 0;
@@ -14195,7 +14197,7 @@ namespace Chummer
 		{
 			// panActiveSkills.Height = splitSkills.Panel1.Height - panActiveSkills.Top;
 			panSkillGroups.Height = splitSkills.Panel1.Height - panSkillGroups.Top;
-			panActiveSkills.Width = splitSkills.Panel1.Width - panActiveSkills.Left;
+			// panActiveSkills.Width = splitSkills.Panel1.Width - panActiveSkills.Left;
 			panSkillGroups.Width = panActiveSkills.Left - 6 - panSkillGroups.Left;
 
 			cmdAddExoticSkill.Left = panActiveSkills.Left + panActiveSkills.Width - cmdAddExoticSkill.Width - 3;
@@ -15233,7 +15235,7 @@ namespace Chummer
                     if (!objContactControl.Free)
                     {
                         // The Contact's BP cost = their Connection + Loyalty Rating.
-                        intContactPointsUsed += (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.BPContact;
+                        intContactPointsUsed += (objContactControl.ConnectionRating + objContactControl.LoyaltyRating) * _objOptions.BPContact;
                     }
                 }
 
@@ -15283,8 +15285,8 @@ namespace Chummer
                     if (!objContactControl.Free)
                     {
                         // The Contact's Karma cost = their (Connection + Loyalty Rating ) x Karma multiplier.
-                        intPointsRemain -= (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.KarmaContact;
-                        intPointsUsed += (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.KarmaContact;
+                        intPointsRemain -= (objContactControl.ConnectionRating + objContactControl.LoyaltyRating) * _objOptions.KarmaContact;
+                        intPointsUsed += (objContactControl.ConnectionRating + objContactControl.LoyaltyRating) * _objOptions.KarmaContact;
                     }
                 }
 
@@ -15334,9 +15336,9 @@ namespace Chummer
 				if (!objContactControl.Free)
 				{
 					// The Enemy's Karma cost = their (Connection + Loyalty Rating) x Karma multiplier.
-					intPointsRemain += (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.KarmaContact;
-					intPointsUsed -= (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.KarmaContact;
-					intEnemyPoints += (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.KarmaContact;
+					intPointsRemain += (objContactControl.ConnectionRating + objContactControl.LoyaltyRating) * _objOptions.KarmaContact;
+					intPointsUsed -= (objContactControl.ConnectionRating + objContactControl.LoyaltyRating) * _objOptions.KarmaContact;
+					intEnemyPoints += (objContactControl.ConnectionRating + objContactControl.LoyaltyRating) * _objOptions.KarmaContact;
 					intNegativePoints += intPointsUsed;
 				}
 			}
@@ -19743,7 +19745,7 @@ namespace Chummer
                     if (!objContactControl.Free)
                     {
                         // The Enemy's BP cost = their Connection + Loyalty Rating.
-                        intPointsUsed -= (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.BPContact;
+                        intPointsUsed -= (objContactControl.ConnectionRating + objContactControl.LoyaltyRating) * _objOptions.BPContact;
                         intNegativePoints += intPointsUsed;
                     }
                 }
@@ -19807,7 +19809,7 @@ namespace Chummer
                     if (!objContactControl.Free)
                     {
                         // The Contact's BP cost = their Connection + Loyalty Rating.
-                        intContactPointsUsed += (objContactControl.ConnectionRating + objContactControl.GroupRating + objContactControl.LoyaltyRating) * _objOptions.BPContact;
+                        intContactPointsUsed += (objContactControl.ConnectionRating + objContactControl.LoyaltyRating) * _objOptions.BPContact;
                     }
                 }
 
@@ -20502,14 +20504,9 @@ namespace Chummer
 				int intNuyenDice = objLifestyle.Dice;
 
 				// Characters get a +1 bonus to the roll for every 100 Nueyn they have left over, up to a maximum of 3X the number of dice rolled for the Lifestyle.
-				int intNuyenBonus = Convert.ToInt32(Math.Floor((Convert.ToDouble(intNuyen, GlobalOptions.Instance.CultureInfo)) / 100.0));
-				if (intNuyenBonus > intNuyenDice * 3)
-					intNuyenBonus = intNuyenDice * 3;
-
 				frmLifestyleNuyen frmStartingNuyen = new frmLifestyleNuyen();
 				frmStartingNuyen.Dice = intNuyenDice;
 				frmStartingNuyen.Multiplier = objLifestyle.Multiplier;
-				frmStartingNuyen.Extra = intNuyenBonus;
 
                 if (blnValid)
                 {

@@ -182,6 +182,9 @@ namespace Chummer
         private string _strPrioritySpecial = "";
         private string _strPrioritySkills = "";
         private string _strPriorityResources = "";
+        private string _strSkill1 = "";
+        private string _strSkill2 = "";
+        private string _strSkillGroup = "";
         private int _intMaxNuyen = 0;
         private int _intMaxKarma = 0;
         private int _intContactMultiplier = 0;
@@ -305,6 +308,23 @@ namespace Chummer
             objWriter.WriteElementString("sprint", _strSprint);
             // <mutantcritterbaseskills />
 			objWriter.WriteElementString("mutantcritterbaseskills", _intMutantCritterBaseSkills.ToString());
+
+            // <prioritymetatype />
+            objWriter.WriteElementString("prioritymetatype", _strPriorityMetatype);
+            // <priorityattributes />
+            objWriter.WriteElementString("priorityattributes", _strPriorityAttributes);
+            // <priorityspecial />
+            objWriter.WriteElementString("priorityspecial", _strPrioritySpecial);
+            // <priorityskills />
+            objWriter.WriteElementString("priorityskills", _strPrioritySkills);
+            // <priorityresources />
+            objWriter.WriteElementString("priorityresources", _strPriorityResources);
+            // <priorityskill1 />
+            objWriter.WriteElementString("priorityskill1", _strSkill1);
+            // <priorityskill2 />
+            objWriter.WriteElementString("priorityskill2", _strSkill2);
+            // <priorityskillgroup />
+            objWriter.WriteElementString("priorityskillgroup", _strSkillGroup);
 
 			// <essenceatspecialstart />
 			objWriter.WriteElementString("essenceatspecialstart", _decEssenceAtSpecialStart.ToString(GlobalOptions.Instance.CultureInfo));
@@ -1078,6 +1098,27 @@ namespace Chummer
             try
             {
                 _strPriorityResources = objXmlCharacter["priorityresources"].InnerText;
+            }
+            catch
+            {
+            }
+            try
+            {
+                _strSkill1= objXmlCharacter["priorityskill1"].InnerText;
+            }
+            catch
+            {
+            }
+            try
+            {
+                _strSkill2 = objXmlCharacter["priorityskill2"].InnerText;
+            }
+            catch
+            {
+            }
+            try
+            {
+                _strSkillGroup = objXmlCharacter["priorityskillgroup"].InnerText;
             }
             catch
             {
@@ -1980,6 +2021,12 @@ namespace Chummer
             objWriter.WriteElementString("priorityskills", _strPrioritySkills);
             // <priorityresources />
             objWriter.WriteElementString("priorityresources", _strPriorityResources);
+            // <priorityskill1 />
+            objWriter.WriteElementString("priorityskill1", _strSkill1);
+            // <priorityskill2 />
+            objWriter.WriteElementString("priorityskill2", _strSkill2);
+            // <priorityskillgroup />
+            objWriter.WriteElementString("priorityskillgroup", _strSkillGroup);
 
 			// If the character does not have a name, call them Unnamed Character. This prevents a transformed document from having a self-terminated title tag which causes browser to not rendering anything.
 			// <name />
@@ -3322,6 +3369,51 @@ namespace Chummer
             set
             {
                 _strPriorityResources = value;
+            }
+        }
+
+        /// <summary>
+        /// Character's 1st bonus skill.
+        /// </summary>
+        public string PriorityBonusSkill1
+        {
+            get
+            {
+                return _strSkill1;
+            }
+            set
+            {
+                _strSkill1 = value;
+            }
+        }
+
+        /// <summary>
+        /// Character's 2nd bonus skill.
+        /// </summary>
+        public string PriorityBonusSkill2
+        {
+            get
+            {
+                return _strSkill2;
+            }
+            set
+            {
+                _strSkill2 = value;
+            }
+        }
+
+        /// <summary>
+        /// Character's bonus skill group.
+        /// </summary>
+        public string PriorityBonusSkillGroup
+        {
+            get
+            {
+                return _strSkillGroup;
+            }
+            set
+            {
+                _strSkillGroup = value;
             }
         }
 
@@ -4728,7 +4820,7 @@ namespace Chummer
                 strReturn = (_attINT.TotalValue).ToString();
 
                 int intExtraIP = 3;
-                strReturn += " +DP + " + intExtraIP.ToString() + "d6";
+                strReturn += " + DP + " + intExtraIP.ToString() + "d6";
 
                 return strReturn;
             }
@@ -4749,7 +4841,7 @@ namespace Chummer
                 strReturn = (_attINT.TotalValue).ToString();
 
                 int intExtraIP = 4;
-                strReturn += " +DP + " + intExtraIP.ToString() + "d6";
+                strReturn += " + DP + " + intExtraIP.ToString() + "d6";
 
                 return strReturn;
             }

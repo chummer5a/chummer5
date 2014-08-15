@@ -992,6 +992,16 @@
             this.tssLimitModifierNotes = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsInitiationNotes = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsInitiationNotes = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblConnection = new System.Windows.Forms.Label();
+            this.lblLoyalty = new System.Windows.Forms.Label();
+            this.lblContactArchtypeLabel = new System.Windows.Forms.Label();
+            this.lblContactLocationLabel = new System.Windows.Forms.Label();
+            this.lblContactNameLabel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.StatusStrip.SuspendLayout();
             this.panAttributes.SuspendLayout();
             this.tabCharacterTabs.SuspendLayout();
@@ -2705,8 +2715,13 @@
             // tabContacts
             // 
             this.tabContacts.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabContacts.Controls.Add(this.lblConnection);
             this.tabContacts.Controls.Add(this.panContacts);
+            this.tabContacts.Controls.Add(this.lblLoyalty);
             this.tabContacts.Controls.Add(this.cmdAddContact);
+            this.tabContacts.Controls.Add(this.lblContactArchtypeLabel);
+            this.tabContacts.Controls.Add(this.lblContactNameLabel);
+            this.tabContacts.Controls.Add(this.lblContactLocationLabel);
             this.tabContacts.Location = new System.Drawing.Point(4, 22);
             this.tabContacts.Name = "tabContacts";
             this.tabContacts.Padding = new System.Windows.Forms.Padding(3);
@@ -2720,9 +2735,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panContacts.AutoScroll = true;
-            this.panContacts.Location = new System.Drawing.Point(3, 35);
+            this.panContacts.Location = new System.Drawing.Point(3, 48);
             this.panContacts.Name = "panContacts";
-            this.panContacts.Size = new System.Drawing.Size(530, 200);
+            this.panContacts.Size = new System.Drawing.Size(530, 187);
             this.panContacts.TabIndex = 25;
             this.panContacts.Click += new System.EventHandler(this.panContacts_Click);
             // 
@@ -2741,6 +2756,11 @@
             // tabEnemies
             // 
             this.tabEnemies.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabEnemies.Controls.Add(this.label8);
+            this.tabEnemies.Controls.Add(this.label9);
+            this.tabEnemies.Controls.Add(this.label10);
+            this.tabEnemies.Controls.Add(this.label11);
+            this.tabEnemies.Controls.Add(this.label12);
             this.tabEnemies.Controls.Add(this.panEnemies);
             this.tabEnemies.Controls.Add(this.cmdAddEnemy);
             this.tabEnemies.Location = new System.Drawing.Point(4, 22);
@@ -2756,9 +2776,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panEnemies.AutoScroll = true;
-            this.panEnemies.Location = new System.Drawing.Point(3, 35);
+            this.panEnemies.Location = new System.Drawing.Point(3, 48);
             this.panEnemies.Name = "panEnemies";
-            this.panEnemies.Size = new System.Drawing.Size(530, 200);
+            this.panEnemies.Size = new System.Drawing.Size(530, 187);
             this.panEnemies.TabIndex = 41;
             this.panEnemies.Click += new System.EventHandler(this.panEnemies_Click);
             // 
@@ -11628,6 +11648,106 @@
             this.tsInitiationNotes.Text = "&Notes";
             this.tsInitiationNotes.Click += new System.EventHandler(this.tsInitiationNotes_Click);
             // 
+            // lblConnection
+            // 
+            this.lblConnection.AutoSize = true;
+            this.lblConnection.Location = new System.Drawing.Point(381, 32);
+            this.lblConnection.Name = "lblConnection";
+            this.lblConnection.Size = new System.Drawing.Size(64, 13);
+            this.lblConnection.TabIndex = 45;
+            this.lblConnection.Tag = "Label_Contact_Connection";
+            this.lblConnection.Text = "Connection:";
+            // 
+            // lblLoyalty
+            // 
+            this.lblLoyalty.AutoSize = true;
+            this.lblLoyalty.Location = new System.Drawing.Point(451, 32);
+            this.lblLoyalty.Name = "lblLoyalty";
+            this.lblLoyalty.Size = new System.Drawing.Size(43, 13);
+            this.lblLoyalty.TabIndex = 46;
+            this.lblLoyalty.Tag = "Label_Contact_Loyalty";
+            this.lblLoyalty.Text = "Loyalty:";
+            // 
+            // lblContactArchtypeLabel
+            // 
+            this.lblContactArchtypeLabel.AutoSize = true;
+            this.lblContactArchtypeLabel.Location = new System.Drawing.Point(255, 32);
+            this.lblContactArchtypeLabel.Name = "lblContactArchtypeLabel";
+            this.lblContactArchtypeLabel.Size = new System.Drawing.Size(52, 13);
+            this.lblContactArchtypeLabel.TabIndex = 44;
+            this.lblContactArchtypeLabel.Tag = "Label_Archtype";
+            this.lblContactArchtypeLabel.Text = "Archtype:";
+            // 
+            // lblContactLocationLabel
+            // 
+            this.lblContactLocationLabel.AutoSize = true;
+            this.lblContactLocationLabel.Location = new System.Drawing.Point(129, 32);
+            this.lblContactLocationLabel.Name = "lblContactLocationLabel";
+            this.lblContactLocationLabel.Size = new System.Drawing.Size(51, 13);
+            this.lblContactLocationLabel.TabIndex = 43;
+            this.lblContactLocationLabel.Tag = "Label_Location";
+            this.lblContactLocationLabel.Text = "Location:";
+            // 
+            // lblContactNameLabel
+            // 
+            this.lblContactNameLabel.AutoSize = true;
+            this.lblContactNameLabel.Location = new System.Drawing.Point(6, 32);
+            this.lblContactNameLabel.Name = "lblContactNameLabel";
+            this.lblContactNameLabel.Size = new System.Drawing.Size(38, 13);
+            this.lblContactNameLabel.TabIndex = 42;
+            this.lblContactNameLabel.Tag = "Label_Name";
+            this.lblContactNameLabel.Text = "Name:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(381, 32);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(64, 13);
+            this.label8.TabIndex = 50;
+            this.label8.Tag = "Label_Contact_Connection";
+            this.label8.Text = "Connection:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(451, 32);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 13);
+            this.label9.TabIndex = 51;
+            this.label9.Tag = "Label_Enemy_Incidence";
+            this.label9.Text = "Incidence:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(255, 32);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 13);
+            this.label10.TabIndex = 49;
+            this.label10.Tag = "Label_Archtype";
+            this.label10.Text = "Archtype:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(129, 32);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(51, 13);
+            this.label11.TabIndex = 48;
+            this.label11.Tag = "Label_Location";
+            this.label11.Text = "Location:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 32);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(38, 13);
+            this.label12.TabIndex = 47;
+            this.label12.Tag = "Label_Name";
+            this.label12.Text = "Name:";
+            // 
             // frmCareer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -12728,6 +12848,16 @@
         private System.Windows.Forms.TabPage tabEnemies;
         private System.Windows.Forms.Panel panEnemies;
         private System.Windows.Forms.Button cmdAddEnemy;
+        private System.Windows.Forms.Label lblConnection;
+        private System.Windows.Forms.Label lblLoyalty;
+        private System.Windows.Forms.Label lblContactArchtypeLabel;
+        private System.Windows.Forms.Label lblContactNameLabel;
+        private System.Windows.Forms.Label lblContactLocationLabel;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }
 

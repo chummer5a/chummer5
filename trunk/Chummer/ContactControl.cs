@@ -23,6 +23,8 @@ namespace Chummer
     {
 		private Contact _objContact;
         private string _strContactName;
+        private string _strContactRole;
+        private string _strContactLocation;
         private bool _blnEnemy = false;
 
         // Events.
@@ -43,8 +45,8 @@ namespace Chummer
         {
             if (_blnEnemy)
             {
-                if (_strContactName != "")
-                    cboContactName.Text = _strContactName;
+                if (_strContactRole != "")
+                    cboContactRole.Text = _strContactRole;
                 return;
             }
 
@@ -69,18 +71,17 @@ namespace Chummer
                     objItem.Name = objXmlCategory.InnerText;
                 lstCategories.Add(objItem);
             }
-            cboContactName.ValueMember = "Value";
-            cboContactName.DisplayMember = "Name";
-            cboContactName.DataSource = lstCategories;
+            cboContactRole.ValueMember = "Value";
+            cboContactRole.DisplayMember = "Name";
+            cboContactRole.DataSource = lstCategories;
 
-            if (_strContactName != "")
-                cboContactName.Text = _strContactName;
+            if (_strContactRole != "")
+                cboContactRole.Text = _strContactRole;
         }
 
 		private void ContactControl_Load(object sender, EventArgs e)
 		{
 			this.Width = cmdDelete.Left + cmdDelete.Width;
-			tipTooltip.SetToolTip(cmdGroup, LanguageManager.Instance.GetString("Title_SelectContactConnection"));
             LoadContactList();
 		}
 
@@ -107,12 +108,25 @@ namespace Chummer
 			DeleteContact(this);
         }
 
-        private void cboContactName_TextChanged(object sender, EventArgs e)
+        private void cboContactRole_TextChanged(object sender, EventArgs e)
 		{
-			_objContact.Name = cboContactName.Text;
+			_objContact.Role = cboContactRole.Text;
+            ConnectionRatingChanged(this);
 		}
 
-		private void imgLink_Click(object sender, EventArgs e)
+        private void txtContactName_TextChanged(object sender, EventArgs e)
+        {
+            _objContact.Name = txtContactName.Text;
+            ConnectionRatingChanged(this);
+        }
+
+        private void txtContactLocation_TextChanged(object sender, EventArgs e)
+        {
+            _objContact.Location = txtContactLocation.Text;
+            ConnectionRatingChanged(this);
+        }
+        
+        private void imgLink_Click(object sender, EventArgs e)
 		{
 			// Determine which options should be shown based on the FileName value.
 			if (_objContact.FileName != "")
@@ -228,7 +242,6 @@ namespace Chummer
 			_objContact.GroupName = frmPickContactConnection.GroupName;
 			_objContact.Colour = frmPickContactConnection.Colour;
 			_objContact.Free = frmPickContactConnection.Free;
-			lblGroup.Text = (_objContact.Membership + _objContact.AreaOfInfluence + _objContact.MagicalResources + _objContact.MatrixResources).ToString();
 
 			if (_objContact.Colour.Name != "White" && _objContact.Colour.Name != "Black")
 				this.BackColor = _objContact.Colour;
@@ -294,7 +307,7 @@ namespace Chummer
             set
             {
                 _blnEnemy = value;
-                cboContactName.Items.Clear();
+                cboContactRole.Items.Clear();
             }
         }
 
@@ -309,9 +322,43 @@ namespace Chummer
             }
             set
             {
-                cboContactName.Text = value;
+                txtContactName.Text = value;
                 _strContactName = value;
 				_objContact.Name = value;
+            }
+        }
+
+        /// <summary>
+        /// Contact role.
+        /// </summary>
+        public string ContactRole
+        {
+            get
+            {
+                return _objContact.Role;
+            }
+            set
+            {
+                cboContactRole.Text = value;
+                _strContactRole = value;
+                _objContact.Role = value;
+            }
+        }
+
+        /// <summary>
+        /// Contact location.
+        /// </summary>
+        public string ContactLocation
+        {
+            get
+            {
+                return _objContact.Location;
+            }
+            set
+            {
+                txtContactLocation.Text = value;
+                _strContactLocation = value;
+                _objContact.Location = value;
             }
         }
 
@@ -345,8 +392,6 @@ namespace Chummer
 				_objContact.EntityType = value;
 				if (value ==  ContactType.Enemy)
 				{
-					lblLoyalty.Text = LanguageManager.Instance.GetString("Label_Enemy_Incidence");
-					lblGroup.Text = (_objContact.Membership + _objContact.AreaOfInfluence + _objContact.MagicalResources + _objContact.MatrixResources).ToString();
 					if (_objContact.FileName != "")
 						tipTooltip.SetToolTip(imgLink, LanguageManager.Instance.GetString("Tip_Enemy_OpenLinkedEnemy"));
 					else
@@ -361,8 +406,6 @@ namespace Chummer
 				}
 				else
 				{
-					lblLoyalty.Text = LanguageManager.Instance.GetString("Label_Contact_Loyalty");
-					lblGroup.Text = (_objContact.Membership + _objContact.AreaOfInfluence + _objContact.MagicalResources + _objContact.MatrixResources).ToString();
 					if (_objContact.FileName != "")
 						tipTooltip.SetToolTip(imgLink, LanguageManager.Instance.GetString("Tip_Contact_OpenLinkedContact"));
 					else
@@ -399,21 +442,6 @@ namespace Chummer
 				_objContact.Connection = value;
             }
         }
-
-		/// <summary>
-		/// Group Rating.
-		/// </summary>
-		public int GroupRating
-		{
-			get
-			{
-				return _objContact.Group;
-			}
-			set
-			{
-				lblGroup.Text = value.ToString();
-			}
-		}
 
 		/// <summary>
 		/// Connection Modifier: Membership.

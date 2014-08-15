@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Text-Only Character Sheet -->
 <!-- Created by Keith Rudolph, krudolph@gmail.com -->
-<!-- Version -498 -->
+<!-- Version -497 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	
 	<xsl:template match="/characters/character">
@@ -504,7 +504,7 @@
 	<xsl:template name="contacts">
 		<xsl:for-each select="contacts/contact">
 			<xsl:sort select="name" />
-			<br /><xsl:value-of select="name" /> (<xsl:value-of select="connection" />, <xsl:value-of select="loyalty" />)
+			<br /><xsl:value-of select="name" /><xsl:if test="location != ''">; </xsl:if><xsl:value-of select="location" /><xsl:if test="role != ''">; </xsl:if><xsl:value-of select="role" /> (<xsl:value-of select="connection" />, <xsl:value-of select="loyalty" />)
 		</xsl:for-each>
 	</xsl:template>
 	

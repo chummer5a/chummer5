@@ -264,8 +264,11 @@ namespace Chummer
 
         private void chkKarma_CheckedChanged(object sender, EventArgs e)
         {
-            _objSkill.BuyWithKarma = chkKarma.Checked;
-            BuyWithKarmaChanged(this);
+            if (!_objSkill.CharacterObject.Created)
+            {
+                _objSkill.BuyWithKarma = chkKarma.Checked;
+                BuyWithKarmaChanged(this);
+            }
         }
         
         private void cmdBreakGroup_Click(object sender, EventArgs e)

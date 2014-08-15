@@ -562,7 +562,9 @@ namespace Chummer
 					
 					objContactControl.ContactObject = objContact;
 					objContactControl.ContactName = objContact.Name;
-					objContactControl.ConnectionRating = objContact.Connection;
+                    objContactControl.ContactLocation = objContact.Location;
+                    objContactControl.ContactRole = objContact.Role;
+                    objContactControl.ConnectionRating = objContact.Connection;
 					objContactControl.LoyaltyRating = objContact.Loyalty;
 					objContactControl.EntityType = objContact.EntityType;
 					objContactControl.BackColor = objContact.Colour;
@@ -584,7 +586,9 @@ namespace Chummer
                     objContactControl.IsEnemy = true;
 					objContactControl.ContactObject = objContact;
 					objContactControl.ContactName = objContact.Name;
-					objContactControl.ConnectionRating = objContact.Connection;
+                    objContactControl.ContactLocation = objContact.Location;
+                    objContactControl.ContactRole = objContact.Role;
+                    objContactControl.ConnectionRating = objContact.Connection;
 					objContactControl.LoyaltyRating = objContact.Loyalty;
 					objContactControl.EntityType = objContact.EntityType;
 					objContactControl.BackColor = objContact.Colour;
@@ -4452,7 +4456,7 @@ namespace Chummer
 
 			// Determine the Karam cost to remove the Enemy.
 			ContactControl objSender = (ContactControl)sender;
-			int intKarmaCost = (objSender.ConnectionRating + objSender.LoyaltyRating + objSender.GroupRating) * _objOptions.KarmaQuality;
+			int intKarmaCost = (objSender.ConnectionRating + objSender.LoyaltyRating) * _objOptions.KarmaQuality;
 
 			bool blnKarmaExpense = ConfirmKarmaExpense(LanguageManager.Instance.GetString("Message_ConfirmKarmaExpenseEnemy").Replace("{0}", intKarmaCost.ToString()));
 

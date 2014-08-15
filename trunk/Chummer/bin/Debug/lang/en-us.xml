@@ -457,6 +457,14 @@
 			<text>Contact</text>
 		</string>
 		<string>
+			<key>Label_Location</key>
+			<text>Location:</text>
+		</string>
+		<string>
+			<key>Label_Archtype</key>
+			<text>Archetype:</text>
+		</string>
+		<string>
 			<key>String_Contacts</key>
 			<text>Contacts</text>
 		</string>
@@ -3025,7 +3033,7 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		</string>
 		<string>
 			<key>Tip_OptionsCyberlegMovement</key>
-			<text>Enabling this house rule allows Knucks to benefit from bonuses that apply to unarmed attacks including DV bonuses.</text>
+			<text>Enabling this house rule allows characters with two Cyberlegs to use the Cyberlegs Agility to calculate movement rates.</text>
 		</string>
 		<string>
 			<key>Tip_OptionsDontDoubleQualities</key>

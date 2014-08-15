@@ -2017,6 +2017,8 @@ namespace Chummer
 			objWriter.WriteElementString("knowledge", _blnKnowledgeSkill.ToString());
 			objWriter.WriteElementString("exotic", _blnExoticSkill.ToString());
             objWriter.WriteElementString("buywithkarma", _blnBuyWithKarma.ToString());
+            objWriter.WriteElementString("base", _intBase.ToString());
+            objWriter.WriteElementString("karma", _intKarma.ToString());
             objWriter.WriteElementString("spec", _strSkillSpec);
 			objWriter.WriteElementString("attribute", strAttribute);
 			objWriter.WriteElementString("source", _objCharacter.Options.LanguageBookShort(_strSource));
@@ -7859,6 +7861,8 @@ namespace Chummer
 	public class Contact
 	{
 		private string _strName = "";
+        private string _strRole = "";
+        private string _strLocation = "";
 		private int _intConnection = 1;
 		private int _intLoyalty = 1;
 		private int _intMembership = 0;
@@ -7908,7 +7912,9 @@ namespace Chummer
 		{
 			objWriter.WriteStartElement("contact");
 			objWriter.WriteElementString("name", _strName);
-			objWriter.WriteElementString("connection", _intConnection.ToString());
+            objWriter.WriteElementString("role", _strRole);
+            objWriter.WriteElementString("location", _strLocation);
+            objWriter.WriteElementString("connection", _intConnection.ToString());
 			objWriter.WriteElementString("loyalty", _intLoyalty.ToString());
 			objWriter.WriteElementString("membership", _intMembership.ToString());
 			objWriter.WriteElementString("areaofinfluence", _intAreaOfInfluence.ToString());
@@ -7932,7 +7938,21 @@ namespace Chummer
 		public void Load(XmlNode objNode)
 		{
 			_strName = objNode["name"].InnerText;
-			_intConnection = Convert.ToInt32(objNode["connection"].InnerText);
+            try
+            {
+                _strRole = objNode["role"].InnerText;
+            }
+            catch
+            {
+            }
+            try
+            {
+                _strLocation = objNode["location"].InnerText;
+            }
+            catch
+            {
+            }
+            _intConnection = Convert.ToInt32(objNode["connection"].InnerText);
 			_intLoyalty = Convert.ToInt32(objNode["loyalty"].InnerText);
 			try
 			{
@@ -8004,7 +8024,9 @@ namespace Chummer
 		{
 			objWriter.WriteStartElement("contact");
 			objWriter.WriteElementString("name", _strName);
-			if (Group == 0)
+            objWriter.WriteElementString("role", _strRole);
+            objWriter.WriteElementString("location", _strLocation);
+            if (Group == 0)
 				objWriter.WriteElementString("connection", _intConnection.ToString());
 			else
 				objWriter.WriteElementString("connection", _intConnection.ToString() + " (" + Group.ToString() + ")");
@@ -8044,7 +8066,37 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Role of the Contact.
+        /// </summary>
+        public string Role
+        {
+            get
+            {
+                return _strRole;
+            }
+            set
+            {
+                _strRole = value;
+            }
+        }
+
+        /// <summary>
+        /// Location of the Contact.
+        /// </summary>
+        public string Location
+        {
+            get
+            {
+                return _strLocation;
+            }
+            set
+            {
+                _strLocation = value;
+            }
+        }
+
+        /// <summary>
 		/// Contact's Connection Rating.
 		/// </summary>
 		public int Connection

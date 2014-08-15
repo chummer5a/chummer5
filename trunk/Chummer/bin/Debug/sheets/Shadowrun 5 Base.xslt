@@ -683,8 +683,14 @@
 												<table width="100%" cellspacing="0"
 												cellpadding="0" border="0" class="tableborder">
 												<tr>
-												<td width="60%">
-												<strong>CONTACT NAME</strong>
+												<td width="20%">
+												<strong>NAME</strong>
+												</td>
+												<td width="20%">
+												<strong>LOCATION</strong>
+												</td>
+												<td width="20%">
+												<strong>ARCHETYPE</strong>
 												</td>
 												<td width="10%" style="text-align:center;">
 												<strong>TYPE</strong>
@@ -698,7 +704,7 @@
 												</tr>
 												<xsl:call-template name="contacts"/>
 												<tr>
-												<td class="rowsummary" colspan="4"> CONTACTS &amp;
+												<td class="rowsummary" colspan="6"> CONTACTS &amp;
 												ENEMIES </td>
 												</tr>
 												</table>
@@ -1872,8 +1878,14 @@
 				<xsl:if test="position() mod 2 != 1">
 					<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 				</xsl:if>
-				<td width="60%">
+				<td width="20%">
 					<xsl:value-of select="name"/>
+				</td>
+				<td width="20%">
+					<xsl:value-of select="location"/>
+				</td>
+				<td width="20%">
+					<xsl:value-of select="role"/>
 				</td>
 				<td width="10%" style="text-align:center;" valign="top">
 					<xsl:value-of select="type"/>
