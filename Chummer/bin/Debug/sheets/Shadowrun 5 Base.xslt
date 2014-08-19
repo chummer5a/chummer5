@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Character sheet based on the Shadowrun 5th Edition Character Sheet -->
 <!-- Created by Keith Rudolph, krudolph@gmail.com -->
-<!-- Version -497 -->
+<!-- Version -496 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 	<xsl:include href="ConditionMonitor.xslt"/>
@@ -1453,17 +1453,14 @@
 									<table width="100%" cellspacing="0" cellpadding="0" border="0"
 										class="tableborder">
 										<tr>
-											<td width="50%">
+											<td width="80%">
 												<strong>NAME</strong>
-											</td>
-											<td width="30%" style="text-align:center;">
-												<strong>RATING</strong>
 											</td>
 											<td width="20%" style="text-align:center;"> </td>
 										</tr>
 										<xsl:call-template name="martialarts"/>
 										<tr>
-											<td class="rowsummary" colspan="3"> MARTIAL ARTS <span
+											<td class="rowsummary" colspan="2"> MARTIAL ARTS <span
 												class="rowsummarybutton"
 												onClick="showhide(this,'MartialArtsBlock');"
 												colspan="1">Show: YES</span>
@@ -3186,12 +3183,9 @@
 				<xsl:if test="position() mod 2 != 1">
 					<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 				</xsl:if>
-				<td width="50%">
+				<td width="80%">
 					<xsl:value-of select="name"/>
 					<xsl:if test="extra != ''"> (<xsl:value-of select="extra"/>)</xsl:if>
-				</td>
-				<td width="30%" style="text-align:center;">
-					<xsl:value-of select="rating"/>
 				</td>
 				<td width="20%" style="text-align:center;">
 					<xsl:value-of select="source"/>
@@ -3203,20 +3197,21 @@
 				<xsl:if test="position() mod 2 != 1">
 					<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 				</xsl:if>
-				<td colspan="3" class="indent">
+				<td class="indent">
 					<xsl:for-each select="martialartadvantages/martialartadvantage">
 						<xsl:sort select="."/>
-						<xsl:value-of select="."/>
-						<xsl:if test="position() != last()">; </xsl:if>
+						<xsl:value-of select="name"/><xsl:if test="notes != ''"> - <xsl:value-of select="notes"/></xsl:if>
+						<xsl:if test="position() != last()"><br /></xsl:if>
 					</xsl:for-each>
 				</td>
+				<td></td>
 			</tr>
 			<xsl:if test="notes != ''">
 				<tr>
 					<xsl:if test="position() mod 2 != 1">
 						<xsl:attribute name="bgcolor">#e4e4e4</xsl:attribute>
 					</xsl:if>
-					<td colspan="3" class="notesrow">
+					<td colspan="2" class="notesrow">
 						<xsl:call-template name="PreserveLineBreaks">
 							<xsl:with-param name="text" select="notes"/>
 						</xsl:call-template>

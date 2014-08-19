@@ -1653,6 +1653,12 @@ namespace Chummer
                     }
                 }
 
+                if (!blnHighest)
+                    blnUseBase = true;
+
+                if (blnHighest && Convert.ToInt32(_strO) == 0)
+                    blnUseBase = true;
+
                 int intTotalArmor = 0;
                 // if there's zero or usebase is true, we're all done. Calculate as normal.
                 if (blnUseBase)

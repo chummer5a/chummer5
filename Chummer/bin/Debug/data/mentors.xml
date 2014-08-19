@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-493</version>
+  <version>-492</version>
   <mentors>
     <mentor>
       <id>136a3dc5-d9c4-45ad-bc24-705f54692590</id>
@@ -349,6 +349,50 @@
         </choice>
       </choices>
       <source>SR5</source>
+      <page>323</page>
+    </mentor>
+    <mentor>
+      <id>1bd89b48-f900-476f-9278-1128ecdd6f14</id>
+      <name>Raven (German)</name>
+      <advantage>All: +2 dice for Con tests.</advantage>
+      <disadvantage>You must make a Charisma + Willpower (3) Test to avoid exploiting someone else’s misfortune to your own advantage or to pull a clever trick or prank even if it’s to the disadvantage of your friends.</disadvantage>
+      <bonus>
+        <specificskill>
+          <name>Con</name>
+          <bonus>2</bonus>
+          <applytorating>no</applytorating>
+        </specificskill>
+      </bonus>
+      <choices>
+        <choice>
+          <name>Magician: +2 dice for Manipulation spells</name>
+          <bonus>
+            <spellcategory>
+              <name>Manipulation</name>
+              <val>2</val>
+            </spellcategory>
+          </bonus>
+        </choice>
+        <choice>
+          <name>Adept: Free Traceless Walk</name>
+          <bonus>
+            <specificpower>
+              <name>Traceless Walk</name>
+              <free>yes</free>
+            </specificpower>
+          </bonus>
+        </choice>
+        <choice>
+          <name>Adept: 1 level of Voice Control</name>
+          <bonus>
+            <specificpower>
+              <name>Voice Control</name>
+              <val>1</val>
+            </specificpower>
+          </bonus>
+        </choice>
+      </choices>
+      <source>SR5G</source>
       <page>323</page>
     </mentor>
     <mentor>

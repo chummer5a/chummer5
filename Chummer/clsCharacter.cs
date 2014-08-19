@@ -5579,7 +5579,7 @@ namespace Chummer
 				// Form-Fitting Armor is not included in this since it stacks with other worn armor, even if it's lower.
 				foreach (Armor objArmor in _lstArmor)
 				{
-					if (objArmor.TotalArmor > intHighest && objArmor.Equipped && !objArmor.Name.StartsWith("Form-Fitting") && !objArmor.ArmorValue.StartsWith("+"))
+					if (objArmor.TotalArmor > intHighest && objArmor.Equipped && !objArmor.ArmorValue.StartsWith("+"))
 					{
                         intHighest = objArmor.TotalArmor;
 					}

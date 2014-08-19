@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-488</version>
+  <version>-487</version>
   <categories>
     <category>Ammunition</category>
     <category>Armor Enhancements</category>
@@ -111,7 +111,7 @@
       <costfor>10</costfor>
       <cost>25</cost>
       <weaponbonus>
-        <ap>2</ap>
+        <ap>1</ap>
         <damagetype>S</damagetype>
       </weaponbonus>
       <source>SR5</source>
@@ -200,7 +200,7 @@
       <category>Ammunition</category>
       <rating>0</rating>
       <avail>14F</avail>
-      <costfor>1</costfor>
+      <costfor>10</costfor>
       <cost>120</cost>
       <weaponbonus>
         <ap>-1</ap>
@@ -215,7 +215,7 @@
       <category>Ammunition</category>
       <rating>0</rating>
       <avail>2R</avail>
-      <costfor>1</costfor>
+      <costfor>10</costfor>
       <cost>10</cost>
       <weaponbonus>
         <damage>-1</damage>
@@ -230,7 +230,7 @@
       <category>Ammunition</category>
       <rating>0</rating>
       <avail>6R</avail>
-      <costfor>1</costfor>
+      <costfor>10</costfor>
       <cost>20</cost>
       <weaponbonus>
         <ap>+2</ap>
@@ -245,7 +245,7 @@
       <category>Ammunition</category>
       <rating>0</rating>
       <avail>8R</avail>
-      <costfor>1</costfor>
+      <costfor>10</costfor>
       <cost>150</cost>
       <source>RG</source>
       <page>55</page>
@@ -256,7 +256,7 @@
       <category>Ammunition</category>
       <rating>0</rating>
       <avail>8R</avail>
-      <costfor>1</costfor>
+      <costfor>10</costfor>
       <cost>75</cost>
       <source>RG</source>
       <page>55</page>
@@ -269,7 +269,7 @@
       <addoncategory>Toxins</addoncategory>
       <rating>0</rating>
       <avail>2</avail>
-      <costfor>1</costfor>
+      <costfor>10</costfor>
       <cost>5</cost>
       <weaponbonus>
         <ap>4</ap>

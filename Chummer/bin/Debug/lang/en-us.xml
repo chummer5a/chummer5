@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-490</version>
+	<version>-489</version>
 	<name>English (US)</name>
 	<strings>
 		<!-- Common Strings -->
@@ -1836,6 +1836,14 @@
 		<string>
 			<key>MessageTitle_ExtraKarma</key>
 			<text>Extra Karma</text>
+		</string>
+		<string>
+			<key>Message_ExtraNuyen</key>
+			<text>You have {0} remaining but are only allowed to carry {1} over to your career.\nAre you sure you want to lose these extra nuyen?</text>
+		</string>
+		<string>
+			<key>MessageTitle_ExtraNuyen</key>
+			<text>Extra Nuyen</text>
 		</string>
 		<string>
 			<key>Message_ConfirmCreate</key>

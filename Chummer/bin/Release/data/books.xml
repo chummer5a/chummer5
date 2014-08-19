@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-494</version>
+  <version>-493</version>
   <books>
     <book>
       <id>289bc41d-6dd5-4216-9bc7-e6f0cabae9ac</id>
@@ -21,6 +21,11 @@
       <id>f5ec713c-98cd-41f6-a0a4-4a8eaed55b66</id>
       <name>Shadowrun 5th Edition</name>
       <code>SR5</code>
+    </book>
+    <book>
+      <id>b3c5ea18-56dc-42f4-b567-50ead12fab1f</id>
+      <name>Shadowrun 5th Edition (German)</name>
+      <code>SR5G</code>
     </book>
     <book>
       <id>3976dc50-f7db-481d-9372-fc2a5c1178ce</id>
