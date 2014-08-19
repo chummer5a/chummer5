@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-495</version>
+  <version>-494</version>
   <categories>
     <category>Armor</category>
     <category>Clothing</category>
@@ -161,7 +161,7 @@
       <armor>8</armor>
       <armorcapacity>4</armorcapacity>
       <avail>8</avail>
-      <cost>650</cost>
+      <cost>2500</cost>
       <bonus>
         <limitmodifier>
           <limit>Social</limit>
@@ -179,7 +179,7 @@
       <armor>8</armor>
       <armorcapacity>4</armorcapacity>
       <avail>8</avail>
-      <cost>650</cost>
+      <cost>2500</cost>
       <bonus>
         <limitmodifier>
           <limit>Social</limit>
@@ -1154,7 +1154,6 @@
       <cost>8000</cost>
       <mods>
         <name>Gear Access</name>
-        <name>Restrictive</name>
       </mods>
       <bonus>
         <limitmodifier>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-488</version>
+  <version>-487</version>
   <categories>
     <category>Blades</category>
     <category>Clubs</category>
@@ -358,7 +358,7 @@
       <damage>10P</damage>
       <ap>-2</ap>
       <mode>SA/BF/FA</mode>
-      <rc>2</rc>
+      <rc>0</rc>
       <ammo>35(c)</ammo>
       <avail>8R</avail>
       <cost>1500</cost>
@@ -6592,7 +6592,7 @@
     <accessory>
       <id>627f212a-ac15-4739-afbc-f44676dfe508</id>
       <name>Gecko Grip</name>
-      <mount>Stock</mount>
+      <mount />
       <avail>6</avail>
       <cost>100</cost>
       <source>RG</source>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-491</version>
+  <version>-490</version>
   <categories>
     <category>Positive</category>
     <category>Negative</category>
@@ -22,7 +22,7 @@
       <category>Positive</category>
       <bonus />
       <source>SR5</source>
-      <page>71</page>
+      <page>72</page>
     </quality>
     <quality>
       <id>58e3d62a-2073-4af5-b8e0-00c446b3a5ab</id>
@@ -35,7 +35,7 @@
         </selectskill>
       </bonus>
       <source>SR5</source>
-      <page>71</page>
+      <page>72</page>
     </quality>
     <quality>
       <id>7d81f676-e523-4ec6-ae98-8d801f90b031</id>
@@ -49,7 +49,7 @@
         </oneof>
       </forbidden>
       <source>SR5</source>
-      <page>71</page>
+      <page>72</page>
     </quality>
     <quality>
       <id>c734e46a-d391-45a6-b022-6f18db5019f1</id>
@@ -58,7 +58,7 @@
       <category>Positive</category>
       <bonus />
       <source>SR5</source>
-      <page>71</page>
+      <page>72</page>
     </quality>
     <quality>
       <id>9cffd452-8489-48d5-888c-ac35459d9174</id>
@@ -72,7 +72,7 @@
         </oneof>
       </forbidden>
       <source>SR5</source>
-      <page>71</page>
+      <page>72</page>
     </quality>
     <quality>
       <id>84305e09-f8d5-4a82-8257-0119b8c3f926</id>
@@ -88,7 +88,7 @@
         </specificskill>
       </bonus>
       <source>SR5</source>
-      <page>71</page>
+      <page>72</page>
     </quality>
     <quality>
       <id>41cc3e26-ae55-4e28-bd6a-b08866c21424</id>
@@ -99,7 +99,7 @@
         <selecttext />
       </bonus>
       <source>SR5</source>
-      <page>71</page>
+      <page>72</page>
     </quality>
     <quality>
       <id>db579224-99c7-48e0-84ab-77a987a84f4a</id>
@@ -113,7 +113,7 @@
         </specificskill>
       </bonus>
       <source>SR5</source>
-      <page>71</page>
+      <page>72</page>
     </quality>
     <quality>
       <id>2ac8a95a-a4d0-4bef-a2f2-dcde020258cf</id>

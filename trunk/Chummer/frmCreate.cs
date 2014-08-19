@@ -987,7 +987,15 @@ namespace Chummer
 					TreeNode objAdvantageNode = new TreeNode();
 					objAdvantageNode.Text = objAdvantage.DisplayName;
 					objAdvantageNode.Tag = objAdvantage.InternalId;
-					objMartialArtNode.Nodes.Add(objAdvantageNode);
+                    objAdvantageNode.ContextMenuStrip = cmsTechnique;
+
+                    if (objAdvantage.Notes != string.Empty)
+                        objAdvantageNode.ForeColor = Color.SaddleBrown;
+                    else
+                        objAdvantageNode.ForeColor = SystemColors.WindowText;
+                    objAdvantageNode.ToolTipText = objAdvantage.Notes;
+
+                    objMartialArtNode.Nodes.Add(objAdvantageNode);
 					objMartialArtNode.Expand();
 				}
 
@@ -8965,13 +8973,6 @@ namespace Chummer
 
 				MartialArt objMartialArt = _objFunctions.FindMartialArt(treMartialArts.SelectedNode.Tag.ToString(), _objCharacter.MartialArts);
 
-				// Make sure the user is not trying to add more Advantages than they are allowed (1 per Rating for the selected Martial Art).
-                //if (objMartialArt.Advantages.Count >= objMartialArt.Rating && !_objCharacter.IgnoreRules)
-                //{
-                //    MessageBox.Show(LanguageManager.Instance.GetString("Message_MartialArtAdvantageLimit").Replace("{0}", objMartialArt.Name), LanguageManager.Instance.GetString("MessageTitle_MartialArtAdvantageLimit"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    return;
-                //}
-
 				frmSelectMartialArtAdvantage frmPickMartialArtAdvantage = new frmSelectMartialArtAdvantage(_objCharacter);
 				frmPickMartialArtAdvantage.MartialArt = objMartialArt.Name;
 				frmPickMartialArtAdvantage.ShowDialog(this);
@@ -8993,6 +8994,7 @@ namespace Chummer
 
 				objMartialArt.Advantages.Add(objAdvantage);
 
+                objNode.ContextMenuStrip = cmsTechnique;
 				treMartialArts.SelectedNode.Nodes.Add(objNode);
 				treMartialArts.SelectedNode.Expand();
 
@@ -10120,8 +10122,9 @@ namespace Chummer
 					else
 						treMartialArts.SelectedNode.ForeColor = SystemColors.WindowText;
 					treMartialArts.SelectedNode.ToolTipText = objMartialArt.Notes;
+                    return;
 				}
-			}
+            }
 			catch
 			{
 			}
@@ -13339,11 +13342,11 @@ namespace Chummer
 						
 						if (_objImprovementManager.ValueOf(Improvement.ImprovementType.DrainResistance) != 0)
 							strTip += " + " + LanguageManager.Instance.GetString("Tip_Skill_DicePoolModifiers") + " (" + _objImprovementManager.ValueOf(Improvement.ImprovementType.DrainResistance).ToString() + ")";
-						if (objSpell.Limited)
-						{
-							intDrain += 2;
-							strTip += " + " + LanguageManager.Instance.GetString("String_SpellLimited") + " (2)";
-						}
+                        //if (objSpell.Limited)
+                        //{
+                        //    intDrain += 2;
+                        //    strTip += " + " + LanguageManager.Instance.GetString("String_SpellLimited") + " (2)";
+                        //}
 						lblDrainAttributesValue.Text = intDrain.ToString();
 						tipTooltip.SetToolTip(lblDrainAttributesValue, strTip);
 					}
@@ -20510,13 +20513,25 @@ namespace Chummer
 
                 if (blnValid)
                 {
+                    if (_objCharacter.Nuyen > 5000)
+                    {
+                        if (MessageBox.Show(LanguageManager.Instance.GetString("Message_ExtraNuyen").Replace("{0}", _objCharacter.Nuyen.ToString()).Replace("{1}", (5000).ToString()), LanguageManager.Instance.GetString("MessageTitle_ExtraNuyen"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                            blnValid = false;
+                        else
+                            _objCharacter.Nuyen = 5000;
+                    }
+                }  
+
+                if (blnValid)
+                {
                     frmStartingNuyen.ShowDialog(this);
 
                     // Assign the starting Nuyen amount.
                     int intStartingNuyen = frmStartingNuyen.StartingNuyen;
                     if (intStartingNuyen < 0)
                         intStartingNuyen = 0;
-                    _objCharacter.Nuyen = intStartingNuyen;
+
+                    _objCharacter.Nuyen += intStartingNuyen;
                 }
 
                 // Cannot carry over more than 7 karma from the build process
@@ -24415,6 +24430,45 @@ namespace Chummer
         private void panEnemies_Click(object sender, System.EventArgs e)
         {
             panEnemies.Focus();
+        }
+
+        private void tsAddTechniqueNotes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool blnFound = false;
+                MartialArt objMartialArt = new MartialArt(_objCharacter);
+                MartialArtAdvantage objTechnique = _objFunctions.FindMartialArtAdvantage(treMartialArts.SelectedNode.Tag.ToString(), _objCharacter.MartialArts, out objMartialArt);
+                if (objTechnique != null)
+                    blnFound = true;
+
+                if (blnFound)
+                {
+                    frmNotes frmItemNotes = new frmNotes();
+                    frmItemNotes.Notes = objTechnique.Notes;
+                    string strOldValue = objTechnique.Notes;
+                    frmItemNotes.ShowDialog(this);
+
+                    if (frmItemNotes.DialogResult == DialogResult.OK)
+                    {
+                        objTechnique.Notes = frmItemNotes.Notes;
+                        if (objTechnique.Notes != strOldValue)
+                        {
+                            _blnIsDirty = true;
+                            UpdateWindowTitle();
+                        }
+                    }
+
+                    if (objTechnique.Notes != string.Empty)
+                        treMartialArts.SelectedNode.ForeColor = Color.SaddleBrown;
+                    else
+                        treMartialArts.SelectedNode.ForeColor = SystemColors.WindowText;
+                    treMartialArts.SelectedNode.ToolTipText = objTechnique.Notes;
+                }
+            }
+            catch
+            {
+            }
         }
     }
 }

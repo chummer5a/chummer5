@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!-- translated by AhonokoP. If you want to sent me a message, contact me at "Dumpshock Forum" -->
 <chummer>
-  <version>-500</version>
+  <version>-499</version>
   <chummer file="armor.xml">
     <categories>
       <category translate="防具">Armor</category>
@@ -1180,6 +1180,11 @@
         <id>e2b9ec78-b83f-4ea9-8531-95b074a1b9d8</id>
         <name>Shadowrun Forum Post 1</name>
         <translate>Shadowrun Forum Post 1</translate>
+      </book>
+      <book>
+        <id>b3c5ea18-56dc-42f4-b567-50ead12fab1f</id>
+        <name>Shadowrun 5th Edition (German)</name>
+        <translate>Shadowrun 5th Edition (German)</translate>
       </book>
     </books>
   </chummer>
@@ -6157,6 +6162,12 @@
         <translate>Spurs</translate>
         <page>458</page>
       </cyberware>
+      <cyberware>
+        <id>c533c0db-3a04-4fdd-95f9-d4d9781a3e79</id>
+        <name>Skilljack (German)</name>
+        <translate>Skilljack (German)</translate>
+        <page>452</page>
+      </cyberware>
     </cyberwares>
   </chummer>
   <chummer file="echoes.xml">
@@ -10159,6 +10170,18 @@
         <translate>Yielding Force (Throw)</translate>
         <page>141</page>
       </technique>
+      <technique>
+        <id>c512a3e7-5711-438e-b1e7-e02dbf996b85</id>
+        <name>Neijia</name>
+        <translate>Neijia</translate>
+        <page>140</page>
+      </technique>
+      <technique>
+        <id>1ff5100c-6b10-453c-a05a-9af9110581e9</id>
+        <name>Strike the Darkness</name>
+        <translate>Strike the Darkness</translate>
+        <page>141</page>
+      </technique>
     </techniques>
   </chummer>
   <chummer file="mentors.xml">
@@ -10176,6 +10199,14 @@
         <disadvantage>戦闘中に負傷したり, 面倒を見ているものがひどく傷ついたときに狂乱することがある. 【意志力】 + 【魅力】 でテストを行い「(3 - ヒット数) 戦闘ターン」自分の危険を顧みず攻撃者に立ち向かう. 相手を無力化してしまえば狂乱状態は解ける.</disadvantage>
         <page>245</page>
         <choices>
+          <choice>
+            <name>Magician: +2 dice for Health spells</name>
+            <translate>Magician: +2 dice for Health spells</translate>
+          </choice>
+          <choice>
+            <name>Adept: 1 free level of Rapid Healing</name>
+            <translate>Adept: 1 free level of Rapid Healing</translate>
+          </choice>
           <choice>
             <name>Magician: +2 dice for Health spells</name>
             <translate>Magician: +2 dice for Health spells</translate>
@@ -10282,6 +10313,22 @@
             <name>Adept: 2 free levels of Light Body</name>
             <translate>Adept: 2 free levels of Light Body</translate>
           </choice>
+          <choice>
+            <name>+2 dice on Gymnastics Tests</name>
+            <translate>+2 dice on Gymnastics Tests</translate>
+          </choice>
+          <choice>
+            <name>+2 dice on Sneaking Tests</name>
+            <translate>+2 dice on Sneaking Tests</translate>
+          </choice>
+          <choice set="2">
+            <name>Magician: +2 dice for Illusion spells</name>
+            <translate>Magician: +2 dice for Illusion spells</translate>
+          </choice>
+          <choice set="2">
+            <name>Adept: 2 free levels of Light Body</name>
+            <translate>Adept: 2 free levels of Light Body</translate>
+          </choice>
         </choices>
       </mentor>
       <mentor>
@@ -10292,6 +10339,14 @@
         <disadvantage>頑固なまでに忠実. 誰かを見捨てたり, 仲間を裏切ったり, 他人を身代わりにしたりするには, 【意志力】 + 【魅力】 (3) のテストに成功しなければならない.</disadvantage>
         <page>244</page>
         <choices>
+          <choice>
+            <name>Magician: +2 dice for Detection spells</name>
+            <translate>Magician: +2 dice for Detection spells</translate>
+          </choice>
+          <choice>
+            <name>Adept: 2 free Improved Sense powers</name>
+            <translate>Adept: 2 free Improved Sense powers</translate>
+          </choice>
           <choice>
             <name>Magician: +2 dice for Detection spells</name>
             <translate>Magician: +2 dice for Detection spells</translate>
@@ -10398,6 +10453,22 @@
             <name>Adept: free Killing Hands</name>
             <translate>Adept: free Killing Hands</translate>
           </choice>
+          <choice>
+            <name>+2 to Demolitions</name>
+            <translate>+2 to Demolitions</translate>
+          </choice>
+          <choice>
+            <name>+2 to a Combat Skill</name>
+            <translate>+2 to a Combat Skill</translate>
+          </choice>
+          <choice set="2">
+            <name>Magician: +2 dice for Combat spells</name>
+            <translate>Magician: +2 dice for Combat spells</translate>
+          </choice>
+          <choice set="2">
+            <name>Adept: free Killing Hands</name>
+            <translate>Adept: free Killing Hands</translate>
+          </choice>
         </choices>
       </mentor>
       <mentor>
@@ -10408,6 +10479,14 @@
         <disadvantage>意図的かどうかに関係なく, 約束を破った場合, その約束を満たすか, 過ちを正して贖罪するまであらゆる行動にダイス-1.</disadvantage>
         <page>247</page>
         <choices>
+          <choice>
+            <name>Magician: +2 dice for Combat spells</name>
+            <translate>Magician: +2 dice for Combat spells</translate>
+          </choice>
+          <choice>
+            <name>Adept: 1 free level of Enhanced Accuracy and Danger Sense</name>
+            <translate>Adept: 1 free level of Enhanced Accuracy and Danger Sense</translate>
+          </choice>
           <choice>
             <name>Magician: +2 dice for Combat spells</name>
             <translate>Magician: +2 dice for Combat spells</translate>
@@ -10482,6 +10561,14 @@
             <name>Adept: 1 free level of Combat Sense</name>
             <translate>Adept: 1 free level of Combat Sense</translate>
           </choice>
+          <choice>
+            <name>Magician: +2 dice summoning spirits of air</name>
+            <translate>Magician: +2 dice summoning spirits of air</translate>
+          </choice>
+          <choice>
+            <name>Adept: 1 free level of Combat Sense</name>
+            <translate>Adept: 1 free level of Combat Sense</translate>
+          </choice>
         </choices>
       </mentor>
       <mentor>
@@ -10492,6 +10579,22 @@
         <disadvantage>幻影呪文にダイス-1.</disadvantage>
         <page>246</page>
         <choices>
+          <choice>
+            <name>+2 dice on Artisan Tests</name>
+            <translate>+2 dice on Artisan Tests</translate>
+          </choice>
+          <choice>
+            <name>+2 dice on Alchemy Tests</name>
+            <translate>+2 dice on Alchemy Tests</translate>
+          </choice>
+          <choice set="2">
+            <name>Magician: +2 dice for Manipulation spells</name>
+            <translate>Magician: +2 dice for Manipulation spells</translate>
+          </choice>
+          <choice set="2">
+            <name>Adept: 1 free level of Improved Ability on a non-combat skill</name>
+            <translate>Adept: 1 free level of Improved Ability on a non-combat skill</translate>
+          </choice>
           <choice>
             <name>+2 dice on Artisan Tests</name>
             <translate>+2 dice on Artisan Tests</translate>
@@ -10630,6 +10733,22 @@
             <name>Adept: 1 free level of Rapid Healing</name>
             <translate>Adept: 1 free level of Rapid Healing</translate>
           </choice>
+          <choice>
+            <name>+2 to First Aid</name>
+            <translate>+2 to First Aid</translate>
+          </choice>
+          <choice>
+            <name>+2 to Medicine</name>
+            <translate>+2 to Medicine</translate>
+          </choice>
+          <choice set="2">
+            <name>Magician: +2 dice for Health spells</name>
+            <translate>Magician: +2 dice for Health spells</translate>
+          </choice>
+          <choice set="2">
+            <name>Adept: 1 free level of Rapid Healing</name>
+            <translate>Adept: 1 free level of Rapid Healing</translate>
+          </choice>
         </choices>
       </mentor>
       <mentor>
@@ -10640,6 +10759,14 @@
         <disadvantage>一度立てたプランに固執する. 最初の計画を捨てて別の行動をとるには【意志力】 + 【魅力】 (3) のテストに成功しなければならない.</disadvantage>
         <page>246</page>
         <choices>
+          <choice>
+            <name>Magician: +2 dice for Counterspelling and anchored rituals</name>
+            <translate>Magician: +2 dice for Counterspelling and anchored rituals</translate>
+          </choice>
+          <choice>
+            <name>Adept: 1 free level of Mystic Armor</name>
+            <translate>Adept: 1 free level of Mystic Armor</translate>
+          </choice>
           <choice>
             <name>Magician: +2 dice for Counterspelling and anchored rituals</name>
             <translate>Magician: +2 dice for Counterspelling and anchored rituals</translate>
@@ -10714,6 +10841,14 @@
             <name>Adept: 2 free levels of Attribute Boost</name>
             <translate>Adept: 2 free levels of Attribute Boost</translate>
           </choice>
+          <choice>
+            <name>Magician: +2 dice for Health Spells</name>
+            <translate>Magician: +2 dice for Health Spells</translate>
+          </choice>
+          <choice>
+            <name>Adept: 2 free levels of Attribute Boost</name>
+            <translate>Adept: 2 free levels of Attribute Boost</translate>
+          </choice>
         </choices>
       </mentor>
       <mentor>
@@ -10724,6 +10859,14 @@
         <disadvantage>手つかずの自然に対して何らかの形で略奪や汚染を試みないでいるためには, 【意志力】 + 【魅力】 (3) のテストに成功しなければならない.</disadvantage>
         <page>155</page>
         <choices>
+          <choice>
+            <name>Magician: +2 dice for summoning or binding toxic spirits</name>
+            <translate>Magician: +2 dice for summoning or binding toxic spirits</translate>
+          </choice>
+          <choice>
+            <name>Adept: Free Toxic Strike</name>
+            <translate>Adept: Free Toxic Strike</translate>
+          </choice>
           <choice>
             <name>Magician: +2 dice for summoning or binding toxic spirits</name>
             <translate>Magician: +2 dice for summoning or binding toxic spirits</translate>
@@ -10798,6 +10941,14 @@
             <name>Adept: 2 free levels of Natural Immunity</name>
             <translate>Adept: 2 free levels of Natural Immunity</translate>
           </choice>
+          <choice>
+            <name>Magician: +2 to Alchemy for harvesting, and you may use any reagents</name>
+            <translate>Magician: +2 to Alchemy for harvesting, and you may use any reagents</translate>
+          </choice>
+          <choice>
+            <name>Adept: 2 free levels of Natural Immunity</name>
+            <translate>Adept: 2 free levels of Natural Immunity</translate>
+          </choice>
         </choices>
       </mentor>
       <mentor>
@@ -10808,6 +10959,14 @@
         <disadvantage>誰かの不幸を見つけたとき, 【意志力】 + 【魅力】 (3) のテストに成功しない限り, それに乗じて自分が利益を貪ろうとする.</disadvantage>
         <page>245</page>
         <choices>
+          <choice>
+            <name>Magician: +2 dice for Manipulation spells</name>
+            <translate>Magician: +2 dice for Manipulation spells</translate>
+          </choice>
+          <choice>
+            <name>Adept: Free Traceless Walk and 1 level of Voice Control</name>
+            <translate>Adept: Free Traceless Walk and 1 level of Voice Control</translate>
+          </choice>
           <choice>
             <name>Magician: +2 dice for Manipulation spells</name>
             <translate>Magician: +2 dice for Manipulation spells</translate>
@@ -10882,6 +11041,14 @@
             <name>Adept: 1 free level of Improved Ability on an athletic skill</name>
             <translate>Adept: 1 free level of Improved Ability on an athletic skill</translate>
           </choice>
+          <choice>
+            <name>Magician: +2 dice summoning spirits of water</name>
+            <translate>Magician: +2 dice summoning spirits of water</translate>
+          </choice>
+          <choice>
+            <name>Adept: 1 free level of Improved Ability on an athletic skill</name>
+            <translate>Adept: 1 free level of Improved Ability on an athletic skill</translate>
+          </choice>
         </choices>
       </mentor>
       <mentor>
@@ -10892,6 +11059,14 @@
         <disadvantage>戦闘中に負傷したり, 敵を負傷させたときに狂乱することがある. 【意志力】 + 【魅力】 でテストを行い「(3 - ヒット数) 戦闘ターン」自分の危険を顧みず攻撃者に立ち向かう. 相手を無力化してしまえば狂乱状態は解ける. プレイヤーが望むなら, 新しい敵を探す代わりに, 最後に倒した敵の体に攻撃を続ける.</disadvantage>
         <page>245</page>
         <choices>
+          <choice>
+            <name>Magician: +2 dice for Combat spells</name>
+            <translate>Magician: +2 dice for Combat spells</translate>
+          </choice>
+          <choice>
+            <name>Adept: Free Killing Hands</name>
+            <translate>Adept: Free Killing Hands</translate>
+          </choice>
           <choice>
             <name>Magician: +2 dice for Combat spells</name>
             <translate>Magician: +2 dice for Combat spells</translate>
@@ -10966,6 +11141,14 @@
             <name>Adept: 2 free levels of Kinesics</name>
             <translate>Adept: 2 free levels of Kinesics</translate>
           </choice>
+          <choice>
+            <name>Magician: +2 dice for Detection spells</name>
+            <translate>Magician: +2 dice for Detection spells</translate>
+          </choice>
+          <choice>
+            <name>Adept: 2 free levels of Kinesics</name>
+            <translate>Adept: 2 free levels of Kinesics</translate>
+          </choice>
         </choices>
       </mentor>
       <mentor>
@@ -10976,6 +11159,14 @@
         <disadvantage>侮辱された場合, 【意志力】 + 【魅力】 (3) のテストに成功しない限り, それを看過できない.</disadvantage>
         <page>245</page>
         <choices>
+          <choice>
+            <name>Magician: +2 dice for summoning spirits of air</name>
+            <translate>Magician: +2 dice for summoning spirits of air</translate>
+          </choice>
+          <choice>
+            <name>Adept: 1 free level of Critical Strike (skill)</name>
+            <translate>Adept: 1 free level of Critical Strike (skill)</translate>
+          </choice>
           <choice>
             <name>Magician: +2 dice for summoning spirits of air</name>
             <translate>Magician: +2 dice for summoning spirits of air</translate>
@@ -11082,6 +11273,22 @@
             <name>Adept: 1 free level of Improved Ability on a Combat skill</name>
             <translate>Adept: 1 free level of Improved Ability on a Combat skill</translate>
           </choice>
+          <choice>
+            <name>+2 dice for Leadership skill tests</name>
+            <translate>+2 dice for Leadership skill tests</translate>
+          </choice>
+          <choice>
+            <name>+2 dice for Instruction skill tests</name>
+            <translate>+2 dice for Instruction skill tests</translate>
+          </choice>
+          <choice set="2">
+            <name>Magician:+2 dice for Combat spells</name>
+            <translate>Magician:+2 dice for Combat spells</translate>
+          </choice>
+          <choice set="2">
+            <name>Adept: 1 free level of Improved Ability on a Combat skill</name>
+            <translate>Adept: 1 free level of Improved Ability on a Combat skill</translate>
+          </choice>
         </choices>
       </mentor>
       <mentor>
@@ -11124,6 +11331,14 @@
             <name>Adept: 2 free levels of Attribute Boost (Agility)</name>
             <translate>Adept: 2 free levels of Attribute Boost (Agility)</translate>
           </choice>
+          <choice>
+            <name>Magician:+2 dice for Combat spells</name>
+            <translate>Magician:+2 dice for Combat spells</translate>
+          </choice>
+          <choice>
+            <name>Adept: 2 free levels of Attribute Boost (Agility)</name>
+            <translate>Adept: 2 free levels of Attribute Boost (Agility)</translate>
+          </choice>
         </choices>
       </mentor>
       <mentor>
@@ -11134,6 +11349,14 @@
         <advantage>All: +2 dice for Con Tests.</advantage>
         <disadvantage>You must succeed in a Charisma + Willpower (3) Test to avoid pursuing a vice or indulgence (drugs, BTLs, sex, and so on) when it is made available.</disadvantage>
         <choices>
+          <choice>
+            <name>Magician: +2 dice for Illusion spells</name>
+            <translate>Magician: +2 dice for Illusion spells</translate>
+          </choice>
+          <choice>
+            <name>Adept: 1 free level of Improved Ability</name>
+            <translate>Adept: 1 free level of Improved Ability</translate>
+          </choice>
           <choice>
             <name>Magician: +2 dice for Illusion spells</name>
             <translate>Magician: +2 dice for Illusion spells</translate>
@@ -11240,6 +11463,22 @@
             <name>Adept: 1 free level of Mystic Armor and Pain Resistance</name>
             <translate>Adept: 1 free level of Mystic Armor and Pain Resistance</translate>
           </choice>
+          <choice>
+            <name>Magician: +2 dice for Physical-type Combat Spells</name>
+            <translate>Magician: +2 dice for Physical-type Combat Spells</translate>
+          </choice>
+          <choice>
+            <name>Adept: 2 free levels of Mystic Armor</name>
+            <translate>Adept: 2 free levels of Mystic Armor</translate>
+          </choice>
+          <choice>
+            <name>Adept: 2 free levels of Pain Resistance</name>
+            <translate>Adept: 2 free levels of Pain Resistance</translate>
+          </choice>
+          <choice>
+            <name>Adept: 1 free level of Mystic Armor and Pain Resistance</name>
+            <translate>Adept: 1 free level of Mystic Armor and Pain Resistance</translate>
+          </choice>
         </choices>
       </mentor>
       <mentor>
@@ -11250,6 +11489,14 @@
         <advantage>All: +2 dice pool modifier for Con Tests</advantage>
         <disadvantage>You are an inveterate gossip trying to stir up trouble, especially between friends, and thus cannot keep damaging secrets to yourself. Also, anytime you encounter a public situation deemed too quiet or stable (gamemaster’s discretion), make a Willpower + Intuition (3) Test. Failure means that you are compelled to stir the pot in any way you desire, be it attacking, telling lies, or throwing a drink on someone nearby.</disadvantage>
         <choices>
+          <choice>
+            <name>Magician: +2 dice for Illusion Spells</name>
+            <translate>Magician: +2 dice for Illusion Spells</translate>
+          </choice>
+          <choice>
+            <name>Adept: 2 free levels of Improved Potential (limit)</name>
+            <translate>Adept: 2 free levels of Improved Potential (limit)</translate>
+          </choice>
           <choice>
             <name>Magician: +2 dice for Illusion Spells</name>
             <translate>Magician: +2 dice for Illusion Spells</translate>
@@ -11324,6 +11571,14 @@
             <name>Adept: 2 free levels of Enhanced Perception</name>
             <translate>Adept: 2 free levels of Enhanced Perception</translate>
           </choice>
+          <choice>
+            <name>Magician: +2 dice for Detection Spells</name>
+            <translate>Magician: +2 dice for Detection Spells</translate>
+          </choice>
+          <choice>
+            <name>Adept: 2 free levels of Enhanced Perception</name>
+            <translate>Adept: 2 free levels of Enhanced Perception</translate>
+          </choice>
         </choices>
       </mentor>
       <mentor>
@@ -11334,6 +11589,14 @@
         <advantage>All: +2 dice pool modifier for Arcana Tests</advantage>
         <disadvantage>You hate mysteries with a passion and can disappear for days trying to track down the answer. When confronted by a particularly haunting question (gamemaster’s discretion), you must take a Willpower + Intuition (3) Test. Failure means you must undertake an Intuition + Logic [Mental] (5, 1 hour) Extended Test to try researching the answer. Completion of the Extended Test does not necessarily mean you found the answer, but it at least silences the question in your mind for the time being. When a follower of Oracle becomes a Grade 1 initiate, she must choose Divination for her first metamagic rather than a Power Point or any other benefit.</disadvantage>
         <choices>
+          <choice>
+            <name>Magician: +2 dice for Detection Spells</name>
+            <translate>Magician: +2 dice for Detection Spells</translate>
+          </choice>
+          <choice>
+            <name>Adept: Free Astral Perception</name>
+            <translate>Adept: Free Astral Perception</translate>
+          </choice>
           <choice>
             <name>Magician: +2 dice for Detection Spells</name>
             <translate>Magician: +2 dice for Detection Spells</translate>
@@ -11407,6 +11670,36 @@
           <choice>
             <name>Adept: Free Plague Cloud</name>
             <translate>Adept: Free Plague Cloud</translate>
+          </choice>
+          <choice>
+            <name>Magician: +2 dice for summoning or binding plague spirits</name>
+            <translate>Magician: +2 dice for summoning or binding plague spirits</translate>
+          </choice>
+          <choice>
+            <name>Adept: Free Plague Cloud</name>
+            <translate>Adept: Free Plague Cloud</translate>
+          </choice>
+        </choices>
+      </mentor>
+      <mentor>
+        <id>1bd89b48-f900-476f-9278-1128ecdd6f14</id>
+        <name>Raven (German)</name>
+        <translate>Raven (German)</translate>
+        <page>323</page>
+        <advantage>All: +2 dice for Con tests.</advantage>
+        <disadvantage>You must make a Charisma + Willpower (3) Test to avoid exploiting someone else’s misfortune to your own advantage or to pull a clever trick or prank even if it’s to the disadvantage of your friends.</disadvantage>
+        <choices>
+          <choice>
+            <name>Magician: +2 dice for Manipulation spells</name>
+            <translate>Magician: +2 dice for Manipulation spells</translate>
+          </choice>
+          <choice>
+            <name>Adept: Free Traceless Walk</name>
+            <translate>Adept: Free Traceless Walk</translate>
+          </choice>
+          <choice>
+            <name>Adept: 1 level of Voice Control</name>
+            <translate>Adept: 1 level of Voice Control</translate>
           </choice>
         </choices>
       </mentor>
@@ -17622,18 +17915,6 @@
         <page>3be36e78-0786-45e6-bc72-6269b75c3f29</page>
       </vehicle>
       <vehicle>
-        <id>4261d97f-2a4f-4ed3-91a4-64a69a549e37</id>
-        <name>Horizon Flying Eye (Microdrone)</name>
-        <translate>Horizon Flying Eye (Microdrone)</translate>
-        <page>4261d97f-2a4f-4ed3-91a4-64a69a549e37</page>
-      </vehicle>
-      <vehicle>
-        <id>fa4686b8-3886-4bd8-bda4-737050245208</id>
-        <name>Horizon Flying Eye w/Flash-Pak and Grenade (Microdrone)</name>
-        <translate>Horizon Flying Eye w/Flash-Pak and Grenade (Microdrone)</translate>
-        <page>fa4686b8-3886-4bd8-bda4-737050245208</page>
-      </vehicle>
-      <vehicle>
         <id>9604795c-03f2-46db-a86b-3fd16ea35c51</id>
         <name>Lockheed Optic-X2 (Small)</name>
         <translate>Lockheed Optic-X2 (Small)</translate>
@@ -17704,6 +17985,18 @@
         <name>Shiawase Caduceus 'CAD' 7 (Medium)</name>
         <translate>Shiawase Caduceus 'CAD' 7 (Medium)</translate>
         <page>d186dbc2-52e6-4804-94ca-7db96c2afdde</page>
+      </vehicle>
+      <vehicle>
+        <id>4261d97f-2a4f-4ed3-91a4-64a69a549e37</id>
+        <name>Horizon Flying Eye (Minidrone)</name>
+        <translate>Horizon Flying Eye (Minidrone)</translate>
+        <page>4261d97f-2a4f-4ed3-91a4-64a69a549e37</page>
+      </vehicle>
+      <vehicle>
+        <id>fa4686b8-3886-4bd8-bda4-737050245208</id>
+        <name>Horizon Flying Eye w/Flash-Pak and Grenade (Minidrone)</name>
+        <translate>Horizon Flying Eye w/Flash-Pak and Grenade (Minidrone)</translate>
+        <page>fa4686b8-3886-4bd8-bda4-737050245208</page>
       </vehicle>
     </vehicles>
     <mods>
@@ -18658,12 +18951,6 @@
         <page>23141cfc-e7c9-4af9-b4e0-a7f0443f1170</page>
       </weapon>
       <weapon>
-        <id>40bf3eed-b239-4521-ac1d-80a4e472451e</id>
-        <name>Ultimax Rain Forest Carbine </name>
-        <translate>Ultimax Rain Forest Carbine </translate>
-        <page>40bf3eed-b239-4521-ac1d-80a4e472451e</page>
-      </weapon>
-      <weapon>
         <id>01e0eee7-452b-4fd5-abe1-29145da4a5e6</id>
         <name>Yamaha Raiden</name>
         <translate>Yamaha Raiden</translate>
@@ -19370,6 +19657,12 @@
         <name>Ares Predator III</name>
         <translate>Ares Predator III</translate>
         <page>3a91672e-0588-45a6-b225-149624e813ac</page>
+      </weapon>
+      <weapon>
+        <id>40bf3eed-b239-4521-ac1d-80a4e472451e</id>
+        <name>Ultimax Rain Forest Carbine</name>
+        <translate>Ultimax Rain Forest Carbine</translate>
+        <page>40bf3eed-b239-4521-ac1d-80a4e472451e</page>
       </weapon>
     </weapons>
     <accessories>
@@ -20596,6 +20889,11 @@
         <translate>Default</translate>
         <page>258</page>
         <spirits>
+          <spirit translate="Courier Sprite">Courier Sprite</spirit>
+          <spirit translate="Crack Sprite">Crack Sprite</spirit>
+          <spirit translate="Data Sprite">Data Sprite</spirit>
+          <spirit translate="Fault Sprite">Fault Sprite</spirit>
+          <spirit translate="Machine Sprite">Machine Sprite</spirit>
           <spirit translate="Courier Sprite">Courier Sprite</spirit>
           <spirit translate="Crack Sprite">Crack Sprite</spirit>
           <spirit translate="Data Sprite">Data Sprite</spirit>

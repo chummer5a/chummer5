@@ -4206,26 +4206,26 @@ namespace Chummer
 				strReturn = strReturn.Replace("Disease DV", LanguageManager.Instance.GetString("String_SpellDiseaseDV"));
 				strReturn = strReturn.Replace("Radiation Power", LanguageManager.Instance.GetString("String_SpellRadiationPower"));
 
-				if (_blnExtended)
-				{
-					// Add +2 to the DV value if Extended is selected.
-					int intPos = strReturn.IndexOf(')') + 1;
-					string strAfter = strReturn.Substring(intPos, strReturn.Length - intPos);
-					strReturn = strReturn.Remove(intPos, strReturn.Length - intPos);
-					if (strAfter == string.Empty)
-						strAfter = "+2";
-					else
-					{
-						int intValue = Convert.ToInt32(strAfter) + 2;
-						if (intValue == 0)
-							strAfter = "";
-						else if (intValue > 0)
-							strAfter = "+" + intValue.ToString();
-						else
-							strAfter = intValue.ToString();
-					}
-					strReturn += strAfter;
-				}
+                //if (_blnExtended)
+                //{
+                //    // Add +2 to the DV value if Extended is selected.
+                //    int intPos = strReturn.IndexOf(')') + 1;
+                //    string strAfter = strReturn.Substring(intPos, strReturn.Length - intPos);
+                //    strReturn = strReturn.Remove(intPos, strReturn.Length - intPos);
+                //    if (strAfter == string.Empty)
+                //        strAfter = "+2";
+                //    else
+                //    {
+                //        int intValue = Convert.ToInt32(strAfter) + 2;
+                //        if (intValue == 0)
+                //            strAfter = "";
+                //        else if (intValue > 0)
+                //            strAfter = "+" + intValue.ToString();
+                //        else
+                //            strAfter = intValue.ToString();
+                //    }
+                //    strReturn += strAfter;
+                //}
 
 				return strReturn;
 			}
@@ -7397,7 +7397,22 @@ namespace Chummer
 				return strReturn;
 			}
 		}
-		#endregion
+
+        /// <summary>
+        /// Notes attached to this technique.
+        /// </summary>
+        public string Notes
+        {
+            get
+            {
+                return _strNotes;
+            }
+            set
+            {
+                _strNotes = value;
+            }
+        }
+        #endregion
 	}
 
 	/// <summary>

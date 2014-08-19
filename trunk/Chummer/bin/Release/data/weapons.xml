@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-488</version>
+  <version>-487</version>
   <categories>
     <category>Blades</category>
     <category>Clubs</category>
@@ -358,7 +358,7 @@
       <damage>10P</damage>
       <ap>-2</ap>
       <mode>SA/BF/FA</mode>
-      <rc>2</rc>
+      <rc>0</rc>
       <ammo>35(c)</ammo>
       <avail>8R</avail>
       <cost>1500</cost>
@@ -645,18 +645,18 @@
     </weapon>
     <weapon>
       <id>40bf3eed-b239-4521-ac1d-80a4e472451e</id>
-      <name>Ultimax Rain Forest Carbine </name>
+      <name>Ultimax Rain Forest Carbine</name>
       <category>Assault Rifles</category>
       <type>Ranged</type>
       <conceal>6</conceal>
-      <accuracy>7</accuracy>
+      <accuracy>5</accuracy>
       <reach>0</reach>
-      <damage>14P</damage>
-      <ap>-4</ap>
-      <mode>SA</mode>
+      <damage>11P</damage>
+      <ap>-2</ap>
+      <mode>SA/BF</mode>
       <rc>0</rc>
       <ammo>18(c)</ammo>
-      <avail>5R</avail>
+      <avail>8R</avail>
       <cost>2800</cost>
       <allowaccessory>true</allowaccessory>
       <accessorymounts>
@@ -3821,7 +3821,7 @@
       <damage>7P</damage>
       <ap>-</ap>
       <mode>SA/BF</mode>
-      <rc>2</rc>
+      <rc>0</rc>
       <ammo>40(c)</ammo>
       <avail>9R</avail>
       <cost>830</cost>
@@ -6592,7 +6592,7 @@
     <accessory>
       <id>627f212a-ac15-4739-afbc-f44676dfe508</id>
       <name>Gecko Grip</name>
-      <mount>Stock</mount>
+      <mount />
       <avail>6</avail>
       <cost>100</cost>
       <source>RG</source>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-495</version>
+  <version>-494</version>
   <categories>
     <category>Bikes</category>
     <category>Cars</category>
@@ -880,8 +880,8 @@
     </vehicle>
     <vehicle>
       <id>4261d97f-2a4f-4ed3-91a4-64a69a549e37</id>
-      <name>Horizon Flying Eye (Microdrone)</name>
-      <category>Drones: Micro</category>
+      <name>Horizon Flying Eye (Minidrone)</name>
+      <category>Drones: Mini</category>
       <handling>4</handling>
       <accel>2</accel>
       <speed>3</speed>
@@ -900,8 +900,8 @@
     </vehicle>
     <vehicle>
       <id>fa4686b8-3886-4bd8-bda4-737050245208</id>
-      <name>Horizon Flying Eye w/Flash-Pak and Grenade (Microdrone)</name>
-      <category>Drones: Micro</category>
+      <name>Horizon Flying Eye w/Flash-Pak and Grenade (Minidrone)</name>
+      <category>Drones: Mini</category>
       <handling>4</handling>
       <accel>2</accel>
       <speed>3</speed>
@@ -916,7 +916,7 @@
         <gear rating="3">Sensor Array</gear>
       </gears>
       <avail>8</avail>
-      <cost>2000</cost>
+      <cost>2500</cost>
       <source>SR5</source>
       <page>465</page>
     </vehicle>
@@ -945,6 +945,7 @@
       <name>Aztechnology Crawler (Small)</name>
       <category>Drones: Small</category>
       <handling>4</handling>
+      <devicerating>4</devicerating>
       <accel>1</accel>
       <speed>3</speed>
       <pilot>4</pilot>

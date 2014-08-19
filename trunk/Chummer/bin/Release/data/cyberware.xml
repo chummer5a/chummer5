@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-497</version>
+  <version>-496</version>
   <grades>
     <grade>
       <id>23382221-fd16-44ec-8da7-9b935ed2c1ee</id>
@@ -200,6 +200,21 @@
         <skillsoftaccess />
       </bonus>
       <source>SR5</source>
+      <page>452</page>
+    </cyberware>
+    <cyberware>
+      <id>c533c0db-3a04-4fdd-95f9-d4d9781a3e79</id>
+      <name>Skilljack (German)</name>
+      <category>Headware</category>
+      <rating>6</rating>
+      <ess>Rating * 0.1</ess>
+      <capacity>0</capacity>
+      <avail>Rating * 2</avail>
+      <cost>Rating * 1000</cost>
+      <bonus>
+        <skillsoftaccess />
+      </bonus>
+      <source>SR5G</source>
       <page>452</page>
     </cyberware>
     <cyberware>

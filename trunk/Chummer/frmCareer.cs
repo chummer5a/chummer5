@@ -327,7 +327,146 @@ namespace Chummer
 			cboTradition.DisplayMember = "Name";
 			cboTradition.DataSource = lstTraditions;
 
-			// Populate the Technomancer Streams list.
+            // Populate the Magician Custom Drain Options list.
+            objXmlDocument = XmlManager.Instance.Load("traditions.xml");
+            List<ListItem> lstDrainAttributes = new List<ListItem>();
+            ListItem objDrainBlank = new ListItem();
+            objDrainBlank.Value = "";
+            objDrainBlank.Name = "";
+            lstDrainAttributes.Add(objDrainBlank);
+            foreach (XmlNode objXmlDrain in objXmlDocument.SelectNodes("/chummer/drainattributes/drainattribute"))
+            {
+                ListItem objItem = new ListItem();
+                objItem.Value = objXmlDrain["name"].InnerText;
+                if (objXmlDrain["translate"] != null)
+                    objItem.Name = objXmlDrain["translate"].InnerText;
+                else
+                    objItem.Name = objXmlDrain["name"].InnerText;
+                lstDrainAttributes.Add(objItem);
+            }
+            SortListItem objDrainSort = new SortListItem();
+            lstDrainAttributes.Sort(objDrainSort.Compare);
+            cboDrain.ValueMember = "Value";
+            cboDrain.DisplayMember = "Name";
+            cboDrain.DataSource = lstDrainAttributes;
+
+            // Populate the Magician Custom Spirits lists - Combat.
+            objXmlDocument = XmlManager.Instance.Load("traditions.xml");
+            List<ListItem> lstSpirit = new List<ListItem>();
+            ListItem objSpiritBlank = new ListItem();
+            objSpiritBlank.Value = "";
+            objSpiritBlank.Name = "";
+            lstSpirit.Add(objSpiritBlank);
+            foreach (XmlNode objXmlSpirit in objXmlDocument.SelectNodes("/chummer/spirits/spirit"))
+            {
+                ListItem objItem = new ListItem();
+                objItem.Value = objXmlSpirit["name"].InnerText;
+                if (objXmlSpirit["translate"] != null)
+                    objItem.Name = objXmlSpirit["translate"].InnerText;
+                else
+                    objItem.Name = objXmlSpirit["name"].InnerText;
+                lstSpirit.Add(objItem);
+            }
+            SortListItem objSpiritSort = new SortListItem();
+            lstSpirit.Sort(objSpiritSort.Compare);
+
+            cboSpiritCombat.ValueMember = "Value";
+            cboSpiritCombat.DisplayMember = "Name";
+            cboSpiritCombat.DataSource = lstSpirit;
+
+            // Populate the Magician Custom Spirits lists - Detection.
+            lstSpirit = new List<ListItem>();
+            objSpiritBlank = new ListItem();
+            objSpiritBlank.Value = "";
+            objSpiritBlank.Name = "";
+            lstSpirit.Add(objSpiritBlank);
+            foreach (XmlNode objXmlSpirit in objXmlDocument.SelectNodes("/chummer/spirits/spirit"))
+            {
+                ListItem objItem = new ListItem();
+                objItem.Value = objXmlSpirit["name"].InnerText;
+                if (objXmlSpirit["translate"] != null)
+                    objItem.Name = objXmlSpirit["translate"].InnerText;
+                else
+                    objItem.Name = objXmlSpirit["name"].InnerText;
+                lstSpirit.Add(objItem);
+            }
+            objSpiritSort = new SortListItem();
+            lstSpirit.Sort(objSpiritSort.Compare);
+
+            cboSpiritDetection.ValueMember = "Value";
+            cboSpiritDetection.DisplayMember = "Name";
+            cboSpiritDetection.DataSource = lstSpirit;
+
+            // Populate the Magician Custom Spirits lists - Health.
+            lstSpirit = new List<ListItem>();
+            objSpiritBlank = new ListItem();
+            objSpiritBlank.Value = "";
+            objSpiritBlank.Name = "";
+            lstSpirit.Add(objSpiritBlank);
+            foreach (XmlNode objXmlSpirit in objXmlDocument.SelectNodes("/chummer/spirits/spirit"))
+            {
+                ListItem objItem = new ListItem();
+                objItem.Value = objXmlSpirit["name"].InnerText;
+                if (objXmlSpirit["translate"] != null)
+                    objItem.Name = objXmlSpirit["translate"].InnerText;
+                else
+                    objItem.Name = objXmlSpirit["name"].InnerText;
+                lstSpirit.Add(objItem);
+            }
+            objSpiritSort = new SortListItem();
+            lstSpirit.Sort(objSpiritSort.Compare);
+
+            cboSpiritHealth.ValueMember = "Value";
+            cboSpiritHealth.DisplayMember = "Name";
+            cboSpiritHealth.DataSource = lstSpirit;
+
+            // Populate the Magician Custom Spirits lists - Illusion.
+            lstSpirit = new List<ListItem>();
+            objSpiritBlank = new ListItem();
+            objSpiritBlank.Value = "";
+            objSpiritBlank.Name = "";
+            lstSpirit.Add(objSpiritBlank);
+            foreach (XmlNode objXmlSpirit in objXmlDocument.SelectNodes("/chummer/spirits/spirit"))
+            {
+                ListItem objItem = new ListItem();
+                objItem.Value = objXmlSpirit["name"].InnerText;
+                if (objXmlSpirit["translate"] != null)
+                    objItem.Name = objXmlSpirit["translate"].InnerText;
+                else
+                    objItem.Name = objXmlSpirit["name"].InnerText;
+                lstSpirit.Add(objItem);
+            }
+            objSpiritSort = new SortListItem();
+            lstSpirit.Sort(objSpiritSort.Compare);
+
+            cboSpiritIllusion.ValueMember = "Value";
+            cboSpiritIllusion.DisplayMember = "Name";
+            cboSpiritIllusion.DataSource = lstSpirit;
+
+            // Populate the Magician Custom Spirits lists - Manipulation.
+            lstSpirit = new List<ListItem>();
+            objSpiritBlank = new ListItem();
+            objSpiritBlank.Value = "";
+            objSpiritBlank.Name = "";
+            lstSpirit.Add(objSpiritBlank);
+            foreach (XmlNode objXmlSpirit in objXmlDocument.SelectNodes("/chummer/spirits/spirit"))
+            {
+                ListItem objItem = new ListItem();
+                objItem.Value = objXmlSpirit["name"].InnerText;
+                if (objXmlSpirit["translate"] != null)
+                    objItem.Name = objXmlSpirit["translate"].InnerText;
+                else
+                    objItem.Name = objXmlSpirit["name"].InnerText;
+                lstSpirit.Add(objItem);
+            }
+            objSpiritSort = new SortListItem();
+            lstSpirit.Sort(objSpiritSort.Compare);
+
+            cboSpiritManipulation.ValueMember = "Value";
+            cboSpiritManipulation.DisplayMember = "Name";
+            cboSpiritManipulation.DataSource = lstSpirit;
+
+            // Populate the Technomancer Streams list.
 			objXmlDocument = XmlManager.Instance.Load("streams.xml");
 			List<ListItem> lstStreams = new List<ListItem>();
 			lstStreams.Add(objBlank);
@@ -815,7 +954,15 @@ namespace Chummer
 					TreeNode objAdvantageNode = new TreeNode();
 					objAdvantageNode.Text = objAdvantage.DisplayName;
 					objAdvantageNode.Tag = objAdvantage.InternalId;
-					objMartialArtNode.Nodes.Add(objAdvantageNode);
+                    objAdvantageNode.ContextMenuStrip = cmsTechnique;
+
+                    if (objAdvantage.Notes != string.Empty)
+                        objAdvantageNode.ForeColor = Color.SaddleBrown;
+                    else
+                        objAdvantageNode.ForeColor = SystemColors.WindowText;
+
+                    objAdvantageNode.ToolTipText = objAdvantage.Notes;
+                    objMartialArtNode.Nodes.Add(objAdvantageNode);
 					objMartialArtNode.Expand();
 				}
 
@@ -984,7 +1131,28 @@ namespace Chummer
 			if (_objCharacter.MagicTradition != "")
 				cboTradition.SelectedValue = _objCharacter.MagicTradition;
 
-			// Select the Technomancer's Stream.
+            if (_objCharacter.TraditionName != "")
+                txtTraditionName.Text = _objCharacter.TraditionName;
+
+            if (_objCharacter.TraditionDrain != "")
+                cboDrain.SelectedValue = _objCharacter.TraditionDrain;
+
+            if (_objCharacter.SpiritCombat != "")
+                cboSpiritCombat.SelectedValue = _objCharacter.SpiritCombat;
+
+            if (_objCharacter.SpiritDetection != "")
+                cboSpiritDetection.SelectedValue = _objCharacter.SpiritDetection;
+
+            if (_objCharacter.SpiritHealth != "")
+                cboSpiritHealth.SelectedValue = _objCharacter.SpiritHealth;
+
+            if (_objCharacter.SpiritIllusion != "")
+                cboSpiritIllusion.SelectedValue = _objCharacter.SpiritIllusion;
+
+            if (_objCharacter.SpiritManipulation != "")
+                cboSpiritManipulation.SelectedValue = _objCharacter.SpiritManipulation;
+
+            // Select the Technomancer's Stream.
 			if (_objCharacter.TechnomancerStream != "")
 				cboStream.SelectedValue = _objCharacter.TechnomancerStream;
 
@@ -8157,9 +8325,55 @@ namespace Chummer
 				_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Quality, objQuality.InternalId);
 			}
 
+            // If the Quality is a mentor spirit, add any qualities particular to the mentor spirit.
+            if (objQuality.Name == "Mentor Spirit")
+            {
+                XmlDocument objXmlMentors = XmlManager.Instance.Load("mentors.xml");
+                XmlNode objXmlMentor = objXmlMentors.SelectSingleNode("/chummer/mentors/mentor[name = \"" + objQuality.Extra + "\"]");
+                XmlNode objXmlAddQualities = objXmlMentor["addqualities"];
+
+                // If there are additional qualities
+                if (objXmlAddQualities != null)
+                {
+                    foreach (XmlNode objXmlAddQuality in objXmlAddQualities.ChildNodes)
+                    {
+                        XmlNode objXmlMentorQuality = objXmlDocument.SelectSingleNode("/chummer/qualities/quality[name = \"" + objXmlAddQuality.InnerText + "\"]");
+
+                        TreeNode objMentorNode = new TreeNode();
+                        List<Weapon> objMentorWeapons = new List<Weapon>();
+                        List<TreeNode> objMentorWeaponNodes = new List<TreeNode>();
+                        Quality objSpiritQuality = new Quality(_objCharacter);
+                        string strExtra = "";
+                        if (objXmlAddQuality.Attributes["select"].InnerText.ToString().Length > 0)
+                        {
+                            strExtra = objXmlAddQuality.Attributes["select"].InnerText.ToString();
+                            objSpiritQuality.Create(objXmlMentorQuality, _objCharacter, QualitySource.Selected, objMentorNode, objMentorWeapons, objMentorWeaponNodes, strExtra);
+                        }
+                        else
+                            objSpiritQuality.Create(objXmlMentorQuality, _objCharacter, QualitySource.Selected, objMentorNode, objMentorWeapons, objMentorWeaponNodes);
+
+                        objSpiritQuality.BP = 0;
+
+                        // Add the quality to the character
+                        if (objSpiritQuality.Type == QualityType.Positive)
+                        {
+                            treQualities.Nodes[0].Nodes.Add(objMentorNode);
+                            treQualities.Nodes[0].Expand();
+                        }
+                        else
+                        {
+                            treQualities.Nodes[1].Nodes.Add(objMentorNode);
+                            treQualities.Nodes[1].Expand();
+                        }
+                        _objCharacter.Qualities.Add(objSpiritQuality);
+                    }
+                }
+            }
+
 			_objFunctions.SortTree(treQualities);
 			UpdateMentorSpirits();
 			UpdateCharacterInfo();
+            RefreshPowers();
 
 			_blnIsDirty = true;
 			UpdateWindowTitle();
@@ -10425,13 +10639,6 @@ namespace Chummer
 
 				MartialArt objMartialArt = _objFunctions.FindMartialArt(treMartialArts.SelectedNode.Tag.ToString(), _objCharacter.MartialArts);
 
-				// Make sure the user is not trying to add more Advantages than they are allowed (1 per Rating for the selected Martial Art).
-                //if (objMartialArt.Advantages.Count >= objMartialArt.Rating && !_objCharacter.IgnoreRules)
-                //{
-                //    MessageBox.Show(LanguageManager.Instance.GetString("Message_MartialArtAdvantageLimit").Replace("{0}", objMartialArt.DisplayNameShort), LanguageManager.Instance.GetString("MessageTitle_MartialArtAdvantageLimit"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    return;
-                //}
-
 				frmSelectMartialArtAdvantage frmPickMartialArtAdvantage = new frmSelectMartialArtAdvantage(_objCharacter);
 				frmPickMartialArtAdvantage.MartialArt = objMartialArt.Name;
 				frmPickMartialArtAdvantage.ShowDialog(this);
@@ -10453,6 +10660,7 @@ namespace Chummer
 
 				objMartialArt.Advantages.Add(objAdvantage);
 
+                objNode.ContextMenuStrip = cmsTechnique;
 				treMartialArts.SelectedNode.Nodes.Add(objNode);
 				treMartialArts.SelectedNode.Expand();
 
@@ -14899,7 +15107,36 @@ namespace Chummer
 						treMartialArts.SelectedNode.ForeColor = SystemColors.WindowText;
 					treMartialArts.SelectedNode.ToolTipText = objMartialArt.Notes;
 				}
-			}
+
+                blnFound = false;
+                MartialArtAdvantage objTechnique = _objFunctions.FindMartialArtAdvantage(treMartialArts.SelectedNode.Tag.ToString(), _objCharacter.MartialArts, out objMartialArt);
+                if (objTechnique != null)
+                    blnFound = true;
+
+                if (blnFound)
+                {
+                    frmNotes frmItemNotes = new frmNotes();
+                    frmItemNotes.Notes = objTechnique.Notes;
+                    string strOldValue = objTechnique.Notes;
+                    frmItemNotes.ShowDialog(this);
+
+                    if (frmItemNotes.DialogResult == DialogResult.OK)
+                    {
+                        objTechnique.Notes = frmItemNotes.Notes;
+                        if (objTechnique.Notes != strOldValue)
+                        {
+                            _blnIsDirty = true;
+                            UpdateWindowTitle();
+                        }
+                    }
+
+                    if (objTechnique.Notes != string.Empty)
+                        treMartialArts.SelectedNode.ForeColor = Color.SaddleBrown;
+                    else
+                        treMartialArts.SelectedNode.ForeColor = SystemColors.WindowText;
+                    treMartialArts.SelectedNode.ToolTipText = objTechnique.Notes;
+                }
+            }
 			catch
 			{
 			}
@@ -18655,11 +18892,11 @@ namespace Chummer
 
 						if (_objImprovementManager.ValueOf(Improvement.ImprovementType.DrainResistance) != 0)
 							strTip += " + " + LanguageManager.Instance.GetString("Tip_Skill_DicePoolModifiers") + " (" + _objImprovementManager.ValueOf(Improvement.ImprovementType.DrainResistance).ToString() + ")";
-						if (objSpell.Limited)
-						{
-							intDrain += 2;
-							strTip += " + " + LanguageManager.Instance.GetString("String_SpellLimited") + " (2)";
-						}
+                        //if (objSpell.Limited)
+                        //{
+                        //    intDrain += 2;
+                        //    strTip += " + " + LanguageManager.Instance.GetString("String_SpellLimited") + " (2)";
+                        //}
 						lblDrainAttributesValue.Text = intDrain.ToString();
 						tipTooltip.SetToolTip(lblDrainAttributesValue, strTip);
 					}
@@ -19204,21 +19441,64 @@ namespace Chummer
 
 			XmlDocument objXmlDocument = XmlManager.Instance.Load("traditions.xml");
 
-			XmlNode objXmlTradition = objXmlDocument.SelectSingleNode("/chummer/traditions/tradition[name = \"" + cboTradition.SelectedValue + "\"]");
-			lblDrainAttributes.Text = objXmlTradition["drain"].InnerText;
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("BOD", LanguageManager.Instance.GetString("String_AttributeBODShort"));
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("AGI", LanguageManager.Instance.GetString("String_AttributeAGIShort"));
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("REA", LanguageManager.Instance.GetString("String_AttributeREAShort"));
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("STR", LanguageManager.Instance.GetString("String_AttributeSTRShort"));
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("CHA", LanguageManager.Instance.GetString("String_AttributeCHAShort"));
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("INT", LanguageManager.Instance.GetString("String_AttributeINTShort"));
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("LOG", LanguageManager.Instance.GetString("String_AttributeLOGShort"));
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("WIL", LanguageManager.Instance.GetString("String_AttributeWILShort"));
-			lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("MAG", LanguageManager.Instance.GetString("String_AttributeMAGShort"));
-			_objCharacter.MagicTradition = cboTradition.SelectedValue.ToString();
+            XmlNode objXmlTradition = objXmlDocument.SelectSingleNode("/chummer/traditions/tradition[name = \"" + cboTradition.SelectedValue + "\"]");
 
-			foreach (SpiritControl objSpiritControl in panSpirits.Controls)
-				objSpiritControl.RebuildSpiritList(cboTradition.SelectedValue.ToString());
+            if (objXmlTradition["name"].InnerText == "Custom")
+            {
+                cboDrain.Visible = true;
+                lblTraditionName.Visible = true;
+                txtTraditionName.Visible = true;
+                lblSpiritCombat.Visible = true;
+                lblSpiritDetection.Visible = true;
+                lblSpiritHealth.Visible = true;
+                lblSpiritIllusion.Visible = true;
+                lblSpiritManipulation.Visible = true;
+                cboSpiritCombat.Visible = true;
+                cboSpiritDetection.Visible = true;
+                cboSpiritHealth.Visible = true;
+                cboSpiritIllusion.Visible = true;
+                cboSpiritManipulation.Visible = true;
+
+                if (txtTraditionName.Text == "")
+                    _objCharacter.MagicTradition = cboTradition.SelectedValue.ToString();
+                else
+                    _objCharacter.MagicTradition = txtTraditionName.Text;
+
+                if (cboDrain.SelectedIndex != 0)
+                    lblDrainAttributes.Text = cboDrain.Text;
+            }
+            else
+            {
+                cboDrain.Visible = false;
+                lblTraditionName.Visible = false;
+                txtTraditionName.Visible = false;
+                lblSpiritCombat.Visible = false;
+                lblSpiritDetection.Visible = false;
+                lblSpiritHealth.Visible = false;
+                lblSpiritIllusion.Visible = false;
+                lblSpiritManipulation.Visible = false;
+                cboSpiritCombat.Visible = false;
+                cboSpiritDetection.Visible = false;
+                cboSpiritHealth.Visible = false;
+                cboSpiritIllusion.Visible = false;
+                cboSpiritManipulation.Visible = false;
+
+                lblDrainAttributes.Text = objXmlTradition["drain"].InnerText;
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("BOD", LanguageManager.Instance.GetString("String_AttributeBODShort"));
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("AGI", LanguageManager.Instance.GetString("String_AttributeAGIShort"));
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("REA", LanguageManager.Instance.GetString("String_AttributeREAShort"));
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("STR", LanguageManager.Instance.GetString("String_AttributeSTRShort"));
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("CHA", LanguageManager.Instance.GetString("String_AttributeCHAShort"));
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("INT", LanguageManager.Instance.GetString("String_AttributeINTShort"));
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("LOG", LanguageManager.Instance.GetString("String_AttributeLOGShort"));
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("WIL", LanguageManager.Instance.GetString("String_AttributeWILShort"));
+                lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("MAG", LanguageManager.Instance.GetString("String_AttributeMAGShort"));
+                _objCharacter.MagicTradition = cboTradition.SelectedValue.ToString();
+
+                foreach (SpiritControl objSpiritControl in panSpirits.Controls)
+                    objSpiritControl.RebuildSpiritList(cboTradition.SelectedValue.ToString());
+
+            }
 
 			UpdateCharacterInfo();
 
@@ -27534,6 +27814,145 @@ namespace Chummer
         private void panEnemies_Click(object sender, System.EventArgs e)
         {
             panEnemies.Focus();
+        }
+
+        private void tsAddTechniqueNotes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool blnFound = false;
+                MartialArt objMartialArt = new MartialArt(_objCharacter);
+                MartialArtAdvantage objTechnique = _objFunctions.FindMartialArtAdvantage(treMartialArts.SelectedNode.Tag.ToString(), _objCharacter.MartialArts, out objMartialArt);
+                if (objTechnique != null)
+                    blnFound = true;
+
+                if (blnFound)
+                {
+                    frmNotes frmItemNotes = new frmNotes();
+                    frmItemNotes.Notes = objTechnique.Notes;
+                    string strOldValue = objTechnique.Notes;
+                    frmItemNotes.ShowDialog(this);
+
+                    if (frmItemNotes.DialogResult == DialogResult.OK)
+                    {
+                        objTechnique.Notes = frmItemNotes.Notes;
+                        if (objTechnique.Notes != strOldValue)
+                        {
+                            _blnIsDirty = true;
+                            UpdateWindowTitle();
+                        }
+                    }
+
+                    if (objTechnique.Notes != string.Empty)
+                        treMartialArts.SelectedNode.ForeColor = Color.SaddleBrown;
+                    else
+                        treMartialArts.SelectedNode.ForeColor = SystemColors.WindowText;
+                    treMartialArts.SelectedNode.ToolTipText = objTechnique.Notes;
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        private void cboDrain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_blnLoading || cboDrain.SelectedValue.ToString() == string.Empty)
+                return;
+
+            _objCharacter.TraditionDrain = cboDrain.Text;
+            lblDrainAttributes.Text = cboDrain.Text;
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("BOD", LanguageManager.Instance.GetString("String_AttributeBODShort"));
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("AGI", LanguageManager.Instance.GetString("String_AttributeAGIShort"));
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("REA", LanguageManager.Instance.GetString("String_AttributeREAShort"));
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("STR", LanguageManager.Instance.GetString("String_AttributeSTRShort"));
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("CHA", LanguageManager.Instance.GetString("String_AttributeCHAShort"));
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("INT", LanguageManager.Instance.GetString("String_AttributeINTShort"));
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("LOG", LanguageManager.Instance.GetString("String_AttributeLOGShort"));
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("WIL", LanguageManager.Instance.GetString("String_AttributeWILShort"));
+            lblDrainAttributes.Text = lblDrainAttributes.Text.Replace("MAG", LanguageManager.Instance.GetString("String_AttributeMAGShort"));
+
+            UpdateCharacterInfo();
+
+            _blnIsDirty = true;
+            UpdateWindowTitle();
+        }
+
+        private void txtTraditionName_TextChanged(object sender, EventArgs e)
+        {
+            _objCharacter.TraditionName = txtTraditionName.Text;
+            _blnIsDirty = true;
+            UpdateWindowTitle(false);
+        }
+
+        private void cboSpiritCombat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_blnLoading || cboSpiritCombat.SelectedValue.ToString() == string.Empty)
+                return;
+
+            _objCharacter.SpiritCombat = cboSpiritCombat.Text;
+            foreach (SpiritControl objSpiritControl in panSpirits.Controls)
+                objSpiritControl.RebuildSpiritList(cboTradition.SelectedValue.ToString());
+
+            UpdateCharacterInfo();
+            _blnIsDirty = true;
+            UpdateWindowTitle(false);
+        }
+
+        private void cboSpiritDetection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_blnLoading || cboSpiritDetection.SelectedValue.ToString() == string.Empty)
+                return;
+
+            _objCharacter.SpiritDetection = cboSpiritDetection.Text;
+            foreach (SpiritControl objSpiritControl in panSpirits.Controls)
+                objSpiritControl.RebuildSpiritList(cboTradition.SelectedValue.ToString());
+
+            UpdateCharacterInfo();
+            _blnIsDirty = true;
+            UpdateWindowTitle(false);
+        }
+
+        private void cboSpiritHealth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_blnLoading || cboSpiritHealth.SelectedValue.ToString() == string.Empty)
+                return;
+
+            _objCharacter.SpiritHealth = cboSpiritHealth.Text;
+            foreach (SpiritControl objSpiritControl in panSpirits.Controls)
+                objSpiritControl.RebuildSpiritList(cboTradition.SelectedValue.ToString());
+
+            UpdateCharacterInfo();
+            _blnIsDirty = true;
+            UpdateWindowTitle(false);
+        }
+
+        private void cboSpiritIllusion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_blnLoading || cboSpiritIllusion.SelectedValue.ToString() == string.Empty)
+                return;
+
+            _objCharacter.SpiritIllusion = cboSpiritIllusion.Text;
+            foreach (SpiritControl objSpiritControl in panSpirits.Controls)
+                objSpiritControl.RebuildSpiritList(cboTradition.SelectedValue.ToString());
+
+            UpdateCharacterInfo();
+            _blnIsDirty = true;
+            UpdateWindowTitle(false);
+        }
+
+        private void cboSpiritManipulation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_blnLoading || cboSpiritManipulation.SelectedValue.ToString() == string.Empty)
+                return;
+
+            _objCharacter.SpiritManipulation = cboSpiritManipulation.Text;
+            foreach (SpiritControl objSpiritControl in panSpirits.Controls)
+                objSpiritControl.RebuildSpiritList(cboTradition.SelectedValue.ToString());
+
+            UpdateCharacterInfo();
+            _blnIsDirty = true;
+            UpdateWindowTitle(false);
         }
     }
 }

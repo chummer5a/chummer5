@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-499</version>
+  <version>-498</version>
   <martialarts>
     <martialart>
       <id>de351d4e-4384-4dda-a37f-e0e4537e1445</id>
@@ -1576,12 +1576,6 @@
         <technique>
           <name>Yielding Force (Throw)</name>
         </technique>
-        <technique>
-          <name>Neijia</name>
-        </technique>
-        <technique>
-          <name>Strike the Darkness</name>
-        </technique>
       </techniques>
       <source>RG</source>
       <page>127</page>
@@ -2033,11 +2027,13 @@
       <page>141</page>
     </technique>
     <technique>
+      <id>c512a3e7-5711-438e-b1e7-e02dbf996b85</id>
       <name>Neijia</name>
       <source>RG</source>
       <page>140</page>
     </technique>
     <technique>
+      <id>1ff5100c-6b10-453c-a05a-9af9110581e9</id>
       <name>Strike the Darkness</name>
       <source>RG</source>
       <page>141</page>

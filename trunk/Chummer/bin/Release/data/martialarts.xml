@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-499</version>
+  <version>-498</version>
   <martialarts>
     <martialart>
       <id>de351d4e-4384-4dda-a37f-e0e4537e1445</id>
@@ -23,6 +23,12 @@
         </technique>
         <technique>
           <name>Rooted Tree</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -50,6 +56,12 @@
         <technique>
           <name>Yielding Force (Throw)</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>128</page>
@@ -75,6 +87,12 @@
         </technique>
         <technique>
           <name>Two-Weapon Style Defense</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -102,6 +120,12 @@
         <technique>
           <name>Sweep</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>128</page>
@@ -127,6 +151,12 @@
         </technique>
         <technique>
           <name>Thunder Strike</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -154,6 +184,12 @@
         <technique>
           <name>Silken Storm</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>129</page>
@@ -179,6 +215,12 @@
         </technique>
         <technique>
           <name>Two-Headed Snake</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -206,6 +248,12 @@
         <technique>
           <name>Tricking</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>129</page>
@@ -231,6 +279,12 @@
         </technique>
         <technique>
           <name>Stagger</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -258,6 +312,12 @@
         <technique>
           <name>Ti Khao</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>129</page>
@@ -283,6 +343,12 @@
         </technique>
         <technique>
           <name>Two-Headed Snake</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -310,6 +376,12 @@
         <technique>
           <name>Yielding Force (Riposte)</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>130</page>
@@ -335,6 +407,12 @@
         </technique>
         <technique>
           <name>Oaken Stance (Defense Against Being Charged)</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -362,6 +440,12 @@
         <technique>
           <name>Stagger</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>130</page>
@@ -387,6 +471,12 @@
         </technique>
         <technique>
           <name>Yielding Force (Counterstrike)</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -414,6 +504,12 @@
         <technique>
           <name>Pouncing Dragon</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>130</page>
@@ -439,6 +535,12 @@
         </technique>
         <technique>
           <name>Throw Person</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -466,6 +568,12 @@
         <technique>
           <name>Yielding Force (Counterstrike)</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>131</page>
@@ -491,6 +599,12 @@
         </technique>
         <technique>
           <name>Opposing Force (Parry)</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -518,6 +632,12 @@
         <technique>
           <name>Imposing Stone</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>132</page>
@@ -543,6 +663,12 @@
         </technique>
         <technique>
           <name>Ti Khao</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -570,6 +696,12 @@
         <technique>
           <name>Yielding Force (Riposte)</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>132</page>
@@ -595,6 +727,12 @@
         </technique>
         <technique>
           <name>Tricking</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -625,6 +763,12 @@
         <technique>
           <name>Yielding Force (Riposte)</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>132</page>
@@ -650,6 +794,12 @@
         </technique>
         <technique>
           <name>Rooted Tree</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -677,6 +827,12 @@
         <technique>
           <name>Ti Khao</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>133</page>
@@ -702,6 +858,12 @@
         </technique>
         <technique>
           <name>Tricking</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -729,6 +891,12 @@
         <technique>
           <name>Sweep</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>133</page>
@@ -754,6 +922,12 @@
         </technique>
         <technique>
           <name>Shadow Block</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -781,6 +955,12 @@
         <technique>
           <name>Silken Storm</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>133</page>
@@ -806,6 +986,12 @@
         </technique>
         <technique>
           <name>Thunderstrike</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -833,6 +1019,12 @@
         <technique>
           <name>Tricking</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>133</page>
@@ -858,6 +1050,12 @@
         </technique>
         <technique>
           <name>Tricking</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -885,6 +1083,12 @@
         <technique>
           <name>Tricking</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>133</page>
@@ -910,6 +1114,12 @@
         </technique>
         <technique>
           <name>Thunder Strike</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -937,6 +1147,12 @@
         <technique>
           <name>Multiple Opponent Combat</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>134</page>
@@ -962,6 +1178,12 @@
         </technique>
         <technique>
           <name>Ti Khao</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -989,6 +1211,12 @@
         <technique>
           <name>Throw Person</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>134</page>
@@ -1014,6 +1242,12 @@
         </technique>
         <technique>
           <name>Throw Person</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -1041,6 +1275,12 @@
         <technique>
           <name>Yielding Force (Throw)</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>134</page>
@@ -1067,6 +1307,12 @@
         <technique>
           <name>Pouncing Dragon</name>
         </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
+        </technique>
       </techniques>
       <source>RG</source>
       <page>135</page>
@@ -1092,6 +1338,12 @@
         </technique>
         <technique>
           <name>Riposte</name>
+        </technique>
+        <technique>
+          <name>Neijia</name>
+        </technique>
+        <technique>
+          <name>Strike the Darkness</name>
         </technique>
       </techniques>
       <source>RG</source>
@@ -1771,6 +2023,18 @@
     <technique>
       <id>0dfdfe1c-a6ce-4233-a36a-d7856d655290</id>
       <name>Yielding Force (Throw)</name>
+      <source>RG</source>
+      <page>141</page>
+    </technique>
+    <technique>
+      <id>c512a3e7-5711-438e-b1e7-e02dbf996b85</id>
+      <name>Neijia</name>
+      <source>RG</source>
+      <page>140</page>
+    </technique>
+    <technique>
+      <id>1ff5100c-6b10-453c-a05a-9af9110581e9</id>
+      <name>Strike the Darkness</name>
       <source>RG</source>
       <page>141</page>
     </technique>

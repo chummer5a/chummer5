@@ -45,7 +45,7 @@ namespace Chummer
             List<ListItem> lstMentors = new List<ListItem>();
 
             // Populate the Mentor list.
-            XmlNodeList objXmlMentorList = _objXmlDocument.SelectNodes("/chummer/mentors/mentor");
+            XmlNodeList objXmlMentorList = _objXmlDocument.SelectNodes("/chummer/mentors/mentor[(" + _objCharacter.Options.BookXPath() + ")]");
             foreach (XmlNode objXmlMentor in objXmlMentorList)
             {
                 ListItem objItem = new ListItem();
