@@ -35,6 +35,7 @@ namespace Chummer
 		LeaveGroup = 21,
 		QuickeningMetamagic = 22,
         AddPowerPoint = 23,
+        AddSpecialization = 24,
 	}
 
 	public enum NuyenExpenseType
@@ -96,7 +97,9 @@ namespace Chummer
 					return KarmaExpenseType.AddQuality;
 				case "AddSkill":
 					return KarmaExpenseType.AddSkill;
-				case "AddSpell":
+                case "AddSpecialization":
+                    return KarmaExpenseType.AddSpecialization;
+                case "AddSpell":
 					return KarmaExpenseType.AddSpell;
 				case "BindFocus":
 					return KarmaExpenseType.BindFocus;

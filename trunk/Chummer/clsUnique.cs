@@ -1870,6 +1870,7 @@ namespace Chummer
 		private string _strSource = "";
 		private string _strPage = "";
         private bool _blnBuyWithKarma = false;
+        private List<SkillSpecialization> _lstSpecializations = new List<SkillSpecialization>();
 
 		private readonly Character _objCharacter;
 
@@ -1898,13 +1899,19 @@ namespace Chummer
             objWriter.WriteElementString("ratingmax", _intRatingMaximum.ToString());
 			objWriter.WriteElementString("knowledge", _blnKnowledgeSkill.ToString());
 			objWriter.WriteElementString("exotic", _blnExoticSkill.ToString());
-			objWriter.WriteElementString("spec", _strSkillSpec);
+			objWriter.WriteElementString("spec", "");
 			objWriter.WriteElementString("allowdelete", _blnAllowDelete.ToString());
             objWriter.WriteElementString("buywithkarma", _blnBuyWithKarma.ToString());
             objWriter.WriteElementString("attribute", _strAttribute);
 			objWriter.WriteElementString("source", _strSource);
 			objWriter.WriteElementString("page", _strPage);
-			// External reader friendly stuff.
+            objWriter.WriteStartElement("skillspecializations");
+            foreach (SkillSpecialization objSpec in _lstSpecializations)
+            {
+                objSpec.Save(objWriter);
+            }
+            objWriter.WriteEndElement();
+            // External reader friendly stuff.
 			objWriter.WriteElementString("totalvalue", TotalRating.ToString());
 			objWriter.WriteEndElement();
 		}
@@ -1957,9 +1964,27 @@ namespace Chummer
             if (objNode["spec"].InnerText.Contains("Hold-Outs"))
 				objNode["spec"].InnerText = "Holdouts";
 			_strSkillSpec = objNode["spec"].InnerText;
+
+            if (_strSkillSpec != "")
+            {
+                SkillSpecialization objSpec = new SkillSpecialization(_strSkillSpec);
+                _lstSpecializations.Add(objSpec);
+                _strSkillSpec = "";
+            }
+
 			_blnAllowDelete = Convert.ToBoolean(objNode["allowdelete"].InnerText);
 			_strAttribute = objNode["attribute"].InnerText;
-			try
+            if (objNode.InnerXml.Contains("skillspecializations"))
+            {
+                XmlNodeList nodSpecializations = objNode.SelectNodes("skillspecializations/skillspecialization");
+                foreach (XmlNode nodSpecialization in nodSpecializations)
+                {
+                    SkillSpecialization objSpec = new SkillSpecialization("");
+                    objSpec.Load(nodSpecialization);
+                    _lstSpecializations.Add(objSpec);
+                }
+            }
+            try
 			{
 				_strSource = objNode["source"].InnerText;
 				_strPage = objNode["page"].InnerText;
@@ -2019,7 +2044,7 @@ namespace Chummer
             objWriter.WriteElementString("buywithkarma", _blnBuyWithKarma.ToString());
             objWriter.WriteElementString("base", _intBase.ToString());
             objWriter.WriteElementString("karma", _intKarma.ToString());
-            objWriter.WriteElementString("spec", _strSkillSpec);
+            objWriter.WriteElementString("spec", Specialization);
 			objWriter.WriteElementString("attribute", strAttribute);
 			objWriter.WriteElementString("source", _objCharacter.Options.LanguageBookShort(_strSource));
 			objWriter.WriteElementString("page", Page);
@@ -2031,7 +2056,13 @@ namespace Chummer
 			objWriter.WriteElementString("poolmod", DicePoolModifiers.ToString());
 			objWriter.WriteElementString("islanguage", (_strSkillCategory == "Language").ToString());
 			objWriter.WriteElementString("bp", CalculatedBP().ToString());
-			objWriter.WriteEndElement();
+            objWriter.WriteStartElement("skillspecializations");
+            foreach (SkillSpecialization objSpec in _lstSpecializations)
+            {
+                objSpec.Print(objWriter);
+            }
+            objWriter.WriteEndElement();
+            objWriter.WriteEndElement();
 		}
 		#endregion
 
@@ -2080,7 +2111,18 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Selected Skill Specializations.
+        /// </summary>
+        public List<SkillSpecialization> Specializations
+        {
+            get
+            {
+                return _lstSpecializations;
+            }
+        }
+
+        /// <summary>
 		/// The name of the object as it should be displayed in lists. Name (Extra).
 		/// </summary>
 		public string DisplayName
@@ -2251,13 +2293,34 @@ namespace Chummer
 		{
 			get
 			{
-				return _strSkillSpec;
+                string strSpec = "";
+
+                foreach (SkillSpecialization objSpec in _lstSpecializations)
+                {
+                    if (strSpec != "")
+                        strSpec += "; ";
+                    strSpec += objSpec.Name;
+                }
+
+                return strSpec;
 			}
 			set
 			{
 				_strSkillSpec = value;
 			}
 		}
+
+        public bool HasSpecialization(string strSpec)
+        {
+            foreach (SkillSpecialization objSpec in _lstSpecializations)
+            {
+                if (objSpec.Name == strSpec)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
 		/// <summary>
 		/// Name of the Skill Group the Skill belongs to.
@@ -3416,6 +3479,86 @@ namespace Chummer
 		}
 		#endregion
 	}
+
+    /// <summary>
+    /// Type of Specialization
+    /// </summary>
+    public class SkillSpecialization
+    {
+		private Guid _guiID = new Guid();
+		private string _strName = "";
+
+		#region Constructor, Create, Save, Load, and Print Methods
+		public SkillSpecialization(string strName)
+		{
+            _strName = strName;
+            _guiID = Guid.NewGuid();
+		}
+
+		/// <summary>
+		/// Save the object's XML to the XmlWriter.
+		/// </summary>
+		/// <param name="objWriter">XmlTextWriter to write with.</param>
+		public void Save(XmlTextWriter objWriter)
+		{
+			objWriter.WriteStartElement("skillspecialization");
+            objWriter.WriteElementString("guid", _guiID.ToString());
+            objWriter.WriteElementString("name", _strName);
+			objWriter.WriteEndElement();
+		}
+
+		/// <summary>
+		/// Load the Attribute from the XmlNode.
+		/// </summary>
+		/// <param name="objNode">XmlNode to load.</param>
+		public void Load(XmlNode objNode)
+		{
+            _guiID = Guid.Parse(objNode["guid"].InnerText);
+            _strName = objNode["name"].InnerText;
+		}
+
+		/// <summary>
+		/// Print the object's XML to the XmlWriter.
+		/// </summary>
+		/// <param name="objWriter">XmlTextWriter to write with.</param>
+		public void Print(XmlTextWriter objWriter)
+		{
+
+			objWriter.WriteStartElement("skillspecialization");
+			objWriter.WriteElementString("name", Name);
+			objWriter.WriteEndElement();
+		}
+		#endregion
+
+		#region Properties
+        /// <summary>
+        /// Internal identifier which will be used to identify this Spell in the Improvement system.
+        /// </summary>
+        public string InternalId
+        {
+            get
+            {
+                return _guiID.ToString();
+            }
+        }
+
+        /// <summary>
+		/// Skill Specialization's name.
+		/// </summary>
+		public string Name
+		{
+			get
+			{
+				return _strName;
+			}
+			set
+			{
+				_strName = value;
+			}
+		}
+
+		#endregion
+    }
 
 	/// <summary>
 	/// Type of Spirit.
@@ -4585,28 +4728,28 @@ namespace Chummer
 					{
 						intReturn = objSkill.TotalRating;
 						// Add any Specialization bonus if applicable.
-						if (objSkill.Specialization == _strCategory)
+						if (objSkill.HasSpecialization(_strCategory))
 							intReturn += 2;
 					}
                     if (objSkill.Name == "Ritual Spellcasting" && !_blnAlchemical && _strCategory == "Rituals")
                     {
                         intReturn = objSkill.TotalRating;
                         // Add any Specialization bonus if applicable.
-                        if (objSkill.Specialization == _strCategory)
+                        if (objSkill.HasSpecialization(_strCategory))
                             intReturn += 2;
                     }
                     if (objSkill.Name == "Artificing" && !_blnAlchemical && _strCategory == "Enchantments")
                     {
                         intReturn = objSkill.TotalRating;
                         // Add any Specialization bonus if applicable.
-                        if (objSkill.Specialization == _strCategory)
+                        if (objSkill.HasSpecialization(_strCategory))
                             intReturn += 2;
                     }
                     if (objSkill.Name == "Alchemy" && _blnAlchemical)
                     {
                         intReturn = objSkill.TotalRating;
                         // Add any Specialization bonus if applicable.
-                        if (objSkill.Specialization == _strCategory)
+                        if (objSkill.HasSpecialization(_strCategory))
                             intReturn += 2;
                     }
                 }
@@ -4634,28 +4777,28 @@ namespace Chummer
                     {
                         strReturn = objSkill.DisplayName + " (" + objSkill.TotalRating.ToString() + ")";
                         // Add any Specialization bonus if applicable.
-                        if (objSkill.Specialization == _strCategory)
+                        if (objSkill.HasSpecialization(_strCategory))
                             strReturn += " + " + LanguageManager.Instance.GetString("String_ExpenseSpecialization") + ": " + DisplayCategory + " (2)";
                     }
                     if (objSkill.Name == "Ritual Spellcasting" && !_blnAlchemical && _strCategory == "Rituals")
                     {
                         strReturn = objSkill.DisplayName + " (" + objSkill.TotalRating.ToString() + ")";
                         // Add any Specialization bonus if applicable.
-                        if (objSkill.Specialization == _strCategory)
+                        if (objSkill.HasSpecialization(_strCategory))
                             strReturn += " + " + LanguageManager.Instance.GetString("String_ExpenseSpecialization") + ": " + DisplayCategory + " (2)";
                     }
                     if (objSkill.Name == "Artificing" && !_blnAlchemical && _strCategory == "Enchantments")
                     {
                         strReturn = objSkill.DisplayName + " (" + objSkill.TotalRating.ToString() + ")";
                         // Add any Specialization bonus if applicable.
-                        if (objSkill.Specialization == _strCategory)
+                        if (objSkill.HasSpecialization(_strCategory))
                             strReturn += " + " + LanguageManager.Instance.GetString("String_ExpenseSpecialization") + ": " + DisplayCategory + " (2)";
                     }
                     if (objSkill.Name == "Alchemy" && _blnAlchemical)
                     {
                         strReturn = objSkill.DisplayName + " (" + objSkill.TotalRating.ToString() + ")";
                         // Add any Specialization bonus if applicable.
-                        if (objSkill.Specialization == _strCategory)
+                        if (objSkill.HasSpecialization(_strCategory))
                             strReturn += " + " + LanguageManager.Instance.GetString("String_ExpenseSpecialization") + ": " + DisplayCategory + " (2)";
                     }
                 }

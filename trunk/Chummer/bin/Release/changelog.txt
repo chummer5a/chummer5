@@ -1,3 +1,8 @@
+Build 5.138 (beta)
+- Fixed the spelling on the name of the Evo Armadillo Armored Spacesuit.
+- Fixed the calculation of the Mortimer of London coats when dealing with unequipped armor.
+- Updated Chem Seal and Environmental Adaptation for Full Body Armor to be mods for Full Body Armor rather than armors themselves.
+
 Build 5.137 (beta)
 - Before anything else, I want to thank Geg (chummer5de@gmail.com) for going above and beyond working on the German translation for Chummer. A very large part of Chummer's data files have been translated into German by Geg over the last week and I cannot thank him enough for taking it upon himself to do this.
 - In order to resolve differences between the English and German printings, I've added a new book entitled "Shadowrun 5th Edition (German)".  I've attached to this book the German versions of the Raven Mentor Spirit and Skilljack Cyberware.  This should allow German players to use the versions printed in their books and other players to use them if their group is treating those rules as errata to the English book.

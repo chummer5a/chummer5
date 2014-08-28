@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-494</version>
+  <version>-493</version>
   <categories>
     <category>Armor</category>
     <category>Clothing</category>
@@ -80,6 +80,7 @@
       <category>Armor</category>
       <armor>15</armor>
       <armorcapacity>15</armorcapacity>
+      <addmodcategory>Full Body Mods</addmodcategory>
       <avail>14R</avail>
       <cost>2000</cost>
       <source>SR5</source>
@@ -93,28 +94,6 @@
       <armorcapacity>3</armorcapacity>
       <avail>0</avail>
       <cost>500</cost>
-      <source>SR5</source>
-      <page>437</page>
-    </armor>
-    <armor>
-      <id>38c48eae-c020-4a0c-a4ea-1aaacc9e42b1</id>
-      <name>Full Body Armor: Chemical Seal</name>
-      <category>Armor</category>
-      <armor>0</armor>
-      <armorcapacity>0</armorcapacity>
-      <avail>+6</avail>
-      <cost>6000</cost>
-      <source>SR5</source>
-      <page>437</page>
-    </armor>
-    <armor>
-      <id>f00f59a5-81e7-4295-91f4-961ceb2514b1</id>
-      <name>Full Body Armor: Environment Adaptation</name>
-      <category>Armor</category>
-      <armor>0</armor>
-      <armorcapacity>0</armorcapacity>
-      <avail>+3</avail>
-      <cost>1000</cost>
       <source>SR5</source>
       <page>437</page>
     </armor>
@@ -1672,7 +1651,7 @@
     </armor>
     <armor>
       <id>8c47595f-b22c-44b7-8191-a5fd04f6a07a</id>
-      <name>Evo Armadillow Armored Spacesuit</name>
+      <name>Evo Armadillo Armored Spacesuit</name>
       <category>Specialty Armor</category>
       <armor>16</armor>
       <armorcapacity>10</armorcapacity>
@@ -2217,6 +2196,28 @@
       <cost>1100</cost>
       <source>RG</source>
       <page>65</page>
+    </mod>
+    <mod>
+      <name>Full Body Armor: Chemical Seal</name>
+      <category>Full Body Mods</category>
+      <armor>0</armor>
+      <maxrating>1</maxrating>
+      <armorcapacity>[0]</armorcapacity>
+      <avail>+6</avail>
+      <cost>6000</cost>
+      <source>SR5</source>
+      <page>437</page>
+    </mod>
+    <mod>
+      <name>Full Body Armor: Environment Adaptation</name>
+      <category>Full Body Mods</category>
+      <armor>0</armor>
+      <maxrating>1</maxrating>
+      <armorcapacity>[0]</armorcapacity>
+      <avail>+3</avail>
+      <cost>1000</cost>
+      <source>SR5</source>
+      <page>437</page>
     </mod>
     <mod>
       <id>9a1a569f-4c0c-4291-af5b-89e1334e95b4</id>

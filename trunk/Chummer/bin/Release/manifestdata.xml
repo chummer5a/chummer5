@@ -3,10 +3,18 @@
   <file>
     <name>Chummer5.exe</name>
     <type>Application</type>
-    <version>0.0.5.137</version>
+    <version>0.0.5.138</version>
     <description>Chummer</description>
     <notes>- Chummer Application</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMeU9jcjNKNldfdkU</url>
+  </file>
+  <file>
+    <name>Translator.exe</name>
+    <type>Application</type>
+    <version>0.0.5.103</version>
+    <description>Translator</description>
+    <notes>- Translator Application</notes>
+    <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMenNnNHBTYWRkZDg</url>
   </file>
   <file>
     <name>sheets/Commlinks.xsl</name>
@@ -179,7 +187,7 @@
   <file>
     <name>data/armor.xml</name>
     <type>Data Files</type>
-    <version>-494</version>
+    <version>-493</version>
     <description>Armor</description>
     <notes>- Armor data file</notes>
     <url>https://docs.google.com/uc?export=download&amp;id=0B1j5wMS6KHqMWFFJenBqREhtNDA</url>

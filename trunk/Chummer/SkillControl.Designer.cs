@@ -44,6 +44,7 @@
             this.cmdBreakGroup = new System.Windows.Forms.Button();
             this.nudKarma = new System.Windows.Forms.NumericUpDown();
             this.chkKarma = new System.Windows.Forms.CheckBox();
+            this.lblSpec = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudSkill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKarma)).BeginInit();
             this.SuspendLayout();
@@ -232,10 +233,22 @@
             this.chkKarma.UseVisualStyleBackColor = true;
             this.chkKarma.CheckedChanged += new System.EventHandler(this.chkKarma_CheckedChanged);
             // 
+            // lblSpec
+            // 
+            this.lblSpec.AutoSize = true;
+            this.lblSpec.Location = new System.Drawing.Point(358, 5);
+            this.lblSpec.MaximumSize = new System.Drawing.Size(177, 0);
+            this.lblSpec.Name = "lblSpec";
+            this.lblSpec.Size = new System.Drawing.Size(35, 13);
+            this.lblSpec.TabIndex = 15;
+            this.lblSpec.Text = "label1";
+            this.lblSpec.Visible = false;
+            // 
             // SkillControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblSpec);
             this.Controls.Add(this.chkKarma);
             this.Controls.Add(this.nudKarma);
             this.Controls.Add(this.cmdBreakGroup);
@@ -279,5 +292,6 @@
 		private System.Windows.Forms.Button cmdBreakGroup;
         private System.Windows.Forms.NumericUpDown nudKarma;
         private System.Windows.Forms.CheckBox chkKarma;
+        private System.Windows.Forms.Label lblSpec;
     }
 }

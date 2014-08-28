@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- Text-Only Character Sheet -->
-<!-- Created by Keith Rudolph, krudolph@gmail.com -->
-<!-- Version -497 -->
+<!-- Formatted Text-Only Character Sheet -->
+<!-- Created by Adam Schmidt, srchummer5@gmail.com -->
+<!-- Version -500 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <xsl:template match="/characters/character">
@@ -1066,9 +1066,39 @@
                 </xsl:for-each>
             </xsl:if>
             <br/>&#160;&#160;&#160;Pool: <xsl:value-of select="dicepool"
-            />&#160;&#160;&#160;Accuracy: <xsl:value-of select="accuracy"/>&#160;&#160;&#160;DV:
-                <xsl:value-of select="damage"/>&#160;&#160;&#160;AP: <xsl:value-of select="ap"
-            />&#160;&#160;&#160;RC: <xsl:value-of select="rc"/>
+            />
+            <xsl:call-template name="for.loop">
+                <xsl:with-param name="i">
+                    <xsl:value-of select="string-length(dicepool)"/>
+                </xsl:with-param>
+                <xsl:with-param name="count">
+                    <xsl:value-of select="8"/>
+                </xsl:with-param>
+            </xsl:call-template>Accuracy: <xsl:value-of select="accuracy"/>
+            <xsl:call-template name="for.loop">
+                <xsl:with-param name="i">
+                    <xsl:value-of select="string-length(accuracy)"/>
+                </xsl:with-param>
+                <xsl:with-param name="count">
+                    <xsl:value-of select="5"/>
+                </xsl:with-param>
+            </xsl:call-template>DV: <xsl:value-of select="damage"/>
+            <xsl:call-template name="for.loop">
+                <xsl:with-param name="i">
+                    <xsl:value-of select="string-length(damage)"/>
+                </xsl:with-param>
+                <xsl:with-param name="count">
+                    <xsl:value-of select="8"/>
+                </xsl:with-param>
+            </xsl:call-template>AP: <xsl:value-of select="ap"/>
+            <xsl:call-template name="for.loop">
+                <xsl:with-param name="i">
+                    <xsl:value-of select="string-length(ap)"/>
+                </xsl:with-param>
+                <xsl:with-param name="count">
+                    <xsl:value-of select="5"/>
+                </xsl:with-param>
+            </xsl:call-template>RC: <xsl:value-of select="rc"/>
         </xsl:for-each>
     </xsl:template>
 

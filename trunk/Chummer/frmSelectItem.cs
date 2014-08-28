@@ -83,9 +83,14 @@ namespace Chummer
 			{
 				lstItems = _lstGeneralItems;
 			}
-			else if (_strMode == "Restricted")
-			{
-				cboAmmo.DropDownStyle = ComboBoxStyle.DropDown;
+            else if (_strMode == "Dropdown")
+            {
+                cboAmmo.DropDownStyle = ComboBoxStyle.DropDown;
+                lstItems = _lstGeneralItems;
+            }
+            else if (_strMode == "Restricted")
+            {
+                cboAmmo.DropDownStyle = ComboBoxStyle.DropDown;
 
                 if (!_objCharacter.Options.LicenseRestricted)
                 {
@@ -369,7 +374,7 @@ namespace Chummer
                         }
                     }
                 }
-			}
+            }
 
 			// Populate the lists.
 			cboAmmo.DataSource = lstItems;
@@ -482,7 +487,19 @@ namespace Chummer
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// List of general items that the user can select.
+        /// </summary>
+        public List<ListItem> DropdownItems
+        {
+            set
+            {
+                _lstGeneralItems = value;
+                _strMode = "Dropdown";
+            }
+        }
+
+        /// <summary>
 		/// Character object to search for Restricted items.
 		/// </summary>
 		public Character Character
