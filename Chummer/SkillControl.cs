@@ -109,6 +109,7 @@ namespace Chummer
 					cmdRoll.Visible = true;
 					this.Width += 30;
 					cboSpec.Left += 30;
+                    lblSpec.Left += 30;
 					cmdChangeSpec.Left += 30;
 					cboKnowledgeSkillCategory.Left += 30;
 					cmdDelete.Left += 30;
@@ -117,11 +118,18 @@ namespace Chummer
 				
 				if (!_objSkill.ExoticSkill)
 				{
+                    cboSpec.Visible = false;
+                    lblSpec.Visible = true;
+                    lblSpec.Text = _objSkill.Specialization;
 					cmdChangeSpec.Visible = true;
 					cboSpec.Enabled = false;
 				}
+                else
+                {
+                    cboSpec.Text = _objSkill.Specialization;
+                }
 
-				string strTip = LanguageManager.Instance.GetString("Tip_Skill_ChangeSpecialization").Replace("{0}", _objSkill.CharacterObject.Options.KarmaSpecialization.ToString());
+                string strTip = LanguageManager.Instance.GetString("Tip_Skill_AddSpecialization").Replace("{0}", _objSkill.CharacterObject.Options.KarmaSpecialization.ToString());
 				tipTooltip.SetToolTip(cmdChangeSpec, strTip);
 			}
 			if (KnowledgeSkill)
@@ -135,6 +143,8 @@ namespace Chummer
                     nudSkill.Enabled = false;
                 cmdBreakGroup.Visible = false;
             }
+
+            this.Height = lblSpec.Height + 10;
 
             chkKarma.Checked = _objSkill.BuyWithKarma;
 			lblAttribute.Text = _objSkill.DisplayAttribute;
@@ -171,13 +181,29 @@ namespace Chummer
         {
             // Raise the SpecializationChanged Event when the DropDownList's Value changes.
             // The entire SkillControl is passed as an argument so the handling event can evaluate its contents.
-			_objSkill.Specialization = cboSpec.Text;
-			if (_objSkill.Specialization.Trim() == string.Empty)
-			{
-				cboSpec.Text = "";
-				_objSkill.Specialization = "";
-			}
-			SpecializationChanged(this);
+            if (!_objSkill.CharacterObject.Created || _objSkill.ExoticSkill)
+            {
+                bool blnFound = false;
+                foreach (SkillSpecialization objSpec in _objSkill.Specializations)
+                {
+                    if (objSpec.Name == cboSpec.Text)
+                    {
+                        blnFound = true;
+                        break;
+                    }
+                }
+
+                if (!blnFound)
+                {
+                    _objSkill.Specializations.Clear();
+                    if (cboSpec.Text != string.Empty)
+                    {
+                        SkillSpecialization objSpec = new SkillSpecialization(cboSpec.Text);
+                        _objSkill.Specializations.Add(objSpec);
+                    }
+                    SpecializationChanged(this);
+                }
+            }
         }
 
         private void cmdDelete_Click(object sender, EventArgs e)
@@ -243,9 +269,92 @@ namespace Chummer
 
 		private void cmdChangeSpec_Click(object sender, EventArgs e)
 		{
-			_strOldSpec = cboSpec.Text;
-			cboSpec.Enabled = true;
-			cboSpec.Focus();
+            if (_objSkill.CharacterObject.Karma < _objSkill.CharacterObject.Options.KarmaSpecialization)
+            {
+                MessageBox.Show(LanguageManager.Instance.GetString("Message_NotEnoughKarma"), LanguageManager.Instance.GetString("MessageTitle_NotEnoughKarma"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            XmlDocument objXmlDocument = new XmlDocument();
+            objXmlDocument = XmlManager.Instance.Load("skills.xml");
+
+            // When the selected Knowledge Skill is changed, check the Skill file and build the pre-defined list of its Specializations (if any).
+            List<ListItem> lstSpecializations = new List<ListItem>();
+            XmlNode objXmlSkill;
+            if (_objSkill.KnowledgeSkill)
+            {
+                objXmlSkill = objXmlDocument.SelectSingleNode("/chummer/knowledgeskills/skill[name = \"" + _objSkill.Name + "\"]");
+                if (objXmlSkill == null)
+                    objXmlSkill = objXmlDocument.SelectSingleNode("/chummer/knowledgeskills/skill[translate = \"" + _objSkill.Name + "\"]");
+            }
+            else
+            {
+                objXmlSkill = objXmlDocument.SelectSingleNode("/chummer/skills/skill[name = \"" + _objSkill.Name + "\"]");
+                if (objXmlSkill == null)
+                    objXmlSkill = objXmlDocument.SelectSingleNode("/chummer/skills/skill[translate = \"" + _objSkill.Name + "\"]");
+            }
+            if (objXmlSkill != null)
+            {
+                if (!_blnSkipRefresh)
+                    cboKnowledgeSkillCategory.SelectedValue = objXmlSkill["category"].InnerText;
+                cboSpec.Items.Clear();
+                foreach (XmlNode objXmlSpecialization in objXmlSkill.SelectNodes("specs/spec"))
+                {
+                    bool blnFound = false;
+                    foreach(SkillSpecialization objSpecialization in _objSkill.Specializations)
+                    {
+                        if (objSpecialization.Name == objXmlSpecialization.InnerText)
+                        {
+                            blnFound = true;
+                            break;
+                        }
+                    }
+                    if (!blnFound)
+                    {
+                        ListItem objItem = new ListItem();
+                        if (objXmlSpecialization["translate"] != null)
+                            objItem.Name = objXmlSpecialization["translate"].InnerText;
+                        else
+                            objItem.Name = objXmlSpecialization.InnerText;
+                        objItem.Value = objItem.Name;
+                        lstSpecializations.Add(objItem);
+                    }
+                }
+            }
+
+            if (!ConfirmKarmaExpense(LanguageManager.Instance.GetString("Message_ConfirmKarmaExpenseSkillSpecialization").Replace("{0}", _objSkill.CharacterObject.Options.KarmaSpecialization.ToString())))
+                return;
+
+            frmSelectItem frmPickItem = new frmSelectItem();
+            frmPickItem.DropdownItems = lstSpecializations;
+            frmPickItem.ShowDialog();
+
+            if (frmPickItem.DialogResult == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            string strSelectedValue = frmPickItem.SelectedItem;
+
+            // charge the karma and add the spec
+            SkillSpecialization objSpec = new SkillSpecialization(strSelectedValue);
+            _objSkill.Specializations.Add(objSpec);
+
+            // Create the Expense Log Entry.
+            ExpenseLogEntry objEntry = new ExpenseLogEntry();
+            objEntry.Create(_objSkill.CharacterObject.Options.KarmaSpecialization * -1, LanguageManager.Instance.GetString("String_ExpenseLearnSpecialization") + " " + _objSkill.Name + " (" + strSelectedValue + ")", ExpenseType.Karma, DateTime.Now);
+            _objSkill.CharacterObject.ExpenseEntries.Add(objEntry);
+            _objSkill.CharacterObject.Karma -= _objSkill.CharacterObject.Options.KarmaSpecialization;
+
+            ExpenseUndo objUndo = new ExpenseUndo();
+            objUndo.CreateKarma(KarmaExpenseType.AddSpecialization, objSpec.InternalId);
+            objEntry.Undo = objUndo;
+
+            lblSpec.Text = _objSkill.Specialization;
+
+            this.Height = lblSpec.Height + 10;
+
+            RatingChanged(this);
 		}
 
 		private void cboSpec_Leave(object sender, EventArgs e)
@@ -527,6 +636,11 @@ namespace Chummer
 				cboSpec.Text = value;
 				_objSkill.Specialization = value;
 			}
+        }
+
+        public void RebuildSkillSpecializations()
+        {
+            lblSpec.Text = _objSkill.Specialization;
         }
 
 		/// <summary>
@@ -869,6 +983,22 @@ namespace Chummer
 					cmdImproveSkill.Enabled = false;
 			}
 		}
-		#endregion
+
+        /// <summary>
+        /// Verify that the user wants to spend their Karma and did not accidentally click the button.
+        /// </summary>
+        public bool ConfirmKarmaExpense(string strMessage)
+        {
+            if (!_objSkill.CharacterObject.Options.ConfirmKarmaExpense)
+                return true;
+            else
+            {
+                if (MessageBox.Show(strMessage, LanguageManager.Instance.GetString("MessageTitle_ConfirmKarmaExpense"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    return false;
+                else
+                    return true;
+            }
+        }
+        #endregion
     }
 }

@@ -1642,14 +1642,17 @@ namespace Chummer
 
                 foreach(Armor a in _objCharacter.Armor)
                 {
-                    if (a.ArmorValue.Substring(0, 1) != "+")
-                        blnUseBase = true;
-                    if (Convert.ToInt32(a.ArmorOverrideValue) > 0)
-                        intOverride += 1;
-                    if (a.Name != _strName)
+                    if (a.Equipped)
                     {
-                        if (Convert.ToInt32(a.ArmorOverrideValue) > Convert.ToInt32(_strO))
-                            blnHighest = false;
+                        if (a.ArmorValue.Substring(0, 1) != "+")
+                            blnUseBase = true;
+                        if (Convert.ToInt32(a.ArmorOverrideValue) > 0)
+                            intOverride += 1;
+                        if (a.Name != _strName)
+                        {
+                            if (Convert.ToInt32(a.ArmorOverrideValue) > Convert.ToInt32(_strO))
+                                blnHighest = false;
+                        }
                     }
                 }
 
@@ -7103,12 +7106,12 @@ namespace Chummer
 				{
 					if (!objCharacterSkill.KnowledgeSkill && objCharacterSkill.Name == strSkill)
 					{
-                        if (_strSpec2 != "" && objCharacterSkill.Specialization == _strSpec2)
+                        if (_strSpec2 == "" || objCharacterSkill.HasSpecialization(_strSpec2))
                         {
                             objSkill = objCharacterSkill;
                             break;
                         }
-						if (strSpec == "" || (strSpec != "" && objCharacterSkill.Specialization == strSpec))
+                        if (strSpec == "" || (objCharacterSkill.HasSpecialization(strSpec)))
 						{
 							objSkill = objCharacterSkill;
 							break;
@@ -7135,9 +7138,9 @@ namespace Chummer
 				strReturn = intRating.ToString();
 
 				// If the character has a Specialization, include it in the Dice Pool string.
-				if (objSkill.Specialization != "" && !objSkill.ExoticSkill)
+				if (objSkill.Specializations.Count > 0 && !objSkill.ExoticSkill)
 				{
-					if (objSkill.Specialization == DisplayNameShort || objSkill.Specialization == _strName || objSkill.Specialization == DisplayCategory || objSkill.Specialization == _strCategory || (objSkill.Specialization != string.Empty && (objSkill.Specialization == _strSpec || objSkill.Specialization == _strSpec2)))
+                    if (objSkill.HasSpecialization(DisplayNameShort) || objSkill.HasSpecialization(_strName) || objSkill.HasSpecialization(DisplayCategory) || objSkill.HasSpecialization(_strCategory) || (objSkill.Specialization != string.Empty && (objSkill.HasSpecialization(_strSpec) || objSkill.HasSpecialization(_strSpec2))))
 						strReturn += " (" + (intRating + 2).ToString() + ")";
 				}
 
@@ -7231,7 +7234,7 @@ namespace Chummer
 				{
 					if (!objCharacterSkill.KnowledgeSkill && objCharacterSkill.Name == strSkill)
 					{
-						if (strSpec == "" || (strSpec != "" && objCharacterSkill.Specialization == strSpec))
+                        if (strSpec == "" || (strSpec != "" && objCharacterSkill.HasSpecialization(strSpec)))
 						{
 							objSkill = objCharacterSkill;
 							break;
@@ -7243,7 +7246,7 @@ namespace Chummer
 
 				if (objSkill.Specialization != "" && !objSkill.ExoticSkill)
 				{
-					if (objSkill.Specialization == DisplayNameShort || objSkill.Specialization == _strName || objSkill.Specialization == DisplayCategory || objSkill.Specialization == _strCategory || (objSkill.Specialization != string.Empty && (objSkill.Specialization == _strSpec || objSkill.Specialization == _strSpec2)))
+                    if (objSkill.HasSpecialization(DisplayNameShort) || objSkill.HasSpecialization(_strName) || objSkill.HasSpecialization(DisplayCategory) || objSkill.HasSpecialization(_strCategory) || (objSkill.Specialization != string.Empty && (objSkill.HasSpecialization(_strSpec) || objSkill.HasSpecialization(_strSpec2))))
 						strReturn += " + " + LanguageManager.Instance.GetString("String_ExpenseSpecialization") + " (2)";
 				}
 

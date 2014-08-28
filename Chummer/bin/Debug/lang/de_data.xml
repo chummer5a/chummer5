@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-499</version>
+  <version>-497</version>
   <chummer file="armor.xml">
     <categories>
       <category translate="Panzerung">Armor</category>
@@ -15,7 +15,7 @@
         <page>371</page>
         <translate>Kleidung</translate>
       </armor>
-      <armor>
+      <armor translated="True">
         <id>739b029d-b2a0-48cb-ac2e-51636fc495c2</id>
         <name>Zoé: Second Skin</name>
         <page>54</page>
@@ -951,22 +951,22 @@
   </chummer>
   <chummer file="bioware.xml">
     <grades>
-      <grade>
+      <grade translated="True">
         <id>f0a67dc0-6b0a-43fa-b389-a110ba1dd59d</id>
         <name>Standard</name>
         <translate>Standard</translate>
       </grade>
-      <grade>
+      <grade translated="True">
         <id>c2c6a3cc-c4bf-42c8-9260-868fd44d34ce</id>
         <name>Alphaware</name>
         <translate>Alphaware</translate>
       </grade>
-      <grade>
+      <grade translated="True">
         <id>9e24f0ce-b41e-496f-844a-82805fcb65a9</id>
         <name>Betaware</name>
         <translate>Betaware</translate>
       </grade>
-      <grade>
+      <grade translated="True">
         <id>2b599ecd-4e80-4669-a78e-4db232c80a83</id>
         <name>Deltaware</name>
         <translate>Deltaware</translate>
@@ -1043,7 +1043,7 @@
         <page>393</page>
         <translate>Muskelstraffung</translate>
       </bioware>
-      <bioware>
+      <bioware translated="True">
         <id>96e4809a-71e6-4b98-9740-c6c44bc33aa9</id>
         <name>Orthoskin</name>
         <page>393</page>
@@ -1103,7 +1103,7 @@
         <page>394</page>
         <translate>Synapsenbeschleuniger</translate>
       </bioware>
-      <bioware>
+      <bioware translated="True">
         <id>109b0a32-320f-41c5-9acb-c49308525ce0</id>
         <name>Synthacardium</name>
         <page>393</page>
@@ -5762,33 +5762,33 @@
   </chummer>
   <chummer file="cyberware.xml">
     <grades>
-      <grade>
+      <grade translated="True">
         <id>23382221-fd16-44ec-8da7-9b935ed2c1ee</id>
         <name>Standard</name>
         <translate>Standard</translate>
       </grade>
-      <grade>
+      <grade translated="True">
         <id>75da0ff2-4137-4990-85e6-331977564712</id>
         <name>Alphaware</name>
         <translate>Alphaware</translate>
       </grade>
-      <grade>
+      <grade translated="True">
         <id>b1b679e8-72ff-46b5-bd9d-652914731b17</id>
         <name>Betaware</name>
         <translate>Betaware</translate>
       </grade>
-      <grade>
+      <grade translated="True">
         <id>7dedfc1d-74c3-4ec4-a0e4-ec5145a3e834</id>
         <name>Deltaware</name>
         <translate>Deltaware</translate>
       </grade>
-      <grade>
+      <grade translated="True">
         <id>62dd61be-f1c4-4310-8545-73a4a4645393</id>
         <name>Standard (Burnout's Way)</name>
         <translate>Standard (Burnout's Way)</translate>
         <page>177</page>
       </grade>
-      <grade>
+      <grade translated="True">
         <id>a9aec622-410a-444a-a569-c8d8cc0457b4</id>
         <name>Used</name>
         <translate>Gebraucht</translate>
@@ -6028,7 +6028,7 @@
         <page>342</page>
         <translate>Reaktionsverbesserung</translate>
       </cyberware>
-      <cyberware>
+      <cyberware translated="True">
         <id>ed88f785-7d61-43ec-b4ed-0ebb94736f5e</id>
         <name>Simrig</name>
         <page>342</page>
@@ -6292,31 +6292,31 @@
         <page>344</page>
         <translate>Maschinenpistole</translate>
       </cyberware>
-      <cyberware>
+      <cyberware translated="True">
         <id>754a2083-9d89-4034-b43f-31bd5bb43595</id>
         <name>Cyberdeck</name>
         <translate>Cyberdeck</translate>
         <page>452</page>
       </cyberware>
-      <cyberware>
+      <cyberware translated="True">
         <id>d31497dd-2be9-4b8a-808f-3ced36287c0c</id>
         <name>Skilljack</name>
         <translate>Talentbuchse</translate>
         <page>452</page>
       </cyberware>
-      <cyberware>
+      <cyberware translated="True">
         <id>7924a873-341c-43a7-be03-f92895e0dc34</id>
         <name>Tooth Compartment, Storage</name>
         <translate>Zahnbehälter, Lager</translate>
         <page>452</page>
       </cyberware>
-      <cyberware>
+      <cyberware translated="True">
         <id>cd113e17-8412-4d93-80d0-91d6212646f0</id>
         <name>Tooth Compartment, Breakable</name>
         <translate>Zahnbehälter, Zerbrechlich</translate>
         <page>452</page>
       </cyberware>
-      <cyberware>
+      <cyberware translated="True">
         <id>c9e4a11f-ef4f-4cb6-9392-ce7378456d82</id>
         <name>Spurs</name>
         <translate>Sporn</translate>
@@ -6434,43 +6434,43 @@
       <category translate="Sichtgeräte" translated="True">Vision Devices</category>
     </categories>
     <gears>
-      <gear>
+      <gear translated="True">
         <id>89a0f3c9-5ef6-41cd-981f-4ac690ee2ab3</id>
         <name>Meta Link</name>
         <page>374</page>
         <translate>Meta Link</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>d808ba12-db93-4a7b-85a1-9e9f6229087f</id>
         <name>Sony Emperor</name>
         <page>374</page>
         <translate>Sony Emperor</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>15a6c42b-12a4-494e-8ca5-e6c3a1052314</id>
         <name>Renraku Sensei</name>
         <page>374</page>
         <translate>Renraku Sensei</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>72d1ca07-71b1-4085-8a4d-bd720a6b1908</id>
         <name>Erika Elite</name>
         <page>374</page>
         <translate>Erika Elite</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>6de5a1b0-30e2-4c74-8646-971f698cb231</id>
         <name>Hermes Ikon</name>
         <page>374</page>
         <translate>Hermes Ikon</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>01077e2d-4f67-428a-850d-250faad2007c</id>
         <name>Transys Avalon</name>
         <page>374</page>
         <translate>Transys Avalon</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>1522dd91-99d9-42f9-ab19-b43e8e3c7322</id>
         <name>Fairlight Caliban</name>
         <page>374</page>
@@ -6500,7 +6500,7 @@
         <page>374</page>
         <translate>Satellitenverbindung</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>2dda7452-c594-410d-923d-2933e8c0f236</id>
         <name>Simrig</name>
         <page>374</page>
@@ -6518,19 +6518,19 @@
         <page>374</page>
         <translate>Elektronisches Papier</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>cb405ce6-6133-4b34-8d71-60387e78dd0c</id>
         <name>Security Tags</name>
         <page>374</page>
         <translate>Sicherheits-RFID-Chips</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>8751915f-0573-4c99-b97e-cb74b3788a8a</id>
         <name>Sensor Tags</name>
         <page>374</page>
         <translate>Sensor-RFID-Chips</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>baa9ba27-f93b-48da-91b7-cfcce0ba274d</id>
         <name>Stealth Tags</name>
         <page>374</page>
@@ -6596,7 +6596,7 @@
         <page>272</page>
         <translate>Biofeedback-Filter</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>f3134808-861c-41df-8bdf-2d2c855e78a4</id>
         <name>Blackout</name>
         <page>272</page>
@@ -6632,7 +6632,7 @@
         <page>272</page>
         <translate>Aufspüren</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>2d8396ff-a4a9-4382-ab69-70d198856e7f</id>
         <name>Agent</name>
         <page>273</page>
@@ -6644,7 +6644,7 @@
         <page>375</page>
         <translate>Datenchip</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>1a55fbe3-b3c1-4568-882f-abe4dedb8572</id>
         <name>Datasoft</name>
         <page>375</page>
@@ -6674,7 +6674,7 @@
         <page>376</page>
         <translate>Wissenssoft</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>c4599705-6b8c-45d0-8687-63a720043f7d</id>
         <name>Linguasoft</name>
         <page>376</page>
@@ -6842,7 +6842,7 @@
         <page>379</page>
         <translate>Restlichtverstärkung</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>b0eef1d1-31ad-4e5c-bd55-27b2ae492327</id>
         <name>Smartlink</name>
         <page>379</page>
@@ -6992,31 +6992,31 @@
         <page>382</page>
         <translate>Monofilament-Kettensäge</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>c01b24b0-ed09-4044-95ec-bc7628b10f5e</id>
         <name>Bliss</name>
         <page>257</page>
         <translate>Bliss</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>8dc829b9-8b94-4510-ab1a-2305cbad69c9</id>
         <name>Cram</name>
         <page>300, 382</page>
         <translate>Cram</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>5f5bc907-ce31-4f34-b7cf-a48d9d5d10b3</id>
         <name>Deepweed</name>
         <page>382</page>
         <translate>Deepweed</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>929c4835-1754-4999-9215-9859e8ec5384</id>
         <name>Jazz</name>
         <page>382</page>
         <translate>Jazz</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>098bf489-bea9-4f17-b3d9-aead979fdc32</id>
         <name>Kamikaze</name>
         <page>382</page>
@@ -7034,25 +7034,25 @@
         <page>83</page>
         <translate>Leäl</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>d4cf626d-0af1-41f7-bec0-e53b4dba2eb1</id>
         <name>Long Haul</name>
         <page>382</page>
         <translate>Long Haul</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>d7ec13fa-8601-4f9c-a59c-6a86573b40ee</id>
         <name>Nitro</name>
         <page>382</page>
         <translate>Nitro</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>836f54d5-1e11-49ea-b115-34c14ed843c9</id>
         <name>Novacoke</name>
         <page>382</page>
         <translate>Novacoke</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>778eefae-94ad-4f8c-ad03-8b9039b5c48e</id>
         <name>Psyche</name>
         <page>382</page>
@@ -7064,7 +7064,7 @@
         <page>82</page>
         <translate>Slab</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>3a946800-be1e-4bbb-899a-c3d1c48a3a31</id>
         <name>Zen</name>
         <page>382</page>
@@ -7100,31 +7100,31 @@
         <page>382f</page>
         <translate>Thermit-Brennstab</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>1445f60b-49e1-45c9-98e4-054a79ca80f8</id>
         <name>CS/Tear Gas</name>
         <page>297</page>
         <translate>CS/Tränengas</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>e90016cf-cf44-4cd2-9343-c0f2a58e1aa2</id>
         <name>Gamma-Scopolamine</name>
         <page>297</page>
         <translate>Gamma-Skopolamin</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>02514259-a41d-49e4-b1e4-b528feae2917</id>
         <name>Narcoject</name>
         <page>298</page>
         <translate>Narcoject</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>a79225da-7507-4b40-8cc1-867213a3c7d8</id>
         <name>Pepper Punch</name>
         <page>298</page>
         <translate>Pepper Punch</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>189c3bb8-357b-412a-afc4-ce931ea8871d</id>
         <name>Seven-7</name>
         <page>298</page>
@@ -7232,7 +7232,7 @@
         <page>384</page>
         <translate>Einweg-Spritze</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>ae9c37df-6d82-44c1-aa21-6c87e45e2dc1</id>
         <name>Medkit</name>
         <page>384</page>
@@ -7250,7 +7250,7 @@
         <page>73</page>
         <translate>Quecksilberkamera</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>691af444-8ffc-406b-9999-4ff2058eff1f</id>
         <name>DMSO</name>
         <page>88</page>
@@ -7298,7 +7298,7 @@
         <page>94</page>
         <translate>Maskierungsfokus</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>f8151303-b838-4af1-ba9d-d43ff0892b40</id>
         <name>Magical Lodge Materials</name>
         <page>178</page>
@@ -7584,7 +7584,7 @@
         <page>94</page>
         <translate>Zündgerät, Optisch</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>e631585a-0cce-4c95-873d-74b278a661df</id>
         <name>Biofeedback</name>
         <page>123</page>
@@ -7708,43 +7708,43 @@
         <page>51</page>
         <translate>Lots Fluch</translate>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>f486f414-ee2c-46db-92ea-c682861d8fe0</id>
         <name>Ammo: Hollow Points</name>
         <translate>Hohlspitzmunition</translate>
         <page>434</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>9e7a685f-e612-4b6b-955c-a7bc42b23682</id>
         <name>Arrow: Standard</name>
         <translate>Pfeil</translate>
         <page>423</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>775d2fed-57ab-4e63-b2e4-638ccf4a21d0</id>
         <name>Arrow: Injection</name>
         <translate>Injektionspfeil</translate>
         <page>424</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>c3c2fa27-36a7-4296-aadd-627078e6e052</id>
         <name>Bolt: Standard</name>
         <translate>Bolzen</translate>
         <page>424</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>7d697849-0a11-4a38-8f07-2e5becf8efe0</id>
         <name>Bolt: Injection</name>
         <translate>Injektionsbolzen</translate>
         <page>424</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>d9bf2003-1911-4e65-b6a1-8babb761dd85</id>
         <name>Throwing Knife</name>
         <translate>Wurfmesser</translate>
         <page>424</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>b4bbdbd3-1f65-44e5-b196-6ccbee1cc182</id>
         <name>Shuriken</name>
         <translate>Shuriken</translate>
@@ -7834,13 +7834,13 @@
         <translate>Bolt: Stick-n-Shock w/Static Shaft</translate>
         <page>24</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>c1df71d5-845b-46c9-ab8d-9166c5cbac70</id>
         <name>Boomerang</name>
         <translate>Boomerang</translate>
         <page>24</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>d3d99f54-4176-4a11-a8cb-8447e285d977</id>
         <name>Harpoon</name>
         <translate>Harpune</translate>
@@ -7852,7 +7852,7 @@
         <translate>Javelin</translate>
         <page>24</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>d37cd956-84de-40a7-a327-0185fe8bca3c</id>
         <name>Net</name>
         <translate>Netz</translate>
@@ -7930,7 +7930,7 @@
         <translate>Liquid Explosives</translate>
         <page>193</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>2c98be77-22d7-4116-90fc-e8489944578d</id>
         <name>Detonator, Blasting Cap</name>
         <translate>Sprengkapsel</translate>
@@ -8044,235 +8044,235 @@
         <translate>Uniforms</translate>
         <page>178</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>d589142e-a71f-4cd9-b916-967168721eea</id>
         <name>Sim Module</name>
         <translate>Sim Modul</translate>
         <page>439</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>b7da0596-da6e-4122-adc3-21d7f3f9e3f1</id>
         <name>Sim Module, Hot</name>
         <translate>Sim Module mit heißem Sim</translate>
         <page>439</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>b6d1476d-a08c-43fc-be0e-68ca9330a43e</id>
         <name>Erika MCD-1</name>
         <translate>Erika MCD-1</translate>
         <page>439</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>540831fa-7866-443a-9187-112c5c5cbf7b</id>
         <name>Microdeck Summit</name>
         <translate>Microdeck Summit</translate>
         <page>439</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>d0815d76-b7b7-4f50-b700-9eb873096408</id>
         <name>Microtrónica Azteca 200</name>
         <translate>Microtrónica Azteca 200</translate>
         <page>439</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>785179f5-1500-46b6-b04f-063effa3a457</id>
         <name>Hermes Chariot</name>
         <translate>Hermes Chariot</translate>
         <page>439</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>ab0a7547-3cb4-4816-a65a-cb03dd2186ac</id>
         <name>Novatech Navigator</name>
         <translate>Novatech Navigator</translate>
         <page>439</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>5f4c41eb-abaa-4725-86ce-62fe11eeee0b</id>
         <name>Renraku Tsurugi</name>
         <translate>Renraku Tsurugi</translate>
         <page>439</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>79134070-7441-416a-8f14-922a5b7f490d</id>
         <name>Sony CIY-720</name>
         <translate>Sony CIY-720</translate>
         <page>439</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>c3f15a4a-1987-4879-ba74-5b93d602ca8c</id>
         <name>Shiawase Cyber-5</name>
         <translate>Shiawase Cyber-5</translate>
         <page>439</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>5d649de9-aa6f-450e-893b-63e5ad166388</id>
         <name>Fairlight Excalibur</name>
         <translate>Fairlight Excalibur</translate>
         <page>439</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>18eb72a1-2b4d-4800-9669-d9e62ecc50b3</id>
         <name>Scratch-Built Junk</name>
         <translate>Aus Schrott gebastelt </translate>
         <page>266</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>9d410862-89ae-408c-8342-82f7e6c1ae8f</id>
         <name>Radio Shack Remote Controller</name>
         <translate>Radio Shack Remote Controller</translate>
         <page>266</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>d157fdf9-2315-4402-af6e-2aa4924f6a82</id>
         <name>Essy Motors DroneMaster</name>
         <translate>Essy Motors DroneMaster</translate>
         <page>266</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>f35d6a78-de2c-4b99-9509-2c87c5e382b4</id>
         <name>CompuForce TaskMaster</name>
         <translate>CompuForce TaskMaster</translate>
         <page>266</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>a2c33659-d930-4eb8-9fac-238a67009def</id>
         <name>Maersk Spider</name>
         <translate>Maersk Spider</translate>
         <page>266</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>3f1e53d0-3f2f-4672-8cca-9f6d7ee979de</id>
         <name>Maser Industrial Electronics</name>
         <translate>Maser Industrial Electronics</translate>
         <page>266</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>c8642e4c-6d1e-4338-8a7b-dd63c866a485</id>
         <name>Vulcan Liegelord</name>
         <translate>Vulcan Liegelord</translate>
         <page>266</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>f9941dbe-1db1-4948-a8be-d760733446ea</id>
         <name>Proteus Poseidon</name>
         <translate>Proteus Poseidon</translate>
         <page>266</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>4eebf70d-6e0f-4bbb-9356-3eaac0150d4d</id>
         <name>Lone Star Remote Commander</name>
         <translate>Lone Star Remote Commander</translate>
         <page>266</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>f13946fe-8e30-466f-8fc4-9aba7ba7b0f8</id>
         <name>MCT Drone Web</name>
         <translate>MCT Drone Web</translate>
         <page>266</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>fe9d2aa1-f914-4e3b-b1ec-29cc97312c34</id>
         <name>Triox UberMensch</name>
         <translate>Triox UberMensch</translate>
         <page>266</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>0e9a4de8-c78e-498e-8f3b-8e581bc73e43</id>
         <name>Configurator</name>
         <translate>Kon&#x1F;figurator</translate>
         <page>245</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>d3bb1242-73b0-4b8a-89ab-27c272ebc900</id>
         <name>Encryption</name>
         <translate>Verschlüsselung</translate>
         <page>245</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>1662e26b-7370-4ade-9d9d-c9b92b0d145b</id>
         <name>Signal Scrub</name>
         <translate>Signalreiniger</translate>
         <page>245</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>cffae49c-30d1-42df-b47c-a407f3a86e7a</id>
         <name>Toolbox</name>
         <translate>Toolbox</translate>
         <page>245</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>7b8f4a4e-0bdb-4e05-ade4-bf558daf60a6</id>
         <name>Virtual Machine</name>
         <translate>Virtuelle Machine</translate>
         <page>245</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>a37b8000-495b-4ab8-a73b-16a36a6a410e</id>
         <name>Baby Monitor</name>
         <translate>Babymonitor</translate>
         <page>245</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>3da01b93-3830-4211-b563-f41c7fcf4ab0</id>
         <name>Demolition</name>
         <translate>Superbombe</translate>
         <page>245</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>69a87be8-6f05-453d-a344-b02d9fab055c</id>
         <name>Fork</name>
         <translate>Gabel</translate>
         <page>245</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>ea3178a2-535f-43b7-8555-deca95ac837d</id>
         <name>Guard</name>
         <translate>Schild</translate>
         <page>245</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>a3851f14-3fdc-47d6-82b4-07caf00202ce</id>
         <name>Hammer</name>
         <translate>Hammer</translate>
         <page>245</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>70be200d-5b83-4842-83b5-725839330808</id>
         <name>Lockdown</name>
         <translate>Fessel</translate>
         <page>245</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>62d165f6-bc3f-4204-afb7-47b3485e25ad</id>
         <name>Mugger</name>
         <translate>Überfall</translate>
         <page>245</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>84a3e0d5-ed40-4706-9b96-7f07567bcbef</id>
         <name>Shell</name>
         <translate>Schutzschirm</translate>
         <page>245</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>8920c83c-f4f2-4dfa-81a4-b150ba6ae1c0</id>
         <name>Sneak</name>
         <translate>Irreführung</translate>
         <page>245</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>4a33f713-566b-4233-bdd2-985000097648</id>
         <name>Wrapper</name>
         <translate>Verwandlung</translate>
         <page>245</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>9d81218f-ee70-4304-9a09-ac865d84b8e0</id>
         <name>Autosoft</name>
         <translate>Autosoft</translate>
         <page>441</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>fc8da0ad-bbfd-4961-a311-71db32f86130</id>
         <name>Shopsoft</name>
         <translate>Shopsoft</translate>
@@ -8296,73 +8296,73 @@
         <translate>PI-Tac Level III (ComPac-Esprit General)</translate>
         <page>105</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>7bdc5866-88ae-45a6-a525-ec03f161f086</id>
         <name>Subvocal Mic</name>
         <translate>Subvokales Mikrofon</translate>
         <page>439</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>fb8bc051-f4b2-42f3-98e6-9c5d614cbd9d</id>
         <name>Trid Projector</name>
         <translate>Trideoprojektor</translate>
         <page>439</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>84bb92e7-ce13-4eb6-bf9e-15bf3887469c</id>
         <name>Standard Tags</name>
         <translate>RFID-Chip, Standard</translate>
         <page>440</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>0918742f-6fc8-46ac-91e0-2b7260841923</id>
         <name>Bug Scanner</name>
         <translate>Wanzenscanner</translate>
         <page>440</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>8f351e25-d734-4bd0-86da-80b68a4cae68</id>
         <name>Data Tap</name>
         <translate>Datenwanze</translate>
         <page>440</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>1a3a9204-959b-4db5-83de-094f921c5e7f</id>
         <name>Contacts</name>
         <translate>Kontaktlinsen</translate>
         <page>443</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>f7f74a85-bd3b-4a46-9c3b-80688c72ef51</id>
         <name>Thermographic Vision</name>
         <translate>Infrarotsicht</translate>
         <page>444</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>0e713b88-ab10-4fed-8373-df0a4d8546cc</id>
         <name>Microphone, Directional</name>
         <translate>Richtmikrofon</translate>
         <page>445</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>026f00c9-376e-4b4a-b615-9242db87afb3</id>
         <name>Microphone, Laser</name>
         <translate>Lasermikrofon</translate>
         <page>445</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>f42df886-b644-4691-a993-e672f2b77de0</id>
         <name>Microphone, Omni-Directional</name>
         <translate>Mikrofon</translate>
         <page>445</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>49bbc9d3-860d-47db-b4bc-8417f5b6ab65</id>
         <name>Handheld Housing</name>
         <translate>Tragbares Gehäuse</translate>
         <page>445</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>5e4772d7-5cba-4cc4-988d-38ef79b41fd3</id>
         <name>Wall-Mounted Housing</name>
         <translate>Wandmontiertes Gehäuse</translate>
@@ -8380,121 +8380,121 @@
         <translate>Periscope Cam</translate>
         <page>103</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>2ca81a10-d0f7-4b39-ac93-a84f2f69f9d9</id>
         <name>Sensor Array</name>
         <translate>Sensorarray</translate>
         <page>445</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>2d4edef2-2891-4383-83f6-81f05cfbd046</id>
         <name>Single Sensor</name>
         <translate>Einzelensor</translate>
         <page>445</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>0f13599a-2a4e-4b75-80e2-fab4405a7a87</id>
         <name>Omni-directional Microphone</name>
         <translate>Mikrofon</translate>
         <page>446</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>4a2468f8-0ec5-4f33-9a5d-46861e8a79f4</id>
         <name>Combination Lock</name>
         <translate>Zylinder-/Kombinationsschloss</translate>
         <page>446</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>a2953d6e-8bb8-40a8-b7f6-997be35947cf</id>
         <name>Keypad</name>
         <translate>Tastatur</translate>
         <page>447</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>71a4cc20-19f0-4ed1-92f8-d049ba370134</id>
         <name>Card Reader</name>
         <translate>Kartenleser</translate>
         <page>447</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>caa0f85d-e6f0-415a-98c7-fc4f16139964</id>
         <name>Anti-Tamper Circuits</name>
         <translate>Anti-Manipulations-System</translate>
         <page>447</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>b9812675-b4c3-43ce-b564-c47a5f66b0fc</id>
         <name>Restraint, Metal</name>
         <translate>Handschellen, Metall</translate>
         <page>447</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>7abaa077-48ee-4a28-9a10-6dff788ccb1d</id>
         <name>Restraint, Plasteel</name>
         <translate>Handschellen, Plasstahl</translate>
         <page>447</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>53c0b4cc-b209-4db4-bb0d-6710b3f4349a</id>
         <name>Restraint, Plastic</name>
         <translate>Handschellen, Plastik</translate>
         <page>447</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>75ed6157-a4f4-4fdc-9482-22cf7521b20d</id>
         <name>Restraint, Containment Manacles</name>
         <translate>Handschellen, Cyberwareblocker</translate>
         <page>447</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>de595490-7f88-4b1c-b239-009a6c5c10f4</id>
         <name>Crowbar</name>
         <translate>Brecheisen</translate>
         <page>447</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>97f888dd-7e0d-4f33-b4cc-396cddecdf62</id>
         <name>Miniwelder Fuel Canister</name>
         <translate>Mini-Schweißgerät</translate>
         <page>448</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>fe4ea7f4-df9b-4bda-a0ca-26347ca85738</id>
         <name>Sequencer</name>
         <translate>Magschlossknacker</translate>
         <page>448</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>9d775d72-29ca-4784-b617-a667469fe192</id>
         <name>Glue Solvent</name>
         <translate>Kleber-Lösungsmittel</translate>
         <page>448</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>2bb6956f-c00e-452c-ab99-6b4613d7bb3e</id>
         <name>Rapelling Gloves</name>
         <translate>Kletterhandschuhe</translate>
         <page>449</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>fc0987f2-b3cf-4ba2-8777-0610ed97e90e</id>
         <name>Microwire (100m)</name>
         <translate>Microwire (100m)</translate>
         <page>449</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>14243f3e-8d05-480d-8e74-b90ee615e6ff</id>
         <name>Myomeric Rope (10m)</name>
         <translate>Myomerisches Seil  (10m)</translate>
         <page>449</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>8adaecd5-0c24-4982-8803-e4459e16589f</id>
         <name>Standard Rope (100m)</name>
         <translate>Standard Seil (100m)</translate>
         <page>449</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>76890101-9f90-41db-a6f0-6f5fd4802896</id>
         <name>Stealth Rope (100m)</name>
         <translate>Camouflageseil (100m)</translate>
@@ -8536,205 +8536,205 @@
         <translate>Advanced Medkit</translate>
         <page>17</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>6b28b36a-416a-4041-9561-558083158d7c</id>
         <name>DocWagon Contract, Basic</name>
         <translate>DocWagon Vertrag, Standard</translate>
         <page>450</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>c985f952-df28-4b69-a7b7-b24a291cd651</id>
         <name>DocWagon Contract, Gold</name>
         <translate>DocWagon Vertrag, Gold</translate>
         <page>450</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>aabed898-177f-413b-aeb6-5b862da67c6b</id>
         <name>DocWagon Contract, Platinum</name>
         <translate>DocWagon Vertrag, Platin</translate>
         <page>450</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>7c8251b6-b195-4c8f-90f0-c036f8a9146f</id>
         <name>DocWagon Contract, Super-Platinum</name>
         <translate>DocWagon Vertrag, Superplatin</translate>
         <page>450</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>47e12d78-cb99-4e20-aff5-11cbed1e715e</id>
         <name>Slap Patch, Antidote Patch</name>
         <translate>Slap Patch, Antidote Patch</translate>
         <page>451</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>d1c0cab8-b4ea-4f08-b462-75b18246e1d8</id>
         <name>Slap Patch, Chem Patch</name>
         <translate>Slap Patch, Chem Patch</translate>
         <page>451</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>320bd9e3-e261-4a45-aa03-c740b6855e73</id>
         <name>Slap Patch, Stim Patch</name>
         <translate>Slap Patch, Stim Patch</translate>
         <page>451</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>5e4f9fdf-cf51-4ea1-9de0-8ca4f33af8b1</id>
         <name>Slap Patch, Tranq Patch</name>
         <translate>Slap Patch, Tranq Patch</translate>
         <page>451</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>5de1956f-0ec3-4fad-9e9a-d8b90ac1e3f4</id>
         <name>Slap Patch, Trauma Patch</name>
         <translate>Slap Patch, Trauma Patch</translate>
         <page>451</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>93d81bd8-52bf-4461-b2da-394aca4ce262</id>
         <name>Alchemical Focus</name>
         <translate>Alchemiefokus</translate>
         <page>318</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>1efc3ad3-c5d7-4534-ab97-a059f08f1b74</id>
         <name>Disenchanting Focus</name>
         <translate>Entzauberungsfokus</translate>
         <page>319</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>e946041a-0c16-49a5-811f-dfd2fba0ae8f</id>
         <name>Flexible Signature Focus</name>
         <translate>Signaturschleier</translate>
         <page>319</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>ff779a68-a360-4a68-9e57-9a363b5de0d0</id>
         <name>Spell Shaping Focus</name>
         <translate>Formungsfokus</translate>
         <page>319</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>a64c073c-8aa9-4383-b885-267f8ce1ea99</id>
         <name>Qi Focus</name>
         <translate>Qi-Fokus</translate>
         <page>319</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>30bdbf30-929a-4221-9982-f9de8574f87b</id>
         <name>Counterspelling Focus, Combat</name>
         <translate>Antimagiefokus, Kampf</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>e1b66500-1c39-4747-87a6-071b8b1966cc</id>
         <name>Ritual Spellcasting Focus, Combat</name>
         <translate>Ritualfokus, Kampf</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>2f485376-54c1-41be-8678-79cc98e04ebc</id>
         <name>Spellcasting Focus, Combat</name>
         <translate>Zauberspruchfokus, Kampf</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>39f2f34b-14e2-47f3-8e24-a401015a645a</id>
         <name>Sustaining Focus, Combat</name>
         <translate>Zauberspeicher, Kampf</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>a56807b8-e430-479d-847d-e0e294b5e937</id>
         <name>Counterspelling Focus, Detection</name>
         <translate>Antimagiefokus, Wahrnehmung</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>2c465730-38cb-41d4-9d19-366435fb71bb</id>
         <name>Ritual Spellcasting Focus, Detection</name>
         <translate>Ritualfokus, Wahrnehmung</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>90885434-a40c-416d-8eb3-2d93b96414c2</id>
         <name>Spellcasting Focus, Detection</name>
         <translate>Zauberspruchfokus, Wahrnehmung</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>724d1b39-72e9-4df3-aba1-b4ccbe56f32c</id>
         <name>Sustaining Focus, Detection</name>
         <translate>Zauberspeicher, Wahrnehmung</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>49e7fc11-d3c6-4021-9162-cdf217a4579a</id>
         <name>Counterspelling Focus, Health</name>
         <translate>Antimagiefokus, Heilung</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>41842bc7-e48b-446c-b5ce-73f8399f64c0</id>
         <name>Ritual Spellcasting Focus, Health</name>
         <translate>Ritualfokus, Heilung</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>630114f3-b538-4a4f-ad02-36df0e577d9c</id>
         <name>Spellcasting Focus, Health</name>
         <translate>Zauberspruchfokus, Heilung</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>1e024c0b-d43b-49b1-87e0-c4e4474645fe</id>
         <name>Sustaining Focus, Health</name>
         <translate>Zauberspeicher, Heilung</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>8f69fd55-e5ff-404f-99ec-45a9c8498657</id>
         <name>Counterspelling Focus, Illusion</name>
         <translate>Antimagiefokus,  Illusion</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>db0e5016-8ae3-4190-ad94-fe3f318f3f3f</id>
         <name>Ritual Spellcasting Focus, Illusion</name>
         <translate>Ritualfokus, Illusion</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>aa849313-adf9-4134-b86b-1f6a15f6620f</id>
         <name>Spellcasting Focus, Illusion</name>
         <translate>Zauberspruchfokus, Illusion</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>e491973f-0bb0-4297-9c32-f02a483ecc8e</id>
         <name>Sustaining Focus, Illusion</name>
         <translate>Zauberspeicher, Illusion</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>2f4f52bb-a198-4d7a-ab4c-d82de4f80cbf</id>
         <name>Counterspelling Focus, Manipulation</name>
         <translate>Antimagiefokus, Manipulation</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>7057c240-d998-4b45-a119-de8a3ffaa717</id>
         <name>Ritual Spellcasting Focus, Manipulation</name>
         <translate>Ritualfokus, Manipulation</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>8783e50c-f80b-4efe-b440-d2963b55c54e</id>
         <name>Spellcasting Focus, Manipulation</name>
         <translate>Zauberspruchfokus, Manipulation</translate>
         <page>320</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>d6cae23b-0d69-4505-a98c-a75876b457ed</id>
         <name>Sustaining Focus, Manipulation</name>
         <translate>Zauberspeicher, Manipulation</translate>
@@ -9136,13 +9136,13 @@
         <translate>Hold-Fast Adhesive Spray</translate>
         <page>104</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>24e87c73-22be-480d-bb79-978277672a1d</id>
         <name>Neuro-Stun VIII</name>
         <translate>Neuro-Stun VIII</translate>
         <page>410</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>f81d9a2e-5c2d-49ad-93b4-1a7a71439bf3</id>
         <name>Neuro-Stun IX</name>
         <translate>Neuro-Stun IX</translate>
@@ -9262,31 +9262,31 @@
         <translate>Normal Saline</translate>
         <page>189</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>483ca04a-8522-4d12-96ab-4e21dd9a4300</id>
         <name>Dreamchip</name>
         <translate>Dreamchip</translate>
         <page>413</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>ea044b03-009c-4515-baef-d37b6b1138af</id>
         <name>Moodchip</name>
         <translate>Moodchip</translate>
         <page>413</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>2e98e2af-6a0e-4b2f-a573-1766552b4ba4</id>
         <name>Personaflix</name>
         <translate>Personaflix</translate>
         <page>413</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>de2bd382-6339-479d-8120-59dd65bde6e6</id>
         <name>Tripchip</name>
         <translate>Tripchip</translate>
         <page>413</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>5977fb0b-b74e-4eb9-b433-9b7c9877b14f</id>
         <name>Holster</name>
         <translate>Holster</translate>
@@ -9298,25 +9298,25 @@
         <translate>Vindicator 200-Round Belt</translate>
         <page>42</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>f87701a0-4ea2-47db-bcac-f5b8396c369e</id>
         <name>Speed Loader</name>
         <translate>Schnelllader</translate>
         <page>433</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>0025f1c7-45a4-4ec5-a692-e18aab2f97a9</id>
         <name>Custom Item</name>
         <translate>Eigener Gegenstand</translate>
         <page>1</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>44acc4c0-5795-47a4-84fb-bd2374276360</id>
         <name>Flashlight, Low-light</name>
         <translate>Taschenlampe, Restlichtverstärkung</translate>
         <page>449</page>
       </gear>
-      <gear>
+      <gear translated="True">
         <id>58ae0574-bf03-45c3-9fee-0322069a3b18</id>
         <name>Flashlight, Infrared</name>
         <translate>Taschenlampe, Infrarot</translate>
@@ -10151,19 +10151,19 @@
         <choices>
           <choice>
             <name>Magician: +2 dice for Health spells</name>
-            <translate>Magician: +2 dice for Health spells</translate>
+            <translate>Magician: +2 Würfel für Heilzauber</translate>
           </choice>
           <choice>
             <name>Adept: 1 free level of Rapid Healing</name>
-            <translate>Adept: 1 free level of Rapid Healing</translate>
+            <translate>Adept: 1 freie Stufe für Beschleunigte Heilung</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Health spells</name>
-            <translate>Magician: +2 dice for Health spells</translate>
+            <translate>Zauberer: +2 Würfel für Heilzauber</translate>
           </choice>
           <choice>
             <name>Adept: 1 free level of Rapid Healing</name>
-            <translate>Adept: 1 free level of Rapid Healing</translate>
+            <translate>Adept: 1 freie Stufe für Beschleunigte Heilung</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Health spells</name>
@@ -10186,35 +10186,35 @@
         <choices>
           <choice>
             <name>+2 dice on Gymnastics Tests</name>
-            <translate>+2 dice on Gymnastics Tests</translate>
+            <translate>+2 Würfel für Akrobatikproben</translate>
           </choice>
           <choice>
             <name>+2 dice on Sneaking Tests</name>
-            <translate>+2 dice on Sneaking Tests</translate>
+            <translate>+2 Würfel für Inflitrationsproben</translate>
           </choice>
           <choice set="2">
             <name>Magician: +2 dice for Illusion spells</name>
-            <translate>Magician: +2 dice for Illusion spells</translate>
+            <translate>Zauberer: +2 Würfel für Illusionszauber</translate>
           </choice>
           <choice set="2">
             <name>Adept: 2 free levels of Light Body</name>
-            <translate>Adept: 2 free levels of Light Body</translate>
+            <translate>Adept: 2 freie Stufen auf Leichter Körper</translate>
           </choice>
           <choice>
             <name>+2 dice on Gymnastics Tests</name>
-            <translate>+2 dice on Gymnastics Tests</translate>
+            <translate>+2 Würfel für Akrobatikproben</translate>
           </choice>
           <choice>
             <name>+2 dice on Sneaking Tests</name>
-            <translate>+2 dice on Sneaking Tests</translate>
+            <translate>+2 Würfel für Inflitrationsproben</translate>
           </choice>
           <choice set="2">
             <name>Magician: +2 dice for Illusion spells</name>
-            <translate>Magician: +2 dice for Illusion spells</translate>
+            <translate>Zauberer: +2 Würfel für Illusionszauber</translate>
           </choice>
           <choice set="2">
             <name>Adept: 2 free levels of Light Body</name>
-            <translate>Adept: 2 free levels of Light Body</translate>
+            <translate>Adept: 2 freie Stufen auf Leichter Körper</translate>
           </choice>
           <choice>
             <name>+2 dice on Gymnastics Tests</name>
@@ -10245,19 +10245,19 @@
         <choices>
           <choice>
             <name>Magician: +2 dice for Detection spells</name>
-            <translate>Magician: +2 dice for Detection spells</translate>
+            <translate>Zauberer: +2 Würfel auf Wahrnehmungszauber</translate>
           </choice>
           <choice>
             <name>Adept: 2 free Improved Sense powers</name>
-            <translate>Adept: 2 free Improved Sense powers</translate>
+            <translate>Adept:  2 Geschärfte Sinne gratis</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Detection spells</name>
-            <translate>Magician: +2 dice for Detection spells</translate>
+            <translate>Zauberer: +2 Würfel auf Wahrnehmungszauber</translate>
           </choice>
           <choice>
             <name>Adept: 2 free Improved Sense powers</name>
-            <translate>Adept: 2 free Improved Sense powers</translate>
+            <translate>Adept:  2 Geschärfte Sinne gratis</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Detection spells</name>
@@ -10289,7 +10289,7 @@
           </choice>
           <choice set="2">
             <name>Magician: +2 dice for Combat spells</name>
-            <translate>Magician: +2 dice for Combat spells</translate>
+            <translate>Zauberer: +2 Würfel for Combat spells</translate>
           </choice>
           <choice set="2">
             <name>Adept: free Killing Hands</name>
@@ -10305,7 +10305,7 @@
           </choice>
           <choice set="2">
             <name>Magician: +2 dice for Combat spells</name>
-            <translate>Magician: +2 dice for Combat spells</translate>
+            <translate>Zauberer: +2 Würfel for Combat spells</translate>
           </choice>
           <choice set="2">
             <name>Adept: free Killing Hands</name>
@@ -10340,19 +10340,19 @@
         <choices>
           <choice>
             <name>Magician: +2 dice for Combat spells</name>
-            <translate>Magician: +2 dice for Combat spells</translate>
+            <translate>Zauberer: +2 Würfel for Combat spells</translate>
           </choice>
           <choice>
             <name>Adept: 1 free level of Enhanced Accuracy and Danger Sense</name>
-            <translate>Adept: 1 free level of Enhanced Accuracy and Danger Sense</translate>
+            <translate>Adept: 1 freie Stufe für Enhanced Accuracy and Danger Sense</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Combat spells</name>
-            <translate>Magician: +2 dice for Combat spells</translate>
+            <translate>Zauberer: +2 Würfel for Combat spells</translate>
           </choice>
           <choice>
             <name>Adept: 1 free level of Enhanced Accuracy and Danger Sense</name>
-            <translate>Adept: 1 free level of Enhanced Accuracy and Danger Sense</translate>
+            <translate>Adept: 1 freie Stufe für Enhanced Accuracy and Danger Sense</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Combat spells</name>
@@ -10374,19 +10374,19 @@
         <choices>
           <choice>
             <name>Magician: +2 dice summoning spirits of air</name>
-            <translate>Magician: +2 dice summoning spirits of air</translate>
+            <translate>Zauberer: +2 Würfel summoning spirits of air</translate>
           </choice>
           <choice>
             <name>Adept: 1 free level of Combat Sense</name>
-            <translate>Adept: 1 free level of Combat Sense</translate>
+            <translate>Adept: 1 freie Stufe für Combat Sense</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice summoning spirits of air</name>
-            <translate>Magician: +2 dice summoning spirits of air</translate>
+            <translate>Zauberer: +2 Würfel summoning spirits of air</translate>
           </choice>
           <choice>
             <name>Adept: 1 free level of Combat Sense</name>
-            <translate>Adept: 1 free level of Combat Sense</translate>
+            <translate>Adept: 1 freie Stufe für Combat Sense</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice summoning spirits of air</name>
@@ -10408,35 +10408,35 @@
         <choices>
           <choice>
             <name>+2 dice on Artisan Tests</name>
-            <translate>+2 dice on Artisan Tests</translate>
+            <translate>+2 Würfel on Artisan Tests</translate>
           </choice>
           <choice>
             <name>+2 dice on Alchemy Tests</name>
-            <translate>+2 dice on Alchemy Tests</translate>
+            <translate>+2 Würfel on Alchemy Tests</translate>
           </choice>
           <choice set="2">
             <name>Magician: +2 dice for Manipulation spells</name>
-            <translate>Magician: +2 dice for Manipulation spells</translate>
+            <translate>Zauberer: +2 Würfel for Manipulation spells</translate>
           </choice>
           <choice set="2">
             <name>Adept: 1 free level of Improved Ability on a non-combat skill</name>
-            <translate>Adept: 1 free level of Improved Ability on a non-combat skill</translate>
+            <translate>Adept: 1 freie Stufe für Improved Ability on a non-combat skill</translate>
           </choice>
           <choice>
             <name>+2 dice on Artisan Tests</name>
-            <translate>+2 dice on Artisan Tests</translate>
+            <translate>+2 Würfel on Artisan Tests</translate>
           </choice>
           <choice>
             <name>+2 dice on Alchemy Tests</name>
-            <translate>+2 dice on Alchemy Tests</translate>
+            <translate>+2 Würfel on Alchemy Tests</translate>
           </choice>
           <choice set="2">
             <name>Magician: +2 dice for Manipulation spells</name>
-            <translate>Magician: +2 dice for Manipulation spells</translate>
+            <translate>Zauberer: +2 Würfel for Manipulation spells</translate>
           </choice>
           <choice set="2">
             <name>Adept: 1 free level of Improved Ability on a non-combat skill</name>
-            <translate>Adept: 1 free level of Improved Ability on a non-combat skill</translate>
+            <translate>Adept: 1 freie Stufe für Improved Ability on a non-combat skill</translate>
           </choice>
           <choice>
             <name>+2 dice on Artisan Tests</name>
@@ -10474,11 +10474,11 @@
           </choice>
           <choice set="2">
             <name>Magician: +2 dice for Health spells</name>
-            <translate>Magician: +2 dice for Health spells</translate>
+            <translate>Zauberer: +2 Würfel für Heilzauber</translate>
           </choice>
           <choice set="2">
             <name>Adept: 1 free level of Rapid Healing</name>
-            <translate>Adept: 1 free level of Rapid Healing</translate>
+            <translate>Adept: 1 freie Stufe für Beschleunigte Heilung</translate>
           </choice>
           <choice>
             <name>+2 to First Aid</name>
@@ -10490,11 +10490,11 @@
           </choice>
           <choice set="2">
             <name>Magician: +2 dice for Health spells</name>
-            <translate>Magician: +2 dice for Health spells</translate>
+            <translate>Zauberer: +2 Würfel für Heilzauber</translate>
           </choice>
           <choice set="2">
             <name>Adept: 1 free level of Rapid Healing</name>
-            <translate>Adept: 1 free level of Rapid Healing</translate>
+            <translate>Adept: 1 freie Stufe für Beschleunigte Heilung</translate>
           </choice>
           <choice>
             <name>+2 to First Aid</name>
@@ -10525,19 +10525,19 @@
         <choices>
           <choice>
             <name>Magician: +2 dice for Counterspelling and anchored rituals</name>
-            <translate>Magician: +2 dice for Counterspelling and anchored rituals</translate>
+            <translate>Zauberer: +2 Würfel for Counterspelling and anchored rituals</translate>
           </choice>
           <choice>
             <name>Adept: 1 free level of Mystic Armor</name>
-            <translate>Adept: 1 free level of Mystic Armor</translate>
+            <translate>Adept: 1 freie Stufe für Mystic Armor</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Counterspelling and anchored rituals</name>
-            <translate>Magician: +2 dice for Counterspelling and anchored rituals</translate>
+            <translate>Zauberer: +2 Würfel for Counterspelling and anchored rituals</translate>
           </choice>
           <choice>
             <name>Adept: 1 free level of Mystic Armor</name>
-            <translate>Adept: 1 free level of Mystic Armor</translate>
+            <translate>Adept: 1 freie Stufe für Mystic Armor</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Counterspelling and anchored rituals</name>
@@ -10561,19 +10561,19 @@
         <choices>
           <choice>
             <name>Magician: +2 dice for Health Spells</name>
-            <translate>Magician: +2 dice for Health Spells</translate>
+            <translate>Zauberer: +2 Würfel für Heilzauber</translate>
           </choice>
           <choice>
             <name>Adept: 2 free levels of Attribute Boost</name>
-            <translate>Adept: 2 free levels of Attribute Boost</translate>
+            <translate>Adept: 2 freie Stufen auf Attribute Boost</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Health Spells</name>
-            <translate>Magician: +2 dice for Health Spells</translate>
+            <translate>Zauberer: +2 Würfel für Heilzauber</translate>
           </choice>
           <choice>
-            <name>Adept: 2 free levels of Attribute Boost</name>
-            <translate>Adept: 2 free levels of Attribute Boost</translate>
+            <name>Adept: 2 freie Stufen auf Attribute Boost</name>
+            <translate>Adept: 2 freie Stufen auf Attribute Boost</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Health Spells</name>
@@ -10596,7 +10596,7 @@
         <choices>
           <choice>
             <name>Magician: +2 dice for summoning or binding toxic spirits</name>
-            <translate>Magician: +2 dice for summoning or binding toxic spirits</translate>
+            <translate>Zauberer: +2 Würfel for summoning or binding toxic spirits</translate>
           </choice>
           <choice>
             <name>Adept: Free Toxic Strike</name>
@@ -10604,7 +10604,7 @@
           </choice>
           <choice>
             <name>Magician: +2 dice for summoning or binding toxic spirits</name>
-            <translate>Magician: +2 dice for summoning or binding toxic spirits</translate>
+            <translate>Zauberer: +2 Würfel for summoning or binding toxic spirits</translate>
           </choice>
           <choice>
             <name>Adept: Free Toxic Strike</name>
@@ -10631,19 +10631,19 @@
         <choices>
           <choice>
             <name>Magician: +2 to Alchemy for harvesting, and you may use any reagents</name>
-            <translate>Magician: +2 to Alchemy for harvesting, and you may use any reagents</translate>
+            <translate>Zauberer: +2 to Alchemy for harvesting, and you may use any reagents</translate>
           </choice>
           <choice>
             <name>Adept: 2 free levels of Natural Immunity</name>
-            <translate>Adept: 2 free levels of Natural Immunity</translate>
+            <translate>Adept: 2 freie Stufen auf Natural Immunity</translate>
           </choice>
           <choice>
             <name>Magician: +2 to Alchemy for harvesting, and you may use any reagents</name>
-            <translate>Magician: +2 to Alchemy for harvesting, and you may use any reagents</translate>
+            <translate>Zauberer: +2 to Alchemy for harvesting, and you may use any reagents</translate>
           </choice>
           <choice>
             <name>Adept: 2 free levels of Natural Immunity</name>
-            <translate>Adept: 2 free levels of Natural Immunity</translate>
+            <translate>Adept: 2 freie Stufen auf Natural Immunity</translate>
           </choice>
           <choice>
             <name>Magician: +2 to Alchemy for harvesting, and you may use any reagents</name>
@@ -10665,7 +10665,7 @@
         <choices>
           <choice>
             <name>Magician: +2 dice for Manipulation spells</name>
-            <translate>Magician: +2 dice for Manipulation spells</translate>
+            <translate>Zauberer: +2 Würfel for Manipulation spells</translate>
           </choice>
           <choice>
             <name>Adept: Free Traceless Walk and 1 level of Voice Control</name>
@@ -10673,7 +10673,7 @@
           </choice>
           <choice>
             <name>Magician: +2 dice for Manipulation spells</name>
-            <translate>Magician: +2 dice for Manipulation spells</translate>
+            <translate>Zauberer: +2 Würfel for Manipulation spells</translate>
           </choice>
           <choice>
             <name>Adept: Free Traceless Walk and 1 level of Voice Control</name>
@@ -10699,19 +10699,19 @@
         <choices>
           <choice>
             <name>Magician: +2 dice summoning spirits of water</name>
-            <translate>Magician: +2 dice summoning spirits of water</translate>
+            <translate>Zauberer: +2 Würfel summoning spirits of water</translate>
           </choice>
           <choice>
             <name>Adept: 1 free level of Improved Ability on an athletic skill</name>
-            <translate>Adept: 1 free level of Improved Ability on an athletic skill</translate>
+            <translate>Adept: 1 freie Stufe für Improved Ability on an athletic skill</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice summoning spirits of water</name>
-            <translate>Magician: +2 dice summoning spirits of water</translate>
+            <translate>Zauberer: +2 Würfel summoning spirits of water</translate>
           </choice>
           <choice>
             <name>Adept: 1 free level of Improved Ability on an athletic skill</name>
-            <translate>Adept: 1 free level of Improved Ability on an athletic skill</translate>
+            <translate>Adept: 1 freie Stufe für Improved Ability on an athletic skill</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice summoning spirits of water</name>
@@ -10734,7 +10734,7 @@
         <choices>
           <choice>
             <name>Magician: +2 dice for Combat spells</name>
-            <translate>Magician: +2 dice for Combat spells</translate>
+            <translate>Zauberer: +2 Würfel for Combat spells</translate>
           </choice>
           <choice>
             <name>Adept: Free Killing Hands</name>
@@ -10742,7 +10742,7 @@
           </choice>
           <choice>
             <name>Magician: +2 dice for Combat spells</name>
-            <translate>Magician: +2 dice for Combat spells</translate>
+            <translate>Zauberer: +2 Würfel for Combat spells</translate>
           </choice>
           <choice>
             <name>Adept: Free Killing Hands</name>
@@ -10768,19 +10768,19 @@
         <choices>
           <choice>
             <name>Magician: +2 dice for Detection spells</name>
-            <translate>Magician: +2 dice for Detection spells</translate>
+            <translate>Zauberer: +2 Würfel auf Wahrnehmungszauber</translate>
           </choice>
           <choice>
             <name>Adept: 2 free levels of Kinesics</name>
-            <translate>Adept: 2 free levels of Kinesics</translate>
+            <translate>Adept: 2 freie Stufen auf Kinesics</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Detection spells</name>
-            <translate>Magician: +2 dice for Detection spells</translate>
+            <translate>Zauberer: +2 Würfel auf Wahrnehmungszauber</translate>
           </choice>
           <choice>
             <name>Adept: 2 free levels of Kinesics</name>
-            <translate>Adept: 2 free levels of Kinesics</translate>
+            <translate>Adept: 2 freie Stufen auf Kinesics</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Detection spells</name>
@@ -10802,19 +10802,19 @@
         <choices>
           <choice>
             <name>Magician: +2 dice for summoning spirits of air</name>
-            <translate>Magician: +2 dice for summoning spirits of air</translate>
+            <translate>Zauberer: +2 Würfel for summoning spirits of air</translate>
           </choice>
           <choice>
             <name>Adept: 1 free level of Critical Strike (skill)</name>
-            <translate>Adept: 1 free level of Critical Strike (skill)</translate>
+            <translate>Adept: 1 freie Stufe für Critical Strike (skill)</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for summoning spirits of air</name>
-            <translate>Magician: +2 dice for summoning spirits of air</translate>
+            <translate>Zauberer: +2 Würfel for summoning spirits of air</translate>
           </choice>
           <choice>
             <name>Adept: 1 free level of Critical Strike (skill)</name>
-            <translate>Adept: 1 free level of Critical Strike (skill)</translate>
+            <translate>Adept: 1 freie Stufe für Critical Strike (skill)</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for summoning spirits of air</name>
@@ -10836,35 +10836,35 @@
         <choices>
           <choice>
             <name>+2 dice for Leadership skill tests</name>
-            <translate>+2 dice for Leadership skill tests</translate>
+            <translate>+2 Würfel for Leadership skill tests</translate>
           </choice>
           <choice>
             <name>+2 dice for Instruction skill tests</name>
-            <translate>+2 dice for Instruction skill tests</translate>
+            <translate>+2 Würfel for Instruction skill tests</translate>
           </choice>
           <choice set="2">
             <name>Magician:+2 dice for Combat spells</name>
-            <translate>Magician:+2 dice for Combat spells</translate>
+            <translate>Zauberer:+2 Würfel for Combat spells</translate>
           </choice>
           <choice set="2">
             <name>Adept: 1 free level of Improved Ability on a Combat skill</name>
-            <translate>Adept: 1 free level of Improved Ability on a Combat skill</translate>
+            <translate>Adept: 1 freie Stufe für Improved Ability on a Combat skill</translate>
           </choice>
           <choice>
             <name>+2 dice for Leadership skill tests</name>
-            <translate>+2 dice for Leadership skill tests</translate>
+            <translate>+2 Würfel for Leadership skill tests</translate>
           </choice>
           <choice>
             <name>+2 dice for Instruction skill tests</name>
-            <translate>+2 dice for Instruction skill tests</translate>
+            <translate>+2 Würfel for Instruction skill tests</translate>
           </choice>
           <choice set="2">
             <name>Magician:+2 dice for Combat spells</name>
-            <translate>Magician:+2 dice for Combat spells</translate>
+            <translate>Zauberer:+2 Würfel for Combat spells</translate>
           </choice>
           <choice set="2">
             <name>Adept: 1 free level of Improved Ability on a Combat skill</name>
-            <translate>Adept: 1 free level of Improved Ability on a Combat skill</translate>
+            <translate>Adept: 1 freie Stufe für Improved Ability on a Combat skill</translate>
           </choice>
           <choice>
             <name>+2 dice for Leadership skill tests</name>
@@ -10894,19 +10894,19 @@
         <choices>
           <choice>
             <name>Magician:+2 dice for Combat spells</name>
-            <translate>Magician:+2 dice for Combat spells</translate>
+            <translate>Zauberer:+2 Würfel for Combat spells</translate>
           </choice>
           <choice>
             <name>Adept: 2 free levels of Attribute Boost (Agility)</name>
-            <translate>Adept: 2 free levels of Attribute Boost (Agility)</translate>
+            <translate>Adept: 2 freie Stufen auf Attribute Boost (Agility)</translate>
           </choice>
           <choice>
             <name>Magician:+2 dice for Combat spells</name>
-            <translate>Magician:+2 dice for Combat spells</translate>
+            <translate>Zauberer:+2 Würfel for Combat spells</translate>
           </choice>
           <choice>
             <name>Adept: 2 free levels of Attribute Boost (Agility)</name>
-            <translate>Adept: 2 free levels of Attribute Boost (Agility)</translate>
+            <translate>Adept: 2 freie Stufen auf Attribute Boost (Agility)</translate>
           </choice>
           <choice>
             <name>Magician:+2 dice for Combat spells</name>
@@ -10928,19 +10928,19 @@
         <choices>
           <choice>
             <name>Magician: +2 dice for Illusion spells</name>
-            <translate>Magician: +2 dice for Illusion spells</translate>
+            <translate>Zauberer: +2 Würfel für Illusionszauber</translate>
           </choice>
           <choice>
             <name>Adept: 1 free level of Improved Ability</name>
-            <translate>Adept: 1 free level of Improved Ability</translate>
+            <translate>Adept: 1 freie Stufe für Improved Ability</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Illusion spells</name>
-            <translate>Magician: +2 dice for Illusion spells</translate>
+            <translate>Zauberer: +2 Würfel für Illusionszauber</translate>
           </choice>
           <choice>
             <name>Adept: 1 free level of Improved Ability</name>
-            <translate>Adept: 1 free level of Improved Ability</translate>
+            <translate>Adept: 1 freie Stufe für Improved Ability</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Illusion spells</name>
@@ -10962,35 +10962,35 @@
         <choices>
           <choice>
             <name>Magician: +2 dice for Physical-type Combat Spells</name>
-            <translate>Magician: +2 dice for Physical-type Combat Spells</translate>
+            <translate>Zauberer: +2 Würfel for Physical-type Combat Spells</translate>
           </choice>
           <choice>
             <name>Adept: 2 free levels of Mystic Armor</name>
-            <translate>Adept: 2 free levels of Mystic Armor</translate>
+            <translate>Adept: 2 freie Stufen auf Mystic Armor</translate>
           </choice>
           <choice>
             <name>Adept: 2 free levels of Pain Resistance</name>
-            <translate>Adept: 2 free levels of Pain Resistance</translate>
+            <translate>Adept: 2 freie Stufen auf Pain Resistance</translate>
           </choice>
           <choice>
             <name>Adept: 1 free level of Mystic Armor and Pain Resistance</name>
-            <translate>Adept: 1 free level of Mystic Armor and Pain Resistance</translate>
+            <translate>Adept: 1 freie Stufe für Mystic Armor and Pain Resistance</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Physical-type Combat Spells</name>
-            <translate>Magician: +2 dice for Physical-type Combat Spells</translate>
+            <translate>Zauberer: +2 Würfel for Physical-type Combat Spells</translate>
           </choice>
           <choice>
             <name>Adept: 2 free levels of Mystic Armor</name>
-            <translate>Adept: 2 free levels of Mystic Armor</translate>
+            <translate>Adept: 2 freie Stufen auf Mystic Armor</translate>
           </choice>
           <choice>
             <name>Adept: 2 free levels of Pain Resistance</name>
-            <translate>Adept: 2 free levels of Pain Resistance</translate>
+            <translate>Adept: 2 freie Stufen auf Pain Resistance</translate>
           </choice>
           <choice>
             <name>Adept: 1 free level of Mystic Armor and Pain Resistance</name>
-            <translate>Adept: 1 free level of Mystic Armor and Pain Resistance</translate>
+            <translate>Adept: 1 freie Stufe für Mystic Armor and Pain Resistance</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Physical-type Combat Spells</name>
@@ -11020,19 +11020,19 @@
         <choices>
           <choice>
             <name>Magician: +2 dice for Illusion Spells</name>
-            <translate>Magician: +2 dice for Illusion Spells</translate>
+            <translate>Zauberer: +2 Würfel für Illusionszauber</translate>
           </choice>
           <choice>
             <name>Adept: 2 free levels of Improved Potential (limit)</name>
-            <translate>Adept: 2 free levels of Improved Potential (limit)</translate>
+            <translate>Adept: 2 freie Stufen auf Improved Potential (limit)</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Illusion Spells</name>
-            <translate>Magician: +2 dice for Illusion Spells</translate>
+            <translate>Zauberer: +2 Würfel für Illusionszauber</translate>
           </choice>
           <choice>
             <name>Adept: 2 free levels of Improved Potential (limit)</name>
-            <translate>Adept: 2 free levels of Improved Potential (limit)</translate>
+            <translate>Adept: 2 freie Stufen auf Improved Potential (limit)</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Illusion Spells</name>
@@ -11054,19 +11054,19 @@
         <choices>
           <choice>
             <name>Magician: +2 dice for Detection Spells</name>
-            <translate>Magician: +2 dice for Detection Spells</translate>
+            <translate>Zauberer: +2 Würfel auf Wahrnehmungszauber</translate>
           </choice>
           <choice>
             <name>Adept: 2 free levels of Enhanced Perception</name>
-            <translate>Adept: 2 free levels of Enhanced Perception</translate>
+            <translate>Adept: 2 freie Stufen auf Enhanced Perception</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Detection Spells</name>
-            <translate>Magician: +2 dice for Detection Spells</translate>
+            <translate>Zauberer: +2 Würfel auf Wahrnehmungszauber</translate>
           </choice>
           <choice>
             <name>Adept: 2 free levels of Enhanced Perception</name>
-            <translate>Adept: 2 free levels of Enhanced Perception</translate>
+            <translate>Adept: 2 freie Stufen auf Enhanced Perception</translate>
           </choice>
           <choice>
             <name>Magician: +2 dice for Detection Spells</name>
@@ -11088,7 +11088,7 @@
         <choices>
           <choice>
             <name>Magician: +2 dice for Detection Spells</name>
-            <translate>Magician: +2 dice for Detection Spells</translate>
+            <translate>Zauberer: +2 Würfel auf Wahrnehmungszauber</translate>
           </choice>
           <choice>
             <name>Adept: Free Astral Perception</name>
@@ -11096,7 +11096,7 @@
           </choice>
           <choice>
             <name>Magician: +2 dice for Detection Spells</name>
-            <translate>Magician: +2 dice for Detection Spells</translate>
+            <translate>Zauberer: +2 Würfel auf Wahrnehmungszauber</translate>
           </choice>
           <choice>
             <name>Adept: Free Astral Perception</name>
@@ -11122,7 +11122,7 @@
         <choices>
           <choice>
             <name>Magician: +2 dice for summoning or binding plague spirits</name>
-            <translate>Magician: +2 dice for summoning or binding plague spirits</translate>
+            <translate>Zauberer: +2 Würfel for summoning or binding plague spirits</translate>
           </choice>
           <choice>
             <name>Adept: Free Plague Cloud</name>
@@ -11130,7 +11130,7 @@
           </choice>
           <choice>
             <name>Magician: +2 dice for summoning or binding plague spirits</name>
-            <translate>Magician: +2 dice for summoning or binding plague spirits</translate>
+            <translate>Zauberer: +2 Würfel for summoning or binding plague spirits</translate>
           </choice>
           <choice>
             <name>Adept: Free Plague Cloud</name>
@@ -11154,6 +11154,18 @@
         <advantage>All: +2 dice for Con tests.</advantage>
         <disadvantage>You must make a Charisma + Willpower (3) Test to avoid exploiting someone else’s misfortune to your own advantage or to pull a clever trick or prank even if it’s to the disadvantage of your friends.</disadvantage>
         <choices>
+          <choice>
+            <name>Magician: +2 dice for Manipulation spells</name>
+            <translate>Magician: +2 dice for Manipulation spells</translate>
+          </choice>
+          <choice>
+            <name>Adept: Free Traceless Walk</name>
+            <translate>Adept: Free Traceless Walk</translate>
+          </choice>
+          <choice>
+            <name>Adept: 1 level of Voice Control</name>
+            <translate>Adept: 1 level of Voice Control</translate>
+          </choice>
           <choice>
             <name>Magician: +2 dice for Manipulation spells</name>
             <translate>Magician: +2 dice for Manipulation spells</translate>
@@ -11499,31 +11511,31 @@
       <category translate="Metamenschen">Metahuman</category>
     </categories>
     <metatypes>
-      <metatype>
+      <metatype translated="True">
         <id>a53d885d-a4a4-443d-b6a6-b0a55b0a96c7</id>
         <name>Human</name>
         <translate>Mensch</translate>
         <page>89</page>
       </metatype>
-      <metatype>
+      <metatype translated="True">
         <id>8ed6892f-88e6-42d0-a704-b805778ec13e</id>
         <name>Ork</name>
         <translate>Ork</translate>
         <page>89</page>
       </metatype>
-      <metatype>
+      <metatype translated="True">
         <id>08f2c9cc-f9f8-4f1a-9efb-63555af71788</id>
         <name>Dwarf</name>
         <translate>Zwerg</translate>
         <page>89</page>
       </metatype>
-      <metatype>
+      <metatype translated="True">
         <id>b3259991-b315-4dbe-ae3c-51f71a1116e2</id>
         <name>Elf</name>
         <translate>Elf</translate>
         <page>89</page>
       </metatype>
-      <metatype>
+      <metatype translated="True">
         <id>77fa1ed8-f4e6-4763-9f0b-f125318b9782</id>
         <name>Troll</name>
         <translate>Troll</translate>
@@ -12030,37 +12042,37 @@
       <power>
         <id>8caaadf4-75b4-4535-928a-5648d395c13a</id>
         <name>Adrenaline Boost</name>
-        <translate>Adrenaline Boost</translate>
+        <translate>Adrenalinschub</translate>
         <page>309</page>
       </power>
       <power>
         <id>980d6575-c28f-4076-9b36-881cea018335</id>
         <name>Danger Sense</name>
-        <translate>Danger Sense</translate>
+        <translate>Gefahrensinn</translate>
         <page>309</page>
       </power>
       <power>
         <id>e009da31-0301-4604-b13f-49b071aa25a1</id>
         <name>Enhanced Accuracy (skill)</name>
-        <translate>Enhanced Accuracy (skill)</translate>
+        <translate>Erhöhte Präzision</translate>
         <page>309</page>
       </power>
       <power>
         <id>75821fb7-a180-4012-aa16-daa92ac3bb63</id>
         <name>Improved Ability (skill)</name>
-        <translate>Improved Ability (skill)</translate>
+        <translate>Verbesserte Fertigkeit (Fertigkeit)</translate>
         <page>309</page>
       </power>
       <power>
         <id>1fde7231-e5cc-4fa3-a1fe-b80b00212417</id>
         <name>Improved Potential (limit)</name>
-        <translate>Improved Potential (limit)</translate>
+        <translate>Erhöhtes Potential (Limit)</translate>
         <page>309</page>
       </power>
       <power>
         <id>ce7df757-792e-4fac-a86e-6b587586deb2</id>
         <name>Light Body</name>
-        <translate>Light Body</translate>
+        <translate>Leichter Körper</translate>
         <page>310</page>
       </power>
       <power>
@@ -12443,7 +12455,7 @@
       <category translate="Handicap">Negative</category>
     </categories>
     <qualities>
-      <quality>
+      <quality translated="True">
         <id>55247bdc-c313-4614-ae15-5012308096ff</id>
         <name>Adept</name>
         <page>90</page>
@@ -15697,7 +15709,7 @@
         <page>243</page>
         <translate>Blitzstrahl</translate>
       </spell>
-      <spell>
+      <spell translated="True">
         <id>d866f612-7160-41d2-8ce9-b64262327559</id>
         <name>Manaball</name>
         <page>244</page>
@@ -15715,7 +15727,7 @@
         <page>195</page>
         <translate>[Objekt] zersetzen</translate>
       </spell>
-      <spell>
+      <spell translated="True">
         <id>577871f2-f294-4db9-94f0-5790d0576a4b</id>
         <name>Napalm</name>
         <page>194</page>
@@ -15937,7 +15949,7 @@
         <page>249</page>
         <translate>[Objekt] aufspüren</translate>
       </spell>
-      <spell>
+      <spell translated="True">
         <id>fdbb2c8e-453b-46cf-8dcd-522c6d3aa3e0</id>
         <name>Diagnose</name>
         <page>203</page>
@@ -16165,7 +16177,7 @@
         <page>190</page>
         <translate>Häcksel</translate>
       </spell>
-      <spell>
+      <spell translated="True">
         <id>4268d83b-c208-4aa3-8924-5620516f8434</id>
         <name>Chaos</name>
         <page>242</page>
@@ -16561,7 +16573,7 @@
         <page>246</page>
         <translate>Physische Barriere</translate>
       </spell>
-      <spell>
+      <spell translated="True">
         <id>d7d6bbf6-6855-47ce-9865-5a01db507d71</id>
         <name>Poltergeist</name>
         <page>246</page>
@@ -16621,52 +16633,52 @@
         <page>201</page>
         <translate>Sterilisieren</translate>
       </spell>
-      <spell>
+      <spell translated="True">
         <id>96fdf1da-d4e7-460c-a172-3f7a7b56ac67</id>
         <name>Detect Magic, Extended</name>
         <translate>Magieentdecken, erweitert</translate>
       </spell>
-      <spell>
+      <spell translated="True">
         <id>0d15391d-b247-439c-aac6-c671c4f60204</id>
         <name>Curse</name>
         <translate>Fluch</translate>
       </spell>
-      <spell>
+      <spell translated="True">
         <id>716ce109-40df-46f2-b445-692f96e62537</id>
         <name>Prodigal Spell</name>
         <translate>Fernzauber</translate>
       </spell>
-      <spell>
+      <spell translated="True">
         <id>b561907f-9b1b-4153-b314-155acc8139d2</id>
         <name>Remote Sensing</name>
         <translate>Fernwahrnehmung</translate>
       </spell>
-      <spell>
+      <spell translated="True">
         <id>3cea53a2-7628-4009-9bc4-af2f141fc28d</id>
         <name>Ward</name>
         <translate>Hüter</translate>
       </spell>
-      <spell>
+      <spell translated="True">
         <id>6f1689d0-1902-4155-b6e8-4451c88348b2</id>
         <name>Circle of Protection</name>
         <translate>Schutzkreis</translate>
       </spell>
-      <spell>
+      <spell translated="True">
         <id>b7e36c07-0ac9-4a13-97b2-932cacc050e9</id>
         <name>Circle of Healing</name>
         <translate>Kreis der Heilung</translate>
       </spell>
-      <spell>
+      <spell translated="True">
         <id>27747429-0230-4c46-a7ce-bbee8d7d8c83</id>
         <name>Renascence</name>
         <translate>Herrschaft</translate>
       </spell>
-      <spell>
+      <spell translated="True">
         <id>1149e55c-e902-407c-9f40-9c0713447c50</id>
         <name>Watcher</name>
         <translate>Watcher</translate>
       </spell>
-      <spell>
+      <spell translated="True">
         <id>f99ab85f-2cc7-4c09-8ea4-581f75e40487</id>
         <name>Homunculus</name>
         <translate>Homunkulus</translate>
@@ -17200,7 +17212,7 @@
         <translate>Hinduism</translate>
         <page>46</page>
       </tradition>
-      <tradition>
+      <tradition translated="True">
         <id>9acc0a3e-3209-4274-9c98-4cbc42c456a7</id>
         <name>Islam</name>
         <translate>Islam</translate>
@@ -17312,17 +17324,17 @@
       </spirit>
     </spirits>
     <drainattributes>
-      <drainattribute>
+      <drainattribute translated="True">
         <id>f10d9639-45c8-4c45-87b9-6af0fef73723</id>
         <name>WIL + CHA</name>
         <translate>WIL + CHA</translate>
       </drainattribute>
-      <drainattribute>
+      <drainattribute translated="True">
         <id>06b8b7da-1301-4963-aba7-4862024559a8</id>
         <name>WIL + INT</name>
         <translate>WIL + INT</translate>
       </drainattribute>
-      <drainattribute>
+      <drainattribute translated="True">
         <id>aca1fd74-0c25-41d5-b621-434c3892cfb3</id>
         <name>WIL + LOG</name>
         <translate>WIL + LOG</translate>
@@ -20278,7 +20290,7 @@
         <name>Diffusion of [Matrix Attribute]</name>
         <translate>[Matrix Attribut]-Senkung</translate>
       </complexform>
-      <complexform>
+      <complexform translated="True">
         <id>6b4ed8d5-75c8-4415-9578-15afa4ac8494</id>
         <name>Editor</name>
         <translate>Editor</translate>
@@ -20688,189 +20700,189 @@
       <category translate="Ressourcen" translated="True">Resources</category>
     </categories>
     <priorities>
-      <priority>
+      <priority translated="True">
         <id>55bc32fb-e097-4234-bdd5-a70e4f043b3d</id>
         <name>A - Any metatype</name>
         <translate>A - Jeder Metatyp</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>f9aa712d-7140-4ddd-9e88-4a06e8bae222</id>
         <name>B - Any metatype</name>
         <translate>B - Jeder Metatyp</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>988b7ce3-5739-4300-bc21-a6c92b869262</id>
         <name>C - Human, Dwarf, Elf, or Ork</name>
         <translate>C - Mensch, Zwerg, Elf oder Ork</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>255da2ba-8d21-4a73-9f81-37156901db72</id>
         <name>D - Human or Elf</name>
         <translate>D - Mensch oder Elf</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>91dccab9-c3fc-4868-abf8-1825b70e8a6c</id>
         <name>E - Human</name>
         <translate>E - Mensch</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>9d58a295-7c59-4d3f-8001-a5565da6b836</id>
         <name>A - Magician or Technomancer</name>
         <translate>A - Zauberer oder Technomancer</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>774fd89a-ecea-4f5f-ad2b-c4476ca46f70</id>
         <name>B - Adept, Magician, or Technomancer</name>
         <translate>B - Adept, Zauberer oder Technomancer</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>aae3a140-d306-4811-a9d2-874140600150</id>
         <name>C - Adept, Magician, or Technomancer</name>
         <translate>C - Adept, Zauberer oder Technomancer</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>b97be625-a732-4c3c-80e4-06c4d88bac91</id>
         <name>D - Adept or Aspected Magician</name>
         <translate>D - Adept oder Aspektzauberer</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>9753a254-94b0-46e8-83f4-e7627bdb8571</id>
         <name>E - Mundane</name>
         <translate>E - Mundan</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>1c4a7955-1ae1-4a5b-9ed4-5ab8525d13b0</id>
         <name>A - 24 Attributes</name>
         <translate>A - 24 Attribute</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>521c1f60-f382-479e-af3b-a3eda5201f22</id>
         <name>B - 20 Attributes</name>
         <translate>B - 20 Attribute</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>0a224d86-d355-4cd6-8e4e-b94e31f97c4b</id>
         <name>C - 16 Attributes</name>
         <translate>C - 16 Attribute</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>984600d8-5b2f-437c-86eb-693a5bbff030</id>
         <name>D - 14 Attributes</name>
         <translate>D - 14 Attribute</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>f6a36071-41ab-4f8e-884d-3cee92d8f181</id>
         <name>E - 12 Attributes</name>
         <translate>E - 12 Attribute</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>45a5f7b4-c152-4e05-839f-1b3d14e56058</id>
         <name>A - 46 Skills/10 Skill Groups</name>
         <translate>A - 46 Fertigkeiten/10 Fertigkeitesgruppen</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>bde37645-6789-4401-bcec-4c0e61c7fe17</id>
         <name>B - 36 Skills/5 Skill Groups</name>
         <translate>B - 36 Fertigkeiten/5 Fertigkeitesgruppen</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>57c52154-489e-4e8a-b885-13b341700deb</id>
         <name>C - 28 Skills/2 Skill Groups</name>
         <translate>C - 28 Fertigkeiten/2 Fertigkeitesgruppen</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>61e1758f-e4ca-4e53-ad45-bb88a0e5ac04</id>
         <name>D - 22 Skills/0 Skill Groups</name>
         <translate>D - 22 Fertigkeiten/0 Fertigkeitesgruppen</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>b1ca5551-46a4-4ef0-9d07-c33ae0abbcd1</id>
         <name>E - 18 Skills/0 Skill Groups</name>
         <translate>E - 18 Fertigkeiten/0 Fertigkeitesgruppen</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>ee17af88-5564-4009-b0a1-4c8632bffaf4</id>
         <name>A - 450,000¥</name>
         <translate>A - 450,000¥</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>ddb56487-f6ef-480d-9812-cf6077111c2b</id>
         <name>B - 275,000¥</name>
         <translate>B - 275,000¥</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>be69802a-5379-457b-8084-87b22d2e9ea6</id>
         <name>C - 140,000¥</name>
         <translate>C - 140,000¥</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>b977475b-9728-45a0-9873-a77bb036fb99</id>
         <name>D - 50,000¥</name>
         <translate>D - 50,000¥</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>dd4eb137-e218-4d92-9ac2-db4d6bad4704</id>
         <name>E - 6,000¥</name>
         <translate>E - 6,000¥</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>7e4c5695-52c8-4b16-b233-058af14a41d1</id>
         <name>A - 500,000¥</name>
         <translate>A - 500,000¥</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>1da0e4d3-e75b-40ab-b366-e1eba499e8ca</id>
         <name>B - 325,000¥</name>
         <translate>B - 325,000¥</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>0fdfe7f7-119d-4971-a629-4a4dea938c6c</id>
         <name>C - 210,000¥</name>
         <translate>C - 210,000¥</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>2cbe209a-ae97-4985-b42f-4839613dfb28</id>
         <name>D - 150,000¥</name>
         <translate>D - 150,000¥</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>860a9601-e06f-424f-8f40-bee843a6b5dc</id>
         <name>E - 100,000¥</name>
         <translate>E - 100,000¥</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>dc72a445-a956-4ea5-b383-0f775c638f05</id>
         <name>A - 75,000¥</name>
         <translate>A - 75,000¥</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>edc5db00-8d4c-4510-85d2-8d82d6c66ed6</id>
         <name>B - 50,000¥</name>
         <translate>B - 50,000¥</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>9aecfa32-4d5c-4ba9-a88e-9a04f83e516b</id>
         <name>C - 25,000¥</name>
         <translate>C - 25,000¥</translate>
       </priority>
-      <priority>
+      <priority translated="True">
         <id>c5b45f74-3396-45c7-afa9-b69c0c8db6ee</id>
         <name>D - 15,000¥</name>
         <translate>D - 15,000¥</translate>
       </priority>
     </priorities>
     <gameplayoptions>
-      <gameplayoption>
+      <gameplayoption translated="True">
         <id>054559be-d80a-42b9-a0a9-d6957d2b3c55</id>
         <name>Standard</name>
         <translate>Standard</translate>
       </gameplayoption>
-      <gameplayoption>
+      <gameplayoption translated="True">
         <id>5b1281c0-466d-441d-a844-5a2bc93d9843</id>
         <name>Prime Runner</name>
         <translate>Top-Runner</translate>
       </gameplayoption>
-      <gameplayoption>
+      <gameplayoption translated="True">
         <id>def8a6aa-4bfa-4c73-a20f-2a8e80d2b1df</id>
         <name>Street Level</name>
         <translate>Straßenrunner</translate>
