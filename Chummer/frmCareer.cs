@@ -21494,9 +21494,9 @@ namespace Chummer
 					}
 					else
 					{
-						strTooltip = LanguageManager.Instance.GetString("Tip_ImproveItem").Replace("{0}", (_objCharacter.MAG.Value - _objCharacter.EssencePenalty + 1).ToString()).Replace("{1}", ((_objCharacter.MAG.Value + _objCharacter.EssencePenalty - 1) * _objOptions.KarmaAttribute).ToString());
+						strTooltip = LanguageManager.Instance.GetString("Tip_ImproveItem").Replace("{0}", (_objCharacter.MAG.Value - _objCharacter.EssencePenalty + 1).ToString()).Replace("{1}", ((_objCharacter.MAG.Value + _objCharacter.EssencePenalty + 1) * _objOptions.KarmaAttribute).ToString());
 						tipTooltip.SetToolTip(cmdImproveMAG, strTooltip);
-						strTooltip = LanguageManager.Instance.GetString("Tip_ImproveItem").Replace("{0}", (_objCharacter.RES.Value - _objCharacter.EssencePenalty + 1).ToString()).Replace("{1}", ((_objCharacter.RES.Value + _objCharacter.EssencePenalty - 1) * _objOptions.KarmaAttribute).ToString());
+						strTooltip = LanguageManager.Instance.GetString("Tip_ImproveItem").Replace("{0}", (_objCharacter.RES.Value - _objCharacter.EssencePenalty + 1).ToString()).Replace("{1}", ((_objCharacter.RES.Value + _objCharacter.EssencePenalty + 1) * _objOptions.KarmaAttribute).ToString());
 						tipTooltip.SetToolTip(cmdImproveRES, strTooltip);
 					}
 				}

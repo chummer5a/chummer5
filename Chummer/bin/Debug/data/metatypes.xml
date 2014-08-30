@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-499</version>
+  <version>-498</version>
   <categories>
     <category>Metahuman</category>
   </categories>
@@ -159,7 +159,7 @@
       <qualities>
         <positive>
           <quality>Thermographic Vision</quality>
-          <quality>Resistance to Pathogens and Toxins</quality>
+          <quality>Dwarf Resistance</quality>
         </positive>
       </qualities>
       <bonus>
