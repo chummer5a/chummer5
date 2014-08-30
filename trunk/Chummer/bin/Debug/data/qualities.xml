@@ -1,11 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-490</version>
+  <version>-489</version>
   <categories>
     <category>Positive</category>
     <category>Negative</category>
   </categories>
   <qualities>
+    <quality>
+      <id></id>
+      <name>Dwarf Resistance</name>
+      <karma>0</karma>
+      <category>Positive</category>
+      <bonus />
+      <forbidden>
+        <oneof>
+          <metatype>Dwarf</metatype>
+        </oneof>
+      </forbidden>
+      <source>SR5</source>
+      <page>408</page>
+    </quality>
     <quality>
       <id>68cfe94a-fa7e-4129-a9b9-b5d73e3ced99</id>
       <name>Ambidextrous</name>
