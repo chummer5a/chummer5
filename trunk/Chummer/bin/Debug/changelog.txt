@@ -1,5 +1,19 @@
-Build 5.139 (beta)
+Build 5.140
+- Fixed the tooltip showing the karma values for raising magic in career mode.
+- Added a new Dwarven racial quality to include the resistance to pathogens and toxins rather than using the Resistance to Pathogens and Toxins positive quality. This will only impact characters created with this version or later.
+
+Build 5.139
 - Added in the ability to multi-specialize in skills post character creation.
+- Updated Mnemonic Enhancer to provide its bonus to the Mental Limit and Memory Tests.
+- Updated Tailored Pheromones to provide a flat bonus to the social limit instead of a limit modifier.
+- Fixed a bug with Qi Foci that could prevent it from showing the power it provides in the bound foci list.
+- Updated Martial Arts so that it prevents taking the same Technique via the same Martial Art so you can have stacked bonuses.
+- Fixed the Advanced Safety System from Run and Gun so that it would be available for use.
+- Added the new spirits from Spirit Grimoire to the specialization lists for each of the Summoning skils.
+- Fixed a bug that would occur when undoing adding a submersion grade in Career mode that was preventing it from correctly removing echoes attached to that submersion grade.
+- Fixed a bug that was causing vehicles to show a Signal rating which was an artifact from 4th Edition.
+- Fixed a bug that was failing to calculate the available contact points.
+- Fixed a bug that was allowing multiple attributes at maximum during character creation if the character had the Exceptional Attribute positive quality.
 
 Build 5.138 (beta)
 - Fixed the spelling on the name of the Evo Armadillo Armored Spacesuit.

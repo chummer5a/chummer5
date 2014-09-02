@@ -2,7 +2,7 @@
 <!-- この言語ファイルは AhonokoP が作成しました。連絡を取りたいときは"Dumpshock Forum"でAhonokoPにメッセージを送ってください -->
 <!-- Translated by AhonokoP. Contact me at "Dumpshock Forum" -->
 <chummer>
-  <version>-498</version>
+  <version>-497</version>
   <name>日本語 (JP)</name>
   <strings>
     <!-- Common Strings -->
@@ -7348,6 +7348,18 @@
     <string>
       <key>Label_Condition</key>
       <text>Condition:</text>
+    </string>
+    <string>
+      <key>Message_ConfirmKarmaExpenseSkillSpecialization</key>
+      <text>Are you sure you want to spend {0} Karma on a skill specialization?</text>
+    </string>
+    <string>
+      <key>String_ExpenseLearnSpecialization</key>
+      <text>Learned Specialization</text>
+    </string>
+    <string>
+      <key>Tip_Skill_AddSpecialization</key>
+      <text>Add Specialization for {0} Karma</text>
     </string>
   </strings>
 </chummer>

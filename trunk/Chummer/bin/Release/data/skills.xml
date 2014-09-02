@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-497</version>
+  <version>-496</version>
   <skillgroups>
     <name>Acting</name>
     <name>Athletics</name>
@@ -247,6 +247,10 @@
         <spec>Spirits of Fire</spec>
         <spec>Spirits of Man</spec>
         <spec>Spirits of Water</spec>
+        <spec>Guardian Spirit</spec>
+        <spec>Guidance Spirit</spec>
+        <spec>Plant Spirit</spec>
+        <spec>Task Spirit</spec>
       </specs>
       <source>SR5</source>
       <page>142</page>
@@ -265,6 +269,10 @@
         <spec>Spirits of Fire</spec>
         <spec>Spirits of Man</spec>
         <spec>Spirits of Water</spec>
+        <spec>Guardian Spirit</spec>
+        <spec>Guidance Spirit</spec>
+        <spec>Plant Spirit</spec>
+        <spec>Task Spirit</spec>
       </specs>
       <source>SR5</source>
       <page>142</page>
@@ -1167,6 +1175,10 @@
         <spec>Spirits of Fire</spec>
         <spec>Spirits of Man</spec>
         <spec>Spirits of Water</spec>
+        <spec>Guardian Spirit</spec>
+        <spec>Guidance Spirit</spec>
+        <spec>Plant Spirit</spec>
+        <spec>Task Spirit</spec>
       </specs>
       <source>SR5</source>
       <page>143</page>
@@ -2606,7 +2618,6 @@
         <spec>Man</spec>
         <spec>Plant</spec>
         <spec>Task</spec>
-        <spec>Wind</spec>
         <spec>Water</spec>
         <spec>Watcher</spec>
       </specs>

@@ -1326,7 +1326,7 @@ namespace Chummer
             // Allow a 2nd Max Attribute
             try
             {
-                _blnAllow2ndMaxAttribute = Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/allow2ndmaxattribute").InnerText);
+                _blnAllow2ndMaxAttribute = false; // Convert.ToBoolean(objXmlDocument.SelectSingleNode("/settings/allow2ndmaxattribute").InnerText);
             }
             catch
             { }

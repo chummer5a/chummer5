@@ -51,11 +51,14 @@ namespace Chummer
                 bool blnIsNew = true;
                 foreach (MartialArt objMartialArt in _objCharacter.MartialArts)
                 {
-                    foreach (MartialArtAdvantage objMartialArtAdvantage in objMartialArt.Advantages)
+                    if (objMartialArt.Name == _strMartialArt)
                     {
-                        if (objMartialArtAdvantage.Name == objItem.Value)
+                        foreach (MartialArtAdvantage objMartialArtAdvantage in objMartialArt.Advantages)
                         {
-                            blnIsNew = false;
+                            if (objMartialArtAdvantage.Name == objItem.Value)
+                            {
+                                blnIsNew = false;
+                            }
                         }
                     }
                 }

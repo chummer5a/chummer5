@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-487</version>
+  <version>-486</version>
   <categories>
     <category>Blades</category>
     <category>Clubs</category>
@@ -6450,7 +6450,7 @@
     <accessory>
       <id>06e128ee-00fd-4992-8bf5-4be35815fd11</id>
       <name>Advanced Safety System, Basic</name>
-      <mount>Internal</mount>
+      <mount />
       <avail>4</avail>
       <cost>600</cost>
       <source>RG</source>
@@ -6459,7 +6459,7 @@
     <accessory>
       <id>fad8757c-622f-41ce-8412-8bbb6fbf6445</id>
       <name>Advanced Safety System, Immobilization</name>
-      <mount>Internal</mount>
+      <mount />
       <avail>6</avail>
       <cost>700</cost>
       <source>RG</source>
@@ -6468,7 +6468,7 @@
     <accessory>
       <id>c9739e50-bbaf-47e7-a19b-c3d7fd2b95af</id>
       <name>Advanced Safety System, Self Destruct</name>
-      <mount>Internal</mount>
+      <mount />
       <avail>6</avail>
       <cost>800</cost>
       <source>RG</source>
@@ -6477,7 +6477,7 @@
     <accessory>
       <id>25b695f8-ed5a-4b75-baf0-164dcde74f2d</id>
       <name>Advanced Safety System, Explosive Self Destruct</name>
-      <mount>Internal</mount>
+      <mount />
       <avail>11F</avail>
       <cost>1000</cost>
       <source>RG</source>
@@ -6486,7 +6486,7 @@
     <accessory>
       <id>b64d5256-0c24-4842-b05d-25ee735c9b6a</id>
       <name>Advanced Safety System, Electro Shocker</name>
-      <mount>Internal</mount>
+      <mount />
       <avail>6R</avail>
       <cost>950</cost>
       <source>RG</source>

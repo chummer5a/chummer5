@@ -418,9 +418,10 @@ namespace Chummer
             objWriter.WriteElementString("gameplayoption", _strGameplayOption);
             // <maxnuyen />
             objWriter.WriteElementString("maxnuyen", _intMaxNuyen.ToString());
-
             // <maxkarma />
             objWriter.WriteElementString("maxkarma", _intMaxKarma.ToString());
+            // <contactmultiplier />
+            objWriter.WriteElementString("contactmultiplier", _intContactMultiplier.ToString());
 
             // <knowpts />
             objWriter.WriteElementString("knowskillpts", _intKnowledgeSkills.ToString());
@@ -1927,7 +1928,20 @@ namespace Chummer
                 }
             }
 
-			// If the character had old Qualities that were converted, immediately save the file so they are in the new format.
+            if (_intContactMultiplier == 0 && _strGameplayOption != string.Empty)
+            {
+                XmlDocument objXmlDocumentPriority = XmlManager.Instance.Load("priorities.xml");
+                XmlNode objXmlGameplayOption = objXmlDocumentPriority.SelectSingleNode("/chummer/gameplayoptions/gameplayoption[name = \"" + _strGameplayOption + "\"]");
+                string strKarma = objXmlGameplayOption["karma"].InnerText;
+                string strNuyen = objXmlGameplayOption["maxnuyen"].InnerText;
+                string strContactMultiplier = objXmlGameplayOption["contactmultiplier"].InnerText;
+                _intMaxKarma = Convert.ToInt32(strKarma);
+                _intMaxNuyen = Convert.ToInt32(strNuyen);
+                _intContactMultiplier = Convert.ToInt32(strContactMultiplier);
+                _intContactPoints = CHA.Base * _intContactMultiplier;
+            }
+
+            // If the character had old Qualities that were converted, immediately save the file so they are in the new format.
 			if (blnHasOldQualities)
 				Save();
 
