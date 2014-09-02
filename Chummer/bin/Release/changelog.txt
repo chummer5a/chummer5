@@ -1,7 +1,21 @@
+Build 5.139
+- Added in the ability to multi-specialize in skills post character creation.
+- Updated Mnemonic Enhancer to provide its bonus to the Mental Limit and Memory Tests.
+- Updated Tailored Pheromones to provide a flat bonus to the social limit instead of a limit modifier.
+- Fixed a bug with Qi Foci that could prevent it from showing the power it provides in the bound foci list.
+- Updated Martial Arts so that it prevents taking the same Technique via the same Martial Art so you can have stacked bonuses.
+- Fixed the Advanced Safety System from Run and Gun so that it would be available for use.
+- Added the new spirits from Spirit Grimoire to the specialization lists for each of the Summoning skils.
+- Fixed a bug that would occur when undoing adding a submersion grade in Career mode that was preventing it from correctly removing echoes attached to that submersion grade.
+- Fixed a bug that was causing vehicles to show a Signal rating which was an artifact from 4th Edition.
+- Fixed a bug that was failing to calculate the available contact points.
+- Fixed a bug that was allowing multiple attributes at maximum during character creation if the character had the Exceptional Attribute positive quality.
+
 Build 5.138 (beta)
 - Fixed the spelling on the name of the Evo Armadillo Armored Spacesuit.
 - Fixed the calculation of the Mortimer of London coats when dealing with unequipped armor.
 - Updated Chem Seal and Environmental Adaptation for Full Body Armor to be mods for Full Body Armor rather than armors themselves.
+- For the Translator: Fixed both the Page and Translated columns so that they correctly save changes.
 
 Build 5.137 (beta)
 - Before anything else, I want to thank Geg (chummer5de@gmail.com) for going above and beyond working on the German translation for Chummer. A very large part of Chummer's data files have been translated into German by Geg over the last week and I cannot thank him enough for taking it upon himself to do this.

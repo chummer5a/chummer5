@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-497</version>
+  <version>-495</version>
   <grades>
     <grade>
       <id>f0a67dc0-6b0a-43fa-b389-a110ba1dd59d</id>
@@ -186,7 +186,8 @@
           <name>Street</name>
           <bonus>Rating</bonus>
         </skillcategory>
-        <mentallimit>+1</mentallimit>
+        <mentallimit>Rating</mentallimit>
+        <memory>Rating</memory>
       </bonus>
       <source>SR5</source>
       <page>460</page>
@@ -404,11 +405,7 @@
       <avail>(Rating * 4)R</avail>
       <cost>Rating * 31000</cost>
       <bonus>
-        <limitmodifier>
-          <limit>Social</limit>
-          <value>Rating</value>
-          <condition>Only in person</condition>
-        </limitmodifier>
+        <sociallimit>Rating</sociallimit>
       </bonus>
       <source>SR5</source>
       <page>460</page>

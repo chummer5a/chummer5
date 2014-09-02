@@ -3503,6 +3503,7 @@ namespace Chummer
                                     objPower.FreeLevels += Convert.ToInt32(decLevels);
                                     objPower.Rating += Convert.ToInt32(decLevels);
                                 }
+                                objPower.BonusSource = strSourceName;
                             }
                             else
                             {

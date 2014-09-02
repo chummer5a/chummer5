@@ -14701,42 +14701,42 @@ namespace Chummer
             {
                 if (strAttribute != "nudSTR")
                 {
-                    if (((nudSTR.Value + nudKSTR.Value + _objCharacter.STR.MaximumModifiers) == nudSTR.Maximum) && nudSTR.Maximum != 0)
+                    if (((nudSTR.Value + nudKSTR.Value) == nudSTR.Maximum) && nudSTR.Maximum != 0)
                         blnAtMaximum = true;
                 }
                 if (strAttribute != "nudBOD")
                 {
-                    if (((nudBOD.Value + nudKBOD.Value + _objCharacter.BOD.MaximumModifiers) == nudBOD.Maximum) && nudBOD.Maximum != 0)
+                    if (((nudBOD.Value + nudKBOD.Value) == nudBOD.Maximum) && nudBOD.Maximum != 0)
                         blnAtMaximum = true;
                 }
                 if (strAttribute != "nudAGI")
                 {
-                    if (((nudAGI.Value + nudKAGI.Value + _objCharacter.AGI.MaximumModifiers) == nudAGI.Maximum) && nudAGI.Maximum != 0)
+                    if (((nudAGI.Value + nudKAGI.Value) == nudAGI.Maximum) && nudAGI.Maximum != 0)
                         blnAtMaximum = true;
                 }
                 if (strAttribute != "nudREA")
                 {
-                    if (((nudREA.Value + nudKREA.Value + _objCharacter.REA.MaximumModifiers) == nudREA.Maximum) && nudREA.Maximum != 0)
+                    if (((nudREA.Value + nudKREA.Value) == nudREA.Maximum) && nudREA.Maximum != 0)
                         blnAtMaximum = true;
                 }
                 if (strAttribute != "nudCHA")
                 {
-                    if (((nudCHA.Value + nudKCHA.Value + _objCharacter.CHA.MaximumModifiers) == nudCHA.Maximum) && nudCHA.Maximum != 0)
+                    if (((nudCHA.Value + nudKCHA.Value) == nudCHA.Maximum) && nudCHA.Maximum != 0)
                         blnAtMaximum = true;
                 }
                 if (strAttribute != "nudINT")
                 {
-                    if (((nudINT.Value + nudKINT.Value + _objCharacter.INT.MaximumModifiers) == nudINT.Maximum) && nudINT.Maximum != 0)
+                    if (((nudINT.Value + nudKINT.Value) == nudINT.Maximum) && nudINT.Maximum != 0)
                         blnAtMaximum = true;
                 }
                 if (strAttribute != "nudWIL")
                 {
-                    if (((nudWIL.Value + nudKWIL.Value + _objCharacter.WIL.MaximumModifiers) == nudWIL.Maximum) && nudWIL.Maximum != 0)
+                    if (((nudWIL.Value + nudKWIL.Value) == nudWIL.Maximum) && nudWIL.Maximum != 0)
                         blnAtMaximum = true;
                 }
                 if (strAttribute != "nudLOG")
                 {
-                    if (((nudLOG.Value + nudKLOG.Value + _objCharacter.LOG.MaximumModifiers) == nudLOG.Maximum) && nudLOG.Maximum != 0)
+                    if (((nudLOG.Value + nudKLOG.Value) == nudLOG.Maximum) && nudLOG.Maximum != 0)
                         blnAtMaximum = true;
                 }
             }
@@ -18880,10 +18880,10 @@ namespace Chummer
 				lblVehiclePilot.Text = objVehicle.Pilot.ToString();
 				lblVehicleBody.Text = objVehicle.TotalBody.ToString();
 				lblVehicleArmor.Text = objVehicle.TotalArmor.ToString();
-				if (_objOptions.UseCalculatedVehicleSensorRatings)
-					lblVehicleSensor.Text = objVehicle.CalculatedSensor.ToString() + " (" + LanguageManager.Instance.GetString("Label_Signal") + " " + objVehicle.SensorSignal.ToString() + ")";
-				else
-					lblVehicleSensor.Text = objVehicle.Sensor.ToString() + " (" + LanguageManager.Instance.GetString("Label_Signal") + " " + objVehicle.SensorSignal.ToString() + ")";
+                if (_objOptions.UseCalculatedVehicleSensorRatings)
+                    lblVehicleSensor.Text = objVehicle.CalculatedSensor.ToString();
+                else
+                    lblVehicleSensor.Text = objVehicle.Sensor.ToString();
 				lblVehicleSlots.Text = objVehicle.Slots.ToString() + " (" + (objVehicle.Slots - objVehicle.SlotsUsed).ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 				string strBook = _objOptions.LanguageBookShort(objVehicle.Source);
 				string strPage = objVehicle.Page;
@@ -24469,6 +24469,11 @@ namespace Chummer
             catch
             {
             }
+        }
+
+        private void treFoci_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
         }
     }
 }

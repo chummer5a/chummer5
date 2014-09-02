@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-  <version>-495</version>
+  <version>-494</version>
   <name>Français</name>
   <strings>
     <!-- Common Strings -->
@@ -7355,6 +7355,18 @@ Un saul attribut peut atteindre sa valeur maximum durant la création de personn
     <string>
       <key>Label_Condition</key>
       <text>Condition:</text>
+    </string>
+    <string>
+      <key>Message_ConfirmKarmaExpenseSkillSpecialization</key>
+      <text>Are you sure you want to spend {0} Karma on a skill specialization?</text>
+    </string>
+    <string>
+      <key>String_ExpenseLearnSpecialization</key>
+      <text>Learned Specialization</text>
+    </string>
+    <string>
+      <key>Tip_Skill_AddSpecialization</key>
+      <text>Add Specialization for {0} Karma</text>
     </string>
   </strings>
 </chummer>

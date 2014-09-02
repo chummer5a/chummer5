@@ -13509,20 +13509,20 @@ namespace Chummer
 								_objCharacter.InitiationGrades.Remove(objGrade);
 								_objCharacter.SubmersionGrade--;
 
-								// Update any Echo Improvements the character might have.
-								foreach (Metamagic objMetamagic in _objCharacter.Metamagics)
-								{
-									if (objMetamagic.Bonus != null)
-									{
-										// If the Bonus contains "Rating", remove the existing Improvement and create new ones.
-										if (objMetamagic.Bonus.InnerXml.Contains("Rating"))
-										{
-											_objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Echo, objMetamagic.InternalId);
-											_objImprovementManager.CreateImprovements(Improvement.ImprovementSource.Echo, objMetamagic.InternalId, objMetamagic.Bonus, false, _objCharacter.SubmersionGrade, objMetamagic.DisplayNameShort);
-										}
-									}
-								}
-							}
+                                List<Metamagic> lstMetamagic = new List<Metamagic>();
+                                foreach (Metamagic objMetamagic in _objCharacter.Metamagics)
+                                {
+                                    if (objMetamagic.Grade == objGrade.Grade)
+                                    {
+                                        lstMetamagic.Add(objMetamagic);
+                                    }
+                                }
+                                foreach (Metamagic objMetamagic in lstMetamagic)
+                                {
+                                    _objImprovementManager.RemoveImprovements(Improvement.ImprovementSource.Metamagic, objMetamagic.InternalId);
+                                    _objCharacter.Metamagics.Remove(objMetamagic);
+                                }
+                            }
 
 							// Refresh the Initiation Grade List.
                             UpdateInitiationGradeTree();
@@ -24414,10 +24414,10 @@ namespace Chummer
 				lblVehiclePilot.Text = objVehicle.Pilot.ToString();
 				lblVehicleBody.Text = objVehicle.TotalBody.ToString();
 				lblVehicleArmor.Text = objVehicle.TotalArmor.ToString();
-				if (_objOptions.UseCalculatedVehicleSensorRatings)
-					lblVehicleSensor.Text = objVehicle.CalculatedSensor.ToString() + " (" + LanguageManager.Instance.GetString("Label_Signal") + " " + objVehicle.SensorSignal.ToString() + ")";
-				else
-					lblVehicleSensor.Text = objVehicle.Sensor.ToString() + " (" + LanguageManager.Instance.GetString("Label_Signal") + " " + objVehicle.SensorSignal.ToString() + ")";
+                if (_objOptions.UseCalculatedVehicleSensorRatings)
+                    lblVehicleSensor.Text = objVehicle.CalculatedSensor.ToString();
+                else
+                    lblVehicleSensor.Text = objVehicle.Sensor.ToString();
 				lblVehicleSlots.Text = objVehicle.Slots.ToString() + " (" + (objVehicle.Slots - objVehicle.SlotsUsed).ToString() + " " + LanguageManager.Instance.GetString("String_Remaining") + ")";
 				string strBook = _objOptions.LanguageBookShort(objVehicle.Source);
 				string strPage = objVehicle.Page;

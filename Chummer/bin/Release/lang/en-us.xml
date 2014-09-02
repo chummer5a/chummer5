@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-489</version>
+	<version>-488</version>
 	<name>English (US)</name>
 	<strings>
 		<!-- Common Strings -->
@@ -1962,6 +1962,10 @@
 			<text>Are you sure you want to spend {0} Karma on joining a Group?</text>
 		</string>
 		<string>
+			<key>Message_ConfirmKarmaExpenseSkillSpecialization</key>
+			<text>Are you sure you want to spend {0} Karma on a skill specialization?</text>
+		</string>
+		<string>
 			<key>Message_ConfirmKarmaExpenseLeaveGroup</key>
 			<text>Are you sure you want to spend {0} Karma on leaving a Group?</text>
 		</string>
@@ -2268,6 +2272,10 @@
 		<string>
 			<key>String_ExpenseLearnSpell</key>
 			<text>Learned Spell</text>
+		</string>
+		<string>
+			<key>String_ExpenseLearnSpecialization</key>
+			<text>Learned Specialization</text>
 		</string>
 		<string>
 			<key>String_ExpenseLearnTechnique</key>
@@ -4479,6 +4487,10 @@ Only one attribute may be at its Maximum value during character creation.</text>
 		<string>
 			<key>Tip_Skill_ChangeSpecialization</key>
 			<text>Change Specialization for {0} Karma</text>
+		</string>
+		<string>
+			<key>Tip_Skill_AddSpecialization</key>
+			<text>Add Specialization for {0} Karma</text>
 		</string>
 		<string>
 			<key>Tip_Skill_SkillsoftRating</key>
