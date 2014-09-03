@@ -1928,6 +1928,26 @@ namespace Chummer
                 }
             }
 
+            // converting from old dwarven resistance to new dwarven resistance
+            if (this.Metatype.ToLower().Equals("dwarf") 
+                && this.Qualities.Where(x => x.Name.Equals("Dwarf Resistance")).FirstOrDefault() == null 
+                && this.Qualities.Where(x => x.Name.Equals("Resistance to Pathogens and Toxins")).FirstOrDefault() != null)
+            {
+                this.Qualities.Remove(this.Qualities.Where(x => x.Name.Equals("Resistance to Pathogens and Toxins")).First());
+                XmlNode objXmlDwarfQuality = XmlManager.Instance.Load("qualities.xml").SelectSingleNode("/chummer/qualities/quality[name = \"Dwarf Resistance\"]");
+                
+                TreeNode objNode = new TreeNode();
+                List<Weapon> objWeapons = new List<Weapon>();
+                List<TreeNode> objWeaponNodes = new List<TreeNode>();
+                Quality objQuality = new Quality(this);
+
+                objQuality.Create(objXmlDwarfQuality, this, QualitySource.Metatype, objNode, objWeapons, objWeaponNodes);
+                this._lstQualities.Add(objQuality);
+                blnHasOldQualities = true;
+            }
+
+
+            // load issue where the contact multiplier was set to 0
             if (_intContactMultiplier == 0 && _strGameplayOption != string.Empty)
             {
                 XmlDocument objXmlDocumentPriority = XmlManager.Instance.Load("priorities.xml");
