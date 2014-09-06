@@ -7018,5 +7018,50 @@ namespace Chummer
 			return strTemp;
 		}
 		#endregion
-	}
+
+        #region Temporary Properties : Dashboard
+        // This region is for properties that are applicable to the Dashboard
+        /// <summary>
+        /// The Current Initiative roll result including base Initiative
+        /// <note>Dashboard</note>
+        /// </summary>
+        public int InitRoll { get; set; }
+
+        /// <summary>
+        /// The Initiative Passes that the player has
+        /// <note>Dashboard</note>
+        /// </summary>
+        public int InitPasses
+        {
+            get
+            {
+                if (_initPasses == Int32.MinValue)
+                    _initPasses = Convert.ToInt32(this.InitiativePasses);
+                return _initPasses;
+            }
+            set { this._initPasses = value; }
+        }
+        private int _initPasses = Int32.MinValue;
+
+        /// <summary>
+        /// True iff the character is currently delaying an action
+        /// <note>Dashboard</note>
+        /// </summary>
+        public bool Delayed { get; set; }
+
+        /// <summary>
+        /// The current name and initiative of the character
+        /// </summary>
+        public string DisplayInit 
+        {
+            get { return this.Name + " : " + this.InitRoll; }
+        }
+
+        /// <summary>
+        /// The initial Initiative of the character
+        /// <note>Dashboard</note>
+        /// </summary>
+        public int InitialInit { get; set; }
+        #endregion
+    }
 }

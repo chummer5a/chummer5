@@ -406,6 +406,13 @@ namespace Chummer
 				}
 			}
 
+            // update any menu strip items that have tags
+            if (objForm.MainMenuStrip != null)
+            {
+                foreach (ToolStripMenuItem objItem in objForm.MainMenuStrip.Items)
+                    SetMenuItemsRecursively(objItem);
+            }
+
 			// Run through any StatusStrips.
 			foreach (StatusStrip objStrip in objForm.Controls.OfType<StatusStrip>())
 			{
@@ -429,6 +436,47 @@ namespace Chummer
 			// Handle control over to the method that handles translating all of the other Controls.
 			UpdateControls(objForm);
 		}
+
+        /// <summary>
+        /// Loads the proper language from the language file for every menu item recursively
+        /// </summary>
+        /// <param name="objItem"></param>
+        private void SetMenuItemsRecursively(ToolStripMenuItem objItem)
+        {
+            if (objItem.Tag != null)
+                try
+                {
+                    objItem.Text = GetString(objItem.Tag.ToString());
+                }
+                catch
+                {
+                    if (_blnDebug)
+                        throw;
+                    else
+                        objItem.Text = objItem.Tag.ToString();
+                }
+
+            if (objItem.DropDownItems == null || objItem.DropDownItems.Count == 0)
+                return; // we have no more drop down items to pull
+
+            foreach (ToolStripMenuItem objRecursiveItem in objItem.DropDownItems.OfType<ToolStripMenuItem>())
+            {
+                SetMenuItemsRecursively(objRecursiveItem);
+                if (objItem.Tag != null)
+                    try
+                    {
+                        objItem.Text = GetString(objItem.Tag.ToString());
+                    }
+                    catch
+                    {
+                        if (_blnDebug)
+                            throw;
+                        else
+                            objItem.Text = objItem.Tag.ToString();
+                    }
+            }
+        }
+       
 
 		/// <summary>
 		/// Retrieve a string from the language file.

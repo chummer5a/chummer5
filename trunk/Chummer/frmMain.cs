@@ -17,6 +17,10 @@ namespace Chummer
 			InitializeComponent();
 			LanguageManager.Instance.Load(GlobalOptions.Instance.Language, this);
 
+            /** Dashboard **/
+            //this.toolsMenu.DropDownItems.Add("GM Dashboard").Click += this.dashboardToolStripMenuItem_Click;
+            /** End Dashboard **/
+
 			// If Automatic Updates are enabled, check for updates immediately.
 			if (GlobalOptions.Instance.AutomaticUpdate)
 			{
@@ -105,6 +109,11 @@ namespace Chummer
 		{
 			this.Close();
 		}
+
+        private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGMDashboard.Instance.Show();
+        }
 
 		private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -871,6 +880,5 @@ namespace Chummer
 			}
 		}
 		#endregion
-
 	}
 }
