@@ -56,6 +56,8 @@
     <ApplicationIcon>chummer.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -81,13 +83,32 @@
     <Compile Include="clsOptions.cs" />
     <Compile Include="clsUnique.cs" />
     <Compile Include="clsXmlManager.cs" />
+    <Compile Include="ConditionMonitorUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ConditionMonitorUserControl.Designer.cs">
+      <DependentUpon>ConditionMonitorUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContactControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ContactControl.Designer.cs">
       <DependentUpon>ContactControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="controllers\clsDashboardController.cs" />
     <Compile Include="controllers\clsMainController.cs" />
+    <Compile Include="DiceRollerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DiceRollerControl.Designer.cs">
+      <DependentUpon>DiceRollerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddToken.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddToken.Designer.cs">
+      <DependentUpon>frmAddToken.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCareer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +145,12 @@
     <Compile Include="frmCreateSpell.Designer.cs">
       <DependentUpon>frmCreateSpell.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGMDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGMDashboard.Designer.cs">
+      <DependentUpon>frmGMDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDiceHits.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +180,18 @@
     </Compile>
     <Compile Include="frmHistory.Designer.cs">
       <DependentUpon>frmHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInitiative.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInitiative.Designer.cs">
+      <DependentUpon>frmInitiative.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInitRoller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInitRoller.Designer.cs">
+      <DependentUpon>frmInitRoller.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLifestyleNuyen.cs">
       <SubType>Form</SubType>
@@ -213,6 +252,12 @@
     </Compile>
     <Compile Include="frmOmaeUploadSheet.Designer.cs">
       <DependentUpon>frmOmaeUploadSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPlayerDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPlayerDashboard.Designer.cs">
+      <DependentUpon>frmPlayerDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPrintMultiple.cs">
       <SubType>Form</SubType>
@@ -508,6 +553,12 @@
     <Compile Include="frmViewer.Designer.cs">
       <DependentUpon>frmViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="InitiativeUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InitiativeUserControl.Designer.cs">
+      <DependentUpon>InitiativeUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="OmaeRecord.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -575,6 +626,12 @@
     <Compile Include="SkillControl.Designer.cs">
       <DependentUpon>SkillControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="SmallSkillControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SmallSkillControl.Designer.cs">
+      <DependentUpon>SmallSkillControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="SpiritControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -584,8 +641,17 @@
     <Compile Include="SplitButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="ConditionMonitorUserControl.resx">
+      <DependentUpon>ConditionMonitorUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ContactControl.resx">
       <DependentUpon>ContactControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiceRollerControl.resx">
+      <DependentUpon>DiceRollerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddToken.resx">
+      <DependentUpon>frmAddToken.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCareer.resx">
       <DependentUpon>frmCareer.cs</DependentUpon>
@@ -606,6 +672,9 @@
     <EmbeddedResource Include="frmCreateSpell.resx">
       <DependentUpon>frmCreateSpell.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGMDashboard.resx">
+      <DependentUpon>frmGMDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDiceHits.resx">
       <DependentUpon>frmDiceHits.cs</DependentUpon>
     </EmbeddedResource>
@@ -620,6 +689,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHistory.resx">
       <DependentUpon>frmHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInitiative.resx">
+      <DependentUpon>frmInitiative.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInitRoller.resx">
+      <DependentUpon>frmInitRoller.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLifestyleNuyen.resx">
       <DependentUpon>frmLifestyleNuyen.cs</DependentUpon>
@@ -650,6 +725,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmOmaeUploadSheet.resx">
       <DependentUpon>frmOmaeUploadSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPlayerDashboard.resx">
+      <DependentUpon>frmPlayerDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrintMultiple.resx">
       <DependentUpon>frmPrintMultiple.cs</DependentUpon>
@@ -798,6 +876,9 @@
     <EmbeddedResource Include="frmViewer.resx">
       <DependentUpon>frmViewer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InitiativeUserControl.resx">
+      <DependentUpon>InitiativeUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OmaeRecord.resx">
       <DependentUpon>OmaeRecord.cs</DependentUpon>
     </EmbeddedResource>
@@ -835,6 +916,9 @@
     </Compile>
     <EmbeddedResource Include="SkillControl.resx">
       <DependentUpon>SkillControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SmallSkillControl.resx">
+      <DependentUpon>SmallSkillControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SpiritControl.resx">
       <DependentUpon>SpiritControl.cs</DependentUpon>

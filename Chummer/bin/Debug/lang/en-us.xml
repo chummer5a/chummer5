@@ -1,9 +1,137 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <chummer>
-	<version>-488</version>
+	<version>-487</version>
 	<name>English (US)</name>
 	<strings>
 		<!-- Common Strings -->
+		<string>
+			<key>String_Limit</key>
+			<text>Limit:</text>
+		</string>
+		<string>
+			<key>String_PushTheLimit</key>
+			<text>Push the Limit</text>
+		</string>
+		<string>
+			<key>String_SecondChance</key>
+			<text>Second Chance</text>
+		</string>
+		<string>
+			<key>String_SeizeTheInit</key>
+			<text>Seize the Initiative</text>
+		</string>
+		<string>
+			<key>String_Blitz</key>
+			<text>Blitz</text>
+		</string>
+		<string>
+			<key>String_CloseCall</key>
+			<text>Close Call</text>
+		</string>
+		<string>
+			<key>String_DeadManTrigger</key>
+			<text>Dead Man's Trigger</text>
+		</string>
+		<string>
+			<key>Main_Menu_GM_Dash</key>
+			<text>GM Dashboard</text>
+		</string>
+		<string>
+			<key>Main_Menu_Player_Dash</key>
+			<text>Player Dashboard</text>
+		</string>
+		<string>
+			<key>String_Dashboard</key>
+			<text>Dashboard</text>
+		</string>
+		<string>
+			<key>Label_StartingInit</key>
+			<text>Starting Initiative</text>
+		</string>
+		<string>
+			<key>AddToken_Header</key>
+			<text>Add Token Player</text>
+		</string>
+		<string>
+			<key>Button_Add</key>
+			<text>Add</text>
+		</string>
+		<string>
+			<key>Button_Remove</key>
+			<text>Remove</text>
+		</string>
+		<string>
+			<key>String_Name</key>
+			<text>Name</text>
+		</string>
+		<string>
+			<key>Label_Open</key>
+			<text>Open</text>
+		</string>
+		<string>
+			<key>Label_InitiativePasses</key>
+			<text>Initiative Passes</text>
+		</string>
+		<string>
+			<key>Label_AutoRollInit</key>
+			<text>Auto Roll Initiative</text>
+		</string>
+		<string>
+			<key>Button_Next</key>
+			<text>Next</text>
+		</string>
+		<string>
+			<key>Button_Sort</key>
+			<text>Sort</text>
+		</string>
+		<string>
+			<key>Button_Delay</key>
+			<text>Delay</text>
+		</string>
+		<string>
+			<key>Button_Reset</key>
+			<text>Reset</text>
+		</string>
+		<string>
+			<key>Button_ApplyManeuver</key>
+			<text>Apply Maneuver</text>
+		</string>
+		<string>
+			<key>Label_InitiativeManeuvers</key>
+			<text>Initiative Maneuvers</text>
+		</string>
+		<string>
+			<key>Label_Round</key>
+			<text>Round</text>
+		</string>
+		<string>
+			<key>Label_Vehicles</key>
+			<text>Vehicles</text>
+		</string>
+		<string>
+			<key>Label_File</key>
+			<text>File</text>
+		</string>
+		<string>
+			<key>Label_Exit</key>
+			<text>Exit</text>
+		</string>
+		<string>
+			<key>Label_Help</key>
+			<text>Help</text>
+		</string>
+		<string>
+			<key>Label_About</key>
+			<text>About</text>
+		</string>
+		<string>
+			<key>InitRoller_Header</key>
+			<text>Initiative Dice Results</text>
+		</string>
+		<string>
+			<key>InitRoller_Description</key>
+			<text>Please input the total of the results of the d6.</text>
+		</string>
 		<string>
 			<key>String_BP</key>
 			<text>BP</text>

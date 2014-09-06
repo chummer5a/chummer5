@@ -753,7 +753,7 @@
 		private System.Windows.Forms.ToolStripMenuItem mnuToolsDiceRoller;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
 		private System.Windows.Forms.ToolStripMenuItem mnuToolsOmae;
-		private System.Windows.Forms.ToolStripMenuItem mnuHelpDumpshock;
+        private System.Windows.Forms.ToolStripMenuItem mnuHelpDumpshock;
 	}
 }
 

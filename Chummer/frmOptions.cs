@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml;
-using Microsoft.Win32;
+//using Microsoft.Win32;
 using System.Text.RegularExpressions;
 
 namespace Chummer
@@ -1619,7 +1619,7 @@ namespace Chummer
 			GlobalOptions.Instance.DatesIncludeTime = chkDatesIncludeTime.Checked;
 			GlobalOptions.Instance.PrintToFileFirst = chkPrintToFileFirst.Checked;
 			GlobalOptions.Instance.PDFAppPath = txtPDFAppPath.Text;
-			RegistryKey objRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer5");
+			Microsoft.Win32.RegistryKey objRegistry = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Software\\Chummer5");
 			objRegistry.SetValue("autoupdate", chkAutomaticUpdate.Checked.ToString());
 			objRegistry.SetValue("localisedupdatesonly", chkLocalisedUpdatesOnly.Checked.ToString());
             objRegistry.SetValue("uselogging", chkUseLogging.Checked.ToString());
@@ -1633,7 +1633,7 @@ namespace Chummer
 			objRegistry.SetValue("pdfapppath", txtPDFAppPath.Text);
 
 			// Save the SourcebookInfo.
-			RegistryKey objSourceRegistry = Registry.CurrentUser.CreateSubKey("Software\\Chummer5\\Sourcebook");
+            Microsoft.Win32.RegistryKey objSourceRegistry = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Software\\Chummer5\\Sourcebook");
 			foreach (SourcebookInfo objSource in GlobalOptions.Instance.SourcebookInfo)
 				objSourceRegistry.SetValue(objSource.Code, objSource.Path + "|" + objSource.Offset.ToString());
 		}
