@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblSkillName = new System.Windows.Forms.Label();
             this.cmdRoll = new System.Windows.Forms.Button();
+            this.lblSkillName = new System.Windows.Forms.Label();
             this.chkUseSpecial = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -53,17 +53,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(301, 24);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // lblSkillName
-            // 
-            this.lblSkillName.AutoSize = true;
-            this.lblSkillName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSkillName.Location = new System.Drawing.Point(3, 0);
-            this.lblSkillName.Name = "lblSkillName";
-            this.lblSkillName.Size = new System.Drawing.Size(178, 24);
-            this.lblSkillName.TabIndex = 0;
-            this.lblSkillName.Text = "SkillName";
-            this.lblSkillName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // cmdRoll
             // 
             this.cmdRoll.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -78,6 +67,18 @@
             this.cmdRoll.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.cmdRoll.UseVisualStyleBackColor = true;
             this.cmdRoll.Click += new System.EventHandler(this.cmdRoll_Click);
+            // 
+            // lblSkillName
+            // 
+            this.lblSkillName.AutoSize = true;
+            this.lblSkillName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSkillName.Location = new System.Drawing.Point(3, 0);
+            this.lblSkillName.Name = "lblSkillName";
+            this.lblSkillName.Size = new System.Drawing.Size(178, 24);
+            this.lblSkillName.TabIndex = 0;
+            this.lblSkillName.Text = "SkillName";
+            this.lblSkillName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblSkillName.Click += new System.EventHandler(this.lblSkillName_Click);
             // 
             // chkUseSpecial
             // 
